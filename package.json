@@ -1,0 +1,42 @@
+{
+  "name": "natura",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm lint && pnpm typecheck && pnpm build",
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:status": "supabase status",
+    "supabase:reset": "supabase db reset --local",
+    "db:migrate": "supabase migration up --local",
+    "db:test": "supabase test db --local",
+    "db:types": "supabase gen types typescript --local > lib/supabase/database.types.ts",
+    "admin:bootstrap": "powershell -ExecutionPolicy Bypass -File scripts/bootstrap-local-admin.ps1",
+    "media:bootstrap": "node scripts/register-bundled-media.mjs"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.12.4",
+    "@supabase/supabase-js": "^2.111.0",
+    "next": "16.2.12",
+    "pdf-lib": "^1.17.1",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.2.12",
+    "supabase": "^2.111.0",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

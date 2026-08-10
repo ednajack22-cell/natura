@@ -1,0 +1,8 @@
+allowBuilds:
+  sharp: true
+  unrs-resolver: true
+supportedArchitectures:
+  os:
+    - win32
+  cpu:
+    - x64
