@@ -74,38 +74,50 @@ export default async function ReviewDetailPage({ params }: { params: Promise<{ s
         }
       : undefined;
 
+  /**
+   * Product markup describes something a reader can actually buy. Several
+   * comparisons here weigh categories instead — "light-coloured recycled
+   * plastic" is a material, not a purchasable item — and rating a category as a
+   * Product misrepresents it to Google and risks a structured-data penalty.
+   *
+   * A brand or an outgoing link is what distinguishes the two, so entries
+   * without either stay plain list items carrying only their name.
+   */
+  const isPurchasable = (product: (typeof review.products)[number]) =>
+    Boolean(product.productUrl || product.brand);
+
   const itemListLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: review.title,
-    itemListOrder: "https://schema.org/ItemListOrderDescending",
     numberOfItems: review.products.length,
-    itemListElement: review.products.map((product, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      item: {
-        "@type": "Product",
-        name: product.name,
-        ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
-        ...(product.model ? { model: product.model } : {}),
-        ...(product.imageUrl ? { image: product.imageUrl } : {}),
-        ...(product.productUrl ? { url: product.productUrl } : {}),
-        review: {
-          "@type": "Review",
-          name: product.verdictLabel || `${product.name} review`,
-          reviewRating: {
-            "@type": "Rating",
-            ratingValue: product.overallScore,
-            bestRating: 10,
-            worstRating: 0,
+    itemListElement: review.products.map((product, index) => {
+      const position = index + 1;
+      if (!isPurchasable(product)) {
+        return { "@type": "ListItem", position, name: product.name, description: product.verdictLabel };
+      }
+      return {
+        "@type": "ListItem",
+        position,
+        item: {
+          "@type": "Product",
+          name: product.name,
+          ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
+          ...(product.model ? { model: product.model } : {}),
+          ...(product.imageUrl ? { image: product.imageUrl } : {}),
+          ...(product.productUrl ? { url: product.productUrl } : {}),
+          review: {
+            "@type": "Review",
+            name: product.verdictLabel || `${product.name} review`,
+            reviewRating: { "@type": "Rating", ratingValue: product.overallScore, bestRating: 10, worstRating: 0 },
+            author: editorialAuthorSchema(editorialMeta),
+            datePublished: editorialMeta.publishedAt,
+            ...(noteList(product.pros) ? { positiveNotes: noteList(product.pros) } : {}),
+            ...(noteList(product.cons) ? { negativeNotes: noteList(product.cons) } : {}),
           },
-          author: editorialAuthorSchema(editorialMeta),
-          datePublished: editorialMeta.publishedAt,
-          ...(noteList(product.pros) ? { positiveNotes: noteList(product.pros) } : {}),
-          ...(noteList(product.cons) ? { negativeNotes: noteList(product.cons) } : {}),
         },
-      },
-    })),
+      };
+    }),
   };
 
   const breadcrumbLd = breadcrumbSchema([
