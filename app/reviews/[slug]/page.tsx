@@ -66,18 +66,48 @@ export default async function ReviewDetailPage({ params }: { params: Promise<{ s
     publisher: { "@type": "Organization", name: "Natura" },
     mainEntityOfPage: `/reviews/${review.slug}`,
   };
+  const noteList = (items: string[]) =>
+    items.length
+      ? {
+          "@type": "ItemList",
+          itemListElement: items.map((item, index) => ({ "@type": "ListItem", position: index + 1, name: item })),
+        }
+      : undefined;
+
   const itemListLd = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: review.title,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: review.products.length,
     itemListElement: review.products.map((product, index) => ({
       "@type": "ListItem",
       position: index + 1,
-      name: product.name,
-      description: product.verdictLabel,
-      ...(product.productUrl ? { url: product.productUrl } : {}),
+      item: {
+        "@type": "Product",
+        name: product.name,
+        ...(product.brand ? { brand: { "@type": "Brand", name: product.brand } } : {}),
+        ...(product.model ? { model: product.model } : {}),
+        ...(product.imageUrl ? { image: product.imageUrl } : {}),
+        ...(product.productUrl ? { url: product.productUrl } : {}),
+        review: {
+          "@type": "Review",
+          name: product.verdictLabel || `${product.name} review`,
+          reviewRating: {
+            "@type": "Rating",
+            ratingValue: product.overallScore,
+            bestRating: 10,
+            worstRating: 0,
+          },
+          author: editorialAuthorSchema(editorialMeta),
+          datePublished: editorialMeta.publishedAt,
+          ...(noteList(product.pros) ? { positiveNotes: noteList(product.pros) } : {}),
+          ...(noteList(product.cons) ? { negativeNotes: noteList(product.cons) } : {}),
+        },
+      },
     })),
   };
+
   const breadcrumbLd = breadcrumbSchema([
     { name: "Home", item: "/" },
     { name: "Reviews", item: "/reviews" },
