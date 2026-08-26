@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { AdSenseScript } from "@/components/adsense-script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -12,11 +13,14 @@ export const metadata: Metadata = {
   description:
     "Practical, trustworthy guidance for growing plants on balconies, patios, indoors, and in containers.",
   applicationName: "Natura",
+  alternates: {
+    types: { "application/rss+xml": "/feed.xml" },
+  },
   openGraph: {
     type: "website",
     siteName: "Natura",
     locale: "en_US",
-    images: [{ url: "/images/natura-balcony-hero.png", width: 1536, height: 1024, alt: "Natura balcony garden" }],
+    images: [{ url: "/images/natura-balcony-hero.jpg", width: 1536, height: 1024, alt: "Natura balcony garden" }],
   },
 };
 
@@ -32,6 +36,7 @@ export default function RootLayout({
         <SiteHeader />
         {children}
         <SiteFooter />
+        <AdSenseScript />
       </body>
     </html>
   );

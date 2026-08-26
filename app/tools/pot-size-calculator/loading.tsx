@@ -1,0 +1,1 @@
+export default function PotCalculatorLoading() { return <main id="main-content"><section className="finder-hero"><div className="site-container"><p className="eyebrow">Container tool</p><h1>Pot size calculator</h1><p className="profile-lead" role="status">Preparing the container estimate…</p></div></section></main>; }

@@ -25,7 +25,7 @@ export type SeoCheck = {
 };
 
 export function auditSeo(input: SeoAuditInput) {
-  const hasPublicTemplate = input.contentType === "plant" || input.contentType === "problem" || input.contentType === "guide" || input.contentType === "calendar" || input.contentType === "review" || input.contentType === "page";
+  const hasPublicTemplate = input.contentType === "plant" || input.contentType === "problem" || input.contentType === "guide" || input.contentType === "calendar" || input.contentType === "tool" || input.contentType === "review" || input.contentType === "page";
   const effectiveTitle = input.seoTitle || input.title;
   const words = input.overview.trim() ? input.overview.trim().split(/\s+/).length : 0;
   const normalize = (value: string) => value.normalize("NFKD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
@@ -104,7 +104,7 @@ export function auditSeo(input: SeoAuditInput) {
     {
       id: "template",
       label: "Technical template",
-      detail: input.contentType === "plant" ? "The public plant template generates one H1, a canonical URL, robots rules and Article structured data." : input.contentType === "problem" ? "The public diagnostic template generates one H1, a canonical URL, robots rules and Article structured data." : input.contentType === "guide" ? "The public guide template generates one H1, a canonical URL, robots rules and HowTo structured data." : input.contentType === "calendar" ? "The public calendar template generates one H1, a canonical URL, robots rules and CollectionPage structured data." : input.contentType === "review" ? "The public comparison template generates one H1, a canonical URL, robots rules, breadcrumbs, Article and ItemList structured data." : input.contentType === "page" ? "The institutional template generates one H1, a canonical URL, robots rules, breadcrumbs and the appropriate AboutPage, ContactPage, or WebPage schema." : "This content type does not have a complete public article template yet.",
+      detail: input.contentType === "plant" ? "The public plant template generates one H1, a canonical URL, a breadcrumb, editorial attribution and Article structured data." : input.contentType === "problem" ? "The public diagnostic template generates one H1, a canonical URL, a breadcrumb, editorial attribution and Article structured data." : input.contentType === "guide" ? "The public guide template generates one H1, a canonical URL, a breadcrumb, editorial attribution and HowTo structured data." : input.contentType === "calendar" ? "The public calendar template generates one H1, a canonical URL, a breadcrumb, editorial attribution and CollectionPage structured data." : input.contentType === "tool" ? "The public tool template generates one H1, a stable canonical URL, a breadcrumb and WebApplication structured data." : input.contentType === "review" ? "The public comparison template generates one H1, a canonical URL, breadcrumbs, editorial attribution, Article and ItemList structured data." : input.contentType === "page" ? "The institutional template generates one H1, a canonical URL, robots rules, breadcrumbs and the appropriate AboutPage, ContactPage, or WebPage schema." : "This content type does not have a complete public article template yet.",
       status: hasPublicTemplate ? "pass" : "error",
       blocking: !hasPublicTemplate,
       weight: 5,

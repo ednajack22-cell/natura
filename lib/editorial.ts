@@ -46,6 +46,7 @@ export function publicPreviewPath(type: string, slug: string) {
   if (type === "problem") return `/plant-care/problems/${slug}`;
   if (type === "guide") return `/small-space-gardening/guides/${slug}`;
   if (type === "calendar") return `/planting-calendar/calendars/${slug}`;
+  if (type === "tool") return `/tools/${slug}`;
   if (type === "review") return `/reviews/${slug}`;
   if (type === "page") return `/${slug}`;
   return null;

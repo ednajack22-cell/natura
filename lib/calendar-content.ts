@@ -1,6 +1,6 @@
 import "server-only";
 
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/public";
 import type { Json } from "@/lib/supabase/database.types";
 
 export type CalendarEntry = { id: string; month: number; activityType: string; title: string; description: string; priority: "low" | "normal" | "high"; sortOrder: number };

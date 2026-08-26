@@ -1,0 +1,1 @@
+export default function WateringCalculatorLoading() { return <main id="main-content"><section className="finder-hero"><div className="site-container"><p className="eyebrow">Observation tool</p><h1>Watering routine</h1><p className="profile-lead" role="status">Preparing the observation routine…</p></div></section></main>; }

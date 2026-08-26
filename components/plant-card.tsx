@@ -11,7 +11,7 @@ export function PlantCard({ plant, priority = false }: { plant: PlantProfile; pr
           src={plant.image}
           alt={plant.imageAlt}
           fill
-          priority={priority}
+          fetchPriority={priority ? "high" : "auto"}
           sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 33vw"
         />
         <span className="plant-card-category">{plant.category}</span>

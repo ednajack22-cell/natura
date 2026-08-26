@@ -1,6 +1,6 @@
 import "server-only";
 
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/public";
 import type { Json } from "@/lib/supabase/database.types";
 
 export type GuideStep = { title: string; text: string };
@@ -24,6 +24,7 @@ export type GuideProfile = {
   seoTitle?: string;
   seoDescription?: string;
   updatedAt: string;
+  sources: Array<{ title: string; url?: string }>;
   relatedPlants: Array<{ id: string; slug: string; title: string }>;
 };
 
@@ -31,6 +32,15 @@ function object(value: Json | undefined) { return value && typeof value === "obj
 function steps(value: Json | undefined): GuideStep[] {
   if (!Array.isArray(value)) return [];
   return value.flatMap((entry) => { const item = object(entry); return typeof item.title === "string" && typeof item.text === "string" ? [{ title: item.title, text: item.text }] : []; });
+}
+function sources(value: Json | undefined) {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((entry) => {
+    const item = object(entry);
+    return typeof item.title === "string"
+      ? [{ title: item.title, url: typeof item.url === "string" ? item.url : undefined }]
+      : [];
+  });
 }
 
 export async function getPublishedGuides(): Promise<GuideProfile[]> {
@@ -69,6 +79,7 @@ export async function getPublishedGuides(): Promise<GuideProfile[]> {
       seoTitle: content.seo_title ?? undefined,
       seoDescription: content.seo_description ?? undefined,
       updatedAt: content.updated_at,
+      sources: sources(body.sources),
       relatedPlants: (plants ?? []).filter((plant) => relatedIds.has(plant.id)),
     }];
   });

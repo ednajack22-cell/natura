@@ -62,7 +62,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
         <div className="site-container search-shell">
           <p className="eyebrow">Natura search</p>
           <h1>What do you want to grow or solve?</h1>
-          <form className="search-form" role="search">
+          <form className="search-form" role="search" method="post" action="/search/submit">
             <SearchIcon />
             <label className="sr-only" htmlFor="site-search">Search Natura</label>
             <input

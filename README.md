@@ -8,9 +8,10 @@ Plateforme anglophone de jardinage pratique pour les balcons, patios, contenants
 - accueil éditorial et bibliothèque de plantes ;
 - trois fiches complètes : tomate cerise, basilic Genovese et fraisier de balcon ;
 - recherche PostgreSQL plein texte sur tous les contenus publiés, avec pertinence, suggestions et filtres ;
+- sept outils publics : Plant Finder, calendrier mensuel, risque de gel, planner de petit espace, guide d’observation, calculateur de pot et routine d’observation pour l’arrosage, avec calculs PostgreSQL et hypothèses visibles ;
 - métadonnées SEO, sitemap, robots.txt et données structurées ;
 - Supabase local avec PostgreSQL, Auth et Storage ;
-- studio éditorial privé avec dashboard, bibliothèque de contenus, édition explicite des articles publiés, rapport SEO et mots-clés avant publication, éditeur de plantes structuré, médiathèque avec import et droits d’usage, calendrier, réglages et création de brouillons ;
+- studio éditorial privé avec dashboard, bibliothèque de contenus, édition explicite des articles publiés, rapport SEO et mots-clés avant publication, éditeur de plantes structuré, médiathèque avancée avec brouillons privés, droits d’usage, remplacement, recadrage et suppression protégée, calendrier, réglages et création de brouillons ;
 - politiques RLS actives et vérification du rôle administrateur dans PostgreSQL.
 
 ## Démarrage de l’interface

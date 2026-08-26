@@ -6,7 +6,7 @@ import { getPublishedProblems } from "@/lib/problem-content";
 import { getPublishedReviews } from "@/lib/review-content";
 import { getPublishedInstitutionalPages } from "@/lib/institutional-content";
 
-const routes = ["", "/grow", "/small-space-gardening", "/small-space-gardening/guides", "/plant-care", "/plant-care/problems", "/planting-calendar", "/planting-calendar/calendars", "/tools", "/reviews", "/search", "/start-here"];
+const routes = ["", "/grow", "/small-space-gardening", "/small-space-gardening/guides", "/plant-care", "/plant-care/problems", "/planting-calendar", "/planting-calendar/calendars", "/research/calendar-methodology", "/tools", "/tools/garden-profile", "/tools/plant-finder", "/tools/planting-calendar", "/tools/frost-risk", "/tools/garden-planner", "/tools/guided-diagnosis", "/tools/pot-size-calculator", "/tools/watering-calculator", "/reviews", "/search", "/start-here"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";

@@ -10,9 +10,12 @@ type AdminShellProps = {
   name: string;
   email: string;
   contentCount: number;
+  launchPercent: number;
+  readyLaunchTypes: number;
+  launchTypeCount: number;
 };
 
-export function AdminShell({ children, name, email, contentCount }: AdminShellProps) {
+export function AdminShell({ children, name, email, contentCount, launchPercent, readyLaunchTypes, launchTypeCount }: AdminShellProps) {
   const initials = name.split(/\s+/).map((part) => part[0]).join("").slice(0, 2).toUpperCase();
 
   return <div className="admin-app-shell">
@@ -23,7 +26,7 @@ export function AdminShell({ children, name, email, contentCount }: AdminShellPr
       </Link>
       <AdminNavigation contentCount={contentCount} />
       <div className="dashboard-sidebar-card">
-        <span>Launch collection</span><strong>20% complete</strong><div><i /></div><p>3 of 15 plant profiles ready.</p>
+        <span>Launch collection</span><strong>{launchPercent}% complete</strong><div><i style={{ width: `${launchPercent}%` }} /></div><p>{readyLaunchTypes} of {launchTypeCount} content targets ready.</p>
       </div>
       <div className="dashboard-sidebar-user"><span>{initials}</span><div><strong>{name}</strong><small>{email}</small></div></div>
     </aside>

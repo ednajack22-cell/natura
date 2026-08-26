@@ -552,6 +552,7 @@ export type Database = {
           mime_type: string | null
           object_path: string
           original_name: string | null
+          updated_at: string
           width: number | null
         }
         Insert: {
@@ -567,6 +568,7 @@ export type Database = {
           mime_type?: string | null
           object_path: string
           original_name?: string | null
+          updated_at?: string
           width?: number | null
         }
         Update: {
@@ -582,6 +584,7 @@ export type Database = {
           mime_type?: string | null
           object_path?: string
           original_name?: string | null
+          updated_at?: string
           width?: number | null
         }
         Relationships: [
@@ -590,6 +593,73 @@ export type Database = {
             columns: ["created_by"]
             isOneToOne: false
             referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      plant_finder_profiles: {
+        Row: {
+          care_level: string
+          climates: string[]
+          content_id: string
+          edible: boolean
+          match_note: string
+          min_sun_hours: number
+          space_types: string[]
+          updated_at: string
+        }
+        Insert: {
+          care_level?: string
+          climates?: string[]
+          content_id: string
+          edible?: boolean
+          match_note?: string
+          min_sun_hours?: number
+          space_types?: string[]
+          updated_at?: string
+        }
+        Update: {
+          care_level?: string
+          climates?: string[]
+          content_id?: string
+          edible?: boolean
+          match_note?: string
+          min_sun_hours?: number
+          space_types?: string[]
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "plant_finder_profiles_content_id_fkey"
+            columns: ["content_id"]
+            isOneToOne: true
+            referencedRelation: "content_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      plant_search_popularity: {
+        Row: {
+          last_searched_at: string
+          plant_content_id: string
+          search_count: number
+        }
+        Insert: {
+          last_searched_at?: string
+          plant_content_id: string
+          search_count?: number
+        }
+        Update: {
+          last_searched_at?: string
+          plant_content_id?: string
+          search_count?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "plant_search_popularity_plant_content_id_fkey"
+            columns: ["plant_content_id"]
+            isOneToOne: true
+            referencedRelation: "content_items"
             referencedColumns: ["id"]
           },
         ]
@@ -892,7 +962,243 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      admin_content_seo_audit: {
+        Args: never
+        Returns: {
+          author_name: string
+          content_id: string
+          content_type: string
+          days_since_update: number
+          focus_keyword: string
+          inbound_links: number
+          issues: string[]
+          public_author: boolean
+          reviewer_name: string
+          route: string
+          search_intent: string
+          seo_score: number
+          slug: string
+          title: string
+        }[]
+      }
+      admin_internal_link_audit: {
+        Args: never
+        Returns: {
+          link_status: string
+          relation_type: string
+          source_route: string
+          source_title: string
+          target_route: string
+          target_title: string
+        }[]
+      }
+      admin_keyword_cannibalization: {
+        Args: never
+        Returns: {
+          content_count: number
+          content_ids: string[]
+          focus_keyword: string
+          routes: string[]
+          titles: string[]
+        }[]
+      }
+      admin_launch_content_coverage: {
+        Args: never
+        Returns: {
+          content_type: string
+          coverage_status: string
+          launch_target: number
+          published_count: number
+          remaining_count: number
+        }[]
+      }
+      assess_frost_risk: {
+        Args: {
+          containerized?: boolean
+          exposure?: string
+          forecast_low_c?: number
+          plant_tolerance?: string
+        }
+        Returns: {
+          actions: string[]
+          assumptions: string[]
+          explanation: string
+          risk_level: string
+          risk_score: number
+          tolerance_threshold_c: number
+        }[]
+      }
+      calculate_container_size: {
+        Args: {
+          growth_duration?: string
+          plant_count?: number
+          plant_group?: string
+        }
+        Returns: {
+          approximate_diameter_cm: number
+          assumptions: string[]
+          guidance: string[]
+          minimum_depth_cm: number
+          minimum_liters: number
+          preferred_liters: number
+        }[]
+      }
+      calculate_watering_check: {
+        Args: {
+          drainage?: string
+          exposure?: string
+          plant_need?: string
+          pot_liters?: number
+          temperature_band?: string
+        }
+        Returns: {
+          assumptions: string[]
+          check_interval_hours: number
+          morning_check_recommended: boolean
+          routine: string[]
+          soil_test_depth_cm: number
+          warning: string
+        }[]
+      }
+      content_public_route: {
+        Args: { content_type: string; slug: string }
+        Returns: string
+      }
+      find_guided_problem_matches: {
+        Args: {
+          distribution_pattern?: string
+          moisture_condition?: string
+          observed_sign?: string
+          result_limit?: number
+        }
+        Returns: {
+          category: string
+          content_id: string
+          excerpt: string
+          match_score: number
+          reasons: string[]
+          slug: string
+          symptoms: string[]
+          title: string
+          urgency: string
+          verification_steps: Json
+          warnings: string[]
+        }[]
+      }
+      find_suitable_plants: {
+        Args: {
+          requested_care?: string
+          requested_climate?: string
+          requested_space?: string
+          requested_sun_hours?: number
+          result_limit?: number
+        }
+        Returns: {
+          body: Json
+          content_id: string
+          excerpt: string
+          reasons: string[]
+          score: number
+          slug: string
+          title: string
+        }[]
+      }
+      get_monthly_growing_tasks: {
+        Args: {
+          requested_climate?: string
+          requested_hemisphere?: string
+          requested_month?: number
+          requested_space?: string
+          result_limit?: number
+        }
+        Returns: {
+          activity_type: string
+          calendar_climate: string
+          calendar_hemisphere: string
+          calendar_slug: string
+          calendar_space: string
+          calendar_title: string
+          context_score: number
+          description: string
+          entry_id: string
+          priority: string
+          scope_note: string
+          title: string
+          warnings: string[]
+        }[]
+      }
+      get_most_searched_plants: {
+        Args: { result_limit?: number }
+        Returns: {
+          content_id: string
+          last_searched_at: string
+          search_count: number
+          slug: string
+        }[]
+      }
+      get_public_editorial_meta: {
+        Args: { content_slug: string }
+        Returns: {
+          author_name: string
+          author_slug: string
+          published_at: string
+          reviewer_name: string
+          reviewer_slug: string
+          updated_at: string
+        }[]
+      }
+      guide_plant_observation: {
+        Args: {
+          distribution_pattern?: string
+          moisture_condition?: string
+          observed_sign?: string
+          recent_change?: string
+        }
+        Returns: {
+          assumptions: string[]
+          attention_level: string
+          avoid_actions: string[]
+          category_hint: string
+          observation_checks: string[]
+          summary: string
+        }[]
+      }
+      media_asset_usage: {
+        Args: { p_asset_id: string }
+        Returns: {
+          content_id: string
+          content_type: string
+          slug: string
+          status: Database["public"]["Enums"]["content_status"]
+          title: string
+          usage_location: string
+        }[]
+      }
+      plan_small_growing_space: {
+        Args: {
+          access_style?: string
+          depth_cm?: number
+          space_type?: string
+          sun_hours?: number
+          width_cm?: number
+        }
+        Returns: {
+          access_reserved_percent: number
+          checks: string[]
+          growing_area_m2: number
+          layout_note: string
+          module_width_cm: number
+          priorities: string[]
+          safety_note: string
+          suggested_modules: number
+          total_area_m2: number
+        }[]
+      }
       publish_due_content: { Args: never; Returns: number }
+      record_plant_search_interest: {
+        Args: { search_query: string }
+        Returns: string
+      }
       restore_content_revision: {
         Args: { target_revision_id: number }
         Returns: string

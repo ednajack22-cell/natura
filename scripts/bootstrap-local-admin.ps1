@@ -31,6 +31,8 @@ $existing = $usersResponse.users | Where-Object { $_.email -eq $email }
 
 if ($existing) {
   $updatePayload = @{
+    password = $password
+    email_confirm = $true
     app_metadata = @{ natura_admin = $true }
     user_metadata = @{ display_name = "Natura Administrator" }
   } | ConvertTo-Json -Depth 4

@@ -24,6 +24,11 @@ const updateSchema = z.object({
   watering: z.string().trim().max(100), harvest: z.string().trim().max(80), season: z.string().trim().max(120),
   plantImage: z.string().trim().max(300), imageAlt: z.string().trim().max(240), suitableFor: z.string().trim().max(1200),
   careSteps: z.string().trim().max(5000), watchFor: z.string().trim().max(3000),
+  finderMinSunHours: z.coerce.number().int().min(0).max(12),
+  finderSpaces: z.array(z.enum(["windowsill", "balcony", "patio", "indoor", "container"])).min(1).max(5),
+  finderCare: z.enum(["low", "regular", "attentive"]),
+  finderClimates: z.array(z.enum(["general", "temperate", "mediterranean", "continental", "tropical"])).min(1).max(5),
+  finderEdible: z.boolean(), finderMatchNote: z.string().trim().max(400),
   problemCategory: z.enum(["watering", "nutrition", "pest", "disease", "environment", "other"]),
   urgency: z.enum(["low", "moderate", "high"]),
   symptoms: z.string().trim().max(3000), likelyCauses: z.string().trim().max(5000),
@@ -97,6 +102,9 @@ export async function updateContent(contentId: string, formData: FormData) {
     watering: formData.get("watering") ?? "", harvest: formData.get("harvest") ?? "", season: formData.get("season") ?? "",
     plantImage: formData.get("plantImage") ?? "", imageAlt: formData.get("imageAlt") ?? "", suitableFor: formData.get("suitableFor") ?? "",
     careSteps: formData.get("careSteps") ?? "", watchFor: formData.get("watchFor") ?? "",
+    finderMinSunHours: formData.get("finderMinSunHours") ?? "4", finderSpaces: formData.getAll("finderSpaces").length ? formData.getAll("finderSpaces") : ["container"],
+    finderCare: formData.get("finderCare") ?? "regular", finderClimates: formData.getAll("finderClimates").length ? formData.getAll("finderClimates") : ["general"],
+    finderEdible: formData.get("finderEdible") === "yes", finderMatchNote: formData.get("finderMatchNote") ?? "",
     problemCategory: formData.get("problemCategory") ?? "other", urgency: formData.get("urgency") ?? "moderate",
     symptoms: formData.get("symptoms") ?? "", likelyCauses: formData.get("likelyCauses") ?? "",
     verificationSteps: formData.get("verificationSteps") ?? "", recommendedActions: formData.get("recommendedActions") ?? "",
@@ -155,7 +163,7 @@ export async function updateContent(contentId: string, formData: FormData) {
     searchIntent: result.data.searchIntent,
   });
   const care = parseSteps(result.data.careSteps);
-  const plantReady = existing.content_type !== "plant" || Boolean(result.data.botanicalName && result.data.plantCategory && result.data.sunlight && result.data.potSize && result.data.plantImage && result.data.imageAlt && care.length >= 2);
+  const plantReady = existing.content_type !== "plant" || Boolean(result.data.botanicalName && result.data.plantCategory && result.data.sunlight && result.data.potSize && result.data.plantImage && result.data.imageAlt && care.length >= 2 && result.data.finderSpaces.length && result.data.finderClimates.length && result.data.finderMatchNote);
   const problemReady = existing.content_type !== "problem" || Boolean(parseLines(result.data.symptoms).length >= 2 && parseSteps(result.data.likelyCauses).length && parseSteps(result.data.verificationSteps).length && parseSteps(result.data.recommendedActions).length);
   const guideReady = existing.content_type !== "guide" || Boolean(result.data.guideAudience && parseLines(result.data.guidePrerequisites).length && parseLines(result.data.guideMaterials).length && parseSteps(result.data.guideSteps).length >= 4);
   const parsedCalendarEntries = parseCalendarEntries(result.data.calendarMonths);
@@ -235,6 +243,20 @@ export async function updateContent(contentId: string, formData: FormData) {
     approved_at: approvedAt, approved_by: approvedBy, updated_at: new Date().toISOString(),
   });
   if (workflowError) redirect(`/admin/content/${contentId}/edit?error=save`);
+
+  if (existing.content_type === "plant") {
+    const { error: finderProfileError } = await supabase.from("plant_finder_profiles").upsert({
+      content_id: contentId,
+      min_sun_hours: result.data.finderMinSunHours,
+      space_types: result.data.finderSpaces,
+      care_level: result.data.finderCare,
+      climates: result.data.finderClimates,
+      edible: result.data.finderEdible,
+      match_note: result.data.finderMatchNote,
+      updated_at: new Date().toISOString(),
+    });
+    if (finderProfileError) redirect(`/admin/content/${contentId}/edit?error=save`);
+  }
 
   let relatedPlants: Array<{ id: string; slug: string }> = [];
   if (existing.content_type === "problem") {

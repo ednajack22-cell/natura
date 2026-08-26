@@ -27,7 +27,7 @@ export const plants: PlantProfile[] = [
     tagline: "A generous summer crop for a bright balcony.",
     description:
       "Compact cherry tomatoes reward consistent watering, a large container, and the sunniest position you can offer.",
-    image: "/images/cherry-tomato.png",
+    image: "/images/cherry-tomato.jpg",
     imageAlt: "A compact cherry tomato plant fruiting in a terracotta container",
     difficulty: "Moderate",
     sunlight: "6–8 hours",
@@ -55,7 +55,7 @@ export const plants: PlantProfile[] = [
     tagline: "Fragrant leaves for a warm windowsill or sheltered balcony.",
     description:
       "Basil grows quickly when warmth, bright light, and steady moisture come together—and regular harvesting keeps it productive.",
-    image: "/images/genovese-basil.png",
+    image: "/images/genovese-basil.jpg",
     imageAlt: "A lush Genovese basil plant in an ivory ceramic pot by a window",
     difficulty: "Easy",
     sunlight: "4–6 hours",
@@ -83,7 +83,7 @@ export const plants: PlantProfile[] = [
     tagline: "Sweet harvests from a compact pot, trough, or hanging basket.",
     description:
       "Strawberries suit compact spaces beautifully, provided their crowns stay above the soil and their roots never sit in water.",
-    image: "/images/balcony-strawberry.png",
+    image: "/images/balcony-strawberry.jpg",
     imageAlt: "A fruiting strawberry plant in a weathered terracotta bowl on a balcony",
     difficulty: "Easy",
     sunlight: "6+ hours",

@@ -1,0 +1,1 @@
+export default function GuidedDiagnosisLoading() { return <main id="main-content"><section className="finder-hero"><div className="site-container"><p className="eyebrow">Observation tool</p><h1>Plant observation guide</h1><p className="profile-lead" role="status">Preparing the observation checklist…</p></div></section></main>; }

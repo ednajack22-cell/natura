@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SectionLanding } from "@/components/section-landing";
 
-export const metadata: Metadata = { title: "Small-Space Gardening", description: "Gardening guidance for balconies, containers, patios, and indoor spaces." };
+export const metadata: Metadata = { title: "Small-Space Gardening", description: "Gardening guidance for balconies, containers, patios, and indoor spaces.", alternates: { canonical: "/small-space-gardening" } };
 
 export default function SmallSpaceGardeningPage() {
   return <SectionLanding eyebrow="Small-space gardening" title="Make a small space feel abundant." intro="Good small-space gardens are designed around weight, wind, light, access, and daily routines—not miniature versions of large gardens." items={[
@@ -10,6 +10,7 @@ export default function SmallSpaceGardeningPage() {
     { id: "patio", title: "Patio", description: "Create a flexible layout that preserves access, movement, and comfortable outdoor living." },
     { id: "indoor", title: "Indoor", description: "Work realistically with window light, temperature, humidity, and limited airflow." },
     { id: "renter-friendly", title: "Renter-friendly gardening", description: "Build a portable garden that can adapt, move, and leave no permanent damage." },
+    { title: "Small-space planner", description: "Turn measured dimensions, access, and light into a reachable container layout with safety limits.", href: "/tools/garden-planner" },
     { title: "Practical guides", description: "Follow complete, structured projects with preparation, materials, steps, and safety limits.", href: "/small-space-gardening/guides" },
   ]} />;
 }

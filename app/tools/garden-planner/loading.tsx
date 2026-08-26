@@ -1,0 +1,1 @@
+export default function GardenPlannerLoading() { return <main id="main-content"><section className="finder-hero"><div className="site-container"><p className="eyebrow">Layout tool</p><h1>Small-space garden planner</h1><p className="profile-lead" role="status">Preparing the spatial planner…</p></div></section></main>; }

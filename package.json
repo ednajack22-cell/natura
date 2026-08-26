@@ -17,7 +17,15 @@
     "db:test": "supabase test db --local",
     "db:types": "supabase gen types typescript --local > lib/supabase/database.types.ts",
     "admin:bootstrap": "powershell -ExecutionPolicy Bypass -File scripts/bootstrap-local-admin.ps1",
-    "media:bootstrap": "node scripts/register-bundled-media.mjs"
+    "media:bootstrap": "node scripts/register-bundled-media.mjs",
+    "media:test": "node --experimental-strip-types scripts/test-image-optimization.mjs",
+    "test:e2e": "powershell -ExecutionPolicy Bypass -File scripts/run-e2e.ps1",
+    "test:e2e:ci": "playwright test --workers=1",
+    "health:check": "node scripts/check-local-health.mjs",
+    "backup:local": "powershell -ExecutionPolicy Bypass -File scripts/backup-local-supabase.ps1",
+    "backup:verify": "powershell -ExecutionPolicy Bypass -File scripts/verify-local-backup.ps1",
+    "backup:restore-test": "powershell -ExecutionPolicy Bypass -File scripts/test-local-backup-restore.ps1",
+    "performance:check": "powershell -ExecutionPolicy Bypass -File scripts/run-performance-check.ps1"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.4",
@@ -26,9 +34,12 @@
     "pdf-lib": "^1.17.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
+    "sharp": "0.35.3",
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.62.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

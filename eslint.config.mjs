@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     ".pnpm-store/**",
     ".codex-plan/**",
     ".codex-review/**",
+    "test-results/**",
+    "playwright-report/**",
   ]),
 ]);
 

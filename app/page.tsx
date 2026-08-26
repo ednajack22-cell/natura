@@ -1,8 +1,21 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowIcon, LeafIcon, SearchIcon } from "@/components/icons";
 import { PlantCard } from "@/components/plant-card";
-import { getPublishedPlants } from "@/lib/plant-content";
+import { getMostSearchedPlants } from "@/lib/plant-popularity";
+import { calendarSpaceFromProfile, gardenClimateLabels, gardenHemisphereLabels, gardenSpaceLabels, getGardenProfile } from "@/lib/garden-profile";
+
+export const revalidate = 3600;
+export const metadata: Metadata = { alternates: { canonical: "/" } };
+
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"] as const;
+const climatePathways = [
+  { label: "Temperate", climate: "temperate" },
+  { label: "Mediterranean", climate: "mediterranean" },
+  { label: "Continental", climate: "continental" },
+  { label: "Tropical", climate: "tropical" },
+] as const;
 
 const pathways = [
   { number: "01", title: "Choose the right plant", text: "Match light, space, season, and available time before you buy.", href: "/grow", className: "path-featured" },
@@ -11,7 +24,18 @@ const pathways = [
 ];
 
 export default async function Home() {
-  const plants = await getPublishedPlants();
+  const month = new Date().getMonth() + 1;
+  const [popularCollection, gardenProfile] = await Promise.all([getMostSearchedPlants(6), getGardenProfile()]);
+  const plants = popularCollection.plants;
+  const calendarHref = gardenProfile
+    ? `/tools/planting-calendar?show=1&month=${month}&climate=${gardenProfile.climate}&hemisphere=${gardenProfile.hemisphere}&space=${calendarSpaceFromProfile(gardenProfile.space)}`
+    : `/tools/planting-calendar?month=${month}&climate=general&hemisphere=both&space=all`;
+  const profileContext = gardenProfile ? `${gardenClimateLabels[gardenProfile.climate]} · ${gardenHemisphereLabels[gardenProfile.hemisphere]} · ${gardenSpaceLabels[gardenProfile.space]}` : "Choose climate and growing space first";
+  const seasonalActions = [
+    { label: "01", title: "Choose a broad climate", text: "Start with the closest climate pattern, then refine the advice with local frost, heat, and rainfall." },
+    { label: "02", title: "Set hemisphere and growing space", text: "North and south reverse the seasons, while a windowsill, balcony, container, and in-ground garden behave differently in the same city." },
+    { label: "03", title: "Check current conditions", text: "Use a trusted local forecast and root-zone moisture before sowing, watering, planting, or protecting." },
+  ];
   return (
     <main id="main-content">
       <section className="premium-hero">
@@ -25,7 +49,7 @@ export default async function Home() {
               <Link className="button button-secondary" href="/search"><SearchIcon /> Search Natura</Link>
             </div>
             <div className="hero-proof">
-              <div><strong>{plants.length}</strong><span>complete starter profiles</span></div>
+              <div><strong>{popularCollection.totalPlants}</strong><span>complete starter profiles</span></div>
               <div><strong>100%</strong><span>small-space focused</span></div>
               <div><strong>0</strong><span>miracle claims</span></div>
             </div>
@@ -33,19 +57,19 @@ export default async function Home() {
 
           <div className="premium-hero-media">
             <Image
-              src="/images/natura-balcony-hero.png"
+              src="/images/natura-balcony-hero.jpg"
               alt="A thriving edible balcony garden in warm morning light"
               fill
-              priority
+              preload
               sizes="(max-width: 980px) 100vw, 52vw"
             />
             <div className="hero-media-shade" />
             <div className="hero-journal-card">
-              <span>Today in the garden</span>
-              <strong>Check soil moisture before the afternoon heat.</strong>
-              <small>2 minute task · Container care</small>
+              <span>{gardenProfile ? "Your saved garden profile" : "Plan for your location"}</span>
+              <strong>{profileContext}</strong>
+              <small>{months[month - 1]} · {gardenProfile ? `${gardenProfile.sunHours}+ hours sun · ${gardenProfile.exposure}` : "worldwide contexts · local checks required"}</small>
             </div>
-            <div className="hero-season-pill"><span>Late summer</span><strong>Grow with the light you have</strong></div>
+            <div className="hero-season-pill"><span>{months[month - 1]}</span><strong>Plan from conditions, not dates</strong></div>
           </div>
         </div>
       </section>
@@ -61,12 +85,13 @@ export default async function Home() {
 
       <section className="section site-container" aria-labelledby="featured-plants">
         <div className="split-heading">
-          <div><p className="eyebrow">The first collection</p><h2 id="featured-plants">Start with plants that earn their space.</h2></div>
-          <div><p>Every profile connects light, pot size, watering, timing, and common problems in one practical view.</p><Link className="text-link" href="/grow">Browse the growing library <ArrowIcon /></Link></div>
+          <div><p className="eyebrow">Popular plant guides</p><h2 id="featured-plants">The plants readers search for most.</h2></div>
+          <div><p>The order is based on anonymous, aggregate searches made inside Natura. No reader identity or raw search history is displayed.</p><Link className="text-link" href="/grow">Browse the growing library <ArrowIcon /></Link></div>
         </div>
         <div className="plant-grid">
           {plants.map((plant, index) => <PlantCard plant={plant} priority={index === 0} key={plant.slug} />)}
         </div>
+        <div className="collection-footer"><p>{popularCollection.rankedCount > 0 ? `Ranked from ${popularCollection.totalSearches} matched searches across the current leading guides; new slots use the wider starter library.` : "Search activity is still building, so starter guides fill the list until readers create a reliable ranking."}</p><Link className="button button-secondary" href="/grow">View all {popularCollection.totalPlants} plant profiles <ArrowIcon /></Link></div>
       </section>
 
       <section className="decision-section">
@@ -85,8 +110,8 @@ export default async function Home() {
       <section className="section site-container seasonal-section">
         <div className="seasonal-card">
           <div className="seasonal-orbit" aria-hidden="true"><span /><span /><span /></div>
-          <div className="seasonal-copy"><p className="eyebrow">Seasonal intelligence</p><h2>Your garden changes every week. Your advice should too.</h2><p>Planting calendars and care reminders will adapt recommendations to climate, exposure, and growing space.</p><Link className="button button-primary" href="/planting-calendar">Explore the calendar <ArrowIcon /></Link></div>
-          <div className="seasonal-list"><article><span>Now</span><div><strong>Observe</strong><p>Light, heat, wind, and soil moisture.</p></div></article><article><span>Next</span><div><strong>Act</strong><p>Choose the smallest useful intervention.</p></div></article><article><span>Later</span><div><strong>Learn</strong><p>Record what changed and improve the next cycle.</p></div></article></div>
+          <div className="seasonal-copy"><p className="eyebrow">{months[month - 1]} · {gardenProfile ? "your saved context" : "choose your context"}</p><h2>Seasonal guidance starts with where you grow.</h2><p>{gardenProfile ? `Natura will start from ${profileContext.toLowerCase()}, then keep local forecasts and observed conditions in control.` : "Natura does not treat one climate or hemisphere as the default. Select the closest broad context, then confirm every action against local conditions."}</p>{!gardenProfile && <div className="seasonal-climate-links" aria-label="Choose a broad climate">{climatePathways.map((item) => <Link href={`/tools/planting-calendar?month=${month}&climate=${item.climate}&hemisphere=both&space=all`} key={item.climate}>{item.label}</Link>)}</div>}<Link className="button button-primary" href={calendarHref}>{gardenProfile ? "Open my monthly plan" : "Choose climate, hemisphere, and space"} <ArrowIcon /></Link>{gardenProfile && <Link className="text-link" href="/tools/garden-profile">Edit my garden profile</Link>}</div>
+          <div className="seasonal-list">{seasonalActions.map((action) => <article key={action.label}><span>{action.label}</span><div><strong>{action.title}</strong><p>{action.text}</p></div></article>)}</div>
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { SectionLanding } from "@/components/section-landing";
 
-export const metadata: Metadata = { title: "Planting Calendar", description: "Plan what to sow and plant by climate, hardiness zone, and month." };
+export const metadata: Metadata = { title: "Planting Calendar", description: "Plan what to sow and plant by climate, hardiness zone, and month.", alternates: { canonical: "/planting-calendar" } };
 
 export default function PlantingCalendarPage() {
   return <SectionLanding eyebrow="Planting calendar" title="Plant at the right moment for your conditions." intro="Calendar guidance combines climate, frost dates, crop needs, and whether you grow indoors, under cover, or outside." items={[

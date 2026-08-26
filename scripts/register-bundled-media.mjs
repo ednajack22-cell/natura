@@ -11,20 +11,20 @@ const supabase = createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.NEXT_PUBLIC_SUPA
 const { data: auth, error: authError } = await supabase.auth.signInWithPassword({ email: env.NATURA_LOCAL_ADMIN_EMAIL, password: env.NATURA_LOCAL_ADMIN_PASSWORD });
 if (authError || !auth.user) throw authError ?? new Error("Local administrator unavailable.");
 
-const objectPath = "uploads/2026-08/natura-balcony-hero.png";
+const objectPath = "uploads/2026-08/natura-balcony-hero.jpg";
 const { data: existing } = await supabase.from("media_assets").select("id").eq("object_path", objectPath).maybeSingle();
 if (existing) {
   console.log(`Bundled hero already registered: ${existing.id}`);
   process.exit(0);
 }
 
-const bytes = fs.readFileSync("public/images/natura-balcony-hero.png");
-const { error: uploadError } = await supabase.storage.from("published_images").upload(objectPath, bytes, { contentType: "image/png", cacheControl: "31536000", upsert: false });
+const bytes = fs.readFileSync("public/images/natura-balcony-hero.jpg");
+const { error: uploadError } = await supabase.storage.from("published_images").upload(objectPath, bytes, { contentType: "image/jpeg", cacheControl: "31536000", upsert: false });
 if (uploadError) throw uploadError;
 
 const { data: asset, error: metadataError } = await supabase.from("media_assets").insert({
   bucket: "published_images", object_path: objectPath, alt_text: "A thriving edible balcony garden in warm morning light",
-  credit: "Natura", license: "original", original_name: "natura-balcony-hero.png", mime_type: "image/png",
+  credit: "Natura", license: "original", original_name: "natura-balcony-hero.jpg", mime_type: "image/jpeg",
   file_size: bytes.length, width: 1536, height: 1024, created_by: auth.user.id,
 }).select("id").single();
 if (metadataError) {

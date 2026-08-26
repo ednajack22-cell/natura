@@ -4,7 +4,15 @@ import { ArrowIcon, LeafIcon } from "@/components/icons";
 import { PlantCard } from "@/components/plant-card";
 import { getPublishedPlants } from "@/lib/plant-content";
 
-export const metadata: Metadata = { title: "Plant growing guides", description: "Practical growing guides for productive plants that fit balconies, windowsills, patios, and containers." };
+/**
+ * Published content changes when an editor publishes, not per visitor, so the
+ * rendered page is cached and refreshed hourly. Editing an item revalidates its
+ * path immediately, so this is only the ceiling on staleness.
+ */
+export const revalidate = 3600;
+
+
+export const metadata: Metadata = { title: "Plant growing guides", description: "Practical growing guides for productive plants that fit balconies, windowsills, patios, and containers.", alternates: { canonical: "/grow" } };
 
 const filters = ["All plants", "Vegetables", "Herbs", "Fruit", "Easy starters", "Full sun"];
 

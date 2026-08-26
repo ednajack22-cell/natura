@@ -25,6 +25,13 @@ export async function updateSession(request: NextRequest) {
   const isLoginRoute = request.nextUrl.pathname === "/admin/login";
 
   if (isAdminRoute && !isLoginRoute && !data?.claims) {
+    if (request.method !== "GET" && request.method !== "HEAD") {
+      const unauthorizedResponse = NextResponse.json({ message: "Administrator authentication is required." }, { status: 401 });
+      response.cookies.getAll().forEach(({ name, value, ...options }) => unauthorizedResponse.cookies.set(name, value, options));
+      unauthorizedResponse.headers.set("Cache-Control", "private, no-store");
+      unauthorizedResponse.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+      return unauthorizedResponse;
+    }
     const url = request.nextUrl.clone();
     url.pathname = "/admin/login";
     url.searchParams.set("next", request.nextUrl.pathname);

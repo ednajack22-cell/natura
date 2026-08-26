@@ -1,6 +1,6 @@
 import "server-only";
 
-import { createClient } from "@/lib/supabase/server";
+import { createClient } from "@/lib/supabase/public";
 import { getPlant, plants, type PlantProfile } from "@/lib/plants";
 import { readEditorialBody } from "@/lib/editorial";
 import type { Json } from "@/lib/supabase/database.types";
@@ -9,6 +9,7 @@ export type PublishedPlant = PlantProfile & {
   seoTitle?: string;
   seoDescription?: string;
   updatedAt?: string;
+  sources: Array<{ title: string; url?: string }>;
 };
 
 type ContentPlantRow = {
@@ -39,10 +40,19 @@ function steps(value: Json | undefined, fallback: Array<{ title: string; text: s
   return parsed.length ? parsed : fallback;
 }
 
+function sources(value: Json | undefined) {
+  if (!Array.isArray(value)) return [];
+  return value.flatMap((entry) => {
+    if (!entry || typeof entry !== "object" || Array.isArray(entry)) return [];
+    const item = entry as Record<string, Json | undefined>;
+    return typeof item.title === "string" ? [{ title: item.title, url: typeof item.url === "string" ? item.url : undefined }] : [];
+  });
+}
+
 function mapPlant(row: ContentPlantRow): PublishedPlant {
   const fallback: PlantProfile = getPlant(row.slug) ?? {
     slug: row.slug, name: row.title, botanicalName: "", category: "Plant", tagline: row.excerpt ?? "",
-    description: row.excerpt ?? "", image: "/images/natura-balcony-hero.png", imageAlt: "Natura plant guide",
+    description: row.excerpt ?? "", image: "/images/natura-balcony-hero.jpg", imageAlt: "Natura plant guide",
     difficulty: "Easy", sunlight: "See guide", potSize: "See guide", watering: "Observe the soil",
     harvest: "Varies", season: "Adapt to local conditions", suitableFor: [], care: [], watchFor: [],
   };
@@ -66,6 +76,7 @@ function mapPlant(row: ContentPlantRow): PublishedPlant {
     suitableFor: list(body.suitable_for, fallback.suitableFor),
     care: steps(body.care, fallback.care),
     watchFor: steps(body.watch_for, fallback.watchFor),
+    sources: sources(body.sources),
     seoTitle: row.seo_title ?? undefined,
     seoDescription: row.seo_description ?? undefined,
     updatedAt: row.updated_at,
@@ -78,10 +89,10 @@ export async function getPublishedPlants(): Promise<PublishedPlant[]> {
     const { data, error } = await supabase.from("content_items")
       .select("title, slug, excerpt, body, seo_title, seo_description, updated_at")
       .eq("content_type", "plant").eq("status", "published").order("title");
-    if (error || !data?.length) return plants;
+    if (error || !data?.length) return plants.map((plant) => ({ ...plant, sources: [] }));
     return data.map(mapPlant);
   } catch {
-    return plants;
+    return plants.map((plant) => ({ ...plant, sources: [] }));
   }
 }
 
@@ -91,9 +102,9 @@ export async function getPublishedPlant(slug: string): Promise<PublishedPlant | 
     const { data, error } = await supabase.from("content_items")
       .select("title, slug, excerpt, body, seo_title, seo_description, updated_at")
       .eq("content_type", "plant").eq("status", "published").eq("slug", slug).maybeSingle();
-    if (error) return getPlant(slug);
+    if (error) { const plant = getPlant(slug); return plant ? { ...plant, sources: [] } : undefined; }
     return data ? mapPlant(data) : undefined;
   } catch {
-    return getPlant(slug);
+    const plant = getPlant(slug); return plant ? { ...plant, sources: [] } : undefined;
   }
 }

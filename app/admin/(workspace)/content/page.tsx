@@ -27,7 +27,7 @@ export default async function ContentLibraryPage({ searchParams }: { searchParam
   return <main id="main-content">
     <header className="dashboard-page-header"><div><p className="dashboard-kicker">Editorial inventory</p><h1>Content library</h1><p>Organise, search, and monitor every Natura article from one place.</p></div><Link className="dashboard-primary-action" href="/admin/content/new"><PlusIcon />New content</Link></header>
 
-    <section className="library-summary-strip"><div><strong>{data.length}</strong><span>All content</span></div><div><strong>{published}</strong><span>Published</span></div><div><strong>{pending}</strong><span>Needs attention</span></div></section>
+    <section className="library-summary-strip"><div><strong>{data.length}</strong><span>All content</span></div><div><strong>{published}</strong><span>Published</span></div><div><strong>{pending}</strong><span>Draft or review</span></div></section>
 
     <section className="dashboard-panel content-library-panel">
       <form className="content-filters" action="/admin/content">
