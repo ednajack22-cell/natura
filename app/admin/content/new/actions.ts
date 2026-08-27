@@ -8,7 +8,7 @@ import { requireAdmin } from "@/lib/auth";
 const draftSchema = z.object({
   title: z.string().trim().min(3).max(160),
   slug: z.string().trim().min(3).max(160).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-  contentType: z.enum(["plant", "problem", "guide", "calendar", "tool", "review", "page"]),
+  contentType: z.enum(["plant", "problem", "guide", "calendar", "tool", "review", "page", "article"]),
   excerpt: z.string().trim().max(500).optional(),
   publicSection: z.enum(["grow", "small-space-gardening", "plant-care", "planting-calendar", "tools", "reviews", "institutional"]),
   subsection: z.string().trim().max(80).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/).optional(),

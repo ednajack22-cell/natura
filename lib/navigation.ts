@@ -135,12 +135,10 @@ export const navigation: readonly NavigationItem[] = [
   {
     label: "Plants",
     href: "/grow",
-    description: "What to grow, and how to grow it well.",
+    description: "Everything about a specific plant.",
     children: [
-      { label: "All plant guides", href: "/grow", description: "Complete profiles for every plant we cover." },
-      { label: "Step-by-step projects", href: "/small-space-gardening/guides", description: "Build a herb trough, a salad crate, a fruiting container." },
-      { label: "Small-space setup", href: "/small-space-gardening", description: "Work with the light, weight, and wind you actually have." },
-      { label: "Planting calendars", href: "/planting-calendar/calendars", description: "Month-by-month tasks for your climate and space." },
+      { label: "All plants", href: "/grow", description: "Complete profiles for every plant we cover." },
+      { label: "When to plant what", href: "/planting-calendar/calendars", description: "Month-by-month tasks for your climate and space." },
     ],
   },
   {
@@ -156,8 +154,12 @@ export const navigation: readonly NavigationItem[] = [
   {
     label: "Learn",
     href: "/learn",
-    description: "Understand how growing actually works, beyond any single plant.",
-    children: [],
+    description: "Everything about growing that is not tied to one plant.",
+    children: [
+      { label: "Articles", href: "/learn", description: "Why things happen: light, water, soil, temperature." },
+      { label: "Step-by-step projects", href: "/small-space-gardening/guides", description: "Build a herb trough, a salad crate, a fruiting container." },
+      { label: "Small-space setup", href: "/small-space-gardening", description: "Work with the light, weight, and wind you actually have." },
+    ],
   },
   {
     label: "Tools",

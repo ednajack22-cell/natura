@@ -55,6 +55,13 @@ const updateSchema = z.object({
   reviewTestedOn: z.string().trim().max(20),
   reviewCriteria: z.array(z.object({ name: z.string().trim().max(100), description: z.string().trim().max(800), weight: z.coerce.number().min(0).max(100) })).max(12),
   reviewProducts: z.array(z.object({ name: z.string().trim().max(160), brand: z.string().trim().max(120), model: z.string().trim().max(120), productUrl: z.string().trim().max(500), priceNote: z.string().trim().max(240), verdictLabel: z.string().trim().max(160), overallScore: z.coerce.number().min(0).max(10), recommended: z.boolean(), pros: z.string().trim().max(2200), cons: z.string().trim().max(2200), specifications: z.string().trim().max(2200), imageUrl: z.string().trim().max(500), imageAlt: z.string().trim().max(300), scores: z.array(z.coerce.number().min(0).max(10)).max(12) })).max(20),
+  articleTopic: z.enum(["growing-science", "seasonal", "sustainability", "spaces", "beginners", "materials"]),
+  articleEyebrow: z.string().trim().max(80),
+  articleReadingTime: z.coerce.number().int().min(1).max(90),
+  articleLastReviewedOn: z.string().trim().max(20),
+  articleImage: z.string().trim().max(500), articleImageAlt: z.string().trim().max(300),
+  articleTakeaways: z.array(z.string().trim().max(240)).max(8),
+  articleSections: z.array(z.object({ heading: z.string().trim().max(140), body: z.string().trim().max(8000) })).max(24),
   pageKind: z.enum(["about", "editorial-policy", "authors", "contact", "legal", "privacy", "commercial-disclosure"]),
   pageEyebrow: z.string().trim().max(80), pageNotice: z.string().trim().max(1200),
   pageContactEmail: z.union([z.literal(""), z.string().trim().email().max(254)]), pageLastReviewedOn: z.string().trim().max(20),
@@ -125,6 +132,11 @@ export async function updateContent(contentId: string, formData: FormData) {
     reviewDisclosureText: formData.get("reviewDisclosureText") ?? "", reviewVerdict: formData.get("reviewVerdict") ?? "",
     reviewBestFor: formData.get("reviewBestFor") ?? "", reviewTestedOn: formData.get("reviewTestedOn") ?? "",
     reviewCriteria: parseJsonField(formData.get("reviewCriteriaJson"), []), reviewProducts: parseJsonField(formData.get("reviewProductsJson"), []),
+    articleTopic: formData.get("articleTopic") ?? "beginners", articleEyebrow: formData.get("articleEyebrow") ?? "",
+    articleReadingTime: formData.get("articleReadingTime") ?? "5", articleLastReviewedOn: formData.get("articleLastReviewedOn") ?? "",
+    articleImage: formData.get("articleImage") ?? "", articleImageAlt: formData.get("articleImageAlt") ?? "",
+    articleTakeaways: parseJsonField(formData.get("articleTakeawaysJson"), []),
+    articleSections: parseJsonField(formData.get("articleSectionsJson"), []),
     pageKind: formData.get("pageKind") ?? "about", pageEyebrow: formData.get("pageEyebrow") ?? "",
     pageNotice: formData.get("pageNotice") ?? "", pageContactEmail: formData.get("pageContactEmail") ?? "",
     pageLastReviewedOn: formData.get("pageLastReviewedOn") ?? "", pageRequiresLegalReview: formData.get("pageRequiresLegalReview") === "yes",
@@ -150,13 +162,13 @@ export async function updateContent(contentId: string, formData: FormData) {
     title: result.data.title,
     slug: result.data.slug,
     excerpt: result.data.excerpt,
-    overview: [result.data.overview, result.data.careSteps, result.data.watchFor, result.data.symptoms, result.data.likelyCauses, result.data.verificationSteps, result.data.recommendedActions, result.data.guidePrerequisites, result.data.guideMaterials, result.data.guideSteps, result.data.guideTips, result.data.calendarScopeNote, result.data.calendarWarnings, ...result.data.calendarMonths, result.data.reviewMethodology, result.data.reviewVerdict, ...result.data.reviewProducts.map((product) => `${product.name} ${product.pros} ${product.cons}`), ...result.data.pageSections.map((section) => `${section.heading} ${section.body}`)].filter(Boolean).join(" "),
+    overview: [result.data.overview, result.data.careSteps, result.data.watchFor, result.data.symptoms, result.data.likelyCauses, result.data.verificationSteps, result.data.recommendedActions, result.data.guidePrerequisites, result.data.guideMaterials, result.data.guideSteps, result.data.guideTips, result.data.calendarScopeNote, result.data.calendarWarnings, ...result.data.calendarMonths, result.data.reviewMethodology, result.data.reviewVerdict, ...result.data.reviewProducts.map((product) => `${product.name} ${product.pros} ${product.cons}`), ...result.data.pageSections.map((section) => `${section.heading} ${section.body}`), ...result.data.articleSections.map((section) => `${section.heading} ${section.body}`), ...result.data.articleTakeaways].filter(Boolean).join(" "),
     seoTitle: result.data.seoTitle,
     seoDescription: result.data.seoDescription,
     section: result.data.publicSection,
     subsection: result.data.subsection,
     sourcesCount: sources.length,
-    imageAlt: existing.content_type === "problem" ? result.data.problemImageAlt : existing.content_type === "guide" ? result.data.guideImageAlt : existing.content_type === "calendar" ? result.data.calendarImageAlt : result.data.imageAlt || (typeof rawBody.image_alt === "string" ? rawBody.image_alt : undefined),
+    imageAlt: existing.content_type === "article" ? result.data.articleImageAlt : existing.content_type === "problem" ? result.data.problemImageAlt : existing.content_type === "guide" ? result.data.guideImageAlt : existing.content_type === "calendar" ? result.data.calendarImageAlt : result.data.imageAlt || (typeof rawBody.image_alt === "string" ? rawBody.image_alt : undefined),
     contentType: existing.content_type,
     focusKeyword: result.data.focusKeyword,
     supportingKeywords: result.data.supportingKeywords.split(",").map((keyword) => keyword.trim()).filter(Boolean),
@@ -171,9 +183,14 @@ export async function updateContent(contentId: string, formData: FormData) {
   // A single-product review has exactly one product; comparisons need at least two.
   const minimumProducts = result.data.reviewType === "single" ? 1 : 2;
   const reviewReady = existing.content_type !== "review" || Boolean(result.data.reviewMethodology.length >= 80 && result.data.reviewDisclosureText.length >= 20 && result.data.reviewVerdict.length >= 40 && result.data.reviewCriteria.length >= 3 && result.data.reviewProducts.length >= minimumProducts && result.data.reviewCriteria.every((criterion) => criterion.name.length >= 2 && criterion.description.length >= 20) && result.data.reviewCriteria.reduce((sum, criterion) => sum + criterion.weight, 0) === 100 && result.data.reviewProducts.every((product) => product.name.length >= 2 && parseLines(product.pros).length && parseLines(product.cons).length && product.verdictLabel && product.scores.length === result.data.reviewCriteria.length));
+  const articleReady = existing.content_type !== "article" || Boolean(
+    result.data.articleEyebrow
+    && result.data.articleTakeaways.filter((item) => item.length >= 12).length >= 2
+    && result.data.articleSections.filter((section) => section.heading.length >= 3 && section.body.length >= 200).length >= 3
+  );
   const isInstitutionalPage = existing.content_type === "page" && result.data.publicSection === "institutional";
   const pageReady = !isInstitutionalPage || Boolean(result.data.pageEyebrow && result.data.pageLastReviewedOn && !result.data.pageRequiresLegalReview && result.data.pageSections.length >= 2 && result.data.pageSections.every((section) => section.heading.length >= 3 && section.body.length >= 80) && (result.data.pageKind !== "contact" || result.data.pageContactEmail));
-  const typeProfileReady = plantReady && problemReady && guideReady && calendarReady && reviewReady && pageReady;
+  const typeProfileReady = plantReady && problemReady && guideReady && calendarReady && reviewReady && pageReady && articleReady;
   const assignmentsReady = Boolean(result.data.workflowAuthorId && result.data.workflowReviewerId && result.data.workflowAuthorId !== result.data.workflowReviewerId);
   const assignmentChanged = result.data.workflowAuthorId !== (existingWorkflow?.author_id ?? "") || result.data.workflowReviewerId !== (existingWorkflow?.reviewer_id ?? "");
   let nextReviewState = existingWorkflow?.review_state ?? "unassigned";
@@ -373,6 +390,21 @@ export async function updateContent(contentId: string, formData: FormData) {
       if (scoresError) redirect(`/admin/content/${contentId}/edit?error=save`);
     }
   }
+  if (existing.content_type === "article") {
+    const { error: profileError } = await supabase.from("article_profiles").upsert({
+      content_id: contentId,
+      topic: result.data.articleTopic,
+      eyebrow: result.data.articleEyebrow,
+      sections: result.data.articleSections.filter((section) => section.heading && section.body),
+      key_takeaways: result.data.articleTakeaways.filter(Boolean),
+      image_url: result.data.articleImage || null,
+      image_alt: result.data.articleImageAlt || null,
+      reading_time_minutes: result.data.articleReadingTime,
+      last_reviewed_on: result.data.articleLastReviewedOn || null,
+      updated_at: new Date().toISOString(),
+    });
+    if (profileError) redirect(`/admin/content/${contentId}/edit?error=save`);
+  }
   if (isInstitutionalPage) {
     const { error: profileError } = await supabase.from("institutional_page_profiles").upsert({
       content_id: contentId, page_kind: result.data.pageKind, eyebrow: result.data.pageEyebrow,
@@ -405,6 +437,7 @@ export async function updateContent(contentId: string, formData: FormData) {
   if (existing.content_type === "review") revalidatePath(`/reviews/${result.data.slug}`);
   if (existing.content_type === "page") revalidatePath(`/${result.data.slug}`);
   relatedPlants.forEach((plant) => revalidatePath(`/plants/${plant.slug}`));
+  if (existing.content_type === "article") { revalidatePath("/learn"); revalidatePath(`/learn/${result.data.slug}`); }
   revalidatePath("/search");
   revalidatePath(`/plants/${result.data.slug}`);
   revalidatePath("/sitemap.xml");
