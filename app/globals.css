@@ -1627,3 +1627,8 @@ textarea:focus-visible {
 @media (max-width: 900px) {
   .tool-next-steps-grid { grid-template-columns: 1fr; }
 }
+
+/* A menu group with no submenu is a link, not a disclosure: no chevron, and no
+   hover target promising a panel that never opens. */
+.nav-group-plain .nav-group-link { padding-right: 0; }
+.mobile-nav-link { display: block; padding: .9rem 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); font-weight: 800; }

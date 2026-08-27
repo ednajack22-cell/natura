@@ -11,7 +11,19 @@ export type NavigationItem = {
   children: readonly NavigationChild[];
 };
 
-export const navigation: readonly NavigationItem[] = [
+/**
+ * The editorial taxonomy.
+ *
+ * This is how the workspace classifies content, and stored items carry these
+ * section and subsection values, so entries must not be renamed or removed
+ * without migrating the content that references them.
+ *
+ * It used to double as the public menu. That coupling is why the menu described
+ * how the site was built rather than why a reader came: six content types, and
+ * twenty-two of its forty-four entries were anchors onto four landing pages
+ * rather than destinations of their own.
+ */
+export const editorialTaxonomy: readonly NavigationItem[] = [
   {
     label: "Grow",
     href: "/grow",
@@ -94,7 +106,77 @@ export const navigation: readonly NavigationItem[] = [
   },
 ] as const;
 
-export const editorialSections = [...navigation.map((item) => ({
+/**
+ * The public menu.
+ *
+ * Organised by what brings a reader here — starting out, growing something,
+ * fixing something, working out a number, choosing equipment — rather than by
+ * content type. Three of the old groups (Grow, Small-Space Gardening, Plant
+ * Care) all applied to a beginner whose basil is failing on a balcony, which
+ * left nothing to choose between them.
+ *
+ * Two rules hold this together, and both matter for search as much as for
+ * readers:
+ *
+ *   1. Every entry is a page. No anchors dressed up as destinations.
+ *   2. Nothing is listed before it holds content. The old menu offered six
+ *      equipment categories when four were empty, and a menu that promises more
+ *      than the site has costs trust, while the thin pages behind it cost
+ *      ranking. Equipment categories now surface on the reviews page itself,
+ *      where they can reflect what actually exists.
+ */
+export const navigation: readonly NavigationItem[] = [
+  {
+    label: "Start here",
+    href: "/start-here",
+    description: "New to growing in a small space? Begin with the essentials.",
+    children: [],
+  },
+  {
+    label: "Plants",
+    href: "/grow",
+    description: "What to grow, and how to grow it well.",
+    children: [
+      { label: "All plant guides", href: "/grow", description: "Complete profiles for every plant we cover." },
+      { label: "Step-by-step projects", href: "/small-space-gardening/guides", description: "Build a herb trough, a salad crate, a fruiting container." },
+      { label: "Small-space setup", href: "/small-space-gardening", description: "Work with the light, weight, and wind you actually have." },
+      { label: "Planting calendars", href: "/planting-calendar/calendars", description: "Month-by-month tasks for your climate and space." },
+    ],
+  },
+  {
+    label: "Problems",
+    href: "/plant-care/problems",
+    description: "Something looks wrong. Work out what it is.",
+    children: [
+      { label: "Diagnose a symptom", href: "/plant-care/problems", description: "Compare symptoms, likely causes, and how to verify each one." },
+      { label: "Observation guide", href: "/tools/guided-diagnosis", description: "Organise what you are seeing before drawing a conclusion." },
+      { label: "Care basics", href: "/plant-care", description: "Watering, soil, pests, and seasonal adjustments." },
+    ],
+  },
+  {
+    label: "Tools",
+    href: "/tools",
+    description: "Work out the number instead of guessing it.",
+    children: [
+      { label: "Plant finder", href: "/tools/plant-finder", description: "Match plants to your light, space, and care time." },
+      { label: "Pot size calculator", href: "/tools/pot-size-calculator", description: "Estimate a practical container range." },
+      { label: "Watering routine", href: "/tools/watering-calculator", description: "Build a soil-check routine you can actually follow." },
+      { label: "Frost risk check", href: "/tools/frost-risk", description: "Read a forecast low without false precision." },
+      { label: "Monthly planting tasks", href: "/tools/planting-calendar", description: "What to do this month, for your conditions." },
+      { label: "Garden planner", href: "/tools/garden-planner", description: "Lay out a compact, reachable growing space." },
+      { label: "Observation guide", href: "/tools/guided-diagnosis", description: "Turn symptoms into a checklist worth acting on." },
+      { label: "My garden profile", href: "/tools/garden-profile", description: "Save your conditions once; every tool uses them." },
+    ],
+  },
+  {
+    label: "Gear",
+    href: "/reviews",
+    description: "What to buy, with the criteria and the commercial relationship stated.",
+    children: [],
+  },
+] as const;
+
+export const editorialSections = [...editorialTaxonomy.map((item) => ({
   value: item.href.slice(1),
   label: item.label,
   children: item.children.map((child) => ({
