@@ -34,6 +34,53 @@ export type Database = {
   }
   public: {
     Tables: {
+      article_profiles: {
+        Row: {
+          content_id: string
+          eyebrow: string
+          image_alt: string | null
+          image_url: string | null
+          key_takeaways: Json
+          last_reviewed_on: string | null
+          reading_time_minutes: number
+          sections: Json
+          topic: string
+          updated_at: string
+        }
+        Insert: {
+          content_id: string
+          eyebrow?: string
+          image_alt?: string | null
+          image_url?: string | null
+          key_takeaways?: Json
+          last_reviewed_on?: string | null
+          reading_time_minutes?: number
+          sections?: Json
+          topic: string
+          updated_at?: string
+        }
+        Update: {
+          content_id?: string
+          eyebrow?: string
+          image_alt?: string | null
+          image_url?: string | null
+          key_takeaways?: Json
+          last_reviewed_on?: string | null
+          reading_time_minutes?: number
+          sections?: Json
+          topic?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "article_profiles_content_id_fkey"
+            columns: ["content_id"]
+            isOneToOne: true
+            referencedRelation: "content_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       calendar_entries: {
         Row: {
           activity_type: string

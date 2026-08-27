@@ -5,18 +5,20 @@ import { getPublishedPlants } from "@/lib/plant-content";
 import { getPublishedProblems } from "@/lib/problem-content";
 import { getPublishedReviews } from "@/lib/review-content";
 import { getPublishedInstitutionalPages } from "@/lib/institutional-content";
+import { getPublishedArticles } from "@/lib/article-content";
 
-const routes = ["", "/grow", "/small-space-gardening", "/small-space-gardening/guides", "/plant-care", "/plant-care/problems", "/planting-calendar", "/planting-calendar/calendars", "/research/calendar-methodology", "/tools", "/tools/garden-profile", "/tools/plant-finder", "/tools/planting-calendar", "/tools/frost-risk", "/tools/garden-planner", "/tools/guided-diagnosis", "/tools/pot-size-calculator", "/tools/watering-calculator", "/reviews", "/search", "/start-here"];
+const routes = ["", "/grow", "/small-space-gardening", "/small-space-gardening/guides", "/plant-care", "/plant-care/problems", "/planting-calendar", "/planting-calendar/calendars", "/research/calendar-methodology", "/tools", "/tools/garden-profile", "/tools/plant-finder", "/tools/planting-calendar", "/tools/frost-risk", "/tools/garden-planner", "/tools/guided-diagnosis", "/tools/pot-size-calculator", "/tools/watering-calculator", "/reviews", "/search", "/start-here", "/learn"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-  const [plants, problems, guides, calendars, reviews, institutionalPages] = await Promise.all([getPublishedPlants(), getPublishedProblems(), getPublishedGuides(), getPublishedCalendars(), getPublishedReviews(), getPublishedInstitutionalPages()]);
+  const [plants, problems, guides, calendars, reviews, institutionalPages, articles] = await Promise.all([getPublishedPlants(), getPublishedProblems(), getPublishedGuides(), getPublishedCalendars(), getPublishedReviews(), getPublishedInstitutionalPages(), getPublishedArticles()]);
   const dynamicRoutes = [
     ...plants.map((plant) => `/plants/${plant.slug}`),
     ...problems.map((problem) => `/plant-care/problems/${problem.slug}`),
     ...guides.map((guide) => `/small-space-gardening/guides/${guide.slug}`),
     ...calendars.map((calendar) => `/planting-calendar/calendars/${calendar.slug}`),
     ...reviews.map((review) => `/reviews/${review.slug}`),
+    ...articles.map((article) => `/learn/${article.slug}`),
     ...institutionalPages.map((page) => `/${page.slug}`),
   ];
   return [...routes, ...dynamicRoutes].map((route) => ({

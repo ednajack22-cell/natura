@@ -154,6 +154,12 @@ export const navigation: readonly NavigationItem[] = [
     ],
   },
   {
+    label: "Learn",
+    href: "/learn",
+    description: "Understand how growing actually works, beyond any single plant.",
+    children: [],
+  },
+  {
     label: "Tools",
     href: "/tools",
     description: "Work out the number instead of guessing it.",
