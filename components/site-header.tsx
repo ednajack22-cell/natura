@@ -23,7 +23,13 @@ export function SiteHeader() {
             </div>
           ))}
         </nav>
-        <Link className="button header-search" href="/search" aria-label="Search Natura"><SearchIcon /><span>Search</span></Link>
+        <form className="header-search-form" role="search" method="post" action="/search/submit">
+            <label className="sr-only" htmlFor="header-search-input">Search Natura</label>
+            <SearchIcon />
+            <input id="header-search-input" name="q" type="search" placeholder="Search plants, problems, articles" maxLength={120} />
+            <button type="submit">Search</button>
+          </form>
+          <Link className="button header-search header-search-fallback" href="/search" aria-label="Search Natura"><SearchIcon /><span>Search</span></Link>
         <details className="mobile-menu"><summary>Menu</summary><nav className="mobile-panel" aria-label="Mobile navigation">{navigation.map((item) => item.children.length === 0 ? <Link className="mobile-nav-link" href={item.href} key={item.href}>{item.label}</Link> : <details className="mobile-nav-group" key={item.href}><summary>{item.label}<span>+</span></summary><div><Link className="mobile-overview-link" href={item.href}>View overview</Link>{item.children.map((child) => <Link href={child.href} key={child.href}>{child.label}</Link>)}</div></details>)}<Link className="mobile-search-link" href="/search"><SearchIcon />Search Natura</Link></nav></details>
       </div>
     </header>

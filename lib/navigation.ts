@@ -133,11 +133,11 @@ export const navigation: readonly NavigationItem[] = [
     children: [],
   },
   {
-    label: "Plants",
+    label: "Plant library",
     href: "/grow",
-    description: "Everything about a specific plant.",
+    description: "Look up a plant: how to grow it, and when.",
     children: [
-      { label: "All plants", href: "/grow", description: "Complete profiles for every plant we cover." },
+      { label: "Browse every plant", href: "/grow", description: "Complete profiles for every plant we cover." },
       { label: "When to plant what", href: "/planting-calendar/calendars", description: "Month-by-month tasks for your climate and space." },
     ],
   },
@@ -152,9 +152,9 @@ export const navigation: readonly NavigationItem[] = [
     ],
   },
   {
-    label: "Learn",
+    label: "Articles",
     href: "/learn",
-    description: "Everything about growing that is not tied to one plant.",
+    description: "Read about growing: why things happen, and how to set up.",
     children: [
       { label: "Articles", href: "/learn", description: "Why things happen: light, water, soil, temperature." },
       { label: "Step-by-step projects", href: "/small-space-gardening/guides", description: "Build a herb trough, a salad crate, a fruiting container." },

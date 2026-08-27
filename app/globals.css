@@ -1749,3 +1749,43 @@ textarea:focus-visible {
   .learn-card-grid { grid-template-columns: 1fr; }
   .article-side-rail { grid-template-columns: 1fr; }
 }
+
+/* Header search: a field the reader can type into, rather than a button that
+   sends them somewhere else to find one. Collapses to the icon link on narrow
+   viewports, where the field would crowd out the navigation. */
+.header-search-form {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  min-height: 42px;
+  padding: 0 .5rem 0 .85rem;
+  border: 1px solid color-mix(in srgb, var(--line) 85%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, white 70%, transparent);
+  transition: border-color .2s, background .2s;
+}
+.header-search-form:focus-within { border-color: var(--forest); background: white; }
+.header-search-form svg { width: 16px; flex: none; color: var(--muted); }
+.header-search-form input {
+  width: clamp(9rem, 15vw, 15rem);
+  border: 0;
+  background: none;
+  font-size: .78rem;
+  outline: none;
+}
+.header-search-form button {
+  padding: .38rem .75rem;
+  border: 0;
+  border-radius: 999px;
+  color: white;
+  background: var(--forest);
+  font-size: .68rem;
+  font-weight: 850;
+  cursor: pointer;
+}
+.header-search-fallback { display: none; }
+
+@media (max-width: 1050px) {
+  .header-search-form { display: none; }
+  .header-search-fallback { display: inline-flex; }
+}
