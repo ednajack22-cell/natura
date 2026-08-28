@@ -4,9 +4,11 @@ import { notFound } from "next/navigation";
 import { ArrowIcon, LeafIcon } from "@/components/icons";
 import { ArticleByline } from "@/components/article-byline";
 import { AdSlot } from "@/components/ad-slot";
+import { GearCallout } from "@/components/gear-callout";
 import { articleTopicLabel, getPublishedArticle, getPublishedArticles } from "@/lib/article-content";
 import { breadcrumbSchema, editorialAuthorSchema, getPublicEditorialMeta } from "@/lib/editorial-meta";
 import { editorialSocialMetadata } from "@/lib/social-discovery";
+import { getGearLinks } from "@/lib/gear-links";
 
 export const revalidate = 3600;
 
@@ -42,6 +44,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const slug = (await params).slug;
   const [article, editorialMeta] = await Promise.all([getPublishedArticle(slug), getPublicEditorialMeta(slug)]);
   if (!article) notFound();
+
+  const gearLinks = await getGearLinks(article.id);
 
   const related = (await getPublishedArticles())
     .filter((entry) => entry.topic === article.topic && entry.slug !== article.slug)
@@ -109,10 +113,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
           {article.overview && <p className="article-overview">{article.overview}</p>}
 
+          <GearCallout links={gearLinks} variant="lead" />
+
           {article.sections.map((section, index) => (
             <section key={section.heading}>
               <h2>{section.heading}</h2>
               {section.body.split(/\n{2,}/).map((paragraph) => <p key={paragraph.slice(0, 40)}>{paragraph}</p>)}
+              {index === 1 && <GearCallout links={gearLinks} variant="card" />}
               {index === 1 && <AdSlot placement="inline" label="After the second section of an article" />}
             </section>
           ))}

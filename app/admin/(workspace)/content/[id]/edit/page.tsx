@@ -45,7 +45,7 @@ export default async function ContentEditorPage({ params, searchParams }: { para
   const { id } = await params;
   const query = await searchParams;
   const { supabase } = await requireAdmin();
-  const [{ data: item, error }, { data: events }, { count: revisionCount }, { data: mediaAssets }, { data: storedFinderProfile }, { data: storedProblemProfile }, { data: problemPlantLinks }, { data: plantChoices }, { data: storedGuideProfile }, { data: guidePlantLinks }, { data: storedCalendarProfile }, { data: calendarEntries }, { data: calendarPlantLinks }, { data: storedReviewProfile }, { data: reviewCriteria }, { data: reviewProducts }, { data: reviewScores }, { data: storedInstitutionalProfile }, { data: storedArticleProfile }, { data: storedWorkflow }, { data: contributors }] = await Promise.all([
+  const [{ data: item, error }, { data: events }, { count: revisionCount }, { data: mediaAssets }, { data: storedFinderProfile }, { data: storedProblemProfile }, { data: problemPlantLinks }, { data: plantChoices }, { data: storedGuideProfile }, { data: guidePlantLinks }, { data: storedCalendarProfile }, { data: calendarEntries }, { data: calendarPlantLinks }, { data: storedReviewProfile }, { data: reviewCriteria }, { data: reviewProducts }, { data: reviewScores }, { data: storedInstitutionalProfile }, { data: storedArticleProfile }, { data: storedGearLinks }, { data: reviewChoices }, { data: storedWorkflow }, { data: contributors }] = await Promise.all([
     supabase.from("content_items").select("id, title, slug, excerpt, content_type, status, body, seo_title, seo_description, published_at, created_at, updated_at").eq("id", id).single(),
     supabase.from("editorial_events").select("id, action, previous_status, next_status, created_at").eq("content_id", id).order("created_at", { ascending: false }).limit(5),
     supabase.from("content_revisions").select("id", { count: "exact", head: true }).eq("content_id", id),
@@ -65,6 +65,8 @@ export default async function ContentEditorPage({ params, searchParams }: { para
     supabase.from("review_product_scores").select("product_id, criterion_id, score"),
     supabase.from("institutional_page_profiles").select("page_kind, eyebrow, sections, notice, contact_email, last_reviewed_on, requires_legal_review").eq("content_id", id).maybeSingle(),
     supabase.from("article_profiles").select("topic, eyebrow, sections, key_takeaways, image_url, image_alt, reading_time_minutes, last_reviewed_on").eq("content_id", id).maybeSingle(),
+    supabase.from("content_review_links").select("review_content_id, anchor_text, context_note, sort_order").eq("content_id", id).order("sort_order"),
+    supabase.from("content_items").select("id, title").eq("content_type", "review").eq("status", "published").order("title"),
     supabase.from("content_workflows").select("author_id, reviewer_id, review_state, review_notes, scheduled_for, approved_at").eq("content_id", id).maybeSingle(),
     supabase.from("editorial_contributors").select("id, display_name, role_title").eq("is_active", true).order("display_name"),
   ]);
@@ -149,6 +151,7 @@ export default async function ContentEditorPage({ params, searchParams }: { para
     imageAlt: storedArticleProfile?.image_alt ?? "",
     keyTakeaways: articleTakeaways,
     sections: articleSections,
+    gearLinks: (storedGearLinks ?? []).map((link) => ({ reviewId: link.review_content_id, anchorText: link.anchor_text, contextNote: link.context_note })),
   } : undefined;
   // Articles are not gated on completeness; the SEO panel still reports on them.
   const articleReady = true;
@@ -207,7 +210,7 @@ export default async function ContentEditorPage({ params, searchParams }: { para
         {calendarProfile && <CalendarProfileFields profile={calendarProfile} assets={mediaChoices} plants={plantChoices ?? []} linkedPlantIds={linkedCalendarPlantIds} />}
         {reviewProfile && <ReviewProfileFields profile={reviewProfile} />}
         {institutionalProfile && <InstitutionalPageFields profile={institutionalProfile} />}
-        {articleProfile && <ArticleProfileFields profile={articleProfile} />}
+        {articleProfile && <ArticleProfileFields profile={articleProfile} reviewChoices={reviewChoices ?? []} />}
 
         <section className="dashboard-panel editor-section" id="distribution"><div className="editor-section-heading"><span>{plantProfile || problemProfile || guideProfile || calendarProfile || reviewProfile || institutionalProfile || articleProfile ? "04" : "03"}</span><div><p className="dashboard-kicker">Distribution</p><h2>Public navigation</h2><small>Connect this content to the menu described in Natura’s plan.</small></div></div><div className="editor-field-grid"><label><span>Main section</span><select name="publicSection" defaultValue={section}>{editorialSections.map((entry) => <option value={entry.value} key={entry.value}>{entry.label}</option>)}</select></label><label><span>Subsection</span><select name="subsection" defaultValue={subsection}><option value="">No subsection</option>{editorialSections.map((entry) => <optgroup label={entry.label} key={entry.value}>{entry.children.map((child) => <option value={child.value} key={`${entry.value}-${child.value}`}>{child.label}</option>)}</optgroup>)}</select></label></div><div className="distribution-path"><span>Public destination</span><strong>{publicSectionLabels[section] ?? section}{subsection ? ` / ${subsection.replaceAll("-", " ")}` : ""}</strong></div></section>
 

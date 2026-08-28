@@ -258,6 +258,48 @@ export type Database = {
           },
         ]
       }
+      content_review_links: {
+        Row: {
+          anchor_text: string
+          content_id: string
+          context_note: string
+          created_at: string
+          review_content_id: string
+          sort_order: number
+        }
+        Insert: {
+          anchor_text: string
+          content_id: string
+          context_note?: string
+          created_at?: string
+          review_content_id: string
+          sort_order?: number
+        }
+        Update: {
+          anchor_text?: string
+          content_id?: string
+          context_note?: string
+          created_at?: string
+          review_content_id?: string
+          sort_order?: number
+        }
+        Relationships: [
+          {
+            foreignKeyName: "content_review_links_content_id_fkey"
+            columns: ["content_id"]
+            isOneToOne: false
+            referencedRelation: "content_items"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "content_review_links_review_content_id_fkey"
+            columns: ["review_content_id"]
+            isOneToOne: false
+            referencedRelation: "content_items"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       content_revisions: {
         Row: {
           content_id: string

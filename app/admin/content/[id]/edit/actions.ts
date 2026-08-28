@@ -62,6 +62,7 @@ const updateSchema = z.object({
   articleImage: z.string().trim().max(500), articleImageAlt: z.string().trim().max(300),
   articleTakeaways: z.array(z.string().trim().max(240)).max(8),
   articleSections: z.array(z.object({ heading: z.string().trim().max(140), body: z.string().trim().max(8000) })).max(24),
+  articleGearLinks: z.array(z.object({ reviewId: z.string().uuid(), anchorText: z.string().trim().min(3).max(120), contextNote: z.string().trim().max(300) })).max(2),
   pageKind: z.enum(["about", "editorial-policy", "authors", "contact", "legal", "privacy", "commercial-disclosure"]),
   pageEyebrow: z.string().trim().max(80), pageNotice: z.string().trim().max(1200),
   pageContactEmail: z.union([z.literal(""), z.string().trim().email().max(254)]), pageLastReviewedOn: z.string().trim().max(20),
@@ -137,6 +138,7 @@ export async function updateContent(contentId: string, formData: FormData) {
     articleImage: formData.get("articleImage") ?? "", articleImageAlt: formData.get("articleImageAlt") ?? "",
     articleTakeaways: parseJsonField(formData.get("articleTakeawaysJson"), []),
     articleSections: parseJsonField(formData.get("articleSectionsJson"), []),
+    articleGearLinks: parseJsonField(formData.get("articleGearLinksJson"), []),
     pageKind: formData.get("pageKind") ?? "about", pageEyebrow: formData.get("pageEyebrow") ?? "",
     pageNotice: formData.get("pageNotice") ?? "", pageContactEmail: formData.get("pageContactEmail") ?? "",
     pageLastReviewedOn: formData.get("pageLastReviewedOn") ?? "", pageRequiresLegalReview: formData.get("pageRequiresLegalReview") === "yes",
@@ -402,6 +404,22 @@ export async function updateContent(contentId: string, formData: FormData) {
       updated_at: new Date().toISOString(),
     });
     if (profileError) redirect(`/admin/content/${contentId}/edit?error=save`);
+
+    // Replace rather than merge: the editor submits the complete set.
+    const { error: clearLinksError } = await supabase.from("content_review_links").delete().eq("content_id", contentId);
+    if (clearLinksError) redirect(`/admin/content/${contentId}/edit?error=save`);
+    if (result.data.articleGearLinks.length) {
+      const { error: linksError } = await supabase.from("content_review_links").insert(
+        result.data.articleGearLinks.map((link, index) => ({
+          content_id: contentId,
+          review_content_id: link.reviewId,
+          anchor_text: link.anchorText,
+          context_note: link.contextNote,
+          sort_order: index + 1,
+        })),
+      );
+      if (linksError) redirect(`/admin/content/${contentId}/edit?error=save`);
+    }
   }
   if (isInstitutionalPage) {
     const { error: profileError } = await supabase.from("institutional_page_profiles").upsert({

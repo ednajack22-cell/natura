@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 export type ArticleSectionDraft = { heading: string; body: string };
+export type GearLinkDraft = { reviewId: string; anchorText: string; contextNote: string };
 
 type Props = {
   profile: {
@@ -14,7 +15,9 @@ type Props = {
     imageAlt: string;
     keyTakeaways: string[];
     sections: ArticleSectionDraft[];
+    gearLinks: GearLinkDraft[];
   };
+  reviewChoices: Array<{ id: string; title: string }>;
 };
 
 const topics = [
@@ -26,13 +29,17 @@ const topics = [
   ["sustainability", "Growing responsibly"],
 ] as const;
 
-export function ArticleProfileFields({ profile }: Props) {
+export function ArticleProfileFields({ profile, reviewChoices }: Props) {
   const [sections, setSections] = useState(profile.sections.length ? profile.sections : [
     { heading: "", body: "" },
     { heading: "", body: "" },
     { heading: "", body: "" },
   ]);
   const [takeaways, setTakeaways] = useState(profile.keyTakeaways.length ? profile.keyTakeaways : ["", ""]);
+  const [gearLinks, setGearLinks] = useState<GearLinkDraft[]>(profile.gearLinks);
+
+  const setGearLink = (index: number, update: Partial<GearLinkDraft>) =>
+    setGearLinks((current) => current.map((link, i) => (i === index ? { ...link, ...update } : link)));
 
   const updateSection = (index: number, key: keyof ArticleSectionDraft, value: string) =>
     setSections((current) => current.map((section, i) => (i === index ? { ...section, [key]: value } : section)));
@@ -146,6 +153,49 @@ export function ArticleProfileFields({ profile }: Props) {
         ))}
       </div>
 
+      <div className="institutional-section-builder">
+        <div className="institutional-builder-heading">
+          <div>
+            <span>Equipment links</span>
+            <small>
+              The route from this article to a review that can earn. Write anchor text that names the
+              destination — &ldquo;best balcony containers&rdquo;, not &ldquo;read more&rdquo; — and only link a review the
+              surrounding text genuinely relates to.
+            </small>
+          </div>
+          <button
+            type="button"
+            disabled={gearLinks.length >= 2 || reviewChoices.length === 0}
+            onClick={() => setGearLinks((current) => [...current, { reviewId: reviewChoices[0]?.id ?? "", anchorText: "", contextNote: "" }])}
+          >
+            + Add link
+          </button>
+        </div>
+        {reviewChoices.length === 0 && <p className="editor-empty-note">No published review to link to yet.</p>}
+        <div className="gear-link-editor">
+          {gearLinks.map((link, index) => (
+            <article key={index}>
+              <label>
+                <span>Review</span>
+                <select value={link.reviewId} onChange={(event) => setGearLink(index, { reviewId: event.target.value })}>
+                  {reviewChoices.map((review) => <option value={review.id} key={review.id}>{review.title}</option>)}
+                </select>
+              </label>
+              <label>
+                <span>Anchor text</span>
+                <input value={link.anchorText} maxLength={120} onChange={(event) => setGearLink(index, { anchorText: event.target.value })} placeholder="best balcony containers" />
+              </label>
+              <label>
+                <span>Context note</span>
+                <input value={link.contextNote} maxLength={300} onChange={(event) => setGearLink(index, { contextNote: event.target.value })} placeholder="what the comparison covers, in one line" />
+              </label>
+              <button type="button" onClick={() => setGearLinks((current) => current.filter((_, i) => i !== index))}>Remove link</button>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <input type="hidden" name="articleGearLinksJson" value={JSON.stringify(gearLinks.filter((link) => link.reviewId && link.anchorText.trim().length >= 3))} />
       <input type="hidden" name="articleSectionsJson" value={JSON.stringify(sections)} />
       <input type="hidden" name="articleTakeawaysJson" value={JSON.stringify(takeaways.filter((item) => item.trim()))} />
     </section>

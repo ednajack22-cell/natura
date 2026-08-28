@@ -1823,3 +1823,48 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 
 @media (max-width: 1180px) { .kpi-row { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 620px) { .kpi-row { grid-template-columns: 1fr; } }
+
+/* ---------------------------------------------------------------------------
+   Gear callouts
+   The route from writing that attracts readers to the pages that earn. The lead
+   sentence reads as part of the article; the card interrupts deliberately, in
+   the warm accent so it is legible as commercial rather than editorial.
+   --------------------------------------------------------------------------- */
+
+.gear-lead {
+  margin: 1.5rem 0 0;
+  padding-left: 1rem;
+  border-left: 3px solid var(--clay);
+  color: var(--ink-soft);
+  font-size: .88rem;
+  line-height: 1.7;
+}
+.gear-lead a { color: var(--clay); font-weight: 850; text-decoration: underline; text-underline-offset: 3px; }
+.gear-lead a:hover { color: var(--ink); }
+
+.gear-card {
+  display: grid;
+  gap: .5rem;
+  margin: 2.5rem 0;
+  padding: 1.5rem 1.75rem;
+  border: 1px solid var(--clay-light);
+  border-radius: 1.1rem;
+  background: color-mix(in srgb, var(--clay-light) 42%, var(--paper));
+}
+.gear-card .eyebrow { color: var(--clay); }
+.gear-card-entry + .gear-card-entry { margin-top: .5rem; padding-top: .75rem; border-top: 1px solid var(--clay-light); }
+.gear-card-entry a {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  color: var(--ink);
+  font: 700 1.05rem/1.35 Georgia, serif;
+}
+.gear-card-entry a:hover { color: var(--clay); }
+.gear-card-entry svg { width: 15px; color: var(--clay); }
+.gear-card-entry p { margin: .3rem 0 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.6; }
+.gear-card > small { margin-top: .5rem; color: var(--muted); font-size: .66rem; }
+
+/* Editor */
+.gear-link-editor { display: grid; gap: .7rem; }
+.gear-link-editor article { display: grid; gap: .55rem; padding: 1rem; border: 1px solid #e2e7e3; border-radius: .7rem; background: #fbfcfa; }
