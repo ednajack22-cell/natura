@@ -14,8 +14,10 @@ const typeColours: Record<string, string> = {
   review: "#8a4a35", article: "#2f6272", page: "#5b6b61", tool: "#4a6d8a",
 };
 
-const SIZE = 900;
+const SIZE = 1200;
 const CENTRE = SIZE / 2;
+/** Golden angle. Successive items never line up, which is what stops a spiral reading as a ring. */
+const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
 
 type Placed = GraphNode & { x: number; y: number; r: number; isHub: boolean };
 
@@ -63,39 +65,59 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
       satellites.get(edge.to)!.push(edge.from);
     }
 
-    const loose = visible.filter((n) => !claimed.has(n.id)).sort((a, b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title));
+    const loose = visible
+      .filter((n) => !claimed.has(n.id))
+      .sort((a, b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title));
 
     const out: Placed[] = [];
-    const hubRingRadius = hubIds.length > 1 ? CENTRE - 190 : 0;
+
+    const hubRadius = (n: GraphNode) => Math.min(11 + n.inbound * 1.7, 32);
+    const ringFor = (n: GraphNode, kids: number) => hubRadius(n) + 26 + Math.min(kids * 2.2, 34);
+
+    // The largest cluster sits at the centre and the rest spiral outward on the
+    // golden angle, which is what gives the picture its scattered look: no two
+    // clusters share a radius, and none line up on an axis.
+    const first = hubIds[0] ? byId.get(hubIds[0])! : undefined;
+    const innerHole = first ? ringFor(first, satellites.get(first.id)!.length) + 74 : 150;
+    const clusterStep = 96;
 
     hubIds.forEach((hubId, index) => {
       const hub = byId.get(hubId)!;
-      const angle = (index / Math.max(hubIds.length, 1)) * Math.PI * 2 - Math.PI / 2;
-      const hx = CENTRE + Math.cos(angle) * hubRingRadius;
-      const hy = CENTRE + Math.sin(angle) * hubRingRadius;
-      out.push({ ...hub, x: hx, y: hy, r: Math.min(11 + hub.inbound * 1.7, 30), isHub: true });
-
       const kids = satellites.get(hubId)!;
-      const spread = Math.min(24 + kids.length * 4, 78);
+      const angle = index * GOLDEN_ANGLE;
+      const distance = index === 0 ? 0 : innerHole + clusterStep * Math.sqrt(index);
+      const hx = CENTRE + Math.cos(angle) * distance;
+      const hy = CENTRE + Math.sin(angle) * distance;
+      out.push({ ...hub, x: hx, y: hy, r: hubRadius(hub), isHub: true });
+
+      // Satellites make a full burst around their hub, as a radial cluster.
+      const ring = ringFor(hub, kids.length);
       kids.forEach((childId, childIndex) => {
-        const child = byId.get(childId)!;
-        // Fan the satellites outward, away from the centre of the picture.
-        const offset = ((childIndex + 0.5) / Math.max(kids.length, 1) - 0.5) * Math.PI * 1.35;
-        const childAngle = angle + offset;
+        const childAngle = angle + (childIndex / Math.max(kids.length, 1)) * Math.PI * 2;
         out.push({
-          ...child,
-          x: hx + Math.cos(childAngle) * spread,
-          y: hy + Math.sin(childAngle) * spread,
+          ...byId.get(childId)!,
+          x: hx + Math.cos(childAngle) * ring,
+          y: hy + Math.sin(childAngle) * ring,
           r: 5,
           isHub: false,
         });
       });
     });
 
-    // Pages nothing links to sit on the outer edge, visibly apart.
+    // Pages nothing links to are scattered through the gaps rather than lined up
+    // on one radius, so they read as isolated pages rather than as a border.
+    const looseInner = innerHole * 0.9;
+    const looseSpan = CENTRE - 34 - looseInner;
     loose.forEach((node, index) => {
-      const angle = (index / Math.max(loose.length, 1)) * Math.PI * 2 - Math.PI / 2;
-      out.push({ ...node, x: CENTRE + Math.cos(angle) * (CENTRE - 26), y: CENTRE + Math.sin(angle) * (CENTRE - 26), r: 4.5, isHub: false });
+      const angle = (index + hubIds.length) * GOLDEN_ANGLE + GOLDEN_ANGLE / 2;
+      const distance = looseInner + looseSpan * Math.pow((index + 0.5) / Math.max(loose.length, 1), 0.62);
+      out.push({
+        ...node,
+        x: CENTRE + Math.cos(angle) * distance,
+        y: CENTRE + Math.sin(angle) * distance,
+        r: 4.5,
+        isHub: false,
+      });
     });
 
     return { placed: out, drawnEdges: live };
