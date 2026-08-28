@@ -1990,3 +1990,16 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
   transition: border-color .2s ease, background .2s ease;
 }
 .dashboard-secondary-action:hover { border-color: var(--forest); background: var(--sage-light); }
+
+/* Map controls */
+.link-graph-canvas svg { cursor: grab; touch-action: none; }
+.link-graph-canvas svg.grabbing { cursor: grabbing; }
+.link-graph-zoom { display: inline-flex; align-items: center; gap: .3rem; margin-left: auto; }
+.link-graph-zoom button {
+  min-width: 30px; min-height: 30px; padding: 0 .5rem;
+  border: 1px solid #dfe5e0; border-radius: .5rem; background: white;
+  color: var(--ink-soft); font-size: .74rem; font-weight: 850; cursor: pointer;
+}
+.link-graph-zoom button:hover:not(:disabled) { border-color: var(--forest); color: var(--forest); }
+.link-graph-zoom button:disabled { opacity: .4; cursor: default; }
+.link-graph-zoom b { min-width: 44px; color: var(--muted); font-size: .66rem; text-align: center; }

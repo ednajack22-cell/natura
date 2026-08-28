@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { GraphEdge, GraphNode } from "@/lib/link-graph";
 
 const typeLabels: Record<string, string> = {
@@ -38,6 +38,55 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
   const [hovered, setHovered] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
   const [hiddenTypes, setHiddenTypes] = useState<Set<string>>(new Set());
+  /** Pan and zoom, applied as one transform rather than by rewriting the viewBox. */
+  const [view, setView] = useState({ k: 1, x: 0, y: 0 });
+  /** Drives the cursor. The drag itself lives in a ref, which render must not read. */
+  const [grabbing, setGrabbing] = useState(false);
+  /** Positions an editor has dragged, which override the computed layout. */
+  const [moved, setMoved] = useState<Record<string, { x: number; y: number }>>({});
+
+  const svgRef = useRef<SVGSVGElement>(null);
+  const sceneRef = useRef<SVGGElement>(null);
+  const dragRef = useRef<{ id: string | null; startX: number; startY: number; movedFar: boolean; originX: number; originY: number } | null>(null);
+
+  /** Client pixels to scene units, so dragging tracks the pointer at any zoom. */
+  const toScene = useCallback((clientX: number, clientY: number) => {
+    const ctm = sceneRef.current?.getScreenCTM();
+    if (!ctm) return { x: clientX, y: clientY };
+    const point = new DOMPoint(clientX, clientY).matrixTransform(ctm.inverse());
+    return { x: point.x, y: point.y };
+  }, []);
+
+  const zoomBy = useCallback((factor: number, originClientX?: number, originClientY?: number) => {
+    const svg = svgRef.current;
+    setView((current) => {
+      const k = Math.min(Math.max(current.k * factor, 0.35), 6);
+      const ratio = k / current.k;
+      if (!svg || originClientX === undefined || originClientY === undefined) {
+        // Buttons zoom about the middle of the visible area.
+        const cx = SIZE / 2, cy = SIZE / 2;
+        return { k, x: cx - (cx - current.x) * ratio, y: cy - (cy - current.y) * ratio };
+      }
+      // Keep whatever sits under the pointer in place while the scale changes.
+      const box = svg.getBoundingClientRect();
+      const px = ((originClientX - box.left) / box.width) * SIZE;
+      const py = ((originClientY - box.top) / box.height) * SIZE;
+      return { k, x: px - (px - current.x) * ratio, y: py - (py - current.y) * ratio };
+    });
+  }, []);
+
+  // React attaches wheel passively, so preventDefault needs a direct listener.
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const onWheel = (event: WheelEvent) => {
+      event.preventDefault();
+      zoomBy(event.deltaY < 0 ? 1.12 : 1 / 1.12, event.clientX, event.clientY);
+    };
+    svg.addEventListener("wheel", onWheel, { passive: false });
+    return () => svg.removeEventListener("wheel", onWheel);
+  }, [zoomBy]);
+
 
   const active = pinned ?? hovered;
 
@@ -123,7 +172,11 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
     return { placed: out, drawnEdges: live };
   }, [nodes, edges, hiddenTypes]);
 
-  const positions = useMemo(() => new Map(placed.map((n) => [n.id, n])), [placed]);
+  const positioned = useMemo(
+    () => placed.map((node) => (moved[node.id] ? { ...node, ...moved[node.id] } : node)),
+    [placed, moved],
+  );
+  const positions = useMemo(() => new Map(positioned.map((n) => [n.id, n])), [positioned]);
 
   const connected = useMemo(() => {
     if (!active) return null;
@@ -137,7 +190,7 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
 
   const activeNode = active ? positions.get(active) : undefined;
   // Big hubs keep a permanent label; everything else is named on demand.
-  const alwaysLabelled = placed.filter((n) => n.isHub && n.r >= 18);
+  const alwaysLabelled = positioned.filter((n) => n.isHub && n.r >= 18);
 
   return (
     <div className="link-graph">
@@ -163,10 +216,61 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
           );
         })}
         {pinned && <button type="button" className="link-graph-clear" onClick={() => setPinned(null)}>Clear selection</button>}
+        <span className="link-graph-zoom">
+          <button type="button" onClick={() => zoomBy(1 / 1.25)} aria-label="Zoom out">−</button>
+          <b>{Math.round(view.k * 100)}%</b>
+          <button type="button" onClick={() => zoomBy(1.25)} aria-label="Zoom in">+</button>
+          <button
+            type="button"
+            onClick={() => { setView({ k: 1, x: 0, y: 0 }); setMoved({}); }}
+            disabled={view.k === 1 && view.x === 0 && view.y === 0 && Object.keys(moved).length === 0}
+          >
+            Reset
+          </button>
+        </span>
       </div>
 
       <div className="link-graph-canvas">
-        <svg viewBox={`0 0 ${SIZE} ${SIZE}`} role="img" aria-label={`Internal link map of ${placed.length} published pages`}>
+        <svg
+          ref={svgRef}
+          viewBox={`0 0 ${SIZE} ${SIZE}`}
+          role="img"
+          aria-label={`Internal link map of ${placed.length} published pages`}
+          className={grabbing ? "grabbing" : ""}
+          onPointerDown={(event) => {
+            // A press that misses a node pans the whole scene.
+            if (dragRef.current) return;
+            dragRef.current = { id: null, startX: event.clientX, startY: event.clientY, movedFar: false, originX: view.x, originY: view.y };
+            setGrabbing(true);
+            event.currentTarget.setPointerCapture(event.pointerId);
+          }}
+          onPointerMove={(event) => {
+            const drag = dragRef.current;
+            if (!drag) return;
+            const dx = event.clientX - drag.startX;
+            const dy = event.clientY - drag.startY;
+            if (!drag.movedFar && Math.hypot(dx, dy) > 4) drag.movedFar = true;
+            if (!drag.movedFar) return;
+            if (drag.id) {
+              const point = toScene(event.clientX, event.clientY);
+              setMoved((current) => ({ ...current, [drag.id!]: { x: point.x, y: point.y } }));
+            } else {
+              const box = event.currentTarget.getBoundingClientRect();
+              const scale = SIZE / box.width;
+              setView((current) => ({ ...current, x: drag.originX + dx * scale, y: drag.originY + dy * scale }));
+            }
+          }}
+          onPointerUp={(event) => {
+            const drag = dragRef.current;
+            dragRef.current = null;
+            setGrabbing(false);
+            if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+            // A press that never travelled is a click, so selection still works.
+            if (drag && drag.id && !drag.movedFar) setPinned((current) => (current === drag.id ? null : drag.id));
+          }}
+          onPointerCancel={() => { dragRef.current = null; setGrabbing(false); }}
+        >
+          <g ref={sceneRef} transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
           <g className="link-graph-edges">
             {drawnEdges.map((edge, index) => {
               const from = positions.get(edge.from);
@@ -184,7 +288,7 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
           </g>
 
           <g>
-            {placed.map((node) => {
+            {positioned.map((node) => {
               const dim = connected ? !connected.has(node.id) : false;
               const isActive = node.id === active;
               return (
@@ -195,7 +299,13 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
                   className={`${dim ? "dim" : ""}${isActive ? " active" : ""}`}
                   onMouseEnter={() => setHovered(node.id)}
                   onMouseLeave={() => setHovered(null)}
-                  onClick={() => setPinned((current) => (current === node.id ? null : node.id))}
+                  onPointerDown={(event) => {
+                    event.stopPropagation();
+                    dragRef.current = { id: node.id, startX: event.clientX, startY: event.clientY, movedFar: false, originX: node.x, originY: node.y };
+                    setGrabbing(true);
+                    const svg = svgRef.current;
+                    if (svg) svg.setPointerCapture(event.pointerId);
+                  }}
                   onFocus={() => setHovered(node.id)}
                   onBlur={() => setHovered(null)}
                   onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setPinned(node.id); } }}
@@ -231,6 +341,7 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
               </g>
             )}
           </g>
+          </g>
         </svg>
 
         <div className="link-graph-readout" aria-live="polite">
@@ -249,7 +360,7 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
             <>
               <span>Map</span>
               <strong>{placed.length} published pages, {drawnEdges.length} editorial links</strong>
-              <p>Hover a page to trace what connects to it, or click to keep it selected. Circle size follows inbound links; pages on the outer edge have none.</p>
+              <p>Hover a page to trace what connects to it, or click to keep it selected. Drag a page to move it, drag the background to pan, and scroll to zoom. Circle size follows inbound links.</p>
             </>
           )}
         </div>
