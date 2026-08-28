@@ -6,12 +6,14 @@ import type { GraphEdge, GraphNode } from "@/lib/link-graph";
 const typeLabels: Record<string, string> = {
   plant: "Plants", problem: "Problems", guide: "Guides", calendar: "Calendars",
   review: "Reviews", article: "Articles", page: "Pages", tool: "Tools",
+  section: "Section pages",
 };
 
 /** Distinct hues that hold up against the panel background. */
 const typeColours: Record<string, string> = {
   plant: "#2f7d52", problem: "#a45132", guide: "#6f5733", calendar: "#7a6a2f",
   review: "#8a4a35", article: "#2f6272", page: "#5b6b61", tool: "#4a6d8a",
+  section: "#173126",
 };
 
 const SIZE = 1200;
@@ -281,7 +283,7 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
                 <line
                   key={index}
                   x1={from.x} y1={from.y} x2={to.x} y2={to.y}
-                  className={`${edge.kind === "gear" ? "gear" : "plain"}${dim ? " dim" : ""}`}
+                  className={`${edge.kind === "gear" ? "gear" : edge.kind === "listing" ? "listing" : "plain"}${dim ? " dim" : ""}`}
                 />
               );
             })}

@@ -2003,3 +2003,8 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 .link-graph-zoom button:hover:not(:disabled) { border-color: var(--forest); color: var(--forest); }
 .link-graph-zoom button:disabled { opacity: .4; cursor: default; }
 .link-graph-zoom b { min-width: 44px; color: var(--muted); font-size: .66rem; text-align: center; }
+
+/* A listing link is automatic — a library pointing at what it indexes — so it
+   sits behind the editorial links rather than competing with them. */
+.link-graph-edges line.listing { stroke: #cfd9d2; opacity: .3; }
+.link-graph-edges line.listing.dim { opacity: .04; }

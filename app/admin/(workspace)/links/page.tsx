@@ -10,8 +10,10 @@ export default async function InternalLinksPage() {
   const { nodes, edges, orphans } = await getLinkGraph();
 
   const gearEdges = edges.filter((edge) => edge.kind === "gear").length;
+  const editorialEdges = edges.filter((edge) => edge.kind !== "listing").length;
+  const contentPages = nodes.filter((node) => node.type !== "section").length;
   const reviews = nodes.filter((node) => node.type === "review");
-  const reviewsWithoutInbound = reviews.filter((review) => review.inbound === 0);
+  const reviewsWithoutInbound = reviews.filter((review) => review.editorialInbound === 0);
 
   return (
     <main id="main-content">
@@ -27,7 +29,7 @@ export default async function InternalLinksPage() {
         <article className="kpi-card">
           <div className="kpi-head"><span className="kpi-label">Published pages</span></div>
           <strong className="kpi-value">{nodes.length}</strong>
-          <span className="kpi-breakdown">{edges.length} editorial links between them</span>
+          <span className="kpi-breakdown">{contentPages} content pages and {nodes.length - contentPages} section pages, {editorialEdges} editorial links</span>
         </article>
         <article className="kpi-card">
           <div className="kpi-head"><span className="kpi-label">Links to reviews</span></div>
@@ -42,7 +44,7 @@ export default async function InternalLinksPage() {
         <article className="kpi-card">
           <div className="kpi-head"><span className="kpi-label">Pages nothing links to</span></div>
           <strong className="kpi-value">{orphans.length}</strong>
-          <span className="kpi-breakdown">Reachable only through the menu and the sitemap</span>
+          <span className="kpi-breakdown">Indexed by a listing, pointed at by no other page</span>
         </article>
       </section>
 
@@ -65,8 +67,8 @@ export default async function InternalLinksPage() {
             </div>
           </div>
           <p className="orphan-note">
-            These are reachable through the menu and the sitemap, which is enough to be indexed but not enough to be
-            recommended. Linking to them from a related page is the cheapest improvement available here.
+            Their library page lists them, so they are indexed — but no other page recommends them. Linking to them
+            from a related page is the cheapest improvement available here.
           </p>
           <ul className="orphan-list">
             {orphans.slice(0, 24).map((node) => (
