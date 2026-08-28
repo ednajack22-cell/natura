@@ -183,11 +183,9 @@ export async function updateContent(contentId: string, formData: FormData) {
   // A single-product review has exactly one product; comparisons need at least two.
   const minimumProducts = result.data.reviewType === "single" ? 1 : 2;
   const reviewReady = existing.content_type !== "review" || Boolean(result.data.reviewMethodology.length >= 80 && result.data.reviewDisclosureText.length >= 20 && result.data.reviewVerdict.length >= 40 && result.data.reviewCriteria.length >= 3 && result.data.reviewProducts.length >= minimumProducts && result.data.reviewCriteria.every((criterion) => criterion.name.length >= 2 && criterion.description.length >= 20) && result.data.reviewCriteria.reduce((sum, criterion) => sum + criterion.weight, 0) === 100 && result.data.reviewProducts.every((product) => product.name.length >= 2 && parseLines(product.pros).length && parseLines(product.cons).length && product.verdictLabel && product.scores.length === result.data.reviewCriteria.length));
-  const articleReady = existing.content_type !== "article" || Boolean(
-    result.data.articleEyebrow
-    && result.data.articleTakeaways.filter((item) => item.length >= 12).length >= 2
-    && result.data.articleSections.filter((section) => section.heading.length >= 3 && section.body.length >= 200).length >= 3
-  );
+  // Articles publish at the editor decision. Completeness is a judgement the
+  // desk makes, not a threshold the code enforces.
+  const articleReady = true;
   const isInstitutionalPage = existing.content_type === "page" && result.data.publicSection === "institutional";
   const pageReady = !isInstitutionalPage || Boolean(result.data.pageEyebrow && result.data.pageLastReviewedOn && !result.data.pageRequiresLegalReview && result.data.pageSections.length >= 2 && result.data.pageSections.every((section) => section.heading.length >= 3 && section.body.length >= 80) && (result.data.pageKind !== "contact" || result.data.pageContactEmail));
   const typeProfileReady = plantReady && problemReady && guideReady && calendarReady && reviewReady && pageReady && articleReady;

@@ -150,13 +150,8 @@ export default async function ContentEditorPage({ params, searchParams }: { para
     keyTakeaways: articleTakeaways,
     sections: articleSections,
   } : undefined;
-  // Mirrors the server rule in the edit action, so the SEO panel and the publish
-  // button agree about whether the article is finished.
-  const articleReady = !articleProfile || Boolean(
-    articleProfile.eyebrow
-    && articleProfile.keyTakeaways.filter((item) => item.length >= 12).length >= 2
-    && articleProfile.sections.filter((entry) => entry.heading.length >= 3 && entry.body.length >= 200).length >= 3
-  );
+  // Articles are not gated on completeness; the SEO panel still reports on them.
+  const articleReady = true;
   const institutionalProfile = item.content_type === "page" && section === "institutional" ? {
     pageKind: storedInstitutionalProfile?.page_kind ?? "about", eyebrow: storedInstitutionalProfile?.eyebrow ?? "Natura trust centre",
     notice: storedInstitutionalProfile?.notice ?? "", contactEmail: storedInstitutionalProfile?.contact_email ?? "",
