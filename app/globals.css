@@ -1940,3 +1940,53 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
   color: var(--clay) !important;
 }
 .link-graph-readout > small { color: var(--muted); font-size: .66rem; }
+
+/* ---------------------------------------------------------------------------
+   Command palette
+   --------------------------------------------------------------------------- */
+
+.palette-backdrop {
+  position: fixed; inset: 0; z-index: 200;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 12vh 1rem 1rem;
+  background: rgba(12, 28, 20, .45);
+  backdrop-filter: blur(3px);
+}
+.palette {
+  width: min(560px, 100%);
+  overflow: hidden;
+  border: 1px solid #d9e1db;
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 30px 80px rgba(12, 34, 24, .3);
+}
+.palette input {
+  width: 100%; padding: 1.05rem 1.2rem;
+  border: 0; border-bottom: 1px solid #eaefeb;
+  font-size: .92rem; outline: none;
+}
+.palette ul { margin: 0; padding: .4rem; list-style: none; max-height: 46vh; overflow-y: auto; }
+.palette li {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1rem;
+  padding: .6rem .8rem; border-radius: .55rem; cursor: pointer;
+}
+.palette li.active { background: var(--sage-light); }
+.palette li span { font-size: .82rem; font-weight: 700; }
+.palette li small { color: var(--muted); font-size: .64rem; white-space: nowrap; }
+.palette-empty { margin: 0; padding: 1.4rem 1.2rem; color: var(--muted); font-size: .8rem; }
+.palette footer { display: flex; gap: 1rem; padding: .6rem 1.2rem; border-top: 1px solid #eaefeb; background: #fbfcfa; }
+.palette footer span { display: inline-flex; align-items: center; gap: .3rem; color: var(--muted); font-size: .62rem; }
+.palette kbd {
+  padding: .1rem .32rem; border: 1px solid #dde4df; border-radius: .28rem;
+  background: white; font: 700 .6rem ui-monospace, monospace;
+}
+
+.dashboard-header-actions { display: flex; align-items: center; gap: .6rem; }
+.dashboard-secondary-action {
+  display: inline-flex; align-items: center; min-height: 42px;
+  padding: .6rem 1rem; border: 1px solid #cfdad3; border-radius: 999px;
+  color: var(--forest); background: white;
+  font-size: .72rem; font-weight: 850;
+  transition: border-color .2s ease, background .2s ease;
+}
+.dashboard-secondary-action:hover { border-color: var(--forest); background: var(--sage-light); }
