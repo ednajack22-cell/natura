@@ -1891,10 +1891,10 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 .link-graph-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 1.25rem; align-items: start; }
 .link-graph-canvas svg { width: 100%; height: auto; background: #fbfcfa; border: 1px solid #e7ebe8; border-radius: 1rem; }
 
-.link-graph-edges path { fill: none; stroke-width: 1; transition: opacity .18s ease; }
-.link-graph-edges path.plain { stroke: #b9c7bd; opacity: .55; }
-.link-graph-edges path.gear { stroke: var(--clay); stroke-width: 1.6; opacity: .8; }
-.link-graph-edges path.dim { opacity: .07; }
+.link-graph-edges line { stroke-width: 1; transition: opacity .18s ease; }
+.link-graph-edges line.plain { stroke: #b9c7bd; opacity: .5; }
+.link-graph-edges line.gear { stroke: var(--clay); stroke-width: 1.6; opacity: .85; }
+.link-graph-edges line.dim { opacity: .06; }
 
 .link-graph-canvas circle { cursor: pointer; transition: opacity .18s ease, r .18s ease; }
 .link-graph-canvas circle:hover, .link-graph-canvas circle:focus-visible { stroke: var(--ink); stroke-width: 2; }
@@ -1917,3 +1917,26 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 
 @media (max-width: 1100px) { .link-graph-canvas { grid-template-columns: 1fr; } .link-graph-readout { position: static; } }
 @media (max-width: 700px) { .orphan-list { grid-template-columns: 1fr; } }
+
+/* Names on the map */
+.link-graph-labels { pointer-events: none; }
+.link-graph-labels .hub-label {
+  fill: white;
+  font: 800 10px/1 Inter, ui-sans-serif, system-ui, sans-serif;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: rgba(0, 0, 0, .35);
+  stroke-width: 2.5px;
+}
+.link-graph-labels .floating-label rect { fill: var(--ink); opacity: .94; }
+.link-graph-labels .floating-label text {
+  fill: white;
+  font: 750 12px/1 Inter, ui-sans-serif, system-ui, sans-serif;
+  text-anchor: middle;
+}
+.link-graph-canvas circle.active { stroke: var(--ink); stroke-width: 2.5; }
+.link-graph-clear {
+  border-color: var(--clay) !important;
+  color: var(--clay) !important;
+}
+.link-graph-readout > small { color: var(--muted); font-size: .66rem; }
