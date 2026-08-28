@@ -21,6 +21,7 @@ export function AdminNavigation({ contentCount }: { contentCount: number }) {
       { label: "Publishing calendar", href: "/admin/calendar", icon: CalendarIcon },
       { label: "Media library", href: "/admin/media", icon: MediaIcon },
       { label: "SEO health", href: "/admin/seo", icon: SearchSmallIcon },
+      { label: "Internal links", href: "/admin/links", icon: SearchSmallIcon },
     ] },
     { label: "More", items: [
       { label: "Plant profiles", href: "/admin/plants", icon: PlantIcon },

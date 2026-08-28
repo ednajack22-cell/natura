@@ -16,7 +16,7 @@ const updateSchema = z.object({
   seoDescription: z.string().trim().max(180),
   focusKeyword: z.string().trim().max(120), supportingKeywords: z.string().trim().max(800),
   searchIntent: z.enum(["", "informational", "how-to", "comparison", "transactional", "navigational"]),
-  publicSection: z.enum(["grow", "small-space-gardening", "plant-care", "planting-calendar", "tools", "reviews", "institutional"]),
+  publicSection: z.enum(["grow", "small-space-gardening", "plant-care", "planting-calendar", "tools", "reviews", "learn", "institutional"]),
   subsection: z.string().trim().max(80),
   sources: z.string().trim().max(5000),
   botanicalName: z.string().trim().max(180), plantCategory: z.string().trim().max(80),

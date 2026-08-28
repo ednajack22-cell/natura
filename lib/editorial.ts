@@ -24,6 +24,7 @@ export const publicSectionLabels: Record<string, string> = {
   "planting-calendar": "Planting Calendar",
   tools: "Tools",
   reviews: "Reviews",
+  learn: "Learn",
   institutional: "Institutional pages",
 };
 

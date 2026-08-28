@@ -92,6 +92,19 @@ export const editorialTaxonomy: readonly NavigationItem[] = [
     ],
   },
   {
+    label: "Learn",
+    href: "/learn",
+    description: "Explanatory writing that is not tied to one plant.",
+    children: [
+      { label: "Getting started", href: "/learn#beginners", description: "The groundwork, explained without jargon." },
+      { label: "How plants work", href: "/learn#growing-science", description: "What happens inside the plant, and why it matters." },
+      { label: "Through the year", href: "/learn#seasonal", description: "How conditions change, and what changes with them." },
+      { label: "Working with your space", href: "/learn#spaces", description: "Light, weight, wind, and the limits of a small space." },
+      { label: "Soil and materials", href: "/learn#materials", description: "What things are made of, and what that means." },
+      { label: "Growing responsibly", href: "/learn#sustainability", description: "Water, waste, peat, and what the evidence supports." },
+    ],
+  },
+  {
     label: "Reviews",
     href: "/reviews",
     description: "Transparent comparisons with clear criteria.",
@@ -187,6 +200,8 @@ export const navigation: readonly NavigationItem[] = [
 export const editorialSections = [...editorialTaxonomy.map((item) => ({
   value: item.href.slice(1),
   label: item.label,
+  /** Where content filed here appears publicly. */
+  path: item.href,
   children: item.children.map((child) => ({
     value: child.href.includes("#") ? child.href.split("#")[1] : child.label.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-").replaceAll(/(^-|-$)/g, ""),
     label: child.label,
@@ -194,6 +209,8 @@ export const editorialSections = [...editorialTaxonomy.map((item) => ({
 })), {
   value: "institutional",
   label: "Institutional pages",
+  // Institutional pages render at the site root, one path per page.
+  path: "/",
   children: [
     { value: "about", label: "About Natura" },
     { value: "editorial-policy", label: "Editorial policy" },

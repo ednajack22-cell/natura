@@ -1868,3 +1868,52 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 /* Editor */
 .gear-link-editor { display: grid; gap: .7rem; }
 .gear-link-editor article { display: grid; gap: .55rem; padding: 1rem; border: 1px solid #e2e7e3; border-radius: .7rem; background: #fbfcfa; }
+
+/* ---------------------------------------------------------------------------
+   Internal link map
+   Positions are computed, not simulated: the same site draws the same shape on
+   every visit, so a change reads as a change rather than a redraw.
+   --------------------------------------------------------------------------- */
+
+.link-graph { display: grid; gap: 1rem; }
+
+.link-graph-legend { display: flex; flex-wrap: wrap; gap: .45rem; }
+.link-graph-legend button {
+  display: inline-flex; align-items: center; gap: .45rem;
+  padding: .4rem .7rem; border: 1px solid #dfe5e0; border-radius: 999px;
+  background: white; color: var(--ink-soft); font-size: .68rem; font-weight: 800; cursor: pointer;
+  transition: opacity .18s ease, border-color .18s ease;
+}
+.link-graph-legend button.off { opacity: .42; border-style: dashed; }
+.link-graph-legend i { width: 9px; height: 9px; border-radius: 50%; }
+.link-graph-legend small { color: var(--muted); font-size: .62rem; }
+
+.link-graph-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 1.25rem; align-items: start; }
+.link-graph-canvas svg { width: 100%; height: auto; background: #fbfcfa; border: 1px solid #e7ebe8; border-radius: 1rem; }
+
+.link-graph-edges path { fill: none; stroke-width: 1; transition: opacity .18s ease; }
+.link-graph-edges path.plain { stroke: #b9c7bd; opacity: .55; }
+.link-graph-edges path.gear { stroke: var(--clay); stroke-width: 1.6; opacity: .8; }
+.link-graph-edges path.dim { opacity: .07; }
+
+.link-graph-canvas circle { cursor: pointer; transition: opacity .18s ease, r .18s ease; }
+.link-graph-canvas circle:hover, .link-graph-canvas circle:focus-visible { stroke: var(--ink); stroke-width: 2; }
+.link-graph-canvas circle.dim { opacity: .18; }
+
+.link-graph-readout { position: sticky; top: 1rem; display: grid; gap: .4rem; padding: 1.1rem; border: 1px solid #e7ebe8; border-radius: 1rem; background: white; }
+.link-graph-readout > span { font-size: .6rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+.link-graph-readout strong { font: 700 1rem/1.35 Georgia, serif; }
+.link-graph-readout p { margin: 0; color: var(--ink-soft); font-size: .72rem; line-height: 1.55; }
+.link-graph-readout dl { display: flex; gap: 1.25rem; margin: .4rem 0 0; }
+.link-graph-readout dt { color: var(--muted); font-size: .6rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
+.link-graph-readout dd { margin: .15rem 0 0; font: 700 1.2rem Georgia, serif; }
+.link-graph-readout a { color: var(--forest); font-size: .7rem; font-weight: 800; text-decoration: underline; text-underline-offset: 2px; word-break: break-all; }
+
+.orphan-note { color: var(--ink-soft); font-size: .78rem; line-height: 1.6; }
+.orphan-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.orphan-list li { display: flex; align-items: baseline; justify-content: space-between; gap: .75rem; padding: .6rem .8rem; border: 1px solid #e9ede9; border-radius: .6rem; background: #fbfcfa; }
+.orphan-list a { font-size: .76rem; font-weight: 750; }
+.orphan-list code { color: var(--muted); font-size: .64rem; }
+
+@media (max-width: 1100px) { .link-graph-canvas { grid-template-columns: 1fr; } .link-graph-readout { position: static; } }
+@media (max-width: 700px) { .orphan-list { grid-template-columns: 1fr; } }
