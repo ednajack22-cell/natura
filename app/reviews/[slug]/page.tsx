@@ -266,6 +266,8 @@ export default async function ReviewDetailPage({ params }: { params: Promise<{ s
             ))}
           </section>
 
+          <AdSlot placement="inline" label="After the detailed findings" />
+
           <section className="review-method">
             <p className="eyebrow">Method</p>
             <h2>How we assessed the options.</h2>

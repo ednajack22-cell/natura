@@ -1,8 +1,19 @@
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { AdSenseScript } from "@/components/adsense-script";
 import "./globals.css";
+
+/**
+ * The stylesheet has always asked for Inter, but nothing ever loaded it: no
+ * next/font, no @font-face, no stylesheet link. Most visitors were served the
+ * system fallback instead of the typeface the design was built around.
+ *
+ * next/font self-hosts the files at build time, so there is no third-party
+ * request and no extra round-trip, and "swap" keeps text visible while it loads.
+ */
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
@@ -30,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth antialiased" data-scroll-behavior="smooth" suppressHydrationWarning>
+    <html lang="en" className={`${inter.variable} h-full scroll-smooth antialiased`} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className="min-h-full" suppressHydrationWarning>
         <a className="skip-link" href="#main-content">Skip to content</a>
         <SiteHeader />

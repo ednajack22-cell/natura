@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { CalendarIcon, ChevronIcon, ContentIcon, TrendIcon } from "@/components/admin/admin-icons";
+import { DashboardKpiRow, type Kpi } from "@/components/admin/dashboard-kpi-row";
 import { MonetizationPanel } from "@/components/admin/monetization-panel";
 import { requireAdmin } from "@/lib/auth";
 
@@ -55,6 +56,33 @@ export default async function AdminOverviewPage() {
   const liveReviewProducts = (reviewProductResponse.data ?? []).filter((product) => publishedReviewIds.has(product.review_content_id));
   const productsMissingLinks = liveReviewProducts.filter((product) => !product.product_url).length;
 
+  // Headline metrics. A delta needs a preceding period to compare against, so
+  // it is omitted rather than invented when the earlier window is empty.
+  const dayMs = 24 * 60 * 60 * 1000;
+  const publishedSince = (from: number, to: number) => content.filter((item) =>
+    item.published_at && new Date(item.published_at).getTime() >= from && new Date(item.published_at).getTime() < to).length;
+  const recentPublished = publishedSince(now - 30 * dayMs, now);
+  const priorPublished = publishedSince(now - 60 * dayMs, now - 30 * dayMs);
+  const publishedDelta = priorPublished > 0 ? Math.round(((recentPublished - priorPublished) / priorPublished) * 100) : undefined;
+
+  const scored = audit.filter((item) => typeof item.seo_score === "number");
+  const averageSeo = scored.length ? Math.round(scored.reduce((sum, item) => sum + item.seo_score, 0) / scored.length) : 0;
+  const linkedProducts = liveReviewProducts.length - productsMissingLinks;
+  const linkedPercent = liveReviewProducts.length ? Math.round((linkedProducts / liveReviewProducts.length) * 100) : 0;
+
+  const kpis: Kpi[] = [
+    { label: "Published", value: String(published), deltaPercent: publishedDelta, period: "vs previous 30 days",
+      breakdown: `${recentPublished} in the last 30 days`, href: "/admin/content?status=published" },
+    { label: "Average SEO score", value: String(averageSeo),
+      breakdown: seoNeedsWork ? `${seoNeedsWork} page${seoNeedsWork === 1 ? "" : "s"} below 75` : "All published pages at 75 or above",
+      href: "/admin/seo" },
+    { label: "Awaiting a decision", value: String(review + dueNow), lowerIsBetter: true,
+      breakdown: `${review} in review · ${dueNow} scheduled and due`, href: "/admin/content?status=review" },
+    { label: "Products linked", value: `${linkedPercent}%`,
+      breakdown: productsMissingLinks ? `${productsMissingLinks} earning nothing` : "Every product has an outgoing link",
+      href: "/admin/content?type=review" },
+  ];
+
   const priorityTasks: Array<{ label: string; title: string; href: string; tone: string }> = [];
   if (dueNow) priorityTasks.push({ label: "Due now", title: `${dueNow} scheduled item${dueNow === 1 ? "" : "s"} ready to evaluate`, href: "/admin/calendar", tone: "clay" });
   if (review) priorityTasks.push({ label: "Editorial review", title: `${review} item${review === 1 ? "" : "s"} waiting for a decision`, href: "/admin/content?status=review", tone: "blue" });
@@ -66,6 +94,7 @@ export default async function AdminOverviewPage() {
     <header className="dashboard-page-header">
       <div><p className="dashboard-kicker">{today}</p><h1>Welcome back, {firstName}.</h1><p>Start with today’s priorities, then monitor the wider editorial programme.</p></div>
     </header>
+    <DashboardKpiRow items={kpis} />
 
     <section className="dashboard-kpi-grid" aria-label="Editorial key figures">
       <article><span className="kpi-icon blue"><TrendIcon /></span><div><p>Published</p><strong>{published}</strong><small>Visible to readers</small></div><em>{Math.round((published / pipelineMax) * 100)}%</em></article>

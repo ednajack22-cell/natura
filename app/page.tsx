@@ -60,7 +60,7 @@ export default async function Home() {
               src="/images/natura-balcony-hero.jpg"
               alt="A thriving edible balcony garden in warm morning light"
               fill
-              preload
+              priority
               sizes="(max-width: 980px) 100vw, 52vw"
             />
             <div className="hero-media-shade" />

@@ -92,6 +92,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
       <ArticleByline meta={editorialMeta} />
 
+      <div className="site-container">
+        <AdSlot placement="leaderboard" label="Before the article body" />
+      </div>
+
       <section className="section site-container article-layout">
         <div className="article-main">
           {article.keyTakeaways.length > 0 && (
@@ -112,6 +116,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
               {index === 1 && <AdSlot placement="inline" label="After the second section of an article" />}
             </section>
           ))}
+
+          <AdSlot placement="inline" label="After the article body" />
 
           {article.sources.length > 0 && (
             <section className="article-sources public-source-list">
