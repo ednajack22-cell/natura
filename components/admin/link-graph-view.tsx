@@ -5,90 +5,45 @@ import type { GraphEdge, GraphNode } from "@/lib/link-graph";
 
 const typeLabels: Record<string, string> = {
   plant: "Plants", problem: "Problems", guide: "Guides", calendar: "Calendars",
-  review: "Reviews", article: "Articles", page: "Pages", tool: "Tools",
-  section: "Section pages",
+  review: "Reviews", article: "Articles", page: "Pages", tool: "Tools", section: "Section pages",
 };
 
-/** Distinct hues that hold up against the panel background. */
 const typeColours: Record<string, string> = {
   plant: "#2f7d52", problem: "#a45132", guide: "#6f5733", calendar: "#7a6a2f",
-  review: "#8a4a35", article: "#2f6272", page: "#5b6b61", tool: "#4a6d8a",
-  section: "#173126",
+  review: "#8a4a35", article: "#2f6272", page: "#5b6b61", tool: "#4a6d8a", section: "#173126",
 };
 
-const SIZE = 1200;
-const CENTRE = SIZE / 2;
-/** Golden angle. Successive items never line up, which is what stops a spiral reading as a ring. */
-const GOLDEN_ANGLE = Math.PI * (3 - Math.sqrt(5));
+const WIDTH = 900;
+const DOT_X = 470;          // every page sits on one vertical line
+const GROUP_GAP = 22;
+const HEADER_HEIGHT = 34;
+const ROW_HEIGHT = 24;
 
-type Placed = GraphNode & { x: number; y: number; r: number; isHub: boolean };
+type Row = GraphNode & { x: number; y: number; r: number; isHeader: boolean };
 
 /**
- * The site drawn as clusters: each page that is linked to becomes a hub, with
- * the pages linking to it arranged around it.
+ * The site as a tree, with editorial links drawn over it.
  *
- * The arrangement is computed, not simulated. A force layout needs a dependency
- * and settles somewhere different on every visit, which makes it useless for
- * noticing that something changed; here the same site always draws the same
- * shape, so a difference reads as a difference. Hubs are ordered by how many
- * pages point at them, so the picture is stable as content grows.
+ * The previous drawing placed every page on a spiral and joined them with lines,
+ * which produced 2104 crossings over 144 edges — unreadable whatever the colours.
+ * Most of those lines carried no information: 70 of them ran from a library to
+ * something it lists, and that relationship is containment, which position shows
+ * without drawing anything at all.
  *
- * Radius follows inbound links, which is the question the view exists to answer:
- * which pages is the site actually pointing at.
+ * So listing links became indentation, and only the 74 editorial links are drawn.
+ * They arc through a gutter beside the column, which is legible because every
+ * page sits on one vertical line and an arc can only ever bulge one way.
  */
 export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: GraphEdge[] }) {
   const [hovered, setHovered] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
   const [hiddenTypes, setHiddenTypes] = useState<Set<string>>(new Set());
-  /** Pan and zoom, applied as one transform rather than by rewriting the viewBox. */
   const [view, setView] = useState({ k: 1, x: 0, y: 0 });
-  /** Drives the cursor. The drag itself lives in a ref, which render must not read. */
   const [grabbing, setGrabbing] = useState(false);
-  /** Positions an editor has dragged, which override the computed layout. */
-  const [moved, setMoved] = useState<Record<string, { x: number; y: number }>>({});
 
   const svgRef = useRef<SVGSVGElement>(null);
   const sceneRef = useRef<SVGGElement>(null);
-  const dragRef = useRef<{ id: string | null; startX: number; startY: number; movedFar: boolean; originX: number; originY: number } | null>(null);
-
-  /** Client pixels to scene units, so dragging tracks the pointer at any zoom. */
-  const toScene = useCallback((clientX: number, clientY: number) => {
-    const ctm = sceneRef.current?.getScreenCTM();
-    if (!ctm) return { x: clientX, y: clientY };
-    const point = new DOMPoint(clientX, clientY).matrixTransform(ctm.inverse());
-    return { x: point.x, y: point.y };
-  }, []);
-
-  const zoomBy = useCallback((factor: number, originClientX?: number, originClientY?: number) => {
-    const svg = svgRef.current;
-    setView((current) => {
-      const k = Math.min(Math.max(current.k * factor, 0.35), 6);
-      const ratio = k / current.k;
-      if (!svg || originClientX === undefined || originClientY === undefined) {
-        // Buttons zoom about the middle of the visible area.
-        const cx = SIZE / 2, cy = SIZE / 2;
-        return { k, x: cx - (cx - current.x) * ratio, y: cy - (cy - current.y) * ratio };
-      }
-      // Keep whatever sits under the pointer in place while the scale changes.
-      const box = svg.getBoundingClientRect();
-      const px = ((originClientX - box.left) / box.width) * SIZE;
-      const py = ((originClientY - box.top) / box.height) * SIZE;
-      return { k, x: px - (px - current.x) * ratio, y: py - (py - current.y) * ratio };
-    });
-  }, []);
-
-  // React attaches wheel passively, so preventDefault needs a direct listener.
-  useEffect(() => {
-    const svg = svgRef.current;
-    if (!svg) return;
-    const onWheel = (event: WheelEvent) => {
-      event.preventDefault();
-      zoomBy(event.deltaY < 0 ? 1.12 : 1 / 1.12, event.clientX, event.clientY);
-    };
-    svg.addEventListener("wheel", onWheel, { passive: false });
-    return () => svg.removeEventListener("wheel", onWheel);
-  }, [zoomBy]);
-
+  const dragRef = useRef<{ startX: number; startY: number; movedFar: boolean; originX: number; originY: number; id: string | null } | null>(null);
 
   const active = pinned ?? hovered;
 
@@ -97,114 +52,119 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
     [nodes],
   );
 
-  const { placed, drawnEdges } = useMemo(() => {
+  const { rows, arcs, height } = useMemo(() => {
     const visible = nodes.filter((n) => !hiddenTypes.has(n.type));
     const byId = new Map(visible.map((n) => [n.id, n]));
-    const live = edges.filter((e) => byId.has(e.from) && byId.has(e.to));
 
-    // A hub is any page something points at. Its satellites are the pages that
-    // point at it; a page pointing at several hubs is drawn beside the first,
-    // sorted so the choice never changes between visits.
-    const hubIds = [...new Set(live.map((e) => e.to))]
-      .sort((a, b) => (byId.get(b)!.inbound - byId.get(a)!.inbound) || a.localeCompare(b));
-
-    const claimed = new Set(hubIds);
-    const satellites = new Map<string, string[]>(hubIds.map((id) => [id, []]));
-    for (const edge of [...live].sort((a, b) => a.from.localeCompare(b.from))) {
-      if (claimed.has(edge.from)) continue;
-      claimed.add(edge.from);
-      satellites.get(edge.to)!.push(edge.from);
+    // Listing links describe containment, so they build the tree instead of
+    // being drawn: a page appears under the library that lists it.
+    const childrenOf = new Map<string, string[]>();
+    const hasParent = new Set<string>();
+    for (const edge of edges) {
+      if (edge.kind !== "listing") continue;
+      if (!byId.has(edge.from) || !byId.has(edge.to)) continue;
+      if (hasParent.has(edge.to)) continue;
+      hasParent.add(edge.to);
+      const list = childrenOf.get(edge.from) ?? [];
+      list.push(edge.to);
+      childrenOf.set(edge.from, list);
     }
 
-    const loose = visible
-      .filter((n) => !claimed.has(n.id))
-      .sort((a, b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title));
+    const sections = visible
+      .filter((n) => n.type === "section")
+      .sort((a, b) => (childrenOf.get(b.id)?.length ?? 0) - (childrenOf.get(a.id)?.length ?? 0) || a.title.localeCompare(b.title));
 
-    const out: Placed[] = [];
+    const placedRows: Row[] = [];
+    let y = 28;
 
-    const hubRadius = (n: GraphNode) => Math.min(11 + n.inbound * 1.7, 32);
-    const ringFor = (n: GraphNode, kids: number) => hubRadius(n) + 26 + Math.min(kids * 2.2, 34);
-
-    // The largest cluster sits at the centre and the rest spiral outward on the
-    // golden angle, which is what gives the picture its scattered look: no two
-    // clusters share a radius, and none line up on an axis.
-    const first = hubIds[0] ? byId.get(hubIds[0])! : undefined;
-    const innerHole = first ? ringFor(first, satellites.get(first.id)!.length) + 74 : 150;
-    const clusterStep = 96;
-
-    hubIds.forEach((hubId, index) => {
-      const hub = byId.get(hubId)!;
-      const kids = satellites.get(hubId)!;
-      const angle = index * GOLDEN_ANGLE;
-      const distance = index === 0 ? 0 : innerHole + clusterStep * Math.sqrt(index);
-      const hx = CENTRE + Math.cos(angle) * distance;
-      const hy = CENTRE + Math.sin(angle) * distance;
-      out.push({ ...hub, x: hx, y: hy, r: hubRadius(hub), isHub: true });
-
-      // Satellites make a full burst around their hub, as a radial cluster.
-      const ring = ringFor(hub, kids.length);
-      kids.forEach((childId, childIndex) => {
-        const childAngle = angle + (childIndex / Math.max(kids.length, 1)) * Math.PI * 2;
-        out.push({
-          ...byId.get(childId)!,
-          x: hx + Math.cos(childAngle) * ring,
-          y: hy + Math.sin(childAngle) * ring,
-          r: 5,
-          isHub: false,
+    const pushGroup = (header: GraphNode | null, members: GraphNode[], label?: string) => {
+      if (!members.length && !header) return;
+      if (header) {
+        placedRows.push({ ...header, x: DOT_X, y, r: 7, isHeader: true });
+      } else if (label) {
+        placedRows.push({
+          id: `label:${label}`, slug: "", title: label, type: "section", status: "published", path: "",
+          inbound: 0, outbound: 0, editorialInbound: 0, x: DOT_X, y, r: 0, isHeader: true,
         });
-      });
-    });
+      }
+      y += HEADER_HEIGHT;
+      for (const member of members) {
+        placedRows.push({ ...member, x: DOT_X, y, r: 5, isHeader: false });
+        y += ROW_HEIGHT;
+      }
+      y += GROUP_GAP;
+    };
 
-    // Pages nothing links to are scattered through the gaps rather than lined up
-    // on one radius, so they read as isolated pages rather than as a border.
-    const looseInner = innerHole * 0.9;
-    const looseSpan = CENTRE - 34 - looseInner;
-    loose.forEach((node, index) => {
-      const angle = (index + hubIds.length) * GOLDEN_ANGLE + GOLDEN_ANGLE / 2;
-      const distance = looseInner + looseSpan * Math.pow((index + 0.5) / Math.max(loose.length, 1), 0.62);
-      out.push({
-        ...node,
-        x: CENTRE + Math.cos(angle) * distance,
-        y: CENTRE + Math.sin(angle) * distance,
-        r: 4.5,
-        isHub: false,
-      });
-    });
+    const shown = new Set<string>();
+    for (const section of sections) {
+      const members = (childrenOf.get(section.id) ?? [])
+        .map((id) => byId.get(id))
+        .filter((n): n is GraphNode => Boolean(n) && n!.type !== "section")
+        .sort((a, b) => b.editorialInbound - a.editorialInbound || a.title.localeCompare(b.title));
+      shown.add(section.id);
+      members.forEach((m) => shown.add(m.id));
+      pushGroup(section, members);
+    }
 
-    return { placed: out, drawnEdges: live };
+    const leftovers = visible.filter((n) => !shown.has(n.id)).sort((a, b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title));
+    if (leftovers.length) pushGroup(null, leftovers, "Not listed anywhere");
+
+    const rowById = new Map(placedRows.map((r) => [r.id, r]));
+    const drawn = edges
+      .filter((e) => e.kind !== "listing" && rowById.has(e.from) && rowById.has(e.to))
+      .map((e) => ({ ...e, a: rowById.get(e.from)!, b: rowById.get(e.to)! }));
+
+    return { rows: placedRows, arcs: drawn, height: y + 20 };
   }, [nodes, edges, hiddenTypes]);
-
-  const positioned = useMemo(
-    () => placed.map((node) => (moved[node.id] ? { ...node, ...moved[node.id] } : node)),
-    [placed, moved],
-  );
-  const positions = useMemo(() => new Map(positioned.map((n) => [n.id, n])), [positioned]);
 
   const connected = useMemo(() => {
     if (!active) return null;
     const set = new Set<string>([active]);
-    for (const edge of drawnEdges) {
-      if (edge.from === active) set.add(edge.to);
-      if (edge.to === active) set.add(edge.from);
+    for (const arc of arcs) {
+      if (arc.from === active) set.add(arc.to);
+      if (arc.to === active) set.add(arc.from);
     }
     return set;
-  }, [active, drawnEdges]);
+  }, [active, arcs]);
 
-  const activeNode = active ? positions.get(active) : undefined;
-  // Big hubs keep a permanent label; everything else is named on demand.
-  const alwaysLabelled = positioned.filter((n) => n.isHub && n.r >= 18);
+  const activeRow = active ? rows.find((r) => r.id === active) : undefined;
+
+  const zoomBy = useCallback((factor: number, clientX?: number, clientY?: number) => {
+    const svg = svgRef.current;
+    setView((current) => {
+      const k = Math.min(Math.max(current.k * factor, 0.35), 4);
+      const ratio = k / current.k;
+      if (!svg || clientX === undefined || clientY === undefined) {
+        const cx = WIDTH / 2, cy = 300;
+        return { k, x: cx - (cx - current.x) * ratio, y: cy - (cy - current.y) * ratio };
+      }
+      const box = svg.getBoundingClientRect();
+      const px = ((clientX - box.left) / box.width) * WIDTH;
+      const py = ((clientY - box.top) / box.height) * (box.height / box.width) * WIDTH;
+      return { k, x: px - (px - current.x) * ratio, y: py - (py - current.y) * ratio };
+    });
+  }, []);
+
+  useEffect(() => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const onWheel = (event: WheelEvent) => {
+      if (!event.ctrlKey && !event.metaKey) return; // plain scroll should still scroll the page
+      event.preventDefault();
+      zoomBy(event.deltaY < 0 ? 1.12 : 1 / 1.12, event.clientX, event.clientY);
+    };
+    svg.addEventListener("wheel", onWheel, { passive: false });
+    return () => svg.removeEventListener("wheel", onWheel);
+  }, [zoomBy]);
 
   return (
-    <div className="link-graph">
+    <div className="link-tree">
       <div className="link-graph-legend">
-        {types.map((type) => {
+        {types.filter((t) => t !== "section").map((type) => {
           const off = hiddenTypes.has(type);
           return (
             <button
-              type="button"
-              key={type}
-              className={off ? "off" : ""}
-              aria-pressed={!off}
+              type="button" key={type} className={off ? "off" : ""} aria-pressed={!off}
               onClick={() => setHiddenTypes((current) => {
                 const next = new Set(current);
                 if (next.has(type)) next.delete(type); else next.add(type);
@@ -222,26 +182,18 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
           <button type="button" onClick={() => zoomBy(1 / 1.25)} aria-label="Zoom out">−</button>
           <b>{Math.round(view.k * 100)}%</b>
           <button type="button" onClick={() => zoomBy(1.25)} aria-label="Zoom in">+</button>
-          <button
-            type="button"
-            onClick={() => { setView({ k: 1, x: 0, y: 0 }); setMoved({}); }}
-            disabled={view.k === 1 && view.x === 0 && view.y === 0 && Object.keys(moved).length === 0}
-          >
-            Reset
-          </button>
+          <button type="button" onClick={() => setView({ k: 1, x: 0, y: 0 })} disabled={view.k === 1 && view.x === 0 && view.y === 0}>Reset</button>
         </span>
       </div>
 
-      <div className="link-graph-canvas">
+      <div className="link-tree-canvas">
         <svg
           ref={svgRef}
-          viewBox={`0 0 ${SIZE} ${SIZE}`}
+          viewBox={`0 0 ${WIDTH} ${height}`}
           role="img"
-          aria-label={`Internal link map of ${placed.length} published pages`}
+          aria-label={`Site structure: ${rows.filter((r) => !r.isHeader).length} pages and ${arcs.length} editorial links`}
           className={grabbing ? "grabbing" : ""}
           onPointerDown={(event) => {
-            // A press that misses a node pans the whole scene.
-            if (dragRef.current) return;
             dragRef.current = { id: null, startX: event.clientX, startY: event.clientY, movedFar: false, originX: view.x, originY: view.y };
             setGrabbing(true);
             event.currentTarget.setPointerCapture(event.pointerId);
@@ -249,120 +201,110 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
           onPointerMove={(event) => {
             const drag = dragRef.current;
             if (!drag) return;
-            const dx = event.clientX - drag.startX;
-            const dy = event.clientY - drag.startY;
+            const dx = event.clientX - drag.startX, dy = event.clientY - drag.startY;
             if (!drag.movedFar && Math.hypot(dx, dy) > 4) drag.movedFar = true;
             if (!drag.movedFar) return;
-            if (drag.id) {
-              const point = toScene(event.clientX, event.clientY);
-              setMoved((current) => ({ ...current, [drag.id!]: { x: point.x, y: point.y } }));
-            } else {
-              const box = event.currentTarget.getBoundingClientRect();
-              const scale = SIZE / box.width;
-              setView((current) => ({ ...current, x: drag.originX + dx * scale, y: drag.originY + dy * scale }));
-            }
+            const box = event.currentTarget.getBoundingClientRect();
+            const scale = WIDTH / box.width;
+            setView((current) => ({ ...current, x: drag.originX + dx * scale, y: drag.originY + dy * scale }));
           }}
           onPointerUp={(event) => {
             const drag = dragRef.current;
             dragRef.current = null;
             setGrabbing(false);
             if (event.currentTarget.hasPointerCapture(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
-            // A press that never travelled is a click, so selection still works.
-            if (drag && drag.id && !drag.movedFar) setPinned((current) => (current === drag.id ? null : drag.id));
+            if (drag && !drag.movedFar && !drag.id) setPinned(null);
           }}
           onPointerCancel={() => { dragRef.current = null; setGrabbing(false); }}
         >
           <g ref={sceneRef} transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
-          <g className="link-graph-edges">
-            {drawnEdges.map((edge, index) => {
-              const from = positions.get(edge.from);
-              const to = positions.get(edge.to);
-              if (!from || !to) return null;
-              const dim = connected ? !(connected.has(edge.from) && connected.has(edge.to)) : false;
-              return (
-                <line
-                  key={index}
-                  x1={from.x} y1={from.y} x2={to.x} y2={to.y}
-                  className={`${edge.kind === "gear" ? "gear" : edge.kind === "listing" ? "listing" : "plain"}${dim ? " dim" : ""}`}
-                />
-              );
-            })}
-          </g>
+            <g className="link-tree-arcs">
+              {/* Only the selected page draws its links. Seventy-four arcs sharing
+                  one gutter overlap into noise, and the counts beside each row
+                  already answer what has no link without drawing anything. */}
+              {(active ? arcs.filter((arc) => arc.from === active || arc.to === active) : []).map((arc, index) => {
+                const dim = false;
+                const span = Math.min(46 + Math.abs(arc.b.y - arc.a.y) * 0.22, 300);
+                return (
+                  <path
+                    key={index}
+                    d={`M ${DOT_X} ${arc.a.y} C ${DOT_X + span} ${arc.a.y}, ${DOT_X + span} ${arc.b.y}, ${DOT_X} ${arc.b.y}`}
+                    className={`${arc.kind === "gear" ? "gear" : "editorial"}${dim ? " dim" : ""}`}
+                  />
+                );
+              })}
+            </g>
 
-          <g>
-            {positioned.map((node) => {
-              const dim = connected ? !connected.has(node.id) : false;
-              const isActive = node.id === active;
-              return (
-                <circle
-                  key={node.id}
-                  cx={node.x} cy={node.y} r={isActive ? node.r + 2 : node.r}
-                  fill={typeColours[node.type] ?? "#7d8a83"}
-                  className={`${dim ? "dim" : ""}${isActive ? " active" : ""}`}
-                  onMouseEnter={() => setHovered(node.id)}
-                  onMouseLeave={() => setHovered(null)}
-                  onPointerDown={(event) => {
-                    event.stopPropagation();
-                    dragRef.current = { id: node.id, startX: event.clientX, startY: event.clientY, movedFar: false, originX: node.x, originY: node.y };
-                    setGrabbing(true);
-                    const svg = svgRef.current;
-                    if (svg) svg.setPointerCapture(event.pointerId);
-                  }}
-                  onFocus={() => setHovered(node.id)}
-                  onBlur={() => setHovered(null)}
-                  onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setPinned(node.id); } }}
-                  tabIndex={0}
-                  role="button"
-                  aria-label={`${node.title}, ${node.inbound} inbound links`}
-                >
-                  <title>{`${node.title} — ${node.inbound} inbound, ${node.outbound} outbound`}</title>
-                </circle>
-              );
-            })}
-          </g>
-
-          {/* Names: permanent inside the largest hubs, on demand for the rest. */}
-          <g className="link-graph-labels" aria-hidden="true">
-            {alwaysLabelled.map((node) => (
-              <text key={node.id} x={node.x} y={node.y + 3} className="hub-label">
-                {node.title.length > 16 ? `${node.title.slice(0, 15)}…` : node.title}
-              </text>
-            ))}
-            {activeNode && !alwaysLabelled.some((n) => n.id === activeNode.id) && (
-              <g className="floating-label">
-                <rect
-                  x={activeNode.x - Math.min(activeNode.title.length * 3.6, 130) - 8}
-                  y={activeNode.y - activeNode.r - 30}
-                  width={Math.min(activeNode.title.length * 7.2, 268) + 16}
-                  height={24}
-                  rx={6}
-                />
-                <text x={activeNode.x} y={activeNode.y - activeNode.r - 13}>
-                  {activeNode.title.length > 36 ? `${activeNode.title.slice(0, 35)}…` : activeNode.title}
-                </text>
-              </g>
-            )}
-          </g>
+            <g>
+              {rows.map((row) => {
+                const dim = connected && !row.isHeader ? !connected.has(row.id) : false;
+                const isActive = row.id === active;
+                return (
+                  <g key={row.id} className={`link-tree-row${dim ? " dim" : ""}${isActive ? " active" : ""}`}>
+                    {row.isHeader ? (
+                      <>
+                        <text className="tree-section" x={26} y={row.y + 4}>{row.title.toUpperCase()}</text>
+                        <text className="tree-path" x={26} y={row.y + 19}>{row.path}</text>
+                        <line className="tree-rule" x1={26} y1={row.y + 26} x2={DOT_X + 320} y2={row.y + 26} />
+                      </>
+                    ) : (
+                      <>
+                        <text className="tree-title" x={48} y={row.y + 4}>
+                          {row.title.length > 46 ? `${row.title.slice(0, 45)}…` : row.title}
+                        </text>
+                        <text className="tree-count" x={DOT_X - 96} y={row.y + 4}>
+                          {row.editorialInbound > 0 ? `${row.editorialInbound} in` : "—"}
+                        </text>
+                        <text className="tree-count" x={DOT_X - 46} y={row.y + 4}>
+                          {row.outbound > 0 ? `${row.outbound} out` : ""}
+                        </text>
+                      </>
+                    )}
+                    {!row.isHeader && (
+                      <circle
+                        cx={DOT_X} cy={row.y} r={isActive ? row.r + 2 : row.r}
+                        fill={typeColours[row.type] ?? "#7d8a83"}
+                        onMouseEnter={() => setHovered(row.id)}
+                        onMouseLeave={() => setHovered(null)}
+                        onPointerDown={(event) => { event.stopPropagation(); dragRef.current = null; }}
+                        onClick={() => setPinned((current) => (current === row.id ? null : row.id))}
+                        onFocus={() => setHovered(row.id)}
+                        onBlur={() => setHovered(null)}
+                        onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setPinned(row.id); } }}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`${row.title}, ${row.editorialInbound} editorial links in, ${row.outbound} out`}
+                      >
+                        <title>{`${row.title} — ${row.editorialInbound} in, ${row.outbound} out`}</title>
+                      </circle>
+                    )}
+                  </g>
+                );
+              })}
+            </g>
           </g>
         </svg>
 
         <div className="link-graph-readout" aria-live="polite">
-          {activeNode ? (
+          {activeRow ? (
             <>
-              <span style={{ color: typeColours[activeNode.type] }}>{typeLabels[activeNode.type] ?? activeNode.type}</span>
-              <strong>{activeNode.title}</strong>
+              <span style={{ color: typeColours[activeRow.type] }}>{typeLabels[activeRow.type] ?? activeRow.type}</span>
+              <strong>{activeRow.title}</strong>
               <dl>
-                <div><dt>Linked from</dt><dd>{activeNode.inbound}</dd></div>
-                <div><dt>Links out</dt><dd>{activeNode.outbound}</dd></div>
+                <div><dt>Linked from</dt><dd>{activeRow.editorialInbound}</dd></div>
+                <div><dt>Links out</dt><dd>{activeRow.outbound}</dd></div>
               </dl>
-              <a href={activeNode.path} target="_blank" rel="noopener noreferrer">{activeNode.path}</a>
-              {pinned === activeNode.id && <small>Click the page again to release it.</small>}
+              <a href={activeRow.path} target="_blank" rel="noopener noreferrer">{activeRow.path}</a>
+              {pinned === activeRow.id && <small>Click the page again, or the background, to release it.</small>}
             </>
           ) : (
             <>
-              <span>Map</span>
-              <strong>{placed.length} published pages, {drawnEdges.length} editorial links</strong>
-              <p>Hover a page to trace what connects to it, or click to keep it selected. Drag a page to move it, drag the background to pan, and scroll to zoom. Circle size follows inbound links.</p>
+              <span>Structure</span>
+              <strong>{rows.filter((r) => !r.isHeader).length} pages, {arcs.length} editorial links</strong>
+              <p>
+                Pages are grouped under the library that lists them, so containment is shown by position rather than
+                drawn. Hover or click a page to draw its editorial links. A row marked “—” has no page recommending it.
+              </p>
             </>
           )}
         </div>

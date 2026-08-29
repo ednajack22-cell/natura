@@ -1892,13 +1892,13 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 .link-graph-canvas svg { width: 100%; height: auto; background: #fbfcfa; border: 1px solid #e7ebe8; border-radius: 1rem; }
 
 .link-graph-edges line { stroke-width: 1; transition: opacity .18s ease; }
-.link-graph-edges line.plain { stroke: #b9c7bd; opacity: .5; }
-.link-graph-edges line.gear { stroke: var(--clay); stroke-width: 1.6; opacity: .85; }
-.link-graph-edges line.dim { opacity: .06; }
+.link-graph-edges line.plain { stroke: #56735f; stroke-width: 1.4; opacity: .95; }
+.link-graph-edges line.gear { stroke: var(--clay); stroke-width: 2.2; opacity: .95; }
+.link-graph-edges line.dim { opacity: .18; }
 
 .link-graph-canvas circle { cursor: pointer; transition: opacity .18s ease, r .18s ease; }
 .link-graph-canvas circle:hover, .link-graph-canvas circle:focus-visible { stroke: var(--ink); stroke-width: 2; }
-.link-graph-canvas circle.dim { opacity: .18; }
+.link-graph-canvas circle.dim { opacity: .26; }
 
 .link-graph-readout { position: sticky; top: 1rem; display: grid; gap: .4rem; padding: 1.1rem; border: 1px solid #e7ebe8; border-radius: 1rem; background: white; }
 .link-graph-readout > span { font-size: .6rem; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
@@ -2006,5 +2006,43 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 
 /* A listing link is automatic — a library pointing at what it indexes — so it
    sits behind the editorial links rather than competing with them. */
-.link-graph-edges line.listing { stroke: #cfd9d2; opacity: .3; }
-.link-graph-edges line.listing.dim { opacity: .04; }
+.link-graph-edges line.listing { stroke: #798c80; opacity: .85; }
+.link-graph-edges line.listing.dim { opacity: .07; }
+
+/* A hub label fades with the circle it names, so a selection never leaves hard
+   white text over a disc that is no longer there. */
+.link-graph-labels .hub-label.dim { opacity: .22; }
+
+/* ---------------------------------------------------------------------------
+   Site structure tree
+   Containment is shown by grouping, so only editorial links are drawn. Every
+   page sits on one vertical line, which is what makes the arcs readable.
+   --------------------------------------------------------------------------- */
+
+.link-tree { display: grid; gap: 1rem; }
+.link-tree-canvas { display: grid; grid-template-columns: minmax(0, 1fr) 250px; gap: 1.25rem; align-items: start; }
+.link-tree-canvas svg {
+  width: 100%; height: auto;
+  background: #fbfcfa; border: 1px solid #e7ebe8; border-radius: 1rem;
+  cursor: grab; touch-action: pan-y;
+}
+.link-tree-canvas svg.grabbing { cursor: grabbing; }
+
+.tree-section { fill: var(--ink); font: 900 11px/1 Inter, ui-sans-serif, system-ui, sans-serif; letter-spacing: .1em; }
+.tree-path { fill: #93a099; font: 600 10px/1 ui-monospace, monospace; }
+.tree-rule { stroke: #e2e8e3; stroke-width: 1; }
+.tree-title { fill: var(--ink-soft); font: 600 12.5px/1 Inter, ui-sans-serif, system-ui, sans-serif; }
+.tree-count { fill: #9aa8a0; font: 700 10px/1 Inter, ui-sans-serif, system-ui, sans-serif; text-anchor: end; }
+
+.link-tree-row circle { cursor: pointer; transition: opacity .16s ease; }
+.link-tree-row.dim { opacity: .3; }
+.link-tree-row.active .tree-title { fill: var(--ink); font-weight: 800; }
+.link-tree-row.active circle { stroke: var(--ink); stroke-width: 2.5; }
+.link-tree-row circle:focus-visible { outline: 3px solid var(--sun); outline-offset: 2px; }
+
+.link-tree-arcs path { fill: none; transition: opacity .16s ease; }
+.link-tree-arcs path.editorial { stroke: #56735f; stroke-width: 1.3; opacity: .55; }
+.link-tree-arcs path.gear { stroke: var(--clay); stroke-width: 2.2; opacity: .9; }
+.link-tree-arcs path.dim { opacity: .08; }
+
+@media (max-width: 1100px) { .link-tree-canvas { grid-template-columns: 1fr; } }
