@@ -2046,3 +2046,20 @@ a.kpi-card:hover { transform: translateY(-2px); border-color: #c9d8ce; box-shado
 .link-tree-arcs path.dim { opacity: .08; }
 
 @media (max-width: 1100px) { .link-tree-canvas { grid-template-columns: 1fr; } }
+
+/* A section heading is a disclosure: closed by default, since fourteen headings
+   fit on a screen and seventy rows do not. */
+.tree-header { cursor: pointer; }
+.tree-header-hit { fill: transparent; }
+.tree-header:hover .tree-header-hit { fill: #f1f5f2; }
+.tree-header:focus-visible .tree-header-hit { fill: #f1f5f2; outline: 3px solid var(--sun); }
+.tree-chevron { fill: #7d8f84; font: 700 11px/1 Inter, ui-sans-serif, system-ui, sans-serif; }
+.tree-summary { fill: #8b9a91; font: 700 10.5px/1 Inter, ui-sans-serif, system-ui, sans-serif; text-anchor: end; }
+
+.tree-filter {
+  display: inline-flex; align-items: center;
+  padding: .4rem .75rem; border: 1px solid #dfe5e0; border-radius: 999px;
+  background: white; color: var(--ink-soft); font-size: .68rem; font-weight: 800; cursor: pointer;
+}
+.tree-filter:hover { border-color: var(--forest); color: var(--forest); }
+.tree-filter.on { border-color: var(--clay); color: white; background: var(--clay); }

@@ -38,6 +38,10 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
   const [hovered, setHovered] = useState<string | null>(null);
   const [pinned, setPinned] = useState<string | null>(null);
   const [hiddenTypes, setHiddenTypes] = useState<Set<string>>(new Set());
+  /** Sections start closed: fourteen headings fit on a screen, seventy rows do not. */
+  const [expanded, setExpanded] = useState<Set<string>>(new Set());
+  /** The actionable view: only pages no other page recommends. */
+  const [onlyUnlinked, setOnlyUnlinked] = useState(false);
   const [view, setView] = useState({ k: 1, x: 0, y: 0 });
   const [grabbing, setGrabbing] = useState(false);
 
@@ -52,7 +56,7 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
     [nodes],
   );
 
-  const { rows, arcs, height } = useMemo(() => {
+  const { rows, arcs, height, summaries } = useMemo(() => {
     const visible = nodes.filter((n) => !hiddenTypes.has(n.type));
     const byId = new Map(visible.map((n) => [n.id, n]));
 
@@ -96,26 +100,34 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
     };
 
     const shown = new Set<string>();
+    const summaries = new Map<string, { total: number; unlinked: number }>();
     for (const section of sections) {
-      const members = (childrenOf.get(section.id) ?? [])
+      const all = (childrenOf.get(section.id) ?? [])
         .map((id) => byId.get(id))
         .filter((n): n is GraphNode => Boolean(n) && n!.type !== "section")
         .sort((a, b) => b.editorialInbound - a.editorialInbound || a.title.localeCompare(b.title));
+      const members = onlyUnlinked ? all.filter((n) => n.editorialInbound === 0) : all;
+      summaries.set(section.id, { total: all.length, unlinked: all.filter((n) => n.editorialInbound === 0).length });
       shown.add(section.id);
-      members.forEach((m) => shown.add(m.id));
-      pushGroup(section, members);
+      all.forEach((m) => shown.add(m.id));
+      // A closed section still shows its heading and its counts.
+      pushGroup(section, expanded.has(section.id) ? members : []);
     }
 
-    const leftovers = visible.filter((n) => !shown.has(n.id)).sort((a, b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title));
-    if (leftovers.length) pushGroup(null, leftovers, "Not listed anywhere");
+    const leftoversAll = visible.filter((n) => !shown.has(n.id)).sort((a, b) => a.type.localeCompare(b.type) || a.title.localeCompare(b.title));
+    const leftovers = onlyUnlinked ? leftoversAll.filter((n) => n.editorialInbound === 0) : leftoversAll;
+    if (leftoversAll.length) {
+      summaries.set("label:Not listed anywhere", { total: leftoversAll.length, unlinked: leftoversAll.filter((n) => n.editorialInbound === 0).length });
+      pushGroup(null, expanded.has("label:Not listed anywhere") ? leftovers : [], "Not listed anywhere");
+    }
 
     const rowById = new Map(placedRows.map((r) => [r.id, r]));
     const drawn = edges
       .filter((e) => e.kind !== "listing" && rowById.has(e.from) && rowById.has(e.to))
       .map((e) => ({ ...e, a: rowById.get(e.from)!, b: rowById.get(e.to)! }));
 
-    return { rows: placedRows, arcs: drawn, height: y + 20 };
-  }, [nodes, edges, hiddenTypes]);
+    return { rows: placedRows, arcs: drawn, height: y + 20, summaries };
+  }, [nodes, edges, hiddenTypes, expanded, onlyUnlinked]);
 
   const connected = useMemo(() => {
     if (!active) return null;
@@ -177,6 +189,21 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
             </button>
           );
         })}
+        <button
+          type="button"
+          className={onlyUnlinked ? "tree-filter on" : "tree-filter"}
+          aria-pressed={onlyUnlinked}
+          onClick={() => setOnlyUnlinked((current) => !current)}
+        >
+          Only pages with nothing linking in
+        </button>
+        <button
+          type="button"
+          className="tree-filter"
+          onClick={() => setExpanded((current) => (current.size ? new Set() : new Set(rows.filter((r) => r.isHeader).map((r) => r.id))))}
+        >
+          {expanded.size ? "Collapse all" : "Expand all"}
+        </button>
         {pinned && <button type="button" className="link-graph-clear" onClick={() => setPinned(null)}>Clear selection</button>}
         <span className="link-graph-zoom">
           <button type="button" onClick={() => zoomBy(1 / 1.25)} aria-label="Zoom out">−</button>
@@ -242,11 +269,42 @@ export function LinkGraphView({ nodes, edges }: { nodes: GraphNode[]; edges: Gra
                 return (
                   <g key={row.id} className={`link-tree-row${dim ? " dim" : ""}${isActive ? " active" : ""}`}>
                     {row.isHeader ? (
-                      <>
-                        <text className="tree-section" x={26} y={row.y + 4}>{row.title.toUpperCase()}</text>
-                        <text className="tree-path" x={26} y={row.y + 19}>{row.path}</text>
-                        <line className="tree-rule" x1={26} y1={row.y + 26} x2={DOT_X + 320} y2={row.y + 26} />
-                      </>
+                      <g
+                        className="tree-header"
+                        role="button"
+                        tabIndex={0}
+                        aria-expanded={expanded.has(row.id)}
+                        aria-label={`${row.title}, ${summaries.get(row.id)?.total ?? 0} pages`}
+                        onClick={() => setExpanded((current) => {
+                          const next = new Set(current);
+                          if (next.has(row.id)) next.delete(row.id); else next.add(row.id);
+                          return next;
+                        })}
+                        onKeyDown={(event) => {
+                          if (event.key !== "Enter" && event.key !== " ") return;
+                          event.preventDefault();
+                          setExpanded((current) => {
+                            const next = new Set(current);
+                            if (next.has(row.id)) next.delete(row.id); else next.add(row.id);
+                            return next;
+                          });
+                        }}
+                      >
+                        <rect className="tree-header-hit" x={16} y={row.y - 14} width={DOT_X + 300} height={30} rx={6} />
+                        <text className="tree-chevron" x={26} y={row.y + 4}>{expanded.has(row.id) ? "▾" : "▸"}</text>
+                        <text className="tree-section" x={44} y={row.y + 4}>{row.title.toUpperCase()}</text>
+                        <text className="tree-path" x={44} y={row.y + 19}>{row.path}</text>
+                        <text className="tree-summary" x={DOT_X + 300} y={row.y + 4}>
+                          {(() => {
+                            const summary = summaries.get(row.id);
+                            if (!summary || summary.total === 0) return "empty";
+                            return summary.unlinked > 0
+                              ? `${summary.total} pages · ${summary.unlinked} with nothing linking in`
+                              : `${summary.total} pages`;
+                          })()}
+                        </text>
+                        <line className="tree-rule" x1={26} y1={row.y + 26} x2={DOT_X + 300} y2={row.y + 26} />
+                      </g>
                     ) : (
                       <>
                         <text className="tree-title" x={48} y={row.y + 4}>
