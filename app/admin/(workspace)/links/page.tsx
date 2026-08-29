@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { LinkGraphView } from "@/components/admin/link-graph-view";
+import { LinkInventory } from "@/components/admin/link-inventory";
 import { getLinkGraph } from "@/lib/link-graph";
 
 export const metadata: Metadata = { title: "Internal links", robots: { index: false, follow: false } };
@@ -51,11 +51,11 @@ export default async function InternalLinksPage() {
       <section className="dashboard-panel">
         <div className="panel-heading">
           <div>
-            <p className="dashboard-kicker">The whole site at once</p>
-            <h2>Link map</h2>
+            <p className="dashboard-kicker">Every published page</p>
+            <h2>Link inventory</h2>
           </div>
         </div>
-        <LinkGraphView nodes={nodes} edges={edges} />
+        <LinkInventory nodes={nodes} edges={edges} />
       </section>
 
       {orphans.length > 0 && (
