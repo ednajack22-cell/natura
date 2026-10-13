@@ -84,9 +84,9 @@ button, input, select, textarea { font: inherit; color: inherit; }
 
 /* ---------------------------------------------------------------------------
    Site header
-   One row: brand, main menu, search. The full menu needs about 900px; the
-   search field joins it from 1180px and collapses to an icon below that.
-   Under 900px the menu becomes a sheet behind one button, sized for a thumb.
+   One row: brand, main menu, search. The full menu needs about 1024px; the
+   search field joins it from 1280px and collapses to an icon below that.
+   Below 1024px the menu becomes a sheet behind one button, sized for a thumb.
    --------------------------------------------------------------------------- */
 
 .site-header {
@@ -290,11 +290,11 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .mobile-nav-group ul a { display: flex; align-items: center; min-height: 48px; padding: 0 .9rem; border-radius: .7rem; color: #2c473a; font-size: 1rem; font-weight: 550; }
 .mobile-nav-group ul a:hover, .mobile-nav-group ul a[aria-current="page"] { background: var(--sage-light); }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .desktop-nav { display: block; }
   .mobile-menu { display: none; }
 }
-@media (min-width: 1180px) {
+@media (min-width: 1280px) {
   .header-search-form { display: flex; }
   .header-search-link { display: none; }
 }
@@ -325,8 +325,8 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .footer-bottom a { color: #b0c0b6; }
 .footer-bottom a:hover { color: white; }
 
-@media (min-width: 640px) { .footer-grid { grid-template-columns: repeat(3, 1fr); } .footer-brand { grid-column: 1 / -1; } }
-@media (min-width: 1050px) { .footer-grid { grid-template-columns: 1.4fr repeat(3, .7fr); gap: 3rem; } .footer-brand { grid-column: auto; } }
+@media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
+@media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: 3rem; } .footer-brand { grid-column: auto; } }
 
 /* ---------------------------------------------------------------------------
    Temporary content layout

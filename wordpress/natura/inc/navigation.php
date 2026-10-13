@@ -17,124 +17,106 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Builds one menu entry.
+ *
+ * @param string $title       Label.
+ * @param string $url         Root-relative URL.
+ * @param string $description Line shown under the label.
+ * @param array  $children    Child entries.
+ */
+function natura_menu_entry( string $title, string $url, string $description = '', array $children = array() ): array {
+	return array(
+		'title'       => $title,
+		'url'         => $url,
+		'description' => $description,
+		'children'    => $children,
+	);
+}
+
+/**
  * The menu a fresh install starts with, and the fallback when no menu is
  * assigned to a location.
  *
- * Articles sit beside the task sections because the site is built from both:
- * explanatory writing, and pages that answer one practical question.
+ * One rule: every page appears once. The earlier menu listed the plant finder
+ * under both Plants and Tools, and the same monthly calendar under three
+ * different names, so readers could not tell the entries apart.
+ *
+ *  - Plants is browsed by kind, the way readers search ("herbs for a balcony").
+ *  - The planting calendar has its own entry: seasonal questions ("what to
+ *    plant in October") are among the most saved pins in gardening.
+ *  - Tools holds the calculators only.
+ *  - A dropdown never repeats its parent. On phones, where the parent is a
+ *    toggle rather than a link, the sheet adds "All …" by itself.
  *
  * URLs are relative to the site root. The content sections will become post
- * type archives at the same addresses, so the links keep working.
+ * type and category archives at the same addresses, so the links keep working.
  *
  * @return array<int, array{title: string, url: string, description: string, children: array}>
  */
 function natura_default_primary_menu(): array {
-	$tool = static fn( string $title, string $slug, string $description ): array => array(
-		'title'       => $title,
-		'url'         => '/tools/' . $slug . '/',
-		'description' => $description,
-		'children'    => array(),
-	);
-
 	return array(
-		array(
-			'title'       => __( 'Plants', 'natura' ),
-			'url'         => '/plants/',
-			'description' => __( 'How to grow each plant, and when.', 'natura' ),
-			'children'    => array(
-				array( 'title' => __( 'All plant guides', 'natura' ), 'url' => '/plants/', 'description' => __( 'Complete growing profiles for every plant we cover.', 'natura' ), 'children' => array() ),
-				$tool( __( 'Plant finder', 'natura' ), 'plant-finder', __( 'Match plants to your light, space, and care time.', 'natura' ) ),
-				$tool( __( 'What to plant this month', 'natura' ), 'planting-calendar', __( "This month's tasks for your climate and space.", 'natura' ) ),
-				array( 'title' => __( 'Planting calendars', 'natura' ), 'url' => '/planting-calendars/', 'description' => __( 'Month-by-month calendars by climate.', 'natura' ), 'children' => array() ),
-			),
+		natura_menu_entry(
+			__( 'Plants', 'natura' ),
+			'/plants/',
+			__( 'How to grow each plant in a pot or small space.', 'natura' ),
+			array(
+				natura_menu_entry( __( 'Vegetables', 'natura' ), '/plants/vegetables/', __( 'Tomatoes, peppers, salads, beans, and more.', 'natura' ) ),
+				natura_menu_entry( __( 'Herbs', 'natura' ), '/plants/herbs/', __( 'Basil, mint, thyme, and kitchen herbs.', 'natura' ) ),
+				natura_menu_entry( __( 'Fruit', 'natura' ), '/plants/fruit/', __( 'Strawberries and compact fruit for containers.', 'natura' ) ),
+			)
 		),
-		array(
-			'title'       => __( 'Problems', 'natura' ),
-			'url'         => '/problems/',
-			'description' => __( 'Something looks wrong. Work out what it is.', 'natura' ),
-			'children'    => array(),
+		natura_menu_entry( __( 'Problems', 'natura' ), '/problems/', __( 'Yellow leaves, pests, wilting: find the cause.', 'natura' ) ),
+		natura_menu_entry( __( 'Calendar', 'natura' ), '/planting-calendar/', __( 'What to sow and plant this month, by climate.', 'natura' ) ),
+		natura_menu_entry( __( 'Projects', 'natura' ), '/projects/', __( 'Step-by-step builds for balconies and patios.', 'natura' ) ),
+		natura_menu_entry( __( 'Articles', 'natura' ), '/articles/', __( 'Why things happen: light, water, soil, weather.', 'natura' ) ),
+		natura_menu_entry(
+			__( 'Tools', 'natura' ),
+			'/tools/',
+			__( 'Calculators that answer one question each.', 'natura' ),
+			array(
+				natura_menu_entry( __( 'Plant finder', 'natura' ), '/tools/plant-finder/', __( 'Which plants suit your light and space.', 'natura' ) ),
+				natura_menu_entry( __( 'Pot size calculator', 'natura' ), '/tools/pot-size-calculator/', __( 'How big a container each plant needs.', 'natura' ) ),
+				natura_menu_entry( __( 'Watering routine', 'natura' ), '/tools/watering-calculator/', __( 'When to check the soil, and how.', 'natura' ) ),
+				natura_menu_entry( __( 'Frost risk check', 'natura' ), '/tools/frost-risk/', __( 'Whether tonight\'s low is a risk for your plants.', 'natura' ) ),
+				natura_menu_entry( __( 'Garden planner', 'natura' ), '/tools/garden-planner/', __( 'Lay out a small space you can reach.', 'natura' ) ),
+				natura_menu_entry( __( 'Symptom checker', 'natura' ), '/tools/guided-diagnosis/', __( 'Note what you see before you treat.', 'natura' ) ),
+			)
 		),
-		array(
-			'title'       => __( 'Projects', 'natura' ),
-			'url'         => '/projects/',
-			'description' => __( 'Step-by-step builds for balconies and containers.', 'natura' ),
-			'children'    => array(),
-		),
-		array(
-			'title'       => __( 'Articles', 'natura' ),
-			'url'         => '/articles/',
-			'description' => __( 'Why things happen: light, water, soil, temperature.', 'natura' ),
-			'children'    => array(),
-		),
-		array(
-			'title'       => __( 'Tools', 'natura' ),
-			'url'         => '/tools/',
-			'description' => __( 'Work out the number instead of guessing it.', 'natura' ),
-			'children'    => array(
-				$tool( __( 'Plant finder', 'natura' ), 'plant-finder', __( 'Match plants to your light, space, and care time.', 'natura' ) ),
-				$tool( __( 'Pot size calculator', 'natura' ), 'pot-size-calculator', __( 'Estimate a practical container range.', 'natura' ) ),
-				$tool( __( 'Watering routine', 'natura' ), 'watering-calculator', __( 'A soil-check routine you can actually follow.', 'natura' ) ),
-				$tool( __( 'Frost risk check', 'natura' ), 'frost-risk', __( 'Read a forecast low without false precision.', 'natura' ) ),
-				$tool( __( 'Monthly planting tasks', 'natura' ), 'planting-calendar', __( 'What to do this month, for your conditions.', 'natura' ) ),
-				$tool( __( 'Garden planner', 'natura' ), 'garden-planner', __( 'Lay out a compact, reachable growing space.', 'natura' ) ),
-				$tool( __( 'Observation guide', 'natura' ), 'guided-diagnosis', __( 'Turn symptoms into a checklist worth acting on.', 'natura' ) ),
-				$tool( __( 'My garden profile', 'natura' ), 'garden-profile', __( 'Save your conditions once; every tool uses them.', 'natura' ) ),
-			),
-		),
-		array(
-			'title'       => __( 'Gear', 'natura' ),
-			'url'         => '/gear/',
-			'description' => __( 'What to buy, with the criteria and the commercial relationship stated.', 'natura' ),
-			'children'    => array(),
-		),
+		natura_menu_entry( __( 'Reviews', 'natura' ), '/reviews/', __( 'Pots, soil, and kit compared, with clear criteria.', 'natura' ) ),
 	);
 }
 
 /**
  * Footer columns: each top-level entry is a heading, its children the links.
  *
+ * The header already lists every section, so the footer does not repeat it.
+ * It carries what the header does not: the most searched plant guides, and
+ * the pages about the site.
+ *
  * @return array<int, array{title: string, url: string, description: string, children: array}>
  */
 function natura_default_footer_menu(): array {
-	$link = static fn( string $title, string $url ): array => array(
-		'title'       => $title,
-		'url'         => $url,
-		'description' => '',
-		'children'    => array(),
-	);
-
 	return array(
-		array(
-			'title'       => __( 'Plants', 'natura' ),
-			'url'         => '/plants/',
-			'description' => '',
-			'children'    => array(
-				$link( __( 'All plant guides', 'natura' ), '/plants/' ),
-				$link( __( 'Planting calendars', 'natura' ), '/planting-calendars/' ),
-				$link( __( 'Plant finder', 'natura' ), '/tools/plant-finder/' ),
-			),
+		natura_menu_entry(
+			__( 'Popular guides', 'natura' ),
+			'/plants/',
+			'',
+			array(
+				natura_menu_entry( __( 'Cherry tomatoes in pots', 'natura' ), '/plants/cherry-tomato/' ),
+				natura_menu_entry( __( 'Basil on a windowsill', 'natura' ), '/plants/genovese-basil/' ),
+				natura_menu_entry( __( 'Balcony strawberries', 'natura' ), '/plants/balcony-strawberry/' ),
+				natura_menu_entry( __( 'Yellow leaves', 'natura' ), '/problems/yellow-leaves-container-plants/' ),
+			)
 		),
-		array(
-			'title'       => __( 'Read & solve', 'natura' ),
-			'url'         => '/articles/',
-			'description' => '',
-			'children'    => array(
-				$link( __( 'Articles', 'natura' ), '/articles/' ),
-				$link( __( 'Plant problems', 'natura' ), '/problems/' ),
-				$link( __( 'Projects', 'natura' ), '/projects/' ),
-				$link( __( 'Tools', 'natura' ), '/tools/' ),
-				$link( __( 'Gear', 'natura' ), '/gear/' ),
-			),
-		),
-		array(
-			'title'       => __( 'Natura', 'natura' ),
-			'url'         => '/about/',
-			'description' => '',
-			'children'    => array(
-				$link( __( 'About', 'natura' ), '/about/' ),
-				$link( __( 'Editorial policy', 'natura' ), '/editorial-policy/' ),
-				$link( __( 'Contact', 'natura' ), '/contact/' ),
-			),
+		natura_menu_entry(
+			__( 'About Natura', 'natura' ),
+			'/about/',
+			'',
+			array(
+				natura_menu_entry( __( 'About us', 'natura' ), '/about/' ),
+				natura_menu_entry( __( 'How we write and test', 'natura' ), '/editorial-policy/' ),
+				natura_menu_entry( __( 'Contact', 'natura' ), '/contact/' ),
+			)
 		),
 	);
 }
@@ -143,17 +125,10 @@ function natura_default_footer_menu(): array {
  * @return array<int, array{title: string, url: string, description: string, children: array}>
  */
 function natura_default_legal_menu(): array {
-	$link = static fn( string $title, string $url ): array => array(
-		'title'       => $title,
-		'url'         => $url,
-		'description' => '',
-		'children'    => array(),
-	);
-
 	return array(
-		$link( __( 'Privacy', 'natura' ), '/privacy-policy/' ),
-		$link( __( 'Legal notice', 'natura' ), '/legal-notice/' ),
-		$link( __( 'Commercial disclosure', 'natura' ), '/commercial-disclosure/' ),
+		natura_menu_entry( __( 'Privacy', 'natura' ), '/privacy-policy/' ),
+		natura_menu_entry( __( 'Legal notice', 'natura' ), '/legal-notice/' ),
+		natura_menu_entry( __( 'Affiliate disclosure', 'natura' ), '/commercial-disclosure/' ),
 	);
 }
 
@@ -351,6 +326,14 @@ function natura_mobile_navigation(): void {
 								<?php natura_the_icon( 'chevron' ); ?>
 							</summary>
 							<ul>
+								<li>
+									<a href="<?php echo esc_url( $entry['url'] ); ?>"<?php echo natura_aria_current( $entry['url'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute. ?>>
+										<?php
+										/* translators: %s: menu entry title, e.g. "Plants". */
+										printf( esc_html__( 'All %s', 'natura' ), esc_html( mb_strtolower( $entry['title'] ) ) );
+										?>
+									</a>
+								</li>
 								<?php foreach ( $entry['children'] as $child ) : ?>
 									<li><a href="<?php echo esc_url( $child['url'] ); ?>"<?php echo natura_aria_current( $child['url'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- fixed attribute. ?>><?php echo esc_html( $child['title'] ); ?></a></li>
 								<?php endforeach; ?>
