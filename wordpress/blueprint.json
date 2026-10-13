@@ -1,0 +1,33 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Natura theme preview",
+    "description": "Installs the Natura theme from the work-in-progress branch.",
+    "author": "natura"
+  },
+  "landingPage": "/",
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "features": { "networking": true },
+  "login": true,
+  "steps": [
+    {
+      "step": "setSiteOptions",
+      "options": {
+        "blogname": "Natura",
+        "blogdescription": "Grow with confidence",
+        "permalink_structure": "/%postname%/"
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "git:directory",
+        "url": "https://github.com/ednajack22-cell/natura",
+        "ref": "claude/site-design-ux-analysis-2hwbga",
+        "refType": "branch",
+        "path": "wordpress/natura"
+      },
+      "options": { "activate": true, "targetFolderName": "natura" }
+    }
+  ]
+}

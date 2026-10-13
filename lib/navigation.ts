@@ -126,17 +126,16 @@ export type PublicNavigationItem = NavigationItem & { matches: readonly string[]
  * The public menu.
  *
  * Organised by what brings a reader here — growing something, fixing something,
- * building something, working out a number, choosing equipment — rather than by
+ * building something, reading, working out a number, choosing equipment — rather than by
  * content type.
  *
  * Three rules hold this together, and all of them matter for search as much as
  * for readers:
  *
  *   1. Every entry is a page. No anchors dressed up as destinations.
- *   2. Nothing is listed before it holds content. "Start here" and "Articles"
- *      left the menu while their pages are empty: a menu that promises more
- *      than the site has costs trust, and the thin pages behind it cost ranking.
- *      Put them back once they carry real guides.
+ *   2. Every section the site is built from has an entry, Articles included,
+ *      even while it is still filling up. "Start here" is not a section, so it
+ *      stays out until it carries a real guided path.
  *   3. A submenu only where there is a real choice to make. Two groups carry
  *      one; everything else is a single tap, which is what most readers arriving
  *      from Pinterest on a phone will use.
@@ -166,6 +165,13 @@ export const navigation: readonly PublicNavigationItem[] = [
     href: "/small-space-gardening/guides",
     description: "Step-by-step builds for balconies and containers.",
     matches: ["/small-space-gardening"],
+    children: [],
+  },
+  {
+    label: "Articles",
+    href: "/learn",
+    description: "Why things happen: light, water, soil, temperature.",
+    matches: ["/learn"],
     children: [],
   },
   {
