@@ -42,9 +42,9 @@ function natura_menu_entry( string $title, string $url, string $description = ''
  * different names, so readers could not tell the entries apart.
  *
  *  - Plants is browsed by kind, the way readers search ("herbs for a balcony").
- *  - The planting calendar has its own entry: seasonal questions ("what to
- *    plant in October") are among the most saved pins in gardening.
- *  - Tools holds the calculators only.
+ *  - Labels say what is behind them: "Plant Problems" rather than "Problems",
+ *    "DIY Projects" for the step-by-step builds, "Gear" for equipment.
+ *  - Tools holds everything interactive, the planting calendar included.
  *  - A dropdown never repeats its parent. On phones, where the parent is a
  *    toggle rather than a link, the sheet adds "All …" by itself.
  *
@@ -65,15 +65,15 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Fruit', 'natura' ), '/plants/fruit/', __( 'Strawberries and compact fruit for containers.', 'natura' ) ),
 			)
 		),
-		natura_menu_entry( __( 'Problems', 'natura' ), '/problems/', __( 'Yellow leaves, pests, wilting: find the cause.', 'natura' ) ),
-		natura_menu_entry( __( 'Calendar', 'natura' ), '/planting-calendar/', __( 'What to sow and plant this month, by climate.', 'natura' ) ),
-		natura_menu_entry( __( 'Projects', 'natura' ), '/projects/', __( 'Step-by-step builds for balconies and patios.', 'natura' ) ),
+		natura_menu_entry( __( 'Plant Problems', 'natura' ), '/problems/', __( 'Yellow leaves, pests, wilting: find the cause.', 'natura' ) ),
+		natura_menu_entry( __( 'DIY Projects', 'natura' ), '/projects/', __( 'Step-by-step builds: herb troughs, salad crates, and more.', 'natura' ) ),
 		natura_menu_entry( __( 'Articles', 'natura' ), '/articles/', __( 'Why things happen: light, water, soil, weather.', 'natura' ) ),
 		natura_menu_entry(
 			__( 'Tools', 'natura' ),
 			'/tools/',
-			__( 'Calculators that answer one question each.', 'natura' ),
+			__( 'Calendars and calculators that answer one question each.', 'natura' ),
 			array(
+				natura_menu_entry( __( 'Planting calendar', 'natura' ), '/tools/planting-calendar/', __( 'What to sow and plant this month, by climate.', 'natura' ) ),
 				natura_menu_entry( __( 'Plant finder', 'natura' ), '/tools/plant-finder/', __( 'Which plants suit your light and space.', 'natura' ) ),
 				natura_menu_entry( __( 'Pot size calculator', 'natura' ), '/tools/pot-size-calculator/', __( 'How big a container each plant needs.', 'natura' ) ),
 				natura_menu_entry( __( 'Watering routine', 'natura' ), '/tools/watering-calculator/', __( 'When to check the soil, and how.', 'natura' ) ),
@@ -82,7 +82,7 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Symptom checker', 'natura' ), '/tools/guided-diagnosis/', __( 'Note what you see before you treat.', 'natura' ) ),
 			)
 		),
-		natura_menu_entry( __( 'Reviews', 'natura' ), '/reviews/', __( 'Pots, soil, and kit compared, with clear criteria.', 'natura' ) ),
+		natura_menu_entry( __( 'Gear', 'natura' ), '/gear/', __( 'Pots, soil, and kit compared, with clear criteria.', 'natura' ) ),
 	);
 }
 
