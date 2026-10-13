@@ -38,8 +38,8 @@ Type: headings in Georgia serif, bold; body in Inter, 17-18px, line height 1.65.
 No text under 14px. Rounded corners 12-16px, pill-shaped buttons, generous white
 space, real photos of plants in pots. Calm, trustworthy, editorial; no clutter,
 no stock-style icons everywhere, no fake statistics.
-The header already exists: logo "Natura" left; menu Plants, Plant Problems,
-DIY Projects, Articles, Tools, Gear; search. Do not redesign it.
+The header already exists: logo "Natura" left; menu Plants, Plant Care,
+DIY Projects, Tools, Gear; search. Do not redesign it.
 ```
 
 ## Prompts par page

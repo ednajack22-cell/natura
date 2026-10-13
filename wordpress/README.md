@@ -62,6 +62,6 @@ chaque page.
 
 ## Ce qui reste à faire
 
-Les liens du menu (Plants, Plant Problems, DIY Projects, Articles, Tools, Gear) mènent pour l'instant à une
+Les liens du menu (Plants, Plant Care, DIY Projects, Tools, Gear) mènent pour l'instant à une
 page « Page not found » : ces sections seront créées aux étapes suivantes
 (types de contenu, gabarits de pages, puis tableau de bord).

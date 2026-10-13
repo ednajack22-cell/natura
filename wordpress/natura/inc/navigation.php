@@ -42,8 +42,12 @@ function natura_menu_entry( string $title, string $url, string $description = ''
  * different names, so readers could not tell the entries apart.
  *
  *  - Plants is browsed by kind, the way readers search ("herbs for a balcony").
- *  - Labels say what is behind them: "Plant Problems" rather than "Problems",
- *    "DIY Projects" for the step-by-step builds, "Gear" for equipment.
+ *  - Plant Care holds everything about looking after a plant: the problem
+ *    guides first, then articles grouped by topic. Separate "Problems" and
+ *    "Articles" entries covered the same ground, and readers could not tell
+ *    which one to open. The topic links will be post category archives.
+ *  - Labels say what is behind them: "DIY Projects" for the step-by-step
+ *    builds, "Gear" for equipment.
  *  - Tools holds everything interactive, the planting calendar included.
  *  - A dropdown never repeats its parent. On phones, where the parent is a
  *    toggle rather than a link, the sheet adds "All …" by itself.
@@ -65,9 +69,19 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Fruit', 'natura' ), '/plants/fruit/', __( 'Strawberries and compact fruit for containers.', 'natura' ) ),
 			)
 		),
-		natura_menu_entry( __( 'Plant Problems', 'natura' ), '/problems/', __( 'Yellow leaves, pests, wilting: find the cause.', 'natura' ) ),
+		natura_menu_entry(
+			__( 'Plant Care', 'natura' ),
+			'/plant-care/',
+			__( 'Keep plants healthy, and fix what goes wrong.', 'natura' ),
+			array(
+				natura_menu_entry( __( 'Plant problems', 'natura' ), '/problems/', __( 'Yellow leaves, pests, wilting: find the cause.', 'natura' ) ),
+				natura_menu_entry( __( 'Watering', 'natura' ), '/plant-care/watering/', __( 'How much, how often, and how to check.', 'natura' ) ),
+				natura_menu_entry( __( 'Soil & feeding', 'natura' ), '/plant-care/soil-feeding/', __( 'Compost, fertiliser, and repotting.', 'natura' ) ),
+				natura_menu_entry( __( 'Light & position', 'natura' ), '/plant-care/light-position/', __( 'Sun, shade, wind, and where to put pots.', 'natura' ) ),
+				natura_menu_entry( __( 'Seasonal care', 'natura' ), '/plant-care/seasonal-care/', __( 'What changes through the year.', 'natura' ) ),
+			)
+		),
 		natura_menu_entry( __( 'DIY Projects', 'natura' ), '/projects/', __( 'Step-by-step builds: herb troughs, salad crates, and more.', 'natura' ) ),
-		natura_menu_entry( __( 'Articles', 'natura' ), '/articles/', __( 'Why things happen: light, water, soil, weather.', 'natura' ) ),
 		natura_menu_entry(
 			__( 'Tools', 'natura' ),
 			'/tools/',
