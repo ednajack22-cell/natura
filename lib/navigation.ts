@@ -119,69 +119,64 @@ export const editorialTaxonomy: readonly NavigationItem[] = [
   },
 ] as const;
 
+/** A menu entry, plus the path prefixes that count as being inside it. */
+export type PublicNavigationItem = NavigationItem & { matches: readonly string[] };
+
 /**
  * The public menu.
  *
- * Organised by what brings a reader here — starting out, growing something,
- * fixing something, working out a number, choosing equipment — rather than by
- * content type. Three of the old groups (Grow, Small-Space Gardening, Plant
- * Care) all applied to a beginner whose basil is failing on a balcony, which
- * left nothing to choose between them.
+ * Organised by what brings a reader here — growing something, fixing something,
+ * building something, working out a number, choosing equipment — rather than by
+ * content type.
  *
- * Two rules hold this together, and both matter for search as much as for
- * readers:
+ * Three rules hold this together, and all of them matter for search as much as
+ * for readers:
  *
  *   1. Every entry is a page. No anchors dressed up as destinations.
- *   2. Nothing is listed before it holds content. The old menu offered six
- *      equipment categories when four were empty, and a menu that promises more
- *      than the site has costs trust, while the thin pages behind it cost
- *      ranking. Equipment categories now surface on the reviews page itself,
- *      where they can reflect what actually exists.
+ *   2. Nothing is listed before it holds content. "Start here" and "Articles"
+ *      left the menu while their pages are empty: a menu that promises more
+ *      than the site has costs trust, and the thin pages behind it cost ranking.
+ *      Put them back once they carry real guides.
+ *   3. A submenu only where there is a real choice to make. Two groups carry
+ *      one; everything else is a single tap, which is what most readers arriving
+ *      from Pinterest on a phone will use.
  */
-export const navigation: readonly NavigationItem[] = [
+export const navigation: readonly PublicNavigationItem[] = [
   {
-    label: "Start here",
-    href: "/start-here",
-    description: "New to growing in a small space? Begin with the essentials.",
-    children: [],
-  },
-  {
-    label: "Plant library",
+    label: "Plants",
     href: "/grow",
-    description: "Look up a plant: how to grow it, and when.",
+    description: "How to grow each plant, and when.",
+    matches: ["/grow", "/plants", "/planting-calendar"],
     children: [
-      { label: "Browse every plant", href: "/grow", description: "Complete profiles for every plant we cover." },
-      { label: "When to plant what", href: "/planting-calendar/calendars", description: "Month-by-month tasks for your climate and space." },
+      { label: "All plant guides", href: "/grow", description: "Complete growing profiles for every plant we cover." },
+      { label: "Plant finder", href: "/tools/plant-finder", description: "Match plants to your light, space, and care time." },
+      { label: "What to plant this month", href: "/tools/planting-calendar", description: "This month's tasks for your climate and space." },
+      { label: "Planting calendars", href: "/planting-calendar/calendars", description: "Month-by-month calendars by climate." },
     ],
   },
   {
     label: "Problems",
     href: "/plant-care/problems",
     description: "Something looks wrong. Work out what it is.",
-    children: [
-      { label: "Diagnose a symptom", href: "/plant-care/problems", description: "Compare symptoms, likely causes, and how to verify each one." },
-      { label: "Observation guide", href: "/tools/guided-diagnosis", description: "Organise what you are seeing before drawing a conclusion." },
-      { label: "Care basics", href: "/plant-care", description: "Watering, soil, pests, and seasonal adjustments." },
-    ],
+    matches: ["/plant-care"],
+    children: [],
   },
   {
-    label: "Articles",
-    href: "/learn",
-    description: "Read about growing: why things happen, and how to set up.",
-    children: [
-      { label: "Articles", href: "/learn", description: "Why things happen: light, water, soil, temperature." },
-      { label: "Step-by-step projects", href: "/small-space-gardening/guides", description: "Build a herb trough, a salad crate, a fruiting container." },
-      { label: "Small-space setup", href: "/small-space-gardening", description: "Work with the light, weight, and wind you actually have." },
-    ],
+    label: "Projects",
+    href: "/small-space-gardening/guides",
+    description: "Step-by-step builds for balconies and containers.",
+    matches: ["/small-space-gardening"],
+    children: [],
   },
   {
     label: "Tools",
     href: "/tools",
     description: "Work out the number instead of guessing it.",
+    matches: ["/tools"],
     children: [
       { label: "Plant finder", href: "/tools/plant-finder", description: "Match plants to your light, space, and care time." },
       { label: "Pot size calculator", href: "/tools/pot-size-calculator", description: "Estimate a practical container range." },
-      { label: "Watering routine", href: "/tools/watering-calculator", description: "Build a soil-check routine you can actually follow." },
+      { label: "Watering routine", href: "/tools/watering-calculator", description: "A soil-check routine you can actually follow." },
       { label: "Frost risk check", href: "/tools/frost-risk", description: "Read a forecast low without false precision." },
       { label: "Monthly planting tasks", href: "/tools/planting-calendar", description: "What to do this month, for your conditions." },
       { label: "Garden planner", href: "/tools/garden-planner", description: "Lay out a compact, reachable growing space." },
@@ -193,6 +188,7 @@ export const navigation: readonly NavigationItem[] = [
     label: "Gear",
     href: "/reviews",
     description: "What to buy, with the criteria and the commercial relationship stated.",
+    matches: ["/reviews"],
     children: [],
   },
 ] as const;

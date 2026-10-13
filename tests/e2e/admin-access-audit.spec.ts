@@ -28,7 +28,8 @@ test("anonymous readers are kept outside every editorial workspace page", async 
 test("the public site explains that reader profiles are not accounts", async ({ page }) => {
   await page.goto("/tools/garden-profile");
   await expect(page.getByText("It is not an account", { exact: false })).toBeVisible();
-  await expect(page.getByRole("link", { name: "Editorial team sign-in" })).toHaveAttribute("href", "/admin");
+  // Readers have nothing to sign in to, so the public pages carry no route to the workspace.
+  await expect(page.locator('a[href^="/admin"]')).toHaveCount(0);
 
   await page.goto("/admin/login");
   await expect(page.getByText("Not a reader account")).toBeVisible();
