@@ -2,12 +2,17 @@
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
     "title": "Natura theme preview",
-    "description": "Installs the Natura theme from the work-in-progress branch.",
+    "description": "Installs the Natura theme and the Natura Core plugin from the work-in-progress branch, with demo plant guides.",
     "author": "natura"
   },
-  "landingPage": "/",
-  "preferredVersions": { "php": "8.3", "wp": "latest" },
-  "features": { "networking": true },
+  "landingPage": "/plants/cherry-tomato/",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "features": {
+    "networking": true
+  },
   "login": true,
   "steps": [
     {
@@ -27,7 +32,28 @@
         "refType": "branch",
         "path": "wordpress/natura"
       },
-      "options": { "activate": true, "targetFolderName": "natura" }
+      "options": {
+        "activate": true,
+        "targetFolderName": "natura"
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "git:directory",
+        "url": "https://github.com/ednajack22-cell/natura",
+        "ref": "claude/site-design-ux-analysis-2hwbga",
+        "refType": "branch",
+        "path": "wordpress/natura-core"
+      },
+      "options": {
+        "activate": true,
+        "targetFolderName": "natura-core"
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; natura_core_import_demo( 'https://raw.githubusercontent.com/ednajack22-cell/natura/claude/site-design-ux-analysis-2hwbga/public/images' );"
     }
   ]
 }

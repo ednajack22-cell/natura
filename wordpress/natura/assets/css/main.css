@@ -345,3 +345,145 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .entry-card h2 { margin: 0 0 .4rem; font: 700 1.4rem/1.2 var(--font-serif); }
 .entry-card p { margin: 0; color: var(--ink-soft); }
 .empty-state { color: var(--ink-soft); font-size: 1.125rem; }
+
+/* ---------------------------------------------------------------------------
+   Breadcrumbs
+   --------------------------------------------------------------------------- */
+
+.breadcrumbs { padding-top: 1rem; }
+.breadcrumbs ol { display: flex; flex-wrap: wrap; gap: .25rem .5rem; margin: 0; padding: 0; list-style: none; color: var(--muted); font-size: .875rem; }
+.breadcrumbs li:not(:last-child)::after { margin-left: .5rem; color: #a3b0a8; content: "›"; }
+.breadcrumbs a { display: inline-flex; align-items: center; min-height: 32px; color: var(--forest); }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs [aria-current] { color: var(--ink-soft); }
+
+/* ---------------------------------------------------------------------------
+   Ad placements
+   --------------------------------------------------------------------------- */
+
+.ad-slot { display: grid; place-items: center; gap: .4rem; min-height: 280px; margin: 2.5rem 0; }
+.ad-slot ins { width: 100%; }
+.ad-slot-label { color: var(--muted); font-size: .8125rem; letter-spacing: .08em; text-transform: uppercase; }
+.ad-slot-preview { align-content: center; min-height: 250px; border: 2px dashed #c9d3cc; border-radius: 1rem; color: var(--muted); font-size: .875rem; text-align: center; }
+.ad-slot-preview span { font-weight: 700; }
+@media (min-width: 1024px) { .ad-slot { min-height: 250px; } }
+
+/* ---------------------------------------------------------------------------
+   Plant guide
+   Mobile order: title and summary, photo, quick facts, guide. The answer a
+   reader came for is on the first screen; the photo confirms it is the pin
+   they tapped.
+   --------------------------------------------------------------------------- */
+
+.plant-page { padding-bottom: 4rem; }
+.plant-hero { display: grid; gap: 1.25rem; padding-top: .75rem; }
+.plant-hero h1 { margin: 0; font: 700 clamp(2.1rem, 8.5vw, 3.6rem)/1.05 var(--font-serif); letter-spacing: -.02em; }
+.plant-botanical { margin: .5rem 0 0; color: var(--clay); font: italic 1.0625rem var(--font-serif); }
+.plant-lead { margin: 1rem 0 0; color: var(--ink-soft); font-size: 1.1875rem; line-height: 1.6; }
+.plant-byline { margin: 1rem 0 0; color: var(--muted); font-size: .875rem; }
+.plant-hero-media { position: relative; margin: 0; overflow: hidden; border-radius: 1.25rem; aspect-ratio: 4 / 3; background: var(--sage-light); }
+.plant-hero-media img { width: 100%; height: 100%; object-fit: cover; }
+
+.pin-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  min-height: 44px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  color: white;
+  background: #e60023;
+  font-size: .9375rem;
+  font-weight: 700;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, .18);
+}
+.pin-button svg { width: 20px; }
+.pin-button:hover { background: #ad081b; }
+.plant-hero-media .pin-button { position: absolute; top: .75rem; right: .75rem; }
+.pin-button-wide { display: flex; width: 100%; margin-top: 1rem; box-shadow: none; }
+
+.plant-facts { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: 1rem; background: white; }
+.plant-facts-title { margin: 0 0 1rem; color: var(--forest); font-size: .875rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.plant-facts dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 1.25rem; margin: 0; }
+.plant-facts dt { color: var(--muted); font-size: .875rem; }
+.plant-facts dd { margin: .15rem 0 0; color: var(--ink); font-size: 1rem; font-weight: 650; line-height: 1.35; }
+
+.plant-layout { display: grid; gap: 1.5rem; margin-top: 1rem; }
+.plant-toc { padding: 1rem 1.25rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--paper); }
+.plant-toc summary { cursor: pointer; font-size: 1rem; font-weight: 750; }
+.plant-toc ol { margin: .75rem 0 0; padding-left: 1.25rem; }
+.plant-toc li { margin: .15rem 0; }
+.plant-toc a { display: inline-flex; min-height: 36px; align-items: center; color: var(--forest); font-size: .9375rem; }
+.plant-toc a:hover { text-decoration: underline; }
+.plant-toc-wrap .pin-button-wide { display: none; }
+
+.plant-content { max-width: 720px; }
+.plant-content > h2 { margin: 2.75rem 0 .75rem; font: 700 clamp(1.6rem, 5vw, 2rem)/1.2 var(--font-serif); scroll-margin-top: calc(var(--header-offset) + 96px); }
+.plant-content > h2:first-child { margin-top: .5rem; }
+.plant-content p { margin: 0 0 1.1rem; }
+.plant-content ul { margin: 0 0 1.25rem; padding-left: 1.25rem; }
+.plant-content li { margin: .4rem 0; }
+.plant-content strong { color: var(--ink); }
+
+.plant-products { margin: 2.5rem 0; padding: 1.25rem; border-radius: 1rem; background: var(--sage-light); }
+.plant-products-title { margin: 0 0 .75rem; font: 700 1.4rem var(--font-serif); }
+.plant-content .plant-products ul { margin: 0; padding: 0; list-style: none; }
+.plant-products li { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .75rem 1rem; margin: 0; padding: .9rem 0; border-top: 1px solid #d5e0d6; }
+.plant-products li:first-child { border-top: 0; }
+.plant-products li > div { display: grid; gap: .2rem; flex: 1 1 220px; }
+.plant-products strong { font-size: 1rem; line-height: 1.35; }
+.plant-products span { color: var(--ink-soft); font-size: .9375rem; line-height: 1.45; }
+.entry-content .button-buy, .button-buy { min-height: 44px; padding: .5rem 1.1rem; color: white; background: var(--clay); font-size: .9375rem; text-decoration: none; box-shadow: none; }
+.button-buy:hover { background: #8a4329; }
+.plant-products-note { margin: .75rem 0 0 !important; color: var(--muted); font-size: .875rem; }
+
+.plant-faq { max-width: 720px; margin-top: 3rem; }
+.plant-faq h2, .plant-sources h2, .plant-related h2 { margin: 0 0 1rem; font: 700 clamp(1.6rem, 5vw, 2rem)/1.2 var(--font-serif); scroll-margin-top: calc(var(--header-offset) + 96px); }
+.plant-faq details { border-bottom: 1px solid var(--line); }
+.plant-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 56px; padding: .75rem 0; cursor: pointer; font-size: 1.0625rem; font-weight: 650; list-style: none; }
+.plant-faq summary::-webkit-details-marker { display: none; }
+.plant-faq summary::after { flex: none; color: var(--forest); font-size: 1.5rem; font-weight: 400; content: "+"; }
+.plant-faq details[open] summary::after { content: "−"; }
+.plant-faq details p { margin: 0 0 1rem; color: var(--ink-soft); font-size: 1.0625rem; line-height: 1.7; }
+
+.plant-sources { max-width: 720px; margin-top: 3rem; font-size: .9375rem; }
+.plant-sources ul { margin: 0; padding-left: 1.25rem; }
+.plant-sources a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+
+.plant-related { margin-top: 3rem; }
+
+/* Cards and lists */
+.plant-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; }
+.plant-grid-break { grid-column: 1 / -1; }
+.plant-grid-break .ad-slot { margin: .5rem 0; }
+.plant-card-link { display: block; }
+.plant-card-media { position: relative; overflow: hidden; border-radius: 1rem; aspect-ratio: 4 / 5; background: var(--sage-light); }
+.plant-card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.plant-card-link:hover img { transform: scale(1.03); }
+.plant-card-type { position: absolute; left: .6rem; bottom: .6rem; padding: .2rem .65rem; border-radius: 999px; color: var(--ink); background: rgba(255, 253, 248, .92); font-size: .875rem; font-weight: 650; }
+.plant-card-title { margin: .7rem 0 .25rem; font: 700 1.125rem/1.25 var(--font-serif); }
+.plant-card-link:hover .plant-card-title { color: var(--forest); text-decoration: underline; }
+.plant-card-facts { margin: 0; color: var(--muted); font-size: .875rem; line-height: 1.4; }
+
+.filter-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0 0 1.75rem; }
+.filter-chips a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.1rem; border: 1px solid var(--line); border-radius: 999px; background: white; font-size: .9375rem; font-weight: 650; }
+.filter-chips a:hover { border-color: var(--forest); }
+.filter-chips a[aria-current] { color: white; border-color: var(--forest); background: var(--forest); }
+.plant-archive { padding-block: 2.5rem 4rem; }
+
+@media (min-width: 640px) {
+  .plant-facts dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1024px) {
+  .plant-hero { grid-template-columns: minmax(0, 1fr) 520px; align-items: center; gap: 3.5rem; padding-top: 1.5rem; }
+  .plant-hero-media { aspect-ratio: 4 / 5; }
+  .plant-facts { padding: 1.5rem 1.75rem; }
+  .plant-facts dl { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .plant-layout { gap: 4rem; margin-top: 1.5rem; }
+  .plant-layout:has(.plant-toc-wrap) { grid-template-columns: 260px minmax(0, 720px); }
+  .plant-toc-wrap { position: sticky; top: calc(var(--header-offset) + 96px); align-self: start; }
+  .plant-toc-wrap .pin-button-wide { display: flex; }
+  .plant-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+}

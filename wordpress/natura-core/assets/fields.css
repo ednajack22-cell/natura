@@ -1,0 +1,16 @@
+.natura-fields-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px 20px; }
+.natura-field label, .natura-list legend { display: block; margin-bottom: 4px; font-weight: 600; }
+.natura-field select, .natura-field input[type="text"] { width: 100%; }
+.natura-field-wide { grid-column: 1 / -1; }
+.natura-field .description { margin-top: 4px; }
+.natura-image-preview img { max-width: 160px; height: auto; margin-bottom: 8px; border-radius: 4px; }
+.natura-fields-note { margin-top: 16px; }
+.natura-list { margin: 0 0 24px; padding: 12px 16px 16px; border: 1px solid #dcdcde; border-radius: 4px; }
+.natura-list legend { padding: 0 4px; font-size: 14px; }
+.natura-list-rows { margin: 12px 0; padding: 0; list-style: none; counter-reset: row; }
+.natura-list-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) auto; gap: 8px 12px; align-items: end; margin: 0 0 8px; padding: 10px; border: 1px solid #e0e0e0; border-radius: 4px; background: #fafafa; }
+.natura-list-cell span { display: block; margin-bottom: 2px; color: #50575e; font-size: 12px; }
+.natura-list-cell input, .natura-list-cell textarea { width: 100%; }
+.natura-list-textarea { grid-column: 1 / -2; }
+.natura-list-actions { display: flex; gap: 10px; align-items: center; padding-bottom: 6px; }
+.natura-list-actions .button-link { font-size: 16px; text-decoration: none; }

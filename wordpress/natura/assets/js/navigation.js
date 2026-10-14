@@ -1,5 +1,5 @@
 /**
- * Natura menus.
+ * Natura menus, plus one small page behaviour (see the end of the file).
  *
  * Everything works without this file: dropdowns open on hover and keyboard
  * focus through CSS, and the mobile sheet is a native <details>. This adds what
@@ -59,4 +59,11 @@
       if (item.contains(document.activeElement)) item.querySelector(".nav-toggle")?.focus();
     });
   });
+
+  // The plant guide's table of contents starts closed, so on a phone it does
+  // not push the guide a whole screen down. On wide screens it sits in the
+  // sidebar, where there is room to show it open.
+  if (window.matchMedia("(min-width: 1024px)").matches) {
+    document.querySelectorAll(".plant-toc").forEach((toc) => { toc.open = true; });
+  }
 })();

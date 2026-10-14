@@ -2,9 +2,9 @@
 /**
  * Natura theme bootstrap.
  *
- * Presentation only. Content types (plants, problems, projects, tools, gear)
- * will live in a companion plugin, so that switching or updating the theme
- * never makes content disappear.
+ * Presentation only. Content types (plant guides and, later, problems,
+ * projects, and gear) live in the Natura Core plugin, so that switching or
+ * updating the theme never makes content disappear.
  *
  * @package Natura
  */
@@ -16,3 +16,5 @@ define( 'NATURA_VERSION', '0.1.0' );
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/navigation.php';
+require_once get_template_directory() . '/inc/ads.php';
+require_once get_template_directory() . '/inc/plant.php';

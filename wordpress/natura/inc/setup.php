@@ -26,6 +26,10 @@ add_action(
 			)
 		);
 
+		// Cards use a 4:5 crop: tall enough to show a whole plant, and close to
+		// the 2:3 format readers know from Pinterest.
+		add_image_size( 'natura-card', 640, 800, true );
+
 		register_nav_menus(
 			array(
 				'primary' => __( 'Main menu', 'natura' ),

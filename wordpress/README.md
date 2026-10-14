@@ -3,7 +3,11 @@
 Ce dossier contient la version WordPress de Natura.
 
 - `natura/` : le thème (présentation : en-tête, menu, pied de page, gabarits).
-- `blueprint.json` : la recette qui installe le thème dans WordPress Playground.
+- `natura-core/` : l'extension qui gère le contenu (fiches plantes, types de
+  plantes, champs). Le contenu est séparé du thème : changer ou mettre à jour
+  le thème ne fait jamais disparaître vos fiches.
+- `blueprint.json` : la recette qui installe le thème, l'extension et trois
+  fiches de démonstration dans WordPress Playground.
 
 ## Voir le thème sans rien installer
 
@@ -20,9 +24,11 @@ https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.co
 
 ## Installer le thème sur un vrai WordPress
 
-1. Téléchargez le dossier `natura/` en zip (ou demandez le zip prêt à l'emploi).
-2. WordPress → Apparence → Thèmes → Ajouter → Téléverser un thème.
-3. Activez « Natura ».
+1. Téléchargez les dossiers `natura/` et `natura-core/` en zip (ou demandez
+   les zips prêts à l'emploi).
+2. WordPress → Apparence → Thèmes → Ajouter → Téléverser un thème : `natura`.
+3. WordPress → Extensions → Ajouter → Téléverser une extension : `natura-core`.
+4. Activez les deux.
 
 À l'activation, le thème crée trois menus modifiables dans
 Apparence → Menus : « Main menu », « Footer columns » et « Legal links ».
@@ -44,6 +50,35 @@ Rien n'est stocké seulement sur un ordinateur.
   `git checkout claude/site-design-ux-analysis-2hwbga`. Sans Git : sur GitHub,
   choisissez la branche, puis Code → Download ZIP.
 
+## Ajouter une fiche plante
+
+Administration → **Plants** → **Add plant guide** :
+
+1. **Titre** : la question que les gens cherchent, par exemple
+   « How to Grow Cherry Tomatoes in Pots ».
+2. **Texte** : le guide complet, découpé en intertitres (titre de niveau 2).
+   Chaque intertitre apparaît automatiquement dans « In this guide ».
+3. **Extrait** (panneau de droite) : le résumé de 2 phrases sous le titre.
+4. **Image mise en avant** : la photo principale.
+5. **Plant types** : Vegetables, Herbs ou Fruit.
+6. **Quick facts** (sous le texte) : soleil, pot, arrosage, récolte,
+   difficulté, saison, et l'image verticale pour Pinterest.
+7. **Shopping list, FAQ, and sources** : la liste « What you need » (collez
+   le lien affilié dans « Link » : un bouton « See price » apparaît), les
+   questions-réponses et les sources.
+
+Le thème place tout seul la liste d'achat après la 2e partie du guide, et les
+publicités aux bons endroits.
+
+## Activer les publicités
+
+Apparence → Personnaliser → **Natura: ads** : collez votre identifiant
+d'éditeur AdSense (`ca-pub-…`) et l'identifiant du bloc d'annonces.
+Tant que ces champs sont vides, les visiteurs ne voient aucune publicité ;
+vous, connecté en administrateur, voyez un cadre pointillé à chaque futur
+emplacement. Avant d'activer les annonces pour l'Europe, configurez le message
+de consentement de Google (AdSense → Confidentialité et messages).
+
 ## Modifier le menu
 
 Apparence → Menus :
@@ -62,6 +97,9 @@ chaque page.
 
 ## Ce qui reste à faire
 
-Les liens du menu (Plants, Plant Care, DIY Projects, Tools, Gear) mènent pour l'instant à une
-page « Page not found » : ces sections seront créées aux étapes suivantes
-(types de contenu, gabarits de pages, puis tableau de bord).
+Fait : fiches plantes (`/plants/cherry-tomato/`), liste des plantes
+(`/plants/`) et pages par type (`/plants/herbs/`).
+
+À venir : Plant Care (problèmes et articles), DIY Projects, Tools, Gear,
+l'accueil, puis le tableau de bord. Ces liens du menu mènent encore à une page
+« Page not found ».
