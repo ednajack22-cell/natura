@@ -61,16 +61,20 @@ add_action(
 );
 
 /**
- * The font is self-hosted, so the browser can start fetching it before the
- * stylesheet is parsed. No third-party request, nothing to declare under GDPR.
+ * The fonts (Newsreader for headings and reading text, Inter for the
+ * interface) are self-hosted and preloaded, so the browser can start fetching
+ * them before the stylesheet is parsed. No third-party request, nothing to
+ * declare under GDPR.
  */
 add_action(
 	'wp_head',
 	static function (): void {
-		printf(
-			'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
-			esc_url( get_template_directory_uri() . '/assets/fonts/inter-latin-wght-normal.woff2' )
-		);
+		foreach ( array( 'newsreader-latin-opsz-normal.woff2', 'inter-latin-wght-normal.woff2' ) as $font ) {
+			printf(
+				'<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n",
+				esc_url( get_template_directory_uri() . '/assets/fonts/' . $font )
+			);
+		}
 	},
 	1
 );

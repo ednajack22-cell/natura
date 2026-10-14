@@ -40,6 +40,14 @@ while ( have_posts() ) :
 
 		<header class="site-container plant-hero">
 			<div class="plant-hero-text">
+				<?php if ( $natura_type ) : ?>
+					<p class="tag">
+						<?php
+						/* translators: %s: plant type, e.g. "Vegetables". */
+						printf( esc_html__( 'Growing guide · %s', 'natura' ), esc_html( $natura_type->name ) );
+						?>
+					</p>
+				<?php endif; ?>
 				<h1><?php the_title(); ?></h1>
 				<?php if ( $natura_botany ) : ?>
 					<p class="plant-botanical"><?php echo esc_html( $natura_botany ); ?></p>

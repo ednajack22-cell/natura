@@ -27,12 +27,11 @@ n'est jamais dans le dépôt : elle est lue dans la variable `STITCH_API_KEY`.
 Sur votre propre ordinateur, avec Claude Code installé :
 `claude mcp add stitch --transport http https://stitch.googleapis.com/mcp --header "X-Goog-Api-Key: VOTRE_CLE"`
 
-**État au 14 octobre 2026** : la connexion marche (la clé est lue, les projets
-et les écrans se listent). En revanche, les captures et le code HTML des écrans
-sont servis par `lh3.googleusercontent.com` et
-`contribution.usercontent.google.com`, que le réseau de l'environnement cloud
-bloque. Pour que Claude puisse les lire, ajoutez ces deux domaines aux domaines
-autorisés de l'environnement (même menu que pour la clé → Network access).
+**État au 14 octobre 2026** : la connexion marche, et les domaines
+`lh3.googleusercontent.com` et `contribution.usercontent.google.com` sont
+autorisés : Claude lit les captures et le code des écrans. Le thème suit
+désormais le design system « Botanical Editorial » du projet Stitch
+« Garden Website AdSense Integration » (accueil, Plant Care, fiches).
 
 Ne collez jamais la clé dans une conversation ou dans un fichier du dépôt. Si
 elle a été exposée, supprimez-la dans Stitch settings et créez-en une autre.
@@ -55,17 +54,21 @@ Dites-moi ce que vous aimez dans la maquette (« la carte résumé en haut »,
 Pour que chaque écran reste cohérent avec le site :
 
 ```text
-Design system for "Natura", an English gardening site for balconies, patios
-and containers. Mobile first (390px wide), then desktop (1440px).
-Colours: paper background #FFFDF8, ink text #173126, forest green #1F5A3F
-(primary buttons, links), dark forest #102F23 (footer), sage #EEF3EB (soft
-panels), clay #A45132 (small accents), sun yellow #E4B94F (highlights only).
-Type: headings in Georgia serif, bold; body in Inter, 17-18px, line height 1.65.
-No text under 14px. Rounded corners 12-16px, pill-shaped buttons, generous white
-space, real photos of plants in pots. Calm, trustworthy, editorial; no clutter,
-no stock-style icons everywhere, no fake statistics.
-The header already exists: logo "Natura" left; menu Plants, Plant Care,
-DIY Projects, Tools, Gear; search. Do not redesign it.
+Design system "Botanical Editorial" for "Natura", an English gardening site
+for balconies, patios and containers. Mobile first (390px wide), then desktop
+(1440px).
+Colours: parchment background #FBF9F2, lighter panels #F5F4ED and #F0EEE7,
+white cards, ink text #1B1C18, headings deep green #032517, forest green
+#1B3B2B (primary buttons, dark panels), terracotta #9B441F (small-caps labels,
+accents), terracotta button #A8492A, sage #E5ECE4, warm grey lines #DCD6CB.
+Type: Newsreader serif, regular weight, for headings and reading text
+(body 19px, line height 1.7); Inter for buttons, labels and interface text.
+Labels in small capitals, terracotta, letter-spaced. Square-cut corners
+(2-4px), thin borders, no heavy shadows. Calm, editorial, trustworthy.
+No invented statistics, ratings, badges, experts or "lab tested" claims.
+The header already exists: "NATURA" with the tagline "Grow with confidence"
+and search on the first row; menu Plants, Plant Care, DIY Projects, Tools,
+Gear on the second. Do not redesign it.
 ```
 
 ## Prompts par page

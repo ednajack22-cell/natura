@@ -14,9 +14,9 @@ $natura_legal   = natura_menu_tree( 'legal' );
 	<div class="site-container">
 		<div class="footer-grid">
 			<div class="footer-brand">
-				<a class="brand brand-inverse" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-					<span class="brand-mark brand-mark-light"><?php natura_the_icon( 'leaf' ); ?></span>
-					<span><?php bloginfo( 'name' ); ?></span>
+				<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+					<span class="brand-mark"><?php natura_the_icon( 'leaf' ); ?></span>
+					<span class="brand-text"><span class="brand-name"><?php bloginfo( 'name' ); ?></span></span>
 				</a>
 				<p><?php esc_html_e( 'Independent, source-aware gardening guidance for balconies, patios, containers, and indoor spaces.', 'natura' ); ?></p>
 			</div>

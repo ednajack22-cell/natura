@@ -174,7 +174,8 @@ function natura_topics(): array {
 }
 
 /**
- * Prints the Plant Care chips: problem guides, then every topic.
+ * Prints the Plant Care chips: the section page, problem guides, then every
+ * topic.
  *
  * @param WP_Term|null $current     Current topic, if any.
  * @param bool         $on_problems Whether the reader is on the problem list.
@@ -186,6 +187,7 @@ function natura_the_topic_chips( ?WP_Term $current = null, bool $on_problems = f
 	}
 	?>
 	<nav class="filter-chips" aria-label="<?php esc_attr_e( 'Plant Care topics', 'natura' ); ?>">
+		<a href="<?php echo esc_url( natura_plant_care_url() ); ?>"<?php echo natura_is_plant_care_section() ? ' aria-current="page"' : ''; ?>><?php esc_html_e( 'All care guides', 'natura' ); ?></a>
 		<a href="<?php echo esc_url( natura_problems_url() ); ?>"<?php echo $on_problems ? ' aria-current="page"' : ''; ?>><?php esc_html_e( 'Plant problems', 'natura' ); ?></a>
 		<?php foreach ( $topics as $topic ) : ?>
 			<a href="<?php echo esc_url( (string) get_term_link( $topic ) ); ?>"<?php echo ( $current && $current->term_id === $topic->term_id ) ? ' aria-current="page"' : ''; ?>><?php echo esc_html( $topic->name ); ?></a>

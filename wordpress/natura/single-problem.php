@@ -30,6 +30,7 @@ while ( have_posts() ) :
 
 		<header class="site-container plant-hero">
 			<div class="plant-hero-text">
+				<p class="tag"><?php esc_html_e( 'Plant problem', 'natura' ); ?></p>
 				<h1><?php the_title(); ?></h1>
 				<?php if ( has_excerpt() ) : ?>
 					<p class="plant-lead"><?php echo esc_html( get_the_excerpt() ); ?></p>
@@ -44,9 +45,15 @@ while ( have_posts() ) :
 			<section class="site-container problem-answer" aria-labelledby="problem-answer-title">
 				<h2 id="problem-answer-title" class="plant-facts-title"><?php esc_html_e( 'Most likely causes', 'natura' ); ?></h2>
 				<ol class="cause-list">
-					<?php foreach ( $natura_causes as $natura_cause ) : ?>
+					<?php foreach ( $natura_causes as $natura_index => $natura_cause ) : ?>
 						<li>
 							<a href="#<?php echo esc_attr( $natura_cause['id'] ); ?>">
+								<span class="label">
+									<?php
+									/* translators: %d: cause number. */
+									printf( esc_html__( 'Cause %d', 'natura' ), (int) $natura_index + 1 );
+									?>
+								</span>
 								<strong><?php echo esc_html( $natura_cause['cause'] ); ?></strong>
 								<?php if ( $natura_cause['sign'] ) : ?>
 									<span>

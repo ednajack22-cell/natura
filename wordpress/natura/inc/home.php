@@ -81,51 +81,43 @@ add_action(
 );
 
 /**
- * Plant types that have at least one guide, each with a photo taken from one
- * of its guides.
+ * Subjects for the "Browse by subject" tiles: plant types, then Plant Care
+ * topics, each with at least one guide.
  *
- * @return array<int, array{term: WP_Term, image_id: int}>
+ * @return array<int, array{name: string, url: string, count: string, icon: string}>
  */
-function natura_home_plant_types(): array {
-	if ( ! taxonomy_exists( 'plant_type' ) ) {
-		return array();
-	}
+function natura_home_subjects(): array {
+	$subjects = array();
 
-	$terms = get_terms(
-		array(
-			'taxonomy'   => 'plant_type',
-			'hide_empty' => true,
-		)
-	);
-	if ( is_wp_error( $terms ) ) {
-		return array();
-	}
-
-	$types = array();
-	foreach ( $terms as $term ) {
-		$with_photo = get_posts(
+	if ( taxonomy_exists( 'plant_type' ) ) {
+		$types = get_terms(
 			array(
-				'post_type'      => 'plant',
-				'posts_per_page' => 1,
-				'fields'         => 'ids',
-				'no_found_rows'  => true,
-				'meta_key'       => '_thumbnail_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- one row, home page only, cached by the page cache.
-				'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-					array(
-						'taxonomy' => 'plant_type',
-						'terms'    => $term->term_id,
-					),
-				),
+				'taxonomy'   => 'plant_type',
+				'hide_empty' => true,
 			)
 		);
+		foreach ( is_wp_error( $types ) ? array() : $types as $type ) {
+			$subjects[] = array(
+				'name'  => $type->name,
+				'url'   => (string) get_term_link( $type ),
+				/* translators: %d: number of guides. */
+				'count' => sprintf( _n( '%d guide', '%d guides', $type->count, 'natura' ), $type->count ),
+				'icon'  => 'pot',
+			);
+		}
+	}
 
-		$types[] = array(
-			'term'     => $term,
-			'image_id' => $with_photo ? (int) get_post_thumbnail_id( $with_photo[0] ) : 0,
+	foreach ( natura_topics() as $topic ) {
+		$subjects[] = array(
+			'name'  => $topic->name,
+			'url'   => (string) get_term_link( $topic ),
+			/* translators: %d: number of articles. */
+			'count' => sprintf( _n( '%d article', '%d articles', $topic->count, 'natura' ), $topic->count ),
+			'icon'  => 'drop',
 		);
 	}
 
-	return $types;
+	return $subjects;
 }
 
 /**

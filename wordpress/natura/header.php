@@ -1,6 +1,7 @@
 <?php
 /**
- * Site header: brand, main menu, search.
+ * Site header: brand and search on the first row, the main menu on the
+ * second (wide screens). On phones the menu is a sheet behind one button.
  *
  * @package Natura
  */
@@ -25,16 +26,14 @@ defined( 'ABSPATH' ) || exit;
 		<?php else : ?>
 			<a class="brand" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 				<span class="brand-mark"><?php natura_the_icon( 'leaf' ); ?></span>
-				<span>
-					<?php bloginfo( 'name' ); ?>
+				<span class="brand-text">
+					<span class="brand-name"><?php bloginfo( 'name' ); ?></span>
 					<?php if ( get_bloginfo( 'description' ) ) : ?>
 						<small><?php bloginfo( 'description' ); ?></small>
 					<?php endif; ?>
 				</span>
 			</a>
 		<?php endif; ?>
-
-		<?php natura_desktop_navigation(); ?>
 
 		<?php get_search_form( array( 'natura_context' => 'header' ) ); ?>
 
@@ -54,5 +53,10 @@ defined( 'ABSPATH' ) || exit;
 				<?php natura_mobile_navigation(); ?>
 			</div>
 		</details>
+	</div>
+	<div class="header-nav">
+		<div class="site-container">
+			<?php natura_desktop_navigation(); ?>
+		</div>
 	</div>
 </header>
