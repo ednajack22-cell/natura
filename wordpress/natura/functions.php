@@ -18,3 +18,4 @@ require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/navigation.php';
 require_once get_template_directory() . '/inc/ads.php';
 require_once get_template_directory() . '/inc/plant.php';
+require_once get_template_directory() . '/inc/home.php';

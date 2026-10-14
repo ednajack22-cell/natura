@@ -24,8 +24,9 @@ https://playground.wordpress.net/?blueprint-url=https://raw.githubusercontent.co
 
 ## Installer le thème sur un vrai WordPress
 
-1. Téléchargez les dossiers `natura/` et `natura-core/` en zip (ou demandez
-   les zips prêts à l'emploi).
+1. Récupérez `natura.zip` (le thème) et `natura-core.zip` (l'extension).
+   Pour les fabriquer depuis ce dossier : `./build-zips.sh` (ils arrivent dans
+   `dist/`).
 2. WordPress → Apparence → Thèmes → Ajouter → Téléverser un thème : `natura`.
 3. WordPress → Extensions → Ajouter → Téléverser une extension : `natura-core`.
 4. Activez les deux.
@@ -70,6 +71,16 @@ Administration → **Plants** → **Add plant guide** :
 Le thème place tout seul la liste d'achat après la 2e partie du guide, et les
 publicités aux bons endroits.
 
+## Régler la page d'accueil
+
+Apparence → Personnaliser → **Natura: home page** : le titre, le texte
+d'introduction, l'adresse de votre profil Pinterest (affiche un bloc « Follow
+on Pinterest ») et le code de votre formulaire d'inscription email (affiche un
+bloc « Monthly planting reminder »).
+
+La page d'accueil se remplit seule : types de plantes, dernières fiches,
+derniers articles. Une section sans contenu ne s'affiche pas.
+
 ## Activer les publicités
 
 Apparence → Personnaliser → **Natura: ads** : collez votre identifiant
@@ -97,9 +108,9 @@ chaque page.
 
 ## Ce qui reste à faire
 
-Fait : fiches plantes (`/plants/cherry-tomato/`), liste des plantes
-(`/plants/`) et pages par type (`/plants/herbs/`).
+Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
+plantes (`/plants/`) et pages par type (`/plants/herbs/`).
 
-À venir : Plant Care (problèmes et articles), DIY Projects, Tools, Gear,
-l'accueil, puis le tableau de bord. Ces liens du menu mènent encore à une page
+À venir : Plant Care (problèmes et articles), DIY Projects, Tools, Gear, puis
+le tableau de bord. Ces liens du menu mènent encore à une page
 « Page not found ».

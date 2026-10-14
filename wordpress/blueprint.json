@@ -5,7 +5,7 @@
     "description": "Installs the Natura theme and the Natura Core plugin from the work-in-progress branch, with demo plant guides.",
     "author": "natura"
   },
-  "landingPage": "/plants/cherry-tomato/",
+  "landingPage": "/",
   "preferredVersions": {
     "php": "8.3",
     "wp": "latest"
@@ -53,7 +53,7 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once '/wordpress/wp-load.php'; natura_core_import_demo( 'https://raw.githubusercontent.com/ednajack22-cell/natura/claude/site-design-ux-analysis-2hwbga/public/images' );"
+      "code": "<?php require_once '/wordpress/wp-load.php'; wp_delete_post( 1, true ); natura_core_import_demo( 'https://raw.githubusercontent.com/ednajack22-cell/natura/claude/site-design-ux-analysis-2hwbga/public/images' );"
     }
   ]
 }
