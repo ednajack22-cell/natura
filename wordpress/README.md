@@ -130,10 +130,9 @@ conflit avec les adresses des thèmes.
 
 Apparence → Personnaliser → **Natura: home page** :
 
-- **Opening photo** : la grande photo d'ouverture, avec le titre posé sur
-  sa partie gauche. Prenez une vraie photo large (au moins 1600 px) de votre
-  balcon ou de vos pots ; sans elle, la photo de la fiche la plus récente est
-  utilisée ;
+- **Opening photo** : la photo à droite du titre, en haut. Prenez une vraie
+  photo (au moins 1200 px de large) de votre balcon ou de vos pots ; sans
+  elle, la photo de la fiche la plus récente est utilisée ;
 - le titre et le texte d'introduction ;
 - **Who writes Natura** : votre nom, votre rôle (« Grows vegetables on a 4 m²
   balcony since 2019 »), une courte bio et une photo. Le bloc s'affiche dès
@@ -150,16 +149,14 @@ chaque fiche plante (cases à cocher Sow / Plant out / Harvest par mois, sous le
 texte de la fiche) : pensez à le remplir pour chaque nouvelle fiche, ainsi que
 le **Short name** (« Cherry tomato ») dans Quick facts.
 
-Le reste de la page d'accueil se remplit seul, à partir de vos fiches : les
-trois fiches plantes les plus récentes en mosaïque, les tuiles « Explore by
-topic » (types de plantes, problèmes, thèmes Plant Care, chacune avec la photo
-de sa fiche la plus récente), les autres fiches, les problèmes avec leur
-photo, « Our picks » (produits de vos listes d'achat qui ont un lien), images
-Pinterest de vos fiches, derniers articles. **Chaque fiche a besoin d'une image
-mise en avant** : la page d'accueil est construite autour des photos. Une
-section sans contenu ne s'affiche pas ; l'administrateur voit en bas de page
-une ligne qui liste les réglages encore vides. Le détail est dans
-`design/BLUEPRINT.md`.
+Le reste de la page d'accueil se remplit seul, à partir de vos fiches : la
+fiche plante la plus récente en grand avec la liste des suivantes, la barre des
+thèmes (types de plantes, problèmes, thèmes Plant Care), les problèmes avec
+leur photo, « Our picks » (produits de vos listes d'achat qui ont un lien),
+images Pinterest de vos fiches. **Chaque fiche a besoin d'une image mise en
+avant.** Une section sans contenu ne s'affiche pas ; l'administrateur voit en
+bas de page une ligne qui liste les réglages encore vides. Le détail, et
+l'analyse des 12 pages d'accueil concurrentes, est dans `design/BLUEPRINT.md`.
 
 ## Activer les publicités
 

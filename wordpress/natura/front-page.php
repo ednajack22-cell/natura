@@ -1,18 +1,20 @@
 <?php
 /**
- * Home page: photo-led, like the leading gardening sites (Gardeners' World,
- * RHS, Epic Gardening; see design/benchmark/). Every block carries a photo
- * from the guides themselves, and the brand colours carry whole bands.
+ * Home page, from the review of twelve gardening home pages
+ * (design/benchmark/, summed up in design/BLUEPRINT.md). The content sites
+ * that lead the niche (Gerbeaud, Gardening Know How, GrowVeg, Balcony Garden
+ * Web, Gardeners' World) share a few rules, followed here:
  *
- * Order (BLUEPRINT.md): opening photo with the title and search, featured
- * guides, this month, explore by topic, popular guides, the page's one ad,
- * plant problems, affiliate picks, Pinterest ideas, latest articles, who
- * writes Natura and the newsletter.
+ * - one large photo per section, for the lead story; elsewhere medium cards
+ *   (photo above, title below) and lists with small thumbnails;
+ * - topics as text buttons, not photo tiles;
+ * - colour bands to separate sections, and little empty space.
  *
- * Money blocks: one ad only, well below the first answer; affiliate picks
- * come from the guides' own shopping lists with the disclosure next to them;
- * Pinterest blocks use the guides' real vertical images. Each section appears
- * only when it has content, and nothing is invented.
+ * Order: opening band (title, search, photo), topic bar, new on Natura (lead
+ * guide and a list), this month, more growing guides, the page's one ad,
+ * plant problems, affiliate picks, Pinterest ideas, more Plant Care
+ * articles, who writes Natura and the newsletter. Each section appears only
+ * when it has content, and nothing is invented.
  *
  * @package Natura
  */
@@ -24,7 +26,7 @@ get_header();
 $natura_plants   = post_type_exists( 'plant' ) ? get_posts(
 	array(
 		'post_type'      => 'plant',
-		'posts_per_page' => 7,
+		'posts_per_page' => 9,
 		'no_found_rows'  => true,
 	)
 ) : array();
@@ -38,228 +40,201 @@ $natura_problems = post_type_exists( 'problem' ) ? get_posts(
 $natura_posts    = get_posts(
 	array(
 		'post_type'      => 'post',
-		'posts_per_page' => 3,
+		'posts_per_page' => 6,
 		'no_found_rows'  => true,
 	)
 );
 
-// Featured guides: the three newest plant guides with a photo; the grid of
-// popular guides further down shows the others, so no guide appears twice.
-$natura_featured = array();
-$natura_grid     = array();
+// New on Natura: the newest plant guide with a photo leads; the list beside it
+// shows the next newest plant guides and articles (problems have their own band).
+$natura_lead = null;
 foreach ( $natura_plants as $natura_plant ) {
-	if ( count( $natura_featured ) < 3 && has_post_thumbnail( $natura_plant ) ) {
-		$natura_featured[] = $natura_plant;
-	} else {
-		$natura_grid[] = $natura_plant;
+	if ( has_post_thumbnail( $natura_plant ) ) {
+		$natura_lead = $natura_plant;
+		break;
 	}
 }
-$natura_grid = array_slice( $natura_grid, 0, 4 );
+$natura_others = array_values(
+	array_filter(
+		array_merge( $natura_plants, $natura_posts ),
+		static fn( WP_Post $item ): bool => ! $natura_lead || $item->ID !== $natura_lead->ID
+	)
+);
+usort( $natura_others, static fn( WP_Post $a, WP_Post $b ): int => strcmp( $b->post_date, $a->post_date ) );
+$natura_list  = array_slice( $natura_others, 0, 4 );
+$natura_shown = array_merge( array( $natura_lead ? $natura_lead->ID : 0 ), wp_list_pluck( $natura_list, 'ID' ) );
+
+// Further down, only what the list did not already show.
+$natura_more_plants = array_slice( array_values( array_filter( $natura_plants, static fn( WP_Post $item ): bool => ! in_array( $item->ID, $natura_shown, true ) ) ), 0, 4 );
+$natura_more_posts  = array_slice( array_values( array_filter( $natura_posts, static fn( WP_Post $item ): bool => ! in_array( $item->ID, $natura_shown, true ) ) ), 0, 3 );
 
 $natura_hero_photo = natura_home_hero_photo();
-if ( ! $natura_hero_photo && $natura_featured ) {
-	$natura_hero_photo = (int) get_post_thumbnail_id( $natura_featured[0] );
+if ( ! $natura_hero_photo && $natura_lead ) {
+	$natura_hero_photo = (int) get_post_thumbnail_id( $natura_lead );
 }
 
 $natura_month   = natura_home_this_month();
-$natura_topics  = natura_home_topics( 6 );
+$natura_topics  = natura_home_topics( 8 );
 $natura_author  = natura_home_author();
 $natura_picks   = natura_home_picks( 3 );
-$natura_pins    = natura_home_pins( 6 );
+$natura_pins    = natura_home_pins( 5 );
 $natura_pin_url = natura_home_setting( 'natura_pinterest_url' );
 $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
-
-// "This month" cards are the plant guides; the Customizer extras follow as a list.
-$natura_month_cards = array();
-$natura_month_extra = array();
-foreach ( $natura_month['groups'] as $natura_group ) {
-	foreach ( $natura_group['items'] as $natura_item ) {
-		if ( 'also' === $natura_group['key'] ) {
-			$natura_month_extra[] = $natura_item;
-		} else {
-			$natura_month_cards[] = $natura_item + array(
-				'activity' => $natura_group['key'],
-				'label'    => $natura_group['label'],
-			);
-		}
-	}
-}
-$natura_month_cards = array_slice( $natura_month_cards, 0, 8 );
 ?>
 <main id="main-content" class="home">
 	<?php echo natura_home_structured_data(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
 
-	<?php // 1. Opening photo with the title, the search, and the main ways in. ?>
+	<?php // 1. Opening band: the promise and the search on the left, a real photo on the right. ?>
 	<section class="home-hero<?php echo $natura_hero_photo ? ' has-photo' : ''; ?>">
-		<?php
-		if ( $natura_hero_photo ) {
-			echo wp_get_attachment_image(
-				$natura_hero_photo,
-				'full',
-				false,
-				array(
-					'class'         => 'home-hero-photo',
-					'alt'           => '',
-					'sizes'         => '100vw',
-					'loading'       => 'eager',
-					'fetchpriority' => 'high',
-				)
-			);
-		}
-		?>
-		<div class="site-container home-hero-inner">
-			<p class="label"><?php esc_html_e( 'Balconies · Patios · Windowsills', 'natura' ); ?></p>
-			<h1><?php echo esc_html( natura_home_setting( 'natura_home_title' ) ); ?></h1>
-			<p class="home-intro"><?php echo esc_html( natura_home_setting( 'natura_home_intro' ) ); ?></p>
-			<?php get_search_form( array( 'natura_context' => 'hero' ) ); ?>
-			<?php if ( $natura_topics ) : ?>
-				<ul class="hero-links" aria-label="<?php esc_attr_e( 'Popular sections', 'natura' ); ?>">
-					<?php foreach ( array_slice( $natura_topics, 0, 4 ) as $natura_topic ) : ?>
-						<li><a href="<?php echo esc_url( $natura_topic['url'] ); ?>"><?php echo esc_html( $natura_topic['name'] ); ?></a></li>
-					<?php endforeach; ?>
-				</ul>
-			<?php endif; ?>
+		<div class="home-hero-text">
+			<div class="home-hero-inner">
+				<p class="label"><?php esc_html_e( 'Balconies · Patios · Windowsills', 'natura' ); ?></p>
+				<h1><?php echo esc_html( natura_home_setting( 'natura_home_title' ) ); ?></h1>
+				<p class="home-intro"><?php echo esc_html( natura_home_setting( 'natura_home_intro' ) ); ?></p>
+				<?php get_search_form( array( 'natura_context' => 'hero' ) ); ?>
+			</div>
 		</div>
+		<?php if ( $natura_hero_photo ) : ?>
+			<div class="home-hero-media">
+				<?php
+				echo wp_get_attachment_image(
+					$natura_hero_photo,
+					'large',
+					false,
+					array(
+						'alt'           => '',
+						'sizes'         => '(min-width: 1024px) 50vw, 100vw',
+						'loading'       => 'eager',
+						'fetchpriority' => 'high',
+					)
+				);
+				?>
+			</div>
+		<?php endif; ?>
 	</section>
 
-	<?php // 2. Featured guides: one large, two beside it. ?>
-	<?php if ( $natura_featured ) : ?>
-		<section class="site-container home-section home-featured" aria-labelledby="home-featured-title">
+	<?php // 2. Topic bar: text buttons with the number of guides. ?>
+	<?php if ( count( $natura_topics ) >= 2 ) : ?>
+		<nav class="topic-bar" aria-label="<?php esc_attr_e( 'Browse by topic', 'natura' ); ?>">
+			<div class="site-container">
+				<ul>
+					<?php foreach ( $natura_topics as $natura_topic ) : ?>
+						<li>
+							<a href="<?php echo esc_url( $natura_topic['url'] ); ?>">
+								<?php natura_the_icon( $natura_topic['icon'] ); ?>
+								<span><?php echo esc_html( $natura_topic['name'] ); ?></span>
+								<small><?php echo esc_html( number_format_i18n( $natura_topic['count'] ) ); ?></small>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</nav>
+	<?php endif; ?>
+
+	<?php // 3. New on Natura: one lead guide with a large photo, the next ones as a list. ?>
+	<?php if ( $natura_lead ) : ?>
+		<section class="site-container home-section" aria-labelledby="home-new-title">
 			<div class="home-head">
-				<h2 id="home-featured-title"><?php esc_html_e( 'Start with these guides', 'natura' ); ?></h2>
+				<h2 id="home-new-title"><?php esc_html_e( 'New on Natura', 'natura' ); ?></h2>
 				<a class="text-link" href="<?php echo esc_url( (string) get_post_type_archive_link( 'plant' ) ); ?>"><?php esc_html_e( 'All plant guides', 'natura' ); ?> <?php natura_the_icon( 'arrow' ); ?></a>
 			</div>
-			<div class="feature-mosaic feature-mosaic-<?php echo count( $natura_featured ); ?>">
-				<?php foreach ( $natura_featured as $natura_index => $natura_item ) : ?>
-					<?php
-					setup_postdata( $GLOBALS['post'] = $natura_item ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- restored by wp_reset_postdata() below.
-					$natura_is_main = 0 === $natura_index;
-					$natura_pin     = $natura_is_main ? natura_pinterest_save_url() : '';
-					?>
-					<article class="feature-tile<?php echo $natura_is_main ? ' feature-tile-main' : ''; ?>">
-						<?php
-						the_post_thumbnail(
-							$natura_is_main ? 'large' : 'medium_large',
-							array(
-								'alt'   => '',
-								'sizes' => $natura_is_main ? '(min-width: 1024px) 800px, 100vw' : '(min-width: 1024px) 420px, 100vw',
-							)
-						);
-						?>
-						<div class="feature-tile-text">
-							<p class="feature-tile-kicker"><?php echo esc_html( natura_home_kicker( $natura_item ) ); ?></p>
-							<h3><a class="feature-tile-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-							<?php if ( $natura_is_main && has_excerpt() ) : ?>
-								<p class="feature-tile-excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 24 ) ); ?></p>
-							<?php endif; ?>
-						</div>
-						<?php if ( $natura_pin ) : ?>
-							<a class="pin-button pin-button-small" href="<?php echo esc_url( $natura_pin ); ?>" target="_blank" rel="noopener">
+			<div class="lead-layout<?php echo $natura_list ? ' has-list' : ''; ?>">
+				<?php
+				setup_postdata( $GLOBALS['post'] = $natura_lead ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- restored by wp_reset_postdata() below.
+				$natura_lead_pin = natura_pinterest_save_url();
+				?>
+				<article class="lead-card">
+					<div class="lead-card-media">
+						<?php the_post_thumbnail( 'large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 720px, 100vw' ) ); ?>
+						<?php if ( $natura_lead_pin ) : ?>
+							<a class="pin-button pin-button-small" href="<?php echo esc_url( $natura_lead_pin ); ?>" target="_blank" rel="noopener">
 								<?php natura_the_icon( 'pin' ); ?>
 								<span><?php esc_html_e( 'Save', 'natura' ); ?></span>
 								<span class="screen-reader-text"><?php esc_html_e( 'this guide to Pinterest (opens in a new tab)', 'natura' ); ?></span>
 							</a>
 						<?php endif; ?>
-					</article>
-				<?php endforeach; ?>
+					</div>
+					<p class="label"><?php echo esc_html( natura_home_kicker( $natura_lead ) ); ?></p>
+					<h3><a class="lead-card-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+					<?php if ( has_excerpt() ) : ?>
+						<p class="lead-card-excerpt"><?php echo esc_html( wp_trim_words( get_the_excerpt(), 30 ) ); ?></p>
+					<?php endif; ?>
+				</article>
 				<?php wp_reset_postdata(); ?>
+
+				<?php if ( $natura_list ) : ?>
+					<ul class="thumb-list">
+						<?php foreach ( $natura_list as $natura_item ) : ?>
+							<li>
+								<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
+									<?php if ( has_post_thumbnail( $natura_item ) ) : ?>
+										<?php echo get_the_post_thumbnail( $natura_item, 'thumbnail', array( 'alt' => '' ) ); ?>
+									<?php endif; ?>
+									<span>
+										<span class="label"><?php echo esc_html( natura_home_kicker( $natura_item ) ); ?></span>
+										<strong><?php echo esc_html( get_the_title( $natura_item ) ); ?></strong>
+									</span>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
+				<?php endif; ?>
 			</div>
 		</section>
 	<?php endif; ?>
 
-	<?php // 3. This month: from the guides' planting calendars, plus Customizer extras. ?>
-	<?php if ( $natura_month_cards || $natura_month_extra ) : ?>
+	<?php // 4. This month: from the guides' planting calendars, plus Customizer extras. ?>
+	<?php if ( $natura_month['groups'] ) : ?>
 		<section class="home-season" aria-labelledby="home-season-title">
-			<div class="site-container">
-				<div class="home-head">
-					<div>
-						<p class="label"><?php esc_html_e( 'What to do now', 'natura' ); ?></p>
-						<h2 id="home-season-title">
-							<?php
-							/* translators: %s: month name, e.g. "October". */
-							printf( esc_html__( 'This month in your pots: %s', 'natura' ), esc_html( $natura_month['month'] ) );
-							?>
-						</h2>
-					</div>
+			<div class="site-container season-layout">
+				<div class="season-intro">
+					<p class="label"><?php esc_html_e( 'What to do now', 'natura' ); ?></p>
+					<h2 id="home-season-title">
+						<?php
+						/* translators: %s: month name, e.g. "October". */
+						printf( esc_html__( 'In your pots this %s', 'natura' ), esc_html( $natura_month['month'] ) );
+						?>
+					</h2>
+					<p><?php esc_html_e( 'For a temperate climate such as the UK or northern Europe. Each guide has its own planting calendar.', 'natura' ); ?></p>
 				</div>
-				<div class="season-body<?php echo ( $natura_month_cards && $natura_month_extra ) ? ' has-also' : ''; ?>">
-					<?php if ( $natura_month_cards ) : ?>
-						<ul class="season-cards">
-							<?php foreach ( $natura_month_cards as $natura_item ) : ?>
+				<?php foreach ( $natura_month['groups'] as $natura_group ) : ?>
+					<div class="season-column">
+						<h3><span class="season-badge season-badge-<?php echo esc_attr( $natura_group['key'] ); ?>"><?php echo esc_html( $natura_group['label'] ); ?></span></h3>
+						<ul<?php echo 'also' === $natura_group['key'] ? ' class="season-chips"' : ''; ?>>
+							<?php foreach ( $natura_group['items'] as $natura_item ) : ?>
 								<li>
-									<a class="season-card" href="<?php echo esc_url( $natura_item['url'] ); ?>">
-										<span class="season-card-media">
-											<?php
-											if ( $natura_item['image'] ) {
-												echo wp_get_attachment_image( $natura_item['image'], 'medium', false, array( 'alt' => '' ) );
-											}
-											?>
-										</span>
-										<span class="season-badge season-badge-<?php echo esc_attr( $natura_item['activity'] ); ?>"><?php echo esc_html( $natura_item['label'] ); ?></span>
-										<strong><?php echo esc_html( $natura_item['name'] ); ?></strong>
-									</a>
+									<?php if ( $natura_item['url'] ) : ?>
+										<a href="<?php echo esc_url( $natura_item['url'] ); ?>">
+									<?php else : ?>
+										<span class="season-item">
+									<?php endif; ?>
+										<?php
+										if ( $natura_item['image'] ) {
+											echo wp_get_attachment_image( $natura_item['image'], 'thumbnail', false, array( 'alt' => '' ) );
+										}
+										?>
+										<span><?php echo esc_html( $natura_item['name'] ); ?></span>
+									<?php echo $natura_item['url'] ? '</a>' : '</span>'; ?>
 								</li>
 							<?php endforeach; ?>
 						</ul>
-					<?php endif; ?>
-					<?php if ( $natura_month_extra ) : ?>
-						<div class="season-also">
-							<h3><?php esc_html_e( 'Also now', 'natura' ); ?></h3>
-							<ul class="season-chips">
-								<?php foreach ( $natura_month_extra as $natura_item ) : ?>
-									<li>
-										<?php if ( $natura_item['url'] ) : ?>
-											<a href="<?php echo esc_url( $natura_item['url'] ); ?>"><?php echo esc_html( $natura_item['name'] ); ?></a>
-										<?php else : ?>
-											<span><?php echo esc_html( $natura_item['name'] ); ?></span>
-										<?php endif; ?>
-									</li>
-								<?php endforeach; ?>
-							</ul>
-						</div>
-					<?php endif; ?>
-				</div>
+					</div>
+				<?php endforeach; ?>
 			</div>
 		</section>
 	<?php endif; ?>
 
-	<?php // 4. Explore by topic: photo tiles. ?>
-	<?php if ( count( $natura_topics ) >= 3 ) : ?>
-		<nav class="site-container home-section" aria-labelledby="home-topics-title">
-			<div class="home-head">
-				<h2 id="home-topics-title"><?php esc_html_e( 'Explore by topic', 'natura' ); ?></h2>
-			</div>
-			<ul class="topic-tiles">
-				<?php foreach ( $natura_topics as $natura_topic ) : ?>
-					<li>
-						<a class="topic-tile" href="<?php echo esc_url( $natura_topic['url'] ); ?>">
-							<?php echo wp_get_attachment_image( $natura_topic['image'], 'medium_large', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 400px, 50vw' ) ); ?>
-							<span class="topic-tile-text">
-								<strong><?php echo esc_html( $natura_topic['name'] ); ?></strong>
-								<span>
-									<?php
-									/* translators: %d: number of guides. */
-									echo esc_html( sprintf( _n( '%d guide', '%d guides', $natura_topic['count'], 'natura' ), $natura_topic['count'] ) );
-									?>
-								</span>
-							</span>
-						</a>
-					</li>
-				<?php endforeach; ?>
-			</ul>
-		</nav>
-	<?php endif; ?>
-
-	<?php // 5. More plant guides ?>
-	<?php if ( count( $natura_grid ) >= 2 ) : ?>
+	<?php // 5. More growing guides: medium cards, photo above the title. ?>
+	<?php if ( count( $natura_more_plants ) >= 2 ) : ?>
 		<section class="site-container home-section" aria-labelledby="home-guides-title">
 			<div class="home-head">
-				<h2 id="home-guides-title"><?php esc_html_e( 'Popular growing guides', 'natura' ); ?></h2>
+				<h2 id="home-guides-title"><?php esc_html_e( 'More growing guides', 'natura' ); ?></h2>
 				<a class="text-link" href="<?php echo esc_url( (string) get_post_type_archive_link( 'plant' ) ); ?>"><?php esc_html_e( 'See all plants', 'natura' ); ?> <?php natura_the_icon( 'arrow' ); ?></a>
 			</div>
 			<div class="mini-grid">
 				<?php
-				foreach ( $natura_grid as $natura_item ) {
+				foreach ( $natura_more_plants as $natura_item ) {
 					setup_postdata( $GLOBALS['post'] = $natura_item ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 					get_template_part( 'template-parts/plant-card-compact' );
 				}
@@ -316,7 +291,7 @@ $natura_month_cards = array_slice( $natura_month_cards, 0, 8 );
 		</section>
 	<?php endif; ?>
 
-	<?php // 8. Affiliate picks, from the guides' shopping lists. ?>
+	<?php // 8. Affiliate picks, from the guides' shopping lists; disclosure before the first link. ?>
 	<?php if ( $natura_picks ) : ?>
 		<section class="site-container home-section home-picks" aria-labelledby="home-picks-title">
 			<div class="home-head">
@@ -324,20 +299,20 @@ $natura_month_cards = array_slice( $natura_month_cards, 0, 8 );
 					<p class="label"><?php esc_html_e( 'Our picks', 'natura' ); ?></p>
 					<h2 id="home-picks-title"><?php esc_html_e( 'What we use on a small balcony', 'natura' ); ?></h2>
 				</div>
+				<p class="picks-note">
+					<?php
+					printf(
+						/* translators: %s: link to the disclosure page. */
+						esc_html__( 'Affiliate links: we may earn a commission at no extra cost to you. %s', 'natura' ),
+						'<a href="' . esc_url( natura_disclosure_url() ) . '">' . esc_html__( 'How we choose products', 'natura' ) . '</a>'
+					);
+					?>
+				</p>
 			</div>
-			<p class="picks-note">
-				<?php
-				printf(
-					/* translators: %s: link to the disclosure page. */
-					esc_html__( 'Affiliate links: we may earn a commission at no extra cost to you. %s', 'natura' ),
-					'<a href="' . esc_url( natura_disclosure_url() ) . '">' . esc_html__( 'How we choose products', 'natura' ) . '</a>'
-				);
-				?>
-			</p>
 			<ul class="product-list">
 				<?php
 				foreach ( $natura_picks as $natura_pick ) {
-					natura_the_product_card( $natura_pick, 'medium' );
+					natura_the_product_card( $natura_pick );
 				}
 				?>
 			</ul>
@@ -347,12 +322,11 @@ $natura_month_cards = array_slice( $natura_month_cards, 0, 8 );
 	<?php // 9. Pinterest ideas, with the guides' vertical images. ?>
 	<?php if ( count( $natura_pins ) >= 2 ) : ?>
 		<section class="home-pins" aria-labelledby="home-pins-title">
-			<div class="site-container">
-				<div class="home-head">
-					<div>
-						<p class="label label-pinterest"><?php natura_the_icon( 'pin' ); ?> <?php esc_html_e( 'Visual guides', 'natura' ); ?></p>
-						<h2 id="home-pins-title"><?php esc_html_e( 'Save ideas for later', 'natura' ); ?></h2>
-					</div>
+			<div class="site-container home-pins-inner">
+				<div class="home-pins-intro">
+					<p class="label label-pinterest"><?php natura_the_icon( 'pin' ); ?> <?php esc_html_e( 'Visual guides', 'natura' ); ?></p>
+					<h2 id="home-pins-title"><?php esc_html_e( 'Save ideas for later', 'natura' ); ?></h2>
+					<p><?php esc_html_e( 'Each guide has a one-page summary made for your Pinterest boards.', 'natura' ); ?></p>
 					<?php if ( $natura_pin_url ) : ?>
 						<a class="pin-button home-pins-follow" href="<?php echo esc_url( $natura_pin_url ); ?>" target="_blank" rel="noopener me">
 							<?php natura_the_icon( 'pin' ); ?>
@@ -365,7 +339,7 @@ $natura_month_cards = array_slice( $natura_month_cards, 0, 8 );
 					<?php foreach ( $natura_pins as $natura_item ) : ?>
 						<li>
 							<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
-								<?php echo wp_get_attachment_image( absint( natura_field( 'pin_image', $natura_item->ID ) ), 'medium_large', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 240px, 45vw' ) ); ?>
+								<?php echo wp_get_attachment_image( absint( natura_field( 'pin_image', $natura_item->ID ) ), 'medium', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 200px, 45vw' ) ); ?>
 								<span><?php echo esc_html( get_the_title( $natura_item ) ); ?></span>
 							</a>
 						</li>
@@ -375,16 +349,16 @@ $natura_month_cards = array_slice( $natura_month_cards, 0, 8 );
 		</section>
 	<?php endif; ?>
 
-	<?php // 10. Latest care articles ?>
-	<?php if ( $natura_posts ) : ?>
+	<?php // 10. More Plant Care articles (those the list above did not show). ?>
+	<?php if ( count( $natura_more_posts ) >= 2 ) : ?>
 		<section class="site-container home-section" aria-labelledby="home-posts-title">
 			<div class="home-head">
-				<h2 id="home-posts-title"><?php esc_html_e( 'Latest care articles', 'natura' ); ?></h2>
+				<h2 id="home-posts-title"><?php esc_html_e( 'More from Plant Care', 'natura' ); ?></h2>
 				<a class="text-link" href="<?php echo esc_url( natura_plant_care_url() ); ?>"><?php esc_html_e( 'All of Plant Care', 'natura' ); ?> <?php natura_the_icon( 'arrow' ); ?></a>
 			</div>
 			<div class="post-grid">
 				<?php
-				foreach ( $natura_posts as $natura_item ) {
+				foreach ( $natura_more_posts as $natura_item ) {
 					setup_postdata( $GLOBALS['post'] = $natura_item ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 					get_template_part( 'template-parts/post-card' );
 				}

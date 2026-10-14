@@ -102,7 +102,7 @@ add_action(
 				'natura_hero_photo',
 				array(
 					'label'       => __( 'Opening photo', 'natura' ),
-					'description' => __( 'A wide photo of a real balcony, patio, or windowsill garden (at least 1600 px wide). The title sits on its left side. Without one, the photo of the newest guide is used.', 'natura' ),
+					'description' => __( 'A photo of a real balcony, patio, or windowsill garden (at least 1200 px wide), shown beside the title. Without one, the photo of the newest guide is used.', 'natura' ),
 					'section'     => 'natura_home',
 					'mime_type'   => 'image',
 					'priority'    => 5,
@@ -256,35 +256,15 @@ function natura_home_hero_photo(): int {
 }
 
 /**
- * The newest guide with a photo among those the query finds, or null.
+ * The topic bar under the opening photo: plant types, plant problems, then
+ * the Plant Care topics, each with its number of guides. Text buttons, as on
+ * GrowVeg and the RHS: the photos are kept for the guides themselves.
  *
- * @param array<string, mixed> $args get_posts() arguments.
+ * @param int $limit Number of topics.
+ * @return array<int, array{name: string, url: string, count: int, icon: string}>
  */
-function natura_home_latest_with_photo( array $args ): ?WP_Post {
-	$posts = get_posts(
-		array_merge(
-			array(
-				'posts_per_page' => 1,
-				'no_found_rows'  => true,
-				'meta_key'       => '_thumbnail_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- home page only, cached by the page cache.
-			),
-			$args
-		)
-	);
-
-	return $posts ? $posts[0] : null;
-}
-
-/**
- * "Explore by topic" tiles: plant types, plant problems, then the Plant Care
- * topics, each shown with the photo of its newest guide. A section without a
- * photo is left out rather than shown as an empty tile.
- *
- * @param int $limit Number of tiles.
- * @return array<int, array{name: string, url: string, count: int, image: int}>
- */
-function natura_home_topics( int $limit = 6 ): array {
-	$tiles = array();
+function natura_home_topics( int $limit = 8 ): array {
+	$topics = array();
 
 	if ( taxonomy_exists( 'plant_type' ) ) {
 		$types = get_terms(
@@ -296,48 +276,39 @@ function natura_home_topics( int $limit = 6 ): array {
 			)
 		);
 		foreach ( is_wp_error( $types ) ? array() : $types as $type ) {
-			$guide = natura_home_latest_with_photo(
-				array(
-					'post_type' => 'plant',
-					'tax_query' => array( array( 'taxonomy' => 'plant_type', 'terms' => $type->term_id ) ), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-				)
-			);
-			if ( $guide ) {
-				$tiles[] = array(
-					'name'  => $type->name,
-					'url'   => (string) get_term_link( $type ),
-					'count' => (int) $type->count,
-					'image' => (int) get_post_thumbnail_id( $guide ),
-				);
-			}
-		}
-	}
-
-	if ( post_type_exists( 'problem' ) ) {
-		$guide = natura_home_latest_with_photo( array( 'post_type' => 'problem' ) );
-		if ( $guide ) {
-			$tiles[] = array(
-				'name'  => __( 'Plant problems', 'natura' ),
-				'url'   => natura_problems_url(),
-				'count' => (int) wp_count_posts( 'problem' )->publish,
-				'image' => (int) get_post_thumbnail_id( $guide ),
+			$topics[] = array(
+				'name'  => $type->name,
+				'url'   => (string) get_term_link( $type ),
+				'count' => (int) $type->count,
+				'icon'  => 'pot',
 			);
 		}
 	}
 
+	$problems = post_type_exists( 'problem' ) ? (int) wp_count_posts( 'problem' )->publish : 0;
+	if ( $problems ) {
+		$topics[] = array(
+			'name'  => __( 'Plant problems', 'natura' ),
+			'url'   => natura_problems_url(),
+			'count' => $problems,
+			'icon'  => 'lens',
+		);
+	}
+
+	$icons = array(
+		'watering'     => 'drop',
+		'soil-feeding' => 'roots',
+	);
 	foreach ( natura_topics() as $topic ) {
-		$guide = natura_home_latest_with_photo( array( 'cat' => $topic->term_id ) );
-		if ( $guide ) {
-			$tiles[] = array(
-				'name'  => $topic->name,
-				'url'   => (string) get_term_link( $topic ),
-				'count' => (int) $topic->count,
-				'image' => (int) get_post_thumbnail_id( $guide ),
-			);
-		}
+		$topics[] = array(
+			'name'  => $topic->name,
+			'url'   => (string) get_term_link( $topic ),
+			'count' => (int) $topic->count,
+			'icon'  => $icons[ $topic->slug ] ?? 'leaf',
+		);
 	}
 
-	return array_slice( $tiles, 0, $limit );
+	return array_slice( $topics, 0, $limit );
 }
 
 /**

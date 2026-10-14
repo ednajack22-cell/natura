@@ -70,38 +70,61 @@ sans son annonce (le texte en a déjà deux).
 4. Bandeau vert foncé vers les problèmes (« Plant looking unwell? »).
 5. Pagination.
 
-## Accueil (refaite le 14 octobre 2026, version photo)
+## Accueil (version du 14 octobre 2026, d'après les 12 pages d'accueil)
 
-La première version, fidèle à l'écran Stitch « Mobile Homepage », était trop
-pâle : beige sur beige, des encadrés de texte, peu de photos. Les sites qui
-dominent la niche (Gardeners' World, RHS, Epic Gardening, Gardening Know How ;
-captures dans `design/benchmark/`) font l'inverse : **une photo dans chaque
-bloc, des bandes de couleur pleine largeur, des titres posés sur les photos**.
-L'accueil suit maintenant cette logique, avec les couleurs Natura (en-tête et
-pied de page vert forêt, boutons terre cuite).
+### Ce que montrent les captures (`design/benchmark/`)
 
-1. **Photo d'ouverture** pleine largeur (Personnaliser → Opening photo), voile
-   vert foncé à gauche : étiquette, titre H1, introduction, recherche, liens
-   rapides vers les principales sections.
-2. **Start with these guides** : mosaïque façon RHS, une grande tuile (avec le
-   bouton Pinterest « Save ») et deux à côté, titres sur la photo.
-3. **This month in your pots: [mois]** (bande vert sauge) : cartes photo des
-   fiches à semer, planter ou récolter ce mois-ci, avec une pastille de
-   couleur par action ; « Also now » à côté.
-4. **Explore by topic** : 6 tuiles photo (types de plantes, problèmes, thèmes
-   Plant Care), comme « Learn with Epic Gardening ».
-5. « Popular growing guides » : les fiches qui ne sont pas dans la mosaïque
-   (au moins 2, sinon la section n'apparaît pas).
+Les 12 pages d'accueil ont été relues, sur ordinateur et sur téléphone.
+
+| Site | Ce qu'il fait | Ce que Natura en retient |
+| --- | --- | --- |
+| Gerbeaud | Un article à la une avec grande photo, à côté le mot de l'auteur avec sa photo ; puis des rangées de 3 cartes (photo au-dessus, titre dessous) ; listes texte « Dernières parutions », « Les plus » ; bandes de couleur pleines (orange, turquoise) | Une seule grande photo, des listes texte entre les cartes, des bandes de couleur |
+| Gardening Know How | Article à la une, puis 4 cartes ; bandeau « Trending: Seeds to plant in October » sous le menu ; « Meet the experts » | Le bloc du mois, la page auteur |
+| GrowVeg | Grande photo à la une + 4 petites cartes, deux fois ; thèmes en **boutons texte avec icône** (Plant Guides, Pest Guides) | Thèmes en boutons, pas en photos |
+| Balcony Garden Web | Mosaïque en haut ; sections « une rangée de 3 cartes » ; colonne « Gardening Ideas » en **liste à petites vignettes** à côté d'une grille | La liste à vignettes à côté de l'article principal |
+| Au Jardin | Une grande photo, puis une grille dense de cartes ; « Plantes de saison » en ronds sur bande sombre | Le bloc de saison sur bande de couleur |
+| Gardeners' World | Carrousel à la une, rangées de 4 cartes, bandes « Reviews », bloc magazine | Les guides d'achat (plus tard, section Gear) |
+| RHS | Texte de présentation + petites tuiles ; « Gardening tasks for October » ; grandes photos pour les portes d'entrée | Le bloc du mois, la promesse en haut |
+| Epic Gardening | Boutique : bandeaux produits, grandes tuiles photo « Learn with Epic » | Seule à mettre des tuiles photo partout : à ne pas suivre pour un site de conseils |
+| Crocus, Promesse de fleurs | Boutiques : grandes photos promotionnelles, prix, réassurance | Peu utile pour un site de conseils |
+| Missouri Botanical Garden, SNHF | Institutions : actualités, horaires, agenda | Peu utile |
+
+**Règles qui en sortent :**
+
+1. **Une seule grande photo par section** (l'article à la une). Ailleurs, des
+   cartes moyennes (photo au-dessus, titre dessous) ou des **listes à petites
+   vignettes**. Jamais la même photo deux fois en haut de page.
+2. **Thèmes en boutons texte** avec icône et nombre de fiches.
+3. **Pas de grands vides** : marges de section de 2,5 à 3,5 rem, colonnes qui
+   se remplissent quel que soit le nombre d'éléments (un texte d'introduction
+   prend la place libre à côté des épingles ou du bloc du mois).
+4. Les **bandes de couleur** séparent les sections ; deux bandes qui se
+   suivent se touchent.
+
+### Ordre des blocs
+
+1. **Bande d'ouverture** : promesse, titre H1, recherche à gauche sur vert
+   forêt ; photo réelle à droite (Personnaliser → Opening photo). Pas de
+   photo géante sous le texte.
+2. **Barre des thèmes** : boutons texte (types de plantes, problèmes, thèmes
+   Plant Care) avec le nombre de fiches.
+3. **New on Natura** : la fiche plante la plus récente en grand (bouton
+   Pinterest « Save » sur la photo), à côté la liste à vignettes des 4 fiches
+   et articles suivants.
+4. **In your pots this [mois]** (bande vert sauge) : introduction, puis une
+   colonne par action (Sow, Plant out, Harvest) avec vignettes rondes, puis
+   « Also now » en pastilles.
+5. « More growing guides » : cartes moyennes, seulement pour les fiches que la
+   liste n'a pas montrées (au moins 2).
 6. **La seule annonce de la page.**
-7. Bande vert foncé « Something wrong with a plant? » : chaque problème avec
-   sa photo et sa cause la plus fréquente.
-8. **Our picks** : 3 produits avec grande photo ; mention d'affiliation
+7. Bande vert foncé des problèmes, avec petite photo et cause la plus
+   fréquente.
+8. **Our picks** : 3 cartes compactes (photo à gauche), mention d'affiliation
    **avant** les cartes.
-9. Bande « Save ideas for later » : les images Pinterest verticales.
-10. Derniers articles Plant Care, avec photo.
-11. Bande de fin : **Who writes Natura** et newsletter côte à côte, chacun
-    seulement s'il est réglé. Pour l'administrateur, une ligne liste ce qui
-    reste à régler (plus de grands cadres vides).
+9. Bande Pinterest : texte à gauche, épingles verticales à droite.
+10. « More from Plant Care » : articles que la liste n'a pas montrés.
+11. **Who writes Natura** et newsletter, chacun seulement s'il est réglé ;
+    pour l'administrateur, une ligne liste ce qui reste à régler.
 
 Données structurées : `WebSite` (avec la recherche du site) et
 `Organization` (logo, profil Pinterest, fondateur si le bloc auteur est
