@@ -24,6 +24,7 @@ function natura_home_defaults(): array {
 		'natura_pinterest_url'   => '',
 		'natura_newsletter_code' => '',
 		'natura_newsletter_text' => __( 'One email a month: what to sow and plant now, and one problem to watch for. No spam, unsubscribe in one click.', 'natura' ),
+		'natura_home_season'     => '',
 	);
 }
 
@@ -56,6 +57,7 @@ add_action(
 			'natura_pinterest_url'   => array( __( 'Pinterest profile address', 'natura' ), 'url', 'esc_url_raw', __( 'Shows a "Follow on Pinterest" block. Example: https://www.pinterest.com/yourname/', 'natura' ) ),
 			'natura_newsletter_code' => array( __( 'Newsletter form shortcode', 'natura' ), 'text', 'sanitize_text_field', __( 'From your email plugin (MailerLite, Mailchimp for WordPress…), e.g. [mc4wp_form id="12"]. Leave empty to hide the newsletter block.', 'natura' ) ),
 			'natura_newsletter_text' => array( __( 'Newsletter text', 'natura' ), 'textarea', 'sanitize_textarea_field', '' ),
+			'natura_home_season'     => array( __( 'What\'s in season', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'What to sow or plant this month, one per line. Add a link after a vertical bar: "Garlic | /plants/garlic/". Leave empty to hide the strip.', 'natura' ) ),
 		);
 
 		foreach ( $fields as $id => list( $label, $type, $sanitize, $description ) ) {
@@ -81,43 +83,99 @@ add_action(
 );
 
 /**
- * Subjects for the "Browse by subject" tiles: plant types, then Plant Care
- * topics, each with at least one guide.
+ * "What's in season" chips from the Customizer: one per line, with an
+ * optional link after a vertical bar.
  *
- * @return array<int, array{name: string, url: string, count: string, icon: string}>
+ * @return array<int, array{name: string, url: string}>
  */
-function natura_home_subjects(): array {
-	$subjects = array();
-
-	if ( taxonomy_exists( 'plant_type' ) ) {
-		$types = get_terms(
-			array(
-				'taxonomy'   => 'plant_type',
-				'hide_empty' => true,
-			)
+function natura_home_season(): array {
+	$items = array();
+	foreach ( preg_split( '/\R/', natura_home_setting( 'natura_home_season' ) ) ?: array() as $line ) {
+		$parts = array_map( 'trim', explode( '|', $line, 2 ) );
+		if ( '' === $parts[0] ) {
+			continue;
+		}
+		$url = $parts[1] ?? '';
+		if ( str_starts_with( $url, '/' ) ) {
+			$url = home_url( $url );
+		}
+		$items[] = array(
+			'name' => $parts[0],
+			'url'  => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
 		);
-		foreach ( is_wp_error( $types ) ? array() : $types as $type ) {
-			$subjects[] = array(
-				'name'  => $type->name,
-				'url'   => (string) get_term_link( $type ),
-				/* translators: %d: number of guides. */
-				'count' => sprintf( _n( '%d guide', '%d guides', $type->count, 'natura' ), $type->count ),
-				'icon'  => 'pot',
+	}
+
+	return array_slice( $items, 0, 8 );
+}
+
+/**
+ * "Our picks": products recommended in the guides' shopping lists, with a
+ * shop link, newest guides first, each product once. Products with a photo
+ * come first. Nothing is invented: every pick is in a guide.
+ *
+ * @param int $limit Number of products.
+ * @return array<int, array{name: string, badge: string, note: string, url: string, image: int, guide: int}>
+ */
+function natura_home_picks( int $limit = 3 ): array {
+	$guides = get_posts(
+		array(
+			'post_type'      => array_values( array_filter( array( 'plant', 'problem', 'post' ), 'post_type_exists' ) ),
+			'posts_per_page' => 30,
+			'no_found_rows'  => true,
+			'meta_key'       => '_natura_products', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- home page only, cached by the page cache.
+		)
+	);
+
+	$picks  = array();
+	$images = array();
+	foreach ( $guides as $guide ) {
+		foreach ( natura_field_list( 'products', $guide->ID ) as $row ) {
+			$name  = trim( (string) ( $row['name'] ?? '' ) );
+			$url   = (string) ( $row['url'] ?? '' );
+			$image = absint( $row['image'] ?? 0 );
+			$key   = strtolower( $name );
+			// The same product often appears in several guides, under slightly
+			// different names but with the same photo (sometimes uploaded twice,
+			// as photo.jpg and photo-1.jpg): show it once.
+			$photo = $image ? preg_replace( '/-\d+$/', '', (string) pathinfo( (string) get_attached_file( $image ), PATHINFO_FILENAME ) ) : '';
+			if ( '' === $name || '' === $url || isset( $picks[ $key ] ) || ( $photo && isset( $images[ $photo ] ) ) ) {
+				continue;
+			}
+			if ( $photo ) {
+				$images[ $photo ] = true;
+			}
+			$picks[ $key ] = array(
+				'name'  => $name,
+				'badge' => (string) ( $row['badge'] ?? '' ),
+				'note'  => (string) ( $row['note'] ?? '' ),
+				'url'   => $url,
+				'image' => absint( $row['image'] ?? 0 ),
+				'guide' => (int) $guide->ID,
 			);
 		}
 	}
 
-	foreach ( natura_topics() as $topic ) {
-		$subjects[] = array(
-			'name'  => $topic->name,
-			'url'   => (string) get_term_link( $topic ),
-			/* translators: %d: number of articles. */
-			'count' => sprintf( _n( '%d article', '%d articles', $topic->count, 'natura' ), $topic->count ),
-			'icon'  => 'drop',
-		);
-	}
+	$picks = array_values( $picks );
+	usort( $picks, static fn( array $a, array $b ): int => (int) ( $b['image'] > 0 ) <=> (int) ( $a['image'] > 0 ) );
 
-	return $subjects;
+	return array_slice( $picks, 0, $limit );
+}
+
+/**
+ * Guides that have a vertical Pinterest image, newest first.
+ *
+ * @param int $limit Number of guides.
+ * @return WP_Post[]
+ */
+function natura_home_pins( int $limit = 6 ): array {
+	return get_posts(
+		array(
+			'post_type'      => array_values( array_filter( array( 'plant', 'problem', 'post' ), 'post_type_exists' ) ),
+			'posts_per_page' => $limit,
+			'no_found_rows'  => true,
+			'meta_key'       => '_natura_pin_image', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- home page only, cached by the page cache.
+		)
+	);
 }
 
 /**

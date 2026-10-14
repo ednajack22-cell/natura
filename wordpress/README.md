@@ -129,12 +129,18 @@ conflit avec les adresses des thèmes.
 ## Régler la page d'accueil
 
 Apparence → Personnaliser → **Natura: home page** : le titre, le texte
-d'introduction, l'adresse de votre profil Pinterest (affiche un bloc « Follow
-on Pinterest ») et le code de votre formulaire d'inscription email (affiche un
-bloc « Monthly planting reminder »).
+d'introduction, l'adresse de votre profil Pinterest (ajoute un bouton « Follow
+Natura on Pinterest »), le code de votre formulaire d'inscription email
+(affiche « Monthly planting reminder ») et **What's in season** : ce qu'on
+sème ou plante ce mois-ci, une ligne par plante, avec un lien facultatif après
+une barre verticale (`Garlic | /plants/garlic/`). Mettez cette liste à jour
+chaque mois.
 
-La page d'accueil se remplit seule : types de plantes, dernières fiches,
-derniers articles. Une section sans contenu ne s'affiche pas.
+Le reste de la page d'accueil se remplit seul, à partir de vos fiches : fiche
+en vedette, fiches populaires, problèmes, « Our picks » (produits de vos listes
+d'achat qui ont un lien et une photo), images Pinterest de vos fiches, derniers
+articles. Une section sans contenu ne s'affiche pas. Le détail est dans
+`design/BLUEPRINT.md`.
 
 ## Activer les publicités
 

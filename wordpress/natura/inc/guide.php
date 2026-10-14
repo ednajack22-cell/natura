@@ -183,38 +183,52 @@ function natura_products_box( string $title ): string {
 			<h2 id="product-box-title"><?php echo esc_html( $title ); ?></h2>
 		</div>
 		<ul class="product-list">
-			<?php foreach ( $products as $product ) : ?>
-				<?php $natura_image = absint( $product['image'] ?? 0 ); ?>
-				<li class="product-card<?php echo $natura_image ? ' has-image' : ''; ?>">
-					<?php if ( $natura_image ) : ?>
-						<div class="product-card-media"><?php echo wp_get_attachment_image( $natura_image, 'thumbnail', false, array( 'alt' => '' ) ); ?></div>
-					<?php endif; ?>
-					<div class="product-card-text">
-						<?php if ( ! empty( $product['badge'] ) ) : ?>
-							<p class="label"><?php echo esc_html( $product['badge'] ); ?></p>
-						<?php endif; ?>
-						<strong><?php echo esc_html( $product['name'] ?? '' ); ?></strong>
-						<?php if ( ! empty( $product['note'] ) ) : ?>
-							<span><?php echo esc_html( $product['note'] ); ?></span>
-						<?php endif; ?>
-					</div>
-					<?php if ( ! empty( $product['url'] ) ) : ?>
-						<a class="button button-buy" href="<?php echo esc_url( $product['url'] ); ?>" rel="sponsored nofollow noopener" target="_blank">
-							<?php esc_html_e( 'Check price', 'natura' ); ?>
-							<span class="screen-reader-text">
-								<?php
-								/* translators: %s: product name. */
-								printf( esc_html__( 'for %s (opens in a new tab)', 'natura' ), esc_html( $product['name'] ?? '' ) );
-								?>
-							</span>
-						</a>
-					<?php endif; ?>
-				</li>
-			<?php endforeach; ?>
+			<?php
+			foreach ( $products as $product ) {
+				natura_the_product_card( $product );
+			}
+			?>
 		</ul>
 	</aside>
 	<?php
 	return (string) ob_get_clean();
+}
+
+/**
+ * Prints one product card: photo, label, name, why it matters, and the shop
+ * button (sponsored, opens in a new tab).
+ *
+ * @param array $product Product row: name, badge, note, url, image.
+ */
+function natura_the_product_card( array $product ): void {
+	$natura_image = absint( $product['image'] ?? 0 );
+	?>
+		<li class="product-card<?php echo $natura_image ? ' has-image' : ''; ?>">
+		<?php if ( $natura_image ) : ?>
+			<div class="product-card-media"><?php echo wp_get_attachment_image( $natura_image, 'thumbnail', false, array( 'alt' => '' ) ); ?></div>
+		<?php endif; ?>
+		<div class="product-card-text">
+			<?php if ( ! empty( $product['badge'] ) ) : ?>
+				<p class="label"><?php echo esc_html( $product['badge'] ); ?></p>
+			<?php endif; ?>
+			<strong><?php echo esc_html( $product['name'] ?? '' ); ?></strong>
+			<?php if ( ! empty( $product['note'] ) ) : ?>
+				<span><?php echo esc_html( $product['note'] ); ?></span>
+			<?php endif; ?>
+		</div>
+		<?php if ( ! empty( $product['url'] ) ) : ?>
+			<a class="button button-buy" href="<?php echo esc_url( $product['url'] ); ?>" rel="sponsored nofollow noopener" target="_blank">
+				<?php esc_html_e( 'Check price', 'natura' ); ?>
+				<span class="screen-reader-text">
+					<?php
+					/* translators: %s: product name. */
+					printf( esc_html__( 'for %s (opens in a new tab)', 'natura' ), esc_html( $product['name'] ?? '' ) );
+					?>
+				</span>
+			</a>
+		<?php endif; ?>
+	</li>
+	<?php
 }
 
 /**

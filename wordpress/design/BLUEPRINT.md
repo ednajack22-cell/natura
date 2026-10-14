@@ -72,14 +72,27 @@ sans son annonce (le texte en a déjà deux).
 
 ## Accueil
 
-1. Titre, introduction, recherche ; photo d'une fiche en vedette.
-2. Trois portes d'entrée : plantes, problèmes, entretien.
-3. Fiches à la une : une grande carte et une liste de 2 à 3 à côté.
-4. Annonce.
-5. Panneau « Something wrong with a plant? » (fiches problèmes).
-6. Derniers articles Plant Care.
-7. Sujets (types de plantes et thèmes).
-8. Newsletter et Pinterest.
+D'après l'écran Stitch « Natura - Mobile Homepage (390px) », conçu d'abord
+pour téléphone (environ 6 écrans), puis élargi sur ordinateur :
+
+1. Titre, introduction, recherche ; photo 4:5 d'une fiche en vedette, avec le
+   bouton Pinterest « Save » sur la photo.
+2. « What's in season » : pastilles de ce qu'on sème ou plante ce mois-ci
+   (Personnaliser → Natura: home page), défilement horizontal sur téléphone.
+   Caché tant que la liste est vide.
+3. Trois portes d'entrée en lignes : plantes, problèmes, entretien.
+4. « Popular growing guides » : cartes compactes, 2 par ligne sur téléphone,
+   jusqu'à 4 sur ordinateur.
+5. **La seule annonce de la page**, après ces fiches.
+6. Panneau vert foncé « Something wrong with a plant? » : les fiches problèmes
+   et leur cause la plus fréquente.
+7. **Our picks** : 3 produits tirés des listes d'achat des fiches (lien
+   affilié et photo), un seul par produit, mention d'affiliation juste dessous.
+8. **Save ideas for later** : les images Pinterest verticales des fiches, en
+   défilement horizontal sur téléphone ; bouton « Follow » si le profil
+   Pinterest est réglé.
+9. Derniers articles Plant Care.
+10. Newsletter « Monthly planting reminder », si un formulaire est réglé.
 
 ## Plant Care
 
