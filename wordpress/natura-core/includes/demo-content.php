@@ -66,10 +66,7 @@ function natura_core_import_demo( string $image_base ): array {
 			natura_core_set_plant_months( $post_id, $activity, $months );
 		}
 
-		$image_id = natura_core_demo_attach_image( trailingslashit( $image_base ) . $plant['image'], $post_id, $plant['image_alt'] );
-		if ( $image_id ) {
-			set_post_thumbnail( $post_id, $image_id );
-		}
+		natura_core_demo_set_photo( $post_id, $plant, $image_base );
 
 		$created[] = $post_id;
 	}
@@ -117,6 +114,7 @@ function natura_core_import_demo_care( string $image_base ): array {
 		}
 
 		natura_core_demo_save_fields( $post_id, $problem['lists'], $problem['pin'] ?? '', $image_base );
+		natura_core_demo_set_photo( $post_id, $problem, $image_base );
 
 		$plant_ids = array();
 		foreach ( $problem['plants'] as $plant_slug ) {
@@ -154,11 +152,29 @@ function natura_core_import_demo_care( string $image_base ): array {
 		}
 
 		natura_core_demo_save_fields( $post_id, $article['lists'], $article['pin'] ?? '', $image_base );
+		natura_core_demo_set_photo( $post_id, $article, $image_base );
 
 		$created[] = $post_id;
 	}
 
 	return $created;
+}
+
+/**
+ * Sets a demo guide's main photo, when it names one.
+ *
+ * @param int                  $post_id    Guide ID.
+ * @param array<string, mixed> $guide      Demo guide with optional image and image_alt.
+ * @param string               $image_base Image folder or URL.
+ */
+function natura_core_demo_set_photo( int $post_id, array $guide, string $image_base ): void {
+	if ( empty( $guide['image'] ) ) {
+		return;
+	}
+	$image_id = natura_core_demo_attach_image( trailingslashit( $image_base ) . $guide['image'], $post_id, (string) ( $guide['image_alt'] ?? '' ) );
+	if ( $image_id ) {
+		set_post_thumbnail( $post_id, $image_id );
+	}
 }
 
 /**
@@ -435,6 +451,8 @@ function natura_core_demo_problems(): array {
 	return array(
 		'yellow-leaves-container-plants' => array(
 			'title'   => 'Why Are the Leaves on My Container Plants Turning Yellow?',
+			'image'     => 'demo/problem-yellow-leaves.jpg',
+			'image_alt' => 'A tomato plant in a terracotta pot with yellowing lower leaves and green upper leaves',
 			'excerpt' => 'In pots, yellow leaves most often come down to water: too much, or too little. If watering is right, look at where the yellow appears: evenly on the oldest leaves points to hungry compost, and yellow between green veins to a lack of magnesium.',
 			'plants'  => array( 'cherry-tomato', 'genovese-basil', 'balcony-strawberry' ),
 			'pin'     => 'demo/pin-yellow-leaves.jpg',
@@ -506,6 +524,8 @@ function natura_core_demo_problems(): array {
 		),
 		'blossom-end-rot'                => array(
 			'title'   => 'Why Do My Tomatoes Have Black Bottoms? (Blossom End Rot)',
+			'image'     => 'demo/problem-blossom-end-rot.jpg',
+			'image_alt' => 'A green tomato with a dark sunken patch at its base, next to healthy fruit',
 			'excerpt' => 'A dark, sunken patch at the base of tomato fruit is blossom end rot. It is not a disease: the fruit is short of calcium because the plant\'s water supply was uneven. Steady watering protects the fruit that forms next.',
 			'plants'  => array( 'cherry-tomato' ),
 			'lists'   => array(
@@ -565,6 +585,8 @@ function natura_core_demo_articles(): array {
 	return array(
 		'how-often-to-water-container-plants' => array(
 			'title'   => 'How Often Should You Water Container Plants?',
+			'image'     => 'demo/article-watering.jpg',
+			'image_alt' => 'A metal watering can watering herbs and tomatoes in pots on a sunny balcony',
 			'excerpt' => 'There is no fixed schedule: check the compost, and water when the top few centimetres are dry. In summer that can mean every day for large plants in full sun, and once a week for small ones in shade.',
 			'topic'   => 'watering',
 			'lists'   => array(
@@ -602,6 +624,8 @@ function natura_core_demo_articles(): array {
 		),
 		'compost-for-containers'              => array(
 			'title'   => 'Which Compost Should You Use in Pots?',
+			'image'     => 'demo/article-compost.jpg',
+			'image_alt' => 'Hands filling a terracotta pot with dark peat-free compost on a potting bench',
 			'excerpt' => 'Use fresh, peat-free container compost, never garden soil. Multipurpose compost suits vegetables, herbs, and summer plants; a soil-based peat-free mix suits shrubs and fruit that stay in the same pot for years.',
 			'topic'   => 'soil-feeding',
 			'pin'     => 'demo/pin-compost.jpg',

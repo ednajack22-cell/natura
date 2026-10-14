@@ -70,33 +70,38 @@ sans son annonce (le texte en a déjà deux).
 4. Bandeau vert foncé vers les problèmes (« Plant looking unwell? »).
 5. Pagination.
 
-## Accueil (finalisée le 14 octobre 2026)
+## Accueil (refaite le 14 octobre 2026, version photo)
 
-D'après l'écran Stitch « Natura - Mobile Homepage (390px) » et l'analyse des
-captures concurrentes (`design/benchmark/`). Conçue d'abord pour téléphone
-(environ 6 écrans), puis élargie sur ordinateur :
+La première version, fidèle à l'écran Stitch « Mobile Homepage », était trop
+pâle : beige sur beige, des encadrés de texte, peu de photos. Les sites qui
+dominent la niche (Gardeners' World, RHS, Epic Gardening, Gardening Know How ;
+captures dans `design/benchmark/`) font l'inverse : **une photo dans chaque
+bloc, des bandes de couleur pleine largeur, des titres posés sur les photos**.
+L'accueil suit maintenant cette logique, avec les couleurs Natura (en-tête et
+pied de page vert forêt, boutons terre cuite).
 
-1. Titre, introduction, recherche ; photo 4:5 d'une fiche en vedette, avec le
-   bouton Pinterest « Save » sur la photo.
-2. **This month · [mois]** : les fiches à semer, planter et récolter ce
-   mois-ci, tirées du calendrier de chaque fiche, puis les ajouts du
-   Personnaliser (« Also now »). Comme « What to do now » (Gardeners' World),
-   « tasks for October » (RHS), « Travaux du moment » (Gerbeaud).
-3. Trois portes d'entrée : plantes, problèmes, entretien.
-4. « Popular growing guides » : cartes compactes, 2 par ligne sur téléphone,
-   jusqu'à 4 sur ordinateur.
-5. **La seule annonce de la page**, après ces fiches.
-6. Panneau « Something wrong with a plant? » : les fiches problèmes et leur
-   cause la plus fréquente.
-7. **Our picks** : 3 produits tirés des listes d'achat des fiches, un seul par
-   produit, mention d'affiliation juste dessous.
-8. **Save ideas for later** : les images Pinterest verticales des fiches.
-9. Derniers articles Plant Care.
-10. **Who writes Natura** : photo, nom, rôle et courte bio de la vraie
-    personne derrière le site (Personnaliser), lien vers « How we write and
-    test ». Signal de confiance pour les lecteurs et pour Google (E-E-A-T),
-    comme chez Gerbeaud et Gardening Know How.
-11. Newsletter « Monthly planting reminder », si un formulaire est réglé.
+1. **Photo d'ouverture** pleine largeur (Personnaliser → Opening photo), voile
+   vert foncé à gauche : étiquette, titre H1, introduction, recherche, liens
+   rapides vers les principales sections.
+2. **Start with these guides** : mosaïque façon RHS, une grande tuile (avec le
+   bouton Pinterest « Save ») et deux à côté, titres sur la photo.
+3. **This month in your pots: [mois]** (bande vert sauge) : cartes photo des
+   fiches à semer, planter ou récolter ce mois-ci, avec une pastille de
+   couleur par action ; « Also now » à côté.
+4. **Explore by topic** : 6 tuiles photo (types de plantes, problèmes, thèmes
+   Plant Care), comme « Learn with Epic Gardening ».
+5. « Popular growing guides » : les fiches qui ne sont pas dans la mosaïque
+   (au moins 2, sinon la section n'apparaît pas).
+6. **La seule annonce de la page.**
+7. Bande vert foncé « Something wrong with a plant? » : chaque problème avec
+   sa photo et sa cause la plus fréquente.
+8. **Our picks** : 3 produits avec grande photo ; mention d'affiliation
+   **avant** les cartes.
+9. Bande « Save ideas for later » : les images Pinterest verticales.
+10. Derniers articles Plant Care, avec photo.
+11. Bande de fin : **Who writes Natura** et newsletter côte à côte, chacun
+    seulement s'il est réglé. Pour l'administrateur, une ligne liste ce qui
+    reste à régler (plus de grands cadres vides).
 
 Données structurées : `WebSite` (avec la recherche du site) et
 `Organization` (logo, profil Pinterest, fondateur si le bloc auteur est

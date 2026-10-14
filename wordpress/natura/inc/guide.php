@@ -198,14 +198,16 @@ function natura_products_box( string $title ): string {
  * Prints one product card: photo, label, name, why it matters, and the shop
  * button (sponsored, opens in a new tab).
  *
- * @param array $product Product row: name, badge, note, url, image.
+ * @param array  $product Product row: name, badge, note, url, image.
+ * @param string $size    Photo size: the guides use the small square, the
+ *                        home page a larger one.
  */
-function natura_the_product_card( array $product ): void {
+function natura_the_product_card( array $product, string $size = 'thumbnail' ): void {
 	$natura_image = absint( $product['image'] ?? 0 );
 	?>
 		<li class="product-card<?php echo $natura_image ? ' has-image' : ''; ?>">
 		<?php if ( $natura_image ) : ?>
-			<div class="product-card-media"><?php echo wp_get_attachment_image( $natura_image, 'thumbnail', false, array( 'alt' => '' ) ); ?></div>
+			<div class="product-card-media"><?php echo wp_get_attachment_image( $natura_image, $size, false, array( 'alt' => '' ) ); ?></div>
 		<?php endif; ?>
 		<div class="product-card-text">
 			<?php if ( ! empty( $product['badge'] ) ) : ?>

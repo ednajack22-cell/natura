@@ -90,6 +90,27 @@ add_action(
 		}
 
 		$customizer->add_setting(
+			'natura_hero_photo',
+			array(
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$customizer->add_control(
+			new WP_Customize_Media_Control(
+				$customizer,
+				'natura_hero_photo',
+				array(
+					'label'       => __( 'Opening photo', 'natura' ),
+					'description' => __( 'A wide photo of a real balcony, patio, or windowsill garden (at least 1600 px wide). The title sits on its left side. Without one, the photo of the newest guide is used.', 'natura' ),
+					'section'     => 'natura_home',
+					'mime_type'   => 'image',
+					'priority'    => 5,
+				)
+			)
+		);
+
+		$customizer->add_setting(
 			'natura_author_photo',
 			array(
 				'type'              => 'theme_mod',
@@ -126,7 +147,7 @@ function natura_plant_short_name( int $post_id ): string {
  * month (from each guide's planting calendar), then the extra items set in the
  * Customizer, one per line with an optional link after a vertical bar.
  *
- * @return array{month: string, groups: array<int, array{label: string, items: array<int, array{name: string, url: string}>}>}
+ * @return array{month: string, groups: array<int, array{key: string, label: string, items: array<int, array{name: string, url: string, image: int}>}>}
  */
 function natura_home_this_month(): array {
 	$month  = (int) wp_date( 'n' );
@@ -153,11 +174,13 @@ function natura_home_this_month(): array {
 			);
 			if ( $ids ) {
 				$groups[] = array(
+					'key'   => $activity,
 					'label' => $label,
 					'items' => array_map(
 						static fn( int $id ): array => array(
-							'name' => natura_plant_short_name( $id ),
-							'url'  => (string) get_permalink( $id ),
+							'name'  => natura_plant_short_name( $id ),
+							'url'   => (string) get_permalink( $id ),
+							'image' => (int) get_post_thumbnail_id( $id ),
 						),
 						$ids
 					),
@@ -177,12 +200,14 @@ function natura_home_this_month(): array {
 			$url = home_url( $url );
 		}
 		$extra[] = array(
-			'name' => $parts[0],
-			'url'  => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
+			'name'  => $parts[0],
+			'url'   => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
+			'image' => 0,
 		);
 	}
 	if ( $extra ) {
 		$groups[] = array(
+			'key'   => 'also',
 			'label' => __( 'Also now', 'natura' ),
 			'items' => array_slice( $extra, 0, 8 ),
 		);
@@ -219,6 +244,120 @@ function natura_home_author(): ?array {
 		'photo' => absint( get_theme_mod( 'natura_author_photo' ) ),
 		'url'   => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
 	);
+}
+
+/**
+ * The opening photo: the one set in the Customizer, or 0.
+ */
+function natura_home_hero_photo(): int {
+	$id = absint( get_theme_mod( 'natura_hero_photo' ) );
+
+	return ( $id && wp_attachment_is_image( $id ) ) ? $id : 0;
+}
+
+/**
+ * The newest guide with a photo among those the query finds, or null.
+ *
+ * @param array<string, mixed> $args get_posts() arguments.
+ */
+function natura_home_latest_with_photo( array $args ): ?WP_Post {
+	$posts = get_posts(
+		array_merge(
+			array(
+				'posts_per_page' => 1,
+				'no_found_rows'  => true,
+				'meta_key'       => '_thumbnail_id', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- home page only, cached by the page cache.
+			),
+			$args
+		)
+	);
+
+	return $posts ? $posts[0] : null;
+}
+
+/**
+ * "Explore by topic" tiles: plant types, plant problems, then the Plant Care
+ * topics, each shown with the photo of its newest guide. A section without a
+ * photo is left out rather than shown as an empty tile.
+ *
+ * @param int $limit Number of tiles.
+ * @return array<int, array{name: string, url: string, count: int, image: int}>
+ */
+function natura_home_topics( int $limit = 6 ): array {
+	$tiles = array();
+
+	if ( taxonomy_exists( 'plant_type' ) ) {
+		$types = get_terms(
+			array(
+				'taxonomy'   => 'plant_type',
+				'hide_empty' => true,
+				'orderby'    => 'count',
+				'order'      => 'DESC',
+			)
+		);
+		foreach ( is_wp_error( $types ) ? array() : $types as $type ) {
+			$guide = natura_home_latest_with_photo(
+				array(
+					'post_type' => 'plant',
+					'tax_query' => array( array( 'taxonomy' => 'plant_type', 'terms' => $type->term_id ) ), // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+				)
+			);
+			if ( $guide ) {
+				$tiles[] = array(
+					'name'  => $type->name,
+					'url'   => (string) get_term_link( $type ),
+					'count' => (int) $type->count,
+					'image' => (int) get_post_thumbnail_id( $guide ),
+				);
+			}
+		}
+	}
+
+	if ( post_type_exists( 'problem' ) ) {
+		$guide = natura_home_latest_with_photo( array( 'post_type' => 'problem' ) );
+		if ( $guide ) {
+			$tiles[] = array(
+				'name'  => __( 'Plant problems', 'natura' ),
+				'url'   => natura_problems_url(),
+				'count' => (int) wp_count_posts( 'problem' )->publish,
+				'image' => (int) get_post_thumbnail_id( $guide ),
+			);
+		}
+	}
+
+	foreach ( natura_topics() as $topic ) {
+		$guide = natura_home_latest_with_photo( array( 'cat' => $topic->term_id ) );
+		if ( $guide ) {
+			$tiles[] = array(
+				'name'  => $topic->name,
+				'url'   => (string) get_term_link( $topic ),
+				'count' => (int) $topic->count,
+				'image' => (int) get_post_thumbnail_id( $guide ),
+			);
+		}
+	}
+
+	return array_slice( $tiles, 0, $limit );
+}
+
+/**
+ * The small label above a guide's title on the home page: its plant type,
+ * "Plant problem", or its Plant Care topic.
+ *
+ * @param WP_Post $guide Guide.
+ */
+function natura_home_kicker( WP_Post $guide ): string {
+	if ( 'plant' === $guide->post_type ) {
+		$types = get_the_terms( $guide, 'plant_type' );
+
+		return is_array( $types ) && $types ? $types[0]->name : __( 'Growing guide', 'natura' );
+	}
+	if ( 'problem' === $guide->post_type ) {
+		return __( 'Plant problem', 'natura' );
+	}
+	$topics = get_the_category( $guide->ID );
+
+	return $topics ? $topics[0]->name : __( 'Plant Care', 'natura' );
 }
 
 /**

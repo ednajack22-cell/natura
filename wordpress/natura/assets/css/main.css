@@ -81,7 +81,7 @@ body { margin: 0; background: var(--paper); color: var(--ink); font: 400 1rem/1.
 img, svg { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; color: inherit; }
-h1, h2, h3 { color: var(--heading); font-family: var(--font-serif); font-weight: 400; letter-spacing: -.015em; text-wrap: balance; }
+h1, h2, h3 { color: var(--heading); font-family: var(--font-serif); font-weight: 500; letter-spacing: -.015em; text-wrap: balance; }
 ::selection { color: var(--forest-dark); background: #c7ebd4; }
 :focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
 
@@ -174,10 +174,13 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
   position: sticky;
   top: var(--header-offset);
   z-index: 50;
-  background: color-mix(in srgb, var(--paper) 95%, transparent);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(14px);
+  color: white;
+  background: var(--forest);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .08);
 }
+.site-header .brand { color: white; }
+.site-header .brand-mark { background: var(--clay); }
+.site-header .brand small { color: #f6c9b3; }
 /* Logged-in editors see the admin bar; keep the header below it. */
 .admin-bar { --header-offset: 32px; }
 @media (max-width: 782px) { .admin-bar { --header-offset: 46px; } }
@@ -185,7 +188,7 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
 
 .header-inner { min-height: var(--header-height); display: flex; align-items: center; gap: .5rem; }
 .header-inner > .brand { flex: none; margin-right: auto; }
-.header-nav { display: none; border-top: 1px solid var(--line-soft); }
+.header-nav { display: none; border-top: 1px solid rgba(255, 255, 255, .12); }
 
 /* Desktop menu */
 .desktop-nav > ul { position: relative; display: flex; align-items: center; gap: .25rem; margin: 0 0 0 -.75rem; padding: 0; list-style: none; }
@@ -196,8 +199,8 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
   align-items: center;
   min-height: 48px;
   padding: 0 .75rem;
-  color: var(--ink-soft);
-  font: 500 .9375rem var(--font-sans);
+  color: #dfe9e2;
+  font: 500 1rem var(--font-sans);
   transition: color .15s ease;
 }
 .nav-item.has-menu > .nav-link { padding-right: .1rem; }
@@ -205,7 +208,7 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
 .nav-item.has-menu:hover > .nav-link,
 .nav-item:focus-within > .nav-link,
 .nav-item.is-open > .nav-link,
-.nav-item.is-current > .nav-link { color: var(--heading); }
+.nav-item.is-current > .nav-link { color: white; }
 .nav-item.is-current > .nav-link::after {
   position: absolute;
   left: .75rem;
@@ -223,7 +226,7 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
   height: 44px;
   padding: 0 .4rem 0 0;
   border: 0;
-  color: var(--muted);
+  color: #b9cfc0;
   background: none;
   cursor: pointer;
 }
@@ -280,6 +283,13 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
 }
 .header-search-form:focus-within, .mobile-search:focus-within, .search-form:focus-within { border-color: var(--forest); background: var(--card); }
 .header-search-form svg, .mobile-search svg, .search-form svg { width: 18px; flex: none; color: var(--muted); }
+.header-search-form { border-color: rgba(255, 255, 255, .22); background: rgba(255, 255, 255, .1); }
+.header-search-form svg { color: #b9cfc0; }
+.header-search-form input { color: white; }
+.header-search-form input::placeholder { color: #b9cfc0; }
+.header-search-form:focus-within { border-color: white; background: white; }
+.header-search-form:focus-within input { color: var(--ink); }
+.site-header .header-search-form button { background: var(--clay); }
 .header-search-form input, .mobile-search input, .search-form input { min-width: 0; flex: 1; border: 0; background: none; color: var(--ink); outline: none; }
 .header-search-form input { width: 15rem; font-size: .9375rem; }
 /* 16px stops iOS Safari from zooming the page when the field takes focus. */
@@ -305,22 +315,22 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
   min-width: 44px;
   height: 44px;
   padding: 0 .7rem;
-  border: 1px solid var(--line);
+  border: 1px solid rgba(255, 255, 255, .28);
   border-radius: var(--radius);
-  color: var(--heading);
-  background: var(--card);
+  color: white;
+  background: rgba(255, 255, 255, .06);
   font: 600 .9375rem var(--font-sans);
   cursor: pointer;
 }
 .header-icon-button svg { width: 20px; flex: none; }
-.header-icon-button:hover { border-color: var(--forest); }
+.header-icon-button:hover { border-color: white; }
 
 /* Mobile sheet */
 .mobile-menu > summary { list-style: none; }
 .mobile-menu > summary::-webkit-details-marker { display: none; }
 .mobile-menu-close, .mobile-menu[open] .mobile-menu-open { display: none; }
 .mobile-menu[open] .mobile-menu-close { display: block; }
-.mobile-menu[open] > summary { color: white; border-color: var(--forest); background: var(--forest); }
+.mobile-menu[open] > summary { color: var(--forest); border-color: white; background: white; }
 .mobile-sheet {
   /* Positioned against the sticky header, which spans the full width, so the
      sheet needs no viewport-width maths. */
@@ -332,7 +342,7 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
   padding: 1rem max(1.25rem, calc((100% - 640px) / 2)) 2rem;
   overflow-y: auto;
   overscroll-behavior: contain;
-  border-top: 1px solid var(--line);
+  color: var(--ink);
   background: var(--paper);
 }
 .mobile-menu:not([open]) .mobile-sheet { display: none; }
@@ -384,17 +394,19 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
    Site footer
    --------------------------------------------------------------------------- */
 
-.site-footer { padding: 3.5rem 0 2rem; border-top: 1px solid var(--line-soft); background: var(--paper-low); }
+.site-footer { padding: 3.5rem 0 2rem; color: #c3d3c8; background: var(--forest-dark); }
+.site-footer .brand { color: white; }
+.site-footer .brand-mark { background: var(--clay); }
 .footer-grid { display: grid; gap: 2.5rem; }
-.footer-brand p { max-width: 400px; margin: 1rem 0 0; color: var(--ink-soft); font: 400 1.0625rem/1.6 var(--font-serif); }
-.footer-column h2 { margin: 0 0 .5rem; color: var(--heading); font: 700 .8125rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.footer-brand p { max-width: 400px; margin: 1rem 0 0; color: #c3d3c8; font: 400 1.0625rem/1.6 var(--font-serif); }
+.footer-column h2 { margin: 0 0 .5rem; color: #f6c9b3; font: 700 .8125rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
 .footer-column ul { margin: 0; padding: 0; list-style: none; }
-.footer-column a { display: flex; align-items: center; min-height: 40px; color: var(--ink-soft); font-size: .9375rem; }
-.footer-column a:hover { color: var(--heading); text-decoration: underline; text-underline-offset: 3px; }
-.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid var(--line); color: var(--muted); font-size: .875rem; }
+.footer-column a { display: flex; align-items: center; min-height: 40px; color: #dfe9e2; font-size: .9375rem; }
+.footer-column a:hover { color: white; text-decoration: underline; text-underline-offset: 3px; }
+.footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid rgba(255, 255, 255, .14); color: #9fb5a7; font-size: .875rem; }
 .footer-bottom nav { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
-.footer-bottom a { display: inline-flex; align-items: center; min-height: 32px; color: var(--ink-soft); }
-.footer-bottom a:hover { color: var(--heading); text-decoration: underline; }
+.footer-bottom a { display: inline-flex; align-items: center; min-height: 32px; color: #dfe9e2; }
+.footer-bottom a:hover { color: white; text-decoration: underline; }
 
 @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
 @media (min-width: 1024px) { .footer-grid { grid-template-columns: 2fr 1fr 1fr; gap: 3rem; } .footer-brand { grid-column: auto; } }
@@ -753,160 +765,234 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 
 /* ---------------------------------------------------------------------------
    Home page
-   From the Stitch "Natura - Mobile Homepage (390px)" screen, mobile first:
-   one column on phones, the same blocks wider on larger screens.
+   Photo-led, like the leading gardening sites in design/benchmark/
+   (Gardeners' World, RHS, Epic Gardening): an opening photo, a mosaic of
+   featured guides, photo tiles by topic, and full-width colour bands. Mobile
+   first: one column on phones, the same blocks wider on larger screens.
    --------------------------------------------------------------------------- */
 
 .home { padding-bottom: 4rem; }
-.home-section { margin-top: 2.75rem; }
-.home-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .25rem 1rem; margin-bottom: 1rem; }
-.home-head h2, .home-section > h2, .home-pins h2 { margin: 0; font-size: clamp(1.625rem, 6vw, 2.25rem); line-height: 1.2; }
-.home-head .text-link { min-height: 44px; text-decoration: underline; text-underline-offset: 4px; }
+.home-section { margin-top: 3rem; }
+.home-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: .5rem 1.5rem; margin-bottom: 1.25rem; }
+.home-head h2, .home-section > h2 { margin: 0; font-size: clamp(1.75rem, 5.5vw, 2.5rem); font-weight: 500; line-height: 1.12; }
+.home-head .label { margin-bottom: .4rem; }
+.home-head .text-link { min-height: 44px; }
 
 .path-icon { display: grid; flex: none; place-items: center; width: 44px; height: 44px; border-radius: var(--radius); color: var(--forest); background: var(--paper-mid); }
 .path-icon svg { width: 22px; }
 .path-icon-accent { color: var(--clay); background: var(--clay-tint); }
 
-/* 1. Hero */
-.home-hero-inner { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding-block: 1.75rem 0; }
-.home-hero .label { margin-bottom: .6rem; }
-.home-hero h1 { margin: 0; font-size: clamp(2.25rem, 9vw, 3.75rem); line-height: 1.1; }
-.home-intro { max-width: 36rem; margin: .9rem 0 1.25rem; color: var(--ink-soft); font: 400 1.125rem/1.6 var(--font-serif); }
+.button-light { color: var(--forest); background: white; }
+.button-light:hover { background: var(--paper); }
+
+/* 1. Opening photo: the title, the search, and the main sections on the left,
+   where a dark wash keeps white text readable on any photo. */
+.home-hero { position: relative; display: grid; overflow: hidden; color: white; background: var(--forest-dark); }
+/* The photo and its wash fill the band; the band's height comes from the text. */
+.home-hero-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+.home-hero.has-photo::before { position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(9, 28, 19, .5) 0%, rgba(9, 28, 19, .82) 70%); content: ""; }
+.home-hero-inner { position: relative; z-index: 2; padding-block: 3.5rem 3rem; }
+.home-hero .label { margin-bottom: .75rem; color: #f6c9b3; }
+.home-hero h1 { max-width: 13ch; margin: 0; color: white; font-size: clamp(2.5rem, 10vw, 4.75rem); font-weight: 500; line-height: 1.03; letter-spacing: -.02em; }
+.home-intro { max-width: 34rem; margin: 1rem 0 1.5rem; color: #e4ede7; font: 400 1.1875rem/1.55 var(--font-serif); }
+.home-hero .search-form-large { max-width: 560px; min-height: 56px; margin: 0; padding-left: 1rem; border: 0; background: white; box-shadow: 0 10px 30px rgba(0, 0, 0, .18); }
+.home-hero .search-form-large button { min-height: 44px; padding: 0 1.25rem; background: var(--clay); font-size: .9375rem; }
+.home-hero .search-form-large button:hover { background: #7f3517; }
 .search-form-large { max-width: 560px; min-height: 52px; margin: 0; padding-left: 1rem; background: var(--card); }
-.search-form-large button { min-height: 42px; padding: 0 1.1rem; font-size: .9375rem; }
+.hero-links { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 0; padding: 0; list-style: none; }
+.hero-links a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid rgba(255, 255, 255, .4); border-radius: 999px; color: white; background: rgba(255, 255, 255, .1); font: 500 .9375rem var(--font-sans); transition: background .15s ease, color .15s ease; }
+.hero-links a:hover { color: var(--forest-dark); background: white; }
 
-.hero-feature { position: relative; display: grid; margin: 0; overflow: hidden; border-radius: var(--radius); aspect-ratio: 4 / 5; background: var(--sage); }
-.hero-feature > img, .hero-feature-caption { grid-area: 1 / 1; }
-.hero-feature > img { width: 100%; height: 100%; object-fit: cover; }
-.hero-feature::after { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 50%, rgba(8, 26, 17, .82) 100%); content: ""; pointer-events: none; }
-.hero-feature-caption { z-index: 1; align-self: end; display: grid; gap: .2rem; padding: 1rem; }
-.hero-feature-caption .label { margin: 0; color: #ffcfb9; }
-.hero-feature-link { color: white; font: 400 1.5rem/1.2 var(--font-serif); }
-/* The whole photo opens the guide; the Save button sits above that link. */
-.hero-feature-link::before { position: absolute; inset: 0; content: ""; }
-.hero-feature-link:hover { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
-.pin-button-small { position: absolute; top: .75rem; right: .75rem; z-index: 2; min-height: 40px; padding: 0 .85rem; border-radius: 999px; font-size: .875rem; }
+/* Pinterest "Save" on a photo */
+.pin-button-small { position: absolute; top: .75rem; right: .75rem; z-index: 3; min-height: 40px; padding: 0 .85rem; border-radius: 999px; font-size: .875rem; }
 
-/* 2. What's in season */
-.season-strip { margin-top: 1.75rem; padding-block: 1rem; border-block: 1px solid var(--line-soft); background: var(--paper-low); }
-.season-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; margin-bottom: .6rem; }
-.season-head h2 { margin: 0; }
-.season-head span { color: var(--muted); font-size: .875rem; }
-/* One scrolling row on phones, wrapping on wider screens. */
-.season-chips { display: flex; gap: .5rem; margin: 0 -1.25rem; padding: 0 1.25rem .25rem; overflow-x: auto; list-style: none; scroll-snap-type: x proximity; scroll-padding-inline: 1.25rem; scrollbar-width: none; }
-.season-chips::-webkit-scrollbar { display: none; }
-.season-chips li { flex: none; scroll-snap-align: start; }
-.season-chips a, .season-chips span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid var(--line); border-radius: var(--radius); color: var(--heading); background: var(--card); font: 500 .9375rem var(--font-sans); white-space: nowrap; }
+/* 2. Featured guides: one large tile, two beside it. The whole tile is the
+   link; the Save button sits above it. */
+.feature-mosaic { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
+.feature-tile { position: relative; display: grid; overflow: hidden; aspect-ratio: 3 / 4; border-radius: 8px; background: var(--sage); isolation: isolate; }
+.feature-tile-main, .feature-mosaic-2 .feature-tile { grid-column: 1 / -1; aspect-ratio: 1 / 1; }
+.feature-mosaic-2 .feature-tile:not(.feature-tile-main) { aspect-ratio: 16 / 10; }
+/* Photo and shade fill the tile, whatever the photo's own proportions. */
+.feature-tile > img, .feature-tile::after { position: absolute; inset: 0; }
+.feature-tile > img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.feature-tile::after { z-index: 0; background: linear-gradient(180deg, transparent 35%, rgba(8, 26, 17, .88) 100%); content: ""; }
+.feature-tile-text { z-index: 1; align-self: end; padding: .9rem; color: white; }
+.feature-tile-kicker { display: inline-block; margin: 0 0 .5rem; padding: .2rem .5rem; border-radius: 2px; color: white; background: var(--clay); font: 700 .75rem/1.4 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
+.feature-tile h3 { margin: 0; color: white; font-size: 1.1875rem; font-weight: 500; line-height: 1.2; }
+.feature-tile-main h3 { font-size: clamp(1.75rem, 6vw, 2.75rem); line-height: 1.08; }
+.feature-tile-link::before { position: absolute; inset: 0; z-index: 2; content: ""; }
+.feature-tile-excerpt { max-width: 36rem; margin: .6rem 0 0; color: #e4ede7; font: 400 1.0625rem/1.5 var(--font-serif); }
+.feature-tile:hover > img { transform: scale(1.04); }
+.feature-tile:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+
+/* 3. This month: photo cards from the guides' planting calendars. */
+.home-season { margin-top: 3rem; padding-block: 2.5rem; background: var(--sage); }
+.season-body { display: grid; gap: 1.5rem; }
+.season-cards { display: grid; grid-auto-columns: 44%; grid-auto-flow: column; gap: .75rem; margin: 0 -1.25rem; padding: 0 1.25rem .25rem; overflow-x: auto; list-style: none; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; scrollbar-width: none; }
+.season-cards::-webkit-scrollbar { display: none; }
+.season-cards li { display: flex; scroll-snap-align: start; }
+.season-card { display: flex; flex-direction: column; width: 100%; overflow: hidden; border-radius: 8px; background: var(--card); transition: box-shadow .15s ease; }
+.season-card:hover { box-shadow: var(--shadow-raised); }
+.season-card-media { display: block; aspect-ratio: 4 / 3; max-height: 220px; overflow: hidden; background: var(--paper-mid); }
+.season-card-media img { width: 100%; height: 100%; object-fit: cover; }
+.season-badge { align-self: flex-start; margin: .75rem .9rem 0; padding: .2rem .55rem; border-radius: 2px; font: 700 .75rem/1.4 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
+.season-badge-sow { color: #6a4a10; background: #f3e3bd; }
+.season-badge-plant { color: #24502b; background: #d5e8cf; }
+.season-badge-harvest { color: var(--clay); background: var(--clay-tint); }
+.season-card strong { padding: .35rem .9rem 1rem; color: var(--heading); font: 500 1.25rem/1.25 var(--font-serif); }
+.season-card:hover strong { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.season-also { padding: 1.25rem; border-radius: 8px; background: rgba(255, 255, 255, .55); }
+.season-also h3 { margin: 0 0 .6rem; color: var(--heading); font: 700 .8125rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.season-chips { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.season-chips a, .season-chips span { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--heading); background: var(--card); font: 500 .9375rem var(--font-sans); }
 .season-chips a:hover { border-color: var(--forest); }
 
-/* "This month": one group per activity (sow, plant out, harvest, also now). */
-.season-groups { display: grid; gap: .75rem; }
-.season-group { display: grid; gap: .35rem; }
-.season-group h3 { margin: 0; color: var(--heading); font: 600 .875rem/1.3 var(--font-sans); }
+/* 4. Explore by topic: photo tiles */
+.topic-tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.topic-tile { position: relative; display: grid; overflow: hidden; aspect-ratio: 1 / 1; border-radius: 8px; background: var(--forest); isolation: isolate; }
+.topic-tile > img, .topic-tile::after { position: absolute; inset: 0; }
+.topic-tile > img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+.topic-tile::after { background: linear-gradient(180deg, rgba(8, 26, 17, .05) 30%, rgba(8, 26, 17, .82) 100%); content: ""; }
+.topic-tile-text { z-index: 1; align-self: end; display: grid; gap: .15rem; padding: .9rem; }
+.topic-tile strong { color: white; font: 500 1.375rem/1.15 var(--font-serif); }
+.topic-tile-text span { color: #dfe9e2; font-size: .875rem; }
+.topic-tile:hover > img { transform: scale(1.05); }
+.topic-tile:hover strong { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 
-/* Who writes Natura */
-.author-card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem 1.25rem; align-items: start; padding: 1.5rem 1.25rem; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--card); }
-.author-card-photo { width: 72px; height: 72px; object-fit: cover; border-radius: var(--radius); }
-.author-card .label { margin: 0 0 .25rem; }
-.author-card h2 { margin: 0; font-size: clamp(1.5rem, 5vw, 2rem); line-height: 1.2; }
-.author-card-role { margin: .25rem 0 0; color: var(--clay); font: italic 400 1.0625rem/1.4 var(--font-serif); }
-.author-card p:not(.label):not(.author-card-role) { max-width: 46rem; margin: .75rem 0 0; color: var(--ink-soft); font: 400 1.0625rem/1.6 var(--font-serif); }
-.author-card .text-link { margin-top: .5rem; }
-
-/* 3. Three ways in */
-.home-entries { display: grid; gap: .75rem; }
-.entry-row { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; gap: 1rem; padding: 1rem; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--card); transition: border-color .15s ease; }
-.entry-row:hover { border-color: var(--forest); }
-.entry-text { display: grid; gap: .15rem; }
-.entry-text .label { margin: 0; }
-.entry-text strong { color: var(--heading); font: 400 1.375rem/1.2 var(--font-serif); }
-.entry-text > span:last-child { color: var(--ink-soft); font-size: .9375rem; line-height: 1.45; }
-.entry-arrow { width: 20px; margin-top: .25rem; color: var(--heading); transition: transform .15s ease; }
-.entry-row:hover .entry-arrow { transform: translateX(3px); }
-
-/* 4. Popular growing guides */
+/* 5. More guides */
 .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-.mini-card-link { display: flex; flex-direction: column; height: 100%; overflow: hidden; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--card); transition: border-color .15s ease; }
-.mini-card-link:hover { border-color: var(--forest); }
+.mini-card-link { display: flex; flex-direction: column; height: 100%; overflow: hidden; border: 1px solid var(--line-soft); border-radius: 8px; background: var(--card); transition: box-shadow .15s ease; }
+.mini-card-link:hover { box-shadow: var(--shadow-raised); }
 .mini-card-media { position: relative; aspect-ratio: 4 / 5; overflow: hidden; background: var(--sage); }
 .mini-card-media img { width: 100%; height: 100%; object-fit: cover; }
 .mini-card-media .plant-card-type { left: .5rem; top: .5rem; padding: .15rem .4rem; font-size: .6875rem; }
 .mini-card-text { padding: .75rem; }
-.mini-card-text h3 { margin: 0 0 .25rem; font-size: 1.1875rem; line-height: 1.25; }
+.mini-card-text h3 { margin: 0 0 .25rem; font-size: 1.1875rem; font-weight: 500; line-height: 1.25; }
 .mini-card-text p { display: -webkit-box; margin: 0; overflow: hidden; color: var(--muted); font-size: .875rem; line-height: 1.4; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .mini-card-link:hover h3 { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
-/* 5. The one ad */
-.home-ad .ad-slot { margin: 2.75rem auto 0; max-width: 728px; }
+/* 6. The one ad */
+.home-ad .ad-slot { max-width: 728px; margin: 3rem auto 0; }
 
-/* 6. Plant problems */
-.home-doctor { margin-top: 2.75rem; padding-block: 2rem; color: #c3d3c8; background: var(--forest-dark); }
-.home-doctor-inner { display: grid; gap: 1.25rem; }
-.home-doctor .label { color: #ffcfb9; }
-.home-doctor h2 { margin: 0; color: white; font-size: clamp(1.75rem, 6vw, 2.5rem); line-height: 1.15; }
-.home-doctor .doctor-subtitle { margin: .35rem 0 0; color: #b9cfc0; font: italic 400 1.125rem var(--font-serif); }
+/* 7. Plant problems: dark band, each problem with its photo */
+.home-doctor { margin-top: 3rem; padding-block: 2.5rem; color: #c3d3c8; background: var(--forest-dark); }
+.home-doctor-inner { display: grid; gap: 1.5rem; }
+.home-doctor .label { color: #f6c9b3; }
+.home-doctor h2 { margin: 0; color: white; font-size: clamp(2rem, 6vw, 2.75rem); font-weight: 500; line-height: 1.1; }
+.home-doctor .doctor-subtitle { max-width: 30rem; margin: .6rem 0 1.25rem; color: #c3d3c8; font: 400 1.125rem/1.55 var(--font-serif); }
 .symptom-rows { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
-.symptom-rows a { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 60px; padding: .85rem 1rem; border-left: 3px solid #d27a55; border-radius: var(--radius-sm); background: rgba(255, 255, 255, .06); transition: background .15s ease; }
-.symptom-rows a:hover { background: rgba(255, 255, 255, .12); }
-.symptom-rows a > span { display: grid; gap: .2rem; }
-.symptom-rows strong { color: white; font: 400 1.1875rem/1.3 var(--font-serif); }
-.symptom-rows a > span > span { color: #b9cfc0; font-size: .875rem; }
+.symptom-rows a { display: flex; align-items: center; gap: .9rem; min-height: 60px; padding: .6rem 1rem .6rem .6rem; border-radius: 8px; background: rgba(255, 255, 255, .07); transition: background .15s ease; }
+.symptom-rows a:hover { background: rgba(255, 255, 255, .13); }
+.symptom-photo img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; }
+.symptom-text { display: grid; flex: 1; gap: .2rem; }
+.symptom-rows strong { color: white; font: 500 1.1875rem/1.3 var(--font-serif); }
+.symptom-text > span { color: #b9cfc0; font-size: .875rem; }
 .symptom-chevron { width: 18px; flex: none; color: #b9cfc0; transform: rotate(-90deg); }
 
-/* 7. Affiliate picks */
-.home-picks.site-container { margin: 2.75rem auto 0; padding: 1.25rem; }
-.home-picks h2 { margin: 0 0 1rem; font-size: clamp(1.625rem, 6vw, 2.25rem); line-height: 1.2; }
-.picks-note { margin: .85rem 0 0; color: var(--muted); font: italic 400 .9375rem/1.5 var(--font-serif); }
+/* 8. Affiliate picks: large product photos, disclosure before the first link */
+.picks-note { margin: -.5rem 0 1.25rem; color: var(--muted); font: italic 400 .9375rem/1.5 var(--font-serif); }
 .picks-note a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.home-picks .product-list { display: grid; gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.home-picks .product-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--line-soft); border-radius: 8px; background: var(--card); }
+.home-picks .product-card-media { aspect-ratio: 4 / 3; overflow: hidden; border-bottom: 1px solid var(--line-soft); background: white; }
+.home-picks .product-card-media img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; }
+.home-picks .product-card-text { flex: 1; gap: .3rem; padding: 1.1rem 1.1rem 0; }
+.home-picks .product-card-text strong { font-size: 1.375rem; font-weight: 500; }
+.home-picks .product-card .button-buy { margin: 1rem 1.1rem 1.1rem; }
 
-/* 8. Pinterest ideas */
-.home-pins { margin-top: 2.75rem; padding-block: 2rem; background: var(--paper-low); }
-.home-pins .label { margin-bottom: .35rem; }
-.pin-scroller { display: flex; gap: .75rem; margin: 1.25rem -1.25rem 0; padding: 0 1.25rem .5rem; overflow-x: auto; list-style: none; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; scrollbar-width: none; }
+/* 9. Pinterest ideas */
+.home-pins { margin-top: 3rem; padding-block: 2.5rem; background: #f6ebe4; }
+.home-pins .label { margin-bottom: .4rem; }
+.home-pins-follow { min-height: 44px; border-radius: 999px; }
+.pin-scroller { display: flex; gap: .75rem; margin: 0 -1.25rem; padding: 0 1.25rem .5rem; overflow-x: auto; list-style: none; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; scrollbar-width: none; }
 .pin-scroller::-webkit-scrollbar { display: none; }
-.pin-scroller li { flex: 0 0 42%; scroll-snap-align: start; }
-.pin-scroller a { display: grid; gap: .5rem; }
-.pin-scroller img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: var(--radius); box-shadow: var(--shadow); }
-.pin-scroller span { color: var(--heading); font: 400 1.0625rem/1.3 var(--font-serif); }
+.pin-scroller li { flex: 0 0 46%; scroll-snap-align: start; }
+.pin-scroller a { display: grid; gap: .6rem; }
+.pin-scroller img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 8px; box-shadow: 0 8px 24px rgba(27, 59, 43, .14); transition: transform .2s ease; }
+.pin-scroller a:hover img { transform: translateY(-3px); }
+.pin-scroller span { color: var(--heading); font: 500 1.0625rem/1.3 var(--font-serif); }
 .pin-scroller a:hover span { text-decoration: underline; text-underline-offset: 3px; }
-.home-pins-follow { margin-top: 1.25rem; max-width: 420px; }
 
-/* 10. Newsletter */
-.newsletter-card { display: grid; gap: 1rem; padding: 1.5rem 1.25rem; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--paper-mid); }
-.newsletter-card h2 { margin: 0 0 .4rem; font-size: clamp(1.625rem, 6vw, 2.25rem); line-height: 1.2; }
-.newsletter-card p { margin: 0; color: var(--ink-soft); font: 400 1.0625rem/1.6 var(--font-serif); }
-.follow-placeholder { border: 2px dashed var(--line); background: transparent; }
-.follow-placeholder h2 { font-size: 1.25rem; }
+/* 11. Who writes Natura and the newsletter */
+.home-closing { margin-top: 4rem; padding-block: 2.5rem; background: var(--paper-mid); }
+.home-closing-inner { display: grid; gap: 1.25rem; }
+.author-card { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem 1.25rem; align-items: start; padding: 1.5rem 1.25rem; border-radius: 8px; background: var(--card); }
+.author-card-photo { width: 72px; height: 72px; object-fit: cover; border-radius: 50%; }
+.author-card .avatar-large { border-radius: 50%; }
+.author-card .label { margin: 0 0 .25rem; }
+.author-card h2 { margin: 0; font-size: clamp(1.5rem, 5vw, 2rem); font-weight: 500; line-height: 1.2; }
+.author-card-role { margin: .25rem 0 0; color: var(--clay); font: italic 400 1.0625rem/1.4 var(--font-serif); }
+.author-card p:not(.label):not(.author-card-role) { max-width: 46rem; margin: .75rem 0 0; color: var(--ink-soft); font: 400 1.0625rem/1.6 var(--font-serif); }
+.author-card .text-link { margin-top: .5rem; }
+.newsletter-card { display: grid; gap: 1rem; padding: 1.5rem 1.25rem; border-radius: 8px; color: #c3d3c8; background: var(--forest); }
+.newsletter-card .label { color: #f6c9b3; }
+.newsletter-card h2 { margin: 0 0 .4rem; color: white; font-size: clamp(1.625rem, 6vw, 2.25rem); font-weight: 500; line-height: 1.2; }
+.newsletter-card p { margin: 0; font: 400 1.0625rem/1.6 var(--font-serif); }
+
+.admin-note { margin-top: 2.5rem; padding: .85rem 1rem; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted); font-size: .875rem; }
+.admin-note a { color: var(--forest); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Phones: the summary waits for the guide; product cards sit photo-left. */
+@media (max-width: 639px) {
+  .feature-tile-excerpt { display: none; }
+  .home-picks .product-card { display: grid; grid-template-columns: 112px minmax(0, 1fr); }
+  .home-picks .product-card-media { grid-row: 1 / 3; aspect-ratio: auto; border-right: 1px solid var(--line-soft); border-bottom: 0; }
+  .home-picks .product-card-text { padding: .9rem .9rem 0; }
+  .home-picks .product-card-text strong { font-size: 1.1875rem; }
+  .home-picks .product-card .button-buy { grid-column: 2; justify-self: start; min-height: 44px; margin: .75rem .9rem .9rem; }
+}
 
 @media (min-width: 640px) {
-  .home-entries { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .entry-row { grid-template-columns: minmax(0, 1fr) auto; }
-  .entry-row .path-icon { grid-column: 1 / -1; }
-  .pin-scroller li { flex-basis: 28%; }
-  .season-chips { flex-wrap: wrap; margin: 0; padding: 0; overflow: visible; }
-  .season-groups { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem 2rem; }
+  .feature-mosaic { gap: 1rem; }
+  .feature-tile-text { padding: 1.25rem; }
+  .season-cards { grid-auto-columns: 30%; }
+  .topic-tiles { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .topic-tile { aspect-ratio: 4 / 3; }
+  .home-picks .product-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pin-scroller li { flex-basis: 30%; }
   .author-card { padding: 2rem; }
   .author-card-photo, .author-card .avatar-large { width: 96px; height: 96px; }
+  .newsletter-card { padding: 2rem; }
 }
 
 @media (min-width: 1024px) {
-  .home-section, .home-doctor, .home-pins { margin-top: 4rem; }
-  .home-hero-inner { padding-block: 3rem 0; }
-  .home-hero-inner.has-photo { grid-template-columns: minmax(0, 1fr) minmax(0, 480px); align-items: center; gap: 4rem; }
-  .season-strip { margin-top: 3rem; }
-  /* Up to four per row; fewer cards share the row rather than leave a gap. */
+  .home-section { margin-top: 4.5rem; }
+  .home-hero { min-height: 600px; }
+  .home-hero.has-photo::before { background: linear-gradient(90deg, rgba(9, 28, 19, .9) 0%, rgba(9, 28, 19, .72) 38%, rgba(9, 28, 19, .1) 72%, rgba(9, 28, 19, 0) 100%); }
+  .home-hero-inner { align-self: center; padding-block: 5rem; }
+  .home-hero-inner > * { max-width: 620px; }
+
+  .feature-mosaic { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); grid-template-rows: 1fr 1fr; gap: 1.25rem; height: 620px; }
+  .feature-tile, .feature-tile-main, .feature-mosaic-2 .feature-tile, .feature-mosaic-2 .feature-tile:not(.feature-tile-main) { grid-column: auto; aspect-ratio: auto; }
+  .feature-tile-main { grid-row: 1 / -1; }
+  .feature-tile-main .feature-tile-text { padding: 2rem; }
+  .feature-tile h3 { font-size: 1.5rem; }
+  .feature-tile-main h3 { font-size: 2.75rem; }
+  .feature-mosaic-2 { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); grid-template-rows: 1fr; height: 540px; }
+  .feature-mosaic-1 { grid-template-columns: minmax(0, 1fr); grid-template-rows: 1fr; height: 540px; }
+
+  .home-season { margin-top: 4.5rem; padding-block: 3.5rem; }
+  .season-body.has-also { grid-template-columns: minmax(0, 1fr) 340px; align-items: start; gap: 2rem; }
+  .season-cards { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); grid-auto-flow: row; margin: 0; padding: 0; overflow: visible; }
+
+  .topic-tile { aspect-ratio: 16 / 10; }
+  .topic-tile-text { padding: 1.25rem 1.5rem; }
+  .topic-tile strong { font-size: 1.75rem; }
+
   .mini-grid { grid-template-columns: repeat(auto-fit, minmax(max(220px, calc((100% - 3.75rem) / 4)), 1fr)); gap: 1.25rem; }
   .mini-card-media { max-height: 380px; }
-  .home-ad .ad-slot { margin-top: 4rem; }
-  .home-doctor { padding-block: 3.5rem; }
-  .home-doctor-inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: 3rem; }
-  .home-picks.site-container { margin-top: 4rem; padding: 2rem; }
-  .home-picks .product-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .home-picks .product-card, .home-picks .product-card.has-image { grid-template-columns: 72px minmax(0, 1fr); align-items: start; }
-  .home-picks .product-card .button-buy { grid-column: 1 / -1; }
-@media (max-width: 639px) { .product-card.has-image .button-buy { grid-column: 2; justify-self: start; } }
-  .home-pins { padding-block: 3.5rem; }
-  .pin-scroller { margin: 1.5rem 0 0; padding: 0; overflow: visible; }
-  .pin-scroller li { flex: 1 1 0; max-width: 220px; }
-  .newsletter-card { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: 3rem; padding: 2.25rem; }
+
+  .home-ad .ad-slot { margin-top: 4.5rem; }
+
+  .home-doctor { margin-top: 4.5rem; padding-block: 4rem; }
+  .home-doctor-inner { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: center; gap: 4rem; }
+  .symptom-photo img { width: 88px; height: 88px; }
+
+  .home-picks .product-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+
+  .home-pins { margin-top: 4.5rem; padding-block: 3.5rem; }
+  .pin-scroller { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; margin: 0; padding: 0; overflow: visible; }
+
+  .home-closing { margin-top: 4.5rem; padding-block: 3.5rem; }
+  .home-closing-inner.has-two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; }
 }
