@@ -11,7 +11,26 @@ dynamique, ni gestion des publicités. Le bon partage des rôles :
    site, l'accessibilité, la vitesse, le SEO et les emplacements AdSense,
    affiliation et Pinterest.
 
-## Comment me transmettre une maquette
+## Brancher Stitch directement sur Claude Code
+
+Le projet contient `.mcp.json`, qui déclare le serveur MCP de Stitch. La clé
+n'est jamais dans le dépôt : elle est lue dans la variable `STITCH_API_KEY`.
+
+1. Sur https://stitch.withgoogle.com : menu du profil → Stitch settings →
+   API key → créer une clé. Copiez-la (elle ne s'affiche qu'une fois).
+2. Dans Claude Code sur le web : menu de l'environnement cloud (barre de titre
+   de la session) → Edit → ajoutez un secret ou une variable d'environnement
+   nommé `STITCH_API_KEY` avec la clé.
+3. Ouvrez une nouvelle session sur la branche de travail. Claude peut alors
+   lister vos projets Stitch, lire les écrans et leur code, et en générer.
+
+Sur votre propre ordinateur, avec Claude Code installé :
+`claude mcp add stitch --transport http https://stitch.googleapis.com/mcp --header "X-Goog-Api-Key: VOTRE_CLE"`
+
+Ne collez jamais la clé dans une conversation ou dans un fichier du dépôt. Si
+elle a été exposée, supprimez-la dans Stitch settings et créez-en une autre.
+
+## Comment me transmettre une maquette (sans connexion)
 
 Le plus simple, par ordre de préférence :
 
