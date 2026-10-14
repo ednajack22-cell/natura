@@ -158,12 +158,12 @@ $natura_signup   = natura_home_setting( 'natura_newsletter_code' );
 			<div class="section-bar">
 				<h2 id="home-guides-title"><?php esc_html_e( 'Plant growing guides', 'natura' ); ?></h2>
 			</div>
-			<div class="feature-layout<?php echo $natura_side ? '' : ' is-single'; ?>">
-				<?php
-				setup_postdata( $GLOBALS['post'] = $natura_featured ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
-				get_template_part( 'template-parts/feature-card', null, array( 'size' => 'large' ) );
-				?>
-				<?php if ( $natura_side ) : ?>
+			<?php if ( count( $natura_side ) >= 2 ) : ?>
+				<div class="feature-layout">
+					<?php
+					setup_postdata( $GLOBALS['post'] = $natura_featured ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited -- restored by wp_reset_postdata() below.
+					get_template_part( 'template-parts/feature-card', null, array( 'size' => 'large' ) );
+					?>
 					<div class="feature-list">
 						<?php
 						foreach ( $natura_side as $natura_item ) {
@@ -172,9 +172,19 @@ $natura_signup   = natura_home_setting( 'natura_newsletter_code' );
 						}
 						?>
 					</div>
-				<?php endif; ?>
-				<?php wp_reset_postdata(); ?>
-			</div>
+				</div>
+			<?php else : ?>
+				<?php // Too few guides for a list beside the main card: show them side by side. ?>
+				<div class="feature-pair">
+					<?php
+					foreach ( array_merge( array( $natura_featured ), $natura_side ) as $natura_item ) {
+						setup_postdata( $GLOBALS['post'] = $natura_item ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
+						get_template_part( 'template-parts/feature-card', null, array( 'size' => 'large' ) );
+					}
+					?>
+				</div>
+			<?php endif; ?>
+			<?php wp_reset_postdata(); ?>
 		</section>
 	<?php endif; ?>
 

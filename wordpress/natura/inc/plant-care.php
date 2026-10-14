@@ -254,3 +254,24 @@ function natura_plant_problems( int $plant_id, int $limit = 3 ): ?WP_Query {
 		)
 	);
 }
+
+/**
+ * Prints the dark band that sends readers from plant lists to the problem
+ * guides, as in the Stitch "Plant Library" mock-up.
+ */
+function natura_the_problem_band(): void {
+	if ( ! post_type_exists( 'problem' ) || ! wp_count_posts( 'problem' )->publish ) {
+		return;
+	}
+	?>
+	<aside class="cta-band" aria-labelledby="cta-band-title">
+		<span class="path-icon"><?php natura_the_icon( 'lens' ); ?></span>
+		<div>
+			<p class="label"><?php esc_html_e( 'Plant problems', 'natura' ); ?></p>
+			<h2 id="cta-band-title"><?php esc_html_e( 'Plant looking unwell?', 'natura' ); ?></h2>
+			<p><?php esc_html_e( 'Yellow leaves, wilting, spots on the fruit: find the likely cause and what to do, before you spray or feed.', 'natura' ); ?></p>
+		</div>
+		<a class="button button-accent" href="<?php echo esc_url( natura_problems_url() ); ?>"><?php esc_html_e( 'Find the cause', 'natura' ); ?> <?php natura_the_icon( 'arrow' ); ?></a>
+	</aside>
+	<?php
+}

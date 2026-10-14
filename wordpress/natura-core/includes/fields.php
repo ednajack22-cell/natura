@@ -30,12 +30,14 @@ function natura_core_shared_lists(): array {
 	return array(
 		'products' => array(
 			'label'  => __( 'What you need', 'natura-core' ),
-			'help'   => __( 'The shopping list shown in the guide. Paste the affiliate link in "Link"; leave it empty and the item shows without a button.', 'natura-core' ),
+			'help'   => __( 'The shopping list shown in the guide, as product cards. Paste the affiliate link in "Link"; leave it empty and the item shows without a button. Use your own photo or one you are allowed to use. Do not write prices: they change.', 'natura-core' ),
 			'add'    => __( 'Add item', 'natura-core' ),
 			'fields' => array(
-				'name' => array( 'label' => __( 'Item', 'natura-core' ), 'type' => 'text' ),
-				'note' => array( 'label' => __( 'Why it matters (one line)', 'natura-core' ), 'type' => 'text' ),
-				'url'  => array( 'label' => __( 'Link', 'natura-core' ), 'type' => 'url' ),
+				'name'  => array( 'label' => __( 'Item', 'natura-core' ), 'type' => 'text' ),
+				'badge' => array( 'label' => __( 'Label (optional), e.g. "Best for small balconies"', 'natura-core' ), 'type' => 'text' ),
+				'note'  => array( 'label' => __( 'Why it matters (one line)', 'natura-core' ), 'type' => 'text' ),
+				'url'   => array( 'label' => __( 'Link', 'natura-core' ), 'type' => 'url' ),
+				'image' => array( 'label' => __( 'Photo', 'natura-core' ), 'type' => 'image' ),
 			),
 		),
 		'faq'      => array(
@@ -181,6 +183,12 @@ function natura_core_render_list_row( string $list_key, array $fields, string $i
 	foreach ( $fields as $sub => $field ) {
 		$name  = sprintf( 'natura[%s][%s][%s]', $list_key, $index, $sub );
 		$value = (string) ( $row[ $sub ] ?? '' );
+		if ( 'image' === $field['type'] ) {
+			echo '<div class="natura-list-cell natura-list-image"><span>' . esc_html( $field['label'] ) . '</span>';
+			natura_core_render_image_picker( $name, absint( $value ) );
+			echo '</div>';
+			continue;
+		}
 		echo '<label class="natura-list-cell natura-list-' . esc_attr( $field['type'] ) . '"><span>' . esc_html( $field['label'] ) . '</span>';
 		if ( 'textarea' === $field['type'] ) {
 			printf( '<textarea name="%s" rows="3">%s</textarea>', esc_attr( $name ), esc_textarea( $value ) );
@@ -196,6 +204,34 @@ function natura_core_render_list_row( string $list_key, array $fields, string $i
 		esc_html__( 'Remove', 'natura-core' )
 	);
 	echo '</li>';
+}
+
+/**
+ * Prints an image picker: a hidden field holding the attachment ID, a
+ * preview, and Choose / Remove buttons (wired up in fields.js).
+ *
+ * @param string $name     Field name.
+ * @param int    $image_id Attachment ID, or 0.
+ * @param string $id       Optional id for the hidden field.
+ */
+function natura_core_render_image_picker( string $name, int $image_id, string $id = '' ): void {
+	echo '<div class="natura-image-field" data-natura-image>';
+	printf( '<input type="hidden"%s name="%s" value="%s">', $id ? ' id="' . esc_attr( $id ) . '"' : '', esc_attr( $name ), esc_attr( $image_id ? (string) $image_id : '' ) );
+	echo '<div class="natura-image-preview">' . ( $image_id ? wp_get_attachment_image( $image_id, 'thumbnail' ) : '' ) . '</div>';
+	printf( '<button type="button" class="button" data-natura-image-choose>%s</button> ', esc_html__( 'Choose image', 'natura-core' ) );
+	printf( '<button type="button" class="button-link-delete" data-natura-image-remove%s>%s</button>', $image_id ? '' : ' hidden', esc_html__( 'Remove', 'natura-core' ) );
+	echo '</div>';
+}
+
+/**
+ * An attachment ID if it is an image, or 0.
+ *
+ * @param string $raw Raw value.
+ */
+function natura_core_clean_image( string $raw ): int {
+	$image_id = absint( $raw );
+
+	return $image_id && wp_attachment_is_image( $image_id ) ? $image_id : 0;
 }
 
 /**
@@ -248,6 +284,7 @@ function natura_core_save_lists( int $post_id, array $lists, array $input ): voi
 				$raw           = isset( $row[ $sub ] ) && is_scalar( $row[ $sub ] ) ? (string) $row[ $sub ] : '';
 				$clean[ $sub ] = match ( $field['type'] ) {
 					'url'      => natura_core_clean_url( $raw ),
+					'image'    => (string) ( natura_core_clean_image( $raw ) ?: '' ),
 					'textarea' => sanitize_textarea_field( $raw ),
 					default    => sanitize_text_field( $raw ),
 				};
@@ -300,3 +337,67 @@ add_action(
 		}
 	}
 );
+
+/*
+ * Pinterest image for problem guides and articles. Plant guides have it in
+ * their quick facts box.
+ */
+add_action(
+	'init',
+	static function (): void {
+		foreach ( array( 'problem', 'post' ) as $post_type ) {
+			register_post_meta(
+				$post_type,
+				natura_core_meta_key( 'pin_image' ),
+				array(
+					'type'          => 'integer',
+					'single'        => true,
+					'show_in_rest'  => true,
+					'auth_callback' => 'natura_core_can_edit_meta',
+				)
+			);
+		}
+	}
+);
+
+add_action(
+	'add_meta_boxes',
+	static function ( string $post_type ): void {
+		if ( ! in_array( $post_type, array( 'problem', 'post' ), true ) ) {
+			return;
+		}
+		add_meta_box(
+			'natura-pin-image',
+			__( 'Pinterest image', 'natura-core' ),
+			static function ( WP_Post $post ): void {
+				natura_core_nonce_field();
+				printf( '<p class="description">%s</p>', esc_html__( 'A vertical image (2:3, e.g. 1000 × 1500 px) with the title on it. Shown in the guide with a "Save" button, and used when readers pin the page.', 'natura-core' ) );
+				natura_core_render_image_picker( 'natura[pin_image]', absint( get_post_meta( $post->ID, natura_core_meta_key( 'pin_image' ), true ) ) );
+			},
+			$post_type,
+			'side',
+			'default'
+		);
+	}
+);
+
+/**
+ * Saves the Pinterest image of a problem guide or an article.
+ *
+ * @param int $post_id Post ID.
+ */
+function natura_core_save_pin_image( int $post_id ): void {
+	$input = natura_core_submitted_fields( $post_id );
+	if ( null === $input || ! array_key_exists( 'pin_image', $input ) ) {
+		return;
+	}
+
+	$image_id = natura_core_clean_image( is_scalar( $input['pin_image'] ) ? (string) $input['pin_image'] : '' );
+	if ( $image_id ) {
+		update_post_meta( $post_id, natura_core_meta_key( 'pin_image' ), $image_id );
+	} else {
+		delete_post_meta( $post_id, natura_core_meta_key( 'pin_image' ) );
+	}
+}
+add_action( 'save_post_problem', 'natura_core_save_pin_image' );
+add_action( 'save_post_post', 'natura_core_save_pin_image' );

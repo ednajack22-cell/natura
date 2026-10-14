@@ -129,13 +129,7 @@ function natura_core_render_facts_box( WP_Post $post ): void {
 			}
 			echo '</select>';
 		} elseif ( 'image' === $field['type'] ) {
-			$image_id = absint( $value );
-			echo '<div class="natura-image-field" data-natura-image>';
-			printf( '<input type="hidden" id="%s" name="%s" value="%s">', esc_attr( $id ), esc_attr( $name ), esc_attr( $image_id ?: '' ) );
-			echo '<div class="natura-image-preview">' . ( $image_id ? wp_get_attachment_image( $image_id, 'medium' ) : '' ) . '</div>';
-			printf( '<button type="button" class="button" data-natura-image-choose>%s</button> ', esc_html__( 'Choose image', 'natura-core' ) );
-			printf( '<button type="button" class="button-link-delete" data-natura-image-remove%s>%s</button>', $image_id ? '' : ' hidden', esc_html__( 'Remove', 'natura-core' ) );
-			echo '</div>';
+			natura_core_render_image_picker( $name, absint( $value ), $id );
 		} else {
 			printf( '<input type="text" id="%s" name="%s" value="%s" class="widefat">', esc_attr( $id ), esc_attr( $name ), esc_attr( (string) $value ) );
 		}
@@ -166,8 +160,8 @@ function natura_core_save_plant( int $post_id ): void {
 		$meta = natura_core_meta_key( $key );
 
 		if ( 'image' === $field['type'] ) {
-			$image_id = absint( $raw );
-			if ( $image_id && wp_attachment_is_image( $image_id ) ) {
+			$image_id = natura_core_clean_image( $raw );
+			if ( $image_id ) {
 				update_post_meta( $post_id, $meta, $image_id );
 			} else {
 				delete_post_meta( $post_id, $meta );

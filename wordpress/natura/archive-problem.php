@@ -31,8 +31,8 @@ $natura_crumbs = natura_problem_breadcrumbs( false );
 					the_post();
 					get_template_part( 'template-parts/problem-card' );
 					++$natura_count;
-					if ( 6 === $natura_count ) {
-						echo '<div class="plant-grid-break">' . natura_ad_slot( __( 'After the first six problems', 'natura' ) ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot().
+					if ( 3 === $natura_count && $GLOBALS['wp_query']->post_count > 3 ) {
+						echo '<div class="plant-grid-break">' . natura_ad_slot( __( 'In the list, after the first row', 'natura' ) ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot().
 					}
 				endwhile;
 				?>

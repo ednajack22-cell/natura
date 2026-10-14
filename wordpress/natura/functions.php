@@ -11,13 +11,14 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NATURA_VERSION', '0.3.0' );
+define( 'NATURA_VERSION', '0.4.0' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/setup.php';
 require_once get_template_directory() . '/inc/navigation.php';
 require_once get_template_directory() . '/inc/ads.php';
 require_once get_template_directory() . '/inc/content.php';
+require_once get_template_directory() . '/inc/guide.php';
 require_once get_template_directory() . '/inc/plant.php';
 require_once get_template_directory() . '/inc/plant-care.php';
 require_once get_template_directory() . '/inc/home.php';

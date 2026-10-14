@@ -32,8 +32,10 @@ add_action(
 		);
 
 		$fields = array(
-			'natura_adsense_client' => array( __( 'Publisher ID', 'natura' ), 'ca-pub-1234567890123456' ),
-			'natura_adsense_slot'   => array( __( 'In-content ad unit ID', 'natura' ), '1234567890' ),
+			'natura_adsense_client'          => array( __( 'Publisher ID', 'natura' ), 'ca-pub-1234567890123456' ),
+			'natura_adsense_slot'            => array( __( 'In-content ad unit ID', 'natura' ), '1234567890' ),
+			'natura_adsense_slot_sidebar'    => array( __( 'Sidebar ad unit ID (300 × 600, optional: the in-content unit is used otherwise)', 'natura' ), '1234567890' ),
+			'natura_adsense_slot_multiplex'  => array( __( 'Multiplex ad unit ID (end of guides, optional: no ad there otherwise)', 'natura' ), '1234567890' ),
 		);
 
 		foreach ( $fields as $id => list( $label, $placeholder ) ) {
@@ -99,25 +101,72 @@ add_filter(
 );
 
 /**
- * Markup for one ad placement.
+ * Ad formats: the unit used, how AdSense sizes it, and the label shown to
+ * administrators before ads are switched on.
+ *
+ * - in-content: responsive unit between sections and in lists;
+ * - sidebar: 300 × 600 in the sticky right column of guides, the best-paid
+ *   placement on long pages (Stitch "AdSense Revenue" screen);
+ * - multiplex: a grid of native recommendations at the end of a guide.
+ *
+ * @return array<string, array{slot: string, attributes: string, size: string}>
+ */
+function natura_ad_formats(): array {
+	$in_content = (string) get_theme_mod( 'natura_adsense_slot' );
+
+	return array(
+		'in-content' => array(
+			'slot'       => $in_content,
+			'attributes' => 'data-ad-format="auto" data-full-width-responsive="true"',
+			'size'       => __( 'Responsive, 250–280 px high', 'natura' ),
+		),
+		'sidebar'    => array(
+			'slot'       => (string) get_theme_mod( 'natura_adsense_slot_sidebar' ) ?: $in_content,
+			'attributes' => 'data-ad-format="vertical"',
+			'size'       => __( '300 × 600, sticky', 'natura' ),
+		),
+		'multiplex'  => array(
+			'slot'       => (string) get_theme_mod( 'natura_adsense_slot_multiplex' ),
+			'attributes' => 'data-ad-format="autorelaxed"',
+			'size'       => __( 'Multiplex, grid of native ads', 'natura' ),
+		),
+	);
+}
+
+/**
+ * Markup for one ad placement. Each format reserves its height before the ad
+ * loads, so the page does not jump.
  *
  * @param string $placement Short name of the placement, shown to editors.
+ * @param string $format    in-content, sidebar, or multiplex.
  */
-function natura_ad_slot( string $placement ): string {
+function natura_ad_slot( string $placement, string $format = 'in-content' ): string {
+	$formats = natura_ad_formats();
+	$format  = isset( $formats[ $format ] ) ? $format : 'in-content';
+	$unit    = $formats[ $format ];
+	$class   = 'ad-slot ad-slot-' . $format;
+
 	if ( natura_ads_enabled() ) {
+		if ( '' === $unit['slot'] ) {
+			return '';
+		}
 		return sprintf(
-			'<aside class="ad-slot" aria-label="%1$s"><span class="ad-slot-label">%1$s</span><ins class="adsbygoogle" style="display:block" data-ad-client="%2$s" data-ad-slot="%3$s" data-ad-format="auto" data-full-width-responsive="true"></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></aside>',
+			'<aside class="%1$s" aria-label="%2$s"><span class="ad-slot-label">%2$s</span><ins class="adsbygoogle" style="display:block" data-ad-client="%3$s" data-ad-slot="%4$s" %5$s></ins><script>(adsbygoogle = window.adsbygoogle || []).push({});</script></aside>',
+			esc_attr( $class ),
 			esc_attr__( 'Advertisement', 'natura' ),
 			esc_attr( get_theme_mod( 'natura_adsense_client' ) ),
-			esc_attr( get_theme_mod( 'natura_adsense_slot' ) )
+			esc_attr( $unit['slot'] ),
+			$unit['attributes']
 		);
 	}
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		return sprintf(
-			'<aside class="ad-slot ad-slot-preview" aria-hidden="true"><span>%s</span><small>%s</small></aside>',
+			'<aside class="%s ad-slot-preview" aria-hidden="true"><span>%s</span><small>%s</small><small>%s</small></aside>',
+			esc_attr( $class ),
 			esc_html__( 'Ad placement (visible to administrators only)', 'natura' ),
-			esc_html( $placement )
+			esc_html( $placement ),
+			esc_html( $unit['size'] )
 		);
 	}
 

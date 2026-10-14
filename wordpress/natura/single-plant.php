@@ -1,11 +1,11 @@
 <?php
 /**
- * Plant guide.
+ * Plant guide: the main landing page from Pinterest and search.
  *
- * Built for a reader arriving from a Pinterest pin or a search result, usually
- * on a phone: the answer first (title, summary, quick facts), the long guide
- * after, and the shopping list where the guide has explained why each item
- * matters. It ends with the problems this plant is prone to, then more plants.
+ * Layout from wordpress/design/BLUEPRINT.md (inc/guide.php): the answer first
+ * (title, summary, photo, "At a glance"), then the numbered guide with its
+ * shopping list and Pinterest image, a sticky sidebar, and, at the end, the
+ * problems this plant is prone to and more plants.
  *
  * @package Natura
  */
@@ -19,125 +19,70 @@ while ( have_posts() ) :
 
 	$natura_type     = natura_plant_type();
 	$natura_facts    = natura_plant_quick_facts();
-	$natura_botany   = (string) natura_field( 'botanical_name' );
-	$natura_pin_url  = natura_pinterest_save_url();
 	$natura_crumbs   = natura_plant_breadcrumbs();
-	$natura_prepared = natura_prepare_content(
-		(string) apply_filters( 'the_content', get_the_content() ),
+	$natura_layout   = natura_guide_inserts( __( 'What you need', 'natura' ) );
+	$natura_prepared = natura_prepare_content( (string) apply_filters( 'the_content', get_the_content() ), $natura_layout['inserts'], $natura_layout['keep'] );
+	$natura_problems = natura_plant_problems( get_the_ID(), 3 );
+	$natura_more     = get_posts(
 		array(
-			// The shopping list follows the second section, once the reader
-			// knows what the plant needs; the ad follows the fourth, well inside
-			// the guide, never above the first useful answer.
-			2 => natura_products_box( __( 'What you need', 'natura' ) ),
-			4 => natura_ad_slot( __( 'Inside the guide, after the fourth section', 'natura' ) ),
-		),
-		array( 2 )
+			'post_type'      => 'plant',
+			'posts_per_page' => 4,
+			'post__not_in'   => array( get_the_ID() ),
+			'orderby'        => 'rand',
+			'no_found_rows'  => true,
+		)
 	);
 	?>
-	<main id="main-content" class="plant-page">
+	<main id="main-content" class="guide-page plant-page">
 		<?php echo natura_structured_data( $natura_crumbs ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
-		<?php natura_the_breadcrumbs( $natura_crumbs ); ?>
+		<?php
+		natura_the_guide_header(
+			array(
+				'crumbs'    => $natura_crumbs,
+				/* translators: %s: plant type, e.g. "Vegetables". */
+				'tag'       => $natura_type ? sprintf( __( 'Growing guide · %s', 'natura' ), $natura_type->name ) : __( 'Growing guide', 'natura' ),
+				'tag_url'   => $natura_type ? (string) get_term_link( $natura_type ) : '',
+				'botanical' => (string) natura_field( 'botanical_name' ),
+			)
+		);
+		?>
 
-		<header class="site-container plant-hero">
-			<div class="plant-hero-text">
-				<?php if ( $natura_type ) : ?>
-					<p class="tag">
-						<?php
-						/* translators: %s: plant type, e.g. "Vegetables". */
-						printf( esc_html__( 'Growing guide · %s', 'natura' ), esc_html( $natura_type->name ) );
-						?>
-					</p>
+		<div class="site-container guide-layout">
+			<article <?php post_class( 'guide-main' ); ?>>
+				<?php natura_the_guide_photo(); ?>
+
+				<?php if ( $natura_facts ) : ?>
+					<section class="glance" aria-labelledby="glance-title">
+						<h2 id="glance-title"><?php esc_html_e( 'At a glance', 'natura' ); ?></h2>
+						<dl class="glance-facts">
+							<?php foreach ( $natura_facts as $natura_fact ) : ?>
+								<div>
+									<dt><?php echo esc_html( $natura_fact['label'] ); ?></dt>
+									<dd><?php echo esc_html( $natura_fact['value'] ); ?></dd>
+								</div>
+							<?php endforeach; ?>
+						</dl>
+					</section>
 				<?php endif; ?>
-				<h1><?php the_title(); ?></h1>
-				<?php if ( $natura_botany ) : ?>
-					<p class="plant-botanical"><?php echo esc_html( $natura_botany ); ?></p>
-				<?php endif; ?>
-				<?php if ( has_excerpt() ) : ?>
-					<p class="plant-lead"><?php echo esc_html( get_the_excerpt() ); ?></p>
-				<?php endif; ?>
-				<?php natura_the_byline(); ?>
-			</div>
 
-			<?php natura_the_hero_media( $natura_pin_url ); ?>
-		</header>
+				<?php natura_the_guide_toc( $natura_prepared['toc'] ); ?>
 
-		<?php if ( $natura_facts ) : ?>
-			<section class="site-container plant-facts" aria-labelledby="plant-facts-title">
-				<h2 id="plant-facts-title" class="plant-facts-title"><?php esc_html_e( 'Quick facts', 'natura' ); ?></h2>
-				<dl>
-					<?php foreach ( $natura_facts as $natura_fact ) : ?>
-						<div>
-							<dt><?php echo esc_html( $natura_fact['label'] ); ?></dt>
-							<dd><?php echo esc_html( $natura_fact['value'] ); ?></dd>
-						</div>
-					<?php endforeach; ?>
-				</dl>
-			</section>
-		<?php endif; ?>
-
-		<div class="site-container">
-			<?php echo natura_ad_slot( __( 'After the quick facts', 'natura' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
-		</div>
-
-		<div class="site-container plant-layout">
-			<?php if ( count( $natura_prepared['toc'] ) > 2 ) : ?>
-				<?php natura_the_toc( $natura_prepared['toc'], __( 'In this guide', 'natura' ), $natura_pin_url ); ?>
-			<?php endif; ?>
-
-			<article <?php post_class( 'plant-article' ); ?>>
-				<div class="entry-content plant-content">
+				<div class="entry-content guide-content is-numbered">
 					<?php echo $natura_prepared['html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- post content filtered by the_content, plus escaped theme markup. ?>
 				</div>
 
 				<?php natura_the_faq_and_sources(); ?>
+				<?php natura_the_author_box(); ?>
 			</article>
+
+			<?php natura_the_guide_sidebar( 'plant' ); ?>
 		</div>
 
 		<?php
-		$natura_problems = natura_plant_problems( get_the_ID() );
-		if ( $natura_problems && $natura_problems->have_posts() ) :
-			?>
-			<section class="site-container plant-related" aria-labelledby="plant-problems-title">
-				<h2 id="plant-problems-title"><?php esc_html_e( 'Common problems', 'natura' ); ?></h2>
-				<div class="problem-grid">
-					<?php
-					while ( $natura_problems->have_posts() ) :
-						$natura_problems->the_post();
-						get_template_part( 'template-parts/problem-card' );
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</div>
-			</section>
-		<?php endif; ?>
-
-		<?php
-		$natura_related = new WP_Query(
-			array(
-				'post_type'           => 'plant',
-				'posts_per_page'      => 4,
-				'post__not_in'        => array( get_the_ID() ),
-				'ignore_sticky_posts' => true,
-				'no_found_rows'       => true,
-				'orderby'             => 'rand',
-			)
-		);
-		if ( $natura_related->have_posts() ) :
-			?>
-			<section class="site-container plant-related" aria-labelledby="plant-related-title">
-				<?php echo natura_ad_slot( __( 'Before "More plants"', 'natura' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
-				<h2 id="plant-related-title"><?php esc_html_e( 'More plants to grow', 'natura' ); ?></h2>
-				<div class="plant-grid">
-					<?php
-					while ( $natura_related->have_posts() ) :
-						$natura_related->the_post();
-						get_template_part( 'template-parts/plant-card' );
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</div>
-			</section>
-		<?php endif; ?>
+		natura_the_related( 'plant-problems-title', __( 'Troubleshooting', 'natura' ), __( 'Common problems', 'natura' ), $natura_problems ? $natura_problems->posts : array(), 'template-parts/problem-card', 'problem-grid' );
+		natura_the_related( 'plant-related-title', __( 'Keep growing', 'natura' ), __( 'More plants to grow', 'natura' ), $natura_more, 'template-parts/plant-card', 'plant-grid' );
+		natura_the_guide_end_ad();
+		?>
 	</main>
 	<?php
 endwhile;

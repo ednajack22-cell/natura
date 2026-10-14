@@ -97,54 +97,6 @@ function natura_prepare_content( string $html, array $inserts, array $keep = arr
 }
 
 /**
- * Shopping list markup, or nothing when the list is empty.
- *
- * @param string $title Box heading.
- */
-function natura_products_box( string $title ): string {
-	$products = natura_field_list( 'products' );
-	if ( ! $products ) {
-		return '';
-	}
-
-	$has_links = (bool) array_filter( array_column( $products, 'url' ) );
-
-	ob_start();
-	?>
-	<aside class="plant-products" aria-labelledby="plant-products-title">
-		<h2 id="plant-products-title" class="plant-products-title"><?php echo esc_html( $title ); ?></h2>
-		<ul>
-			<?php foreach ( $products as $product ) : ?>
-				<li>
-					<div>
-						<strong><?php echo esc_html( $product['name'] ?? '' ); ?></strong>
-						<?php if ( ! empty( $product['note'] ) ) : ?>
-							<span><?php echo esc_html( $product['note'] ); ?></span>
-						<?php endif; ?>
-					</div>
-					<?php if ( ! empty( $product['url'] ) ) : ?>
-						<a class="button button-buy" href="<?php echo esc_url( $product['url'] ); ?>" rel="sponsored nofollow noopener" target="_blank">
-							<?php esc_html_e( 'See price', 'natura' ); ?>
-							<span class="screen-reader-text">
-								<?php
-								/* translators: %s: product name. */
-								printf( esc_html__( 'for %s (opens in a new tab)', 'natura' ), esc_html( $product['name'] ?? '' ) );
-								?>
-							</span>
-						</a>
-					<?php endif; ?>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-		<?php if ( $has_links ) : ?>
-			<p class="plant-products-note"><?php esc_html_e( 'Some links are affiliate links: we may earn a commission, at no extra cost to you.', 'natura' ); ?></p>
-		<?php endif; ?>
-	</aside>
-	<?php
-	return (string) ob_get_clean();
-}
-
-/**
  * The image used for Pinterest: the dedicated vertical image when the guide
  * has one, or the main photo.
  */
@@ -210,23 +162,6 @@ function natura_the_breadcrumbs( array $trail ): void {
 		</ol>
 	</nav>
 	<?php
-}
-
-/**
- * Prints the "By … · Updated …" line of the current guide.
- */
-function natura_the_byline(): void {
-	$updated = '<time datetime="' . esc_attr( get_the_modified_date( 'c' ) ) . '">' . esc_html( get_the_modified_date() ) . '</time>';
-
-	echo '<p class="plant-byline">';
-	if ( get_the_author() ) {
-		/* translators: 1: author name, 2: date. */
-		printf( esc_html__( 'By %1$s · Updated %2$s', 'natura' ), esc_html( get_the_author() ), $updated ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
-	} else {
-		/* translators: %s: date. */
-		printf( esc_html__( 'Updated %s', 'natura' ), $updated ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped above.
-	}
-	echo '</p>';
 }
 
 /**
@@ -461,71 +396,4 @@ function natura_the_faq_and_sources(): void {
 		</section>
 		<?php
 	endif;
-}
-
-/**
- * Prints the table of contents and the Pinterest button beside a guide.
- *
- * @param array<int, array{id: string, title: string}> $toc     Sections.
- * @param string                                       $label   Heading, e.g. "In this guide".
- * @param string                                       $pin_url Pinterest save link, or empty.
- */
-function natura_the_toc( array $toc, string $label, string $pin_url ): void {
-	if ( natura_field_list( 'faq' ) ) {
-		$toc[] = array(
-			'id'    => 'plant-faq',
-			'title' => __( 'Questions & answers', 'natura' ),
-		);
-	}
-	?>
-	<aside class="plant-toc-wrap">
-		<details class="plant-toc">
-			<summary><?php echo esc_html( $label ); ?></summary>
-			<ol>
-				<?php foreach ( $toc as $entry ) : ?>
-					<li><a href="#<?php echo esc_attr( $entry['id'] ); ?>"><?php echo esc_html( $entry['title'] ); ?></a></li>
-				<?php endforeach; ?>
-			</ol>
-		</details>
-		<?php if ( $pin_url ) : ?>
-			<a class="pin-button pin-button-wide" href="<?php echo esc_url( $pin_url ); ?>" target="_blank" rel="noopener">
-				<?php natura_the_icon( 'pin' ); ?>
-				<span><?php esc_html_e( 'Save this guide', 'natura' ); ?></span>
-				<span class="screen-reader-text"><?php esc_html_e( 'to Pinterest (opens in a new tab)', 'natura' ); ?></span>
-			</a>
-		<?php endif; ?>
-	</aside>
-	<?php
-}
-
-/**
- * Prints the main photo with its Pinterest button.
- *
- * @param string $pin_url Pinterest save link, or empty.
- */
-function natura_the_hero_media( string $pin_url ): void {
-	if ( ! has_post_thumbnail() ) {
-		return;
-	}
-	?>
-	<figure class="plant-hero-media">
-		<?php
-		the_post_thumbnail(
-			'large',
-			array(
-				'sizes'         => '(min-width: 1024px) 560px, 100vw',
-				'fetchpriority' => 'high',
-				'loading'       => 'eager',
-			)
-		);
-		?>
-		<?php if ( $pin_url ) : ?>
-			<a class="pin-button" href="<?php echo esc_url( $pin_url ); ?>" target="_blank" rel="noopener">
-				<?php natura_the_icon( 'pin' ); ?>
-				<span><?php esc_html_e( 'Save', 'natura' ); ?></span>
-				<span class="screen-reader-text"><?php esc_html_e( 'this guide to Pinterest (opens in a new tab)', 'natura' ); ?></span>
-			</a>
-		<?php endif; ?>
-	</figure>
-	<?php
 }

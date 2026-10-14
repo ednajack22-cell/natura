@@ -2,10 +2,11 @@
 /**
  * Problem guide, e.g. "Why are my plant's leaves turning yellow?".
  *
- * The reader has a sick plant in front of them. So the first screen holds the
- * short answer and the likely causes, each with the clue that points to it;
- * one tap takes them to how to confirm that cause and what to do. The longer
- * explanation, the kit, and the FAQ come after.
+ * The reader has a sick plant in front of them. "At a glance" lists the likely
+ * causes, each with the clue that points to it; one tap jumps to how to
+ * confirm that cause, what to do, and how long recovery takes. Each cause is
+ * a section of the guide layout (inc/guide.php), so the ads, the useful kit,
+ * and the Pinterest image fall between causes.
  *
  * @package Natura
  */
@@ -19,68 +20,79 @@ while ( have_posts() ) :
 
 	$natura_crumbs    = natura_problem_breadcrumbs();
 	$natura_causes    = natura_problem_causes();
-	$natura_pin_url   = natura_pinterest_save_url();
-	$natura_plant_ids = natura_problem_plant_ids();
+	$natura_layout    = natura_guide_inserts( __( 'Useful kit', 'natura' ) );
+	$natura_inserts   = $natura_layout['inserts'];
 	$natura_body      = trim( (string) apply_filters( 'the_content', get_the_content() ) );
-	$natura_products  = natura_products_box( __( 'Useful kit', 'natura' ) );
+	$natura_plant_ids = natura_problem_plant_ids();
+	$natura_plants    = $natura_plant_ids ? get_posts(
+		array(
+			'post_type'      => 'plant',
+			'post__in'       => $natura_plant_ids,
+			'posts_per_page' => 4,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'no_found_rows'  => true,
+		)
+	) : array();
+	$natura_related   = get_posts(
+		array(
+			'post_type'      => 'problem',
+			'posts_per_page' => 3,
+			'post__not_in'   => array( get_the_ID() ),
+			'no_found_rows'  => true,
+		)
+	);
 	?>
-	<main id="main-content" class="plant-page problem-page">
+	<main id="main-content" class="guide-page problem-page">
 		<?php echo natura_structured_data( $natura_crumbs ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
-		<?php natura_the_breadcrumbs( $natura_crumbs ); ?>
+		<?php
+		natura_the_guide_header(
+			array(
+				'crumbs'  => $natura_crumbs,
+				'tag'     => __( 'Plant problem', 'natura' ),
+				'tag_url' => natura_problems_url(),
+			)
+		);
+		?>
 
-		<header class="site-container plant-hero">
-			<div class="plant-hero-text">
-				<p class="tag"><?php esc_html_e( 'Plant problem', 'natura' ); ?></p>
-				<h1><?php the_title(); ?></h1>
-				<?php if ( has_excerpt() ) : ?>
-					<p class="plant-lead"><?php echo esc_html( get_the_excerpt() ); ?></p>
+		<div class="site-container guide-layout">
+			<article <?php post_class( 'guide-main' ); ?>>
+				<?php natura_the_guide_photo(); ?>
+
+				<?php if ( $natura_causes ) : ?>
+					<section class="glance" aria-labelledby="glance-title">
+						<h2 id="glance-title"><?php esc_html_e( 'At a glance: the likely causes', 'natura' ); ?></h2>
+						<ol class="cause-list">
+							<?php foreach ( $natura_causes as $natura_index => $natura_cause ) : ?>
+								<li>
+									<a href="#<?php echo esc_attr( $natura_cause['id'] ); ?>">
+										<span class="label">
+											<?php
+											/* translators: %d: cause number. */
+											printf( esc_html__( 'Cause %d', 'natura' ), (int) $natura_index + 1 );
+											?>
+										</span>
+										<strong><?php echo esc_html( $natura_cause['cause'] ); ?></strong>
+										<?php if ( $natura_cause['sign'] ) : ?>
+											<span>
+												<?php
+												/* translators: %s: what the reader sees on the plant. */
+												printf( esc_html__( 'Look for: %s', 'natura' ), esc_html( $natura_cause['sign'] ) );
+												?>
+											</span>
+										<?php endif; ?>
+									</a>
+								</li>
+							<?php endforeach; ?>
+						</ol>
+					</section>
 				<?php endif; ?>
-				<?php natura_the_byline(); ?>
-			</div>
 
-			<?php natura_the_hero_media( $natura_pin_url ); ?>
-		</header>
-
-		<?php if ( $natura_causes ) : ?>
-			<section class="site-container problem-answer" aria-labelledby="problem-answer-title">
-				<h2 id="problem-answer-title" class="plant-facts-title"><?php esc_html_e( 'Most likely causes', 'natura' ); ?></h2>
-				<ol class="cause-list">
-					<?php foreach ( $natura_causes as $natura_index => $natura_cause ) : ?>
-						<li>
-							<a href="#<?php echo esc_attr( $natura_cause['id'] ); ?>">
-								<span class="label">
-									<?php
-									/* translators: %d: cause number. */
-									printf( esc_html__( 'Cause %d', 'natura' ), (int) $natura_index + 1 );
-									?>
-								</span>
-								<strong><?php echo esc_html( $natura_cause['cause'] ); ?></strong>
-								<?php if ( $natura_cause['sign'] ) : ?>
-									<span>
-										<?php
-										/* translators: %s: what the reader sees on the plant. */
-										printf( esc_html__( 'Look for: %s', 'natura' ), esc_html( $natura_cause['sign'] ) );
-										?>
-									</span>
-								<?php endif; ?>
-							</a>
-						</li>
-					<?php endforeach; ?>
-				</ol>
-			</section>
-		<?php endif; ?>
-
-		<div class="site-container">
-			<?php echo natura_ad_slot( __( 'After the likely causes', 'natura' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
-		</div>
-
-		<div class="site-container plant-layout">
-			<article <?php post_class( 'plant-article' ); ?>>
-				<div class="entry-content plant-content">
+				<div class="entry-content guide-content">
 					<?php foreach ( $natura_causes as $natura_index => $natura_cause ) : ?>
 						<section class="cause" id="<?php echo esc_attr( $natura_cause['id'] ); ?>" aria-labelledby="<?php echo esc_attr( $natura_cause['id'] ); ?>-title">
 							<h2 id="<?php echo esc_attr( $natura_cause['id'] ); ?>-title">
-								<span class="cause-number"><?php echo (int) $natura_index + 1; ?></span>
+								<span class="cause-number"><?php echo esc_html( sprintf( '%02d', $natura_index + 1 ) ); ?></span>
 								<?php echo esc_html( $natura_cause['cause'] ); ?>
 							</h2>
 							<dl class="cause-details">
@@ -105,79 +117,36 @@ while ( have_posts() ) :
 							</dl>
 						</section>
 						<?php
-						// The kit follows the first cause: by then the reader
-						// knows what to check, and what with.
-						if ( 0 === $natura_index ) {
-							echo $natura_products; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in natura_products_box().
-							$natura_products = '';
+						$natura_number = $natura_index + 1;
+						if ( isset( $natura_inserts[ $natura_number ] ) ) {
+							echo $natura_inserts[ $natura_number ]; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped where built (inc/guide.php, inc/ads.php).
+							unset( $natura_inserts[ $natura_number ] );
 						}
 						?>
 					<?php endforeach; ?>
 
 					<?php echo $natura_body; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- post content filtered by the_content. ?>
-					<?php echo $natura_products; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped in natura_products_box(); empty when already shown. ?>
+
+					<?php
+					// With few causes, the kit and the Pinterest image follow the guide.
+					foreach ( $natura_layout['keep'] as $natura_key ) {
+						echo $natura_inserts[ $natura_key ] ?? ''; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- escaped where built.
+					}
+					?>
 				</div>
 
 				<?php natura_the_faq_and_sources(); ?>
+				<?php natura_the_author_box(); ?>
 			</article>
+
+			<?php natura_the_guide_sidebar( 'problem' ); ?>
 		</div>
 
-		<?php if ( $natura_plant_ids ) : ?>
-			<?php
-			$natura_plants = new WP_Query(
-				array(
-					'post_type'           => 'plant',
-					'post__in'            => $natura_plant_ids,
-					'posts_per_page'      => 8,
-					'orderby'             => 'title',
-					'order'               => 'ASC',
-					'ignore_sticky_posts' => true,
-					'no_found_rows'       => true,
-				)
-			);
-			?>
-			<?php if ( $natura_plants->have_posts() ) : ?>
-				<section class="site-container plant-related" aria-labelledby="problem-plants-title">
-					<h2 id="problem-plants-title"><?php esc_html_e( 'Plants this often affects', 'natura' ); ?></h2>
-					<div class="plant-grid">
-						<?php
-						while ( $natura_plants->have_posts() ) :
-							$natura_plants->the_post();
-							get_template_part( 'template-parts/plant-card' );
-						endwhile;
-						wp_reset_postdata();
-						?>
-					</div>
-				</section>
-			<?php endif; ?>
-		<?php endif; ?>
-
 		<?php
-		$natura_related = new WP_Query(
-			array(
-				'post_type'           => 'problem',
-				'posts_per_page'      => 3,
-				'post__not_in'        => array( get_the_ID() ),
-				'ignore_sticky_posts' => true,
-				'no_found_rows'       => true,
-			)
-		);
-		if ( $natura_related->have_posts() ) :
-			?>
-			<section class="site-container plant-related" aria-labelledby="problem-related-title">
-				<?php echo natura_ad_slot( __( 'Before "Other plant problems"', 'natura' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
-				<h2 id="problem-related-title"><?php esc_html_e( 'Other plant problems', 'natura' ); ?></h2>
-				<div class="problem-grid">
-					<?php
-					while ( $natura_related->have_posts() ) :
-						$natura_related->the_post();
-						get_template_part( 'template-parts/problem-card' );
-					endwhile;
-					wp_reset_postdata();
-					?>
-				</div>
-			</section>
-		<?php endif; ?>
+		natura_the_related( 'problem-plants-title', __( 'Plants affected', 'natura' ), __( 'Plants this often affects', 'natura' ), $natura_plants, 'template-parts/plant-card', 'plant-grid' );
+		natura_the_related( 'problem-related-title', __( 'Troubleshooting', 'natura' ), __( 'Other plant problems', 'natura' ), $natura_related, 'template-parts/problem-card', 'problem-grid' );
+		natura_the_guide_end_ad();
+		?>
 	</main>
 	<?php
 endwhile;

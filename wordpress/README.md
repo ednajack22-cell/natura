@@ -66,12 +66,23 @@ Administration → **Plants** → **Add plant guide** :
 5. **Plant types** : Vegetables, Herbs ou Fruit.
 6. **Quick facts** (sous le texte) : soleil, pot, arrosage, récolte,
    difficulté, saison, et l'image verticale pour Pinterest.
-7. **Shopping list, FAQ, and sources** : la liste « What you need » (collez
-   le lien affilié dans « Link » : un bouton « See price » apparaît), les
-   questions-réponses et les sources.
+7. **Shopping list, FAQ, and sources** : la liste « What you need », en
+   cartes produit. Pour chaque produit : le nom, une étiquette facultative
+   (« Best for small balconies »), une ligne d'explication, le lien affilié
+   (un bouton « Check price » apparaît) et une photo. N'écrivez pas de prix :
+   ils changent. Puis les questions-réponses et les sources.
+8. **Image Pinterest** (dans Quick facts) : une image verticale 2:3 avec le
+   titre dessus. Elle apparaît au milieu de la fiche avec un bouton « Save »,
+   et sert quand un lecteur épingle la page.
 
-Le thème place tout seul la liste d'achat après la 2e partie du guide, et les
-publicités aux bons endroits.
+Le thème place tout seul chaque bloc, selon `design/BLUEPRINT.md` : la liste
+d'achat après la 2e partie, le bloc Pinterest après la 3e, les publicités après
+la 1re et la 5e, et la colonne de droite (Pinterest, publicité 300×600, « Read
+next »). Une mention d'affiliation s'affiche en haut de toute fiche qui contient
+des liens affiliés.
+
+Les fiches problèmes et les articles ont aussi une case **Pinterest image**,
+dans la colonne de droite de l'éditeur.
 
 ## Plant Care : problèmes et articles
 
@@ -128,7 +139,17 @@ derniers articles. Une section sans contenu ne s'affiche pas.
 ## Activer les publicités
 
 Apparence → Personnaliser → **Natura: ads** : collez votre identifiant
-d'éditeur AdSense (`ca-pub-…`) et l'identifiant du bloc d'annonces.
+d'éditeur AdSense (`ca-pub-…`) et l'identifiant du bloc d'annonces « dans le
+texte ». Deux blocs facultatifs en plus, à créer dans AdSense :
+
+- **Sidebar** (300×600, vertical) : la colonne de droite des fiches, sur
+  ordinateur. Sans lui, le bloc « dans le texte » sert aussi là.
+- **Multiplex** : la grille d'annonces en fin de fiche. Sans lui, rien ne
+  s'affiche à cet endroit.
+
+Sur une fiche : 2 annonces dans le texte au plus, 1 dans la colonne de droite,
+1 multiplex à la fin. Dans les listes : 1 annonce après la première ligne, et
+seulement s'il y a plus de 3 fiches.
 Tant que ces champs sont vides, les visiteurs ne voient aucune publicité ;
 vous, connecté en administrateur, voyez un cadre pointillé à chaque futur
 emplacement. Avant d'activer les annonces pour l'Europe, configurez le message
@@ -145,10 +166,19 @@ Apparence → Menus :
 - dans « Footer columns », chaque élément de premier niveau devient un titre de
   colonne, et ses sous-éléments les liens de la colonne.
 
+## Contenu de démonstration
+
+Les liens affiliés de démonstration pointent vers `example.com` : ils servent
+seulement à montrer les boutons « Check price ». Les photos produit viennent du
+projet Stitch ; les images Pinterest ont été faites pour le site (titre et
+points clés de chaque fiche). Remplacez tout cela par vos vrais produits, vos
+liens et vos images.
+
 ## Concevoir avec Google Stitch
 
 Voir `design/STITCH.md` : la méthode, et des prompts prêts à copier pour
-chaque page.
+chaque page. La structure de chaque type de page (ordre des blocs, publicités,
+Pinterest, affiliation, règles de densité) est dans `design/BLUEPRINT.md`.
 
 ## Ce qui reste à faire
 

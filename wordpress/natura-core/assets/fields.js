@@ -1,5 +1,5 @@
 /**
- * Natura fields: repeating rows and the Pinterest image picker.
+ * Natura fields: repeating rows and image pickers.
  * Plain DOM, no build step, nothing loaded outside the Natura edit screens.
  */
 (() => {
@@ -33,32 +33,33 @@
     });
   });
 
-  document.querySelectorAll("[data-natura-image]").forEach((field) => {
+  // Image pickers, including those in rows added after the page loaded.
+  let frame;
+  document.addEventListener("click", (event) => {
+    const field = event.target.closest("[data-natura-image]");
+    if (!field) return;
     const input = field.querySelector("input[type=hidden]");
     const preview = field.querySelector(".natura-image-preview");
     const remove = field.querySelector("[data-natura-image-remove]");
-    let frame;
 
-    field.querySelector("[data-natura-image-choose]").addEventListener("click", () => {
-      frame ??= wp.media({ title: "Pinterest image", library: { type: "image" }, multiple: false });
+    if (event.target.matches("[data-natura-image-choose]")) {
+      frame ??= wp.media({ title: "Choose an image", library: { type: "image" }, multiple: false });
       frame.off("select").on("select", () => {
         const image = frame.state().get("selection").first().toJSON();
         input.value = image.id;
-        const url = image.sizes?.medium?.url ?? image.url;
-        preview.innerHTML = "";
         const img = document.createElement("img");
-        img.src = url;
+        img.src = image.sizes?.thumbnail?.url ?? image.sizes?.medium?.url ?? image.url;
         img.alt = "";
-        preview.append(img);
+        preview.replaceChildren(img);
         remove.hidden = false;
       });
       frame.open();
-    });
+    }
 
-    remove.addEventListener("click", () => {
+    if (event.target.matches("[data-natura-image-remove]")) {
       input.value = "";
-      preview.innerHTML = "";
+      preview.replaceChildren();
       remove.hidden = true;
-    });
+    }
   });
 })();

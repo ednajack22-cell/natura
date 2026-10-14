@@ -16,3 +16,5 @@
 .natura-list-actions .button-link { font-size: 16px; text-decoration: none; }
 .natura-checklist { max-height: 260px; margin: 8px 0 0; overflow-y: auto; }
 .natura-checklist li { margin: 0 0 6px; }
+.natura-list-image { grid-column: 1 / -2; }
+.natura-list-image .natura-image-preview img { max-width: 96px; }

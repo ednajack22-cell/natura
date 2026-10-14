@@ -60,9 +60,7 @@ function natura_core_import_demo( string $image_base ): array {
 		foreach ( $plant['facts'] as $key => $value ) {
 			update_post_meta( $post_id, natura_core_meta_key( $key ), $value );
 		}
-		foreach ( $plant['lists'] as $key => $rows ) {
-			update_post_meta( $post_id, natura_core_meta_key( $key ), $rows );
-		}
+		natura_core_demo_save_fields( $post_id, $plant['lists'], $plant['pin'] ?? '', $image_base );
 
 		$image_id = natura_core_demo_attach_image( trailingslashit( $image_base ) . $plant['image'], $post_id, $plant['image_alt'] );
 		if ( $image_id ) {
@@ -72,16 +70,17 @@ function natura_core_import_demo( string $image_base ): array {
 		$created[] = $post_id;
 	}
 
-	return array_merge( $created, natura_core_import_demo_care() );
+	return array_merge( $created, natura_core_import_demo_care( $image_base ) );
 }
 
 /**
  * Creates the demo problem guides and Plant Care articles. Run after the
  * plant guides, so problems can link to the plants they affect.
  *
+ * @param string $image_base Image folder or URL.
  * @return int[] IDs of the posts created.
  */
-function natura_core_import_demo_care(): array {
+function natura_core_import_demo_care( string $image_base ): array {
 	$created = array();
 	$admins  = get_users(
 		array(
@@ -113,9 +112,7 @@ function natura_core_import_demo_care(): array {
 			continue;
 		}
 
-		foreach ( $problem['lists'] as $key => $rows ) {
-			update_post_meta( $post_id, natura_core_meta_key( $key ), $rows );
-		}
+		natura_core_demo_save_fields( $post_id, $problem['lists'], $problem['pin'] ?? '', $image_base );
 
 		$plant_ids = array();
 		foreach ( $problem['plants'] as $plant_slug ) {
@@ -152,14 +149,40 @@ function natura_core_import_demo_care(): array {
 			continue;
 		}
 
-		foreach ( $article['lists'] as $key => $rows ) {
-			update_post_meta( $post_id, natura_core_meta_key( $key ), $rows );
-		}
+		natura_core_demo_save_fields( $post_id, $article['lists'], $article['pin'] ?? '', $image_base );
 
 		$created[] = $post_id;
 	}
 
 	return $created;
+}
+
+/**
+ * Saves a demo guide's lists and Pinterest image. Product rows may name an
+ * image file under the image folder; it is added to the media library.
+ *
+ * @param int    $post_id    Guide.
+ * @param array  $lists      Lists, keyed by field.
+ * @param string $pin        Pinterest image file, or ''.
+ * @param string $image_base Image folder or URL.
+ */
+function natura_core_demo_save_fields( int $post_id, array $lists, string $pin, string $image_base ): void {
+	foreach ( $lists as $key => $rows ) {
+		foreach ( $rows as &$row ) {
+			if ( ! empty( $row['image'] ) ) {
+				$row['image'] = (string) natura_core_demo_attach_image( trailingslashit( $image_base ) . $row['image'], $post_id, $row['name'] ?? '' );
+			}
+		}
+		unset( $row );
+		update_post_meta( $post_id, natura_core_meta_key( $key ), $rows );
+	}
+
+	if ( $pin ) {
+		$pin_id = natura_core_demo_attach_image( trailingslashit( $image_base ) . $pin, $post_id, '' );
+		if ( $pin_id ) {
+			update_post_meta( $post_id, natura_core_meta_key( 'pin_image' ), $pin_id );
+		}
+	}
 }
 
 /**
@@ -245,6 +268,7 @@ function natura_core_demo_plants(): array {
 			'title'     => 'How to Grow Cherry Tomatoes in Pots',
 			'type'      => 'vegetables',
 			'image'     => 'cherry-tomato.jpg',
+			'pin'       => 'demo/pin-cherry-tomato.jpg',
 			'image_alt' => 'A cherry tomato plant with red and green fruit in a terracotta pot on a sunny balcony',
 			'excerpt'   => 'Cherry tomatoes are one of the most rewarding crops for a sunny balcony. Give them a big pot, a sturdy support, and steady watering, and a single plant can keep you picking for months.',
 			'facts'     => array(
@@ -258,11 +282,10 @@ function natura_core_demo_plants(): array {
 			),
 			'lists'     => array(
 				'products' => array(
-					array( 'name' => 'Pot of 20–30 litres with drainage holes', 'note' => 'Smaller pots dry out within hours in summer heat.', 'url' => '' ),
-					array( 'name' => 'Bamboo cane or tomato spiral, 1.5 m', 'note' => 'Put it in at planting time so you do not damage the roots later.', 'url' => '' ),
-					array( 'name' => 'Peat-free container compost', 'note' => 'Holds water better than garden soil and drains freely.', 'url' => '' ),
-					array( 'name' => 'Liquid tomato feed (high potash)', 'note' => 'Start once the first flowers open.', 'url' => '' ),
-					array( 'name' => 'Soft garden twine', 'note' => 'Ties the stem without cutting into it.', 'url' => '' ),
+					array( 'name' => 'Fabric grow pot, 25–30 litres', 'badge' => 'Best for balconies', 'note' => 'Light to move, drains freely, and big enough to last a summer heatwave.', 'url' => 'https://www.example.com/fabric-pot', 'image' => 'demo/product-fabric-pot.jpg' ),
+					array( 'name' => 'Peat-free container compost', 'badge' => '', 'note' => 'Holds water better than garden soil and drains freely.', 'url' => 'https://www.example.com/compost', 'image' => 'demo/product-compost.jpg' ),
+					array( 'name' => 'Liquid tomato feed (high potash)', 'badge' => 'Start at first flowers', 'note' => 'Feeds the fruit rather than the leaves.', 'url' => 'https://www.example.com/tomato-feed', 'image' => 'demo/product-liquid-feed.jpg' ),
+					array( 'name' => 'Soft jute garden twine', 'badge' => '', 'note' => 'Ties the stem to its cane without cutting into it.', 'url' => 'https://www.example.com/twine', 'image' => 'demo/product-twine.jpg' ),
 				),
 				'faq'      => array(
 					array( 'question' => 'Can I grow cherry tomatoes indoors?', 'answer' => 'Yes, on a very sunny windowsill, but expect fewer fruit than outdoors. Indoor light is weaker, so a grow light helps. Tap the flower trusses gently every few days, because there is no wind or insects to pollinate them.' ),
@@ -392,6 +415,7 @@ function natura_core_demo_problems(): array {
 			'title'   => 'Why Are the Leaves on My Container Plants Turning Yellow?',
 			'excerpt' => 'In pots, yellow leaves most often come down to water: too much, or too little. If watering is right, look at where the yellow appears: evenly on the oldest leaves points to hungry compost, and yellow between green veins to a lack of magnesium.',
 			'plants'  => array( 'cherry-tomato', 'genovese-basil', 'balcony-strawberry' ),
+			'pin'     => 'demo/pin-yellow-leaves.jpg',
 			'lists'   => array(
 				'causes'   => array(
 					array(
@@ -433,7 +457,7 @@ function natura_core_demo_problems(): array {
 				'products' => array(
 					array( 'name' => 'Soil moisture meter', 'note' => 'Reads the compost at root depth, where a finger cannot reach in a deep pot.', 'url' => '' ),
 					array( 'name' => 'Pot feet', 'note' => 'Lift the pot off the floor so water can drain away.', 'url' => '' ),
-					array( 'name' => 'Balanced liquid plant feed', 'note' => 'For hungry compost in leafy plants.', 'url' => '' ),
+					array( 'name' => 'Balanced liquid plant feed', 'note' => 'For hungry compost in leafy plants.', 'url' => '', 'image' => 'demo/product-liquid-feed.jpg' ),
 					array( 'name' => 'Epsom salts (magnesium sulphate)', 'note' => 'Only if the leaves show yellow between green veins.', 'url' => '' ),
 				),
 				'faq'      => array(
@@ -558,7 +582,12 @@ function natura_core_demo_articles(): array {
 			'title'   => 'Which Compost Should You Use in Pots?',
 			'excerpt' => 'Use fresh, peat-free container compost, never garden soil. Multipurpose compost suits vegetables, herbs, and summer plants; a soil-based peat-free mix suits shrubs and fruit that stay in the same pot for years.',
 			'topic'   => 'soil-feeding',
+			'pin'     => 'demo/pin-compost.jpg',
 			'lists'   => array(
+				'products' => array(
+					array( 'name' => 'Peat-free multipurpose compost', 'badge' => 'For vegetables and herbs', 'note' => 'Light and open; refresh it every year.', 'url' => 'https://www.example.com/compost', 'image' => 'demo/product-compost.jpg' ),
+					array( 'name' => 'Horticultural grit', 'badge' => '', 'note' => 'Mix in about a fifth for thyme, rosemary, and sage.', 'url' => 'https://www.example.com/grit' ),
+				),
 				'faq'     => array(
 					array( 'question' => 'Can I reuse last year\'s compost?', 'answer' => 'Not for hungry crops like tomatoes: its food is used up and its structure has broken down. Mix it into garden beds or a compost heap, and start pots with fresh compost.' ),
 					array( 'question' => 'Do I need to add grit?', 'answer' => 'For Mediterranean herbs such as thyme and rosemary, yes: mixing in about a fifth grit helps the compost drain. Most vegetables do not need it.' ),
