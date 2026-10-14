@@ -116,9 +116,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 		<section class="site-container home-section" aria-labelledby="home-posts-title">
 			<div class="section-heading">
 				<h2 id="home-posts-title"><?php esc_html_e( 'Latest from Plant Care', 'natura' ); ?></h2>
-				<?php if ( get_option( 'page_for_posts' ) ) : ?>
-					<a class="text-link" href="<?php echo esc_url( (string) get_permalink( (int) get_option( 'page_for_posts' ) ) ); ?>"><?php esc_html_e( 'All articles', 'natura' ); ?> <?php natura_the_icon( 'arrow' ); ?></a>
-				<?php endif; ?>
+				<a class="text-link" href="<?php echo esc_url( natura_plant_care_url() ); ?>"><?php esc_html_e( 'All of Plant Care', 'natura' ); ?> <?php natura_the_icon( 'arrow' ); ?></a>
 			</div>
 			<div class="post-grid">
 				<?php

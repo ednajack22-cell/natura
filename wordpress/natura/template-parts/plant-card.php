@@ -8,8 +8,8 @@
 defined( 'ABSPATH' ) || exit;
 
 $natura_card_type = natura_plant_type();
-$natura_card_sun  = (string) natura_plant_field( 'sun' );
-$natura_card_pot  = (string) natura_plant_field( 'pot_size' );
+$natura_card_sun  = (string) natura_field( 'sun' );
+$natura_card_pot  = (string) natura_field( 'pot_size' );
 ?>
 <article class="plant-card">
 	<a class="plant-card-link" href="<?php the_permalink(); ?>">

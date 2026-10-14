@@ -472,7 +472,8 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .filter-chips a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1.1rem; border: 1px solid var(--line); border-radius: 999px; background: white; font-size: .9375rem; font-weight: 650; }
 .filter-chips a:hover { border-color: var(--forest); }
 .filter-chips a[aria-current] { color: white; border-color: var(--forest); background: var(--forest); }
-.plant-archive { padding-block: 2.5rem 4rem; }
+.plant-archive { padding-bottom: 4rem; }
+.plant-archive > .site-container:not(.breadcrumbs) { padding-top: 1.25rem; }
 
 @media (min-width: 640px) {
   .plant-facts dl { grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -488,6 +489,64 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
   .plant-toc-wrap { position: sticky; top: calc(var(--header-offset) + 96px); align-self: start; }
   .plant-toc-wrap .pin-button-wide { display: flex; }
   .plant-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem 1.5rem; }
+}
+
+/* ---------------------------------------------------------------------------
+   Plant Care: problem guides, articles, topics
+   A problem guide puts its likely causes on the first screen, each with the
+   clue that points to it; one tap jumps to how to confirm it and what to do.
+   --------------------------------------------------------------------------- */
+
+.problem-grid { display: grid; gap: 1rem; }
+.problem-card-link { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 1rem; align-items: start; height: 100%; padding: .75rem; border: 1px solid var(--line); border-radius: 1rem; background: white; transition: border-color .15s ease; }
+.problem-card-link:hover { border-color: var(--forest); }
+.problem-card-link:not(:has(.problem-card-media)) { grid-template-columns: minmax(0, 1fr); }
+.problem-card-media { overflow: hidden; border-radius: .75rem; aspect-ratio: 1; background: var(--sage-light); }
+.problem-card-media img { width: 100%; height: 100%; object-fit: cover; }
+.problem-card-title { margin: .1rem 0 .35rem; font: 700 1.125rem/1.25 var(--font-serif); }
+.problem-card-link:hover .problem-card-title { color: var(--forest); text-decoration: underline; }
+.problem-card-excerpt { margin: 0; color: var(--ink-soft); font-size: .9375rem; line-height: 1.5; }
+.problem-card-meta { margin: .5rem 0 0; color: var(--clay); font-size: .875rem; font-weight: 700; }
+
+.problem-answer { margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: 1rem; background: white; }
+.cause-list { display: grid; gap: .5rem; margin: 0; padding: 0; list-style: none; counter-reset: cause; }
+.cause-list li { counter-increment: cause; }
+.cause-list a { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: .1rem .75rem; min-height: 44px; padding: .75rem; border-radius: .75rem; background: var(--sage-light); }
+.cause-list a::before { grid-row: 1 / 3; display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%; color: white; background: var(--forest); font-weight: 800; content: counter(cause); }
+.cause-list strong { font-size: 1.0625rem; line-height: 1.3; }
+.cause-list span { color: var(--ink-soft); font-size: .9375rem; line-height: 1.45; }
+.cause-list a:hover strong { color: var(--forest); text-decoration: underline; }
+
+.cause { scroll-margin-top: calc(var(--header-offset) + 96px); }
+.plant-content .cause h2 { display: flex; align-items: center; gap: .75rem; margin: 2.75rem 0 1rem; font: 700 clamp(1.5rem, 5vw, 1.9rem)/1.2 var(--font-serif); }
+.plant-content .cause:first-child h2 { margin-top: .5rem; }
+.cause-number { display: grid; flex: none; place-items: center; width: 2.25rem; height: 2.25rem; border-radius: 50%; color: white; background: var(--forest); font: 800 1rem var(--font-sans); }
+.cause-details { display: grid; gap: 1rem; margin: 0; }
+.cause-details dt { color: var(--forest); font-size: .875rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.cause-details dd { margin: .25rem 0 0; }
+.cause-details dd p:last-child { margin-bottom: 0; }
+.cause-recovery { padding: .75rem 1rem; border-left: 4px solid var(--sun); border-radius: 0 .75rem .75rem 0; background: var(--cream); }
+
+.article-page .eyebrow { margin-bottom: .25rem; font-size: .875rem; }
+.article-page .eyebrow a { display: inline-flex; align-items: center; min-height: 44px; color: inherit; }
+.article-page .eyebrow a:hover { text-decoration: underline; }
+
+.care-section { margin-top: 2.5rem; }
+.care-section:first-of-type { margin-top: 1rem; }
+.care-section .post-card-category { display: none; } /* The section heading already names the topic. */
+.care-section-intro { max-width: 640px; margin: -.5rem 0 1.25rem; color: var(--ink-soft); }
+.plant-care .ad-slot { margin-bottom: 0; }
+
+@media (min-width: 640px) {
+  .problem-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .problem-card-link { grid-template-columns: 120px minmax(0, 1fr); }
+}
+
+@media (min-width: 1024px) {
+  .problem-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+  .problem-answer { padding: 1.5rem 1.75rem; }
+  .cause-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .care-section { margin-top: 3.5rem; }
 }
 
 /* ---------------------------------------------------------------------------

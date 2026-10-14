@@ -239,19 +239,42 @@ function natura_is_current_url( string $url ): bool {
  * @param array $entry Menu entry.
  */
 function natura_is_current_section( array $entry ): bool {
-	$current = natura_current_path();
+	$current = natura_section_paths();
 
 	foreach ( array_merge( array( $entry ), $entry['children'] ) as $candidate ) {
 		$path = wp_parse_url( $candidate['url'], PHP_URL_PATH );
 		if ( ! is_string( $path ) || '' === $path || '/' === $path ) {
 			continue;
 		}
-		if ( str_starts_with( $current, trailingslashit( $path ) ) ) {
-			return true;
+		foreach ( $current as $current_path ) {
+			if ( str_starts_with( $current_path, trailingslashit( $path ) ) ) {
+				return true;
+			}
 		}
 	}
 
 	return false;
+}
+
+/**
+ * The paths the current page belongs to: its own, plus, for an article, its
+ * topic. Articles keep short addresses (/how-often-to-water/), but they sit in
+ * Plant Care, so the menu marks that section.
+ *
+ * @return string[]
+ */
+function natura_section_paths(): array {
+	$paths = array( natura_current_path() );
+
+	if ( is_singular( 'post' ) && function_exists( 'natura_post_topic' ) ) {
+		$topic = natura_post_topic();
+		$path  = $topic ? wp_parse_url( (string) get_term_link( $topic ), PHP_URL_PATH ) : null;
+		if ( is_string( $path ) && '' !== $path ) {
+			$paths[] = trailingslashit( $path );
+		}
+	}
+
+	return $paths;
 }
 
 /**

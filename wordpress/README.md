@@ -4,10 +4,12 @@ Ce dossier contient la version WordPress de Natura.
 
 - `natura/` : le thème (présentation : en-tête, menu, pied de page, gabarits).
 - `natura-core/` : l'extension qui gère le contenu (fiches plantes, types de
-  plantes, champs). Le contenu est séparé du thème : changer ou mettre à jour
-  le thème ne fait jamais disparaître vos fiches.
-- `blueprint.json` : la recette qui installe le thème, l'extension et trois
-  fiches de démonstration dans WordPress Playground.
+  plantes, fiches problèmes, rubriques Plant Care, champs). Le contenu est
+  séparé du thème : changer ou mettre à jour le thème ne fait jamais disparaître
+  vos fiches.
+- `blueprint.json` : la recette qui installe le thème, l'extension et le contenu
+  de démonstration (trois fiches plantes, deux fiches problèmes, deux articles)
+  dans WordPress Playground.
 
 ## Voir le thème sans rien installer
 
@@ -71,6 +73,48 @@ Administration → **Plants** → **Add plant guide** :
 Le thème place tout seul la liste d'achat après la 2e partie du guide, et les
 publicités aux bons endroits.
 
+## Plant Care : problèmes et articles
+
+La rubrique Plant Care (`/plant-care/`) se remplit seule : d'abord les fiches
+problèmes, puis, pour chaque thème, les 3 derniers articles. Un thème sans
+article ne s'affiche pas.
+
+| Adresse | Contenu |
+| --- | --- |
+| `/plant-care/` | la rubrique |
+| `/problems/` | toutes les fiches problèmes |
+| `/problems/yellow-leaves-container-plants/` | une fiche problème |
+| `/plant-care/watering/` | les articles d'un thème |
+| `/how-often-to-water-container-plants/` | un article |
+
+**Ajouter une fiche problème** : Administration → **Plant problems** → **Add
+problem guide**.
+
+1. **Titre** : la question telle que les gens la tapent, par exemple
+   « Why Are My Tomato Leaves Turning Yellow? ».
+2. **Extrait** : la réponse courte, en 2 ou 3 phrases.
+3. **Image mise en avant** : une photo du symptôme.
+4. **Likely causes** : une ligne par cause, la plus probable d'abord.
+   « What you see » est l'indice qui mène à cette cause ; il apparaît dans
+   l'encadré « Most likely causes » en haut de la page. Puis « How to confirm
+   it », « What to do » et « Recovery time ».
+5. **Plants affected** (colonne de droite) : cochez les plantes concernées.
+   La fiche plante affiche alors « Common problems », et la fiche problème
+   « Plants this often affects ».
+6. **Texte** (facultatif) : ce qui ne rentre pas dans les causes, par exemple
+   « How to prevent it ». Puis le matériel utile, la FAQ et les sources.
+
+**Ajouter un article** : Articles → Ajouter. Choisissez **une** catégorie :
+Watering, Soil & feeding, Light & position ou Seasonal care. Ce sont les thèmes
+du menu. L'extrait sert de résumé sous le titre. Sous le texte, la case
+« Shopping list, FAQ, and sources » marche comme pour les fiches plantes.
+
+À l'activation, l'extension crée ces quatre catégories et règle le préfixe des
+catégories sur `plant-care` (Réglages → Permaliens → Préfixe des catégories),
+seulement s'il était vide. Les articles gardent des adresses courtes
+(`/titre-de-l-article/`) : les mettre aussi sous `/plant-care/` entrerait en
+conflit avec les adresses des thèmes.
+
 ## Régler la page d'accueil
 
 Apparence → Personnaliser → **Natura: home page** : le titre, le texte
@@ -109,8 +153,8 @@ chaque page.
 ## Ce qui reste à faire
 
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
-plantes (`/plants/`) et pages par type (`/plants/herbs/`).
+plantes (`/plants/`), pages par type (`/plants/herbs/`), et la rubrique Plant
+Care (fiches problèmes, articles par thème).
 
-À venir : Plant Care (problèmes et articles), DIY Projects, Tools, Gear, puis
-le tableau de bord. Ces liens du menu mènent encore à une page
-« Page not found ».
+À venir : DIY Projects, Tools, Gear, puis le tableau de bord. Ces liens du menu
+mènent encore à une page « Page not found ».

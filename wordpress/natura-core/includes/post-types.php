@@ -153,7 +153,8 @@ function natura_core_default_plant_types(): array {
 }
 
 /**
- * Activation: register everything, add the default plant types, rebuild rules.
+ * Activation: register everything, add the default plant types and Plant
+ * Care topics, rebuild rules.
  */
 function natura_core_activate(): void {
 	natura_core_register_types();
@@ -171,6 +172,7 @@ function natura_core_activate(): void {
 		}
 	}
 
+	natura_core_plant_care_activate();
 	natura_core_plant_type_rules();
 	flush_rewrite_rules( false );
 }

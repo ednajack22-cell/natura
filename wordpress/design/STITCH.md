@@ -27,6 +27,13 @@ n'est jamais dans le dépôt : elle est lue dans la variable `STITCH_API_KEY`.
 Sur votre propre ordinateur, avec Claude Code installé :
 `claude mcp add stitch --transport http https://stitch.googleapis.com/mcp --header "X-Goog-Api-Key: VOTRE_CLE"`
 
+**État au 14 octobre 2026** : la connexion marche (la clé est lue, les projets
+et les écrans se listent). En revanche, les captures et le code HTML des écrans
+sont servis par `lh3.googleusercontent.com` et
+`contribution.usercontent.google.com`, que le réseau de l'environnement cloud
+bloque. Pour que Claude puisse les lire, ajoutez ces deux domaines aux domaines
+autorisés de l'environnement (même menu que pour la clé → Network access).
+
 Ne collez jamais la clé dans une conversation ou dans un fichier du dépôt. Si
 elle a été exposée, supprimez-la dans Stitch settings et créez-en une autre.
 

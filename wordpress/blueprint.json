@@ -2,7 +2,7 @@
   "$schema": "https://playground.wordpress.net/blueprint-schema.json",
   "meta": {
     "title": "Natura theme preview",
-    "description": "Installs the Natura theme and the Natura Core plugin from the work-in-progress branch, with demo plant guides.",
+    "description": "Installs the Natura theme and the Natura Core plugin from the work-in-progress branch, with demo plant guides, problem guides, and Plant Care articles.",
     "author": "natura"
   },
   "landingPage": "/",

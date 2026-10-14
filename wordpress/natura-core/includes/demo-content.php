@@ -1,6 +1,7 @@
 <?php
 /**
- * Demo plant guides for previews (WordPress Playground, local installs).
+ * Demo content for previews (WordPress Playground, local installs): plant
+ * guides, problem guides, and Plant Care articles.
  *
  * Nothing here runs on its own: call natura_core_import_demo() from WP-CLI or
  * a Playground blueprint. Existing guides with the same address are left as
@@ -66,6 +67,93 @@ function natura_core_import_demo( string $image_base ): array {
 		$image_id = natura_core_demo_attach_image( trailingslashit( $image_base ) . $plant['image'], $post_id, $plant['image_alt'] );
 		if ( $image_id ) {
 			set_post_thumbnail( $post_id, $image_id );
+		}
+
+		$created[] = $post_id;
+	}
+
+	return array_merge( $created, natura_core_import_demo_care() );
+}
+
+/**
+ * Creates the demo problem guides and Plant Care articles. Run after the
+ * plant guides, so problems can link to the plants they affect.
+ *
+ * @return int[] IDs of the posts created.
+ */
+function natura_core_import_demo_care(): array {
+	$created = array();
+	$admins  = get_users(
+		array(
+			'role'   => 'administrator',
+			'number' => 1,
+			'fields' => 'ID',
+		)
+	);
+	$author  = $admins ? (int) $admins[0] : 0;
+
+	foreach ( natura_core_demo_problems() as $slug => $problem ) {
+		if ( get_page_by_path( $slug, OBJECT, 'problem' ) ) {
+			continue;
+		}
+
+		$post_id = wp_insert_post(
+			array(
+				'post_type'    => 'problem',
+				'post_status'  => 'publish',
+				'post_author'  => $author,
+				'post_name'    => $slug,
+				'post_title'   => $problem['title'],
+				'post_excerpt' => $problem['excerpt'],
+				'post_content' => $problem['content'],
+			),
+			true
+		);
+		if ( is_wp_error( $post_id ) ) {
+			continue;
+		}
+
+		foreach ( $problem['lists'] as $key => $rows ) {
+			update_post_meta( $post_id, natura_core_meta_key( $key ), $rows );
+		}
+
+		$plant_ids = array();
+		foreach ( $problem['plants'] as $plant_slug ) {
+			$plant = get_page_by_path( $plant_slug, OBJECT, 'plant' );
+			if ( $plant ) {
+				$plant_ids[] = (int) $plant->ID;
+			}
+		}
+		natura_core_set_problem_plants( $post_id, $plant_ids );
+
+		$created[] = $post_id;
+	}
+
+	foreach ( natura_core_demo_articles() as $slug => $article ) {
+		if ( get_page_by_path( $slug, OBJECT, 'post' ) ) {
+			continue;
+		}
+
+		$topic   = get_term_by( 'slug', $article['topic'], 'category' );
+		$post_id = wp_insert_post(
+			array(
+				'post_type'     => 'post',
+				'post_status'   => 'publish',
+				'post_author'   => $author,
+				'post_name'     => $slug,
+				'post_title'    => $article['title'],
+				'post_excerpt'  => $article['excerpt'],
+				'post_content'  => $article['content'],
+				'post_category' => $topic ? array( (int) $topic->term_id ) : array(),
+			),
+			true
+		);
+		if ( is_wp_error( $post_id ) ) {
+			continue;
+		}
+
+		foreach ( $article['lists'] as $key => $rows ) {
+			update_post_meta( $post_id, natura_core_meta_key( $key ), $rows );
 		}
 
 		$created[] = $post_id;
@@ -285,6 +373,215 @@ function natura_core_demo_plants(): array {
 				$p( 'Set each plant so the crown, where the leaves meet the roots, sits exactly at the surface. Buried crowns rot; exposed roots dry out.' ) .
 				$h2( 'Keep fruit off the soil' ) .
 				$p( 'Hanging baskets and tall pots keep fruit clean and away from slugs. Water regularly while plants are flowering and fruiting, and feed every two weeks with a high-potash feed.' ),
+		),
+	);
+}
+
+/**
+ * The demo problem guides.
+ *
+ * @return array<string, array>
+ */
+function natura_core_demo_problems(): array {
+	$p    = 'natura_core_demo_p';
+	$h2   = 'natura_core_demo_h2';
+	$list = 'natura_core_demo_list';
+
+	return array(
+		'yellow-leaves-container-plants' => array(
+			'title'   => 'Why Are the Leaves on My Container Plants Turning Yellow?',
+			'excerpt' => 'In pots, yellow leaves most often come down to water: too much, or too little. If watering is right, look at where the yellow appears: evenly on the oldest leaves points to hungry compost, and yellow between green veins to a lack of magnesium.',
+			'plants'  => array( 'cherry-tomato', 'genovese-basil', 'balcony-strawberry' ),
+			'lists'   => array(
+				'causes'   => array(
+					array(
+						'cause'    => 'Too much water',
+						'sign'     => 'Lower leaves yellow and soft, compost still wet days after watering',
+						'check'    => 'Push a finger 3–5 cm into the compost. If it is still wet a day or two after watering, the roots are short of air. Look under the pot: a blocked drainage hole or a saucer full of water keeps the bottom of the pot waterlogged. Roots that are brown, soft, or smell sour have started to rot.',
+						'fix'      => 'Empty the saucer and make sure water can drain freely; raise the pot on feet if it sits flat. Wait until the top few centimetres are dry before watering again. If the roots have rotted, trim the soft ones away and repot into fresh compost in a pot with drainage holes.',
+						'recovery' => 'New leaves should come through healthy within two to three weeks. Leaves that are already yellow will not turn green again.',
+					),
+					array(
+						'cause'    => 'Too little water',
+						'sign'     => 'Leaves yellow with dry, crisp brown edges; compost shrinking from the sides of the pot',
+						'check'    => 'Lift the pot: a dry pot feels much lighter than a watered one. Compost that has pulled away from the sides, or water that runs straight through and out of the bottom, means the root ball has dried out.',
+						'fix'      => 'Stand the pot in a bucket or sink of water for 20–30 minutes so the whole root ball rewets, then let it drain. From then on, check the compost every day in warm weather and water before it dries out completely.',
+						'recovery' => 'Wilting usually recovers within hours of a good soak. Crisp, brown leaves stay damaged.',
+					),
+					array(
+						'cause'    => 'Hungry compost (nitrogen shortage)',
+						'sign'     => 'The oldest leaves turn evenly pale yellow first; new growth is small and pale',
+						'check'    => 'Container plants use up the food in fresh compost within a few weeks, and watering washes out what is left. If the plant has been in the same compost for more than six weeks without feeding, and the yellowing is even across the leaf, veins included, starting at the bottom of the plant, it is probably hungry.',
+						'fix'      => 'Start a liquid feed at the dilution given on the label. Use a balanced feed for leafy plants such as basil; for tomatoes and strawberries, switch to a high-potash feed once they flower.',
+						'recovery' => 'New leaves should look greener within one to two weeks of regular feeding.',
+					),
+					array(
+						'cause'    => 'Magnesium shortage',
+						'sign'     => 'Yellow between the veins of older leaves, while the veins stay green',
+						'check'    => 'Look closely at an older leaf: a pattern of green veins on a yellow background is typical. It is common on tomatoes in pots, especially when they are fed heavily with high-potash feed, because potassium competes with magnesium.',
+						'fix'      => 'Spray the leaves with Epsom salts (magnesium sulphate) at the dilution given on the pack, in the evening or on a dull day so the leaves do not scorch. Keep feeding as before, but do not exceed the dose on the tomato feed label.',
+						'recovery' => 'New leaves come through normal. The patterned leaves stay as they are.',
+					),
+					array(
+						'cause'    => 'Old leaves ageing naturally',
+						'sign'     => 'Only one or two of the lowest leaves turn yellow; the rest of the plant looks healthy',
+						'check'    => 'If new growth is green and vigorous and only the oldest leaves at the base are yellowing, slowly, one at a time, the plant is simply shedding leaves it no longer needs.',
+						'fix'      => 'Nothing to treat. Pick off the yellow leaves to keep the plant tidy and let air reach the base.',
+						'recovery' => '',
+					),
+				),
+				'products' => array(
+					array( 'name' => 'Soil moisture meter', 'note' => 'Reads the compost at root depth, where a finger cannot reach in a deep pot.', 'url' => '' ),
+					array( 'name' => 'Pot feet', 'note' => 'Lift the pot off the floor so water can drain away.', 'url' => '' ),
+					array( 'name' => 'Balanced liquid plant feed', 'note' => 'For hungry compost in leafy plants.', 'url' => '' ),
+					array( 'name' => 'Epsom salts (magnesium sulphate)', 'note' => 'Only if the leaves show yellow between green veins.', 'url' => '' ),
+				),
+				'faq'      => array(
+					array( 'question' => 'Will yellow leaves turn green again?', 'answer' => 'Usually not. Once a leaf has turned fully yellow, it stays yellow. What matters is that new leaves come through green after you fix the cause.' ),
+					array( 'question' => 'Should I cut off yellow leaves?', 'answer' => 'Yes, once you have found the cause. Remove leaves that are fully yellow; leave partly green ones for now, as they still feed the plant.' ),
+					array( 'question' => 'Can a plant have more than one of these problems?', 'answer' => 'Yes. A plant whose roots sat in wet compost cannot take up food well, so it can look hungry too. Fix the watering first, then feed.' ),
+				),
+				'sources'  => array(
+					array( 'title' => 'RHS — Nutrient deficiencies', 'url' => 'https://www.rhs.org.uk/prevention-protection/nutrient-deficiencies' ),
+					array( 'title' => 'RHS — Chlorosis', 'url' => 'https://www.rhs.org.uk/problems/chlorosis' ),
+					array( 'title' => 'RHS — Growing plants in containers', 'url' => 'https://www.rhs.org.uk/container-gardening/growing-plants-in-containers' ),
+				),
+			),
+			'content' =>
+				$h2( 'How to prevent yellow leaves in pots' ) .
+				$list(
+					array(
+						'Use pots with drainage holes, and never leave them standing in water.',
+						'Check the compost before you water, rather than watering on a fixed day.',
+						'Start feeding about six weeks after potting into fresh compost, earlier for hungry crops such as tomatoes.',
+						'Repot into fresh compost every spring, or replace the top few centimetres in large pots.',
+					)
+				),
+		),
+		'blossom-end-rot'                => array(
+			'title'   => 'Why Do My Tomatoes Have Black Bottoms? (Blossom End Rot)',
+			'excerpt' => 'A dark, sunken patch at the base of tomato fruit is blossom end rot. It is not a disease: the fruit is short of calcium because the plant\'s water supply was uneven. Steady watering protects the fruit that forms next.',
+			'plants'  => array( 'cherry-tomato' ),
+			'lists'   => array(
+				'causes'   => array(
+					array(
+						'cause'    => 'Uneven watering',
+						'sign'     => 'A sunken, leathery patch at the base of the fruit, often on the first trusses',
+						'check'    => 'Calcium travels into the fruit with water. When the compost dries out, even for a short time, the fruit at the end of the supply line goes short first. If the pot has dried out between waterings in the last few weeks, this is the most likely cause.',
+						'fix'      => 'Water before the compost dries out, every day in hot weather, until water runs from the drainage holes. Remove the affected fruit: it will not recover. Calcium sprays are not a fix, as the fruit takes up very little calcium through its skin.',
+						'recovery' => 'Fruit that forms once watering is steady normally ripens without the patch. Expect two to three weeks before you see clean fruit.',
+					),
+					array(
+						'cause'    => 'A pot that is too small',
+						'sign'     => 'The plant wilts every afternoon, even when watered in the morning',
+						'check'    => 'A large tomato plant can drink several litres a day in summer. A pot under about 20 litres cannot hold enough water to last from one watering to the next.',
+						'fix'      => 'Move the plant into a pot of 20–30 litres, or grow the next plants in one. Until then, water morning and evening in hot weather, or stand the pot in a deep saucer that you top up and empty again before the evening.',
+						'recovery' => 'Fruit set after the move should be clean.',
+					),
+					array(
+						'cause'    => 'Feeding dry compost',
+						'sign'     => 'The patches appeared soon after a feed given to a dry plant',
+						'check'    => 'Fertiliser poured onto dry compost makes a concentrated solution that slows water uptake, which has the same effect as drought.',
+						'fix'      => 'Always water first if the compost is dry, then feed. Use the dilution on the label, never stronger.',
+						'recovery' => 'New fruit should be clean within two to three weeks.',
+					),
+				),
+				'products' => array(
+					array( 'name' => 'Pot of 20–30 litres with drainage holes', 'note' => 'Holds enough water to last between waterings.', 'url' => '' ),
+					array( 'name' => 'Self-watering pot or reservoir', 'note' => 'Evens out the water supply on hot days.', 'url' => '' ),
+				),
+				'faq'      => array(
+					array( 'question' => 'Can I eat a tomato with blossom end rot?', 'answer' => 'Yes, if you cut away the damaged part and the rest of the fruit is firm. Discard any fruit that has gone soft or mouldy.' ),
+					array( 'question' => 'Should I add eggshells or calcium to the compost?', 'answer' => 'It rarely helps. Fresh container compost usually holds enough calcium; the problem is getting it into the fruit, and that depends on steady watering.' ),
+				),
+				'sources'  => array(
+					array( 'title' => 'RHS — Blossom end rot', 'url' => 'https://www.rhs.org.uk/problems/blossom-end-rot' ),
+					array( 'title' => 'Iowa State University Extension — Blossom end rot', 'url' => 'https://yardandgarden.extension.iastate.edu/encyclopedia/blossom-end-rot' ),
+				),
+			),
+			'content' =>
+				$h2( 'Which plants get it' ) .
+				$p( 'Tomatoes are the plants most often affected, followed by peppers. Plants in pots and grow bags are more at risk than plants in the ground, because their roots have a small volume of compost to draw water from.' ),
+		),
+	);
+}
+
+/**
+ * The demo Plant Care articles.
+ *
+ * @return array<string, array>
+ */
+function natura_core_demo_articles(): array {
+	$p    = 'natura_core_demo_p';
+	$h2   = 'natura_core_demo_h2';
+	$list = 'natura_core_demo_list';
+
+	return array(
+		'how-often-to-water-container-plants' => array(
+			'title'   => 'How Often Should You Water Container Plants?',
+			'excerpt' => 'There is no fixed schedule: check the compost, and water when the top few centimetres are dry. In summer that can mean every day for large plants in full sun, and once a week for small ones in shade.',
+			'topic'   => 'watering',
+			'lists'   => array(
+				'products' => array(
+					array( 'name' => 'Watering can with a long spout and a rose', 'note' => 'Reaches the back of a balcony box and waters gently.', 'url' => '' ),
+					array( 'name' => 'Soil moisture meter', 'note' => 'Useful for deep pots, where the top can be dry and the bottom wet.', 'url' => '' ),
+				),
+				'faq'      => array(
+					array( 'question' => 'Is it better to water in the morning or the evening?', 'answer' => 'The morning is best: plants have water for the hottest part of the day, and the leaves dry quickly. In a heatwave, water large plants in the evening as well.' ),
+					array( 'question' => 'Do plants in pots need watering when it rains?', 'answer' => 'Often, yes. Leaves can shed rain away from the pot, and pots under a balcony above may get none at all. Check the compost rather than the weather.' ),
+				),
+				'sources'  => array(
+					array( 'title' => 'RHS — Growing plants in containers', 'url' => 'https://www.rhs.org.uk/container-gardening/growing-plants-in-containers' ),
+					array( 'title' => 'RHS — Ten top tips for peat-free growing success', 'url' => 'https://www.rhs.org.uk/advice/peat/peat-free-tips' ),
+				),
+			),
+			'content' =>
+				$h2( 'Check the compost, not the calendar' ) .
+				$p( 'How quickly a pot dries out depends on the weather, the size of the pot, and how big the plant has grown. A plant that needed water once a week in May may need it every day in July. So instead of watering on fixed days, check before you water.' ) .
+				$h2( 'The finger test' ) .
+				$p( 'Push a finger into the compost up to the second knuckle, about 3–5 cm. If it feels dry at that depth, water. If it feels damp, wait and check again the next day. Some peat-free composts look dry on the surface while still moist below, so always check below the surface.' ) .
+				$h2( 'Water until it drains' ) .
+				$p( 'When you water, keep going until water runs out of the drainage holes. A splash every day wets only the top of the pot and leaves the roots at the bottom dry. Empty the saucer after half an hour so the roots do not sit in water.' ) .
+				$h2( 'What makes a pot dry out faster' ) .
+				$list(
+					array(
+						'<strong>Small pots:</strong> they hold less water, and dry out first.',
+						'<strong>Terracotta:</strong> unglazed clay loses water through its sides.',
+						'<strong>Sun and wind:</strong> a sunny, windy balcony can dry a pot in a day.',
+						'<strong>Big plants:</strong> a tomato in full fruit drinks far more than a young plant.',
+					)
+				) .
+				$h2( 'When you go away' ) .
+				$p( 'Group pots together in the shade, water them well the evening before you leave, and stand them in deep saucers. For longer trips, a self-watering pot or a simple drip system is more reliable than asking plants to wait.' ),
+		),
+		'compost-for-containers'              => array(
+			'title'   => 'Which Compost Should You Use in Pots?',
+			'excerpt' => 'Use fresh, peat-free container compost, never garden soil. Multipurpose compost suits vegetables, herbs, and summer plants; a soil-based peat-free mix suits shrubs and fruit that stay in the same pot for years.',
+			'topic'   => 'soil-feeding',
+			'lists'   => array(
+				'faq'     => array(
+					array( 'question' => 'Can I reuse last year\'s compost?', 'answer' => 'Not for hungry crops like tomatoes: its food is used up and its structure has broken down. Mix it into garden beds or a compost heap, and start pots with fresh compost.' ),
+					array( 'question' => 'Do I need to add grit?', 'answer' => 'For Mediterranean herbs such as thyme and rosemary, yes: mixing in about a fifth grit helps the compost drain. Most vegetables do not need it.' ),
+				),
+				'sources' => array(
+					array( 'title' => 'RHS — Peat-free compost choices', 'url' => 'https://www.rhs.org.uk/soil-composts-mulches/peat-free' ),
+					array( 'title' => 'RHS — Growing plants in containers', 'url' => 'https://www.rhs.org.uk/container-gardening/growing-plants-in-containers' ),
+				),
+			),
+			'content' =>
+				$h2( 'Why not garden soil?' ) .
+				$p( 'In a pot, garden soil packs down into a dense block that drains poorly and holds little air. It can also bring in weed seeds, pests, and diseases. Container compost is made to stay open and drain freely while holding water.' ) .
+				$h2( 'Multipurpose or soil-based?' ) .
+				$list(
+					array(
+						'<strong>Peat-free multipurpose compost</strong> is light and suits plants that spend one season in their pot: vegetables, herbs, and summer flowers.',
+						'<strong>Peat-free soil-based compost</strong>, such as a peat-free John Innes No. 3, is heavier and holds food longer. Use it for shrubs, fruit bushes, and anything that stays in the same pot for several years. Traditional John Innes contains peat, so check the bag says peat-free.',
+					)
+				) .
+				$h2( 'When to start feeding' ) .
+				$p( 'Fresh compost contains enough food for the first few weeks. After that, container plants rely on you: start a liquid feed at the dilution given on the label, more often for hungry crops such as tomatoes. Plants in peat-free compost may need feeding a little more often.' ) .
+				$h2( 'Refresh compost every year' ) .
+				$p( 'Repot plants that stay in their containers each spring, or, in pots too big to move, scrape away the top few centimetres and replace them with fresh compost mixed with a slow-release feed.' ),
 		),
 	);
 }

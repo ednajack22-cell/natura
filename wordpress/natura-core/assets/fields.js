@@ -1,6 +1,6 @@
 /**
- * Plant guide fields: repeating rows and the Pinterest image picker.
- * Plain DOM, no build step, nothing loaded outside the plant edit screen.
+ * Natura fields: repeating rows and the Pinterest image picker.
+ * Plain DOM, no build step, nothing loaded outside the Natura edit screens.
  */
 (() => {
   document.querySelectorAll("[data-natura-list]").forEach((list) => {
