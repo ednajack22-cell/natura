@@ -19,6 +19,11 @@ defined( 'ABSPATH' ) || exit;
  */
 function natura_core_plant_facts(): array {
 	return array(
+		'short_name'     => array(
+			'label' => __( 'Short name', 'natura-core' ),
+			'help'  => __( 'The plant\'s everyday name, used in lists and on the monthly calendar. Example: Cherry tomato', 'natura-core' ),
+			'type'  => 'text',
+		),
 		'botanical_name' => array(
 			'label' => __( 'Botanical name', 'natura-core' ),
 			'help'  => __( 'Shown in italics under the title. Example: Solanum lycopersicum var. cerasiforme', 'natura-core' ),

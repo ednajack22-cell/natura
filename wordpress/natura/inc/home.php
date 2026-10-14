@@ -25,6 +25,11 @@ function natura_home_defaults(): array {
 		'natura_newsletter_code' => '',
 		'natura_newsletter_text' => __( 'One email a month: what to sow and plant now, and one problem to watch for. No spam, unsubscribe in one click.', 'natura' ),
 		'natura_home_season'     => '',
+		'natura_author_name'     => '',
+		'natura_author_role'     => '',
+		'natura_author_bio'      => '',
+		'natura_author_photo'    => '',
+		'natura_author_url'      => '/about/',
 	);
 }
 
@@ -57,7 +62,11 @@ add_action(
 			'natura_pinterest_url'   => array( __( 'Pinterest profile address', 'natura' ), 'url', 'esc_url_raw', __( 'Shows a "Follow on Pinterest" block. Example: https://www.pinterest.com/yourname/', 'natura' ) ),
 			'natura_newsletter_code' => array( __( 'Newsletter form shortcode', 'natura' ), 'text', 'sanitize_text_field', __( 'From your email plugin (MailerLite, Mailchimp for WordPress…), e.g. [mc4wp_form id="12"]. Leave empty to hide the newsletter block.', 'natura' ) ),
 			'natura_newsletter_text' => array( __( 'Newsletter text', 'natura' ), 'textarea', 'sanitize_textarea_field', '' ),
-			'natura_home_season'     => array( __( 'What\'s in season', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'What to sow or plant this month, one per line. Add a link after a vertical bar: "Garlic | /plants/garlic/". Leave empty to hide the strip.', 'natura' ) ),
+			'natura_home_season'     => array( __( 'This month: extra items', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'The "This month" strip lists the plant guides to sow, plant out, or harvest this month by itself. Add other things to do now, one per line, with an optional link after a vertical bar: "Garlic | /plants/garlic/".', 'natura' ) ),
+			'natura_author_name'     => array( __( 'Who writes Natura: name', 'natura' ), 'text', 'sanitize_text_field', __( 'The real person behind the site. The block appears once a name and a short bio are set.', 'natura' ) ),
+			'natura_author_role'     => array( __( 'Who writes Natura: role', 'natura' ), 'text', 'sanitize_text_field', __( 'Example: Grows vegetables on a 4 m² balcony in Lyon since 2019', 'natura' ) ),
+			'natura_author_bio'      => array( __( 'Who writes Natura: short bio', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'Two or three sentences: what you grow, where, and how you test advice. Only facts you can stand behind.', 'natura' ) ),
+			'natura_author_url'      => array( __( 'Who writes Natura: link', 'natura' ), 'text', 'sanitize_text_field', __( 'Your About page, e.g. /about/', 'natura' ) ),
 		);
 
 		foreach ( $fields as $id => list( $label, $type, $sanitize, $description ) ) {
@@ -79,17 +88,85 @@ add_action(
 				)
 			);
 		}
+
+		$customizer->add_setting(
+			'natura_author_photo',
+			array(
+				'type'              => 'theme_mod',
+				'sanitize_callback' => 'absint',
+			)
+		);
+		$customizer->add_control(
+			new WP_Customize_Media_Control(
+				$customizer,
+				'natura_author_photo',
+				array(
+					'label'     => __( 'Who writes Natura: photo', 'natura' ),
+					'section'   => 'natura_home',
+					'mime_type' => 'image',
+				)
+			)
+		);
 	}
 );
 
 /**
- * "What's in season" chips from the Customizer: one per line, with an
- * optional link after a vertical bar.
+ * The everyday name of a plant guide ("Cherry tomato"), or its title.
  *
- * @return array<int, array{name: string, url: string}>
+ * @param int $post_id Plant guide ID.
  */
-function natura_home_season(): array {
-	$items = array();
+function natura_plant_short_name( int $post_id ): string {
+	$name = trim( (string) natura_field( 'short_name', $post_id ) );
+
+	return '' !== $name ? $name : get_the_title( $post_id );
+}
+
+/**
+ * "This month": the plant guides to sow, plant out, and harvest in the current
+ * month (from each guide's planting calendar), then the extra items set in the
+ * Customizer, one per line with an optional link after a vertical bar.
+ *
+ * @return array{month: string, groups: array<int, array{label: string, items: array<int, array{name: string, url: string}>}>}
+ */
+function natura_home_this_month(): array {
+	$month  = (int) wp_date( 'n' );
+	$groups = array();
+	$labels = array(
+		'sow'     => __( 'Sow', 'natura' ),
+		'plant'   => __( 'Plant out', 'natura' ),
+		'harvest' => __( 'Harvest', 'natura' ),
+	);
+
+	if ( post_type_exists( 'plant' ) ) {
+		foreach ( $labels as $activity => $label ) {
+			$ids = get_posts(
+				array(
+					'post_type'      => 'plant',
+					'posts_per_page' => 8,
+					'fields'         => 'ids',
+					'no_found_rows'  => true,
+					'orderby'        => 'title',
+					'order'          => 'ASC',
+					'meta_key'       => '_natura_' . $activity . '_month', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- home page only, cached by the page cache.
+					'meta_value'     => $month, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
+				)
+			);
+			if ( $ids ) {
+				$groups[] = array(
+					'label' => $label,
+					'items' => array_map(
+						static fn( int $id ): array => array(
+							'name' => natura_plant_short_name( $id ),
+							'url'  => (string) get_permalink( $id ),
+						),
+						$ids
+					),
+				);
+			}
+		}
+	}
+
+	$extra = array();
 	foreach ( preg_split( '/\R/', natura_home_setting( 'natura_home_season' ) ) ?: array() as $line ) {
 		$parts = array_map( 'trim', explode( '|', $line, 2 ) );
 		if ( '' === $parts[0] ) {
@@ -99,13 +176,102 @@ function natura_home_season(): array {
 		if ( str_starts_with( $url, '/' ) ) {
 			$url = home_url( $url );
 		}
-		$items[] = array(
+		$extra[] = array(
 			'name' => $parts[0],
 			'url'  => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
 		);
 	}
+	if ( $extra ) {
+		$groups[] = array(
+			'label' => __( 'Also now', 'natura' ),
+			'items' => array_slice( $extra, 0, 8 ),
+		);
+	}
 
-	return array_slice( $items, 0, 8 );
+	return array(
+		'month'  => wp_date( 'F' ),
+		'groups' => $groups,
+	);
+}
+
+/**
+ * The "Who writes Natura" block's content, or null until a name and a bio are
+ * set in the Customizer.
+ *
+ * @return array{name: string, role: string, bio: string, photo: int, url: string}|null
+ */
+function natura_home_author(): ?array {
+	$name = natura_home_setting( 'natura_author_name' );
+	$bio  = natura_home_setting( 'natura_author_bio' );
+	if ( '' === trim( $name ) || '' === trim( $bio ) ) {
+		return null;
+	}
+
+	$url = natura_home_setting( 'natura_author_url' );
+	if ( str_starts_with( $url, '/' ) ) {
+		$url = home_url( $url );
+	}
+
+	return array(
+		'name'  => $name,
+		'role'  => natura_home_setting( 'natura_author_role' ),
+		'bio'   => $bio,
+		'photo' => absint( get_theme_mod( 'natura_author_photo' ) ),
+		'url'   => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
+	);
+}
+
+/**
+ * WebSite and Organization data for the home page, unless an SEO plugin
+ * prints its own. The site search is declared so Google knows its address.
+ */
+function natura_home_structured_data(): string {
+	if ( natura_seo_plugin_active() ) {
+		return '';
+	}
+
+	$organization = array_filter(
+		array(
+			'@type' => 'Organization',
+			'@id'   => home_url( '/#organization' ),
+			'name'  => get_bloginfo( 'name' ),
+			'url'   => home_url( '/' ),
+			'logo'  => has_custom_logo() ? wp_get_attachment_image_url( (int) get_theme_mod( 'custom_logo' ), 'full' ) : null,
+			'sameAs' => array_values( array_filter( array( natura_home_setting( 'natura_pinterest_url' ) ) ) ) ?: null,
+		)
+	);
+
+	$author = natura_home_author();
+	if ( $author ) {
+		$organization['founder'] = array_filter(
+			array(
+				'@type'    => 'Person',
+				'name'     => $author['name'],
+				'jobTitle' => $author['role'] ?: null,
+				'url'      => $author['url'] ?: null,
+			)
+		);
+	}
+
+	return natura_json_ld(
+		array(
+			array(
+				'@type'           => 'WebSite',
+				'@id'             => home_url( '/#website' ),
+				'name'            => get_bloginfo( 'name' ),
+				'url'             => home_url( '/' ),
+				'description'     => natura_home_setting( 'natura_home_intro' ),
+				'inLanguage'      => get_bloginfo( 'language' ),
+				'publisher'       => array( '@id' => home_url( '/#organization' ) ),
+				'potentialAction' => array(
+					'@type'       => 'SearchAction',
+					'target'      => home_url( '/?s={search_term_string}' ),
+					'query-input' => 'required name=search_term_string',
+				),
+			),
+			$organization,
+		)
+	);
 }
 
 /**

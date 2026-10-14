@@ -70,29 +70,55 @@ sans son annonce (le texte en a déjà deux).
 4. Bandeau vert foncé vers les problèmes (« Plant looking unwell? »).
 5. Pagination.
 
-## Accueil
+## Accueil (finalisée le 14 octobre 2026)
 
-D'après l'écran Stitch « Natura - Mobile Homepage (390px) », conçu d'abord
-pour téléphone (environ 6 écrans), puis élargi sur ordinateur :
+D'après l'écran Stitch « Natura - Mobile Homepage (390px) » et l'analyse des
+captures concurrentes (`design/benchmark/`). Conçue d'abord pour téléphone
+(environ 6 écrans), puis élargie sur ordinateur :
 
 1. Titre, introduction, recherche ; photo 4:5 d'une fiche en vedette, avec le
    bouton Pinterest « Save » sur la photo.
-2. « What's in season » : pastilles de ce qu'on sème ou plante ce mois-ci
-   (Personnaliser → Natura: home page), défilement horizontal sur téléphone.
-   Caché tant que la liste est vide.
-3. Trois portes d'entrée en lignes : plantes, problèmes, entretien.
+2. **This month · [mois]** : les fiches à semer, planter et récolter ce
+   mois-ci, tirées du calendrier de chaque fiche, puis les ajouts du
+   Personnaliser (« Also now »). Comme « What to do now » (Gardeners' World),
+   « tasks for October » (RHS), « Travaux du moment » (Gerbeaud).
+3. Trois portes d'entrée : plantes, problèmes, entretien.
 4. « Popular growing guides » : cartes compactes, 2 par ligne sur téléphone,
    jusqu'à 4 sur ordinateur.
 5. **La seule annonce de la page**, après ces fiches.
-6. Panneau vert foncé « Something wrong with a plant? » : les fiches problèmes
-   et leur cause la plus fréquente.
-7. **Our picks** : 3 produits tirés des listes d'achat des fiches (lien
-   affilié et photo), un seul par produit, mention d'affiliation juste dessous.
-8. **Save ideas for later** : les images Pinterest verticales des fiches, en
-   défilement horizontal sur téléphone ; bouton « Follow » si le profil
-   Pinterest est réglé.
+6. Panneau « Something wrong with a plant? » : les fiches problèmes et leur
+   cause la plus fréquente.
+7. **Our picks** : 3 produits tirés des listes d'achat des fiches, un seul par
+   produit, mention d'affiliation juste dessous.
+8. **Save ideas for later** : les images Pinterest verticales des fiches.
 9. Derniers articles Plant Care.
-10. Newsletter « Monthly planting reminder », si un formulaire est réglé.
+10. **Who writes Natura** : photo, nom, rôle et courte bio de la vraie
+    personne derrière le site (Personnaliser), lien vers « How we write and
+    test ». Signal de confiance pour les lecteurs et pour Google (E-E-A-T),
+    comme chez Gerbeaud et Gardening Know How.
+11. Newsletter « Monthly planting reminder », si un formulaire est réglé.
+
+Données structurées : `WebSite` (avec la recherche du site) et
+`Organization` (logo, profil Pinterest, fondateur si le bloc auteur est
+rempli), sauf si une extension SEO les fournit déjà.
+
+Ajouts prévus quand les pages correspondantes existeront :
+
+- tuiles **Tools** (calendrier mensuel, Plant finder), lien du bloc « This
+  month » vers la page du mois ;
+- rangée de **guides d'achat** (section Gear), à la place ou à côté de
+  « Our picks ».
+
+## Ordre des pages suivantes
+
+1. Fiche plante : frise des 12 mois, conditions cliquables (soleil, espace),
+   « Similar plants » par conditions, `data-pin-media` pour Pinterest.
+2. Calendrier mensuel `/calendar/[mois]/` et pages de conditions
+   (`/plants/sun/full-sun/`, `/plants/space/balcony/`), non indexées tant
+   qu'elles ont moins de 6 plantes.
+3. Plant finder (filtres, non indexé).
+4. Gear : guides d'achat avec critères, verdict et tableau comparatif.
+5. DIY Projects, puis les autres outils.
 
 ## Plant Care
 

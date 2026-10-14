@@ -3,9 +3,10 @@
  * Home page, from the Stitch "Natura - Mobile Homepage (390px)" screen.
  *
  * Mobile first: most readers come from Pinterest on a phone. Order:
- * hero with a featured guide (Pinterest Save on the photo), what is in season,
- * three ways in, popular guides, one ad, plant problems, affiliate picks,
- * Pinterest ideas, latest articles, newsletter.
+ * hero with a featured guide (Pinterest Save on the photo), this month (from
+ * the guides' planting calendars), three ways in, popular guides, one ad,
+ * plant problems, affiliate picks, Pinterest ideas, latest articles, who
+ * writes Natura, newsletter.
  *
  * Money blocks follow wordpress/design/BLUEPRINT.md: one ad only, well below
  * the first answer; affiliate picks come from the guides' own shopping lists,
@@ -52,7 +53,8 @@ foreach ( $natura_plants as $natura_index => $natura_plant ) {
 	}
 }
 $natura_grid    = array_slice( array_values( $natura_plants ), 0, 4 );
-$natura_season  = natura_home_season();
+$natura_month   = natura_home_this_month();
+$natura_author  = natura_home_author();
 $natura_picks   = natura_home_picks( 3 );
 $natura_pins    = natura_home_pins( 6 );
 $natura_pin_url = natura_home_setting( 'natura_pinterest_url' );
@@ -63,6 +65,7 @@ $natura_counts  = array(
 );
 ?>
 <main id="main-content" class="home">
+	<?php echo natura_home_structured_data(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
 
 	<?php // 1. Hero ?>
 	<section class="home-hero">
@@ -108,25 +111,36 @@ $natura_counts  = array(
 		</div>
 	</section>
 
-	<?php // 2. What's in season ?>
-	<?php if ( $natura_season ) : ?>
+	<?php // 2. This month: from the guides' planting calendars, plus Customizer extras. ?>
+	<?php if ( $natura_month['groups'] ) : ?>
 		<section class="season-strip" aria-labelledby="home-season-title">
 			<div class="site-container">
 				<div class="season-head">
-					<h2 id="home-season-title" class="label"><?php esc_html_e( 'What\'s in season', 'natura' ); ?></h2>
-					<span><?php esc_html_e( 'Sow and plant now', 'natura' ); ?></span>
+					<h2 id="home-season-title" class="label">
+						<?php
+						/* translators: %s: month name, e.g. "October". */
+						printf( esc_html__( 'This month · %s', 'natura' ), esc_html( $natura_month['month'] ) );
+						?>
+					</h2>
 				</div>
-				<ul class="season-chips">
-					<?php foreach ( $natura_season as $natura_item ) : ?>
-						<li>
-							<?php if ( $natura_item['url'] ) : ?>
-								<a href="<?php echo esc_url( $natura_item['url'] ); ?>"><?php echo esc_html( $natura_item['name'] ); ?></a>
-							<?php else : ?>
-								<span><?php echo esc_html( $natura_item['name'] ); ?></span>
-							<?php endif; ?>
-						</li>
+				<div class="season-groups">
+					<?php foreach ( $natura_month['groups'] as $natura_group ) : ?>
+						<div class="season-group">
+							<h3><?php echo esc_html( $natura_group['label'] ); ?></h3>
+							<ul class="season-chips">
+								<?php foreach ( $natura_group['items'] as $natura_item ) : ?>
+									<li>
+										<?php if ( $natura_item['url'] ) : ?>
+											<a href="<?php echo esc_url( $natura_item['url'] ); ?>"><?php echo esc_html( $natura_item['name'] ); ?></a>
+										<?php else : ?>
+											<span><?php echo esc_html( $natura_item['name'] ); ?></span>
+										<?php endif; ?>
+									</li>
+								<?php endforeach; ?>
+							</ul>
+						</div>
 					<?php endforeach; ?>
-				</ul>
+				</div>
 			</div>
 		</section>
 	<?php endif; ?>
@@ -303,7 +317,36 @@ $natura_counts  = array(
 		</section>
 	<?php endif; ?>
 
-	<?php // 10. Newsletter ?>
+	<?php // 10. Who writes Natura: a real person, for readers and for Google (E-E-A-T). ?>
+	<?php if ( $natura_author ) : ?>
+		<section class="site-container home-section author-card" aria-labelledby="home-author-title">
+			<?php if ( $natura_author['photo'] ) : ?>
+				<?php echo wp_get_attachment_image( $natura_author['photo'], 'thumbnail', false, array( 'class' => 'author-card-photo', 'alt' => '' ) ); ?>
+			<?php else : ?>
+				<span class="avatar avatar-large" aria-hidden="true"><?php echo esc_html( mb_strtoupper( mb_substr( $natura_author['name'], 0, 1 ) ) ); ?></span>
+			<?php endif; ?>
+			<div>
+				<p class="label"><?php esc_html_e( 'Who writes Natura', 'natura' ); ?></p>
+				<h2 id="home-author-title"><?php echo esc_html( $natura_author['name'] ); ?></h2>
+				<?php if ( $natura_author['role'] ) : ?>
+					<p class="author-card-role"><?php echo esc_html( $natura_author['role'] ); ?></p>
+				<?php endif; ?>
+				<p><?php echo esc_html( $natura_author['bio'] ); ?></p>
+				<?php if ( $natura_author['url'] ) : ?>
+					<a class="text-link" href="<?php echo esc_url( $natura_author['url'] ); ?>"><?php esc_html_e( 'How we write and test our guides', 'natura' ); ?> <?php natura_the_icon( 'arrow' ); ?></a>
+				<?php endif; ?>
+			</div>
+		</section>
+	<?php elseif ( current_user_can( 'edit_theme_options' ) ) : ?>
+		<section class="site-container home-section newsletter-card follow-placeholder">
+			<div>
+				<h2><?php esc_html_e( '"Who writes Natura" block (visible to administrators only)', 'natura' ); ?></h2>
+				<p><?php esc_html_e( 'Add your name, photo, and a short bio under Appearance → Customize → Natura: home page. Readers and Google both look for the real person behind advice.', 'natura' ); ?></p>
+			</div>
+		</section>
+	<?php endif; ?>
+
+	<?php // 11. Newsletter ?>
 	<?php if ( $natura_signup ) : ?>
 		<section class="site-container home-section newsletter-card" aria-labelledby="home-newsletter-title">
 			<div>
@@ -316,7 +359,7 @@ $natura_counts  = array(
 		<section class="site-container home-section newsletter-card follow-placeholder">
 			<div>
 				<h2><?php esc_html_e( 'Newsletter block (visible to administrators only)', 'natura' ); ?></h2>
-				<p><?php esc_html_e( 'Add your email form shortcode under Appearance → Customize → Natura: home page to show the "Monthly planting reminder" signup here. The Pinterest profile address and the "What\'s in season" list are set there too.', 'natura' ); ?></p>
+				<p><?php esc_html_e( 'Add your email form shortcode under Appearance → Customize → Natura: home page to show the "Monthly planting reminder" signup here. The Pinterest profile address and the extra "This month" items are set there too.', 'natura' ); ?></p>
 			</div>
 		</section>
 	<?php endif; ?>

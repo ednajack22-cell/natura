@@ -62,6 +62,10 @@ function natura_core_import_demo( string $image_base ): array {
 		}
 		natura_core_demo_save_fields( $post_id, $plant['lists'], $plant['pin'] ?? '', $image_base );
 
+		foreach ( $plant['months'] ?? array() as $activity => $months ) {
+			natura_core_set_plant_months( $post_id, $activity, $months );
+		}
+
 		$image_id = natura_core_demo_attach_image( trailingslashit( $image_base ) . $plant['image'], $post_id, $plant['image_alt'] );
 		if ( $image_id ) {
 			set_post_thumbnail( $post_id, $image_id );
@@ -269,9 +273,16 @@ function natura_core_demo_plants(): array {
 			'type'      => 'vegetables',
 			'image'     => 'cherry-tomato.jpg',
 			'pin'       => 'demo/pin-cherry-tomato.jpg',
+			// Temperate climate (UK): sow indoors, plant out after the last frost.
+			'months'    => array(
+				'sow'     => array( 2, 3, 4 ),
+				'plant'   => array( 5, 6 ),
+				'harvest' => array( 7, 8, 9, 10 ),
+			),
 			'image_alt' => 'A cherry tomato plant with red and green fruit in a terracotta pot on a sunny balcony',
 			'excerpt'   => 'Cherry tomatoes are one of the most rewarding crops for a sunny balcony. Give them a big pot, a sturdy support, and steady watering, and a single plant can keep you picking for months.',
 			'facts'     => array(
+				'short_name'     => 'Cherry tomato',
 				'botanical_name' => 'Solanum lycopersicum var. cerasiforme',
 				'difficulty'     => 'Moderate',
 				'sun'            => '6–8 hours of direct sun',
@@ -353,9 +364,15 @@ function natura_core_demo_plants(): array {
 			'title'     => 'How to Grow Basil in Pots',
 			'type'      => 'herbs',
 			'image'     => 'genovese-basil.jpg',
+			'months'    => array(
+				'sow'     => array( 3, 4, 5, 6 ),
+				'plant'   => array( 6 ),
+				'harvest' => array( 6, 7, 8, 9 ),
+			),
 			'image_alt' => 'A bushy Genovese basil plant in a cream ceramic pot by a window',
 			'excerpt'   => 'Basil loves warmth and hates cold, wet roots. Grow it in a sunny, sheltered spot and pinch it often for a bushy plant that keeps producing leaves all summer.',
 			'facts'     => array(
+				'short_name'     => 'Basil',
 				'botanical_name' => 'Ocimum basilicum \'Genovese\'',
 				'difficulty'     => 'Easy',
 				'sun'            => '6+ hours of sun',
@@ -377,9 +394,14 @@ function natura_core_demo_plants(): array {
 			'title'     => 'How to Grow Strawberries on a Balcony',
 			'type'      => 'fruit',
 			'image'     => 'balcony-strawberry.jpg',
+			'months'    => array(
+				'plant'   => array( 3, 4, 5, 8, 9 ),
+				'harvest' => array( 6, 7, 8, 9, 10 ),
+			),
 			'image_alt' => 'Ripe strawberries hanging from a plant in a weathered terracotta bowl',
 			'excerpt'   => 'Strawberries crop well in pots, troughs, and hanging baskets. Everbearing varieties give you fruit from early summer into autumn from just a few plants.',
 			'facts'     => array(
+				'short_name'     => 'Strawberry',
 				'botanical_name' => 'Fragaria × ananassa',
 				'difficulty'     => 'Easy',
 				'sun'            => '6–8 hours of sun',

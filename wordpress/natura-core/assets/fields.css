@@ -18,3 +18,7 @@
 .natura-checklist li { margin: 0 0 6px; }
 .natura-list-image { grid-column: 1 / -2; }
 .natura-list-image .natura-image-preview img { max-width: 96px; }
+.natura-months { border-collapse: collapse; margin-top: 8px; }
+.natura-months th, .natura-months td { padding: 4px 6px; text-align: center; }
+.natura-months tbody th { text-align: left; padding-right: 12px; white-space: nowrap; }
+.natura-months tbody tr:nth-child(odd) { background: #f6f7f7; }

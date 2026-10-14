@@ -128,13 +128,23 @@ conflit avec les adresses des thèmes.
 
 ## Régler la page d'accueil
 
-Apparence → Personnaliser → **Natura: home page** : le titre, le texte
-d'introduction, l'adresse de votre profil Pinterest (ajoute un bouton « Follow
-Natura on Pinterest »), le code de votre formulaire d'inscription email
-(affiche « Monthly planting reminder ») et **What's in season** : ce qu'on
-sème ou plante ce mois-ci, une ligne par plante, avec un lien facultatif après
-une barre verticale (`Garlic | /plants/garlic/`). Mettez cette liste à jour
-chaque mois.
+Apparence → Personnaliser → **Natura: home page** :
+
+- le titre et le texte d'introduction ;
+- **Who writes Natura** : votre nom, votre rôle (« Grows vegetables on a 4 m²
+  balcony since 2019 »), une courte bio et une photo. Le bloc s'affiche dès
+  que le nom et la bio sont remplis. N'écrivez que des faits vrais : c'est ce
+  que Google et les lecteurs vérifient ;
+- **This month: extra items** : ce qu'il y a à faire ce mois-ci en plus des
+  fiches, une ligne par élément, avec un lien facultatif après une barre
+  verticale (`Garlic | /plants/garlic/`) ;
+- l'adresse de votre profil Pinterest (bouton « Follow ») et le code de votre
+  formulaire de newsletter.
+
+Le bloc **This month** se remplit seul à partir du **Planting calendar** de
+chaque fiche plante (cases à cocher Sow / Plant out / Harvest par mois, sous le
+texte de la fiche) : pensez à le remplir pour chaque nouvelle fiche, ainsi que
+le **Short name** (« Cherry tomato ») dans Quick facts.
 
 Le reste de la page d'accueil se remplit seul, à partir de vos fiches : fiche
 en vedette, fiches populaires, problèmes, « Our picks » (produits de vos listes
