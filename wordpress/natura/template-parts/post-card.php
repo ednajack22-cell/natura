@@ -12,7 +12,7 @@ $natura_card_topic = natura_post_topic();
 <article class="post-card">
 	<a class="post-card-link" href="<?php the_permalink(); ?>">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="post-card-media"><?php the_post_thumbnail( 'medium_large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 380px, 100vw' ) ); ?></div>
+			<div class="post-card-media"><?php the_post_thumbnail( 'medium_large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 380px, 100vw' ) + natura_pin_attributes( (int) get_the_ID() ) ); ?></div>
 		<?php endif; ?>
 		<div class="post-card-text">
 			<?php if ( $natura_card_topic ) : ?>

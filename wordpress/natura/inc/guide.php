@@ -127,7 +127,7 @@ function natura_the_guide_photo(): void {
 				'sizes'         => '(min-width: 1024px) 780px, 100vw',
 				'fetchpriority' => 'high',
 				'loading'       => 'eager',
-			)
+			) + natura_pin_attributes( (int) get_the_ID() )
 		);
 		?>
 		<?php if ( $caption ) : ?>
@@ -207,7 +207,7 @@ function natura_the_product_card( array $product, string $size = 'thumbnail' ): 
 	?>
 		<li class="product-card<?php echo $natura_image ? ' has-image' : ''; ?>">
 		<?php if ( $natura_image ) : ?>
-			<div class="product-card-media"><?php echo wp_get_attachment_image( $natura_image, $size, false, array( 'alt' => '' ) ); ?></div>
+			<div class="product-card-media"><?php echo wp_get_attachment_image( $natura_image, $size, false, array( 'alt' => '' ) + natura_no_pin() ); ?></div>
 		<?php endif; ?>
 		<div class="product-card-text">
 			<?php if ( ! empty( $product['badge'] ) ) : ?>
@@ -248,7 +248,7 @@ function natura_pin_block(): string {
 	ob_start();
 	?>
 	<aside class="pin-block" aria-labelledby="pin-block-title">
-		<div class="pin-block-media"><?php echo wp_get_attachment_image( $image_id, 'medium', false, array( 'alt' => '' ) ); ?></div>
+		<div class="pin-block-media"><?php echo wp_get_attachment_image( $image_id, 'medium', false, array( 'alt' => '' ) + natura_pin_attributes( (int) get_the_ID() ) ); ?></div>
 		<div class="pin-block-text">
 			<p class="label label-pinterest"><?php natura_the_icon( 'pin' ); ?> <?php esc_html_e( 'Pinterest', 'natura' ); ?></p>
 			<h2 id="pin-block-title"><?php esc_html_e( 'Save this guide for later', 'natura' ); ?></h2>
@@ -340,7 +340,7 @@ function natura_the_guide_sidebar( string $post_type ): void {
 			<?php if ( $pin_url ) : ?>
 				<div class="side-card side-pin">
 					<?php if ( $image_id ) : ?>
-						<?php echo wp_get_attachment_image( $image_id, 'thumbnail', false, array( 'alt' => '' ) ); ?>
+						<?php echo wp_get_attachment_image( $image_id, 'thumbnail', false, array( 'alt' => '' ) + natura_no_pin() ); ?>
 					<?php endif; ?>
 					<div>
 						<p class="label label-pinterest"><?php esc_html_e( 'Save for later', 'natura' ); ?></p>

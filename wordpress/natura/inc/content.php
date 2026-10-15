@@ -108,6 +108,18 @@ function natura_pin_image_url(): string {
 }
 
 /**
+ * The text that goes with a pin: the guide's title and summary.
+ *
+ * @param int|null $post_id Guide ID, or the current guide.
+ */
+function natura_pin_description( ?int $post_id = null ): string {
+	$post_id = $post_id ?: (int) get_the_ID();
+	$excerpt = wp_strip_all_tags( get_the_excerpt( $post_id ) );
+
+	return trim( get_the_title( $post_id ) . ( $excerpt ? ' — ' . $excerpt : '' ) );
+}
+
+/**
  * Link that opens Pinterest's "Save" dialog. A plain link: no Pinterest
  * script, so no third-party code and no tracking until the reader clicks.
  */
@@ -121,10 +133,43 @@ function natura_pinterest_save_url(): string {
 		array(
 			'url'         => rawurlencode( get_permalink() ),
 			'media'       => rawurlencode( $image ),
-			'description' => rawurlencode( wp_strip_all_tags( get_the_title() . ' — ' . get_the_excerpt() ) ),
+			'description' => rawurlencode( natura_pin_description() ),
 		),
 		'https://www.pinterest.com/pin/create/button/'
 	);
+}
+
+/**
+ * Attributes for a guide's photo so that saving it from the browser (the
+ * Pinterest button and extension, the "Save" on hover) saves the vertical
+ * Pinterest image, the guide's address, and its description, rather than
+ * the landscape photo.
+ *
+ * @param int $post_id Guide ID.
+ * @return array<string, string>
+ */
+function natura_pin_attributes( int $post_id ): array {
+	$pin_id = absint( natura_field( 'pin_image', $post_id ) );
+	$attrs  = array(
+		'data-pin-url'         => (string) get_permalink( $post_id ),
+		'data-pin-description' => natura_pin_description( $post_id ),
+	);
+	if ( $pin_id && wp_attachment_is_image( $pin_id ) ) {
+		$attrs['data-pin-media'] = (string) wp_get_attachment_image_url( $pin_id, 'full' );
+	}
+
+	return $attrs;
+}
+
+/**
+ * Attributes for small images that make poor pins (thumbnails, product
+ * photos, portraits): the Pinterest extension then offers the guide's own
+ * pin instead.
+ *
+ * @return array<string, string>
+ */
+function natura_no_pin(): array {
+	return array( 'data-pin-nopin' => 'true' );
 }
 
 /**
@@ -191,12 +236,17 @@ add_action(
 		}
 
 		$tags = array(
-			'og:type'        => 'article',
-			'og:title'       => get_the_title(),
-			'og:description' => wp_strip_all_tags( get_the_excerpt() ),
-			'og:url'         => get_permalink(),
-			'og:site_name'   => get_bloginfo( 'name' ),
-			'og:image'       => get_the_post_thumbnail_url( null, 'full' ),
+			'og:type'                => 'article',
+			'og:title'               => get_the_title(),
+			'og:description'         => wp_strip_all_tags( get_the_excerpt() ),
+			'og:url'                 => get_permalink(),
+			'og:site_name'           => get_bloginfo( 'name' ),
+			'og:image'               => get_the_post_thumbnail_url( null, 'full' ),
+			'og:image:alt'           => (string) get_post_meta( (int) get_post_thumbnail_id(), '_wp_attachment_image_alt', true ),
+			// Article Rich Pins show the date and the author with the pin.
+			'article:published_time' => get_the_date( 'c' ),
+			'article:modified_time'  => get_the_modified_date( 'c' ),
+			'article:author'         => get_the_author_meta( 'display_name', (int) get_post_field( 'post_author' ) ),
 		);
 
 		foreach ( $tags as $property => $content ) {

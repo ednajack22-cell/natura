@@ -19,6 +19,14 @@ $natura_legal   = natura_menu_tree( 'legal' );
 					<span class="brand-text"><span class="brand-name"><?php bloginfo( 'name' ); ?></span></span>
 				</a>
 				<p><?php esc_html_e( 'Independent, source-aware gardening guidance for balconies, patios, containers, and indoor spaces.', 'natura' ); ?></p>
+				<?php $natura_pin_profile = function_exists( 'natura_home_setting' ) ? natura_home_setting( 'natura_pinterest_url' ) : ''; ?>
+				<?php if ( $natura_pin_profile ) : ?>
+					<a class="pin-button footer-follow" href="<?php echo esc_url( $natura_pin_profile ); ?>" target="_blank" rel="noopener me">
+						<?php natura_the_icon( 'pin' ); ?>
+						<span><?php esc_html_e( 'Follow us on Pinterest', 'natura' ); ?></span>
+						<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'natura' ); ?></span>
+					</a>
+				<?php endif; ?>
 			</div>
 			<?php foreach ( $natura_columns as $natura_column ) : ?>
 				<nav class="footer-column" aria-label="<?php echo esc_attr( $natura_column['title'] ); ?>">

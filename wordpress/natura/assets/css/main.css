@@ -983,3 +983,4 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .home-ad:not(:has(.ad-slot)) { display: none; }
 .home-season + .home-ad:not(:has(.ad-slot)) + .home-doctor { margin-top: 0; }
 .home > .home-pins:last-child, .home > .home-closing:last-child { margin-bottom: -3rem; }
+.footer-follow { margin-top: 1.25rem; min-height: 44px; border-radius: 999px; }

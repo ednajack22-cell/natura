@@ -14,7 +14,7 @@ $natura_card_causes = natura_problem_causes();
 <article class="problem-card">
 	<a class="problem-card-link" href="<?php the_permalink(); ?>">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="problem-card-media"><?php the_post_thumbnail( 'medium_large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 380px, (min-width: 640px) 45vw, 100vw' ) ); ?></div>
+			<div class="problem-card-media"><?php the_post_thumbnail( 'medium_large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 380px, (min-width: 640px) 45vw, 100vw' ) + natura_pin_attributes( (int) get_the_ID() ) ); ?></div>
 		<?php endif; ?>
 		<div class="problem-card-text">
 			<?php if ( $natura_card_causes ) : ?>

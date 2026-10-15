@@ -19,17 +19,18 @@ defined( 'ABSPATH' ) || exit;
  */
 function natura_home_defaults(): array {
 	return array(
-		'natura_home_title'      => __( 'Grow your own food in a small space', 'natura' ),
-		'natura_home_intro'      => __( 'Clear, tested advice for balconies, patios, and windowsills: what to grow, how to look after it, and what to do when something goes wrong.', 'natura' ),
-		'natura_pinterest_url'   => '',
-		'natura_newsletter_code' => '',
-		'natura_newsletter_text' => __( 'One email a month: what to sow and plant now, and one problem to watch for. No spam, unsubscribe in one click.', 'natura' ),
-		'natura_home_season'     => '',
-		'natura_author_name'     => '',
-		'natura_author_role'     => '',
-		'natura_author_bio'      => '',
-		'natura_author_photo'    => '',
-		'natura_author_url'      => '/about/',
+		'natura_home_title'       => __( 'Grow your own food in a small space', 'natura' ),
+		'natura_home_intro'       => __( 'Clear, tested advice for balconies, patios, and windowsills: what to grow, how to look after it, and what to do when something goes wrong.', 'natura' ),
+		'natura_pinterest_url'    => '',
+		'natura_pinterest_verify' => '',
+		'natura_newsletter_code'  => '',
+		'natura_newsletter_text'  => __( 'One email a month: what to sow and plant now, and one problem to watch for. No spam, unsubscribe in one click.', 'natura' ),
+		'natura_home_season'      => '',
+		'natura_author_name'      => '',
+		'natura_author_role'      => '',
+		'natura_author_bio'       => '',
+		'natura_author_photo'     => '',
+		'natura_author_url'       => '/about/',
 	);
 }
 
@@ -57,16 +58,17 @@ add_action(
 
 		$defaults = natura_home_defaults();
 		$fields   = array(
-			'natura_home_title'      => array( __( 'Main title', 'natura' ), 'text', 'sanitize_text_field', '' ),
-			'natura_home_intro'      => array( __( 'Introduction', 'natura' ), 'textarea', 'sanitize_textarea_field', '' ),
-			'natura_pinterest_url'   => array( __( 'Pinterest profile address', 'natura' ), 'url', 'esc_url_raw', __( 'Shows a "Follow on Pinterest" block. Example: https://www.pinterest.com/yourname/', 'natura' ) ),
-			'natura_newsletter_code' => array( __( 'Newsletter form shortcode', 'natura' ), 'text', 'sanitize_text_field', __( 'From your email plugin (MailerLite, Mailchimp for WordPress…), e.g. [mc4wp_form id="12"]. Leave empty to hide the newsletter block.', 'natura' ) ),
-			'natura_newsletter_text' => array( __( 'Newsletter text', 'natura' ), 'textarea', 'sanitize_textarea_field', '' ),
-			'natura_home_season'     => array( __( 'This month: extra items', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'The "This month" strip lists the plant guides to sow, plant out, or harvest this month by itself. Add other things to do now, one per line, with an optional link after a vertical bar: "Garlic | /plants/garlic/".', 'natura' ) ),
-			'natura_author_name'     => array( __( 'Who writes Natura: name', 'natura' ), 'text', 'sanitize_text_field', __( 'The real person behind the site. The block appears once a name and a short bio are set.', 'natura' ) ),
-			'natura_author_role'     => array( __( 'Who writes Natura: role', 'natura' ), 'text', 'sanitize_text_field', __( 'Example: Grows vegetables on a 4 m² balcony in Lyon since 2019', 'natura' ) ),
-			'natura_author_bio'      => array( __( 'Who writes Natura: short bio', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'Two or three sentences: what you grow, where, and how you test advice. Only facts you can stand behind.', 'natura' ) ),
-			'natura_author_url'      => array( __( 'Who writes Natura: link', 'natura' ), 'text', 'sanitize_text_field', __( 'Your About page, e.g. /about/', 'natura' ) ),
+			'natura_home_title'       => array( __( 'Main title', 'natura' ), 'text', 'sanitize_text_field', '' ),
+			'natura_home_intro'       => array( __( 'Introduction', 'natura' ), 'textarea', 'sanitize_textarea_field', '' ),
+			'natura_pinterest_url'    => array( __( 'Pinterest profile address', 'natura' ), 'url', 'esc_url_raw', __( 'Shows a "Follow on Pinterest" button on the home page and in the footer. Example: https://www.pinterest.com/yourname/', 'natura' ) ),
+			'natura_pinterest_verify' => array( __( 'Pinterest site verification code', 'natura' ), 'text', 'natura_sanitize_pinterest_code', __( 'Claim your website in Pinterest (Settings → Claimed accounts → Websites → "Add HTML tag") and paste only the code from content="…". Claiming shows your profile on every pin from the site and opens the site\'s Pinterest statistics.', 'natura' ) ),
+			'natura_newsletter_code'  => array( __( 'Newsletter form shortcode', 'natura' ), 'text', 'sanitize_text_field', __( 'From your email plugin (MailerLite, Mailchimp for WordPress…), e.g. [mc4wp_form id="12"]. Leave empty to hide the newsletter block.', 'natura' ) ),
+			'natura_newsletter_text'  => array( __( 'Newsletter text', 'natura' ), 'textarea', 'sanitize_textarea_field', '' ),
+			'natura_home_season'      => array( __( 'This month: extra items', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'The "This month" strip lists the plant guides to sow, plant out, or harvest this month by itself. Add other things to do now, one per line, with an optional link after a vertical bar: "Garlic | /plants/garlic/".', 'natura' ) ),
+			'natura_author_name'      => array( __( 'Who writes Natura: name', 'natura' ), 'text', 'sanitize_text_field', __( 'The real person behind the site. The block appears once a name and a short bio are set.', 'natura' ) ),
+			'natura_author_role'      => array( __( 'Who writes Natura: role', 'natura' ), 'text', 'sanitize_text_field', __( 'Example: Grows vegetables on a 4 m² balcony in Lyon since 2019', 'natura' ) ),
+			'natura_author_bio'       => array( __( 'Who writes Natura: short bio', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'Two or three sentences: what you grow, where, and how you test advice. Only facts you can stand behind.', 'natura' ) ),
+			'natura_author_url'       => array( __( 'Who writes Natura: link', 'natura' ), 'text', 'sanitize_text_field', __( 'Your About page, e.g. /about/', 'natura' ) ),
 		);
 
 		foreach ( $fields as $id => list( $label, $type, $sanitize, $description ) ) {
@@ -455,7 +457,38 @@ function natura_home_pins( int $limit = 6 ): array {
 }
 
 /**
- * Meta description for the home page when no SEO plugin writes one.
+ * Keeps only the code of Pinterest's verification tag, even if the whole
+ * <meta> tag was pasted.
+ *
+ * @param string $value Pasted value.
+ */
+function natura_sanitize_pinterest_code( string $value ): string {
+	if ( preg_match( '/content=["\']?([a-f0-9]{16,64})/i', $value, $match ) ) {
+		return strtolower( $match[1] );
+	}
+
+	return preg_match( '/^[a-f0-9]{16,64}$/i', trim( $value ) ) ? strtolower( trim( $value ) ) : '';
+}
+
+/**
+ * Pinterest's site verification tag, on every page (Pinterest checks the
+ * home page).
+ */
+add_action(
+	'wp_head',
+	static function (): void {
+		$code = natura_sanitize_pinterest_code( natura_home_setting( 'natura_pinterest_verify' ) );
+		if ( $code ) {
+			printf( '<meta name="p:domain_verify" content="%s">' . "\n", esc_attr( $code ) );
+		}
+	},
+	1
+);
+
+/**
+ * Meta description and Open Graph tags for the home page when no SEO plugin
+ * writes them, so a pin or a share of the home page shows the opening photo,
+ * the title, and the promise.
  */
 add_action(
 	'wp_head',
@@ -463,6 +496,22 @@ add_action(
 		if ( ! is_front_page() || natura_seo_plugin_active() ) {
 			return;
 		}
-		printf( '<meta name="description" content="%s">' . "\n", esc_attr( natura_home_setting( 'natura_home_intro' ) ) );
+		$intro = natura_home_setting( 'natura_home_intro' );
+		$photo = natura_home_hero_photo();
+		printf( '<meta name="description" content="%s">' . "\n", esc_attr( $intro ) );
+
+		$tags = array(
+			'og:type'        => 'website',
+			'og:title'       => get_bloginfo( 'name' ) . ' — ' . natura_home_setting( 'natura_home_title' ),
+			'og:description' => $intro,
+			'og:url'         => home_url( '/' ),
+			'og:site_name'   => get_bloginfo( 'name' ),
+			'og:image'       => $photo ? (string) wp_get_attachment_image_url( $photo, 'full' ) : '',
+		);
+		foreach ( $tags as $property => $content ) {
+			if ( $content ) {
+				printf( '<meta property="%s" content="%s">' . "\n", esc_attr( $property ), esc_attr( $content ) );
+			}
+		}
 	}
 );

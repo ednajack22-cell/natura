@@ -158,6 +158,31 @@ avant.** Une section sans contenu ne s'affiche pas ; l'administrateur voit en
 bas de page une ligne qui liste les réglages encore vides. Le détail, et
 l'analyse des 12 pages d'accueil concurrentes, est dans `design/BLUEPRINT.md`.
 
+## Pinterest
+
+Le site est prêt pour le trafic Pinterest, sans script Pinterest (aucun code
+tiers ni suivi avant le clic) :
+
+- chaque fiche peut avoir une **image verticale 2:3** (case Pinterest image) ;
+  le bouton « Save » l'utilise, avec le titre et le résumé de la fiche comme
+  description ;
+- les photos des fiches portent `data-pin-media` : si un lecteur enregistre la
+  photo avec l'extension Pinterest ou le « Save » au survol, c'est l'image
+  verticale qui part, avec le lien vers la fiche. Les petites images
+  (vignettes, produits, portrait) portent `data-pin-nopin` ;
+- **Rich Pins** : balises Open Graph sur chaque fiche (titre, résumé, photo,
+  date de publication et de mise à jour, auteur) et sur la page d'accueil.
+  Une fois le site en ligne, validez une fiche dans l'outil Rich Pins de
+  Pinterest ; si une extension SEO (Yoast, Rank Math…) est active, c'est elle
+  qui écrit ces balises ;
+- **revendiquer le site** : Pinterest → Paramètres → Comptes revendiqués →
+  Sites web → « Ajouter une balise HTML » ; collez le code dans Apparence →
+  Personnaliser → Natura: home page → *Pinterest site verification code*.
+  Votre profil s'affiche alors sur toutes les épingles du site et vous avez
+  les statistiques du site ;
+- l'adresse de votre profil Pinterest affiche le bouton « Follow » sur
+  l'accueil et dans le pied de page.
+
 ## Activer les publicités
 
 Apparence → Personnaliser → **Natura: ads** : collez votre identifiant

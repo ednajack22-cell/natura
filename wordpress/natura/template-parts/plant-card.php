@@ -25,7 +25,7 @@ $natura_card_botany = (string) natura_field( 'botanical_name' );
 	<a class="plant-card-link" href="<?php the_permalink(); ?>">
 		<div class="plant-card-media">
 			<?php if ( has_post_thumbnail() ) : ?>
-				<?php the_post_thumbnail( 'medium_large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw' ) ); ?>
+				<?php the_post_thumbnail( 'medium_large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw' ) + natura_pin_attributes( (int) get_the_ID() ) ); ?>
 			<?php endif; ?>
 			<?php if ( $natura_card_type ) : ?>
 				<span class="plant-card-type"><?php echo esc_html( $natura_card_type->name ); ?></span>
