@@ -99,7 +99,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 				<?php
 				echo wp_get_attachment_image(
 					$natura_hero_photo,
-					'large',
+					'natura-wide',
 					false,
 					array(
 						'alt'           => '',
@@ -146,7 +146,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 				?>
 				<article class="lead-card">
 					<div class="lead-card-media">
-						<?php the_post_thumbnail( 'large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 720px, 100vw' ) + natura_pin_attributes( $natura_lead->ID ) ); ?>
+						<?php the_post_thumbnail( 'large', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 720px, calc(100vw - 2.5rem)', 'loading' => 'lazy' ) + natura_pin_attributes( $natura_lead->ID ) ); ?>
 						<?php if ( $natura_lead_pin ) : ?>
 							<a class="pin-button pin-button-small" href="<?php echo esc_url( $natura_lead_pin ); ?>" target="_blank" rel="noopener">
 								<?php natura_the_icon( 'pin' ); ?>
@@ -169,7 +169,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 							<li>
 								<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
 									<?php if ( has_post_thumbnail( $natura_item ) ) : ?>
-										<?php echo get_the_post_thumbnail( $natura_item, 'thumbnail', array( 'alt' => '' ) + natura_no_pin() ); ?>
+										<?php echo get_the_post_thumbnail( $natura_item, 'thumbnail', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 112px, 88px', 'loading' => 'lazy' ) + natura_no_pin() ); ?>
 									<?php endif; ?>
 									<span>
 										<span class="label"><?php echo esc_html( natura_home_kicker( $natura_item ) ); ?></span>
@@ -211,7 +211,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 									<?php endif; ?>
 										<?php
 										if ( $natura_item['image'] ) {
-											echo wp_get_attachment_image( $natura_item['image'], 'thumbnail', false, array( 'alt' => '' ) + natura_no_pin() );
+											echo wp_get_attachment_image( $natura_item['image'], 'thumbnail', false, array( 'alt' => '', 'sizes' => '36px', 'loading' => 'lazy' ) + natura_no_pin() );
 										}
 										?>
 										<span><?php echo esc_html( $natura_item['name'] ); ?></span>
@@ -268,7 +268,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 						<li>
 							<a href="<?php the_permalink(); ?>">
 								<?php if ( has_post_thumbnail() ) : ?>
-									<span class="symptom-photo"><?php the_post_thumbnail( 'thumbnail', array( 'alt' => '' ) + natura_no_pin() ); ?></span>
+									<span class="symptom-photo"><?php the_post_thumbnail( 'thumbnail', array( 'alt' => '', 'sizes' => '(min-width: 1024px) 88px, 64px', 'loading' => 'lazy' ) + natura_no_pin() ); ?></span>
 								<?php endif; ?>
 								<span class="symptom-text">
 									<strong><?php the_title(); ?></strong>
@@ -312,7 +312,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 			<ul class="product-list">
 				<?php
 				foreach ( $natura_picks as $natura_pick ) {
-					natura_the_product_card( $natura_pick );
+					natura_the_product_card( $natura_pick, 'thumbnail', '96px' );
 				}
 				?>
 			</ul>
@@ -339,7 +339,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 					<?php foreach ( $natura_pins as $natura_item ) : ?>
 						<li>
 							<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
-								<?php echo wp_get_attachment_image( absint( natura_field( 'pin_image', $natura_item->ID ) ), 'medium', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 200px, 45vw' ) + natura_pin_attributes( $natura_item->ID ) ); ?>
+								<?php echo wp_get_attachment_image( absint( natura_field( 'pin_image', $natura_item->ID ) ), 'medium', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 200px, 42vw', 'loading' => 'lazy' ) + natura_pin_attributes( $natura_item->ID ) ); ?>
 								<span><?php echo esc_html( get_the_title( $natura_item ) ); ?></span>
 							</a>
 						</li>
@@ -375,7 +375,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 				<?php if ( $natura_author ) : ?>
 					<div class="author-card" aria-labelledby="home-author-title">
 						<?php if ( $natura_author['photo'] ) : ?>
-							<?php echo wp_get_attachment_image( $natura_author['photo'], 'thumbnail', false, array( 'class' => 'author-card-photo', 'alt' => '' ) + natura_no_pin() ); ?>
+							<?php echo wp_get_attachment_image( $natura_author['photo'], 'thumbnail', false, array( 'class' => 'author-card-photo', 'alt' => '', 'sizes' => '96px', 'loading' => 'lazy' ) + natura_no_pin() ); ?>
 						<?php else : ?>
 							<span class="avatar avatar-large" aria-hidden="true"><?php echo esc_html( mb_strtoupper( mb_substr( $natura_author['name'], 0, 1 ) ) ); ?></span>
 						<?php endif; ?>

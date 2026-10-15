@@ -29,6 +29,9 @@ add_action(
 		// Cards use a 4:5 crop: tall enough to show a whole plant, and close to
 		// the 2:3 format readers know from Pinterest.
 		add_image_size( 'natura-card', 640, 800, true );
+		// Between "large" (1024) and the original: what a phone screen needs
+		// for a full-width photo, without sending the original file.
+		add_image_size( 'natura-wide', 1200, 0, false );
 
 		register_nav_menus(
 			array(
@@ -59,6 +62,28 @@ add_action(
 		);
 	}
 );
+
+/**
+ * New image sizes are saved as WebP, about a third lighter than JPEG at the
+ * same quality; the original upload stays as it is (Pinterest and social
+ * networks read it through the og:image tag). WordPress keeps JPEG when the
+ * server cannot write WebP.
+ */
+add_filter(
+	'image_editor_output_format',
+	static function ( array $formats ): array {
+		$formats['image/jpeg'] = 'image/webp';
+
+		return $formats;
+	}
+);
+
+/**
+ * WordPress's emoji script and styles: every phone already draws emoji, so
+ * they only cost a request on every page.
+ */
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles' );
 
 /**
  * The fonts (Newsreader for headings and reading text, Inter for the

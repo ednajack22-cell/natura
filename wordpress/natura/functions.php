@@ -11,7 +11,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NATURA_VERSION', '0.7.1' );
+define( 'NATURA_VERSION', '0.7.2' );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/setup.php';

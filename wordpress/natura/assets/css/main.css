@@ -114,10 +114,10 @@ h1, h2, h3 { color: var(--heading); font-family: var(--font-serif); font-weight:
 .tag svg { width: 15px; }
 .tag-dark { color: #e7efe9; background: rgba(255, 255, 255, .1); }
 
-.brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--heading); }
+.brand { display: inline-flex; align-items: center; gap: .75rem; min-height: 44px; color: var(--heading); }
 .brand-text { display: grid; }
 .brand-name { font: 400 1.75rem/1 var(--font-serif); letter-spacing: .02em; text-transform: uppercase; }
-.brand small { margin-top: .3rem; color: var(--clay); font: 700 .6875rem/1.1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
+.brand small { margin-top: .3rem; color: var(--clay); font: 700 .75rem/1.1 var(--font-sans); letter-spacing: .14em; text-transform: uppercase; }
 .brand-mark { display: grid; place-items: center; width: 38px; height: 38px; border-radius: var(--radius); color: white; background: var(--forest); }
 .brand-mark svg { width: 20px; }
 .brand-logo img { width: auto; max-height: 48px; }
@@ -290,7 +290,9 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
 .header-search-form:focus-within { border-color: white; background: white; }
 .header-search-form:focus-within input { color: var(--ink); }
 .site-header .header-search-form button { background: var(--clay); }
-.header-search-form input, .mobile-search input, .search-form input { min-width: 0; flex: 1; border: 0; background: none; color: var(--ink); outline: none; }
+/* flex-basis 0: the field's default width (about 20 characters) must never
+   widen the page on a 320 px screen. */
+.header-search-form input, .mobile-search input, .search-form input { width: 100%; min-width: 0; flex: 1 1 0; border: 0; background: none; color: var(--ink); outline: none; align-self: stretch; }
 .header-search-form input { width: 15rem; font-size: .9375rem; }
 /* 16px stops iOS Safari from zooming the page when the field takes focus. */
 .mobile-search input, .search-form input { font-size: 1rem; }
@@ -405,7 +407,7 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .footer-column a:hover { color: white; text-decoration: underline; text-underline-offset: 3px; }
 .footer-bottom { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 3rem; padding-top: 1.4rem; border-top: 1px solid rgba(255, 255, 255, .14); color: #9fb5a7; font-size: .875rem; }
 .footer-bottom nav { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; }
-.footer-bottom a { display: inline-flex; align-items: center; min-height: 32px; color: #dfe9e2; }
+.footer-bottom a { display: inline-flex; align-items: center; min-height: 44px; color: #dfe9e2; }
 .footer-bottom a:hover { color: white; text-decoration: underline; }
 
 @media (min-width: 640px) { .footer-grid { grid-template-columns: 1fr 1fr; } .footer-brand { grid-column: 1 / -1; } }
@@ -786,7 +788,7 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .button-light:hover { background: var(--paper); }
 
 /* 1. Opening band: text on solid forest green, the photo beside it. */
-.home-hero { display: grid; color: white; background: var(--forest); }
+.home-hero { display: grid; grid-template-columns: minmax(0, 1fr); color: white; background: var(--forest); }
 .home-hero-text { display: flex; align-items: center; }
 .home-hero-inner { width: min(1240px, calc(100% - 2.5rem)); margin-inline: auto; padding-block: 2.25rem 2rem; }
 .home-hero .label { margin-bottom: .6rem; color: #f6c9b3; }
@@ -848,7 +850,7 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 /* Extra items have no guide photo: plain chips that wrap. */
 .season-column .season-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
 .season-chips a, .season-chips .season-item { padding: .3rem .9rem; }
-.season-badge { display: inline-block; padding: .2rem .55rem; border-radius: 2px; font: 700 .75rem/1.4 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
+.season-badge { display: inline-block; padding: .2rem .55rem; border-radius: 2px; font: 700 .8125rem/1.4 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
 .season-badge-sow { color: #6a4a10; background: #f3e3bd; }
 .season-badge-plant { color: #24502b; background: #cfe3c8; }
 .season-badge-harvest { color: var(--clay); background: var(--clay-tint); }
@@ -885,7 +887,7 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .symptom-chevron { width: 18px; flex: none; color: #b9cfc0; transform: rotate(-90deg); }
 
 /* 8. Affiliate picks: compact cards, photo on the left */
-.picks-note { max-width: 26rem; margin: 0; color: var(--muted); font: italic 400 .9375rem/1.45 var(--font-serif); }
+.picks-note { max-width: 26rem; margin: 0; color: var(--muted); font: 400 .9375rem/1.45 var(--font-sans); }
 .picks-note a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
 .home-picks .product-list { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
 .home-picks .product-card { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: .5rem 1rem; align-items: start; padding: .9rem; border: 1px solid var(--line-soft); border-radius: 6px; background: var(--card); }
