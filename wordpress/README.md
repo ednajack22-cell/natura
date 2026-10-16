@@ -126,24 +126,31 @@ seulement s'il était vide. Les articles gardent des adresses courtes
 (`/titre-de-l-article/`) : les mettre aussi sous `/plant-care/` entrerait en
 conflit avec les adresses des thèmes.
 
-## Le tableau de bord Natura
+## Natura Options (le panneau d'options du thème)
 
-Menu **Natura** dans l'administration (réservé aux administrateurs) :
+Menu **Natura Options** dans l'administration, réservé aux administrateurs.
+Même présentation que les panneaux des thèmes premium (Redux) : bandeau vert
+avec le nom et la version, onglets verticaux avec icônes, un sous-menu par
+onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
+**Reset All** en haut et en bas.
 
-- un interrupteur par bloc du site, rangé par page : accueil (dont **Our
-  picks**, à couper tant que vous n'avez pas de produits à recommander),
-  fiches (liste d'achat, boutons Pinterest, colonne de droite, encadré
-  auteur, fiches liées), listes, publicités AdSense emplacement par
-  emplacement, en-tête et pied de page ;
-- tout est allumé par défaut ; un bloc reste aussi masqué tant qu'il n'a rien
-  à montrer (pas de produit avec lien, pas de formulaire de newsletter…) ;
-- si vous coupez toute la colonne de droite des fiches, le texte reprend une
-  largeur de lecture centrée ;
-- à droite, la liste de ce qui reste à régler (photo d'ouverture, auteur,
-  Pinterest, newsletter, AdSense), avec un lien vers le bon réglage.
+| Onglet | Contenu |
+| --- | --- |
+| Dashboard | Ce qui reste à régler avant le lancement, et le nombre de fiches |
+| General | Logo, recherche de l'en-tête |
+| Home page | Photo d'ouverture, titre, introduction, sections de l'accueil, travaux du mois |
+| Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
+| Guides | « Read next », fiches liées, bandeau des problèmes |
+| Pinterest | Profil, code de vérification du site, les boutons « Save » et « Follow » |
+| Affiliate products | **Our picks** et « What you need » : à masquer tant que vous n'avez pas de produits |
+| Ads | Identifiants AdSense, et chaque emplacement de publicité |
+| Newsletter | Formulaire et texte |
+| Import / Export | Copier ou télécharger tous les réglages, les recharger ici ou sur un autre site |
 
-Les textes, photos et adresses restent dans le Personnaliser, qui montre un
-aperçu avant publication.
+Chaque bloc a un bouton **Show / Hide** (tout est sur Show par défaut) ; un
+bloc reste aussi masqué tant qu'il n'a rien à montrer. Les valeurs sont les
+mêmes que dans Apparence → Personnaliser, qui reste disponible pour l'aperçu
+en direct (lien « Live preview » du bandeau).
 
 ## Régler la page d'accueil
 
