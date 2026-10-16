@@ -617,6 +617,8 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 @media (min-width: 1024px) {
   .guide-header { padding-block: 1.75rem 2rem; }
   .guide-layout { grid-template-columns: minmax(0, 8fr) minmax(300px, 4fr); gap: 3.5rem; }
+  /* Side column switched off on the Natura dashboard: the text keeps a reading width. */
+  .guide-layout:not(:has(> .guide-sidebar)) { grid-template-columns: minmax(0, 820px); justify-content: center; }
   .guide-sidebar-inner { position: sticky; top: calc(var(--header-offset) + var(--header-height) + 64px); }
   .guide-sidebar .ad-slot-sidebar { display: grid; }
   .glance { padding: 1.5rem; }
@@ -798,7 +800,7 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .home-hero .search-form-large button { min-height: 42px; padding: 0 1.15rem; background: var(--clay); font-size: .9375rem; }
 .home-hero .search-form-large button:hover { background: #7f3517; }
 .search-form-large { max-width: 520px; min-height: 52px; margin: 0; padding-left: 1rem; background: var(--card); }
-.home-hero-media { aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; box-shadow: 0 18px 40px rgba(0, 0, 0, .25); }
+.home-hero-media { aspect-ratio: 16 / 10; overflow: hidden; border-radius: 5px; box-shadow: 0 18px 40px rgba(0, 0, 0, .25); }
 .home-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
 
 /* The opening band has its own search: the header's would repeat it. */

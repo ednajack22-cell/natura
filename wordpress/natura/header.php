@@ -35,12 +35,14 @@ defined( 'ABSPATH' ) || exit;
 			</a>
 		<?php endif; ?>
 
-		<?php get_search_form( array( 'natura_context' => 'header' ) ); ?>
+		<?php if ( natura_section_enabled( 'site_header_search' ) ) : ?>
+			<?php get_search_form( array( 'natura_context' => 'header' ) ); ?>
 
-		<a class="header-icon-button header-search-link" href="<?php echo esc_url( home_url( '/?s=' ) ); ?>">
-			<?php natura_the_icon( 'search' ); ?>
-			<span class="screen-reader-text"><?php esc_html_e( 'Search', 'natura' ); ?></span>
-		</a>
+			<a class="header-icon-button header-search-link" href="<?php echo esc_url( home_url( '/?s=' ) ); ?>">
+				<?php natura_the_icon( 'search' ); ?>
+				<span class="screen-reader-text"><?php esc_html_e( 'Search', 'natura' ); ?></span>
+			</a>
+		<?php endif; ?>
 
 		<details class="mobile-menu">
 			<summary class="header-icon-button">

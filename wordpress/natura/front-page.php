@@ -75,11 +75,11 @@ if ( ! $natura_hero_photo && $natura_lead ) {
 
 $natura_month   = natura_home_this_month();
 $natura_topics  = natura_home_topics( 8 );
-$natura_author  = natura_home_author();
-$natura_picks   = natura_home_picks( 3 );
+$natura_author  = natura_section_enabled( 'home_author' ) ? natura_home_author() : null;
+$natura_picks   = natura_section_enabled( 'home_picks' ) ? natura_home_picks( 3 ) : array();
 $natura_pins    = natura_home_pins( 5 );
 $natura_pin_url = natura_home_setting( 'natura_pinterest_url' );
-$natura_signup  = natura_home_setting( 'natura_newsletter_code' );
+$natura_signup  = natura_section_enabled( 'home_newsletter' ) ? natura_home_setting( 'natura_newsletter_code' ) : '';
 ?>
 <main id="main-content" class="home">
 	<?php echo natura_home_structured_data(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
@@ -114,7 +114,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	</section>
 
 	<?php // 2. Topic bar: text buttons with the number of guides. ?>
-	<?php if ( count( $natura_topics ) >= 2 ) : ?>
+	<?php if ( count( $natura_topics ) >= 2 && natura_section_enabled( 'home_topics' ) ) : ?>
 		<nav class="topic-bar" aria-label="<?php esc_attr_e( 'Browse by topic', 'natura' ); ?>">
 			<div class="site-container">
 				<ul>
@@ -133,7 +133,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	<?php endif; ?>
 
 	<?php // 3. New on Natura: one lead guide with a large photo, the next ones as a list. ?>
-	<?php if ( $natura_lead ) : ?>
+	<?php if ( $natura_lead && natura_section_enabled( 'home_new' ) ) : ?>
 		<section class="site-container home-section" aria-labelledby="home-new-title">
 			<div class="home-head">
 				<h2 id="home-new-title"><?php esc_html_e( 'New on Natura', 'natura' ); ?></h2>
@@ -185,7 +185,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	<?php endif; ?>
 
 	<?php // 4. This month: from the guides' planting calendars, plus Customizer extras. ?>
-	<?php if ( $natura_month['groups'] ) : ?>
+	<?php if ( $natura_month['groups'] && natura_section_enabled( 'home_month' ) ) : ?>
 		<section class="home-season" aria-labelledby="home-season-title">
 			<div class="site-container">
 				<div class="season-head">
@@ -245,7 +245,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	<?php endif; ?>
 
 	<?php // 5. More growing guides: medium cards, photo above the title. ?>
-	<?php if ( count( $natura_more_plants ) >= 2 ) : ?>
+	<?php if ( count( $natura_more_plants ) >= 2 && natura_section_enabled( 'home_more_guides' ) ) : ?>
 		<section class="site-container home-section" aria-labelledby="home-guides-title">
 			<div class="home-head">
 				<h2 id="home-guides-title"><?php esc_html_e( 'More growing guides', 'natura' ); ?></h2>
@@ -265,11 +265,11 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 
 	<?php // 6. The page's one ad, after the first useful content. ?>
 	<div class="site-container home-ad">
-		<?php echo natura_ad_slot( __( 'Home page, after the guides', 'natura' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
+		<?php echo natura_ad_slot( __( 'Home page, after the guides', 'natura' ), 'in-content', 'ads_home' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
 	</div>
 
 	<?php // 7. Plant problems ?>
-	<?php if ( $natura_problems ) : ?>
+	<?php if ( $natura_problems && natura_section_enabled( 'home_problems' ) ) : ?>
 		<section class="home-doctor" aria-labelledby="home-doctor-title">
 			<div class="site-container home-doctor-inner">
 				<div class="home-doctor-intro">
@@ -339,7 +339,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	<?php endif; ?>
 
 	<?php // 9. Pinterest ideas, with the guides' vertical images. ?>
-	<?php if ( count( $natura_pins ) >= 2 ) : ?>
+	<?php if ( count( $natura_pins ) >= 2 && natura_section_enabled( 'home_pins' ) ) : ?>
 		<section class="home-pins" aria-labelledby="home-pins-title">
 			<div class="site-container home-pins-inner">
 				<div class="home-pins-intro">
@@ -369,7 +369,7 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	<?php endif; ?>
 
 	<?php // 10. More Plant Care articles (those the list above did not show). ?>
-	<?php if ( count( $natura_more_posts ) >= 2 ) : ?>
+	<?php if ( count( $natura_more_posts ) >= 2 && natura_section_enabled( 'home_more_posts' ) ) : ?>
 		<section class="site-container home-section" aria-labelledby="home-posts-title">
 			<div class="home-head">
 				<h2 id="home-posts-title"><?php esc_html_e( 'More from Plant Care', 'natura' ); ?></h2>
@@ -430,8 +430,8 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$natura_missing = array_filter(
 			array(
-				$natura_author ? '' : __( 'Who writes Natura', 'natura' ),
-				$natura_signup ? '' : __( 'Newsletter form', 'natura' ),
+				( $natura_author || ! natura_section_enabled( 'home_author' ) ) ? '' : __( 'Who writes Natura', 'natura' ),
+				( $natura_signup || ! natura_section_enabled( 'home_newsletter' ) ) ? '' : __( 'Newsletter form', 'natura' ),
 				$natura_pin_url ? '' : __( 'Pinterest profile', 'natura' ),
 				natura_home_hero_photo() ? '' : __( 'Opening photo', 'natura' ),
 			)

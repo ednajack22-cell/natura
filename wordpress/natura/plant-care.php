@@ -120,7 +120,7 @@ $natura_checks       = array(
 		</section>
 
 		<?php if ( $natura_has_problems ) : ?>
-			<?php echo natura_ad_slot( __( 'Plant Care, after the checks', 'natura' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
+			<?php echo natura_ad_slot( __( 'Plant Care, after the checks', 'natura' ), 'in-content', 'ads_lists' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
 		<?php endif; ?>
 
 		<?php foreach ( $natura_topics as $natura_topic ) : ?>

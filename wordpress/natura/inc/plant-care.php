@@ -260,7 +260,7 @@ function natura_plant_problems( int $plant_id, int $limit = 3 ): ?WP_Query {
  * guides, as in the Stitch "Plant Library" mock-up.
  */
 function natura_the_problem_band(): void {
-	if ( ! post_type_exists( 'problem' ) || ! wp_count_posts( 'problem' )->publish ) {
+	if ( ! natura_section_enabled( 'list_problem_band' ) || ! post_type_exists( 'problem' ) || ! wp_count_posts( 'problem' )->publish ) {
 		return;
 	}
 	?>

@@ -24,7 +24,7 @@ defined( 'ABSPATH' ) || exit;
  * Whether the current guide links to at least one shop.
  */
 function natura_guide_has_affiliate_links(): bool {
-	return (bool) array_filter( array_column( natura_field_list( 'products' ), 'url' ) );
+	return natura_section_enabled( 'guide_products' ) && (bool) array_filter( array_column( natura_field_list( 'products' ), 'url' ) );
 }
 
 /**
@@ -86,7 +86,7 @@ function natura_the_guide_header( array $args ): void {
 					</span>
 				</span>
 			</p>
-			<?php if ( $pin_url ) : ?>
+			<?php if ( $pin_url && natura_section_enabled( 'guide_pin_header' ) ) : ?>
 				<a class="pin-button" href="<?php echo esc_url( $pin_url ); ?>" target="_blank" rel="noopener">
 					<?php natura_the_icon( 'pin' ); ?>
 					<span><?php esc_html_e( 'Save to Pinterest', 'natura' ); ?></span>
@@ -171,7 +171,7 @@ function natura_the_guide_toc( array $toc ): void {
  */
 function natura_products_box( string $title ): string {
 	$products = natura_field_list( 'products' );
-	if ( ! $products ) {
+	if ( ! $products || ! natura_section_enabled( 'guide_products' ) ) {
 		return '';
 	}
 
@@ -242,7 +242,7 @@ function natura_the_product_card( array $product, string $size = 'thumbnail', st
 function natura_pin_block(): string {
 	$image_id = natura_guide_pin_image_id();
 	$pin_url  = natura_pinterest_save_url();
-	if ( ! $image_id || ! $pin_url ) {
+	if ( ! $image_id || ! $pin_url || ! natura_section_enabled( 'guide_pin_block' ) ) {
 		return '';
 	}
 
@@ -274,10 +274,10 @@ function natura_pin_block(): string {
 function natura_guide_inserts( string $products_title ): array {
 	return array(
 		'inserts' => array(
-			1 => natura_ad_slot( __( 'Guide, after section 1', 'natura' ) ),
+			1 => natura_ad_slot( __( 'Guide, after section 1', 'natura' ), 'in-content', 'ads_guide_text' ),
 			2 => natura_products_box( $products_title ),
 			3 => natura_pin_block(),
-			5 => natura_ad_slot( __( 'Guide, after section 5', 'natura' ) ),
+			5 => natura_ad_slot( __( 'Guide, after section 5', 'natura' ), 'in-content', 'ads_guide_text' ),
 		),
 		// A short guide still shows its shopping list and Pinterest block.
 		'keep'    => array( 2, 3 ),
@@ -304,7 +304,7 @@ function natura_author_initials(): string {
  */
 function natura_the_author_box(): void {
 	$bio = (string) get_the_author_meta( 'description' );
-	if ( '' === trim( $bio ) ) {
+	if ( '' === trim( $bio ) || ! natura_section_enabled( 'guide_author' ) ) {
 		return;
 	}
 	?>
@@ -325,16 +325,21 @@ function natura_the_author_box(): void {
  * @param string $post_type Post type of the "Read next" guides.
  */
 function natura_the_guide_sidebar( string $post_type ): void {
-	$pin_url  = natura_pinterest_save_url();
+	$pin_url  = natura_section_enabled( 'guide_side_pin' ) ? natura_pinterest_save_url() : '';
 	$image_id = natura_guide_pin_image_id() ?: (int) get_post_thumbnail_id();
-	$next     = get_posts(
+	$ad       = natura_ad_slot( __( 'Guide sidebar', 'natura' ), 'sidebar', 'ads_sidebar' );
+	$next     = natura_section_enabled( 'guide_read_next' ) ? get_posts(
 		array(
 			'post_type'      => $post_type,
 			'posts_per_page' => 3,
 			'post__not_in'   => array( get_the_ID() ),
 			'no_found_rows'  => true,
 		)
-	);
+	) : array();
+	// Everything switched off: no column at all, the text takes the full width.
+	if ( ! $pin_url && ! $ad && ! $next ) {
+		return;
+	}
 	?>
 	<aside class="guide-sidebar" aria-label="<?php esc_attr_e( 'More from Natura', 'natura' ); ?>">
 		<div class="guide-sidebar-inner">
@@ -355,7 +360,7 @@ function natura_the_guide_sidebar( string $post_type ): void {
 				</div>
 			<?php endif; ?>
 
-			<?php echo natura_ad_slot( __( 'Guide sidebar', 'natura' ), 'sidebar' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
+			<?php echo $ad; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
 
 			<?php if ( $next ) : ?>
 				<div class="side-card side-next">
@@ -390,7 +395,7 @@ function natura_the_guide_sidebar( string $post_type ): void {
  * @param string   $grid     Grid class.
  */
 function natura_the_related( string $id, string $label, string $title, array $items, string $template, string $grid ): void {
-	if ( ! $items ) {
+	if ( ! $items || ! natura_section_enabled( 'guide_related' ) ) {
 		return;
 	}
 	?>
@@ -414,7 +419,7 @@ function natura_the_related( string $id, string $label, string $title, array $it
  * Prints the multiplex ad at the end of a guide.
  */
 function natura_the_guide_end_ad(): void {
-	$ad = natura_ad_slot( __( 'End of guide', 'natura' ), 'multiplex' );
+	$ad = natura_ad_slot( __( 'End of guide', 'natura' ), 'multiplex', 'ads_guide_end' );
 	if ( $ad ) {
 		echo '<div class="site-container">' . $ad . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot().
 	}

@@ -126,6 +126,25 @@ seulement s'il était vide. Les articles gardent des adresses courtes
 (`/titre-de-l-article/`) : les mettre aussi sous `/plant-care/` entrerait en
 conflit avec les adresses des thèmes.
 
+## Le tableau de bord Natura
+
+Menu **Natura** dans l'administration (réservé aux administrateurs) :
+
+- un interrupteur par bloc du site, rangé par page : accueil (dont **Our
+  picks**, à couper tant que vous n'avez pas de produits à recommander),
+  fiches (liste d'achat, boutons Pinterest, colonne de droite, encadré
+  auteur, fiches liées), listes, publicités AdSense emplacement par
+  emplacement, en-tête et pied de page ;
+- tout est allumé par défaut ; un bloc reste aussi masqué tant qu'il n'a rien
+  à montrer (pas de produit avec lien, pas de formulaire de newsletter…) ;
+- si vous coupez toute la colonne de droite des fiches, le texte reprend une
+  largeur de lecture centrée ;
+- à droite, la liste de ce qui reste à régler (photo d'ouverture, auteur,
+  Pinterest, newsletter, AdSense), avec un lien vers le bon réglage.
+
+Les textes, photos et adresses restent dans le Personnaliser, qui montre un
+aperçu avant publication.
+
 ## Régler la page d'accueil
 
 Apparence → Personnaliser → **Natura: home page** :

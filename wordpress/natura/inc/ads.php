@@ -139,8 +139,12 @@ function natura_ad_formats(): array {
  *
  * @param string $placement Short name of the placement, shown to editors.
  * @param string $format    in-content, sidebar, or multiplex.
+ * @param string $section   Switch on the Natura dashboard that can turn it off.
  */
-function natura_ad_slot( string $placement, string $format = 'in-content' ): string {
+function natura_ad_slot( string $placement, string $format = 'in-content', string $section = '' ): string {
+	if ( '' !== $section && ! natura_section_enabled( $section ) ) {
+		return '';
+	}
 	$formats = natura_ad_formats();
 	$format  = isset( $formats[ $format ] ) ? $format : 'in-content';
 	$unit    = $formats[ $format ];
