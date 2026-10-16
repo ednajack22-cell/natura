@@ -138,6 +138,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | --- | --- |
 | Dashboard | Ce qui reste à régler avant le lancement, et le nombre de fiches |
 | General | Logo, recherche de l'en-tête |
+| Colours | Couleur principale et couleur d'accent ; une couleur trop claire pour du texte blanc est refusée |
 | Home page | Photo d'ouverture, titre, introduction, sections de l'accueil, travaux du mois |
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
 | Guides | « Read next », fiches liées, bandeau des problèmes |
@@ -145,7 +146,15 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Affiliate products | **Our picks** et « What you need » : à masquer tant que vous n'avez pas de produits |
 | Ads | Identifiants AdSense, et chaque emplacement de publicité |
 | Newsletter | Formulaire et texte |
-| Import / Export | Copier ou télécharger tous les réglages, les recharger ici ou sur un autre site |
+| Import / Export | Copier ou télécharger tous les réglages, les recharger ici ou sur un autre site ; les **10 dernières versions**, restaurables en un clic |
+
+Une **recherche** en haut du panneau trouve n'importe quel réglage et y
+emmène directement. Quitter une page avec des changements non enregistrés
+demande confirmation ; **Reset All** demande de taper « reset ».
+
+Le comparatif des panneaux actuels (Trellis de Mediavine, Feast, Newspaper,
+Redux, GeneratePress, Blocksy, Kadence, Astra) qui a guidé ces choix est dans
+`design/THEME-OPTIONS.md`.
 
 Chaque bloc a un bouton **Show / Hide** (tout est sur Show par défaut) ; un
 bloc reste aussi masqué tant qu'il n'a rien à montrer. Les valeurs sont les

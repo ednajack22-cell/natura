@@ -64,3 +64,17 @@
 .natura-counts { display: grid; gap: 6px; margin: 0 0 12px; }
 .natura-counts a { text-decoration: none; }
 .natura-counts strong { display: inline-block; min-width: 2ch; font-size: 18px; }
+
+/* Search across all settings */
+.natura-search { position: relative; flex: 1 1 260px; max-width: 360px; }
+.natura-search input { width: 100%; min-height: 36px; padding: 0 12px; border: 0; border-radius: 3px; }
+.natura-search-results { position: absolute; top: calc(100% + 4px); left: 0; right: 0; z-index: 20; margin: 0; padding: 4px 0; border: 1px solid #c3c4c7; border-radius: 3px; background: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .15); }
+.natura-search-results li { margin: 0; }
+.natura-search-results a { display: grid; padding: 8px 12px; color: #1d2327; text-decoration: none; }
+.natura-search-results a:hover, .natura-search-results a:focus { background: #f0f6f2; }
+.natura-search-results span { color: #646970; font-size: 12px; }
+.natura-search-results .is-empty { padding: 8px 12px; color: #646970; }
+.natura-field.is-found { margin: 0 -12px; padding-inline: 12px; background: #fff8e5; box-shadow: inset 3px 0 0 #b0532a; }
+
+.natura-history form { margin: 0; }
+.natura-history td { vertical-align: middle; }

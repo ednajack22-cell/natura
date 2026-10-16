@@ -8,6 +8,11 @@
  * all at the top and bottom, one sub-menu entry per tab, and Import / Export.
  * Built into the theme, with no options framework to install.
  *
+ * From the review of current panels (design/THEME-OPTIONS.md): a search
+ * across all settings (Redux), the last ten versions with one-click restore
+ * (Newspaper), brand colours (Trellis, Kadence), a warning before leaving
+ * with unsaved changes, and a typed confirmation before Reset All.
+ *
  * Values are stored where the theme already reads them: texts, photos and
  * IDs as theme mods (so the Customizer's live preview keeps working on the
  * same values), Show / Hide switches in the "natura_sections" option. Every
@@ -23,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
  * The panel's tabs and their fields.
  *
  * Field types: switch (Show / Hide), text, textarea, url, media (image ID),
- * adid (AdSense ID), pincode (Pinterest verification code).
+ * adid (AdSense ID), pincode (Pinterest verification code), color.
  *
  * @return array<string, array{title: string, icon: string, intro: string, fields: array<string, array{type: string, label: string, help?: string, placeholder?: string}>}>
  */
@@ -52,6 +57,23 @@ function natura_option_tabs(): array {
 					'help'  => __( 'Upload your logo, or leave empty to show the site name with the leaf mark.', 'natura' ),
 				),
 				'site_header_search' => $switch( __( 'Search in the header', 'natura' ), __( 'The home page always has its own search instead.', 'natura' ) ),
+			),
+		),
+		'design'     => array(
+			'title'  => __( 'Colours', 'natura' ),
+			'icon'   => 'dashicons-art',
+			'intro'  => __( 'The two brand colours used across the site. Both carry white text (buttons, header, bands), so a colour too light to read is refused.', 'natura' ),
+			'fields' => array(
+				'natura_color_primary' => array(
+					'type'  => 'color',
+					'label' => __( 'Main colour', 'natura' ),
+					'help'  => __( 'Header, footer, dark bands, main buttons. Default: forest green #1b3b2b.', 'natura' ),
+				),
+				'natura_color_accent'  => array(
+					'type'  => 'color',
+					'label' => __( 'Accent colour', 'natura' ),
+					'help'  => __( 'Labels, search and "Check price" buttons, links in labels. Default: terracotta #9b441f.', 'natura' ),
+				),
 			),
 		),
 		'home'       => array(
@@ -272,9 +294,71 @@ function natura_sanitize_option( string $type, $value ) {
 			return natura_sanitize_ad_id( $value );
 		case 'pincode':
 			return natura_sanitize_pinterest_code( $value );
+		case 'color':
+			$color = (string) sanitize_hex_color( $value );
+			return ( '' !== $color && natura_contrast_with_white( $color ) >= 4.5 ) ? strtolower( $color ) : '';
 		default:
 			return sanitize_text_field( $value );
 	}
+}
+
+/**
+ * Contrast ratio between a colour and white text (WCAG 2): 4.5 or more reads
+ * well at normal text sizes.
+ *
+ * @param string $hex Colour, #rgb or #rrggbb.
+ */
+function natura_contrast_with_white( string $hex ): float {
+	$hex = ltrim( $hex, '#' );
+	if ( 3 === strlen( $hex ) ) {
+		$hex = $hex[0] . $hex[0] . $hex[1] . $hex[1] . $hex[2] . $hex[2];
+	}
+	$channels = array_map(
+		static function ( string $pair ): float {
+			$c = hexdec( $pair ) / 255;
+			return $c <= 0.03928 ? $c / 12.92 : ( ( $c + 0.055 ) / 1.055 ) ** 2.4;
+		},
+		str_split( $hex, 2 )
+	);
+	$luminance = 0.2126 * $channels[0] + 0.7152 * $channels[1] + 0.0722 * $channels[2];
+
+	return 1.05 / ( $luminance + 0.05 );
+}
+
+/**
+ * Keeps a copy of every setting before a change, the last ten.
+ *
+ * @param string $what What is about to change (Save, Reset…), for the list.
+ */
+function natura_remember_version( string $what ): void {
+	$history = get_option( 'natura_options_history', array() );
+	$history = is_array( $history ) ? $history : array();
+	array_unshift(
+		$history,
+		array(
+			'time'   => time(),
+			'user'   => wp_get_current_user()->display_name,
+			'what'   => $what,
+			'values' => natura_export_options()['values'],
+		)
+	);
+	update_option( 'natura_options_history', array_slice( $history, 0, 10 ), false );
+}
+
+/**
+ * Turns exported values back into what the form would send.
+ *
+ * @param array<string, mixed> $values Exported values.
+ * @return array<string, mixed>
+ */
+function natura_values_as_input( array $values ): array {
+	foreach ( $values as $key => $value ) {
+		if ( is_bool( $value ) ) {
+			$values[ $key ] = $value ? '1' : '0';
+		}
+	}
+
+	return $values;
 }
 
 /**
@@ -374,8 +458,28 @@ add_action(
 					return;
 				}
 				wp_enqueue_media();
+				wp_enqueue_style( 'wp-color-picker' );
 				wp_enqueue_style( 'natura-options', get_template_directory_uri() . '/assets/css/admin-options.css', array(), NATURA_VERSION );
-				wp_enqueue_script( 'natura-options', get_template_directory_uri() . '/assets/js/admin-options.js', array(), NATURA_VERSION, true );
+				wp_enqueue_script( 'natura-options', get_template_directory_uri() . '/assets/js/admin-options.js', array( 'jquery', 'wp-color-picker' ), NATURA_VERSION, true );
+				$index = array();
+				foreach ( natura_option_tabs() as $tab => $section ) {
+					$index[] = array(
+						'label' => $section['title'],
+						'help'  => $section['intro'],
+						'tab'   => '',
+						'url'   => natura_tab_url( $tab ),
+					);
+					foreach ( $section['fields'] as $key => $field ) {
+						$index[] = array(
+							'label' => $field['label'],
+							'help'  => $field['help'] ?? '',
+							'tab'   => $section['title'],
+							'url'   => natura_tab_url( $tab ) . '#field-' . $key,
+							// The tab's introduction also matches ("AdSense" finds the ad IDs).
+							'more'  => $section['intro'],
+						);
+					}
+				}
 				wp_localize_script(
 					'natura-options',
 					'naturaOptions',
@@ -383,7 +487,10 @@ add_action(
 						'choose'       => __( 'Choose an image', 'natura' ),
 						'use'          => __( 'Use this image', 'natura' ),
 						'resetSection' => __( 'Put every setting of this tab back to its default?', 'natura' ),
-						'resetAll'     => __( 'Put every Natura Option back to its default? This cannot be undone; export first to keep a copy.', 'natura' ),
+						'resetAll'     => __( 'Every Natura Option will go back to its default. The current settings stay in "Recent versions" (Import / Export). Type reset to confirm.', 'natura' ),
+						'unsaved'      => __( 'You have unsaved changes.', 'natura' ),
+						'noResults'    => __( 'No setting matches.', 'natura' ),
+						'index'        => $index,
 					)
 				);
 			} );
@@ -428,8 +535,32 @@ add_action(
 		$op     = isset( $_POST['natura_op'] ) ? sanitize_key( wp_unslash( $_POST['natura_op'] ) ) : 'save';
 		$fields = natura_option_fields();
 		$notice = 'saved';
+		$tabs   = natura_option_tabs();
+		$names  = array(
+			'save'          => __( 'Saved', 'natura' ),
+			'reset_section' => __( 'Reset section', 'natura' ),
+			'reset_all'     => __( 'Reset all', 'natura' ),
+			'import'        => __( 'Import', 'natura' ),
+			'restore'       => __( 'Restore', 'natura' ),
+		);
+		if ( ! isset( $names[ $op ] ) ) {
+			wp_die( esc_html__( 'Unknown action.', 'natura' ), '', array( 'response' => 400 ) );
+		}
+		// The copy kept is the state before this change.
+		natura_remember_version( $names[ $op ] . ( in_array( $op, array( 'save', 'reset_section' ), true ) ? ' · ' . $tabs[ $tab ]['title'] : '' ) );
 
-		if ( 'reset_all' === $op ) {
+		if ( 'restore' === $op ) {
+			$history = get_option( 'natura_options_history', array() );
+			$index   = isset( $_POST['natura_version'] ) ? absint( $_POST['natura_version'] ) : -1;
+			// Index 0 is now the copy just taken; the chosen version moved down by one.
+			$version = is_array( $history ) ? ( $history[ $index + 1 ] ?? null ) : null;
+			if ( is_array( $version ) && isset( $version['values'] ) && is_array( $version['values'] ) ) {
+				natura_save_options( $fields, natura_values_as_input( $version['values'] ) );
+				$notice = 'restored';
+			} else {
+				$notice = 'restore_error';
+			}
+		} elseif ( 'reset_all' === $op ) {
 			natura_reset_options( $fields );
 			$notice = 'reset_all';
 		} elseif ( 'reset_section' === $op ) {
@@ -441,18 +572,19 @@ add_action(
 			if ( null === $values ) {
 				$notice = 'import_error';
 			} else {
-				// Switches arrive as true / false; the sanitizer expects "1".
-				foreach ( $values as $key => $value ) {
-					if ( is_bool( $value ) ) {
-						$values[ $key ] = $value ? '1' : '0';
-					}
-				}
-				natura_save_options( $fields, $values );
+				natura_save_options( $fields, natura_values_as_input( $values ) );
 				$notice = 'imported';
 			}
 		} else {
 			$input = isset( $_POST['natura'] ) && is_array( $_POST['natura'] ) ? wp_unslash( $_POST['natura'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- each value is sanitized per field in natura_save_options().
-			natura_save_options( array_filter( $fields, static fn( array $field ): bool => $field['tab'] === $tab ), $input );
+			$tab_fields = array_filter( $fields, static fn( array $field ): bool => $field['tab'] === $tab );
+			natura_save_options( $tab_fields, $input );
+			// A colour given but refused (unreadable with white text) is reported.
+			foreach ( $tab_fields as $key => $field ) {
+				if ( 'color' === $field['type'] && ! empty( $input[ $key ] ) && '' === natura_sanitize_option( 'color', $input[ $key ] ) ) {
+					$notice = 'colour_refused';
+				}
+			}
 		}
 
 		wp_safe_redirect( add_query_arg( 'natura-notice', $notice, natura_tab_url( $tab ) ) );
@@ -527,7 +659,7 @@ function natura_render_option_field( string $key, array $field ): void {
 	$id    = 'natura-' . $key;
 	$name  = 'natura[' . $key . ']';
 	?>
-	<div class="natura-field natura-field-<?php echo esc_attr( $field['type'] ); ?>">
+	<div class="natura-field natura-field-<?php echo esc_attr( $field['type'] ); ?>" id="field-<?php echo esc_attr( $key ); ?>">
 		<div class="natura-field-label">
 			<?php if ( 'switch' === $field['type'] ) : ?>
 				<strong id="<?php echo esc_attr( $id ); ?>-label"><?php echo esc_html( $field['label'] ); ?></strong>
@@ -550,6 +682,15 @@ function natura_render_option_field( string $key, array $field ): void {
 						<label for="<?php echo esc_attr( $id ); ?>-off"><?php esc_html_e( 'Hide', 'natura' ); ?></label>
 					</div>
 					<?php
+					break;
+				case 'color':
+					printf(
+						'<input type="text" id="%1$s" name="%2$s" value="%3$s" class="natura-color" data-default-color="%4$s">',
+						esc_attr( $id ),
+						esc_attr( $name ),
+						esc_attr( (string) $value ),
+						esc_attr( 'natura_color_primary' === $key ? '#1b3b2b' : '#9b441f' )
+					);
 					break;
 				case 'textarea':
 					printf( '<textarea id="%1$s" name="%2$s" rows="4" class="large-text">%3$s</textarea>', esc_attr( $id ), esc_attr( $name ), esc_textarea( (string) $value ) );
@@ -610,6 +751,9 @@ function natura_render_options(): void {
 		'reset_all'     => array( 'success', __( 'All Natura Options are back to their defaults.', 'natura' ) ),
 		'imported'      => array( 'success', __( 'Settings imported.', 'natura' ) ),
 		'import_error'  => array( 'error', __( 'Nothing imported: paste the whole text of a Natura Options export.', 'natura' ) ),
+		'restored'      => array( 'success', __( 'That version is back. The settings you had just before are kept at the top of the list.', 'natura' ) ),
+		'restore_error' => array( 'error', __( 'That version could not be found.', 'natura' ) ),
+		'colour_refused' => array( 'warning', __( 'Saved, except a colour too light to carry white text: the default is used. Choose a darker shade.', 'natura' ) ),
 	);
 	$notice  = isset( $_GET['natura-notice'] ) ? sanitize_key( wp_unslash( $_GET['natura-notice'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
 	?>
@@ -622,6 +766,11 @@ function natura_render_options(): void {
 		<div class="natura-panel">
 			<header class="natura-panel-header">
 				<p class="natura-panel-title"><?php esc_html_e( 'Natura Options', 'natura' ); ?> <span><?php echo esc_html( NATURA_VERSION ); ?></span></p>
+				<div class="natura-search" role="search">
+					<label class="screen-reader-text" for="natura-search"><?php esc_html_e( 'Search the settings', 'natura' ); ?></label>
+					<input type="search" id="natura-search" placeholder="<?php esc_attr_e( 'Search the settings…', 'natura' ); ?>" autocomplete="off" aria-controls="natura-search-results">
+					<ul id="natura-search-results" class="natura-search-results" hidden></ul>
+				</div>
 				<nav class="natura-panel-links">
 					<a href="<?php echo esc_url( admin_url( 'customize.php' ) ); ?>"><?php esc_html_e( 'Live preview', 'natura' ); ?></a>
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'View site', 'natura' ); ?></a>
@@ -763,4 +912,63 @@ function natura_render_transfer_tab( array $section ): void {
 		<p><button type="submit" class="button button-primary"><?php esc_html_e( 'Import', 'natura' ); ?></button></p>
 	</form>
 	<?php
+	$history = get_option( 'natura_options_history', array() );
+	$history = is_array( $history ) ? $history : array();
+	?>
+	<div class="natura-field natura-field-stack" id="field-history">
+		<div class="natura-field-label">
+			<strong><?php esc_html_e( 'Recent versions', 'natura' ); ?></strong>
+			<p><?php esc_html_e( 'A copy of all settings is kept before each change, the last ten. Restoring one keeps the current settings at the top of the list, so it can be undone.', 'natura' ); ?></p>
+		</div>
+		<?php if ( ! $history ) : ?>
+			<p><?php esc_html_e( 'No change saved yet.', 'natura' ); ?></p>
+		<?php else : ?>
+			<table class="widefat striped natura-history">
+				<thead><tr><th><?php esc_html_e( 'Before', 'natura' ); ?></th><th><?php esc_html_e( 'Date', 'natura' ); ?></th><th><?php esc_html_e( 'By', 'natura' ); ?></th><th></th></tr></thead>
+				<tbody>
+					<?php foreach ( $history as $index => $version ) : ?>
+						<tr>
+							<td><?php echo esc_html( (string) ( $version['what'] ?? '' ) ); ?></td>
+							<td><?php echo esc_html( wp_date( get_option( 'date_format' ) . ' ' . get_option( 'time_format' ), (int) ( $version['time'] ?? 0 ) ) ); ?></td>
+							<td><?php echo esc_html( (string) ( $version['user'] ?? '' ) ); ?></td>
+							<td>
+								<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+									<input type="hidden" name="action" value="natura_options">
+									<input type="hidden" name="natura_tab" value="transfer">
+									<input type="hidden" name="natura_op" value="restore">
+									<input type="hidden" name="natura_version" value="<?php echo esc_attr( (string) $index ); ?>">
+									<?php wp_nonce_field( 'natura_options_transfer' ); ?>
+									<button type="submit" class="button"><?php esc_html_e( 'Restore', 'natura' ); ?></button>
+								</form>
+							</td>
+						</tr>
+					<?php endforeach; ?>
+				</tbody>
+			</table>
+		<?php endif; ?>
+	</div>
+	<?php
 }
+
+/**
+ * Brand colours chosen in Natura Options, as overrides of the stylesheet's
+ * colour variables. The darker shades follow the chosen colour.
+ */
+add_action(
+	'wp_head',
+	static function (): void {
+		$primary = (string) get_theme_mod( 'natura_color_primary', '' );
+		$accent  = (string) get_theme_mod( 'natura_color_accent', '' );
+		$rules   = array();
+		if ( sanitize_hex_color( $primary ) ) {
+			$rules[] = '--forest:' . $primary . ';--forest-dark:color-mix(in srgb,' . $primary . ' 78%,#000);--forest-soft:color-mix(in srgb,' . $primary . ' 85%,#fff);--heading:color-mix(in srgb,' . $primary . ' 60%,#000)';
+		}
+		if ( sanitize_hex_color( $accent ) ) {
+			$rules[] = '--clay:' . $accent . ';--clay-strong:color-mix(in srgb,' . $accent . ' 90%,#fff);--clay-tint:color-mix(in srgb,' . $accent . ' 18%,#fff)';
+		}
+		if ( $rules ) {
+			echo '<style id="natura-brand-colours">:root{' . esc_html( implode( ';', $rules ) ) . '}</style>' . "\n";
+		}
+	},
+	20
+);
