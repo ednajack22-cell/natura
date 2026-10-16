@@ -308,6 +308,19 @@ function natura_core_demo_plants(): array {
 				'season'         => 'Late spring to early autumn',
 			),
 			'lists'     => array(
+				// Key points and varieties repeat only what the guide explains.
+				'key_points' => array(
+					array( 'point' => 'One plant per 20–30 litre pot, with drainage holes.' ),
+					array( 'point' => 'Plant out after the last frost, in six to eight hours of direct sun.' ),
+					array( 'point' => 'Water when the top 2–3 cm of compost is dry, and never let it dry out completely.' ),
+					array( 'point' => 'Once the first flowers open, feed weekly with a high-potash tomato feed.' ),
+					array( 'point' => 'Pick fruit when fully coloured, every couple of days.' ),
+				),
+				'varieties'  => array(
+					array( 'name' => 'Sungold', 'note' => 'Cordon: one tall stem up to 1.5–2 m on a cane, cropping over a long season. For a sunny, sheltered wall.' ),
+					array( 'name' => 'Gardener\'s Delight', 'note' => 'Cordon: one tall stem on a cane, side shoots pinched out. More fruit from the same floor space.' ),
+					array( 'name' => 'Tumbling Tom', 'note' => 'Trailing: compact, no pinching, made for hanging baskets and the edge of a balcony box.' ),
+				),
 				'products' => array(
 					array( 'name' => 'Fabric grow pot, 25–30 litres', 'badge' => 'Best for balconies', 'note' => 'Light to move, drains freely, and big enough to last a summer heatwave.', 'url' => 'https://www.example.com/fabric-pot', 'image' => 'demo/product-fabric-pot.jpg' ),
 					array( 'name' => 'Peat-free container compost', 'badge' => '', 'note' => 'Holds water better than garden soil and drains freely.', 'url' => 'https://www.example.com/compost', 'image' => 'demo/product-compost.jpg' ),
@@ -397,7 +410,13 @@ function natura_core_demo_plants(): array {
 				'harvest'        => '3–4 weeks after planting',
 				'season'         => 'Early summer to early autumn',
 			),
-			'lists'     => array(),
+			'lists'     => array(
+				'key_points' => array(
+					array( 'point' => 'Keep basil above 15 °C: indoors until nights are reliably warm.' ),
+					array( 'point' => 'Pick the top pair of leaves from each stem, and remove flower buds.' ),
+					array( 'point' => 'Water at the base, in the morning, when the top of the compost is dry.' ),
+				),
+			),
 			'content'   =>
 				$h2( 'Give basil warmth' ) .
 				$p( 'Basil grows best above 15 °C (60 °F). Keep it indoors on a bright windowsill until nights are reliably warm, then move it to the sunniest, most sheltered corner of the balcony.' ) .
@@ -426,7 +445,13 @@ function natura_core_demo_plants(): array {
 				'harvest'        => 'Early summer to autumn',
 				'season'         => 'Plant in spring or early autumn',
 			),
-			'lists'     => array(),
+			'lists'     => array(
+				'key_points' => array(
+					array( 'point' => 'Choose everbearing varieties: fruit from early summer until autumn.' ),
+					array( 'point' => 'Plant with the crown exactly at the surface of the compost.' ),
+					array( 'point' => 'Water regularly while flowering and fruiting; feed every two weeks with a high-potash feed.' ),
+				),
+			),
 			'content'   =>
 				$h2( 'Choose everbearing plants' ) .
 				$p( 'Everbearing (day-neutral) varieties crop in flushes from early summer until autumn, which suits a small space better than a single June harvest.' ) .

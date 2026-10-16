@@ -148,7 +148,10 @@ function natura_option_tabs(): array {
 			'icon'   => 'dashicons-media-document',
 			'intro'  => __( 'Plant guides, problem guides, and articles.', 'natura' ),
 			'fields' => array(
+				'guide_key_points'  => $switch( __( 'In short (plant guides)', 'natura' ), __( 'The key points under the photo: the answer in a few lines.', 'natura' ) ),
 				'guide_glance'      => $switch( __( 'At a glance (plant guides)', 'natura' ), __( 'The box of key facts under the photo: sun, pot size, watering, harvest.', 'natura' ) ),
+				'guide_calendar'    => $switch( __( 'Planting calendar (plant guides)', 'natura' ), __( 'The 12-month table (sow, plant out, harvest), and "In October: harvest" under the title.', 'natura' ) ),
+				'guide_varieties'   => $switch( __( 'Varieties to try (plant guides)', 'natura' ), __( 'Variety cards after the text, with optional links to seeds or plants.', 'natura' ) ),
 				'guide_toc'         => $switch( __( 'In this guide (contents)', 'natura' ), __( 'The numbered list of sections, before the text.', 'natura' ) ),
 				'guide_faq'         => $switch( __( 'Questions & answers', 'natura' ), __( 'The questions under the text. Hidden questions are also left out of the data given to Google.', 'natura' ) ),
 				'guide_sources'     => $switch( __( 'Sources', 'natura' ), __( 'The references under each guide (RHS, university extensions…). Showing them builds trust with readers and Google; keep filling them in even when hidden.', 'natura' ) ),

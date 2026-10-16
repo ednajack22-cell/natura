@@ -24,7 +24,10 @@ defined( 'ABSPATH' ) || exit;
  * Whether the current guide links to at least one shop.
  */
 function natura_guide_has_affiliate_links(): bool {
-	return natura_section_enabled( 'guide_products' ) && (bool) array_filter( array_column( natura_field_list( 'products' ), 'url' ) );
+	$products  = natura_section_enabled( 'guide_products' ) && array_filter( array_column( natura_field_list( 'products' ), 'url' ) );
+	$varieties = function_exists( 'natura_plant_varieties' ) && array_filter( array_column( natura_plant_varieties(), 'url' ) );
+
+	return $products || $varieties;
 }
 
 /**
@@ -47,7 +50,7 @@ function natura_disclosure_url(): string {
  * Prints the top of a guide: breadcrumbs, tag, title, summary, byline, and
  * the affiliate note.
  *
- * @param array{crumbs: array, tag?: string, tag_url?: string, botanical?: string} $args Header parts.
+ * @param array{crumbs: array, tag?: string, tag_url?: string, botanical?: string, now?: string} $args Header parts.
  */
 function natura_the_guide_header( array $args ): void {
 	$pin_url = natura_pinterest_save_url();
@@ -64,6 +67,9 @@ function natura_the_guide_header( array $args ): void {
 			</p>
 		<?php endif; ?>
 		<h1><?php the_title(); ?></h1>
+		<?php if ( ! empty( $args['now'] ) ) : ?>
+			<p class="guide-now"><?php natura_the_icon( 'calendar' ); ?> <?php echo esc_html( $args['now'] ); ?></p>
+		<?php endif; ?>
 		<?php if ( ! empty( $args['botanical'] ) ) : ?>
 			<p class="plant-botanical"><?php echo esc_html( $args['botanical'] ); ?></p>
 		<?php endif; ?>
@@ -145,6 +151,12 @@ function natura_the_guide_photo(): void {
 function natura_the_guide_toc( array $toc ): void {
 	if ( ! natura_section_enabled( 'guide_toc' ) ) {
 		return;
+	}
+	if ( function_exists( 'natura_plant_varieties' ) && natura_plant_varieties() ) {
+		$toc[] = array(
+			'id'    => 'plant-varieties',
+			'title' => __( 'Varieties to try', 'natura' ),
+		);
 	}
 	if ( natura_field_list( 'faq' ) && natura_section_enabled( 'guide_faq' ) ) {
 		$toc[] = array(

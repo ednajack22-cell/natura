@@ -509,7 +509,8 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .glance h2 { margin: 0 0 1rem; font-size: 1.5rem; line-height: 1.2; }
 .glance-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; margin: 0; }
 .glance-facts > div { padding: .8rem .9rem; border: 1px solid var(--line-soft); border-radius: var(--radius-sm); background: var(--card); }
-.glance-facts dt { color: var(--clay); font: 700 .75rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.glance-facts dt { display: flex; align-items: center; gap: .35rem; color: var(--clay); font: 700 .75rem/1.3 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.glance-facts dt svg { width: 18px; flex: none; color: var(--forest); }
 .glance-facts dd { margin: .3rem 0 0; color: var(--heading); font: 400 1.125rem/1.3 var(--font-serif); }
 
 /* "In this guide": numbered, two columns, inside the text column. */
@@ -1001,3 +1002,56 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .footer-social { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 0; padding: 0; list-style: none; }
 .footer-social a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid rgba(255, 255, 255, .3); border-radius: 999px; color: #dfe9e2; font-size: .9375rem; }
 .footer-social a:hover { border-color: white; color: white; }
+
+/* ---------------------------------------------------------------------------
+   Plant guide additions (from the review of RHS, Gardeners' World, Gardening
+   Know How and Au Jardin guides): "In short", the planting calendar, the
+   "this month" line under the title, and varieties to try.
+   --------------------------------------------------------------------------- */
+
+.guide-now { display: inline-flex; align-items: center; gap: .4rem; margin: .6rem 0 0; padding: .3rem .75rem; border-radius: 999px; color: var(--forest); background: var(--sage); font: 600 .9375rem var(--font-sans); }
+.guide-now svg { width: 18px; }
+
+.key-points { margin: 0 0 2rem; padding: 1.25rem 1.25rem 1rem; border-left: 4px solid var(--forest); border-radius: 0 var(--radius) var(--radius) 0; background: var(--sage); }
+.key-points h2 { margin: 0 0 .75rem; font-size: 1.5rem; line-height: 1.2; }
+.key-points ul { display: grid; gap: .55rem; margin: 0; padding: 0; list-style: none; }
+.key-points li { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: .6rem; align-items: start; color: var(--ink); font: 400 1.125rem/1.5 var(--font-serif); }
+.key-points svg { width: 20px; margin-top: .2rem; color: var(--forest); }
+
+.plant-calendar { margin: 0 0 2rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.plant-calendar h2 { margin: 0 0 1rem; font-size: 1.5rem; line-height: 1.2; }
+.plant-calendar-scroll { overflow-x: auto; }
+.plant-calendar table { width: 100%; min-width: 300px; border-collapse: separate; border-spacing: 3px; table-layout: fixed; }
+.plant-calendar th { color: var(--muted); font: 600 .8125rem/1.2 var(--font-sans); text-align: center; }
+.plant-calendar thead th.is-now { color: var(--clay); }
+.plant-calendar abbr { text-decoration: none; }
+.plant-calendar tbody th { width: 5.5rem; padding-right: .4rem; color: var(--heading); font-size: .875rem; text-align: left; white-space: nowrap; }
+.plant-calendar td { height: 26px; border-radius: 3px; background: var(--paper-mid); }
+.plant-calendar td.is-now { box-shadow: inset 0 0 0 2px var(--clay); }
+.plant-calendar .is-sow td.is-on { background: #e0b75c; }
+.plant-calendar .is-plant td.is-on { background: #6f9e5f; }
+.plant-calendar .is-harvest td.is-on { background: var(--clay); }
+.plant-calendar-note { margin: .75rem 0 0; color: var(--muted); font-size: .875rem; line-height: 1.5; }
+
+.varieties { margin: 2.5rem 0 0; scroll-margin-top: calc(var(--header-offset) + var(--header-height) + 24px); }
+.varieties h2 { margin: 0 0 1rem; font-size: clamp(1.75rem, 5vw, 2.25rem); line-height: 1.18; }
+.variety-list { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.variety-card { display: grid; gap: 1rem; padding: 1rem 1.1rem; border: 1px solid var(--line-soft); border-top: 3px solid var(--forest); border-radius: var(--radius); background: var(--card); }
+.variety-card.has-image { grid-template-columns: 80px minmax(0, 1fr); align-items: start; }
+.variety-card img { width: 80px; height: 80px; object-fit: cover; border-radius: var(--radius-sm); }
+.variety-card h3 { margin: 0 0 .3rem; font-size: 1.3125rem; line-height: 1.2; }
+.variety-card p { margin: 0; color: var(--ink-soft); font-size: .9375rem; line-height: 1.5; }
+.variety-card .text-link { margin-top: .4rem; min-height: 40px; }
+
+@media (min-width: 640px) {
+  .variety-list { grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); }
+  .key-points, .plant-calendar { padding: 1.5rem; }
+}
+.plant-calendar thead td { background: none; }
+/* Very small phones: the calendar fits without sideways scrolling. */
+@media (max-width: 380px) {
+  .plant-calendar { padding: 1rem .75rem; }
+  .plant-calendar table { min-width: 0; border-spacing: 2px; }
+  .plant-calendar tbody th { width: 4.3rem; font-size: .8125rem; }
+  .plant-calendar th { font-size: .75rem; }
+}

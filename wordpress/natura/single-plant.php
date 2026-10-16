@@ -19,6 +19,7 @@ while ( have_posts() ) :
 
 	$natura_type     = natura_plant_type();
 	$natura_facts    = natura_plant_quick_facts();
+	$natura_calendar = natura_plant_calendar();
 	$natura_crumbs   = natura_plant_breadcrumbs();
 	$natura_layout   = natura_guide_inserts( __( 'What you need', 'natura' ) );
 	$natura_prepared = natura_prepare_content( (string) apply_filters( 'the_content', get_the_content() ), $natura_layout['inserts'], $natura_layout['keep'] );
@@ -43,6 +44,7 @@ while ( have_posts() ) :
 				'tag'       => $natura_type ? sprintf( __( 'Growing guide · %s', 'natura' ), $natura_type->name ) : __( 'Growing guide', 'natura' ),
 				'tag_url'   => $natura_type ? (string) get_term_link( $natura_type ) : '',
 				'botanical' => (string) natura_field( 'botanical_name' ),
+				'now'       => natura_section_enabled( 'guide_calendar' ) ? natura_plant_this_month( $natura_calendar ) : '',
 			)
 		);
 		?>
@@ -51,13 +53,15 @@ while ( have_posts() ) :
 			<article <?php post_class( 'guide-main' ); ?>>
 				<?php natura_the_guide_photo(); ?>
 
+				<?php natura_the_key_points(); ?>
+
 				<?php if ( $natura_facts && natura_section_enabled( 'guide_glance' ) ) : ?>
 					<section class="glance" aria-labelledby="glance-title">
 						<h2 id="glance-title"><?php esc_html_e( 'At a glance', 'natura' ); ?></h2>
 						<dl class="glance-facts">
 							<?php foreach ( $natura_facts as $natura_fact ) : ?>
 								<div>
-									<dt><?php echo esc_html( $natura_fact['label'] ); ?></dt>
+									<dt><?php natura_the_icon( $natura_fact['icon'] ); ?> <?php echo esc_html( $natura_fact['label'] ); ?></dt>
 									<dd><?php echo esc_html( $natura_fact['value'] ); ?></dd>
 								</div>
 							<?php endforeach; ?>
@@ -65,12 +69,15 @@ while ( have_posts() ) :
 					</section>
 				<?php endif; ?>
 
+				<?php natura_the_plant_calendar( $natura_calendar ); ?>
+
 				<?php natura_the_guide_toc( $natura_prepared['toc'] ); ?>
 
 				<div class="entry-content guide-content is-numbered">
 					<?php echo $natura_prepared['html']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- post content filtered by the_content, plus escaped theme markup. ?>
 				</div>
 
+				<?php natura_the_varieties(); ?>
 				<?php natura_the_faq_and_sources(); ?>
 				<?php natura_the_author_box(); ?>
 			</article>

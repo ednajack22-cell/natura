@@ -74,6 +74,18 @@ Administration → **Plants** → **Add plant guide** :
 8. **Image Pinterest** (dans Quick facts) : une image verticale 2:3 avec le
    titre dessus. Elle apparaît au milieu de la fiche avec un bouton « Save »,
    et sert quand un lecteur épingle la page.
+9. **In short, and varieties to try** :
+   - **In short** : 3 à 5 phrases courtes, l'essentiel de la fiche (affiché
+     sous la photo, la réponse que Google reprend souvent). Uniquement ce que
+     le texte explique ;
+   - **Varieties to try** : les variétés qui réussissent en pot, chacune avec
+     une ligne d'explication, un lien facultatif vers des graines ou des
+     plants (lien affilié possible : la mention d'affiliation s'affiche) et
+     une photo facultative.
+10. **Planting calendar** : cochez les mois pour semer, planter et récolter.
+    Ils s'affichent dans le tableau sur 12 mois de la fiche, dans la ligne
+    « In October: harvest » sous le titre, et dans le bloc du mois de
+    l'accueil.
 
 Le thème place tout seul chaque bloc, selon `design/BLUEPRINT.md` : la liste
 d'achat après la 2e partie, le bloc Pinterest après la 3e, les publicités après

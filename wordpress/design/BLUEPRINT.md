@@ -44,14 +44,22 @@ Ordre, de haut en bas :
 5. Deux colonnes sur ordinateur (8 + 4 sur une grille de 12) :
    - **Colonne principale** :
      1. photo principale avec légende ;
-     2. **At a glance** : faits clés (plante), causes probables (problème) ;
-     3. **In this guide** : sommaire numéroté sur deux colonnes ;
+     2. **In short** (plante) : 3 à 5 points, la réponse en quelques lignes
+        (« À retenir » d'Au Jardin) ;
+     3. **At a glance** : faits clés avec icônes (plante, comme Gardeners'
+        World), causes probables (problème) ;
+     4. **Planting calendar** (plante) : tableau sur 12 mois, semer / planter
+        / récolter, mois en cours encadré (RHS « Month by month »,
+        Gardeners' World) ; sous le titre, la ligne « In October: harvest » ;
+     5. **In this guide** : sommaire numéroté sur deux colonnes ;
      4. sections numérotées « 01. », « 02. »… ;
      5. après la section 1 : annonce ;
      6. après la section 2 : **What you need**, cartes produit avec image ;
      7. après la section 3 : bloc Pinterest avec l'image verticale ;
      8. après la section 5 : annonce ;
-     9. FAQ, sources, encadré auteur.
+     9. **Varieties to try** (plante) : cartes variété (RHS « Recommended
+        varieties », Gardening Know How) ;
+     10. FAQ, sources, encadré auteur.
    - **Colonne de droite**, collante : bloc Pinterest, annonce 300×600,
      guides populaires (3, numérotés).
 6. Pleine largeur : « Common problems » (plante), plantes concernées

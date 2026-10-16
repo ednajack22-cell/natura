@@ -91,14 +91,54 @@ function natura_core_register_plant_meta(): void {
 		);
 	}
 
-	natura_core_register_list_meta( 'plant', natura_core_shared_lists() );
+	natura_core_register_list_meta( 'plant', natura_core_shared_lists() + natura_core_plant_lists() );
 }
 add_action( 'init', 'natura_core_register_plant_meta' );
+
+/**
+ * Lists only plant guides have: the key points (shown as "In short" near the
+ * top, the short answer Google often quotes) and the varieties to try (cards
+ * like the RHS "Recommended varieties"; a link may be an affiliate link to
+ * seeds or plants).
+ *
+ * @return array<string, array{label: string, help: string, add: string, fields: array<string, array{label: string, type: string}>}>
+ */
+function natura_core_plant_lists(): array {
+	return array(
+		'key_points' => array(
+			'label'  => __( 'In short (key points)', 'natura-core' ),
+			'help'   => __( 'Three to five short sentences that answer the reader at once: the essentials of growing this plant in a pot. Only facts the guide itself explains.', 'natura-core' ),
+			'add'    => __( 'Add a point', 'natura-core' ),
+			'fields' => array(
+				'point' => array( 'label' => __( 'Point', 'natura-core' ), 'type' => 'text' ),
+			),
+		),
+		'varieties'  => array(
+			'label'  => __( 'Varieties to try', 'natura-core' ),
+			'help'   => __( 'Varieties that do well in pots, each with why. A link (seed or plant shop) is optional; affiliate links get the affiliate notice.', 'natura-core' ),
+			'add'    => __( 'Add a variety', 'natura-core' ),
+			'fields' => array(
+				'name'  => array( 'label' => __( 'Variety', 'natura-core' ), 'type' => 'text' ),
+				'note'  => array( 'label' => __( 'Why it suits a pot (one line)', 'natura-core' ), 'type' => 'text' ),
+				'url'   => array( 'label' => __( 'Link (optional)', 'natura-core' ), 'type' => 'url' ),
+				'image' => array( 'label' => __( 'Photo (optional)', 'natura-core' ), 'type' => 'image' ),
+			),
+		),
+	);
+}
 
 add_action(
 	'add_meta_boxes_plant',
 	static function (): void {
 		add_meta_box( 'natura-plant-facts', __( 'Quick facts', 'natura-core' ), 'natura_core_render_facts_box', 'plant', 'normal', 'high' );
+		add_meta_box(
+			'natura-plant-extra',
+			__( 'In short, and varieties to try', 'natura-core' ),
+			static fn( WP_Post $post ) => natura_core_render_lists( $post, natura_core_plant_lists() ),
+			'plant',
+			'normal',
+			'high'
+		);
 		add_meta_box(
 			'natura-plant-lists',
 			__( 'Shopping list, FAQ, and sources', 'natura-core' ),
@@ -186,6 +226,6 @@ function natura_core_save_plant( int $post_id ): void {
 		}
 	}
 
-	natura_core_save_lists( $post_id, natura_core_shared_lists(), $input );
+	natura_core_save_lists( $post_id, natura_core_shared_lists() + natura_core_plant_lists(), $input );
 }
 add_action( 'save_post_plant', 'natura_core_save_plant' );
