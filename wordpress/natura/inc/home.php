@@ -149,7 +149,7 @@ function natura_plant_short_name( int $post_id ): string {
  * month (from each guide's planting calendar), then the extra items set in the
  * Customizer, one per line with an optional link after a vertical bar.
  *
- * @return array{month: string, groups: array<int, array{key: string, label: string, items: array<int, array{name: string, url: string, image: int}>}>}
+ * @return array{month: string, short: string, groups: array<int, array{key: string, label: string, items: array<int, array{name: string, url: string, image: int, facts: string}>}>}
  */
 function natura_home_this_month(): array {
 	$month  = (int) wp_date( 'n' );
@@ -183,6 +183,8 @@ function natura_home_this_month(): array {
 							'name'  => natura_plant_short_name( $id ),
 							'url'   => (string) get_permalink( $id ),
 							'image' => (int) get_post_thumbnail_id( $id ),
+							// What a reader checks before acting: light and pot size.
+							'facts' => implode( ' · ', array_filter( array( (string) natura_field( 'sun', $id ), (string) natura_field( 'pot_size', $id ) ) ) ),
 						),
 						$ids
 					),
@@ -205,6 +207,7 @@ function natura_home_this_month(): array {
 			'name'  => $parts[0],
 			'url'   => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
 			'image' => 0,
+			'facts' => '',
 		);
 	}
 	if ( $extra ) {
@@ -217,6 +220,7 @@ function natura_home_this_month(): array {
 
 	return array(
 		'month'  => wp_date( 'F' ),
+		'short'  => wp_date( 'M' ),
 		'groups' => $groups,
 	);
 }

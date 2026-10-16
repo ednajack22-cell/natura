@@ -787,10 +787,10 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .button-light { color: var(--forest); background: white; }
 .button-light:hover { background: var(--paper); }
 
-/* 1. Opening band: text on solid forest green, the photo beside it. */
-.home-hero { display: grid; grid-template-columns: minmax(0, 1fr); color: white; background: var(--forest); }
-.home-hero-text { display: flex; align-items: center; }
-.home-hero-inner { width: min(1240px, calc(100% - 2.5rem)); margin-inline: auto; padding-block: 2.25rem 2rem; }
+/* 1. Opening band: text and search on forest green, the photo beside them
+   inside the page width, with breathing room on every side. */
+.home-hero { color: white; background: var(--forest); }
+.home-hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding-block: 2rem 2.25rem; }
 .home-hero .label { margin-bottom: .6rem; color: #f6c9b3; }
 .home-hero h1 { margin: 0; color: white; font-size: clamp(2.25rem, 9vw, 3.5rem); line-height: 1.05; letter-spacing: -.02em; }
 .home-intro { max-width: 34rem; margin: .85rem 0 1.25rem; color: #dfe9e2; font: 400 1.125rem/1.55 var(--font-serif); }
@@ -798,8 +798,11 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .home-hero .search-form-large button { min-height: 42px; padding: 0 1.15rem; background: var(--clay); font-size: .9375rem; }
 .home-hero .search-form-large button:hover { background: #7f3517; }
 .search-form-large { max-width: 520px; min-height: 52px; margin: 0; padding-left: 1rem; background: var(--card); }
-.home-hero-media { aspect-ratio: 16 / 9; overflow: hidden; }
+.home-hero-media { aspect-ratio: 16 / 10; overflow: hidden; border-radius: 8px; box-shadow: 0 18px 40px rgba(0, 0, 0, .25); }
 .home-hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
+
+/* The opening band has its own search: the header's would repeat it. */
+body.home .header-search-form, body.home .header-search-link { display: none; }
 
 /* Pinterest "Save" on a photo */
 .pin-button-small { position: absolute; top: .75rem; right: .75rem; z-index: 3; min-height: 40px; padding: 0 .85rem; border-radius: 999px; font-size: .875rem; }
@@ -836,25 +839,33 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .thumb-list strong { color: var(--heading); font: 500 1.1875rem/1.3 var(--font-serif); }
 .thumb-list a:hover strong { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
-/* 4. This month: columns of names with small round thumbnails */
-.home-season { margin-top: 2.5rem; padding-block: 2rem; background: var(--sage); }
-.season-layout { display: grid; gap: 1.5rem; }
-.season-intro h2 { margin: 0 0 .5rem; font-size: clamp(1.625rem, 5vw, 2.25rem); line-height: 1.15; }
-.season-intro .label { margin-bottom: .35rem; }
-.season-intro p:not(.label) { margin: 0; color: var(--ink-soft); font: 400 1rem/1.55 var(--font-serif); }
-.season-column h3 { margin: 0 0 .6rem; }
-.season-column ul { display: grid; gap: .4rem; margin: 0; padding: 0; list-style: none; }
-.season-column a, .season-item { display: flex; align-items: center; gap: .65rem; min-height: 44px; padding: .3rem .75rem .3rem .3rem; border-radius: 999px; color: var(--heading); background: rgba(255, 255, 255, .7); font: 500 1rem var(--font-sans); }
-.season-column a:hover { background: white; }
-.season-column img { width: 36px; height: 36px; flex: none; object-fit: cover; border-radius: 50%; }
-/* Extra items have no guide photo: plain chips that wrap. */
-.season-column .season-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
-.season-chips a, .season-chips .season-item { padding: .3rem .9rem; }
-.season-badge { display: inline-block; padding: .2rem .55rem; border-radius: 2px; font: 700 .8125rem/1.4 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
+/* 4. This month: a calendar tile, then one card per plant to sow, plant out,
+   or harvest (photo, action, light and pot size), and the other jobs. */
+.home-season { margin-top: 2.5rem; padding-block: 2.25rem; background: var(--sage); }
+.season-head { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+.season-month { display: grid; flex: none; place-items: center; width: 72px; height: 72px; margin: 0; border-top: 10px solid var(--clay); border-radius: 6px; color: var(--forest); background: white; font: 600 1.5rem/1 var(--font-serif); text-transform: uppercase; box-shadow: var(--shadow); }
+.season-head h2 { margin: 0 0 .4rem; font-size: clamp(1.625rem, 5vw, 2.25rem); line-height: 1.15; }
+.season-head .label { margin-bottom: .3rem; }
+.season-head p:not(.label):not(.season-month) { max-width: 40rem; margin: 0; color: var(--ink-soft); font: 400 1rem/1.55 var(--font-serif); }
+.season-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.season-grid > li { display: flex; }
+.season-card { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: center; gap: 1rem; width: 100%; padding: .75rem; border-radius: 8px; background: var(--card); transition: box-shadow .15s ease; }
+.season-card:hover { box-shadow: var(--shadow-raised); }
+.season-card img { width: 72px; height: 72px; object-fit: cover; border-radius: 6px; }
+.season-card-text { display: grid; justify-items: start; gap: .25rem; }
+.season-card strong { color: var(--heading); font: 500 1.25rem/1.2 var(--font-serif); }
+.season-card:hover strong { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+.season-card-facts { color: var(--muted); font-size: .875rem; line-height: 1.4; }
+.season-badge { display: inline-block; padding: .15rem .5rem; border-radius: 2px; font: 700 .75rem/1.4 var(--font-sans); letter-spacing: .06em; text-transform: uppercase; }
 .season-badge-sow { color: #6a4a10; background: #f3e3bd; }
 .season-badge-plant { color: #24502b; background: #cfe3c8; }
 .season-badge-harvest { color: var(--clay); background: var(--clay-tint); }
-.season-badge-also { color: var(--forest); background: white; }
+.season-badge-also { color: var(--forest); background: var(--sage); }
+.season-also { display: block !important; padding: 1rem; border-radius: 8px; background: var(--card); }
+.season-also h3 { margin: 0 0 .6rem; }
+.season-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
+.season-chips a, .season-chips span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--heading); background: var(--paper); font: 500 .9375rem var(--font-sans); }
+.season-chips a:hover { border-color: var(--forest); }
 
 /* 5. More guides: medium cards */
 .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
@@ -891,10 +902,10 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .picks-note a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
 .home-picks .product-list { display: grid; gap: .75rem; margin: 0; padding: 0; list-style: none; }
 .home-picks .product-card { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: .5rem 1rem; align-items: start; padding: .9rem; border: 1px solid var(--line-soft); border-radius: 6px; background: var(--card); }
-.home-picks .product-card-media { grid-row: 1 / 3; }
+.home-picks .product-card-media { grid-row: 1; }
 .home-picks .product-card-media img { width: 96px; height: 96px; object-fit: cover; border-radius: 4px; }
 .home-picks .product-card-text strong { font-size: 1.1875rem; font-weight: 500; }
-.home-picks .product-card .button-buy { grid-column: 2; justify-self: start; min-height: 40px; padding: .5rem 1rem; }
+.home-picks .product-card .button-buy { grid-column: 1 / -1; justify-self: stretch; min-height: 44px; margin-top: .25rem; padding: .5rem 1rem; }
 
 /* 9. Pinterest ideas: the introduction beside the pins */
 .home-pins { margin-top: 2.5rem; padding-block: 2.25rem; background: #f6ebe4; }
@@ -903,9 +914,9 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .home-pins-intro .label { margin-bottom: .35rem; }
 .home-pins-intro p:not(.label) { margin: 0 0 1rem; color: var(--ink-soft); font: 400 1.0625rem/1.55 var(--font-serif); }
 .home-pins-follow { min-height: 44px; border-radius: 999px; }
-.pin-scroller { display: flex; gap: .75rem; margin: 0 -1.25rem; padding: 0 1.25rem .5rem; overflow-x: auto; list-style: none; scroll-snap-type: x mandatory; scroll-padding-inline: 1.25rem; scrollbar-width: none; }
+/* Phones: two pins side by side, all visible; no row cut at the screen edge. */
+.pin-scroller { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem .75rem; margin: 0; padding: 0; list-style: none; }
 .pin-scroller::-webkit-scrollbar { display: none; }
-.pin-scroller li { flex: 0 0 42%; scroll-snap-align: start; }
 .pin-scroller a { display: grid; gap: .5rem; }
 .pin-scroller img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; box-shadow: 0 6px 18px rgba(27, 59, 43, .12); }
 .pin-scroller span { color: var(--heading); font: 500 1rem/1.3 var(--font-serif); }
@@ -931,11 +942,11 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .admin-note a { color: var(--forest); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
 
 @media (min-width: 640px) {
-  .season-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .season-intro { grid-column: 1 / -1; }
+  .season-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .season-also { grid-column: 1 / -1; }
   .mini-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .home-picks .product-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pin-scroller li { flex-basis: 28%; }
+  .pin-scroller { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .author-card { padding: 2rem; }
   .author-card-photo, .author-card .avatar-large { width: 96px; height: 96px; }
   .newsletter-card { padding: 2rem; }
@@ -944,10 +955,9 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 @media (min-width: 1024px) {
   .home-section { margin-top: 3.5rem; }
 
-  /* Text on the left half (aligned with the page), photo on the right half. */
-  .home-hero.has-photo { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); min-height: 440px; }
-  .home-hero.has-photo .home-hero-inner { width: auto; max-width: 600px; margin: 0 3.5rem 0 max(1.25rem, calc((100vw - 1240px) / 2)); padding-block: 3.5rem; }
-  .home-hero-media { aspect-ratio: auto; }
+  .home-hero-grid { padding-block: 3.5rem; }
+  .home-hero-grid.has-photo { grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); align-items: center; gap: 4rem; }
+  .home-hero-media { aspect-ratio: 4 / 3; }
   .home-hero h1 { font-size: 3.5rem; }
 
   .topic-bar ul { flex-wrap: wrap; margin: 0; padding: 1rem 0; overflow: visible; }
@@ -959,8 +969,9 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
   .thumb-list strong { font-size: 1.3125rem; }
 
   .home-season { margin-top: 3.5rem; padding-block: 2.75rem; }
-  .season-layout { grid-template-columns: minmax(0, 1.3fr) repeat(auto-fit, minmax(200px, 1fr)); align-items: start; gap: 2rem; }
-  .season-intro { grid-column: auto; }
+  .season-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+  .season-also { grid-column: span 2; }
+  .season-month { width: 84px; height: 84px; font-size: 1.75rem; }
 
   .mini-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
 
@@ -973,7 +984,7 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 
   .home-pins { margin-top: 3.5rem; padding-block: 3rem; }
   .home-pins-inner { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: center; gap: 3rem; }
-  .pin-scroller { margin: 0; padding: 0; overflow: visible; }
+  .pin-scroller { display: flex; gap: 1.25rem; }
   .pin-scroller li { flex: 1 1 0; max-width: 220px; }
 
   .home-closing { margin-top: 3.5rem; padding-block: 3rem; }
@@ -981,8 +992,7 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 }
 
 /* Two colour bands meet without a strip of page between them when there is
-   no ad between them, and the last band runs into the footer. */
+   no ad between them. */
 .home-ad:not(:has(.ad-slot)) { display: none; }
 .home-season + .home-ad:not(:has(.ad-slot)) + .home-doctor { margin-top: 0; }
-.home > .home-pins:last-child, .home > .home-closing:last-child { margin-bottom: -3rem; }
 .footer-follow { margin-top: 1.25rem; min-height: 44px; border-radius: 999px; }

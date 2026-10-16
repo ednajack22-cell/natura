@@ -104,24 +104,30 @@ Les 12 pages d'accueil ont été relues, sur ordinateur et sur téléphone.
 ### Ordre des blocs
 
 1. **Bande d'ouverture** : promesse, titre H1, recherche à gauche sur vert
-   forêt ; photo réelle à droite (Personnaliser → Opening photo). Pas de
-   photo géante sous le texte.
+   forêt ; photo réelle à droite, dans la largeur de la page, aux coins
+   arrondis et avec de l'air autour (Personnaliser → Opening photo). La
+   recherche de l'en-tête est masquée sur l'accueil : une seule barre de
+   recherche par écran.
 2. **Barre des thèmes** : boutons texte (types de plantes, problèmes, thèmes
    Plant Care) avec le nombre de fiches.
 3. **New on Natura** : la fiche plante la plus récente en grand (bouton
    Pinterest « Save » sur la photo), à côté la liste à vignettes des 4 fiches
    et articles suivants.
-4. **In your pots this [mois]** (bande vert sauge) : introduction, puis une
-   colonne par action (Sow, Plant out, Harvest) avec vignettes rondes, puis
-   « Also now » en pastilles.
+4. **In your pots this [mois]** (bande vert sauge) : une case de calendrier
+   avec le mois, le titre, puis une carte par plante (photo, action en
+   couleur, ensoleillement et taille de pot) et une carte « Also now » avec
+   les autres travaux en pastilles.
 5. « More growing guides » : cartes moyennes, seulement pour les fiches que la
    liste n'a pas montrées (au moins 2).
 6. **La seule annonce de la page.**
 7. Bande vert foncé des problèmes, avec petite photo et cause la plus
    fréquente.
-8. **Our picks** : 3 cartes compactes (photo à gauche), mention d'affiliation
-   **avant** les cartes.
-9. Bande Pinterest : texte à gauche, épingles verticales à droite.
+8. **Our picks** : 3 cartes compactes (photo à gauche), bouton « Check
+   price » sur toute la largeur de la carte, mention d'affiliation **avant**
+   les cartes.
+9. Bande Pinterest : texte à gauche, épingles verticales à droite ; sur
+   téléphone, deux épingles par ligne, toutes visibles. Un espace la sépare
+   du pied de page.
 10. « More from Plant Care » : articles que la liste n'a pas montrés.
 11. **Who writes Natura** et newsletter, chacun seulement s'il est réglé ;
     pour l'administrateur, une ligne liste ce qui reste à régler.

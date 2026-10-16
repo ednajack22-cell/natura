@@ -85,32 +85,32 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	<?php echo natura_home_structured_data(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
 
 	<?php // 1. Opening band: the promise and the search on the left, a real photo on the right. ?>
-	<section class="home-hero<?php echo $natura_hero_photo ? ' has-photo' : ''; ?>">
-		<div class="home-hero-text">
+	<section class="home-hero">
+		<div class="site-container home-hero-grid<?php echo $natura_hero_photo ? ' has-photo' : ''; ?>">
 			<div class="home-hero-inner">
 				<p class="label"><?php esc_html_e( 'Balconies · Patios · Windowsills', 'natura' ); ?></p>
 				<h1><?php echo esc_html( natura_home_setting( 'natura_home_title' ) ); ?></h1>
 				<p class="home-intro"><?php echo esc_html( natura_home_setting( 'natura_home_intro' ) ); ?></p>
 				<?php get_search_form( array( 'natura_context' => 'hero' ) ); ?>
 			</div>
+			<?php if ( $natura_hero_photo ) : ?>
+				<div class="home-hero-media">
+					<?php
+					echo wp_get_attachment_image(
+						$natura_hero_photo,
+						'natura-wide',
+						false,
+						array(
+							'alt'           => '',
+							'sizes'         => '(min-width: 1024px) 600px, calc(100vw - 2.5rem)',
+							'loading'       => 'eager',
+							'fetchpriority' => 'high',
+						)
+					);
+					?>
+				</div>
+			<?php endif; ?>
 		</div>
-		<?php if ( $natura_hero_photo ) : ?>
-			<div class="home-hero-media">
-				<?php
-				echo wp_get_attachment_image(
-					$natura_hero_photo,
-					'natura-wide',
-					false,
-					array(
-						'alt'           => '',
-						'sizes'         => '(min-width: 1024px) 50vw, 100vw',
-						'loading'       => 'eager',
-						'fetchpriority' => 'high',
-					)
-				);
-				?>
-			</div>
-		<?php endif; ?>
 	</section>
 
 	<?php // 2. Topic bar: text buttons with the number of guides. ?>
@@ -187,40 +187,59 @@ $natura_signup  = natura_home_setting( 'natura_newsletter_code' );
 	<?php // 4. This month: from the guides' planting calendars, plus Customizer extras. ?>
 	<?php if ( $natura_month['groups'] ) : ?>
 		<section class="home-season" aria-labelledby="home-season-title">
-			<div class="site-container season-layout">
-				<div class="season-intro">
-					<p class="label"><?php esc_html_e( 'What to do now', 'natura' ); ?></p>
-					<h2 id="home-season-title">
-						<?php
-						/* translators: %s: month name, e.g. "October". */
-						printf( esc_html__( 'In your pots this %s', 'natura' ), esc_html( $natura_month['month'] ) );
-						?>
-					</h2>
-					<p><?php esc_html_e( 'For a temperate climate such as the UK or northern Europe. Each guide has its own planting calendar.', 'natura' ); ?></p>
+			<div class="site-container">
+				<div class="season-head">
+					<p class="season-month" aria-hidden="true"><?php echo esc_html( $natura_month['short'] ); ?></p>
+					<div>
+						<p class="label"><?php esc_html_e( 'What to do now', 'natura' ); ?></p>
+						<h2 id="home-season-title">
+							<?php
+							/* translators: %s: month name, e.g. "October". */
+							printf( esc_html__( 'In your pots this %s', 'natura' ), esc_html( $natura_month['month'] ) );
+							?>
+						</h2>
+						<p><?php esc_html_e( 'For a temperate climate such as the UK or northern Europe. Each guide has its own planting calendar.', 'natura' ); ?></p>
+					</div>
 				</div>
-				<?php foreach ( $natura_month['groups'] as $natura_group ) : ?>
-					<div class="season-column">
-						<h3><span class="season-badge season-badge-<?php echo esc_attr( $natura_group['key'] ); ?>"><?php echo esc_html( $natura_group['label'] ); ?></span></h3>
-						<ul<?php echo 'also' === $natura_group['key'] ? ' class="season-chips"' : ''; ?>>
+				<ul class="season-grid">
+					<?php foreach ( $natura_month['groups'] as $natura_group ) : ?>
+						<?php if ( 'also' === $natura_group['key'] ) : ?>
+							<li class="season-also">
+								<h3><span class="season-badge season-badge-also"><?php echo esc_html( $natura_group['label'] ); ?></span></h3>
+								<ul class="season-chips">
+									<?php foreach ( $natura_group['items'] as $natura_item ) : ?>
+										<li>
+											<?php if ( $natura_item['url'] ) : ?>
+												<a href="<?php echo esc_url( $natura_item['url'] ); ?>"><?php echo esc_html( $natura_item['name'] ); ?></a>
+											<?php else : ?>
+												<span><?php echo esc_html( $natura_item['name'] ); ?></span>
+											<?php endif; ?>
+										</li>
+									<?php endforeach; ?>
+								</ul>
+							</li>
+						<?php else : ?>
 							<?php foreach ( $natura_group['items'] as $natura_item ) : ?>
 								<li>
-									<?php if ( $natura_item['url'] ) : ?>
-										<a href="<?php echo esc_url( $natura_item['url'] ); ?>">
-									<?php else : ?>
-										<span class="season-item">
-									<?php endif; ?>
+									<a class="season-card" href="<?php echo esc_url( $natura_item['url'] ); ?>">
 										<?php
 										if ( $natura_item['image'] ) {
-											echo wp_get_attachment_image( $natura_item['image'], 'thumbnail', false, array( 'alt' => '', 'sizes' => '36px', 'loading' => 'lazy' ) + natura_no_pin() );
+											echo wp_get_attachment_image( $natura_item['image'], 'thumbnail', false, array( 'alt' => '', 'sizes' => '72px', 'loading' => 'lazy' ) + natura_no_pin() );
 										}
 										?>
-										<span><?php echo esc_html( $natura_item['name'] ); ?></span>
-									<?php echo $natura_item['url'] ? '</a>' : '</span>'; ?>
+										<span class="season-card-text">
+											<span class="season-badge season-badge-<?php echo esc_attr( $natura_group['key'] ); ?>"><?php echo esc_html( $natura_group['label'] ); ?></span>
+											<strong><?php echo esc_html( $natura_item['name'] ); ?></strong>
+											<?php if ( $natura_item['facts'] ) : ?>
+												<span class="season-card-facts"><?php echo esc_html( $natura_item['facts'] ); ?></span>
+											<?php endif; ?>
+										</span>
+									</a>
 								</li>
 							<?php endforeach; ?>
-						</ul>
-					</div>
-				<?php endforeach; ?>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				</ul>
 			</div>
 		</section>
 	<?php endif; ?>
