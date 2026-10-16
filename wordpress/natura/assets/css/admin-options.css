@@ -78,3 +78,29 @@
 
 .natura-history form { margin: 0; }
 .natura-history td { vertical-align: middle; }
+
+/* Header status */
+.natura-panel-status { margin-left: 10px; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; text-decoration: none; vertical-align: middle; }
+.natura-panel-status.is-ok { color: #1b3b2b; background: #cfe3c8; }
+.natura-panel-status.is-warn { color: #5c2a10; background: #f6c9b3; }
+
+/* Getting started, in steps */
+.natura-steps { display: grid; gap: 10px; margin: 20px 0 0; padding: 0; list-style: none; counter-reset: none; }
+@media (min-width: 1100px) { .natura-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.natura-steps li { display: flex; gap: 12px; align-items: flex-start; margin: 0; padding: 14px 16px; border: 1px solid #dcdcde; border-left: 4px solid #b0532a; border-radius: 4px; }
+.natura-steps li.is-done { border-left-color: #1b7a3d; }
+.natura-steps li > span:last-child { display: grid; gap: 2px; }
+.natura-steps li > span:last-child span { color: #50575e; }
+.natura-step-number { display: grid; flex: none; place-items: center; width: 28px; height: 28px; border-radius: 50%; color: #fff; background: #b0532a; font-weight: 700; }
+.natura-steps .is-done .natura-step-number { background: #1b7a3d; }
+
+/* Site status */
+.natura-status { margin: 0; }
+.natura-status li { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; gap: 2px 8px; align-items: start; margin: 0; padding: 8px 0; border-top: 1px solid #f0f0f1; }
+.natura-status li:first-child { border-top: 0; }
+.natura-status .is-ok .dashicons { color: #1b7a3d; }
+.natura-status .is-warn .dashicons { color: #b0532a; }
+.natura-status .is-info .dashicons { color: #2271b1; }
+.natura-status-value { color: #50575e; text-align: right; }
+.natura-status-fix { grid-column: 2 / -1; color: #646970; }
+.natura-help li { margin-bottom: 8px; }

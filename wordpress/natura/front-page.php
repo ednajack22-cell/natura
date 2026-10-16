@@ -79,7 +79,7 @@ $natura_author  = natura_section_enabled( 'home_author' ) ? natura_home_author()
 $natura_picks   = natura_section_enabled( 'home_picks' ) ? natura_home_picks( 3 ) : array();
 $natura_pins    = natura_home_pins( 5 );
 $natura_pin_url = natura_home_setting( 'natura_pinterest_url' );
-$natura_signup  = natura_section_enabled( 'home_newsletter' ) ? natura_home_setting( 'natura_newsletter_code' ) : '';
+$natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsletter_ready() ) ? natura_home_setting( 'natura_newsletter_code' ) : '';
 ?>
 <main id="main-content" class="home">
 	<?php echo natura_home_structured_data(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>

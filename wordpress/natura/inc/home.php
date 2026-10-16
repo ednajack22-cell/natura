@@ -253,6 +253,16 @@ function natura_home_author(): ?array {
 }
 
 /**
+ * Whether the newsletter shortcode can be shown: set, and its email plugin
+ * active. Without the plugin, WordPress would print the shortcode as text.
+ */
+function natura_newsletter_ready(): bool {
+	$code = trim( natura_home_setting( 'natura_newsletter_code' ) );
+
+	return '' !== $code && preg_match( '/^\[([\w-]+)/', $code, $match ) && shortcode_exists( $match[1] );
+}
+
+/**
  * The opening photo: the one set in the Customizer, or 0.
  */
 function natura_home_hero_photo(): int {

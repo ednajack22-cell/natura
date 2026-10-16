@@ -333,13 +333,18 @@ function natura_contrast_with_white( string $hex ): float {
 function natura_remember_version( string $what ): void {
 	$history = get_option( 'natura_options_history', array() );
 	$history = is_array( $history ) ? $history : array();
+	$values  = natura_export_options()['values'];
+	// Same settings as the last copy kept: nothing new to remember.
+	if ( isset( $history[0]['values'] ) && $history[0]['values'] === $values ) {
+		return;
+	}
 	array_unshift(
 		$history,
 		array(
 			'time'   => time(),
 			'user'   => wp_get_current_user()->display_name,
 			'what'   => $what,
-			'values' => natura_export_options()['values'],
+			'values' => $values,
 		)
 	);
 	update_option( 'natura_options_history', array_slice( $history, 0, 10 ), false );
@@ -546,14 +551,18 @@ add_action(
 		if ( ! isset( $names[ $op ] ) ) {
 			wp_die( esc_html__( 'Unknown action.', 'natura' ), '', array( 'response' => 400 ) );
 		}
+		// The version to restore is read before the current settings are kept.
+		$version = null;
+		if ( 'restore' === $op ) {
+			$history = get_option( 'natura_options_history', array() );
+			$index   = isset( $_POST['natura_version'] ) ? absint( $_POST['natura_version'] ) : -1;
+			$version = is_array( $history ) ? ( $history[ $index ] ?? null ) : null;
+		}
+
 		// The copy kept is the state before this change.
 		natura_remember_version( $names[ $op ] . ( in_array( $op, array( 'save', 'reset_section' ), true ) ? ' · ' . $tabs[ $tab ]['title'] : '' ) );
 
 		if ( 'restore' === $op ) {
-			$history = get_option( 'natura_options_history', array() );
-			$index   = isset( $_POST['natura_version'] ) ? absint( $_POST['natura_version'] ) : -1;
-			// Index 0 is now the copy just taken; the chosen version moved down by one.
-			$version = is_array( $history ) ? ( $history[ $index + 1 ] ?? null ) : null;
 			if ( is_array( $version ) && isset( $version['values'] ) && is_array( $version['values'] ) ) {
 				natura_save_options( $fields, natura_values_as_input( $version['values'] ) );
 				$notice = 'restored';
@@ -620,7 +629,7 @@ function natura_setup_checklist(): array {
 			'tab'   => 'pinterest',
 		),
 		array(
-			'done'  => '' !== natura_home_setting( 'natura_newsletter_code' ),
+			'done'  => natura_newsletter_ready(),
 			'label' => __( 'Newsletter form', 'natura' ),
 			'tab'   => 'newsletter',
 		),
@@ -765,7 +774,22 @@ function natura_render_options(): void {
 
 		<div class="natura-panel">
 			<header class="natura-panel-header">
-				<p class="natura-panel-title"><?php esc_html_e( 'Natura Options', 'natura' ); ?> <span><?php echo esc_html( NATURA_VERSION ); ?></span></p>
+				<p class="natura-panel-title">
+					<?php esc_html_e( 'Natura Options', 'natura' ); ?> <span><?php echo esc_html( NATURA_VERSION ); ?></span>
+					<?php
+					$natura_issues = count( array_filter( natura_site_status(), static fn( array $row ): bool => ! $row['ok'] && empty( $row['note'] ) ) );
+					?>
+					<a class="natura-panel-status <?php echo $natura_issues ? 'is-warn' : 'is-ok'; ?>" href="<?php echo esc_url( natura_tab_url( 'dashboard' ) ); ?>">
+						<?php
+						echo esc_html(
+							$natura_issues
+								/* translators: %d: number of site status points to check. */
+								? sprintf( _n( '%d point to check', '%d points to check', $natura_issues, 'natura' ), $natura_issues )
+								: __( 'Site ready', 'natura' )
+						);
+						?>
+					</a>
+				</p>
 				<div class="natura-search" role="search">
 					<label class="screen-reader-text" for="natura-search"><?php esc_html_e( 'Search the settings', 'natura' ); ?></label>
 					<input type="search" id="natura-search" placeholder="<?php esc_attr_e( 'Search the settings…', 'natura' ); ?>" autocomplete="off" aria-controls="natura-search-results">
@@ -818,24 +842,146 @@ function natura_render_options(): void {
 }
 
 /**
- * The Dashboard tab: setup checklist and quick links.
+ * What the site needs to run Natura well, each with a short fix.
+ *
+ * A row marked note is advice: shown in blue, never counted as a problem.
+ *
+ * @return array<int, array{ok: bool, label: string, value: string, fix: string, url: string, note?: bool}>
+ */
+function natura_site_status(): array {
+	global $wp_version;
+	$memory = wp_convert_hr_to_bytes( (string) WP_MEMORY_LIMIT );
+	$webp   = wp_image_editor_supports( array( 'mime_type' => 'image/webp' ) );
+
+	return array(
+		array(
+			'ok'    => function_exists( 'natura_core_meta_key' ),
+			'label' => __( 'Natura Core plugin', 'natura' ),
+			'value' => function_exists( 'natura_core_meta_key' ) ? __( 'Active', 'natura' ) : __( 'Not active', 'natura' ),
+			'fix'   => __( 'Plant guides, problems, planting calendars and shopping lists come from this plugin. Activate it.', 'natura' ),
+			'url'   => admin_url( 'plugins.php' ),
+		),
+		array(
+			'ok'    => '' !== (string) get_option( 'permalink_structure' ),
+			'label' => __( 'Readable addresses', 'natura' ),
+			'value' => '' !== (string) get_option( 'permalink_structure' ) ? (string) get_option( 'permalink_structure' ) : __( 'Plain (?p=123)', 'natura' ),
+			'fix'   => __( 'Guides need addresses like /plants/basil/. Choose "Post name" and save.', 'natura' ),
+			'url'   => admin_url( 'options-permalink.php' ),
+		),
+		array(
+			'ok'    => str_starts_with( home_url(), 'https://' ),
+			'label' => __( 'HTTPS', 'natura' ),
+			'value' => str_starts_with( home_url(), 'https://' ) ? __( 'On', 'natura' ) : __( 'Off', 'natura' ),
+			'fix'   => __( 'Google, AdSense, and Pinterest expect a secure site. Ask your host for a free certificate, then change the site address.', 'natura' ),
+			'url'   => admin_url( 'options-general.php' ),
+		),
+		array(
+			'ok'    => $webp,
+			'label' => __( 'WebP images', 'natura' ),
+			'value' => $webp ? __( 'Supported', 'natura' ) : __( 'Not supported', 'natura' ),
+			'fix'   => __( 'Without WebP, photos stay in JPEG, about a third heavier on phones. Ask your host to enable WebP in GD or Imagick.', 'natura' ),
+			'url'   => admin_url( 'site-health.php' ),
+		),
+		array(
+			'ok'    => natura_seo_plugin_active(),
+			'label' => __( 'SEO plugin', 'natura' ),
+			'value' => natura_seo_plugin_active() ? __( 'Active', 'natura' ) : __( 'None (the theme writes the basics)', 'natura' ),
+			'fix'   => __( 'Optional. The theme writes titles, descriptions, Open Graph and structured data; an SEO plugin adds the sitemap and redirects.', 'natura' ),
+			'url'   => admin_url( 'plugin-install.php?s=seo&tab=search&type=term' ),
+			'note'  => true,
+		),
+		array(
+			'ok'    => version_compare( PHP_VERSION, '8.1', '>=' ),
+			'label' => __( 'PHP version', 'natura' ),
+			'value' => PHP_VERSION,
+			'fix'   => __( 'PHP 8.1 or newer is faster and still receives security fixes. Ask your host to switch.', 'natura' ),
+			'url'   => admin_url( 'site-health.php?tab=debug' ),
+		),
+		array(
+			'ok'    => $memory >= 128 * MB_IN_BYTES,
+			'label' => __( 'WordPress memory', 'natura' ),
+			'value' => size_format( $memory ),
+			'fix'   => __( '128 MB or more avoids errors when uploading large photos.', 'natura' ),
+			'url'   => admin_url( 'site-health.php?tab=debug' ),
+		),
+		array(
+			'ok'    => true,
+			'label' => __( 'WordPress', 'natura' ),
+			'value' => (string) $wp_version,
+			'fix'   => '',
+			'url'   => '',
+		),
+		array(
+			'ok'    => '' === natura_home_setting( 'natura_newsletter_code' ) || natura_newsletter_ready(),
+			'label' => __( 'Newsletter form', 'natura' ),
+			'value' => '' === natura_home_setting( 'natura_newsletter_code' ) ? __( 'Not set', 'natura' ) : ( natura_newsletter_ready() ? __( 'Working', 'natura' ) : __( 'Plugin missing', 'natura' ) ),
+			'fix'   => __( 'The shortcode is set but its email plugin is not active, so the form is hidden. Activate the plugin or change the shortcode.', 'natura' ),
+			'url'   => admin_url( 'plugins.php' ),
+		),
+	);
+}
+
+/**
+ * The Dashboard tab: getting started in steps, site status, content, help.
  *
  * @param array{title: string, intro: string} $section Tab.
  */
 function natura_render_dashboard_tab( array $section ): void {
 	$checklist = natura_setup_checklist();
 	$done      = count( array_filter( wp_list_pluck( $checklist, 'done' ) ) );
+	$counts    = array();
+	foreach ( array( 'plant', 'problem', 'post' ) as $type ) {
+		$object = get_post_type_object( $type );
+		if ( $object ) {
+			$counts[ $type ] = array( (int) wp_count_posts( $type )->publish, $object->labels->name );
+		}
+	}
+	$plants = $counts['plant'][0] ?? 0;
+	$status = natura_site_status();
+	$issues = count( array_filter( $status, static fn( array $row ): bool => ! $row['ok'] && empty( $row['note'] ) ) );
+	$steps  = array(
+		array(
+			'done'  => 0 === $issues,
+			'title' => __( 'Check that the site is ready', 'natura' ),
+			'text'  => 0 === $issues ? __( 'Everything Natura needs is in place.', 'natura' ) : __( 'Some points need attention: see Site status.', 'natura' ),
+		),
+		array(
+			'done'  => $done === count( $checklist ),
+			'title' => __( 'Fill in the essentials', 'natura' ),
+			/* translators: 1: settings done, 2: all settings. */
+			'text'  => sprintf( __( '%1$d of %2$d done.', 'natura' ), $done, count( $checklist ) ),
+		),
+		array(
+			'done'  => $plants >= 6,
+			'title' => __( 'Publish your first plant guides', 'natura' ),
+			/* translators: %d: number of published plant guides. */
+			'text'  => sprintf( _n( '%d guide published. Aim for six before launch: lists and the home page look complete from there.', '%d guides published. Aim for six before launch: lists and the home page look complete from there.', $plants, 'natura' ), $plants ),
+		),
+	);
 	?>
 	<div class="natura-section-head">
 		<h2><?php echo esc_html( $section['title'] ); ?></h2>
 		<p><?php echo esc_html( $section['intro'] ); ?></p>
 	</div>
+
+	<ol class="natura-steps">
+		<?php foreach ( $steps as $number => $step ) : ?>
+			<li class="<?php echo $step['done'] ? 'is-done' : ''; ?>">
+				<span class="natura-step-number" aria-hidden="true"><?php echo $step['done'] ? '<span class="dashicons dashicons-yes"></span>' : esc_html( (string) ( $number + 1 ) ); ?></span>
+				<span>
+					<strong><?php echo esc_html( $step['title'] ); ?></strong>
+					<span><?php echo esc_html( $step['text'] ); ?><?php echo $step['done'] ? '<span class="screen-reader-text"> ' . esc_html__( '(done)', 'natura' ) . '</span>' : ''; ?></span>
+				</span>
+			</li>
+		<?php endforeach; ?>
+	</ol>
+
 	<div class="natura-dashboard">
 		<section class="natura-box">
 			<h3>
 				<?php
 				/* translators: 1: settings done, 2: all settings. */
-				printf( esc_html__( 'Setup: %1$d of %2$d done', 'natura' ), (int) $done, count( $checklist ) );
+				printf( esc_html__( 'Essentials: %1$d of %2$d done', 'natura' ), (int) $done, count( $checklist ) );
 				?>
 			</h3>
 			<progress max="<?php echo esc_attr( (string) count( $checklist ) ); ?>" value="<?php echo esc_attr( (string) $done ); ?>"></progress>
@@ -852,25 +998,47 @@ function natura_render_dashboard_tab( array $section ): void {
 				<?php endforeach; ?>
 			</ul>
 		</section>
+
+		<section class="natura-box">
+			<h3><?php esc_html_e( 'Site status', 'natura' ); ?></h3>
+			<ul class="natura-status">
+				<?php foreach ( $status as $row ) : ?>
+					<?php $state = $row['ok'] ? 'ok' : ( empty( $row['note'] ) ? 'warn' : 'info' ); ?>
+					<li class="is-<?php echo esc_attr( $state ); ?>">
+						<span class="dashicons <?php echo 'ok' === $state ? 'dashicons-yes-alt' : ( 'info' === $state ? 'dashicons-info' : 'dashicons-warning' ); ?>" aria-hidden="true"></span>
+						<span class="natura-status-label"><?php echo esc_html( $row['label'] ); ?></span>
+						<span class="natura-status-value"><?php echo esc_html( $row['value'] ); ?></span>
+						<?php if ( ! $row['ok'] && $row['fix'] ) : ?>
+							<span class="natura-status-fix">
+								<?php echo esc_html( $row['fix'] ); ?>
+								<?php if ( $row['url'] ) : ?>
+									<a href="<?php echo esc_url( $row['url'] ); ?>"><?php echo empty( $row['note'] ) ? esc_html__( 'Fix it', 'natura' ) : esc_html__( 'See the options', 'natura' ); ?></a>
+								<?php endif; ?>
+							</span>
+						<?php endif; ?>
+					</li>
+				<?php endforeach; ?>
+			</ul>
+		</section>
+
 		<section class="natura-box">
 			<h3><?php esc_html_e( 'Your content', 'natura' ); ?></h3>
 			<ul class="natura-counts">
-				<?php
-				foreach ( array( 'plant', 'problem', 'post' ) as $type ) {
-					$object = get_post_type_object( $type );
-					if ( ! $object ) {
-						continue;
-					}
-					printf(
-						'<li><a href="%1$s"><strong>%2$s</strong> %3$s</a></li>',
-						esc_url( admin_url( 'edit.php?post_type=' . $type ) ),
-						esc_html( number_format_i18n( (int) wp_count_posts( $type )->publish ) ),
-						esc_html( $object->labels->name )
-					);
-				}
-				?>
+				<?php foreach ( $counts as $type => list( $count, $name ) ) : ?>
+					<li><a href="<?php echo esc_url( admin_url( 'edit.php?post_type=' . $type ) ); ?>"><strong><?php echo esc_html( number_format_i18n( $count ) ); ?></strong> <?php echo esc_html( $name ); ?></a></li>
+				<?php endforeach; ?>
 			</ul>
 			<p><a class="button" href="<?php echo esc_url( admin_url( 'post-new.php?post_type=plant' ) ); ?>"><?php esc_html_e( 'Add a plant guide', 'natura' ); ?></a></p>
+		</section>
+
+		<section class="natura-box">
+			<h3><?php esc_html_e( 'Help', 'natura' ); ?></h3>
+			<ul class="natura-help">
+				<li><a href="https://github.com/ednajack22-cell/natura/blob/claude/site-design-ux-analysis-2hwbga/wordpress/README.md" target="_blank" rel="noopener"><?php esc_html_e( 'Theme guide (in French): how to fill a plant guide, the planting calendar, Pinterest, ads', 'natura' ); ?></a></li>
+				<li><a href="<?php echo esc_url( admin_url( 'site-health.php' ) ); ?>"><?php esc_html_e( 'WordPress Site Health: full server check', 'natura' ); ?></a></li>
+				<li><a href="https://support.google.com/adsense/answer/9724" target="_blank" rel="noopener"><?php esc_html_e( 'AdSense: getting started and policies', 'natura' ); ?></a></li>
+				<li><a href="https://help.pinterest.com/en/business/article/claim-your-website" target="_blank" rel="noopener"><?php esc_html_e( 'Pinterest: claim your website', 'natura' ); ?></a></li>
+			</ul>
 		</section>
 	</div>
 	<?php

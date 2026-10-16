@@ -52,6 +52,35 @@ servi de modèle de présentation.
 | Performance : polices locales, WebP, pas de script emoji | Intégré au thème, sans réglage | Kadence (en option chez eux) |
 | Aperçu en direct | Via le Personnaliser, qui modifie les mêmes réglages | Kadence, Blocksy |
 
+## Lecture du code de Newspaper 12.7.9 (à titre d'étude)
+
+Le paquet d'installation de Newspaper a été lu pour comprendre comment son
+administration est construite. Aucun code n'a été repris : seules les idées.
+Le paquet ne contient que l'« enveloppe » du thème ; le Theme Panel complet
+est dans l'extension tagDiv Composer, installée à part.
+
+Ce qui est bien fait, et ce que Natura en a tiré :
+
+| Dans Newspaper | Dans Natura Options |
+| --- | --- |
+| Page d'accueil en étapes numérotées (« 1. extensions », « 2. site prêt à l'emploi ») | Dashboard en 3 étapes : site prêt, réglages essentiels, 6 premières fiches |
+| Encadré « System Status » : PHP, mémoire, temps d'exécution, en vert ou jaune avec conseil et lien | « Site status » adapté à Natura : extension Natura Core, adresses lisibles, HTTPS, WebP, extension SEO, PHP, mémoire, formulaire de newsletter, chacun avec un lien « Fix it » |
+| Version et état (enregistré ou non) dans le bandeau | Version et pastille « Site ready » ou « N points to check » dans le bandeau |
+| Sauvegardes des réglages à chaque enregistrement, seulement si quelque chose a changé, limite réglable | Les 10 dernières versions, sans doublon |
+| Shortcodes d'extensions désactivées retirés du contenu | Le formulaire de newsletter est masqué si son extension n'est pas active (pas de « [shortcode] » affiché en clair), et le Dashboard le signale |
+| Encadrés d'aide (forum, documentation, vidéos) | Encadré « Help » : guide du thème, Santé du site, AdSense, revendiquer le site sur Pinterest |
+| Installation guidée des extensions requises (TGM) | Pas d'installateur : une seule extension requise, Natura Core, signalée dans Site status si elle est inactive |
+
+Ce qui est à éviter et que Natura ne fait pas : du texte affiché sans
+échappement, un menu ouvert aux contributeurs (droit `edit_posts`), des
+appels réseau sans vérification du certificat, une alerte « UNREGISTERED »
+permanente.
+
+Avertissement : la copie étudiée était une version modifiée (« nulled ») qui
+contourne la licence et télécharge des modèles depuis un site tiers sans
+vérification du certificat. À ne jamais installer sur un site ; la licence
+officielle s'achète sur ThemeForest.
+
 ## Écarté, et pourquoi
 
 - **Constructeur d'en-tête et de pied de page** (Kadence, Astra, Blocksy) :
