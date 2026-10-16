@@ -412,9 +412,8 @@ add_action(
  * Prints the FAQ and sources of the current guide.
  */
 function natura_the_faq_and_sources(): void {
-	// Sources always show: every guide must cite them (AGENTS.md).
 	$faq     = natura_section_enabled( 'guide_faq' ) ? natura_field_list( 'faq' ) : array();
-	$sources = natura_field_list( 'sources' );
+	$sources = natura_section_enabled( 'guide_sources' ) ? natura_field_list( 'sources' ) : array();
 
 	if ( $faq ) :
 		?>

@@ -19,7 +19,8 @@
 ## SEO and content
 - Every public content item needs a stable URL, unique metadata, canonical, breadcrumb, and accurate structured data.
 - Keep public pages statically rendered or cached where practical.
-- Use natural English, original content, visible sources, and no medical or ranking guarantees.
+- Use natural English, original content, and no medical or ranking guarantees.
+- Cite sources for every guide. They are shown to readers by default; the site owner can hide them with the "Sources" switch in Natura Options → Guides, but they stay filled in.
 
 ## Definition of done
 - The requested behavior works, empty/error/loading states are covered, accessibility is checked, no secret is exposed, tests pass, and the production build succeeds.

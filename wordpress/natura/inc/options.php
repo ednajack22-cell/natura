@@ -151,6 +151,7 @@ function natura_option_tabs(): array {
 				'guide_glance'      => $switch( __( 'At a glance (plant guides)', 'natura' ), __( 'The box of key facts under the photo: sun, pot size, watering, harvest.', 'natura' ) ),
 				'guide_toc'         => $switch( __( 'In this guide (contents)', 'natura' ), __( 'The numbered list of sections, before the text.', 'natura' ) ),
 				'guide_faq'         => $switch( __( 'Questions & answers', 'natura' ), __( 'The questions under the text. Hidden questions are also left out of the data given to Google.', 'natura' ) ),
+				'guide_sources'     => $switch( __( 'Sources', 'natura' ), __( 'The references under each guide (RHS, university extensions…). Showing them builds trust with readers and Google; keep filling them in even when hidden.', 'natura' ) ),
 				'guide_read_next'   => $switch( __( 'Read next', 'natura' ), __( 'Three guides in the side column.', 'natura' ) ),
 				'guide_related'     => $switch( __( 'Related guides', 'natura' ), __( 'Common problems, plants affected, more guides: under the text.', 'natura' ) ),
 			),

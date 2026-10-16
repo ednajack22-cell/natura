@@ -141,7 +141,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Colours | Couleur principale et couleur d'accent ; une couleur trop claire pour du texte blanc est refusée |
 | Home page | Photo d'ouverture, titre, introduction, sections de l'accueil, travaux du mois |
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
-| Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées (les **sources** restent toujours visibles) |
+| Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées, **sources** (affichées par défaut ; continuez à les remplir même masquées) |
 | Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
 | Pinterest | Profil, code de vérification du site, les boutons « Save » et « Follow » |
 | Affiliate products | **Our picks** et « What you need » : à masquer tant que vous n'avez pas de produits |
