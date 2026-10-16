@@ -141,11 +141,14 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Colours | Couleur principale et couleur d'accent ; une couleur trop claire pour du texte blanc est refusée |
 | Home page | Photo d'ouverture, titre, introduction, sections de l'accueil, travaux du mois |
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
-| Guides | « Read next », fiches liées, bandeau des problèmes |
+| Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées (les **sources** restent toujours visibles) |
+| Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
 | Pinterest | Profil, code de vérification du site, les boutons « Save » et « Follow » |
 | Affiliate products | **Our picks** et « What you need » : à masquer tant que vous n'avez pas de produits |
 | Ads | Identifiants AdSense, et chaque emplacement de publicité |
 | Newsletter | Formulaire et texte |
+| Footer & social | Texte du pied de page ; Instagram, YouTube, Facebook, TikTok (aussi déclarés à Google) |
+| SEO & Google | Vérification **Search Console** et **Bing** (collez la balise entière ou le code) ; **Google Analytics 4** avec le mode consentement de Google (pas de cookie avant accord en Europe, éditeurs connectés non comptés) |
 | Import / Export | Copier ou télécharger tous les réglages, les recharger ici ou sur un autre site ; les **10 dernières versions**, restaurables en un clic |
 
 Une **recherche** en haut du panneau trouve n'importe quel réglage et y

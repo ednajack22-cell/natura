@@ -28,9 +28,11 @@ defined( 'ABSPATH' ) || exit;
  * The panel's tabs and their fields.
  *
  * Field types: switch (Show / Hide), text, textarea, url, media (image ID),
- * adid (AdSense ID), pincode (Pinterest verification code), color.
+ * adid (AdSense ID), pincode (Pinterest verification code), color, page (one
+ * of the site's pages), select (one of fixed choices), gverify / bverify
+ * (Google / Bing verification code), ga4 (Google Analytics measurement ID).
  *
- * @return array<string, array{title: string, icon: string, intro: string, fields: array<string, array{type: string, label: string, help?: string, placeholder?: string}>}>
+ * @return array<string, array{title: string, icon: string, intro: string, fields: array<string, array{type: string, label: string, help?: string, placeholder?: string, choices?: array<string, string>}>}>
  */
 function natura_option_tabs(): array {
 	$switch = static fn( string $label, string $help = '' ): array => array(
@@ -146,9 +148,74 @@ function natura_option_tabs(): array {
 			'icon'   => 'dashicons-media-document',
 			'intro'  => __( 'Plant guides, problem guides, and articles.', 'natura' ),
 			'fields' => array(
+				'guide_glance'      => $switch( __( 'At a glance (plant guides)', 'natura' ), __( 'The box of key facts under the photo: sun, pot size, watering, harvest.', 'natura' ) ),
+				'guide_toc'         => $switch( __( 'In this guide (contents)', 'natura' ), __( 'The numbered list of sections, before the text.', 'natura' ) ),
+				'guide_faq'         => $switch( __( 'Questions & answers', 'natura' ), __( 'The questions under the text. Hidden questions are also left out of the data given to Google.', 'natura' ) ),
 				'guide_read_next'   => $switch( __( 'Read next', 'natura' ), __( 'Three guides in the side column.', 'natura' ) ),
 				'guide_related'     => $switch( __( 'Related guides', 'natura' ), __( 'Common problems, plants affected, more guides: under the text.', 'natura' ) ),
-				'list_problem_band' => $switch( __( 'Plant looking unwell? band', 'natura' ), __( 'Under the plant list, towards the problem guides.', 'natura' ) ),
+			),
+		),
+		'pages'      => array(
+			'title'  => __( 'Pages & lists', 'natura' ),
+			'icon'   => 'dashicons-admin-page',
+			'intro'  => __( 'Your site\'s own pages, and the texts of the lists, the 404 page, and the search page. The legal pages are needed for AdSense and affiliate programmes.', 'natura' ),
+			'fields' => array(
+				'natura_page_about'       => array(
+					'type'  => 'page',
+					'label' => __( 'About page', 'natura' ),
+					'help'  => __( 'Linked from the footer and from "Who writes Natura".', 'natura' ),
+				),
+				'natura_page_editorial'   => array(
+					'type'  => 'page',
+					'label' => __( 'How we write and test', 'natura' ),
+					'help'  => __( 'Your editorial policy: how guides are written, checked, and updated.', 'natura' ),
+				),
+				'natura_page_contact'     => array(
+					'type'  => 'page',
+					'label' => __( 'Contact page', 'natura' ),
+				),
+				'natura_page_privacy'     => array(
+					'type'  => 'page',
+					'label' => __( 'Privacy policy', 'natura' ),
+					'help'  => __( 'Required by AdSense and by the GDPR.', 'natura' ),
+				),
+				'natura_page_legal'       => array(
+					'type'  => 'page',
+					'label' => __( 'Legal notice', 'natura' ),
+				),
+				'natura_page_disclosure'  => array(
+					'type'  => 'page',
+					'label' => __( 'Affiliate disclosure', 'natura' ),
+					'help'  => __( 'Linked from every affiliate notice ("How we choose products").', 'natura' ),
+				),
+				'natura_intro_plants'     => array(
+					'type'  => 'textarea',
+					'label' => __( 'Plants list: introduction', 'natura' ),
+					'help'  => __( 'Also its description for Google. A plant type with its own description uses that instead.', 'natura' ),
+				),
+				'natura_intro_problems'   => array(
+					'type'  => 'textarea',
+					'label' => __( 'Plant problems list: introduction', 'natura' ),
+				),
+				'natura_intro_plant_care' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Plant Care page: introduction', 'natura' ),
+				),
+				'care_problems'           => $switch( __( 'Plant Care page: What is wrong with your plant?', 'natura' ), __( 'The dark panel with the problem guides.', 'natura' ) ),
+				'care_checks'             => $switch( __( 'Plant Care page: Three checks', 'natura' ), __( 'The three checks before treating anything.', 'natura' ) ),
+				'list_problem_band'       => $switch( __( 'Plant looking unwell? band', 'natura' ), __( 'Under the plant list, towards the problem guides.', 'natura' ) ),
+				'natura_404_title'        => array(
+					'type'  => 'text',
+					'label' => __( 'Page not found: title', 'natura' ),
+				),
+				'natura_404_text'         => array(
+					'type'  => 'textarea',
+					'label' => __( 'Page not found: text', 'natura' ),
+				),
+				'natura_search_empty'     => array(
+					'type'  => 'textarea',
+					'label' => __( 'Search with no result: text', 'natura' ),
+				),
 			),
 		),
 		'pinterest'  => array(
@@ -181,6 +248,71 @@ function natura_option_tabs(): array {
 			'fields' => array(
 				'home_picks'     => $switch( __( 'Our picks (home page)', 'natura' ), __( 'Three products from the guides\' shopping lists, with the affiliate notice.', 'natura' ) ),
 				'guide_products' => $switch( __( 'What you need (guides)', 'natura' ), __( 'The shopping list after section 2, and the affiliate notice at the top.', 'natura' ) ),
+			),
+		),
+		'footer'     => array(
+			'title'  => __( 'Footer & social', 'natura' ),
+			'icon'   => 'dashicons-share',
+			'intro'  => __( 'The footer text and your profiles on social networks. Profiles also tell Google which accounts belong to the site.', 'natura' ),
+			'fields' => array(
+				'natura_footer_text'      => array(
+					'type'  => 'textarea',
+					'label' => __( 'Footer text', 'natura' ),
+					'help'  => __( 'One or two sentences under the logo: what the site is about.', 'natura' ),
+				),
+				'natura_social_instagram' => array(
+					'type'        => 'url',
+					'label'       => __( 'Instagram', 'natura' ),
+					'placeholder' => 'https://www.instagram.com/yourname/',
+				),
+				'natura_social_youtube'   => array(
+					'type'        => 'url',
+					'label'       => __( 'YouTube', 'natura' ),
+					'placeholder' => 'https://www.youtube.com/@yourname',
+				),
+				'natura_social_facebook'  => array(
+					'type'        => 'url',
+					'label'       => __( 'Facebook', 'natura' ),
+					'placeholder' => 'https://www.facebook.com/yourpage',
+				),
+				'natura_social_tiktok'    => array(
+					'type'        => 'url',
+					'label'       => __( 'TikTok', 'natura' ),
+					'placeholder' => 'https://www.tiktok.com/@yourname',
+				),
+				'site_footer_social'      => $switch( __( 'Social links in the footer', 'natura' ), __( 'Pinterest is set in the Pinterest tab.', 'natura' ) ),
+			),
+		),
+		'seo'        => array(
+			'title'  => __( 'SEO & Google', 'natura' ),
+			'icon'   => 'dashicons-search',
+			'intro'  => __( 'Prove to Google and Bing that the site is yours, and measure visits. Titles, descriptions, Open Graph, breadcrumbs, and structured data are written by the theme (or by an SEO plugin if you install one).', 'natura' ),
+			'fields' => array(
+				'natura_google_verify' => array(
+					'type'  => 'gverify',
+					'label' => __( 'Google Search Console verification', 'natura' ),
+					'help'  => __( 'Search Console → Add property → URL prefix → "HTML tag". Paste the tag or only the code. Then submit your sitemap: /wp-sitemap.xml.', 'natura' ),
+				),
+				'natura_bing_verify'   => array(
+					'type'  => 'bverify',
+					'label' => __( 'Bing Webmaster Tools verification', 'natura' ),
+					'help'  => __( 'Bing also powers DuckDuckGo and Yahoo. Paste the tag or only the code.', 'natura' ),
+				),
+				'natura_ga4_id'        => array(
+					'type'        => 'ga4',
+					'label'       => __( 'Google Analytics measurement ID', 'natura' ),
+					'help'        => __( 'Analytics → Admin → Data streams. Visits by logged-in editors are not counted.', 'natura' ),
+					'placeholder' => 'G-XXXXXXXXXX',
+				),
+				'natura_ga4_consent'   => array(
+					'type'    => 'select',
+					'label'   => __( 'Analytics and visitor consent', 'natura' ),
+					'help'    => __( 'With Google consent mode, no analytics cookie is set until the visitor accepts in a consent banner (AdSense → Privacy & messaging, or a certified consent plugin). Without a banner, Google only receives anonymous, cookieless pings.', 'natura' ),
+					'choices' => array(
+						'eu'  => __( 'Ask for consent in the EU, UK, and Switzerland (recommended)', 'natura' ),
+						'all' => __( 'Ask for consent everywhere', 'natura' ),
+					),
+				),
 			),
 		),
 		'ads'        => array(
@@ -294,12 +426,40 @@ function natura_sanitize_option( string $type, $value ) {
 			return natura_sanitize_ad_id( $value );
 		case 'pincode':
 			return natura_sanitize_pinterest_code( $value );
+		case 'page':
+			$page = absint( $value );
+			return ( $page && 'page' === get_post_type( $page ) ) ? $page : 0;
+		case 'select':
+			return $value; // Checked against the field's choices in natura_save_options().
+		case 'gverify':
+			return natura_sanitize_verification( $value, '[A-Za-z0-9_-]{20,100}' );
+		case 'bverify':
+			return strtoupper( natura_sanitize_verification( $value, '[A-Fa-f0-9]{32}' ) );
+		case 'ga4':
+			$value = strtoupper( trim( $value ) );
+			return preg_match( '/^G-[A-Z0-9]{4,16}$/', $value ) ? $value : '';
 		case 'color':
 			$color = (string) sanitize_hex_color( $value );
 			return ( '' !== $color && natura_contrast_with_white( $color ) >= 4.5 ) ? strtolower( $color ) : '';
 		default:
 			return sanitize_text_field( $value );
 	}
+}
+
+/**
+ * Keeps only the code of a search engine's verification tag, even when the
+ * whole <meta> tag was pasted.
+ *
+ * @param string $value   Pasted value.
+ * @param string $pattern Allowed code, as a regular expression fragment.
+ */
+function natura_sanitize_verification( string $value, string $pattern ): string {
+	$value = trim( $value );
+	if ( preg_match( '/content=["\']?(' . $pattern . ')["\'\s\/>]/', $value, $match ) ) {
+		return $match[1];
+	}
+
+	return preg_match( '/^' . $pattern . '$/', $value ) ? $value : '';
 }
 
 /**
@@ -381,6 +541,9 @@ function natura_save_options( array $fields, array $input ): void {
 			continue;
 		}
 		$value = natura_sanitize_option( $field['type'], $input[ $key ] );
+		if ( 'select' === $field['type'] && ! isset( $field['choices'][ $value ] ) ) {
+			continue;
+		}
 		if ( 'switch' === $field['type'] ) {
 			$sections[ $key ] = $value;
 		} elseif ( '' === $value || 0 === $value ) {
@@ -634,6 +797,21 @@ function natura_setup_checklist(): array {
 			'tab'   => 'newsletter',
 		),
 		array(
+			'done'  => '' !== natura_home_setting( 'natura_google_verify' ),
+			'label' => __( 'Google Search Console verification', 'natura' ),
+			'tab'   => 'seo',
+		),
+		array(
+			'done'  => (bool) absint( get_theme_mod( 'natura_page_privacy' ) ),
+			'label' => __( 'Privacy policy page (needed for AdSense)', 'natura' ),
+			'tab'   => 'pages',
+		),
+		array(
+			'done'  => (bool) absint( get_theme_mod( 'natura_page_about' ) ),
+			'label' => __( 'About page', 'natura' ),
+			'tab'   => 'pages',
+		),
+		array(
 			'done'  => natura_ads_enabled(),
 			'label' => __( 'AdSense publisher ID and ad unit', 'natura' ),
 			'tab'   => 'ads',
@@ -661,7 +839,7 @@ function natura_option_value( string $key, string $type ) {
  * Prints one field row.
  *
  * @param string                                                         $key   Field key.
- * @param array{type: string, label: string, help?: string, placeholder?: string} $field Field.
+ * @param array{type: string, label: string, help?: string, placeholder?: string, choices?: array<string, string>} $field Field.
  */
 function natura_render_option_field( string $key, array $field ): void {
 	$value = natura_option_value( $key, $field['type'] );
@@ -691,6 +869,27 @@ function natura_render_option_field( string $key, array $field ): void {
 						<label for="<?php echo esc_attr( $id ); ?>-off"><?php esc_html_e( 'Hide', 'natura' ); ?></label>
 					</div>
 					<?php
+					break;
+				case 'page':
+					wp_dropdown_pages(
+						array(
+							'name'              => esc_attr( $name ),
+							'id'                => esc_attr( $id ),
+							'selected'          => absint( $value ),
+							'show_option_none'  => esc_html__( '— Not chosen yet —', 'natura' ),
+							'option_none_value' => '0',
+						)
+					);
+					if ( ! absint( $value ) ) {
+						printf( ' <a href="%1$s">%2$s</a>', esc_url( admin_url( 'post-new.php?post_type=page' ) ), esc_html__( 'Create the page', 'natura' ) );
+					}
+					break;
+				case 'select':
+					printf( '<select id="%1$s" name="%2$s">', esc_attr( $id ), esc_attr( $name ) );
+					foreach ( $field['choices'] ?? array() as $choice => $choice_label ) {
+						printf( '<option value="%1$s"%2$s>%3$s</option>', esc_attr( $choice ), selected( $value, $choice, false ), esc_html( $choice_label ) );
+					}
+					echo '</select>';
 					break;
 				case 'color':
 					printf(
@@ -1140,3 +1339,56 @@ add_action(
 	},
 	20
 );
+
+/**
+ * Search engine verification tags (Google Search Console, Bing), on every
+ * page; the engines check the home page.
+ */
+add_action(
+	'wp_head',
+	static function (): void {
+		$tags = array(
+			'google-site-verification' => natura_sanitize_verification( natura_home_setting( 'natura_google_verify' ), '[A-Za-z0-9_-]{20,100}' ),
+			'msvalidate.01'            => natura_sanitize_verification( natura_home_setting( 'natura_bing_verify' ), '[A-Fa-f0-9]{32}' ),
+		);
+		foreach ( array_filter( $tags ) as $name => $code ) {
+			printf( '<meta name="%1$s" content="%2$s">' . "\n", esc_attr( $name ), esc_attr( $code ) );
+		}
+	},
+	1
+);
+
+/**
+ * Google Analytics 4 with Google consent mode: storage is denied until the
+ * visitor accepts in a consent banner, in the EU, UK and Switzerland (or
+ * everywhere). Logged-in editors are not counted.
+ */
+add_action(
+	'wp_head',
+	static function (): void {
+		$id = strtoupper( trim( natura_home_setting( 'natura_ga4_id' ) ) );
+		if ( ! preg_match( '/^G-[A-Z0-9]{4,16}$/', $id ) || current_user_can( 'edit_posts' ) ) {
+			return;
+		}
+		$denied = array(
+			'ad_storage'         => 'denied',
+			'ad_user_data'       => 'denied',
+			'ad_personalization' => 'denied',
+			'analytics_storage'  => 'denied',
+			'wait_for_update'    => 500,
+		);
+		if ( 'all' !== natura_home_setting( 'natura_ga4_consent' ) ) {
+			// EEA, UK, Switzerland.
+			$denied['region'] = array( 'AT', 'BE', 'BG', 'HR', 'CY', 'CZ', 'DK', 'EE', 'FI', 'FR', 'DE', 'GR', 'HU', 'IS', 'IE', 'IT', 'LV', 'LI', 'LT', 'LU', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'SK', 'SI', 'ES', 'SE', 'GB', 'CH' );
+		}
+		printf(
+			'<script async src="%1$s"></script>' . "\n" .
+			'<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("consent","default",%2$s);gtag("js",new Date());gtag("config",%3$s);</script>' . "\n",
+			esc_url( 'https://www.googletagmanager.com/gtag/js?id=' . rawurlencode( $id ) ),
+			wp_json_encode( $denied ),
+			wp_json_encode( $id )
+		);
+	},
+	2
+);
+

@@ -58,7 +58,7 @@ $natura_checks       = array(
 
 		<?php natura_the_topic_chips(); ?>
 
-		<?php if ( $natura_has_problems ) : ?>
+		<?php if ( $natura_has_problems && natura_section_enabled( 'care_problems' ) ) : ?>
 			<section class="doctor-panel" aria-labelledby="care-doctor-title">
 				<div class="doctor-intro">
 					<p class="tag tag-dark"><?php natura_the_icon( 'lens' ); ?> <?php esc_html_e( 'Find the cause', 'natura' ); ?></p>
@@ -99,6 +99,7 @@ $natura_checks       = array(
 			</section>
 		<?php endif; ?>
 
+		<?php if ( natura_section_enabled( 'care_checks' ) ) : ?>
 		<section class="checks-panel" aria-labelledby="care-checks-title">
 			<div class="checks-intro">
 				<p class="label"><?php esc_html_e( 'Before you treat anything', 'natura' ); ?></p>
@@ -118,6 +119,7 @@ $natura_checks       = array(
 				<?php endforeach; ?>
 			</ol>
 		</section>
+		<?php endif; ?>
 
 		<?php if ( $natura_has_problems ) : ?>
 			<?php echo natura_ad_slot( __( 'Plant Care, after the checks', 'natura' ), 'in-content', 'ads_lists' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>

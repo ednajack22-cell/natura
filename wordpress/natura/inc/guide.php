@@ -40,7 +40,7 @@ function natura_guide_pin_image_id(): int {
  * Address of the affiliate disclosure page.
  */
 function natura_disclosure_url(): string {
-	return home_url( '/commercial-disclosure/' );
+	return natura_page_url( 'disclosure', '/commercial-disclosure/' );
 }
 
 /**
@@ -143,7 +143,10 @@ function natura_the_guide_photo(): void {
  * @param array<int, array{id: string, title: string}> $toc Sections.
  */
 function natura_the_guide_toc( array $toc ): void {
-	if ( natura_field_list( 'faq' ) ) {
+	if ( ! natura_section_enabled( 'guide_toc' ) ) {
+		return;
+	}
+	if ( natura_field_list( 'faq' ) && natura_section_enabled( 'guide_faq' ) ) {
 		$toc[] = array(
 			'id'    => 'plant-faq',
 			'title' => __( 'Questions & answers', 'natura' ),

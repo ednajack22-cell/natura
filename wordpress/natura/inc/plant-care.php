@@ -36,19 +36,19 @@ function natura_problems_url(): string {
  * Introduction of the section page, also its meta description.
  */
 function natura_plant_care_intro(): string {
-	return __( 'Keep container plants healthy: find out why a plant is struggling, then learn the watering, feeding, and positioning habits that prevent it.', 'natura' );
+	return natura_home_setting( 'natura_intro_plant_care' );
 }
 
 /**
  * Introduction of the problem guide list, also its meta description.
  */
 function natura_problems_intro(): string {
-	return __( 'Yellow leaves, wilting, pests, and fruit that will not ripen: each guide lists the likely causes, how to tell them apart, and what to do.', 'natura' );
+	return natura_home_setting( 'natura_intro_problems' );
 }
 
 add_filter(
 	'natura_archive_description',
-	static fn( string $text, string $type ): string => 'problem' === $type ? natura_problems_intro() : $text,
+	static fn( string $text, string $type ): string => 'problem' === $type ? natura_problems_intro() : ( 'plant' === $type ? natura_home_setting( 'natura_intro_plants' ) : $text ),
 	10,
 	2
 );

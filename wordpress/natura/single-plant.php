@@ -51,7 +51,7 @@ while ( have_posts() ) :
 			<article <?php post_class( 'guide-main' ); ?>>
 				<?php natura_the_guide_photo(); ?>
 
-				<?php if ( $natura_facts ) : ?>
+				<?php if ( $natura_facts && natura_section_enabled( 'guide_glance' ) ) : ?>
 					<section class="glance" aria-labelledby="glance-title">
 						<h2 id="glance-title"><?php esc_html_e( 'At a glance', 'natura' ); ?></h2>
 						<dl class="glance-facts">

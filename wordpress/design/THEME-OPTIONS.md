@@ -81,6 +81,19 @@ contourne la licence et télécharge des modèles depuis un site tiers sans
 vérification du certificat. À ne jamais installer sur un site ; la licence
 officielle s'achète sur ThemeForest.
 
+## Couverture du site (17 octobre 2026)
+
+Natura Options couvre maintenant chaque partie du site déjà construite :
+accueil, fiches, listes, page Plant Care, page 404, recherche, en-tête, pied
+de page, pages légales, Pinterest, affiliation, publicités, newsletter,
+Google (Search Console, Bing, Analytics). Les sources des fiches n'ont
+volontairement pas d'interrupteur : chaque fiche doit les afficher
+(AGENTS.md). Une FAQ masquée disparaît aussi des données structurées : Google
+interdit les questions invisibles pour les lecteurs.
+
+Les onglets du calendrier, du Plant finder, de Gear et de DIY seront ajoutés
+avec ces pages.
+
 ## Écarté, et pourquoi
 
 - **Constructeur d'en-tête et de pied de page** (Kadence, Astra, Blocksy) :

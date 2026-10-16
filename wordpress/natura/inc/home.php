@@ -31,6 +31,24 @@ function natura_home_defaults(): array {
 		'natura_author_bio'       => '',
 		'natura_author_photo'     => '',
 		'natura_author_url'       => '/about/',
+		// Footer and social profiles.
+		'natura_footer_text'      => __( 'Independent, source-aware gardening guidance for balconies, patios, containers, and indoor spaces.', 'natura' ),
+		'natura_social_instagram' => '',
+		'natura_social_youtube'   => '',
+		'natura_social_facebook'  => '',
+		'natura_social_tiktok'    => '',
+		// Google and other search engines.
+		'natura_google_verify'    => '',
+		'natura_bing_verify'      => '',
+		'natura_ga4_id'           => '',
+		'natura_ga4_consent'      => 'eu',
+		// Texts of the lists and of the 404 and search pages.
+		'natura_intro_plants'     => __( 'Growing guides for balconies, patios, and windowsills: what each plant needs, and how to get a good harvest.', 'natura' ),
+		'natura_intro_problems'   => __( 'Yellow leaves, wilting, pests, and fruit that will not ripen: each guide lists the likely causes, how to tell them apart, and what to do.', 'natura' ),
+		'natura_intro_plant_care' => __( 'Keep container plants healthy: find out why a plant is struggling, then learn the watering, feeding, and positioning habits that prevent it.', 'natura' ),
+		'natura_404_title'        => __( 'This page has not grown yet.', 'natura' ),
+		'natura_404_text'         => __( 'The link may be old, or the section is still being written. Try a search, or start from the plant guides.', 'natura' ),
+		'natura_search_empty'     => __( 'No guide matches this search yet. Try a plant name (basil, tomato) or what you can see (yellow leaves).', 'natura' ),
 	);
 }
 
@@ -239,6 +257,10 @@ function natura_home_author(): ?array {
 	}
 
 	$url = natura_home_setting( 'natura_author_url' );
+	// Left at the default: the About page chosen in Natura Options → Pages, if any.
+	if ( '/about/' === $url ) {
+		$url = natura_page_url( 'about', '/about/' );
+	}
 	if ( str_starts_with( $url, '/' ) ) {
 		$url = home_url( $url );
 	}
@@ -249,6 +271,39 @@ function natura_home_author(): ?array {
 		'bio'   => $bio,
 		'photo' => absint( get_theme_mod( 'natura_author_photo' ) ),
 		'url'   => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
+	);
+}
+
+/**
+ * Address of one of the site's own pages (About, Privacy…): the page chosen
+ * in Natura Options → Pages, or the usual address while none is chosen.
+ *
+ * @param string $key      Page key: about, editorial, contact, privacy, legal, disclosure.
+ * @param string $fallback Address used while no page is chosen, e.g. /about/.
+ */
+function natura_page_url( string $key, string $fallback ): string {
+	$id = absint( get_theme_mod( 'natura_page_' . $key ) );
+	if ( $id && 'publish' === get_post_status( $id ) ) {
+		return (string) get_permalink( $id );
+	}
+
+	return home_url( $fallback );
+}
+
+/**
+ * Profile addresses set in Natura Options, by network, Pinterest first.
+ *
+ * @return array<string, string>
+ */
+function natura_social_profiles(): array {
+	return array_filter(
+		array(
+			'Pinterest' => natura_home_setting( 'natura_pinterest_url' ),
+			'Instagram' => natura_home_setting( 'natura_social_instagram' ),
+			'YouTube'   => natura_home_setting( 'natura_social_youtube' ),
+			'Facebook'  => natura_home_setting( 'natura_social_facebook' ),
+			'TikTok'    => natura_home_setting( 'natura_social_tiktok' ),
+		)
 	);
 }
 
@@ -363,7 +418,7 @@ function natura_home_structured_data(): string {
 			'name'  => get_bloginfo( 'name' ),
 			'url'   => home_url( '/' ),
 			'logo'  => has_custom_logo() ? wp_get_attachment_image_url( (int) get_theme_mod( 'custom_logo' ), 'full' ) : null,
-			'sameAs' => array_values( array_filter( array( natura_home_setting( 'natura_pinterest_url' ) ) ) ) ?: null,
+			'sameAs' => array_values( natura_social_profiles() ) ?: null,
 		)
 	);
 

@@ -47,7 +47,7 @@ if ( $natura_current_type ) {
 				echo esc_html(
 					$natura_current_type && $natura_current_type->description
 						? $natura_current_type->description
-						: __( 'Growing guides for balconies, patios, and windowsills: what each plant needs, and how to get a good harvest.', 'natura' )
+						: natura_home_setting( 'natura_intro_plants' )
 				);
 				?>
 			</p>

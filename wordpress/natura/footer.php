@@ -18,7 +18,7 @@ $natura_legal   = natura_menu_tree( 'legal' );
 					<span class="brand-mark"><?php natura_the_icon( 'leaf' ); ?></span>
 					<span class="brand-text"><span class="brand-name"><?php bloginfo( 'name' ); ?></span></span>
 				</a>
-				<p><?php esc_html_e( 'Independent, source-aware gardening guidance for balconies, patios, containers, and indoor spaces.', 'natura' ); ?></p>
+				<p><?php echo esc_html( natura_home_setting( 'natura_footer_text' ) ); ?></p>
 				<?php $natura_pin_profile = natura_section_enabled( 'site_footer_follow' ) ? natura_home_setting( 'natura_pinterest_url' ) : ''; ?>
 				<?php if ( $natura_pin_profile ) : ?>
 					<a class="pin-button footer-follow" href="<?php echo esc_url( $natura_pin_profile ); ?>" target="_blank" rel="noopener me">
@@ -26,6 +26,14 @@ $natura_legal   = natura_menu_tree( 'legal' );
 						<span><?php esc_html_e( 'Follow us on Pinterest', 'natura' ); ?></span>
 						<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'natura' ); ?></span>
 					</a>
+				<?php endif; ?>
+				<?php $natura_profiles = natura_section_enabled( 'site_footer_social' ) ? array_diff_key( natura_social_profiles(), array( 'Pinterest' => '' ) ) : array(); ?>
+				<?php if ( $natura_profiles ) : ?>
+					<ul class="footer-social" aria-label="<?php esc_attr_e( 'Natura on social networks', 'natura' ); ?>">
+						<?php foreach ( $natura_profiles as $natura_network => $natura_profile ) : ?>
+							<li><a href="<?php echo esc_url( $natura_profile ); ?>" target="_blank" rel="noopener me"><?php echo esc_html( $natura_network ); ?><span class="screen-reader-text"> <?php esc_html_e( '(opens in a new tab)', 'natura' ); ?></span></a></li>
+						<?php endforeach; ?>
+					</ul>
 				<?php endif; ?>
 			</div>
 			<?php foreach ( $natura_columns as $natura_column ) : ?>

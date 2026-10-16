@@ -334,7 +334,8 @@ function natura_structured_data( array $trail ): string {
 		$graph[] = natura_breadcrumb_data( $trail );
 	}
 
-	$faq = natura_field_list( 'faq' );
+	// Only questions readers can see: Google's rules forbid hidden FAQ data.
+	$faq = natura_section_enabled( 'guide_faq' ) ? natura_field_list( 'faq' ) : array();
 	if ( $faq ) {
 		$graph[] = array(
 			'@type'      => 'FAQPage',
@@ -411,7 +412,8 @@ add_action(
  * Prints the FAQ and sources of the current guide.
  */
 function natura_the_faq_and_sources(): void {
-	$faq     = natura_field_list( 'faq' );
+	// Sources always show: every guide must cite them (AGENTS.md).
+	$faq     = natura_section_enabled( 'guide_faq' ) ? natura_field_list( 'faq' ) : array();
 	$sources = natura_field_list( 'sources' );
 
 	if ( $faq ) :

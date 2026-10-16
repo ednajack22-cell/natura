@@ -998,3 +998,6 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .home-ad:not(:has(.ad-slot)) { display: none; }
 .home-season + .home-ad:not(:has(.ad-slot)) + .home-doctor { margin-top: 0; }
 .footer-follow { margin-top: 1.25rem; min-height: 44px; border-radius: 999px; }
+.footer-social { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.footer-social a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 1rem; border: 1px solid rgba(255, 255, 255, .3); border-radius: 999px; color: #dfe9e2; font-size: .9375rem; }
+.footer-social a:hover { border-color: white; color: white; }

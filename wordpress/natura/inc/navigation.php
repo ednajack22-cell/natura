@@ -124,12 +124,12 @@ function natura_default_footer_menu(): array {
 		),
 		natura_menu_entry(
 			__( 'About Natura', 'natura' ),
-			'/about/',
+			natura_page_url( 'about', '/about/' ),
 			'',
 			array(
-				natura_menu_entry( __( 'About us', 'natura' ), '/about/' ),
-				natura_menu_entry( __( 'How we write and test', 'natura' ), '/editorial-policy/' ),
-				natura_menu_entry( __( 'Contact', 'natura' ), '/contact/' ),
+				natura_menu_entry( __( 'About us', 'natura' ), natura_page_url( 'about', '/about/' ) ),
+				natura_menu_entry( __( 'How we write and test', 'natura' ), natura_page_url( 'editorial', '/editorial-policy/' ) ),
+				natura_menu_entry( __( 'Contact', 'natura' ), natura_page_url( 'contact', '/contact/' ) ),
 			)
 		),
 	);
@@ -140,9 +140,9 @@ function natura_default_footer_menu(): array {
  */
 function natura_default_legal_menu(): array {
 	return array(
-		natura_menu_entry( __( 'Privacy', 'natura' ), '/privacy-policy/' ),
-		natura_menu_entry( __( 'Legal notice', 'natura' ), '/legal-notice/' ),
-		natura_menu_entry( __( 'Affiliate disclosure', 'natura' ), '/commercial-disclosure/' ),
+		natura_menu_entry( __( 'Privacy', 'natura' ), natura_page_url( 'privacy', '/privacy-policy/' ) ),
+		natura_menu_entry( __( 'Legal notice', 'natura' ), natura_page_url( 'legal', '/legal-notice/' ) ),
+		natura_menu_entry( __( 'Affiliate disclosure', 'natura' ), natura_disclosure_url() ),
 	);
 }
 
@@ -174,7 +174,7 @@ function natura_menu_tree( string $location ): array {
 	foreach ( $items as $item ) {
 		$entry = array(
 			'title'       => $item->title,
-			'url'         => $item->url,
+			'url'         => natura_follow_chosen_page( (string) $item->url ),
 			'description' => trim( (string) $item->description ),
 			'children'    => array(),
 		);
@@ -193,6 +193,32 @@ function natura_menu_tree( string $location ): array {
 	}
 
 	return array_values( $tree );
+}
+
+/**
+ * Menu links still on the address the theme created them with (/about/,
+ * /privacy-policy/…) follow the page chosen in Natura Options → Pages, so a
+ * page with another address does not leave a broken link. Links an editor
+ * changed are left alone.
+ *
+ * @param string $url Menu item address.
+ */
+function natura_follow_chosen_page( string $url ): string {
+	$defaults = array(
+		'/about/'                 => 'about',
+		'/editorial-policy/'      => 'editorial',
+		'/contact/'               => 'contact',
+		'/privacy-policy/'        => 'privacy',
+		'/legal-notice/'          => 'legal',
+		'/commercial-disclosure/' => 'disclosure',
+	);
+	$path = (string) wp_parse_url( $url, PHP_URL_PATH );
+	$host = wp_parse_url( $url, PHP_URL_HOST );
+	if ( isset( $defaults[ $path ] ) && ( ! $host || wp_parse_url( home_url(), PHP_URL_HOST ) === $host ) ) {
+		return natura_page_url( $defaults[ $path ], $path );
+	}
+
+	return $url;
 }
 
 /**
@@ -434,7 +460,7 @@ function natura_add_menu_entries( int $menu_id, array $tree, int $parent_id ): v
 			0,
 			array(
 				'menu-item-title'       => $entry['title'],
-				'menu-item-url'         => home_url( $entry['url'] ),
+				'menu-item-url'         => str_starts_with( $entry['url'], '/' ) ? home_url( $entry['url'] ) : $entry['url'],
 				'menu-item-description' => $entry['description'],
 				'menu-item-parent-id'   => $parent_id,
 				'menu-item-type'        => 'custom',

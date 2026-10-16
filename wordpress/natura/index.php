@@ -48,7 +48,7 @@ get_header();
 			<?php the_posts_pagination(); ?>
 		<?php endif; ?>
 	<?php else : ?>
-		<p class="empty-state"><?php esc_html_e( 'Nothing here yet.', 'natura' ); ?></p>
+		<p class="empty-state"><?php echo is_search() ? esc_html( natura_home_setting( 'natura_search_empty' ) ) : esc_html__( 'Nothing here yet.', 'natura' ); ?></p>
 		<?php get_search_form(); ?>
 	<?php endif; ?>
 </main>
