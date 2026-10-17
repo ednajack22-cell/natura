@@ -298,6 +298,32 @@ Apparence → Menus :
 - dans « Footer columns », chaque élément de premier niveau devient un titre de
   colonne, et ses sous-éléments les liens de la colonne.
 
+## Publier les fiches prêtes (Outils → Natura starter guides)
+
+L'extension contient des fiches terminées, écrites en anglais à partir de
+sources citées : la RHS, et les livres décrits dans `design/sources/`.
+
+1. Mettez à jour l'extension `natura-core` (téléversez le nouveau zip).
+2. WordPress → Outils → **Natura starter guides** : la liste montre chaque
+   fiche et si elle est déjà sur votre site.
+3. Cliquez **Import as draft** sur une fiche, ou importez toutes les fiches
+   manquantes en une fois. Chaque fiche arrive en **brouillon**.
+4. Ouvrez le brouillon et ajoutez :
+   - votre photo principale ;
+   - l'image Pinterest ;
+   - vos liens affiliés dans « What you need ».
+5. Relisez le texte, puis cliquez **Publier**.
+
+Une fiche déjà présente sur le site, en brouillon ou publiée, n'est jamais
+modifiée. Seuls les éditeurs et les administrateurs voient cet écran.
+L'onglet Content health de Natura Options montre ce qu'il manque encore à
+chaque fiche.
+
+Nouvelles fiches : chaque lot est un fichier dans
+`natura-core/includes/starter/`. Les fiches de démonstration (tomate,
+basilic, fraisier, etc.) en font aussi partie. Elles arrivent sans les
+photos de démonstration et sans les liens `example.com`.
+
 ## Contenu de démonstration
 
 Les liens affiliés de démonstration pointent vers `example.com` : ils servent

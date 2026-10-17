@@ -13,7 +13,7 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Creates the demo guides.
+ * Creates the demo guides, published, with their photos.
  *
  * @param string $image_base Folder or URL holding cherry-tomato.jpg,
  *                           genovese-basil.jpg and balcony-strawberry.jpg.
@@ -24,214 +24,32 @@ function natura_core_import_demo( string $image_base ): array {
 	require_once ABSPATH . 'wp-admin/includes/file.php';
 	require_once ABSPATH . 'wp-admin/includes/image.php';
 
-	// The sun and space terms the demo guides are filed under.
-	natura_core_plant_data_activate();
-
-	$created = array();
-	$admins  = get_users(
+	$admins = get_users(
 		array(
 			'role'   => 'administrator',
 			'number' => 1,
 			'fields' => 'ID',
 		)
 	);
-	$author  = $admins ? (int) $admins[0] : 0;
+	$author = $admins ? (int) $admins[0] : 0;
 
-	foreach ( natura_core_demo_plants() as $slug => $plant ) {
-		if ( get_page_by_path( $slug, OBJECT, 'plant' ) ) {
-			continue;
-		}
-
-		$post_id = wp_insert_post(
-			array(
-				'post_type'    => 'plant',
-				'post_status'  => 'publish',
-				'post_author'  => $author,
-				'post_name'    => $slug,
-				'post_title'   => $plant['title'],
-				'post_excerpt' => $plant['excerpt'],
-				'post_content' => $plant['content'],
-			),
-			true
-		);
-		if ( is_wp_error( $post_id ) ) {
-			continue;
-		}
-
-		wp_set_object_terms( $post_id, $plant['type'], 'plant_type' );
-		foreach ( array( 'sun' => 'plant_sun', 'space' => 'plant_space' ) as $key => $taxonomy ) {
-			if ( ! empty( $plant[ $key ] ) && taxonomy_exists( $taxonomy ) ) {
-				wp_set_object_terms( $post_id, $plant[ $key ], $taxonomy );
-			}
-		}
-
-		foreach ( $plant['facts'] as $key => $value ) {
-			update_post_meta( $post_id, natura_core_meta_key( $key ), $value );
-		}
-		natura_core_demo_save_fields( $post_id, $plant['lists'], $plant['pin'] ?? '', $image_base );
-
-		foreach ( $plant['months'] ?? array() as $activity => $months ) {
-			natura_core_set_plant_months( $post_id, $activity, $months );
-		}
-
-		natura_core_demo_set_photo( $post_id, $plant, $image_base );
-
-		$created[] = $post_id;
-	}
-
-	return array_merge( $created, natura_core_import_demo_care( $image_base ) );
-}
-
-/**
- * Creates the demo problem guides and Plant Care articles. Run after the
- * plant guides, so problems can link to the plants they affect.
- *
- * @param string $image_base Image folder or URL.
- * @return int[] IDs of the posts created.
- */
-function natura_core_import_demo_care( string $image_base ): array {
-	$created = array();
-	$admins  = get_users(
-		array(
-			'role'   => 'administrator',
-			'number' => 1,
-			'fields' => 'ID',
-		)
+	// Plants first, so problem guides and projects can link to them.
+	$sets = array(
+		'plant'   => natura_core_demo_plants(),
+		'problem' => natura_core_demo_problems(),
+		'post'    => natura_core_demo_articles(),
+		'project' => natura_core_demo_projects(),
+		'gear'    => natura_core_demo_gear(),
 	);
-	$author  = $admins ? (int) $admins[0] : 0;
 
-	foreach ( natura_core_demo_problems() as $slug => $problem ) {
-		if ( get_page_by_path( $slug, OBJECT, 'problem' ) ) {
-			continue;
-		}
-
-		$post_id = wp_insert_post(
-			array(
-				'post_type'    => 'problem',
-				'post_status'  => 'publish',
-				'post_author'  => $author,
-				'post_name'    => $slug,
-				'post_title'   => $problem['title'],
-				'post_excerpt' => $problem['excerpt'],
-				'post_content' => $problem['content'],
-			),
-			true
-		);
-		if ( is_wp_error( $post_id ) ) {
-			continue;
-		}
-
-		natura_core_demo_save_fields( $post_id, $problem['lists'], $problem['pin'] ?? '', $image_base );
-		natura_core_demo_set_photo( $post_id, $problem, $image_base );
-
-		$plant_ids = array();
-		foreach ( $problem['plants'] as $plant_slug ) {
-			$plant = get_page_by_path( $plant_slug, OBJECT, 'plant' );
-			if ( $plant ) {
-				$plant_ids[] = (int) $plant->ID;
+	$created = array();
+	foreach ( $sets as $kind => $guides ) {
+		foreach ( $guides as $slug => $guide ) {
+			$post_id = natura_core_create_guide( $kind, $slug, $guide, 'publish', $image_base, $author );
+			if ( ! is_wp_error( $post_id ) ) {
+				$created[] = $post_id;
 			}
 		}
-		natura_core_set_problem_plants( $post_id, $plant_ids );
-		if ( ! empty( $problem['parts'] ) && taxonomy_exists( 'problem_part' ) ) {
-			wp_set_object_terms( $post_id, $problem['parts'], 'problem_part' );
-		}
-
-		$created[] = $post_id;
-	}
-
-	foreach ( natura_core_demo_articles() as $slug => $article ) {
-		if ( get_page_by_path( $slug, OBJECT, 'post' ) ) {
-			continue;
-		}
-
-		$topic   = get_term_by( 'slug', $article['topic'], 'category' );
-		$post_id = wp_insert_post(
-			array(
-				'post_type'     => 'post',
-				'post_status'   => 'publish',
-				'post_author'   => $author,
-				'post_name'     => $slug,
-				'post_title'    => $article['title'],
-				'post_excerpt'  => $article['excerpt'],
-				'post_content'  => $article['content'],
-				'post_category' => $topic ? array( (int) $topic->term_id ) : array(),
-			),
-			true
-		);
-		if ( is_wp_error( $post_id ) ) {
-			continue;
-		}
-
-		natura_core_demo_save_fields( $post_id, $article['lists'], $article['pin'] ?? '', $image_base );
-		natura_core_demo_set_photo( $post_id, $article, $image_base );
-
-		$created[] = $post_id;
-	}
-
-	foreach ( natura_core_demo_projects() as $slug => $project ) {
-		if ( ! post_type_exists( 'project' ) || get_page_by_path( $slug, OBJECT, 'project' ) ) {
-			continue;
-		}
-		natura_core_projects_activate();
-		$post_id = wp_insert_post(
-			array(
-				'post_type'    => 'project',
-				'post_status'  => 'publish',
-				'post_author'  => $author,
-				'post_name'    => $slug,
-				'post_title'   => $project['title'],
-				'post_excerpt' => $project['excerpt'],
-				'post_content' => $project['content'],
-			),
-			true
-		);
-		if ( is_wp_error( $post_id ) ) {
-			continue;
-		}
-		wp_set_object_terms( $post_id, $project['category'], 'project_category' );
-		foreach ( $project['facts'] as $key => $value ) {
-			update_post_meta( $post_id, natura_core_meta_key( $key ), $value );
-		}
-		natura_core_demo_save_fields( $post_id, $project['lists'], $project['pin'] ?? '', $image_base );
-		natura_core_demo_set_photo( $post_id, $project, $image_base );
-		$plant_ids = array();
-		foreach ( $project['plants'] as $plant_slug ) {
-			$plant = get_page_by_path( $plant_slug, OBJECT, 'plant' );
-			if ( $plant ) {
-				$plant_ids[] = (int) $plant->ID;
-			}
-		}
-		natura_core_set_project_plants( $post_id, $plant_ids );
-
-		$created[] = $post_id;
-	}
-
-	foreach ( natura_core_demo_gear() as $slug => $guide ) {
-		if ( ! post_type_exists( 'gear' ) || get_page_by_path( $slug, OBJECT, 'gear' ) ) {
-			continue;
-		}
-		natura_core_gear_activate();
-		$post_id = wp_insert_post(
-			array(
-				'post_type'    => 'gear',
-				'post_status'  => 'publish',
-				'post_author'  => $author,
-				'post_name'    => $slug,
-				'post_title'   => $guide['title'],
-				'post_excerpt' => $guide['excerpt'],
-				'post_content' => $guide['content'],
-			),
-			true
-		);
-		if ( is_wp_error( $post_id ) ) {
-			continue;
-		}
-		wp_set_object_terms( $post_id, $guide['category'], 'gear_category' );
-		update_post_meta( $post_id, natura_core_meta_key( 'method' ), $guide['method'] );
-		natura_core_demo_save_fields( $post_id, $guide['lists'], $guide['pin'] ?? '', $image_base );
-		natura_core_demo_set_photo( $post_id, $guide, $image_base );
-
-		$created[] = $post_id;
 	}
 
 	return $created;
