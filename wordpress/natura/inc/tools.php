@@ -35,6 +35,13 @@ function natura_tools(): array {
 			'group' => 'care',
 			'icon'  => 'pot',
 		),
+		'watering-calculator' => array(
+			'title' => __( 'Watering routine', 'natura' ),
+			'text'  => __( 'When to check your pots and how to water them, for your season, pots, and spot.', 'natura' ),
+			'needs' => __( 'Your pots\' size and material, and how sunny the spot is', 'natura' ),
+			'group' => 'care',
+			'icon'  => 'drop',
+		),
 		'frost-risk'        => array(
 			'title' => __( 'Frost risk check', 'natura' ),
 			'text'  => __( 'Type tonight\'s forecast low and see which of your plants are below their limit.', 'natura' ),
@@ -154,6 +161,9 @@ function natura_tool_page_title( string $slug ): string {
 	}
 	if ( 'pot-size-calculator' === $slug ) {
 		return __( 'Pot size calculator: how much compost does your pot hold?', 'natura' );
+	}
+	if ( 'watering-calculator' === $slug ) {
+		return __( 'Watering routine: when to water plants in pots', 'natura' );
 	}
 	if ( 'frost-risk' === $slug ) {
 		return __( 'Frost risk check: are my pots safe tonight?', 'natura' );
@@ -768,4 +778,156 @@ function natura_temperature( float $celsius, string $unit ): string {
 	return 'f' === $unit
 		? number_format_i18n( round( $celsius * 9 / 5 + 32 ) ) . ' °F'
 		: number_format_i18n( round( $celsius ) ) . ' °C';
+}
+
+/* ---------------------------------------------------------------------------
+   Watering routine
+   --------------------------------------------------------------------------- */
+
+/**
+ * The routine's questions; every one has an answer, the season defaulting to
+ * the current month.
+ *
+ * @return array<string, array{label: string, hint: string, choices: array<string, string>}>
+ */
+function natura_watering_questions(): array {
+	return array(
+		'season'   => array(
+			'label'   => __( 'Time of year', 'natura' ),
+			'hint'    => '',
+			'choices' => array(
+				'grow'   => __( 'Spring to autumn', 'natura' ),
+				'winter' => __( 'Winter', 'natura' ),
+			),
+		),
+		'size'     => array(
+			'label'   => __( 'Your pots', 'natura' ),
+			'hint'    => __( 'A large pot holds more compost, so it dries out more slowly.', 'natura' ),
+			'choices' => array(
+				'small' => __( 'Mostly small pots', 'natura' ),
+				'large' => __( 'Mostly large pots or troughs', 'natura' ),
+			),
+		),
+		'material' => array(
+			'label'   => __( 'Made of', 'natura' ),
+			'hint'    => '',
+			'choices' => array(
+				'terracotta' => __( 'Unglazed terracotta', 'natura' ),
+				'other'      => __( 'Plastic, glazed, or metal', 'natura' ),
+			),
+		),
+		'sun'      => array(
+			'label'   => __( 'Their spot', 'natura' ),
+			'hint'    => '',
+			'choices' => array(
+				'sun'   => __( 'Full sun', 'natura' ),
+				'shade' => __( 'Some shade', 'natura' ),
+			),
+		),
+		'heat'     => array(
+			'label'   => __( 'The weather now', 'natura' ),
+			'hint'    => '',
+			'choices' => array(
+				'normal' => __( 'Mild', 'natura' ),
+				'hot'    => __( 'Hot spell', 'natura' ),
+			),
+		),
+		'shelter'  => array(
+			'label'   => __( 'Are they under eaves, a balcony above, or against a wall?', 'natura' ),
+			'hint'    => __( 'These spots stay dry when it rains.', 'natura' ),
+			'choices' => array(
+				'no'  => __( 'No, they get the rain', 'natura' ),
+				'yes' => __( 'Yes, rain barely reaches them', 'natura' ),
+			),
+		),
+	);
+}
+
+/**
+ * The answers from the address, each defaulting to its first choice (the
+ * season to this month's).
+ *
+ * @return array<string, string>
+ */
+function natura_watering_answers(): array {
+	$month   = (int) wp_date( 'n' );
+	$answers = array();
+	foreach ( natura_watering_questions() as $key => $question ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only tool.
+		$value           = isset( $_GET[ $key ] ) ? sanitize_key( wp_unslash( (string) $_GET[ $key ] ) ) : '';
+		$default         = 'season' === $key ? ( in_array( $month, array( 11, 12, 1, 2 ), true ) ? 'winter' : 'grow' ) : (string) array_key_first( $question['choices'] );
+		$answers[ $key ] = isset( $question['choices'][ $value ] ) ? $value : $default;
+	}
+
+	return $answers;
+}
+
+/**
+ * The routine for the answers: headed steps, each built only from RHS
+ * advice (Watering; Growing plants in containers). No fixed schedule: the
+ * RHS warns against routines like "once a week".
+ *
+ * @param array<string, string> $a Answers.
+ * @return array<int, array{title: string, points: string[]}>
+ */
+function natura_watering_routine( array $a ): array {
+	$fast  = 'small' === $a['size'] || 'sun' === $a['sun'] || 'terracotta' === $a['material'];
+	$check = array();
+	if ( 'grow' === $a['season'] ) {
+		$check[] = __( 'Check the compost every day.', 'natura' );
+		if ( 'hot' === $a['heat'] ) {
+			$check[] = $fast
+				? __( 'In this heat, check in the morning and again in the evening: small pots in full sun can need water up to twice a day.', 'natura' )
+				: __( 'Hot weather dries every pot faster: check daily without fail.', 'natura' );
+		}
+	} else {
+		$check[] = __( 'Rain is often enough in winter. Check the compost during dry, windy spells.', 'natura' );
+		$check[] = __( 'Take away trays and saucers so pots never stand in water, and raise pots on feet so they drain.', 'natura' );
+	}
+	if ( 'yes' === $a['shelter'] ) {
+		$check[] = __( 'Your pots are in a rain shadow: they need checking even after it rains.', 'natura' );
+	}
+
+	$why = array();
+	if ( 'small' === $a['size'] ) {
+		$why[] = __( 'Small pots hold little compost, so they dry out fastest. Fewer, larger pots are less work.', 'natura' );
+	}
+	if ( 'terracotta' === $a['material'] ) {
+		$why[] = __( 'Unglazed terracotta is porous: it loses water through its sides and dries out faster than plastic.', 'natura' );
+	}
+	if ( 'sun' === $a['sun'] && 'grow' === $a['season'] ) {
+		$why[] = __( 'Full sun dries pots fastest, especially smaller ones.', 'natura' );
+	}
+	if ( 'grow' === $a['season'] ) {
+		$why[] = __( 'A tray or saucer under each pot in summer catches the water that runs through.', 'natura' );
+	}
+
+	$steps = array(
+		array(
+			'title'  => __( 'When to check', 'natura' ),
+			'points' => $check,
+		),
+		array(
+			'title'  => __( 'How to tell if a pot needs water', 'natura' ),
+			'points' => array(
+				__( 'Push a finger into the compost. Water when it is dry 2–3 cm (1 in) below the surface, not before.', 'natura' ),
+				__( 'Avoid a fixed routine such as "once a week": the need changes with the weather and the size of the plant.', 'natura' ),
+			),
+		),
+		array(
+			'title'  => __( 'How to water', 'natura' ),
+			'points' => array(
+				__( 'Water early in the morning if you can: less is lost to evaporation. Evening is the next best time; avoid the heat of the day.', 'natura' ),
+				__( 'Water the compost, not the leaves, slowly and thoroughly, so the whole rootball is moist.', 'natura' ),
+			),
+		),
+	);
+	if ( $why ) {
+		$steps[] = array(
+			'title'  => __( 'Why your pots dry out the way they do', 'natura' ),
+			'points' => $why,
+		);
+	}
+
+	return $steps;
 }

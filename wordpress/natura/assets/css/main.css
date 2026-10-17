@@ -1319,3 +1319,14 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .frost-meaning { display: block; font-size: .875rem; }
 @media (max-width: 479px) { .pot-guides th, .pot-guides td { padding: .6rem .45rem; font-size: .875rem; } }
 .frost-table td .frost-flag { color: white; }
+
+/* Watering routine. */
+.watering-routine h2 { margin-bottom: 1rem; }
+.watering-steps { display: grid; gap: 1rem; max-width: 46rem; margin: 0 0 1.25rem; padding: 0; list-style: none; counter-reset: step; }
+.watering-steps > li { position: relative; padding: 1.25rem 1.25rem 1.25rem 3.75rem; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--card); counter-increment: step; }
+.watering-steps > li::before { position: absolute; top: 1.15rem; left: 1.1rem; display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; color: white; background: var(--forest); font: 600 1rem var(--font-sans); content: counter(step); }
+.watering-steps h3 { margin: .2rem 0 .75rem; font-size: 1.25rem; line-height: 1.25; }
+.watering-steps ul { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+.watering-steps ul li { display: flex; gap: .6rem; font: 400 1.0625rem/1.5 var(--font-serif); }
+.watering-steps ul svg { width: 20px; flex: none; margin-top: .2rem; color: var(--forest); }
+.watering-routine .frost-sources { margin: 0 0 2.5rem; }

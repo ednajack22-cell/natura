@@ -78,12 +78,17 @@ Ordre de construction, chacun avec la même méthode :
    rating », H1a à H7, rempli d'après la page RHS de la plante). Aucune
    marge inventée : l'outil explique pourquoi un pot peut être plus froid
    que la prévision (gel au sol, Met Office) et cite ses deux sources.
-4. **Watering routine** (`/tools/watering-calculator/`) : quand vérifier le
-   terreau selon la taille et la matière du pot, le soleil et la chaleur.
-   Règles tirées de sources citées (RHS, extensions universitaires), sans
-   fréquence inventée.
+4. **Watering routine** (`/tools/watering-calculator/`) : **fait**. Six
+   réponses (saison, taille et matière des pots, soleil, chaleur, pots à
+   l'abri de la pluie) donnent une routine en 4 étapes : quand vérifier,
+   comment savoir, comment arroser, pourquoi ces pots sèchent ainsi. Chaque
+   phrase vient des pages RHS « Watering » et « Growing plants in
+   containers », citées sous la routine (vérifier chaque jour du printemps à
+   l'automne, arroser quand le terreau est sec à 2–3 cm, jusqu'à deux fois
+   par jour par forte chaleur, terre cuite plus rapide que le plastique,
+   arroser le matin, pas de routine fixe « une fois par semaine »).
 5. **Garden planner** (`/tools/garden-planner/`) : à décider avec la
-   propriétaire du site. Un vrai plan demande les dimensions de chaque pot
+   propriétaire du site ; retiré du menu par défaut en attendant. Un vrai plan demande les dimensions de chaque pot
    et beaucoup de JavaScript ; il pourrait être remplacé par un guide des
    dispositions pour petits espaces.
 

@@ -337,6 +337,11 @@ function natura_option_tabs(): array {
 					'type'  => 'textarea',
 					'label' => __( 'Pot size calculator: introduction', 'natura' ),
 				),
+				'tool_watering_calculator'       => $switch( __( 'Watering routine', 'natura' ), __( 'Season, pot size and material, sun, heat, and rain shadow; the routine follows RHS advice.', 'natura' ) ),
+				'natura_tool_intro_watering_calculator' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Watering routine: introduction', 'natura' ),
+				),
 				'tool_frost_risk'                => $switch( __( 'Frost risk check', 'natura' ), __( 'Tonight\'s forecast low against the RHS hardiness rating set in each plant guide\'s Quick facts.', 'natura' ) ),
 				'natura_tool_intro_frost_risk'   => array(
 					'type'  => 'textarea',

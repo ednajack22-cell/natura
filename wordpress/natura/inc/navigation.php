@@ -90,9 +90,8 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Planting calendar', 'natura' ), '/calendar/', __( 'What to sow, plant out, and harvest in pots, month by month.', 'natura' ) ),
 				natura_menu_entry( __( 'Plant finder', 'natura' ), '/tools/plant-finder/', __( 'Which plants suit your light and space.', 'natura' ) ),
 				natura_menu_entry( __( 'Pot size calculator', 'natura' ), '/tools/pot-size-calculator/', __( 'How big a container each plant needs.', 'natura' ) ),
-				natura_menu_entry( __( 'Watering routine', 'natura' ), '/tools/watering-calculator/', __( 'When to check the soil, and how.', 'natura' ) ),
+				natura_menu_entry( __( 'Watering routine', 'natura' ), '/tools/watering-calculator/', __( 'When to check the compost, and how to water.', 'natura' ) ),
 				natura_menu_entry( __( 'Frost risk check', 'natura' ), '/tools/frost-risk/', __( 'Whether tonight\'s low is a risk for your plants.', 'natura' ) ),
-				natura_menu_entry( __( 'Garden planner', 'natura' ), '/tools/garden-planner/', __( 'Lay out a small space you can reach.', 'natura' ) ),
 				natura_menu_entry( __( 'Symptom checker', 'natura' ), '/tools/guided-diagnosis/', __( 'Note what you see before you treat.', 'natura' ) ),
 			)
 		),
