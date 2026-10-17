@@ -165,6 +165,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
 | Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées, **sources** (affichées par défaut ; continuez à les remplir même masquées) |
 | Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
+| Gear | Texte de la page Gear, « How we choose products », et les blocs des guides d'achat (méthode, choix en bref, critères, tableau) |
 | Tools | Texte de la page Tools ; interrupteur et texte de chaque outil (Plant finder…) |
 | Calendar & lists | Introduction du calendrier, note sur le climat, bande des mois, compteurs, tableau de l'année, **travaux du mois** (un champ par mois) ; boutons « By light / By space » des listes et « Suits » des fiches |
 | Pinterest & sharing | Profil, code de vérification du site, les boutons « Save » et « Follow », les bandeaux **Share** (fiches, outils, calendrier, listes) et l'image Pinterest de chaque outil |
@@ -328,6 +329,32 @@ par travail, mois par mois) se règlent dans Natura Options → **Calendar &
 lists**. Vous pouvez ajouter d'autres lieux ou niveaux de lumière dans Plants →
 Sun ou Plants → Growing spaces.
 
+## Gear : guides d'achat
+
+| Adresse | Contenu |
+| --- | --- |
+| `/gear/` | tous les guides d'achat, par catégorie |
+| `/gear/category/compost-feed/` | une catégorie (Pots & planters, Compost & feed, Watering, Tools & supports) |
+| `/gear/best-compost-for-pots/` | un guide d'achat |
+
+**Ajouter un guide** : Administration → **Buying guides** → **Add buying
+guide**. Titre, extrait (la réponse courte), photo, catégorie, puis la case
+**Buying guide** :
+
+1. **How the picks were chosen** : « Tested by us » seulement si vous avez
+   utilisé chaque produit ; sinon « Researched, not tested ». C'est affiché
+   aux lecteurs.
+2. **What to look for** : les critères, chacun avec pourquoi il compte.
+3. **Picks** : un produit par ligne, le meilleur d'abord : « Best for… »,
+   verdict, points forts et faibles (un par ligne), caractéristiques au
+   format `Label: value` (elles remplissent le tableau comparatif), lien de
+   boutique (affilié possible) et photo. **Pas de prix.**
+4. **FAQ** et **sources**.
+
+Le texte de l'éditeur s'affiche après les choix (« How we chose », conseils).
+Natura Options → **Gear** : textes de la page Gear et interrupteurs de chaque
+bloc ; Ads → **Buying guide ads**.
+
 ## Outils (Tools)
 
 | Adresse | Contenu |
@@ -351,8 +378,8 @@ un (voir `design/TOOLS.md`).
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
 plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
 Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
-les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker, le Pot size calculator, le Frost risk check et le Watering routine.
+les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker, le Pot size calculator, le Frost risk check et le Watering routine, et la section Gear (guides d'achat).
 
-À venir : Gear, DIY Projects. Le Garden planner est remplacé par un guide « How
+À venir : DIY Projects. Le Garden planner est remplacé par un guide « How
 to arrange pots in a small space » (à rédiger, avec ses sources). Ces liens du menu
 mènent encore à une page « Page not found ».

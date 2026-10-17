@@ -317,6 +317,29 @@ function natura_option_tabs(): array {
 				),
 			),
 		),
+		'gear'       => array(
+			'title'  => __( 'Gear', 'natura' ),
+			'icon'   => 'dashicons-cart',
+			'intro'  => __( 'The Gear page (/gear/), its categories, and each buying guide. Buying guides are written in Buying guides → Add buying guide; say there whether you tested the picks.', 'natura' ),
+			'fields' => array(
+				'natura_gear_intro' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Gear page: introduction', 'natura' ),
+					'help'  => __( 'Also its description for Google. A category with its own description uses that instead.', 'natura' ),
+				),
+				'natura_gear_how'   => array(
+					'type'  => 'textarea',
+					'label' => __( 'How we choose products', 'natura' ),
+					'help'  => __( 'One commitment per line, at the bottom of the Gear page. Write only what you actually do.', 'natura' ),
+				),
+				'gear_featured'     => $switch( __( 'Newest guide shown large (Gear page)', 'natura' ), __( 'Only with three guides or more.', 'natura' ) ),
+				'gear_how'          => $switch( __( 'How we choose products (Gear page)', 'natura' ) ),
+				'gear_method'       => $switch( __( 'Tested / Researched note (buying guides)', 'natura' ), __( 'Under the photo: says plainly how the picks were chosen. Recommended.', 'natura' ) ),
+				'gear_glance'       => $switch( __( 'Our picks at a glance (buying guides)', 'natura' ) ),
+				'gear_criteria'     => $switch( __( 'What to look for (buying guides)', 'natura' ) ),
+				'gear_table'        => $switch( __( 'Comparison table (buying guides)', 'natura' ), __( 'Built from each pick\'s specs; shown with two picks or more.', 'natura' ) ),
+			),
+		),
 		'tools'      => array(
 			'title'  => __( 'Tools', 'natura' ),
 			'icon'   => 'dashicons-admin-tools',
@@ -525,6 +548,7 @@ function natura_option_tabs(): array {
 				'ads_sidebar'                   => $switch( __( 'Side column ad', 'natura' ), __( 'Wide screens only.', 'natura' ) ),
 				'ads_guide_end'                 => $switch( __( 'End of guide ad (multiplex)', 'natura' ) ),
 				'ads_lists'                     => $switch( __( 'Ads in lists', 'natura' ), __( 'After the first row of cards, and on the Plant Care page.', 'natura' ) ),
+				'ads_gear'                      => $switch( __( 'Buying guide ads', 'natura' ), __( 'After the comparison table, and after the third pick in long guides.', 'natura' ) ),
 				'ads_tools'                     => $switch( __( 'Tools ad', 'natura' ), __( 'One ad on each tool page, below the tool.', 'natura' ) ),
 				'ads_calendar'                  => $switch( __( 'Calendar ad', 'natura' ), __( 'One ad on month pages, after the first section.', 'natura' ) ),
 			),

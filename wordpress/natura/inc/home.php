@@ -43,6 +43,8 @@ function natura_home_defaults(): array {
 		'natura_ga4_id'           => '',
 		'natura_ga4_consent'      => 'eu',
 		// Texts of the lists and of the 404 and search pages.
+		'natura_gear_intro'       => __( 'Buying guides for balcony, patio, and windowsill growers: what to look for, and which products suit which space.', 'natura' ),
+		'natura_gear_how'         => __( "Every guide says whether we tested the picks ourselves or researched them.\nWe never write prices: they change. The Check price button shows today's price at the shop.\nAffiliate links are marked, and the notice comes before the first link.", 'natura' ),
 		'natura_tools_intro'      => __( 'Small tools that each answer one question about growing in pots, from your light and space to what to sow this month.', 'natura' ),
 		'natura_tool_intro_plant_finder' => __( 'Answer a few questions about your light, space, and experience, and see the plant guides that suit you.', 'natura' ),
 		'natura_tool_intro_guided_diagnosis' => __( 'Choose the plant and where the trouble shows, then compare what you see with the signs of each likely cause, before you spray, feed, or repot.', 'natura' ),

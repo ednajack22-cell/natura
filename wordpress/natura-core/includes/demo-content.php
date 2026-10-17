@@ -168,6 +168,34 @@ function natura_core_import_demo_care( string $image_base ): array {
 		$created[] = $post_id;
 	}
 
+	foreach ( natura_core_demo_gear() as $slug => $guide ) {
+		if ( ! post_type_exists( 'gear' ) || get_page_by_path( $slug, OBJECT, 'gear' ) ) {
+			continue;
+		}
+		natura_core_gear_activate();
+		$post_id = wp_insert_post(
+			array(
+				'post_type'    => 'gear',
+				'post_status'  => 'publish',
+				'post_author'  => $author,
+				'post_name'    => $slug,
+				'post_title'   => $guide['title'],
+				'post_excerpt' => $guide['excerpt'],
+				'post_content' => $guide['content'],
+			),
+			true
+		);
+		if ( is_wp_error( $post_id ) ) {
+			continue;
+		}
+		wp_set_object_terms( $post_id, $guide['category'], 'gear_category' );
+		update_post_meta( $post_id, natura_core_meta_key( 'method' ), $guide['method'] );
+		natura_core_demo_save_fields( $post_id, $guide['lists'], $guide['pin'] ?? '', $image_base );
+		natura_core_demo_set_photo( $post_id, $guide, $image_base );
+
+		$created[] = $post_id;
+	}
+
 	return $created;
 }
 
@@ -710,6 +738,77 @@ function natura_core_demo_articles(): array {
 				$p( 'Fresh compost contains enough food for the first few weeks. After that, container plants rely on you: start a liquid feed at the dilution given on the label, more often for hungry crops such as tomatoes. Plants in peat-free compost may need feeding a little more often.' ) .
 				$h2( 'Refresh compost every year' ) .
 				$p( 'Repot plants that stay in their containers each spring, or, in pots too big to move, scrape away the top few centimetres and replace them with fresh compost mixed with a slow-release feed.' ),
+		),
+	);
+}
+
+/**
+ * The demo buying guide. Product types, not brands, and every line taken from
+ * the RHS advice already used in the compost article: a demo must not invent
+ * products, tests, or prices. No shop links.
+ *
+ * @return array<string, array>
+ */
+function natura_core_demo_gear(): array {
+	$p  = 'natura_core_demo_p';
+	$h2 = 'natura_core_demo_h2';
+
+	return array(
+		'best-compost-for-pots' => array(
+			'title'     => 'The Best Compost for Pots: Which Type to Buy',
+			'category'  => array( 'compost-feed' ),
+			'method'    => 'researched',
+			'image'     => 'demo/article-compost.jpg',
+			'image_alt' => 'Hands filling a terracotta pot with dark peat-free compost on a potting bench',
+			'excerpt'   => 'For most pots, buy a fresh, peat-free multipurpose compost. Choose a peat-free soil-based compost for shrubs and fruit that stay in the same pot for years, and add grit for Mediterranean herbs.',
+			'pin'       => 'demo/pin-compost.jpg',
+			'lists'     => array(
+				'criteria' => array(
+					array( 'name' => 'Peat-free on the bag', 'why' => 'Traditional John Innes and many older mixes contain peat. Check that the bag says peat-free.' ),
+					array( 'name' => 'How long the plant stays in the pot', 'why' => 'One season (vegetables, herbs, summer flowers): a light multipurpose compost. Several years (shrubs, fruit bushes): a heavier soil-based compost that holds food longer.' ),
+					array( 'name' => 'Fresh, not last year\'s', 'why' => 'Used compost has lost its food and its open structure. Hungry crops such as tomatoes need fresh compost.' ),
+				),
+				'picks'    => array(
+					array(
+						'name'     => 'Peat-free multipurpose compost',
+						'best_for' => 'Best for vegetables, herbs, and summer pots',
+						'verdict'  => 'The everyday choice for plants that spend one season in their pot. It is light, so pots stay easy to move, and it drains freely while holding water.',
+						'pros'     => "Light: easy to carry up to a balcony\nSuits most one-season crops",
+						'cons'     => "Holds food for the first few weeks only: start feeding after that\nBreaks down over a season: refresh it every year",
+						'specs'    => "Weight: Light\nBest for: One-season plants\nFeeding: After the first few weeks",
+						'image'    => 'demo/product-compost.jpg',
+					),
+					array(
+						'name'     => 'Peat-free soil-based compost',
+						'best_for' => 'Best for shrubs and fruit that stay for years',
+						'verdict'  => 'Heavier and holds food longer, which suits plants that stay in the same container for several years, such as fruit bushes. A peat-free John Innes No. 3 is this type.',
+						'pros'     => "Holds food longer\nIts weight steadies tall plants in pots",
+						'cons'     => 'Heavy: a large pot is hard to move, which counts on a balcony',
+						'specs'    => "Weight: Heavy\nBest for: Plants that stay for years\nFeeding: Holds food longer",
+					),
+					array(
+						'name'     => 'Horticultural grit',
+						'best_for' => 'Best for thyme, rosemary, and sage',
+						'verdict'  => 'Not a compost but an addition: mixing in about a fifth grit helps compost drain for Mediterranean herbs. Most vegetables do not need it.',
+						'pros'     => 'Improves drainage for herbs that dislike wet roots',
+						'cons'     => 'Not needed for most vegetables',
+						'specs'    => "Weight: Heavy\nBest for: Mediterranean herbs\nFeeding: None (mix about a fifth into compost)",
+					),
+				),
+				'faq'      => array(
+					array( 'question' => 'Can I use garden soil in pots?', 'answer' => 'No. In a pot, garden soil packs down into a dense block that drains poorly and holds little air, and it can bring in weed seeds, pests, and diseases.' ),
+					array( 'question' => 'Can I reuse last year\'s compost?', 'answer' => 'Not for hungry crops like tomatoes: its food is used up and its structure has broken down. Start pots with fresh compost.' ),
+				),
+				'sources'  => array(
+					array( 'title' => 'RHS — Peat-free compost choices', 'url' => 'https://www.rhs.org.uk/soil-composts-mulches/peat-free' ),
+					array( 'title' => 'RHS — Growing plants in containers', 'url' => 'https://www.rhs.org.uk/container-gardening/growing-plants-in-containers' ),
+				),
+			),
+			'content'   =>
+				$h2( 'How we chose' ) .
+				$p( 'This guide compares types of compost, not brands. Each pick and each line comes from RHS advice on composts and container growing, listed in the sources. We have not run our own trial of these products.' ) .
+				$h2( 'When to start feeding' ) .
+				$p( 'Fresh compost contains enough food for the first few weeks. After that, container plants rely on you: start a liquid feed at the dilution given on the label, more often for hungry crops such as tomatoes.' ),
 		),
 	);
 }

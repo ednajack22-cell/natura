@@ -26,8 +26,9 @@ defined( 'ABSPATH' ) || exit;
 function natura_guide_has_affiliate_links(): bool {
 	$products  = natura_section_enabled( 'guide_products' ) && array_filter( array_column( natura_field_list( 'products' ), 'url' ) );
 	$varieties = function_exists( 'natura_plant_varieties' ) && array_filter( array_column( natura_plant_varieties(), 'url' ) );
+	$picks     = 'gear' === get_post_type() && array_filter( array_column( natura_field_list( 'picks' ), 'url' ) );
 
-	return $products || $varieties;
+	return $products || $varieties || $picks;
 }
 
 /**

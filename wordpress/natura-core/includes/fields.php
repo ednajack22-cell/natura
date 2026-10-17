@@ -112,7 +112,7 @@ function natura_core_register_list_meta( string $post_type, array $lists ): void
  * Post types whose edit screen uses the field scripts and styles.
  */
 function natura_core_field_post_types(): array {
-	return array( 'plant', 'problem', 'post' );
+	return array( 'plant', 'problem', 'post', 'gear' );
 }
 
 add_action(
@@ -339,13 +339,13 @@ add_action(
 );
 
 /*
- * Pinterest image for problem guides and articles. Plant guides have it in
+ * Pinterest image for problem guides, articles, and buying guides. Plant guides have it in
  * their quick facts box.
  */
 add_action(
 	'init',
 	static function (): void {
-		foreach ( array( 'problem', 'post' ) as $post_type ) {
+		foreach ( array( 'problem', 'post', 'gear' ) as $post_type ) {
 			register_post_meta(
 				$post_type,
 				natura_core_meta_key( 'pin_image' ),
@@ -363,7 +363,7 @@ add_action(
 add_action(
 	'add_meta_boxes',
 	static function ( string $post_type ): void {
-		if ( ! in_array( $post_type, array( 'problem', 'post' ), true ) ) {
+		if ( ! in_array( $post_type, array( 'problem', 'post', 'gear' ), true ) ) {
 			return;
 		}
 		add_meta_box(
@@ -401,3 +401,4 @@ function natura_core_save_pin_image( int $post_id ): void {
 }
 add_action( 'save_post_problem', 'natura_core_save_pin_image' );
 add_action( 'save_post_post', 'natura_core_save_pin_image' );
+add_action( 'save_post_gear', 'natura_core_save_pin_image' );

@@ -161,7 +161,8 @@ Ajouts prévus quand les pages correspondantes existeront :
    qu'elles ont moins de 6 plantes.~~ Fait : voir `CALENDAR.md`.
 3. ~~Plant finder (filtres, non indexé).~~ Fait, avec la page Tools : voir
    `TOOLS.md`, qui donne aussi l'ordre des autres outils.
-4. Gear : guides d'achat avec critères, verdict et tableau comparatif.
+4. ~~Gear : guides d'achat avec critères, verdict et tableau comparatif.~~
+   Fait : voir `GEAR.md`.
 5. DIY Projects, puis les autres outils.
 
 ## Plant Care
