@@ -96,6 +96,17 @@ L'onglet **Calendar & lists** couvre le calendrier et les listes par
 lumière et par lieu ; l'onglet **Tools**, la page des outils et chaque
 outil. Ceux de Gear et de DIY seront ajoutés avec ces pages.
 
+## Content health (17 octobre 2026)
+
+Onglet en lecture seule, ajouté pour l'autorité thématique : chaque fiche
+publiée est comparée à ce que le thème sait utiliser (résumé, photo, image
+Pinterest, sources, liens écrits vers d'autres fiches, 500 mots de texte
+pour les fiches plantes et les articles, données lues par les listes et
+les outils), la plus incomplète en premier ; puis chaque thème (types de
+plantes, lumière, lieux, thèmes Plant Care, catégories Gear) avec son nombre
+de fiches, en signalant ceux qui en ont moins de 6. Rien n'est modifié par
+cet écran.
+
 ## Écarté, et pourquoi
 
 - **Constructeur d'en-tête et de pied de page** (Kadence, Astra, Blocksy) :

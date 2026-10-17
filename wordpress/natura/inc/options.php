@@ -571,6 +571,12 @@ function natura_option_tabs(): array {
 				),
 			),
 		),
+		'health'     => array(
+			'title'  => __( 'Content health', 'natura' ),
+			'icon'   => 'dashicons-heart',
+			'intro'  => __( 'What each guide is missing, and how well each topic is covered. Google trusts a site that covers its subject in depth, with complete, sourced, well-linked guides: fill the gaps here, most urgent first.', 'natura' ),
+			'fields' => array(),
+		),
 		'transfer'   => array(
 			'title'  => __( 'Import / Export', 'natura' ),
 			'icon'   => 'dashicons-update',
@@ -1219,6 +1225,8 @@ function natura_render_options(): void {
 						<?php natura_render_dashboard_tab( $section ); ?>
 					<?php elseif ( 'transfer' === $tab ) : ?>
 						<?php natura_render_transfer_tab( $section ); ?>
+					<?php elseif ( 'health' === $tab ) : ?>
+						<?php natura_render_health_tab( $section ); ?>
 					<?php else : ?>
 						<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" class="natura-form">
 							<input type="hidden" name="action" value="natura_options">

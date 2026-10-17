@@ -174,6 +174,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Newsletter | Formulaire et texte |
 | Footer & social | Texte du pied de page ; Instagram, YouTube, Facebook, TikTok (aussi déclarés à Google) |
 | SEO & Google | Vérification **Search Console** et **Bing** (collez la balise entière ou le code) ; **Google Analytics 4** avec le mode consentement de Google (pas de cookie avant accord en Europe, éditeurs connectés non comptés) |
+| Content health | Le bilan du contenu : ce qui manque à chaque fiche (résumé, photo, image Pinterest, sources, liens vers d'autres fiches dans le texte, longueur, données des listes et des outils), et le nombre de fiches par thème, en signalant ceux qui en ont moins de 6 |
 | Import / Export | Copier ou télécharger tous les réglages, les recharger ici ou sur un autre site ; les **10 dernières versions**, restaurables en un clic |
 
 Une **recherche** en haut du panneau trouve n'importe quel réglage et y

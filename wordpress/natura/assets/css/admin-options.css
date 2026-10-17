@@ -104,3 +104,18 @@
 .natura-status-value { color: #50575e; text-align: right; }
 .natura-status-fix { grid-column: 2 / -1; color: #646970; }
 .natura-help li { margin-bottom: 8px; }
+
+/* Content health. */
+@media (min-width: 900px) { .natura-health-summary { grid-template-columns: 1fr 1fr; } }
+.natura-health-summary + .natura-box, .natura-box + .natura-box { margin-top: 20px; }
+.natura-big { margin: 0 0 6px; font-size: 22px; font-weight: 600; }
+.natura-health td { vertical-align: top; }
+.natura-missing { display: flex; flex-wrap: wrap; gap: 4px; margin: 0; }
+.natura-missing li { margin: 0; padding: 2px 8px; border-radius: 999px; color: #8a2c0d; background: #fcf0eb; font-size: 12px; }
+.natura-complete { color: #1b7a3d; font-weight: 600; }
+.natura-coverage { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px 16px; margin: 0 0 16px; }
+.natura-coverage li { display: flex; justify-content: space-between; gap: 8px; margin: 0; padding: 6px 10px; border-left: 3px solid #1b7a3d; background: #f6f7f7; }
+.natura-coverage li.is-thin { border-left-color: #b0532a; }
+.natura-coverage span { color: #50575e; }
+.natura-box h4 { margin: 14px 0 8px; }
+.natura-health-summary .natura-box + .natura-box { margin-top: 0; }
