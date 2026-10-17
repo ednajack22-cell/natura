@@ -9,11 +9,9 @@ Livre fourni par la propriétaire du site (Google Drive, dossier
 - **Autrice** : jardinière et journaliste, diplôme de troisième cycle en
   horticulture (université de Reading), prix de la Garden Writers' Guild
   (2004). Source sérieuse, mais grand public.
-- **Lu** : pages 1 à 207 du livre (introduction, puis janvier à début
-  novembre), en deux fichiers.
-  **Pas lu** : pages 208 à 252 (fin novembre, décembre, agrumes, plans de
-  culture, ravageurs, maladies, carences). Google Drive coupe le texte des
-  longs fichiers ; il faut un troisième fichier (pages 210 à 258 du PDF).
+- **Lu** : le livre entier (pages 1 à 256), en trois fichiers.
+  Exception : les plans de culture (p. 230–235) sont des tableaux en
+  image ; seuls les noms des cultures sont lisibles, pas les mois.
 
 ## Règles d'usage sur Natura
 
@@ -37,6 +35,8 @@ Livre fourni par la propriétaire du site (Google Drive, dossier
 | Granulés anti-limaces « en légère pluie » (p. 87) | Le métaldéhyde est interdit au Royaume-Uni depuis 2022 ; on ne conseille pas de granulés chimiques. |
 | Engrais pour agrumes « tous les 4 jours » (p. 87) | Probable coquille ; à ne pas reprendre sans source fiable. |
 | Cristaux de rétention d'eau (p. 84, 116) | Utilité discutée ; à mentionner seulement comme option, sans promesse. |
+| Traitements nommés p. 236–245 (deltaméthrine, oxychlorure de cuivre, pyréthrine, borax) | Autorisations différentes selon les pays et souvent retirées pour les amateurs : ne citer aucun produit sans vérifier la RHS et la réglementation actuelle. On privilégie la prévention et les gestes manuels. |
+| Annexe « Useful websites » (p. 246–247) | Pépinières américaines de 2011, adresses sans doute périmées : à ignorer. |
 | Listes de variétés | Datées (2011) et souvent américaines : vérifier la disponibilité avant d'en citer une. |
 
 ## Ce qui sert directement Natura (pots, balcons, rebords de fenêtre)
@@ -142,6 +142,32 @@ Livre fourni par la propriétaire du site (Google Drive, dossier
   séchage, conserves, pickles, vin) : hors du cœur du site. Pourrait nourrir
   plus tard des articles « que faire de sa récolte », sans reprendre les
   recettes du livre.
+
+### Ajouts de la troisième partie (p. 206–256)
+- **Ravageurs** (p. 236–239) : pucerons, chenilles de la piéride du chou,
+  altise, aleurode, araignée rouge, cochenille farineuse, limaces et
+  escargots, pucerons des racines. Chacun avec signes et parade. Base pour
+  de nouvelles fiches problèmes, une fois recoupée avec la RHS.
+- **Maladies** (p. 240–244) : oïdium (aggravé par la sécheresse),
+  mildiou de la tomate, botrytis, fonte des semis (pots et eau propres,
+  semis clairs, aération), brûlure par le soleil ou le vent (ne pas
+  arroser au plus chaud), cul noir, taches foliaires.
+- **Carences** (p. 245) : azote (jaunissement général, croissance grêle),
+  potassium (feuilles jaunies ou violacées, peu de fruits), magnésium
+  (vieilles feuilles jaunes entre les nervures), fer (jaune entre les
+  nervures, sol calcaire), calcium (cul noir), bore. Recoupe la fiche
+  « feuilles jaunes » existante.
+- **Agrumes en pot** (p. 222–223) : au moins 15 °C plusieurs mois pour
+  fructifier ; plateau de gravier humide contre l'air sec ; engrais pour
+  agrumes toutes les 2 semaines en saison ; pas d'excès d'eau ; rempoter
+  au printemps ; limiter un petit arbre à environ quatre fruits. Kumquat,
+  mandarinier et citronnier ‘Meyer’ cités comme plus faciles.
+  **Fiche plante possible (citronnier en pot).**
+- **Cassis et groseilliers en grand pot** (p. 221), **pois nains en
+  conteneur** (p. 216), **poireau ‘King Richard’ en pot** (p. 225),
+  **salades orientales d'hiver en grand pot à l'abri** (p. 216).
+- **Pommes de terre tardives en pot rentrées à l'abri** : récolte possible
+  jusqu'en décembre (p. 224).
 
 ### Calendrier
 Les pages mensuelles (semer, planter, récolter) confirment les mois des
