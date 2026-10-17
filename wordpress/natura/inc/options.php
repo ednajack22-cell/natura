@@ -317,6 +317,24 @@ function natura_option_tabs(): array {
 				),
 			),
 		),
+		'tools'      => array(
+			'title'  => __( 'Tools', 'natura' ),
+			'icon'   => 'dashicons-admin-tools',
+			'intro'  => __( 'The tools page (/tools/) and each tool. A tool switched off disappears from the tools page and its address shows "Page not found".', 'natura' ),
+			'fields' => array(
+				'natura_tools_intro'             => array(
+					'type'  => 'textarea',
+					'label' => __( 'Tools page: introduction', 'natura' ),
+					'help'  => __( 'Also its description for Google.', 'natura' ),
+				),
+				'tool_plant_finder'              => $switch( __( 'Plant finder', 'natura' ), __( 'Questions about light, space, type, experience, and timing; answers from the plant guides.', 'natura' ) ),
+				'natura_tool_intro_plant_finder' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Plant finder: introduction', 'natura' ),
+				),
+				'tool_planting_calendar'         => $switch( __( 'Planting calendar on the tools page', 'natura' ), __( 'The calendar itself is set in the Calendar & lists tab.', 'natura' ) ),
+			),
+		),
 		'pinterest'  => array(
 			'title'  => __( 'Pinterest', 'natura' ),
 			'icon'   => 'dashicons-pinterest',
@@ -446,6 +464,7 @@ function natura_option_tabs(): array {
 				'ads_sidebar'                   => $switch( __( 'Side column ad', 'natura' ), __( 'Wide screens only.', 'natura' ) ),
 				'ads_guide_end'                 => $switch( __( 'End of guide ad (multiplex)', 'natura' ) ),
 				'ads_lists'                     => $switch( __( 'Ads in lists', 'natura' ), __( 'After the first row of cards, and on the Plant Care page.', 'natura' ) ),
+				'ads_tools'                     => $switch( __( 'Tools ad', 'natura' ), __( 'One ad on each tool page, below the tool.', 'natura' ) ),
 				'ads_calendar'                  => $switch( __( 'Calendar ad', 'natura' ), __( 'One ad on month pages, after the first section.', 'natura' ) ),
 			),
 		),

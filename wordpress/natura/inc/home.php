@@ -43,6 +43,8 @@ function natura_home_defaults(): array {
 		'natura_ga4_id'           => '',
 		'natura_ga4_consent'      => 'eu',
 		// Texts of the lists and of the 404 and search pages.
+		'natura_tools_intro'      => __( 'Small tools that each answer one question about growing in pots, from your light and space to what to sow this month.', 'natura' ),
+		'natura_tool_intro_plant_finder' => __( 'Answer a few questions about your light, space, and experience, and see the plant guides that suit you.', 'natura' ),
 		'natura_calendar_intro'   => __( 'What to sow, plant out, and harvest in pots, month by month. Each plant links to its full growing guide.', 'natura' ),
 		'natura_calendar_climate' => __( 'For a temperate climate such as the UK or northern Europe. In a warmer area, start a few weeks earlier; in a colder one, later.', 'natura' ),
 		'natura_calendar_jobs_1' => '',

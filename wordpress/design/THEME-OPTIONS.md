@@ -93,8 +93,8 @@ remplies. Une FAQ masquée disparaît aussi des données structurées : Google
 interdit les questions invisibles pour les lecteurs.
 
 L'onglet **Calendar & lists** couvre le calendrier et les listes par
-lumière et par lieu. Ceux du Plant finder, de Gear et de DIY seront ajoutés
-avec ces pages.
+lumière et par lieu ; l'onglet **Tools**, la page des outils et chaque
+outil. Ceux de Gear et de DIY seront ajoutés avec ces pages.
 
 ## Écarté, et pourquoi
 

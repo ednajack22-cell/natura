@@ -160,6 +160,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
 | Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées, **sources** (affichées par défaut ; continuez à les remplir même masquées) |
 | Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
+| Tools | Texte de la page Tools ; interrupteur et texte de chaque outil (Plant finder…) |
 | Calendar & lists | Introduction du calendrier, note sur le climat, bande des mois, compteurs, tableau de l'année, **travaux du mois** (un champ par mois) ; boutons « By light / By space » des listes et « Suits » des fiches |
 | Pinterest | Profil, code de vérification du site, les boutons « Save » et « Follow » |
 | Affiliate products | **Our picks** et « What you need » : à masquer tant que vous n'avez pas de produits |
@@ -302,12 +303,27 @@ par travail, mois par mois) se règlent dans Natura Options → **Calendar &
 lists**. Vous pouvez ajouter d'autres lieux ou niveaux de lumière dans Plants →
 Sun ou Plants → Growing spaces.
 
+## Outils (Tools)
+
+| Adresse | Contenu |
+| --- | --- |
+| `/tools/` | la page des outils, rangés par groupe |
+| `/tools/plant-finder/` | le Plant finder : lumière, lieu, type, expérience, ce mois-ci |
+
+Le Plant finder répond avec vos fiches : remplissez **Sun**, **Growing
+spaces**, **Plant types**, **Difficulty** et le **Planting calendar** de
+chaque fiche. Natura Options → **Tools** : texte de la page, interrupteur et
+texte de chaque outil. La publicité des outils (sous l'outil, jamais
+au-dessus) a son interrupteur dans **Ads**. Les autres outils arrivent un par
+un (voir `design/TOOLS.md`).
+
 ## Ce qui reste à faire
 
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
 plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
 Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
-les listes par lumière et par lieu.
+les listes par lumière et par lieu, la page Tools et le Plant finder.
 
-À venir : Plant finder, les autres outils (Tools), Gear, DIY Projects. Ces liens du menu
+À venir : les autres outils (Symptom checker, Pot size calculator, Frost risk
+check, Watering routine), Gear, DIY Projects. Ces liens du menu
 mènent encore à une page « Page not found ».

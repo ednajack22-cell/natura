@@ -142,6 +142,10 @@ function natura_core_plant_data_rules(): void {
 
 	add_rewrite_rule( '^calendar/(' . implode( '|', natura_core_month_slugs() ) . ')/?$', 'index.php?natura_section=calendar&natura_month=$matches[1]', 'top' );
 	add_rewrite_rule( '^calendar/?$', 'index.php?natura_section=calendar', 'top' );
+
+	// Tools: /tools/ and /tools/{tool}/. The theme says which tools exist.
+	add_rewrite_rule( '^tools/([a-z0-9-]+)/?$', 'index.php?natura_section=tools&natura_tool=$matches[1]', 'top' );
+	add_rewrite_rule( '^tools/?$', 'index.php?natura_section=tools', 'top' );
 }
 add_action( 'init', 'natura_core_plant_data_rules' );
 
@@ -162,6 +166,7 @@ add_filter(
 	'query_vars',
 	static function ( array $vars ): array {
 		$vars[] = 'natura_month';
+		$vars[] = 'natura_tool';
 		return $vars;
 	}
 );
@@ -197,14 +202,25 @@ function natura_core_calendar_month(): int {
 	return false === $month ? 0 : (int) $month;
 }
 
+/**
+ * Whether a query is a tools page (/tools/ or one tool).
+ *
+ * @param WP_Query|null $query Query, the main query by default.
+ */
+function natura_core_is_tools( ?WP_Query $query = null ): bool {
+	$query ??= $GLOBALS['wp_query'] ?? null;
+
+	return $query instanceof WP_Query && 'tools' === $query->get( 'natura_section' );
+}
+
 /*
- * Calendar pages build their lists with their own queries; the main query
- * only has to be cheap and must not be mistaken for the blog home.
+ * Calendar and tools pages build their lists with their own queries; the main
+ * query only has to be cheap and must not be mistaken for the blog home.
  */
 add_action(
 	'parse_query',
 	static function ( WP_Query $query ): void {
-		if ( $query->is_main_query() && natura_core_is_calendar( $query ) ) {
+		if ( $query->is_main_query() && ( natura_core_is_calendar( $query ) || natura_core_is_tools( $query ) ) ) {
 			$query->is_home    = false;
 			$query->is_archive = true;
 			$query->set( 'post_type', 'plant' );
@@ -217,7 +233,8 @@ add_action(
 add_filter(
 	'pre_handle_404',
 	static function ( bool $handled, WP_Query $query ): bool {
-		if ( natura_core_is_calendar( $query ) ) {
+		// A tool the theme does not provide is set to 404 by the theme.
+		if ( natura_core_is_calendar( $query ) || natura_core_is_tools( $query ) ) {
 			status_header( 200 );
 			return true;
 		}

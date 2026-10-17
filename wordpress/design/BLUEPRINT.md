@@ -159,7 +159,8 @@ Ajouts prévus quand les pages correspondantes existeront :
 2. ~~Calendrier mensuel `/calendar/[mois]/` et pages de conditions
    (`/plants/sun/full-sun/`, `/plants/space/balcony/`), non indexées tant
    qu'elles ont moins de 6 plantes.~~ Fait : voir `CALENDAR.md`.
-3. Plant finder (filtres, non indexé).
+3. ~~Plant finder (filtres, non indexé).~~ Fait, avec la page Tools : voir
+   `TOOLS.md`, qui donne aussi l'ordre des autres outils.
 4. Gear : guides d'achat avec critères, verdict et tableau comparatif.
 5. DIY Projects, puis les autres outils.
 
