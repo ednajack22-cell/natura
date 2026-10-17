@@ -24,6 +24,9 @@ function natura_core_import_demo( string $image_base ): array {
 	require_once ABSPATH . 'wp-admin/includes/file.php';
 	require_once ABSPATH . 'wp-admin/includes/image.php';
 
+	// The sun and space terms the demo guides are filed under.
+	natura_core_plant_data_activate();
+
 	$created = array();
 	$admins  = get_users(
 		array(
@@ -56,6 +59,11 @@ function natura_core_import_demo( string $image_base ): array {
 		}
 
 		wp_set_object_terms( $post_id, $plant['type'], 'plant_type' );
+		foreach ( array( 'sun' => 'plant_sun', 'space' => 'plant_space' ) as $key => $taxonomy ) {
+			if ( ! empty( $plant[ $key ] ) && taxonomy_exists( $taxonomy ) ) {
+				wp_set_object_terms( $post_id, $plant[ $key ], $taxonomy );
+			}
+		}
 
 		foreach ( $plant['facts'] as $key => $value ) {
 			update_post_meta( $post_id, natura_core_meta_key( $key ), $value );
@@ -287,6 +295,9 @@ function natura_core_demo_plants(): array {
 		'cherry-tomato'      => array(
 			'title'     => 'How to Grow Cherry Tomatoes in Pots',
 			'type'      => 'vegetables',
+			// From the guide: 6–8 hours of sun, a big pot on a sunny balcony.
+			'sun'       => array( 'full-sun' ),
+			'space'     => array( 'balcony' ),
 			'image'     => 'cherry-tomato.jpg',
 			'pin'       => 'demo/pin-cherry-tomato.jpg',
 			// Temperate climate (UK): sow indoors, plant out after the last frost.
@@ -392,6 +403,9 @@ function natura_core_demo_plants(): array {
 		'genovese-basil'     => array(
 			'title'     => 'How to Grow Basil in Pots',
 			'type'      => 'herbs',
+			// From the guide: 6+ hours of sun, a bright windowsill, then the balcony.
+			'sun'       => array( 'full-sun' ),
+			'space'     => array( 'windowsill', 'balcony' ),
 			'image'     => 'genovese-basil.jpg',
 			'months'    => array(
 				'sow'     => array( 3, 4, 5, 6 ),
@@ -428,6 +442,9 @@ function natura_core_demo_plants(): array {
 		'balcony-strawberry' => array(
 			'title'     => 'How to Grow Strawberries on a Balcony',
 			'type'      => 'fruit',
+			// From the guide: 6–8 hours of sun, grown on a balcony.
+			'sun'       => array( 'full-sun' ),
+			'space'     => array( 'balcony' ),
 			'image'     => 'balcony-strawberry.jpg',
 			'months'    => array(
 				'plant'   => array( 3, 4, 5, 8, 9 ),

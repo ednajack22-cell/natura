@@ -146,18 +146,19 @@ rempli), sauf si une extension SEO les fournit déjà.
 
 Ajouts prévus quand les pages correspondantes existeront :
 
-- tuiles **Tools** (calendrier mensuel, Plant finder), lien du bloc « This
-  month » vers la page du mois ;
+- tuiles **Tools** (calendrier mensuel, Plant finder) ; le lien du bloc
+  « This month » vers la page du mois est fait ;
 - rangée de **guides d'achat** (section Gear), à la place ou à côté de
   « Our picks ».
 
 ## Ordre des pages suivantes
 
-1. Fiche plante : frise des 12 mois, conditions cliquables (soleil, espace),
-   « Similar plants » par conditions, `data-pin-media` pour Pinterest.
-2. Calendrier mensuel `/calendar/[mois]/` et pages de conditions
+1. ~~Fiche plante : frise des 12 mois, conditions cliquables (soleil,
+   espace), `data-pin-media` pour Pinterest.~~ Fait. Reste « Similar
+   plants » par conditions, quand il y aura assez de fiches.
+2. ~~Calendrier mensuel `/calendar/[mois]/` et pages de conditions
    (`/plants/sun/full-sun/`, `/plants/space/balcony/`), non indexées tant
-   qu'elles ont moins de 6 plantes.
+   qu'elles ont moins de 6 plantes.~~ Fait : voir `CALENDAR.md`.
 3. Plant finder (filtres, non indexé).
 4. Gear : guides d'achat avec critères, verdict et tableau comparatif.
 5. DIY Projects, puis les autres outils.

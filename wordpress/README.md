@@ -84,8 +84,13 @@ Administration → **Plants** → **Add plant guide** :
      une photo facultative.
 10. **Planting calendar** : cochez les mois pour semer, planter et récolter.
     Ils s'affichent dans le tableau sur 12 mois de la fiche, dans la ligne
-    « In October: harvest » sous le titre, et dans le bloc du mois de
-    l'accueil.
+    « In October: harvest » sous le titre, dans le bloc du mois de
+    l'accueil et sur les pages du calendrier (`/calendar/october/`).
+11. **Sun** et **Growing spaces** (colonne de droite) : cochez la lumière
+    (Full sun, Part shade, Shade) et les lieux (Windowsill, Balcony, Patio)
+    qui conviennent, d'après ce que dit la fiche. La plante apparaît alors
+    dans les listes `/plants/sun/full-sun/`, `/plants/space/balcony/`…, et la
+    fiche affiche « Suits: Full sun · Balcony ».
 
 Le thème place tout seul chaque bloc, selon `design/BLUEPRINT.md` : la liste
 d'achat après la 2e partie, le bloc Pinterest après la 3e, les publicités après
@@ -155,6 +160,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
 | Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées, **sources** (affichées par défaut ; continuez à les remplir même masquées) |
 | Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
+| Calendar & lists | Introduction du calendrier, note sur le climat, bande des mois, compteurs, tableau de l'année, **travaux du mois** (un champ par mois) ; boutons « By light / By space » des listes et « Suits » des fiches |
 | Pinterest | Profil, code de vérification du site, les boutons « Save » et « Follow » |
 | Affiliate products | **Our picks** et « What you need » : à masquer tant que vous n'avez pas de produits |
 | Ads | Identifiants AdSense, et chaque emplacement de publicité |
@@ -277,11 +283,31 @@ Voir `design/STITCH.md` : la méthode, et des prompts prêts à copier pour
 chaque page. La structure de chaque type de page (ordre des blocs, publicités,
 Pinterest, affiliation, règles de densité) est dans `design/BLUEPRINT.md`.
 
+## Calendrier et listes par lumière et par lieu
+
+Ces pages se remplissent seules avec les fiches plantes (points 10 et 11
+ci-dessus) :
+
+| Adresse | Contenu |
+| --- | --- |
+| `/calendar/` | toute l'année : chaque plante sur 12 mois, puis les mois |
+| `/calendar/october/` | ce qu'on sème, plante et récolte en pot ce mois-là |
+| `/plants/sun/full-sun/` | les plantes pour le plein soleil (aussi `part-shade`, `shade`) |
+| `/plants/space/balcony/` | les plantes pour un balcon (aussi `windowsill`, `patio`) |
+
+Une page qui liste **moins de 6 plantes** reste hors de Google (`noindex`) et
+hors du plan du site ; elle y entre toute seule quand elle se remplit. Les
+textes (introduction, note sur le climat) et les **travaux du mois** (une ligne
+par travail, mois par mois) se règlent dans Natura Options → **Calendar &
+lists**. Vous pouvez ajouter d'autres lieux ou niveaux de lumière dans Plants →
+Sun ou Plants → Growing spaces.
+
 ## Ce qui reste à faire
 
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
-plantes (`/plants/`), pages par type (`/plants/herbs/`), et la rubrique Plant
-Care (fiches problèmes, articles par thème).
+plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
+Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
+les listes par lumière et par lieu.
 
-À venir : DIY Projects, Tools, Gear, puis le tableau de bord. Ces liens du menu
+À venir : Plant finder, les autres outils (Tools), Gear, DIY Projects. Ces liens du menu
 mènent encore à une page « Page not found ».

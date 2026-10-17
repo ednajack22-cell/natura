@@ -87,7 +87,7 @@ function natura_default_primary_menu(): array {
 			'/tools/',
 			__( 'Calendars and calculators that answer one question each.', 'natura' ),
 			array(
-				natura_menu_entry( __( 'Planting calendar', 'natura' ), '/tools/planting-calendar/', __( 'What to sow and plant this month, by climate.', 'natura' ) ),
+				natura_menu_entry( __( 'Planting calendar', 'natura' ), '/calendar/', __( 'What to sow, plant out, and harvest in pots, month by month.', 'natura' ) ),
 				natura_menu_entry( __( 'Plant finder', 'natura' ), '/tools/plant-finder/', __( 'Which plants suit your light and space.', 'natura' ) ),
 				natura_menu_entry( __( 'Pot size calculator', 'natura' ), '/tools/pot-size-calculator/', __( 'How big a container each plant needs.', 'natura' ) ),
 				natura_menu_entry( __( 'Watering routine', 'natura' ), '/tools/watering-calculator/', __( 'When to check the soil, and how.', 'natura' ) ),
@@ -216,6 +216,10 @@ function natura_follow_chosen_page( string $url ): string {
 	$host = wp_parse_url( $url, PHP_URL_HOST );
 	if ( isset( $defaults[ $path ] ) && ( ! $host || wp_parse_url( home_url(), PHP_URL_HOST ) === $host ) ) {
 		return natura_page_url( $defaults[ $path ], $path );
+	}
+	// Menus saved before the calendar had its own address.
+	if ( '/tools/planting-calendar/' === $path && ( ! $host || wp_parse_url( home_url(), PHP_URL_HOST ) === $host ) ) {
+		return home_url( '/calendar/' );
 	}
 
 	return $url;

@@ -1055,3 +1055,149 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
   .plant-calendar tbody th { width: 4.3rem; font-size: .8125rem; }
   .plant-calendar th { font-size: .75rem; }
 }
+
+/* ---------------------------------------------------------------------------
+   Planting calendar (/calendar/, /calendar/october/) and plant lists by light
+   and space. See design/CALENDAR.md.
+   --------------------------------------------------------------------------- */
+
+/* Month strip: one row that scrolls sideways on phones (RHS). */
+.month-strip { margin: 0 0 1.75rem; overflow-x: auto; scrollbar-width: thin; -webkit-overflow-scrolling: touch; }
+.month-strip ul { display: flex; gap: .375rem; width: max-content; margin: 0; padding: 0 0 .25rem; list-style: none; }
+.month-strip a { position: relative; display: inline-flex; align-items: center; justify-content: center; min-width: 48px; min-height: 44px; padding: 0 .75rem; border: 1px solid var(--line-soft); border-radius: var(--radius); color: var(--ink-soft); background: var(--paper-mid); font: 500 .9375rem var(--font-sans); }
+.month-strip abbr { text-decoration: none; }
+.month-strip a:hover { border-color: var(--forest); color: var(--heading); }
+.month-strip a.is-today::after { position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; border-radius: 50%; background: var(--clay); content: ""; }
+.month-strip a[aria-current] { border-color: var(--forest); color: white; background: var(--forest); }
+.month-strip a[aria-current].is-today::after { background: var(--sun); }
+
+.calendar-intro { margin-bottom: 1.5rem; }
+.calendar-intro h1 { font-size: clamp(2rem, 6vw, 3rem); text-wrap: balance; }
+.calendar-kicker svg { width: 18px; }
+.calendar-now { margin-top: 1.25rem; }
+
+/* Jump links with counts: the month at a glance (Gerbeaud). */
+.calendar-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(6.5rem, 1fr)); gap: .5rem; max-width: 34rem; margin: 0 0 2rem; }
+.calendar-summary a { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .4rem; min-height: 48px; padding: .5rem .75rem; border: 1px solid var(--line-soft); border-left: 4px solid var(--cal-color, var(--forest)); border-radius: var(--radius); color: var(--heading); background: var(--card); font: 600 .9375rem/1.2 var(--font-sans); }
+.calendar-summary a:hover { border-color: var(--forest); }
+.calendar-summary svg { width: 18px; color: var(--cal-color, var(--forest)); }
+.calendar-summary strong { color: var(--muted); font-weight: 600; }
+.is-sow { --cal-color: #b8860b; }
+.is-plant { --cal-color: #4f7d42; }
+.is-harvest { --cal-color: var(--clay); }
+
+.calendar-group { margin: 0 0 2.25rem; scroll-margin-top: calc(var(--header-height) + var(--header-offset) + 1rem); }
+.calendar-group h2 { display: flex; align-items: center; gap: .5rem; margin: 0 0 1rem; padding-bottom: .6rem; border-bottom: 2px solid var(--cal-color, var(--line)); font-size: clamp(1.375rem, 4vw, 1.75rem); line-height: 1.2; }
+.calendar-group h2 svg { width: 24px; flex: none; color: var(--cal-color); }
+
+/* Compact plant cards: photo, name, light, pot size. */
+.cal-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.cal-card a { display: grid; grid-template-columns: 96px minmax(0, 1fr); align-items: center; gap: .875rem; height: 100%; padding: .5rem; border: 1px solid var(--line-soft); border-radius: var(--radius); color: var(--ink); background: var(--card); box-shadow: var(--shadow); }
+.cal-card a:hover { border-color: var(--forest); }
+.cal-card a:hover .cal-card-name { text-decoration: underline; text-underline-offset: 3px; }
+.cal-card-media { display: grid; place-items: center; overflow: hidden; aspect-ratio: 1; max-width: 100%; border-radius: var(--radius-sm); color: var(--forest); background: var(--sage); }
+.cal-card-media img { width: 100%; height: 100%; object-fit: cover; }
+.cal-card-media > svg { width: 32px; }
+.cal-card-text { display: grid; gap: .3rem; min-width: 0; }
+.cal-card-name { color: var(--heading); font: 600 1.1875rem/1.25 var(--font-serif); }
+.cal-card-fact { display: flex; align-items: flex-start; gap: .35rem; color: var(--ink-soft); font: 400 .875rem/1.4 var(--font-sans); }
+.cal-card-fact svg { width: 16px; flex: none; margin-top: .1rem; color: var(--muted); }
+@media (min-width: 640px) { .cal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1024px) {
+  .cal-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+  .cal-card a { grid-template-columns: 120px minmax(0, 1fr); }
+}
+
+.calendar-jobs { max-width: 46rem; margin: 0 0 2.25rem; padding: 1.25rem; border-radius: var(--radius); background: var(--sage); }
+.calendar-jobs h2 { margin: 0 0 .875rem; font-size: 1.375rem; line-height: 1.25; }
+.calendar-jobs ul { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+.calendar-jobs li { display: flex; gap: .6rem; font: 400 1.0625rem/1.5 var(--font-serif); }
+.calendar-jobs svg { width: 20px; flex: none; margin-top: .2rem; color: var(--forest); }
+
+/* Previous, year, next. */
+.calendar-pager { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin: 0 0 3rem; }
+.calendar-pager a { display: flex; flex-direction: column; justify-content: center; min-height: 64px; padding: .75rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); color: var(--heading); background: var(--card); font: 600 1.125rem/1.2 var(--font-serif); }
+.calendar-pager a:hover { border-color: var(--forest); }
+.calendar-pager span { color: var(--muted); font: 500 .8125rem/1.3 var(--font-sans); }
+.calendar-pager .is-next { align-items: flex-end; text-align: right; }
+.calendar-pager .is-next svg { display: none; }
+.calendar-pager .is-year { grid-column: 1 / -1; grid-row: 2; align-items: center; min-height: 48px; color: var(--forest); font: 600 .9375rem var(--font-sans); }
+@media (min-width: 640px) {
+  .calendar-pager { grid-template-columns: 1fr auto 1fr; align-items: stretch; }
+  .calendar-pager .is-year { grid-column: auto; grid-row: auto; padding-inline: 1.5rem; }
+}
+
+/* Year page: every plant, twelve months, three marks per cell. */
+.year-calendar { margin: 0 0 2.5rem; padding: 1.25rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+.year-calendar h2, .year-months h2 { margin: 0 0 .875rem; font-size: clamp(1.375rem, 4vw, 1.75rem); line-height: 1.2; }
+.year-legend { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; margin: 0 0 1rem; padding: 0; color: var(--ink-soft); font: 500 .875rem var(--font-sans); list-style: none; }
+.year-legend li { display: flex; align-items: center; gap: .4rem; }
+.year-legend i, .year-calendar td i { display: block; border-radius: 2px; background: var(--cal-color); }
+.year-legend i { width: 18px; height: 8px; }
+.year-calendar-scroll { overflow-x: auto; }
+.year-calendar table { width: 100%; border-collapse: separate; border-spacing: 2px; table-layout: fixed; }
+.year-calendar thead th { padding-bottom: .25rem; color: var(--muted); font: 600 .75rem/1.2 var(--font-sans); text-align: center; }
+.year-calendar thead th:first-child { width: 6.5rem; text-align: left; }
+.year-calendar thead a { display: block; padding: .25rem 0; color: inherit; }
+.year-calendar thead .is-now a { color: var(--clay); }
+.year-calendar abbr { text-decoration: none; }
+.year-calendar tbody th { padding-right: .4rem; text-align: left; }
+.year-calendar tbody th a { display: block; overflow-wrap: anywhere; color: var(--heading); font: 600 .875rem/1.25 var(--font-sans); }
+.year-calendar tbody th a:hover { text-decoration: underline; }
+.year-calendar td { height: 34px; padding: 3px 2px; border-radius: 3px; background: var(--paper-low); vertical-align: top; }
+.year-calendar td.is-now { box-shadow: inset 0 0 0 2px var(--clay); }
+.year-calendar td i { height: 6px; margin-bottom: 2px; }
+.year-calendar td .is-sow { --cal-color: #e0b75c; }
+.year-calendar td .is-plant { --cal-color: #6f9e5f; }
+.year-legend .is-sow { --cal-color: #e0b75c; }
+.year-legend .is-plant { --cal-color: #6f9e5f; }
+@media (min-width: 1024px) {
+  .year-calendar { padding: 1.75rem; }
+  .year-calendar thead th:first-child { width: 11rem; }
+  .year-calendar thead th { font-size: .8125rem; }
+  .year-calendar tbody th a { font-size: .9375rem; }
+}
+
+.year-months { margin: 0 0 3rem; }
+.year-months ul { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin: 0; padding: 0; list-style: none; }
+.year-months a { display: flex; flex-direction: column; justify-content: center; min-height: 64px; padding: .6rem .9rem; border: 1px solid var(--line-soft); border-radius: var(--radius); color: var(--heading); background: var(--card); }
+.year-months a:hover { border-color: var(--forest); }
+.year-months strong { font: 600 1.125rem/1.2 var(--font-serif); }
+.year-months span { color: var(--muted); font: 400 .8125rem/1.4 var(--font-sans); }
+.year-months .is-now a { border-color: var(--clay); box-shadow: inset 4px 0 0 var(--clay); }
+@media (min-width: 640px) { .year-months ul { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (min-width: 1024px) { .year-months ul { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+/* Plant lists: By light / By space. */
+.condition-chips { display: grid; gap: .5rem; margin: -1rem 0 2rem; }
+.condition-chips nav { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; }
+.condition-chips-label { min-width: 5.5rem; color: var(--muted); font: 600 .8125rem var(--font-sans); letter-spacing: .04em; text-transform: uppercase; }
+.condition-chips a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--ink-soft); background: var(--card); font: 500 .9375rem var(--font-sans); }
+.condition-chips a:hover { border-color: var(--forest); color: var(--heading); }
+.condition-chips a[aria-current] { border-color: var(--forest); color: white; background: var(--forest); }
+.page-intro + .condition-chips { margin-top: 0; }
+
+/* Plant guide: "Suits: Full sun · Balcony". */
+.plant-conditions { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: -1rem 0 2rem; }
+.plant-conditions > span { color: var(--muted); font: 600 .8125rem var(--font-sans); letter-spacing: .04em; text-transform: uppercase; }
+.plant-conditions a { display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; padding: 0 .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--forest); background: var(--card); font: 600 .9375rem var(--font-sans); }
+.plant-conditions a:hover { border-color: var(--forest); }
+.plant-conditions svg { width: 18px; }
+.plant-calendar-note a { display: inline-flex; align-items: center; min-height: 44px; color: var(--forest); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Home "This month": link to the month page. */
+.season-head { flex-wrap: wrap; }
+.season-head > div { flex: 1 1 16rem; min-width: 0; }
+.season-more { align-self: center; }
+/* Beats .page-intro > p, which sets the serif lead paragraph. */
+.page-intro > p.calendar-kicker:not(.tag):not(.eyebrow) { display: flex; align-items: center; gap: .4rem; margin: 0 0 .6rem; color: var(--clay); font: 700 .8125rem/1.2 var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.page-intro > p.calendar-climate:not(.tag):not(.eyebrow) { display: flex; gap: .5rem; max-width: 40rem; margin: 0; color: var(--muted); font: 400 .9375rem/1.5 var(--font-sans); }
+.calendar-climate svg { width: 18px; flex: none; margin-top: .15rem; }
+.month-strip { position: relative; }
+@media (min-width: 640px) { .calendar-pager { max-width: 46rem; } }
+@media (max-width: 639px) {
+  .calendar-summary a { grid-template-columns: 1fr auto; padding: .5rem .6rem; font-size: .875rem; }
+  .calendar-summary svg { display: none; }
+}
+/* Two plants fill the row instead of leaving a third column empty. */
+@media (min-width: 1024px) { .cal-grid:has(> :nth-child(2):last-child) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }

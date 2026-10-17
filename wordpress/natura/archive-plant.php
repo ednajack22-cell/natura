@@ -1,7 +1,9 @@
 <?php
 /**
- * Plant guide lists: every plant (/plants/) and one plant type
- * (/plants/herbs/).
+ * Plant guide lists: every plant (/plants/), one plant type (/plants/herbs/),
+ * one light level (/plants/sun/full-sun/) or one growing space
+ * (/plants/space/balcony/). Sun and space lists say how much light or room
+ * that means, and stay out of search results below six plants.
  *
  * @package Natura
  */
@@ -11,6 +13,7 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 $natura_current_type = is_tax( 'plant_type' ) ? get_queried_object() : null;
+$natura_condition    = is_tax( array( 'plant_sun', 'plant_space' ) ) ? get_queried_object() : null;
 $natura_types        = get_terms(
 	array(
 		'taxonomy'   => 'plant_type',
@@ -22,8 +25,10 @@ $natura_crumbs = array(
 	natura_crumb( __( 'Home', 'natura' ), home_url( '/' ) ),
 	natura_crumb( __( 'Plants', 'natura' ), (string) get_post_type_archive_link( 'plant' ) ),
 );
-if ( $natura_current_type ) {
-	$natura_crumbs[] = natura_crumb( $natura_current_type->name, (string) get_term_link( $natura_current_type ) );
+foreach ( array( $natura_current_type, $natura_condition ) as $natura_term ) {
+	if ( $natura_term instanceof WP_Term ) {
+		$natura_crumbs[] = natura_crumb( $natura_term->name, (string) get_term_link( $natura_term ) );
+	}
 }
 ?>
 <main id="main-content" class="plant-archive">
@@ -34,7 +39,9 @@ if ( $natura_current_type ) {
 		<header class="page-intro">
 			<h1>
 				<?php
-				if ( $natura_current_type ) {
+				if ( $natura_condition instanceof WP_Term ) {
+					echo esc_html( natura_condition_title( $natura_condition ) );
+				} elseif ( $natura_current_type ) {
 					/* translators: %s: plant type, e.g. "Herbs". */
 					printf( esc_html__( '%s to grow in pots', 'natura' ), esc_html( $natura_current_type->name ) );
 				} else {
@@ -45,15 +52,17 @@ if ( $natura_current_type ) {
 			<p>
 				<?php
 				echo esc_html(
-					$natura_current_type && $natura_current_type->description
-						? $natura_current_type->description
-						: natura_home_setting( 'natura_intro_plants' )
+					$natura_condition instanceof WP_Term && $natura_condition->description
+						? $natura_condition->description
+						: ( $natura_current_type && $natura_current_type->description
+							? $natura_current_type->description
+							: natura_home_setting( 'natura_intro_plants' ) )
 				);
 				?>
 			</p>
 		</header>
 
-		<?php if ( ! is_wp_error( $natura_types ) && count( $natura_types ) > 1 ) : ?>
+		<?php if ( ! $natura_condition && ! is_wp_error( $natura_types ) && count( $natura_types ) > 1 ) : ?>
 			<nav class="filter-chips" aria-label="<?php esc_attr_e( 'Plant types', 'natura' ); ?>">
 				<a href="<?php echo esc_url( (string) get_post_type_archive_link( 'plant' ) ); ?>"<?php echo $natura_current_type ? '' : ' aria-current="page"'; ?>><?php esc_html_e( 'All', 'natura' ); ?></a>
 				<?php foreach ( $natura_types as $natura_type_term ) : ?>
@@ -61,6 +70,8 @@ if ( $natura_current_type ) {
 				<?php endforeach; ?>
 			</nav>
 		<?php endif; ?>
+
+		<?php natura_the_condition_chips(); ?>
 
 		<?php if ( have_posts() ) : ?>
 			<div class="plant-grid">

@@ -69,6 +69,8 @@ while ( have_posts() ) :
 					</section>
 				<?php endif; ?>
 
+				<?php natura_the_plant_conditions(); ?>
+
 				<?php natura_the_plant_calendar( $natura_calendar ); ?>
 
 				<?php natura_the_guide_toc( $natura_prepared['toc'] ); ?>

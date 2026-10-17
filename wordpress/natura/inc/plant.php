@@ -160,7 +160,17 @@ function natura_the_plant_calendar( array $calendar ): void {
 				</tbody>
 			</table>
 		</div>
-		<p class="plant-calendar-note"><?php esc_html_e( 'For a temperate climate such as the UK or northern Europe. In a warmer area, start a few weeks earlier; in a colder one, later.', 'natura' ); ?></p>
+		<p class="plant-calendar-note">
+			<?php echo esc_html( natura_calendar_climate_note() ); ?>
+			<?php if ( function_exists( 'natura_core_calendar_url' ) ) : ?>
+				<a href="<?php echo esc_url( natura_core_calendar_url( $now ) ); ?>">
+					<?php
+					/* translators: %s: month name. */
+					echo esc_html( sprintf( __( 'Everything to sow and harvest in %s', 'natura' ), wp_date( 'F' ) ) );
+					?>
+				</a>
+			<?php endif; ?>
+		</p>
 	</section>
 	<?php
 }

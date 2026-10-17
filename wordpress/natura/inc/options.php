@@ -222,6 +222,101 @@ function natura_option_tabs(): array {
 				),
 			),
 		),
+		'calendar'   => array(
+			'title'  => __( 'Calendar & lists', 'natura' ),
+			'icon'   => 'dashicons-calendar-alt',
+			'intro'  => __( 'The planting calendar (/calendar/ and one page per month) and the plant lists by light and space. Plants appear from the Planting calendar box and the Sun and Growing spaces boxes of each plant guide. Pages with fewer than 6 plants are kept out of Google until they fill up.', 'natura' ),
+			'fields' => array(
+				'natura_calendar_intro'   => array(
+					'type'  => 'textarea',
+					'label' => __( 'Calendar: introduction', 'natura' ),
+					'help'  => __( 'Under the title of the year page. Also its description for Google.', 'natura' ),
+				),
+				'natura_calendar_climate' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Climate note', 'natura' ),
+					'help'  => __( 'Says which climate the months are for. Shown on every month page and under the calendar of each plant guide.', 'natura' ),
+				),
+				'calendar_months_nav'     => $switch( __( 'Month strip', 'natura' ), __( 'The row of months at the top of every calendar page.', 'natura' ) ),
+				'calendar_summary'        => $switch( __( 'Sow / Plant out / Harvest counts', 'natura' ), __( 'The three buttons under the title of a month page, which jump to each section.', 'natura' ) ),
+				'calendar_year_table'     => $switch( __( 'Year table', 'natura' ), __( 'Every plant and its twelve months, on the year page.', 'natura' ) ),
+				'calendar_jobs'           => $switch( __( 'Jobs for your pots', 'natura' ), __( 'The list set below for each month. A month with no jobs shows nothing.', 'natura' ) ),
+				'list_conditions'         => $switch( __( 'By light / By space buttons (plant lists)', 'natura' ), __( 'Under the title of the plant lists: Full sun, Part shade, Balcony…', 'natura' ) ),
+				'guide_conditions'        => $switch( __( 'Suits: Full sun · Balcony (plant guides)', 'natura' ), __( 'Under the title of plant guides, linking to the plants with the same light or space.', 'natura' ) ),
+				'natura_calendar_jobs_1' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 1 ) ),
+				),
+				'natura_calendar_jobs_2' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 2 ) ),
+				),
+				'natura_calendar_jobs_3' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 3 ) ),
+				),
+				'natura_calendar_jobs_4' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 4 ) ),
+				),
+				'natura_calendar_jobs_5' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 5 ) ),
+				),
+				'natura_calendar_jobs_6' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 6 ) ),
+				),
+				'natura_calendar_jobs_7' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 7 ) ),
+				),
+				'natura_calendar_jobs_8' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 8 ) ),
+				),
+				'natura_calendar_jobs_9' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 9 ) ),
+				),
+				'natura_calendar_jobs_10' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 10 ) ),
+				),
+				'natura_calendar_jobs_11' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 11 ) ),
+				),
+				'natura_calendar_jobs_12' => array(
+					'type'  => 'textarea',
+					/* translators: %s: month name. */
+					'help'  => __( 'One job per line, shown on that month\'s page. Only what you have checked yourself.', 'natura' ),
+					'label' => sprintf( __( 'Jobs for pots in %s', 'natura' ), natura_month_name( 12 ) ),
+				),
+			),
+		),
 		'pinterest'  => array(
 			'title'  => __( 'Pinterest', 'natura' ),
 			'icon'   => 'dashicons-pinterest',
@@ -351,6 +446,7 @@ function natura_option_tabs(): array {
 				'ads_sidebar'                   => $switch( __( 'Side column ad', 'natura' ), __( 'Wide screens only.', 'natura' ) ),
 				'ads_guide_end'                 => $switch( __( 'End of guide ad (multiplex)', 'natura' ) ),
 				'ads_lists'                     => $switch( __( 'Ads in lists', 'natura' ), __( 'After the first row of cards, and on the Plant Care page.', 'natura' ) ),
+				'ads_calendar'                  => $switch( __( 'Calendar ad', 'natura' ), __( 'One ad on month pages, after the first section.', 'natura' ) ),
 			),
 		),
 		'newsletter' => array(

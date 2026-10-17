@@ -92,7 +92,8 @@ la propriétaire du site : elles restent affichées par défaut et toujours
 remplies. Une FAQ masquée disparaît aussi des données structurées : Google
 interdit les questions invisibles pour les lecteurs.
 
-Les onglets du calendrier, du Plant finder, de Gear et de DIY seront ajoutés
+L'onglet **Calendar & lists** couvre le calendrier et les listes par
+lumière et par lieu. Ceux du Plant finder, de Gear et de DIY seront ajoutés
 avec ces pages.
 
 ## Écarté, et pourquoi

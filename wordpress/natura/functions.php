@@ -22,4 +22,5 @@ require_once get_template_directory() . '/inc/guide.php';
 require_once get_template_directory() . '/inc/plant.php';
 require_once get_template_directory() . '/inc/plant-care.php';
 require_once get_template_directory() . '/inc/home.php';
+require_once get_template_directory() . '/inc/calendar.php';
 require_once get_template_directory() . '/inc/options.php';

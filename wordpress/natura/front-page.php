@@ -198,8 +198,17 @@ $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsle
 							printf( esc_html__( 'In your pots this %s', 'natura' ), esc_html( $natura_month['month'] ) );
 							?>
 						</h2>
-						<p><?php esc_html_e( 'For a temperate climate such as the UK or northern Europe. Each guide has its own planting calendar.', 'natura' ); ?></p>
+						<p><?php echo esc_html( natura_calendar_climate_note() ); ?></p>
 					</div>
+					<?php if ( function_exists( 'natura_core_calendar_url' ) ) : ?>
+						<a class="text-link season-more" href="<?php echo esc_url( natura_core_calendar_url( (int) wp_date( 'n' ) ) ); ?>">
+							<?php
+							/* translators: %s: month name. */
+							echo esc_html( sprintf( __( 'Everything for %s', 'natura' ), $natura_month['month'] ) );
+							?>
+							<?php natura_the_icon( 'arrow' ); ?>
+						</a>
+					<?php endif; ?>
 				</div>
 				<ul class="season-grid">
 					<?php foreach ( $natura_month['groups'] as $natura_group ) : ?>
