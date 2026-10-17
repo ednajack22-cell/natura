@@ -75,6 +75,12 @@ function natura_guide_checks( WP_Post $post ): array {
 		case 'post':
 			$checks[ __( 'Plant Care topic', 'natura' ) ] = (bool) array_filter( wp_get_post_categories( $id ), static fn( int $cat ): bool => (int) get_option( 'default_category' ) !== $cat );
 			break;
+		case 'project':
+			$checks[ __( 'At least three steps', 'natura' ) ]   = count( natura_field_list( 'steps', $id ) ) >= 3;
+			$checks[ __( 'Materials and tools', 'natura' ) ]    = (bool) natura_field_list( 'materials', $id ) && (bool) natura_field_list( 'tools', $id );
+			$checks[ __( 'Before you start', 'natura' ) ]       = (bool) natura_field_list( 'checks', $id );
+			$checks[ __( 'Plants to grow in it', 'natura' ) ]   = (bool) get_post_meta( $id, '_natura_project_plant' );
+			break;
 		case 'gear':
 			$checks[ __( 'At least two picks', 'natura' ) ]   = count( natura_field_list( 'picks', $id ) ) >= 2;
 			$checks[ __( 'What to look for', 'natura' ) ]     = (bool) natura_field_list( 'criteria', $id );
@@ -127,6 +133,7 @@ function natura_topic_coverage(): array {
 		__( 'Growing spaces', 'natura' )     => 'plant_space',
 		__( 'Plant Care topics', 'natura' )  => 'category',
 		__( 'Gear categories', 'natura' )    => 'gear_category',
+		__( 'Project categories', 'natura' ) => 'project_category',
 	);
 	foreach ( $sets as $label => $taxonomy ) {
 		if ( ! taxonomy_exists( $taxonomy ) ) {

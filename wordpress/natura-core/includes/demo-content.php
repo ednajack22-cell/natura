@@ -168,6 +168,44 @@ function natura_core_import_demo_care( string $image_base ): array {
 		$created[] = $post_id;
 	}
 
+	foreach ( natura_core_demo_projects() as $slug => $project ) {
+		if ( ! post_type_exists( 'project' ) || get_page_by_path( $slug, OBJECT, 'project' ) ) {
+			continue;
+		}
+		natura_core_projects_activate();
+		$post_id = wp_insert_post(
+			array(
+				'post_type'    => 'project',
+				'post_status'  => 'publish',
+				'post_author'  => $author,
+				'post_name'    => $slug,
+				'post_title'   => $project['title'],
+				'post_excerpt' => $project['excerpt'],
+				'post_content' => $project['content'],
+			),
+			true
+		);
+		if ( is_wp_error( $post_id ) ) {
+			continue;
+		}
+		wp_set_object_terms( $post_id, $project['category'], 'project_category' );
+		foreach ( $project['facts'] as $key => $value ) {
+			update_post_meta( $post_id, natura_core_meta_key( $key ), $value );
+		}
+		natura_core_demo_save_fields( $post_id, $project['lists'], $project['pin'] ?? '', $image_base );
+		natura_core_demo_set_photo( $post_id, $project, $image_base );
+		$plant_ids = array();
+		foreach ( $project['plants'] as $plant_slug ) {
+			$plant = get_page_by_path( $plant_slug, OBJECT, 'plant' );
+			if ( $plant ) {
+				$plant_ids[] = (int) $plant->ID;
+			}
+		}
+		natura_core_set_project_plants( $post_id, $plant_ids );
+
+		$created[] = $post_id;
+	}
+
 	foreach ( natura_core_demo_gear() as $slug => $guide ) {
 		if ( ! post_type_exists( 'gear' ) || get_page_by_path( $slug, OBJECT, 'gear' ) ) {
 			continue;
@@ -809,6 +847,79 @@ function natura_core_demo_gear(): array {
 				$p( 'This guide compares types of compost, not brands. Each pick and each line comes from RHS advice on composts and container growing, listed in the sources. We have not run our own trial of these products.' ) .
 				$h2( 'When to start feeding' ) .
 				$p( 'Fresh compost contains enough food for the first few weeks. After that, container plants rely on you: start a liquid feed at the dilution given on the label, more often for hungry crops such as tomatoes.' ),
+		),
+	);
+}
+
+/**
+ * The demo DIY project. Adapted, in our own words, from the self-watering
+ * planter Jessica Walliser describes on Savvy Gardening (cited in Sources),
+ * with the balcony checks added; the method says so. The picture is a
+ * diagram, not a photo of a build we did not make.
+ *
+ * @return array<string, array>
+ */
+function natura_core_demo_projects(): array {
+	$p  = 'natura_core_demo_p';
+	$h2 = 'natura_core_demo_h2';
+
+	return array(
+		'self-watering-pot' => array(
+			'title'     => 'Make a Self-Watering Pot From Two Containers',
+			'category'  => array( 'watering' ),
+			'image'     => 'demo/project-self-watering.jpg',
+			'image_alt' => 'Diagram of a self-watering pot: a planting container standing on bricks inside a second container, with a towel wick reaching into the water below',
+			'pin'       => 'demo/pin-self-watering.jpg',
+			'plants'    => array( 'cherry-tomato', 'genovese-basil' ),
+			'excerpt'   => 'Two identical plastic containers, a few bricks, and an old cotton towel make a pot that waters itself from a reservoir underneath. No drilling: a utility knife and scissors are enough.',
+			'facts'     => array(
+				'project_method' => 'adapted',
+				'difficulty'     => 'Beginner',
+				'time'           => 'Under an hour',
+				'cost'           => 'Low',
+				'size'           => 'The size of the containers you use',
+			),
+			'lists'     => array(
+				'checks'    => array(
+					array( 'point' => 'Water is heavy: every litre in the reservoir weighs about a kilo, on top of the wet compost. Check what your balcony can carry before you build with large containers.' ),
+					array( 'point' => 'The overflow hole lets extra water out after heavy rain. Stand the pot where that water cannot drip onto a balcony or a passer-by below.' ),
+					array( 'point' => 'Cut away from your hand, on a stable surface, and wear gloves when using the utility knife.' ),
+				),
+				'materials' => array(
+					array( 'name' => 'Plastic containers or storage bins of the same type and size', 'quantity' => '2' ),
+					array( 'name' => 'Old cotton hand towel', 'quantity' => '1' ),
+					array( 'name' => 'Bricks or blocks', 'quantity' => 'Enough for two or three short columns' ),
+					array( 'name' => 'Potting compost mixed half and half with garden compost', 'quantity' => 'Enough to fill one container' ),
+				),
+				'tools'     => array(
+					array( 'name' => 'Utility knife' ),
+					array( 'name' => 'Scissors' ),
+					array( 'name' => 'Gloves' ),
+				),
+				'steps'     => array(
+					array( 'title' => 'Cut the wick hole', 'text' => 'Cut a hole about 5 cm (2 in) square near the centre of the base of one container. This one will hold the compost: call it the planting container.', 'tip' => 'The hole does not need to be exactly in the middle.' ),
+					array( 'title' => 'Make the wick', 'text' => 'Cut the cotton towel lengthways into four strips of roughly the same width.', 'tip' => '' ),
+					array( 'title' => 'Build the reservoir', 'text' => 'Put the second container where the pot will stay, on a firm, level surface. Stack bricks or blocks inside it in two or three columns, 10 to 20 cm (4 to 8 in) high. Keep the centre free, under the wick hole.', 'tip' => 'Taller columns make a bigger reservoir, so you refill less often.' ),
+					array( 'title' => 'Cut the fill and overflow hole', 'text' => 'In the side of the outer container, cut a hole about 5 cm (2 in) square with its top level with the top of the bricks. You will pour water in here, and extra water will run out here.', 'tip' => '' ),
+					array( 'title' => 'Fill the reservoir', 'text' => 'Pour water into the outer container up to the bottom of that hole.', 'tip' => '' ),
+					array( 'title' => 'Put the planting container in', 'text' => 'Lower the planting container into the outer one so that its base rests on the bricks.', 'tip' => '' ),
+					array( 'title' => 'Thread the wick', 'text' => 'Push one end of all four towel strips down through the wick hole until they hang a little deeper than the bricks are tall, into the water. Spread the top ends across the base of the planting container in a cross.', 'tip' => 'The strips soak up water at once if they reach it.' ),
+					array( 'title' => 'Fill and plant', 'text' => 'Fill the planting container with the compost mix, leaving 2 to 3 cm (about 1 in) below the rim. Plant, then water from the top once to settle the compost. From then on, refill through the side hole.', 'tip' => '' ),
+				),
+				'faq'       => array(
+					array( 'question' => 'How often do I refill the reservoir?', 'answer' => 'It depends on the size of the reservoir, the plants, and the weather. Look into the fill hole: when you no longer see water, refill it up to the bottom of the hole.' ),
+					array( 'question' => 'Do I still need to water from the top?', 'answer' => 'Only once, right after planting, to settle the compost. After that the wick draws water up from the reservoir.' ),
+				),
+				'sources'   => array(
+					array( 'title' => 'Savvy Gardening (Jessica Walliser) — How to make a DIY self-watering planter', 'url' => 'https://savvygardening.com/diy-self-watering-planter/' ),
+					array( 'title' => 'RHS — Growing plants in containers', 'url' => 'https://www.rhs.org.uk/container-gardening/growing-plants-in-containers' ),
+				),
+			),
+			'content'   =>
+				$h2( 'How it works' ) .
+				$p( 'The planting container stands on bricks above a reservoir of water. Strips of cotton towel hang from its base into the water and draw it up into the compost as the roots use it, so the compost stays moist without the roots standing in water. A hole in the side lets you refill the reservoir and lets extra rain run out.' ) .
+				$h2( 'Where these instructions come from' ) .
+				$p( 'This is the method Jessica Walliser describes on Savvy Gardening, in our own words and with the checks a balcony needs added. We have not built this exact version ourselves; the source is listed below.' ),
 		),
 	);
 }

@@ -165,6 +165,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
 | Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées, **sources** (affichées par défaut ; continuez à les remplir même masquées) |
 | Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
+| DIY Projects | Texte de la page DIY Projects et les blocs des projets (en bref, méthode, avant de commencer, matériel et outils, plantes) |
 | Gear | Texte de la page Gear, « How we choose products », et les blocs des guides d'achat (méthode, choix en bref, critères, tableau) |
 | Tools | Texte de la page Tools ; interrupteur et texte de chaque outil (Plant finder…) |
 | Calendar & lists | Introduction du calendrier, note sur le climat, bande des mois, compteurs, tableau de l'année, **travaux du mois** (un champ par mois) ; boutons « By light / By space » des listes et « Suits » des fiches |
@@ -330,6 +331,31 @@ par travail, mois par mois) se règlent dans Natura Options → **Calendar &
 lists**. Vous pouvez ajouter d'autres lieux ou niveaux de lumière dans Plants →
 Sun ou Plants → Growing spaces.
 
+## DIY Projects : projets pas à pas
+
+| Adresse | Contenu |
+| --- | --- |
+| `/projects/` | tous les projets, par catégorie |
+| `/projects/category/watering/` | une catégorie (Planters & boxes, Watering, Supports & trellis, Vertical & hanging) |
+| `/projects/self-watering-pot/` | un projet |
+
+**Ajouter un projet** : Administration → **DIY projects** → **Add project**.
+Titre, extrait, photo du projet fini, catégorie, puis la case **Project** :
+
+1. **At a glance** : d'où viennent les instructions (« Built by us »
+   seulement si vous l'avez construit vous-même, sinon « Adapted from a
+   source » et citez-la), difficulté, durée, coût (un niveau, pas un prix),
+   taille finie.
+2. **Before you start** : ce qu'il faut vérifier sur un balcon (poids,
+   écoulement de l'eau, vent, sécurité).
+3. **Materials** (avec quantités) et **Tools** ; lien de boutique facultatif.
+4. **Steps** : titre, ce qu'il faut faire, astuce et photo facultatives.
+5. **FAQ** et **sources**. Dans la colonne de droite : **Plants to grow in
+   it**.
+
+Natura Options → **DIY Projects** : texte de la page et interrupteurs de
+chaque bloc ; Ads → **DIY project ads**.
+
 ## Gear : guides d'achat
 
 | Adresse | Contenu |
@@ -379,8 +405,9 @@ un (voir `design/TOOLS.md`).
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
 plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
 Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
-les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker, le Pot size calculator, le Frost risk check et le Watering routine, et la section Gear (guides d'achat).
+les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker, le Pot size calculator, le Frost risk check et le Watering routine, la section Gear (guides d'achat) et DIY Projects.
 
-À venir : DIY Projects. Le Garden planner est remplacé par un guide « How
+Toutes les pages du plan sont construites. À faire ensuite : le contenu (voir
+Natura Options → Content health) et les retouches que vous avez notées. Le Garden planner est remplacé par un guide « How
 to arrange pots in a small space » (à rédiger, avec ses sources). Ces liens du menu
 mènent encore à une page « Page not found ».

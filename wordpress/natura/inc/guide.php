@@ -28,7 +28,9 @@ function natura_guide_has_affiliate_links(): bool {
 	$varieties = function_exists( 'natura_plant_varieties' ) && array_filter( array_column( natura_plant_varieties(), 'url' ) );
 	$picks     = 'gear' === get_post_type() && array_filter( array_column( natura_field_list( 'picks' ), 'url' ) );
 
-	return $products || $varieties || $picks;
+	$diy       = 'project' === get_post_type() && ( array_filter( array_column( natura_field_list( 'materials' ), 'url' ) ) || array_filter( array_column( natura_field_list( 'tools' ), 'url' ) ) );
+
+	return $products || $varieties || $picks || $diy;
 }
 
 /**

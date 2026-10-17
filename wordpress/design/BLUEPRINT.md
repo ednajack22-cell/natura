@@ -163,7 +163,8 @@ Ajouts prévus quand les pages correspondantes existeront :
    `TOOLS.md`, qui donne aussi l'ordre des autres outils.
 4. ~~Gear : guides d'achat avec critères, verdict et tableau comparatif.~~
    Fait : voir `GEAR.md`.
-5. DIY Projects, puis les autres outils.
+5. ~~DIY Projects, puis les autres outils.~~ Fait : voir `DIY.md` et
+   `TOOLS.md`.
 
 ## Plant Care
 

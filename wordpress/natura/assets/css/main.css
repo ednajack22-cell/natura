@@ -1430,3 +1430,39 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .gear-how li { display: flex; gap: .6rem; font: 400 1.0625rem/1.5 var(--font-serif); }
 .gear-how li svg { width: 20px; flex: none; margin-top: .2rem; color: var(--forest); }
 .gear-how p { display: flex; flex-wrap: wrap; gap: 0 1.5rem; margin: 0; }
+
+/* ---------------------------------------------------------------------------
+   DIY Projects (/projects/). See design/DIY.md.
+   --------------------------------------------------------------------------- */
+
+.project-checks { margin: 0 0 2rem; padding: 1.25rem; border-left: 4px solid var(--clay); border-radius: var(--radius); background: #fbeee8; }
+.project-checks h2 { margin: 0 0 .875rem; font-size: 1.375rem; }
+.project-checks ul { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+.project-checks li { display: flex; gap: .6rem; font: 400 1.0625rem/1.5 var(--font-serif); }
+.project-checks svg { width: 20px; flex: none; margin-top: .2rem; color: var(--clay); }
+
+.project-needs { margin: 0 0 2rem; }
+.project-needs h2, .project-steps > h2, .project-plants h2 { margin: 0 0 1rem; font-size: 1.5rem; }
+.project-needs-grid { display: grid; gap: 1rem; }
+@media (min-width: 640px) { .project-needs-grid { grid-template-columns: 3fr 2fr; } }
+.project-list { padding: 1.25rem; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--card); }
+.project-list h3 { margin: 0 0 .75rem; font: 700 .8125rem var(--font-sans); letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.project-list ul { display: grid; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+.project-list li { display: flex; gap: .55rem; font: 400 1rem/1.45 var(--font-sans); }
+.project-list svg { width: 18px; flex: none; margin-top: .15rem; color: var(--forest); }
+.project-shop { display: inline-flex; align-items: center; min-height: 44px; margin-left: .4rem; color: var(--clay); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+.project-steps { margin: 0 0 2rem; }
+.project-steps ol { display: grid; gap: 1.25rem; margin: 0; padding: 0; list-style: none; }
+.project-step { padding: 1.25rem; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--card); scroll-margin-top: calc(var(--header-height) + var(--header-offset) + 1rem); }
+.project-step h3 { display: grid; gap: .2rem; margin: 0 0 .75rem; font-size: 1.3125rem; line-height: 1.25; }
+.project-step-number { color: var(--clay); font: 700 .8125rem var(--font-sans); letter-spacing: .08em; text-transform: uppercase; }
+.project-step figure { margin: 0 0 .875rem; overflow: hidden; max-width: 100%; border-radius: var(--radius); }
+.project-step figure img { width: 100%; height: auto; }
+.project-step p { margin: 0; font: 400 1.0625rem/1.6 var(--font-serif); }
+.project-step .project-tip { margin-top: .75rem; padding: .6rem .8rem; border-radius: var(--radius-sm); background: var(--sage); font: 400 .9375rem/1.5 var(--font-sans); }
+.project-step-ad { list-style: none; }
+.project-plants { margin: 0 0 2rem; }
+.project-qty { display: block; color: var(--muted); font-size: .875rem; }
+/* A list with one card: a card-sized card, not a full-width banner. */
+.site-container > .problem-grid:has(> article:only-child) { grid-template-columns: minmax(0, 26rem); }

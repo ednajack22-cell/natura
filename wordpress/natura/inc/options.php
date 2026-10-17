@@ -317,6 +317,23 @@ function natura_option_tabs(): array {
 				),
 			),
 		),
+		'projects'   => array(
+			'title'  => __( 'DIY Projects', 'natura' ),
+			'icon'   => 'dashicons-hammer',
+			'intro'  => __( 'The DIY Projects page (/projects/) and each project. Projects are written in DIY projects → Add project; say there whether you built it yourself or adapted it from a source.', 'natura' ),
+			'fields' => array(
+				'natura_projects_intro' => array(
+					'type'  => 'textarea',
+					'label' => __( 'DIY Projects page: introduction', 'natura' ),
+					'help'  => __( 'Also its description for Google. A category with its own description uses that instead.', 'natura' ),
+				),
+				'project_glance'        => $switch( __( 'At a glance', 'natura' ), __( 'Difficulty, time, cost, finished size, and number of steps.', 'natura' ) ),
+				'project_method'        => $switch( __( 'Built by us / Adapted note', 'natura' ), __( 'Says plainly where the instructions come from. Recommended.', 'natura' ) ),
+				'project_checks'        => $switch( __( 'Before you start', 'natura' ), __( 'The checks for a balcony: weight, where water drains, wind, safety.', 'natura' ) ),
+				'project_materials'     => $switch( __( 'Materials and tools', 'natura' ) ),
+				'project_plants'        => $switch( __( 'What to grow in it', 'natura' ), __( 'The plant guides ticked in the project.', 'natura' ) ),
+			),
+		),
 		'gear'       => array(
 			'title'  => __( 'Gear', 'natura' ),
 			'icon'   => 'dashicons-cart',
@@ -548,6 +565,7 @@ function natura_option_tabs(): array {
 				'ads_sidebar'                   => $switch( __( 'Side column ad', 'natura' ), __( 'Wide screens only.', 'natura' ) ),
 				'ads_guide_end'                 => $switch( __( 'End of guide ad (multiplex)', 'natura' ) ),
 				'ads_lists'                     => $switch( __( 'Ads in lists', 'natura' ), __( 'After the first row of cards, and on the Plant Care page.', 'natura' ) ),
+				'ads_projects'                  => $switch( __( 'DIY project ads', 'natura' ), __( 'Before the steps, and after step 4 in long projects.', 'natura' ) ),
 				'ads_gear'                      => $switch( __( 'Buying guide ads', 'natura' ), __( 'After the comparison table, and after the third pick in long guides.', 'natura' ) ),
 				'ads_tools'                     => $switch( __( 'Tools ad', 'natura' ), __( 'One ad on each tool page, below the tool.', 'natura' ) ),
 				'ads_calendar'                  => $switch( __( 'Calendar ad', 'natura' ), __( 'One ad on month pages, after the first section.', 'natura' ) ),
