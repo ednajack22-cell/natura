@@ -129,7 +129,10 @@ problem guide**.
 5. **Plants affected** (colonne de droite) : cochez les plantes concernées.
    La fiche plante affiche alors « Common problems », et la fiche problème
    « Plants this often affects ».
-6. **Texte** (facultatif) : ce qui ne rentre pas dans les causes, par exemple
+6. **Where it shows** (colonne de droite) : où se voit le problème
+   (feuilles, fleurs ou fruits, tiges, racines ou terreau, toute la plante).
+   Le Symptom checker pose cette question après celle de la plante.
+7. **Texte** (facultatif) : ce qui ne rentre pas dans les causes, par exemple
    « How to prevent it ». Puis le matériel utile, la FAQ et les sources.
 
 **Ajouter un article** : Articles → Ajouter. Choisissez **une** catégorie :
@@ -309,6 +312,7 @@ Sun ou Plants → Growing spaces.
 | --- | --- |
 | `/tools/` | la page des outils, rangés par groupe |
 | `/tools/plant-finder/` | le Plant finder : lumière, lieu, type, expérience, ce mois-ci |
+| `/tools/guided-diagnosis/` | le Symptom checker : la plante, puis où se voit le problème ; il répond avec les fiches problèmes et le « What you see » de chaque cause |
 
 Le Plant finder répond avec vos fiches : remplissez **Sun**, **Growing
 spaces**, **Plant types**, **Difficulty** et le **Planting calendar** de
@@ -322,8 +326,8 @@ un (voir `design/TOOLS.md`).
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
 plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
 Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
-les listes par lumière et par lieu, la page Tools et le Plant finder.
+les listes par lumière et par lieu, la page Tools, le Plant finder et le Symptom checker.
 
-À venir : les autres outils (Symptom checker, Pot size calculator, Frost risk
-check, Watering routine), Gear, DIY Projects. Ces liens du menu
+À venir : les autres outils (Pot size calculator, Frost risk check, Watering
+routine), Gear, DIY Projects. Ces liens du menu
 mènent encore à une page « Page not found ».

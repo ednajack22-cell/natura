@@ -132,6 +132,9 @@ function natura_core_import_demo_care( string $image_base ): array {
 			}
 		}
 		natura_core_set_problem_plants( $post_id, $plant_ids );
+		if ( ! empty( $problem['parts'] ) && taxonomy_exists( 'problem_part' ) ) {
+			wp_set_object_terms( $post_id, $problem['parts'], 'problem_part' );
+		}
 
 		$created[] = $post_id;
 	}
@@ -497,6 +500,7 @@ function natura_core_demo_problems(): array {
 			'image_alt' => 'A tomato plant in a terracotta pot with yellowing lower leaves and green upper leaves',
 			'excerpt' => 'In pots, yellow leaves most often come down to water: too much, or too little. If watering is right, look at where the yellow appears: evenly on the oldest leaves points to hungry compost, and yellow between green veins to a lack of magnesium.',
 			'plants'  => array( 'cherry-tomato', 'genovese-basil', 'balcony-strawberry' ),
+			'parts'   => array( 'leaves' ),
 			'pin'     => 'demo/pin-yellow-leaves.jpg',
 			'lists'   => array(
 				'causes'   => array(
@@ -570,6 +574,7 @@ function natura_core_demo_problems(): array {
 			'image_alt' => 'A green tomato with a dark sunken patch at its base, next to healthy fruit',
 			'excerpt' => 'A dark, sunken patch at the base of tomato fruit is blossom end rot. It is not a disease: the fruit is short of calcium because the plant\'s water supply was uneven. Steady watering protects the fruit that forms next.',
 			'plants'  => array( 'cherry-tomato' ),
+			'parts'   => array( 'flowers-fruit' ),
 			'lists'   => array(
 				'causes'   => array(
 					array(

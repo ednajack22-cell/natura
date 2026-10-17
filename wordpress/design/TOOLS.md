@@ -60,9 +60,11 @@ montre toutes les plantes.
 
 Ordre de construction, chacun avec la même méthode :
 
-1. **Symptom checker** (`/tools/guided-diagnosis/`) : plante, puis ce qu'on
-   voit. Les réponses viennent des fiches problèmes (« Plants affected » et
-   « What you see » de chaque cause), comme la méthode UC IPM.
+1. **Symptom checker** (`/tools/guided-diagnosis/`) : **fait**. La plante,
+   puis où se voit le problème (nouvelle case « Where it shows » des fiches
+   problèmes), comme la méthode UC IPM. Chaque fiche trouvée affiche ses
+   causes sous la forme « If you see … → Likely cause », avec un lien vers
+   la cause dans la fiche. Rien n'est deviné : le lecteur compare.
 2. **Pot size calculator** (`/tools/pot-size-calculator/`) : volume du pot
    (rond, carré, jardinière ; cm ou pouces) et nombre de sacs de terreau,
    calcul exact ; plus la taille de pot conseillée par chaque fiche.

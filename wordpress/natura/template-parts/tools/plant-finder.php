@@ -21,26 +21,11 @@ $natura_url       = natura_tool_url( 'plant-finder' );
 	<?php if ( ! $natura_questions ) : ?>
 		<p class="empty-state"><?php esc_html_e( 'The finder needs plant guides filed under Sun, Growing spaces, or Plant types.', 'natura' ); ?></p>
 	<?php endif; ?>
-	<?php foreach ( $natura_questions as $natura_key => $natura_question ) : ?>
-		<fieldset class="finder-question">
-			<legend><?php echo esc_html( $natura_question['label'] ); ?></legend>
-			<?php if ( $natura_question['hint'] ) : ?>
-				<p class="finder-hint"><?php echo esc_html( $natura_question['hint'] ); ?></p>
-			<?php endif; ?>
-			<div class="finder-choices">
-				<label>
-					<input type="radio" name="<?php echo esc_attr( $natura_key ); ?>" value=""<?php checked( ! isset( $natura_filters[ $natura_key ] ) ); ?>>
-					<span><?php esc_html_e( 'Any', 'natura' ); ?></span>
-				</label>
-				<?php foreach ( $natura_question['choices'] as $natura_value => $natura_label ) : ?>
-					<label>
-						<input type="radio" name="<?php echo esc_attr( $natura_key ); ?>" value="<?php echo esc_attr( (string) $natura_value ); ?>"<?php checked( ( $natura_filters[ $natura_key ] ?? null ) === (string) $natura_value ); ?>>
-						<span><?php echo esc_html( $natura_label ); ?></span>
-					</label>
-				<?php endforeach; ?>
-			</div>
-		</fieldset>
-	<?php endforeach; ?>
+	<?php
+	foreach ( $natura_questions as $natura_key => $natura_question ) {
+		natura_the_tool_question( $natura_key, $natura_question, $natura_filters );
+	}
+	?>
 	<?php if ( $natura_questions ) : ?>
 		<div class="finder-actions">
 			<button type="submit" class="button button-primary"><?php natura_the_icon( 'lens' ); ?> <?php esc_html_e( 'Show matching plants', 'natura' ); ?></button>

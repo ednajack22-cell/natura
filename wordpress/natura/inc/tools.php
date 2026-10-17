@@ -28,6 +28,13 @@ function natura_tools(): array {
 			'group' => 'choose',
 			'icon'  => 'lens',
 		),
+		'guided-diagnosis'  => array(
+			'title' => __( 'Symptom checker', 'natura' ),
+			'text'  => __( 'Pick the plant and where the trouble shows, and see the likely causes before you treat anything.', 'natura' ),
+			'needs' => __( 'A close look at the leaves, fruit, stems, and compost', 'natura' ),
+			'group' => 'fix',
+			'icon'  => 'leaf',
+		),
 		'planting-calendar' => array(
 			'title' => __( 'Planting calendar', 'natura' ),
 			'text'  => __( 'What to sow, plant out, and harvest in pots, month by month.', 'natura' ),
@@ -131,6 +138,9 @@ function natura_tool_page_title( string $slug ): string {
 	if ( 'plant-finder' === $slug ) {
 		return __( 'Plant finder: what to grow in your pots', 'natura' );
 	}
+	if ( 'guided-diagnosis' === $slug ) {
+		return __( 'Symptom checker: what is wrong with my plant?', 'natura' );
+	}
 	$tools = natura_tools();
 
 	return isset( $tools[ $slug ] ) ? $tools[ $slug ]['title'] : __( 'Tools for growing in pots', 'natura' );
@@ -202,13 +212,15 @@ add_action(
 );
 
 /*
- * A filtered plant finder is one of many near-identical pages: kept out of
- * search results, with its canonical pointing at the plain finder.
+ * A tool page with answers in its address is one of many near-identical
+ * pages: kept out of search results, with its canonical pointing at the
+ * plain tool.
  */
 add_filter(
 	'wp_robots',
 	static function ( array $robots ): array {
-		if ( 'plant-finder' === natura_current_tool() && natura_finder_filters() ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- only checks whether answers are present.
+		if ( natura_current_tool() && array_filter( array_map( 'is_string', $_GET ) ) ) {
 			$robots['noindex'] = true;
 			$robots['follow']  = true;
 		}
@@ -384,4 +396,141 @@ function natura_finder_query( array $filters ): WP_Query {
 			'meta_query'     => $meta, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 		)
 	);
+}
+
+/* ---------------------------------------------------------------------------
+   Symptom checker
+   --------------------------------------------------------------------------- */
+
+/**
+ * The checker's questions: the plants that have at least one problem guide,
+ * and the places on a plant where those problems show.
+ *
+ * @return array<string, array{label: string, hint: string, choices: array<string, string>}>
+ */
+function natura_diagnosis_questions(): array {
+	$questions = array();
+	if ( ! post_type_exists( 'problem' ) ) {
+		return $questions;
+	}
+
+	$plant_ids = array();
+	foreach ( get_posts(
+		array(
+			'post_type'      => 'problem',
+			'posts_per_page' => 200,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+		)
+	) as $problem_id ) {
+		$plant_ids = array_merge( $plant_ids, array_map( 'absint', (array) get_post_meta( (int) $problem_id, '_natura_plant' ) ) );
+	}
+	$plants = array();
+	foreach ( array_unique( $plant_ids ) as $plant_id ) {
+		if ( $plant_id && 'publish' === get_post_status( $plant_id ) ) {
+			$plants[ get_post_field( 'post_name', $plant_id ) ] = natura_plant_short_name( $plant_id );
+		}
+	}
+	asort( $plants, SORT_NATURAL | SORT_FLAG_CASE );
+
+	$parts = taxonomy_exists( 'problem_part' ) ? get_terms(
+		array(
+			'taxonomy'   => 'problem_part',
+			'hide_empty' => true,
+		)
+	) : array();
+
+	$questions['plant'] = array(
+		'label'   => __( 'Which plant is it?', 'natura' ),
+		'hint'    => '',
+		'choices' => $plants,
+	);
+	$questions['part']  = array(
+		'label'   => __( 'Where do you see the problem?', 'natura' ),
+		'hint'    => __( 'Look at the whole plant, including the undersides of the leaves and the compost.', 'natura' ),
+		'choices' => is_wp_error( $parts ) ? array() : wp_list_pluck( $parts, 'name', 'slug' ),
+	);
+
+	return array_filter( $questions, static fn( array $q ): bool => (bool) $q['choices'] );
+}
+
+/**
+ * The answers in the address, checked against the choices offered.
+ *
+ * @return array<string, string>
+ */
+function natura_diagnosis_answers(): array {
+	$answers = array();
+	foreach ( natura_diagnosis_questions() as $key => $question ) {
+		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- read-only search form.
+		$value = isset( $_GET[ $key ] ) ? sanitize_text_field( wp_unslash( (string) $_GET[ $key ] ) ) : '';
+		if ( '' !== $value && isset( $question['choices'][ $value ] ) ) {
+			$answers[ $key ] = $value;
+		}
+	}
+
+	return $answers;
+}
+
+/**
+ * The problem guides that match the answers.
+ *
+ * @param array<string, string> $answers Answers.
+ */
+function natura_diagnosis_query( array $answers ): WP_Query {
+	$args = array(
+		'post_type'      => 'problem',
+		'posts_per_page' => 30,
+		'orderby'        => 'title',
+		'order'          => 'ASC',
+		'no_found_rows'  => true,
+	);
+	if ( isset( $answers['plant'] ) ) {
+		$plant = get_page_by_path( $answers['plant'], OBJECT, 'plant' );
+		// phpcs:disable WordPress.DB.SlowDBQuery -- a handful of rows, cached by the page cache.
+		$args['meta_key']   = '_natura_plant';
+		$args['meta_value'] = $plant ? $plant->ID : 0;
+		// phpcs:enable
+	}
+	if ( isset( $answers['part'] ) ) {
+		$args['tax_query'] = array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
+			array(
+				'taxonomy' => 'problem_part',
+				'field'    => 'slug',
+				'terms'    => $answers['part'],
+			),
+		);
+	}
+
+	return new WP_Query( $args );
+}
+
+/**
+ * Prints one question of a tool form: a fieldset of chips, "Any" first.
+ *
+ * @param string                                                     $key      Answer name in the address.
+ * @param array{label: string, hint: string, choices: array<string, string>} $question Question.
+ * @param array<string, string>                                      $answers  Current answers.
+ */
+function natura_the_tool_question( string $key, array $question, array $answers ): void {
+	?>
+	<fieldset class="finder-question">
+		<legend><?php echo esc_html( $question['label'] ); ?></legend>
+		<?php if ( $question['hint'] ) : ?>
+			<p class="finder-hint"><?php echo esc_html( $question['hint'] ); ?></p>
+		<?php endif; ?>
+		<div class="finder-choices">
+			<label>
+				<input type="radio" name="<?php echo esc_attr( $key ); ?>" value=""<?php checked( ! isset( $answers[ $key ] ) ); ?>>
+				<span><?php esc_html_e( 'Any', 'natura' ); ?></span>
+			</label>
+			<?php foreach ( $question['choices'] as $value => $label ) : ?>
+				<label>
+					<input type="radio" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( (string) $value ); ?>"<?php checked( ( $answers[ $key ] ?? null ) === (string) $value ); ?>>
+					<span><?php echo esc_html( $label ); ?></span>
+				</label>
+			<?php endforeach; ?>
+		</div>
+	</fieldset>
+	<?php
 }

@@ -61,6 +61,45 @@ function natura_core_register_problems(): void {
 add_action( 'init', 'natura_core_register_problems' );
 
 /**
+ * Where a problem shows on the plant. The symptom checker asks it second,
+ * after the plant, like the UC IPM diagnostic tool.
+ *
+ * @return array<string, string> Slug => name.
+ */
+function natura_core_default_problem_parts(): array {
+	return array(
+		'leaves'        => __( 'Leaves', 'natura-core' ),
+		'flowers-fruit' => __( 'Flowers or fruit', 'natura-core' ),
+		'stems'         => __( 'Stems', 'natura-core' ),
+		'roots-compost' => __( 'Roots or compost', 'natura-core' ),
+		'whole-plant'   => __( 'Whole plant', 'natura-core' ),
+	);
+}
+
+add_action(
+	'init',
+	static function (): void {
+		register_taxonomy(
+			'problem_part',
+			'problem',
+			array(
+				'labels'            => array(
+					'name'          => __( 'Where it shows', 'natura-core' ),
+					'singular_name' => __( 'Where it shows', 'natura-core' ),
+				),
+				// Only a question in the symptom checker: no pages of its own.
+				'public'            => false,
+				'show_ui'           => true,
+				'show_in_rest'      => true,
+				'show_admin_column' => true,
+				'hierarchical'      => true,
+				'rewrite'           => false,
+			)
+		);
+	}
+);
+
+/**
  * The section page at /plant-care/. It is a single page: full lists live on
  * the problem list and the topic pages.
  */
@@ -154,6 +193,12 @@ function natura_core_default_topics(): array {
 function natura_core_plant_care_activate(): void {
 	natura_core_register_problems();
 	natura_core_plant_care_rules();
+
+	foreach ( natura_core_default_problem_parts() as $slug => $name ) {
+		if ( taxonomy_exists( 'problem_part' ) && ! term_exists( $slug, 'problem_part' ) ) {
+			wp_insert_term( $name, 'problem_part', array( 'slug' => $slug ) );
+		}
+	}
 
 	foreach ( natura_core_default_topics() as $slug => $topic ) {
 		if ( ! term_exists( $slug, 'category' ) ) {

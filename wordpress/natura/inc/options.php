@@ -332,6 +332,11 @@ function natura_option_tabs(): array {
 					'type'  => 'textarea',
 					'label' => __( 'Plant finder: introduction', 'natura' ),
 				),
+				'tool_guided_diagnosis'          => $switch( __( 'Symptom checker', 'natura' ), __( 'Plant, then where the problem shows; answers from the problem guides ("Plants affected", "Where it shows", and each cause\'s "What you see").', 'natura' ) ),
+				'natura_tool_intro_guided_diagnosis' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Symptom checker: introduction', 'natura' ),
+				),
 				'tool_planting_calendar'         => $switch( __( 'Planting calendar on the tools page', 'natura' ), __( 'The calendar itself is set in the Calendar & lists tab.', 'natura' ) ),
 			),
 		),
