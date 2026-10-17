@@ -1330,3 +1330,21 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .watering-steps ul li { display: flex; gap: .6rem; font: 400 1.0625rem/1.5 var(--font-serif); }
 .watering-steps ul svg { width: 20px; flex: none; margin-top: .2rem; color: var(--forest); }
 .watering-routine .frost-sources { margin: 0 0 2.5rem; }
+
+/* Share bar: the phone's share sheet first (shown by script where it
+   exists), then Pinterest, WhatsApp, Facebook, email, copy link. */
+.share-bar { margin: 2rem 0; padding: 1.25rem; border: 1px solid var(--line-soft); border-radius: var(--radius); background: var(--paper-low); }
+.share-bar h2 { display: flex; align-items: center; gap: .5rem; margin: 0 0 .875rem; font-size: 1.25rem; line-height: 1.25; }
+.share-bar h2 svg { width: 20px; color: var(--clay); }
+.share-buttons { display: flex; flex-wrap: wrap; gap: .5rem; }
+.share-button { display: inline-flex; align-items: center; gap: .45rem; min-height: 44px; padding: 0 1rem; border: 1px solid var(--line); border-radius: 999px; color: var(--heading); background: var(--card); font: 600 .9375rem var(--font-sans); cursor: pointer; }
+.share-button:hover { border-color: var(--forest); }
+.share-button svg { width: 20px; flex: none; }
+.share-native { border-color: var(--forest); color: white; background: var(--forest); }
+.share-native:hover { background: var(--forest-dark); }
+.share-button.is-pinterest svg { color: #e60023; }
+.share-button.is-whatsapp svg { color: #1a8f4c; }
+.share-button.is-facebook svg { color: #1877f2; }
+.share-button.is-email svg, .share-copy svg { color: var(--muted); }
+.share-button:focus-visible { outline: var(--focus-ring); outline-offset: 2px; }
+.share-bar[hidden], .share-native[hidden] { display: none; }

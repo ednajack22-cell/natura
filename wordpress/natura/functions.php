@@ -11,7 +11,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NATURA_VERSION', '0.13.0' );
+// Read from style.css, so a new version always refreshes the cached CSS and JavaScript.
+define( 'NATURA_VERSION', (string) wp_get_theme( get_template() )->get( 'Version' ) );
 
 require_once get_template_directory() . '/inc/icons.php';
 require_once get_template_directory() . '/inc/setup.php';
@@ -24,4 +25,5 @@ require_once get_template_directory() . '/inc/plant-care.php';
 require_once get_template_directory() . '/inc/home.php';
 require_once get_template_directory() . '/inc/calendar.php';
 require_once get_template_directory() . '/inc/tools.php';
+require_once get_template_directory() . '/inc/share.php';
 require_once get_template_directory() . '/inc/options.php';

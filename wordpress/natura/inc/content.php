@@ -102,7 +102,7 @@ function natura_prepare_content( string $html, array $inserts, array $keep = arr
  */
 function natura_pin_image_url(): string {
 	$pin_id = absint( natura_field( 'pin_image' ) );
-	$url    = $pin_id ? wp_get_attachment_image_url( $pin_id, 'full' ) : get_the_post_thumbnail_url( null, 'full' );
+	$url    = natura_share_image_url( $pin_id ? $pin_id : (int) get_post_thumbnail_id() );
 
 	return $url ?: '';
 }
@@ -155,7 +155,7 @@ function natura_pin_attributes( int $post_id ): array {
 		'data-pin-description' => natura_pin_description( $post_id ),
 	);
 	if ( $pin_id && wp_attachment_is_image( $pin_id ) ) {
-		$attrs['data-pin-media'] = (string) wp_get_attachment_image_url( $pin_id, 'full' );
+		$attrs['data-pin-media'] = natura_share_image_url( $pin_id );
 	}
 
 	return $attrs;
@@ -241,7 +241,7 @@ add_action(
 			'og:description'         => wp_strip_all_tags( get_the_excerpt() ),
 			'og:url'                 => get_permalink(),
 			'og:site_name'           => get_bloginfo( 'name' ),
-			'og:image'               => get_the_post_thumbnail_url( null, 'full' ),
+			'og:image'               => natura_share_image_url( (int) get_post_thumbnail_id() ),
 			'og:image:alt'           => (string) get_post_meta( (int) get_post_thumbnail_id(), '_wp_attachment_image_alt', true ),
 			// Article Rich Pins show the date and the author with the pin.
 			'article:published_time' => get_the_date( 'c' ),

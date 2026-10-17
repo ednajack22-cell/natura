@@ -50,12 +50,18 @@ $natura_tools = natura_active_tools();
 						</section>
 					<?php endif; ?>
 				<?php endforeach; ?>
+				<?php natura_the_share_bar( 'share_tools', __( 'Share these tools', 'natura' ) ); ?>
 				<p class="tools-privacy"><?php natura_the_icon( 'check' ); ?> <span><?php esc_html_e( 'Free, with no account. Nothing you enter in a tool is saved.', 'natura' ); ?></span></p>
 			<?php else : ?>
 				<p class="empty-state"><?php esc_html_e( 'No tool is switched on yet.', 'natura' ); ?></p>
 			<?php endif; ?>
 		<?php else : ?>
 			<?php get_template_part( 'template-parts/tools/' . $natura_slug ); ?>
+			<?php
+			// "Result" only once the reader has answered; before that, the tool itself.
+			$natura_shared = natura_share_context();
+			natura_the_share_bar( 'share_tools', ( $natura_shared && str_contains( $natura_shared['url'], '?' ) ) ? __( 'Share this result', 'natura' ) : __( 'Share this tool', 'natura' ) );
+			?>
 			<?php echo natura_ad_slot( __( 'Tool page, below the tool', 'natura' ), 'in-content', 'ads_tools' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
 			<?php
 			$natura_others = array_diff_key( $natura_tools, array( $natura_slug => true ) );

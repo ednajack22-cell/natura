@@ -167,7 +167,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
 | Tools | Texte de la page Tools ; interrupteur et texte de chaque outil (Plant finder…) |
 | Calendar & lists | Introduction du calendrier, note sur le climat, bande des mois, compteurs, tableau de l'année, **travaux du mois** (un champ par mois) ; boutons « By light / By space » des listes et « Suits » des fiches |
-| Pinterest | Profil, code de vérification du site, les boutons « Save » et « Follow » |
+| Pinterest & sharing | Profil, code de vérification du site, les boutons « Save » et « Follow », les bandeaux **Share** (fiches, outils, calendrier, listes) et l'image Pinterest de chaque outil |
 | Affiliate products | **Our picks** et « What you need » : à masquer tant que vous n'avez pas de produits |
 | Ads | Identifiants AdSense, et chaque emplacement de publicité |
 | Newsletter | Formulaire et texte |
@@ -244,6 +244,26 @@ tiers ni suivi avant le clic) :
   les statistiques du site ;
 - l'adresse de votre profil Pinterest affiche le bouton « Follow » sur
   l'accueil et dans le pied de page.
+
+## Partage (Pinterest, WhatsApp, Facebook, e-mail)
+
+Un bandeau **Share** apparaît sur les fiches (plantes, problèmes, articles),
+sous chaque outil, sur le calendrier et sur les listes de plantes :
+
+- **Share** : le menu de partage du téléphone (WhatsApp, Instagram, SMS,
+  Messenger…), seulement sur les téléphones et navigateurs qui en ont un ;
+- **Pinterest**, **WhatsApp**, **Facebook**, **Email** et **Copy link**.
+
+Ce sont de simples liens : aucun script ni cookie de ces réseaux. Un
+**résultat d'outil se partage avec ses réponses** (« 3 plants for pots: Full
+sun · Balcony », « Frost check at −3 °C: 2 plants to protect »), alors que
+Google ne garde que la page de l'outil. Chaque page partagée a son aperçu :
+titre, texte et image (la photo d'origine en JPEG, que tous les réseaux
+lisent, plutôt que la copie WebP des pages). Chaque outil a une image
+horizontale (aperçu WhatsApp et Facebook) et une image verticale (Pinterest)
+fournies avec le thème ; vous pouvez remplacer l'image verticale dans Natura
+Options → **Pinterest & sharing**, où se trouve aussi l'interrupteur de chaque
+bandeau.
 
 ## Activer les publicités
 
@@ -333,6 +353,6 @@ plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
 Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
 les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker, le Pot size calculator, le Frost risk check et le Watering routine.
 
-À venir : Gear, DIY Projects. Le Garden planner est retiré du menu en attendant
-votre décision (voir `design/TOOLS.md`). Ces liens du menu
+À venir : Gear, DIY Projects. Le Garden planner est remplacé par un guide « How
+to arrange pots in a small space » (à rédiger, avec ses sources). Ces liens du menu
 mènent encore à une page « Page not found ».

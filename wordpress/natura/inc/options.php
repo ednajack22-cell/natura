@@ -356,9 +356,9 @@ function natura_option_tabs(): array {
 			),
 		),
 		'pinterest'  => array(
-			'title'  => __( 'Pinterest', 'natura' ),
+			'title'  => __( 'Pinterest & sharing', 'natura' ),
 			'icon'   => 'dashicons-pinterest',
-			'intro'  => __( 'Your profile, your claimed website, and the Save buttons.', 'natura' ),
+			'intro'  => __( 'Your Pinterest profile and claimed website, the Save buttons, and the Share bars (phone share sheet, Pinterest, WhatsApp, Facebook, email, copy link). The bars are plain links: no script or cookie from these networks.', 'natura' ),
 			'fields' => array(
 				'natura_pinterest_url'    => array(
 					'type'        => 'url',
@@ -376,6 +376,47 @@ function natura_option_tabs(): array {
 				'guide_pin_block'         => $switch( __( 'Save this guide block', 'natura' ), __( 'The vertical image after section 3 of guides.', 'natura' ) ),
 				'guide_side_pin'          => $switch( __( 'Pinterest box in the side column', 'natura' ) ),
 				'site_footer_follow'      => $switch( __( 'Follow us on Pinterest (footer)', 'natura' ) ),
+				'share_guides'            => $switch( __( 'Share bar on guides', 'natura' ), __( 'Plant guides, problem guides, and articles, before the questions.', 'natura' ) ),
+				'share_tools'             => $switch( __( 'Share bar on tools', 'natura' ), __( 'Under each tool: shares the reader\'s own result.', 'natura' ) ),
+				'share_calendar'          => $switch( __( 'Share bar on the calendar', 'natura' ) ),
+				'share_lists'             => $switch( __( 'Share bar on plant lists', 'natura' ), __( 'All plants, plant types, and lists by light or space.', 'natura' ) ),
+				'natura_tool_pin_tools' => array(
+					'type'  => 'media',
+					/* translators: %s: tool name. */
+					'label' => sprintf( __( 'Pinterest image: %s', 'natura' ), __( 'Tools page', 'natura' ) ),
+					'help'  => __( 'Vertical, 1000 × 1500 px. Leave empty to use the image that comes with the theme.', 'natura' ),
+				),
+				'natura_tool_pin_plant_finder' => array(
+					'type'  => 'media',
+					/* translators: %s: tool name. */
+					'label' => sprintf( __( 'Pinterest image: %s', 'natura' ), __( 'Plant finder', 'natura' ) ),
+					'help'  => __( 'Vertical, 1000 × 1500 px. Leave empty to use the image that comes with the theme.', 'natura' ),
+				),
+				'natura_tool_pin_pot_size_calculator' => array(
+					'type'  => 'media',
+					/* translators: %s: tool name. */
+					'label' => sprintf( __( 'Pinterest image: %s', 'natura' ), __( 'Pot size calculator', 'natura' ) ),
+					'help'  => __( 'Vertical, 1000 × 1500 px. Leave empty to use the image that comes with the theme.', 'natura' ),
+				),
+				'natura_tool_pin_watering_calculator' => array(
+					'type'  => 'media',
+					/* translators: %s: tool name. */
+					'label' => sprintf( __( 'Pinterest image: %s', 'natura' ), __( 'Watering routine', 'natura' ) ),
+					'help'  => __( 'Vertical, 1000 × 1500 px. Leave empty to use the image that comes with the theme.', 'natura' ),
+				),
+				'natura_tool_pin_frost_risk' => array(
+					'type'  => 'media',
+					/* translators: %s: tool name. */
+					'label' => sprintf( __( 'Pinterest image: %s', 'natura' ), __( 'Frost risk check', 'natura' ) ),
+					'help'  => __( 'Vertical, 1000 × 1500 px. Leave empty to use the image that comes with the theme.', 'natura' ),
+				),
+				'natura_tool_pin_guided_diagnosis' => array(
+					'type'  => 'media',
+					/* translators: %s: tool name. */
+					'label' => sprintf( __( 'Pinterest image: %s', 'natura' ), __( 'Symptom checker', 'natura' ) ),
+					'help'  => __( 'Vertical, 1000 × 1500 px. Leave empty to use the image that comes with the theme.', 'natura' ),
+				),
+
 			),
 		),
 		'affiliate'  => array(

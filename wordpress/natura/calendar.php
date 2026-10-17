@@ -107,6 +107,8 @@ $natura_is_today = $natura_month === (int) wp_date( 'n' );
 				</section>
 			<?php endif; ?>
 
+			<?php natura_the_share_bar( 'share_calendar', __( 'Share this month', 'natura' ) ); ?>
+
 			<nav class="calendar-pager" aria-label="<?php esc_attr_e( 'Other months', 'natura' ); ?>">
 				<a class="is-prev" href="<?php echo esc_url( natura_core_calendar_url( $natura_prev ) ); ?>" rel="prev"><span><?php esc_html_e( 'Previous month', 'natura' ); ?></span><?php echo esc_html( natura_month_name( $natura_prev ) ); ?></a>
 				<a class="is-year" href="<?php echo esc_url( natura_core_calendar_url() ); ?>"><?php esc_html_e( 'The whole year', 'natura' ); ?></a>
@@ -177,6 +179,8 @@ $natura_is_today = $natura_month === (int) wp_date( 'n' );
 			<?php elseif ( ! $natura_year ) : ?>
 				<p class="empty-state"><?php esc_html_e( 'No plant guide has a planting calendar yet. Tick the months in the Planting calendar box of each guide.', 'natura' ); ?></p>
 			<?php endif; ?>
+
+			<?php natura_the_share_bar( 'share_calendar', __( 'Share the planting calendar', 'natura' ) ); ?>
 
 			<section class="year-months" aria-labelledby="year-months-title">
 				<h2 id="year-months-title"><?php esc_html_e( 'Month by month', 'natura' ); ?></h2>

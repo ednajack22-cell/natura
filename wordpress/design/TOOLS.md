@@ -87,10 +87,24 @@ Ordre de construction, chacun avec la même méthode :
    l'automne, arroser quand le terreau est sec à 2–3 cm, jusqu'à deux fois
    par jour par forte chaleur, terre cuite plus rapide que le plastique,
    arroser le matin, pas de routine fixe « une fois par semaine »).
-5. **Garden planner** (`/tools/garden-planner/`) : à décider avec la
-   propriétaire du site ; retiré du menu par défaut en attendant. Un vrai plan demande les dimensions de chaque pot
-   et beaucoup de JavaScript ; il pourrait être remplacé par un guide des
-   dispositions pour petits espaces.
+5. **Garden planner** : **remplacé par un guide**, décision de la
+   propriétaire du site (17 octobre 2026). Un vrai plan demandait les
+   dimensions de chaque pot et beaucoup de JavaScript pour un usage
+   incertain ; un article « How to arrange pots in a small space » (Plant
+   Care → Light & position), avec ses sources, sert mieux les lecteurs et le
+   référencement. Retiré du menu par défaut.
+
+## Partage des résultats
+
+Chaque outil se partage avec ses réponses : l'adresse partagée contient les
+réponses, et l'aperçu (WhatsApp, Facebook, Pinterest, X) dit ce qu'est le
+résultat : « 3 plants for pots: Full sun · Balcony », « This pot holds about
+20 litres of compost », « Frost check at −3 °C: 2 plants to protect ». Google
+garde, lui, la page de l'outil sans réponses (adresse canonique et
+`noindex`), pour éviter des centaines de pages presque identiques. Chaque
+outil a une image horizontale (1200 × 630) et une image verticale (1000 ×
+1500) dans `natura/assets/images/share/`, faites avec les photos et les
+polices du site ; l'image verticale se remplace dans Natura Options.
 
 ## Écarté
 

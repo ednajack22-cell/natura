@@ -80,6 +80,7 @@ while ( have_posts() ) :
 				</div>
 
 				<?php natura_the_varieties(); ?>
+				<?php natura_the_share_bar( 'share_guides', __( 'Found this useful? Share it', 'natura' ) ); ?>
 				<?php natura_the_faq_and_sources(); ?>
 				<?php natura_the_author_box(); ?>
 			</article>

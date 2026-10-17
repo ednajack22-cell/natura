@@ -236,8 +236,6 @@ add_action(
 		if ( natura_tool_intro( $slug ) ) {
 			printf( '<meta name="description" content="%s">' . "\n", esc_attr( wp_strip_all_tags( natura_tool_intro( $slug ) ) ) );
 		}
-		printf( '<meta property="og:title" content="%s">' . "\n", esc_attr( natura_tool_page_title( $slug ) ) );
-		printf( '<meta property="og:url" content="%s">' . "\n", esc_url( natura_tool_url( $slug ) ) );
 	}
 );
 
@@ -930,4 +928,123 @@ function natura_watering_routine( array $a ): array {
 	}
 
 	return $steps;
+}
+
+/* ---------------------------------------------------------------------------
+   Sharing a tool result
+   --------------------------------------------------------------------------- */
+
+/**
+ * The share images of a tool: the vertical Pinterest image set in Natura
+ * Options, or the one shipped with the theme; and the landscape preview.
+ *
+ * @param string $slug Tool slug, '' for the tools page.
+ * @return array{image: string, pin: string}
+ */
+function natura_tool_images( string $slug ): array {
+	$name   = '' === $slug ? 'tools' : $slug;
+	$base   = get_template_directory() . '/assets/images/share/';
+	$uri    = get_template_directory_uri() . '/assets/images/share/';
+	$custom = natura_share_image_url( absint( get_theme_mod( 'natura_tool_pin_' . str_replace( '-', '_', $name ) ) ) );
+
+	return array(
+		'image' => file_exists( $base . $name . '.jpg' ) ? $uri . $name . '.jpg' : '',
+		'pin'   => $custom ? $custom : ( file_exists( $base . $name . '-pin.jpg' ) ? $uri . $name . '-pin.jpg' : '' ),
+	);
+}
+
+/**
+ * What a tool page shares: the result's own address (answers included) and
+ * a title that says what the result is, e.g. "3 plants for pots: Full sun ·
+ * Balcony".
+ *
+ * @param string $slug Tool slug, '' for the tools page.
+ * @return array{url: string, title: string, text: string, image: string, pin: string, kind: string}
+ */
+function natura_tool_share( string $slug ): array {
+	$url     = natura_tool_url( $slug );
+	$title   = natura_tool_page_title( $slug );
+	$answers = array();
+
+	switch ( $slug ) {
+		case 'plant-finder':
+			$answers = natura_finder_filters();
+			if ( $answers ) {
+				$labels = array();
+				foreach ( natura_finder_questions() as $key => $question ) {
+					if ( isset( $answers[ $key ] ) ) {
+						$labels[] = $question['choices'][ $answers[ $key ] ];
+					}
+				}
+				$count = natura_finder_query( $answers )->post_count;
+				/* translators: 1: number of plants, 2: answers, e.g. "Full sun · Balcony". */
+				$title = sprintf( _n( '%1$s plant for pots: %2$s', '%1$s plants for pots: %2$s', $count, 'natura' ), number_format_i18n( $count ), implode( ' · ', $labels ) );
+			}
+			break;
+		case 'guided-diagnosis':
+			$answers = natura_diagnosis_answers();
+			if ( $answers ) {
+				$labels = array();
+				foreach ( natura_diagnosis_questions() as $key => $question ) {
+					if ( isset( $answers[ $key ] ) ) {
+						$labels[] = $question['choices'][ $answers[ $key ] ];
+					}
+				}
+				/* translators: %s: answers, e.g. "Cherry tomato · Leaves". */
+				$title = sprintf( __( 'What is wrong with my plant? %s', 'natura' ), implode( ' · ', $labels ) );
+			}
+			break;
+		case 'pot-size-calculator':
+			$input  = natura_pot_input();
+			$litres = natura_pot_litres( $input );
+			if ( $litres > 0 ) {
+				$answers = array_filter(
+					array(
+						'shape'  => $input['shape'],
+						'unit'   => $input['unit'],
+						'top'    => $input['top'] ? (string) $input['top'] : '',
+						'bottom' => $input['bottom'] ? (string) $input['bottom'] : '',
+						'length' => $input['length'] ? (string) $input['length'] : '',
+						'depth'  => (string) $input['depth'],
+						'bag'    => (string) $input['bag'],
+					)
+				);
+				/* translators: %s: volume in litres. */
+				$title = sprintf( __( 'This pot holds about %s litres of compost', 'natura' ), number_format_i18n( $litres < 10 ? round( $litres, 1 ) : round( $litres ), $litres < 10 ? 1 : 0 ) );
+			}
+			break;
+		case 'frost-risk':
+			$input = natura_frost_input();
+			if ( null !== $input['low'] ) {
+				$answers = array(
+					'low'  => $input['typed'],
+					'unit' => $input['unit'],
+				);
+				$below   = count( array_filter( natura_frost_plants(), static fn( array $plant ): bool => null !== $plant['min'] && $input['low'] < $plant['min'] ) );
+				$title   = $below
+					/* translators: 1: temperature, 2: number of plants. */
+					? sprintf( _n( 'Frost check at %1$s: %2$s plant to protect', 'Frost check at %1$s: %2$s plants to protect', $below, 'natura' ), natura_temperature( $input['low'], $input['unit'] ), number_format_i18n( $below ) )
+					/* translators: %s: temperature. */
+					: sprintf( __( 'Frost check at %s: every plant within its limit', 'natura' ), natura_temperature( $input['low'], $input['unit'] ) );
+			}
+			break;
+		case 'watering-calculator':
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- only checks whether the form was sent.
+			if ( isset( $_GET['season'] ) ) {
+				$answers = natura_watering_answers();
+				$title   = __( 'My watering routine for pots, based on RHS advice', 'natura' );
+			}
+			break;
+	}
+
+	$images = natura_tool_images( $slug );
+
+	return array(
+		'url'   => $answers ? add_query_arg( array_map( 'rawurlencode', $answers ), $url ) : $url,
+		'title' => $title,
+		'text'  => natura_tool_intro( $slug ),
+		'image' => $images['image'],
+		'pin'   => $images['pin'],
+		'kind'  => 'tool',
+	);
 }

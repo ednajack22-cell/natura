@@ -87,6 +87,7 @@ foreach ( array( $natura_current_type, $natura_condition ) as $natura_term ) {
 				endwhile;
 				?>
 			</div>
+			<?php natura_the_share_bar( 'share_lists', __( 'Share this list', 'natura' ) ); ?>
 			<?php natura_the_problem_band(); ?>
 		<?php the_posts_pagination(); ?>
 		<?php else : ?>

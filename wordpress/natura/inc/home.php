@@ -595,7 +595,7 @@ add_action(
 			'og:description' => $intro,
 			'og:url'         => home_url( '/' ),
 			'og:site_name'   => get_bloginfo( 'name' ),
-			'og:image'       => $photo ? (string) wp_get_attachment_image_url( $photo, 'full' ) : '',
+			'og:image'       => natura_share_image_url( $photo ),
 		);
 		foreach ( $tags as $property => $content ) {
 			if ( $content ) {

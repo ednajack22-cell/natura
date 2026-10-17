@@ -271,8 +271,6 @@ add_action(
 		$month = natura_core_calendar_month();
 		printf( '<link rel="canonical" href="%s">' . "\n", esc_url( natura_core_calendar_url( $month ) ) );
 		printf( '<meta name="description" content="%s">' . "\n", esc_attr( wp_strip_all_tags( natura_calendar_description( $month ) ) ) );
-		printf( '<meta property="og:title" content="%s">' . "\n", esc_attr( natura_calendar_title( $month ) ) );
-		printf( '<meta property="og:url" content="%s">' . "\n", esc_url( natura_core_calendar_url( $month ) ) );
 	}
 );
 
