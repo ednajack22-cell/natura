@@ -332,6 +332,11 @@ function natura_option_tabs(): array {
 					'type'  => 'textarea',
 					'label' => __( 'Plant finder: introduction', 'natura' ),
 				),
+				'tool_pot_size_calculator'       => $switch( __( 'Pot size calculator', 'natura' ), __( 'Volume of a round or square pot or a trough, bags of compost to buy, and the pot size from each plant guide.', 'natura' ) ),
+				'natura_tool_intro_pot_size_calculator' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Pot size calculator: introduction', 'natura' ),
+				),
 				'tool_guided_diagnosis'          => $switch( __( 'Symptom checker', 'natura' ), __( 'Plant, then where the problem shows; answers from the problem guides ("Plants affected", "Where it shows", and each cause\'s "What you see").', 'natura' ) ),
 				'natura_tool_intro_guided_diagnosis' => array(
 					'type'  => 'textarea',

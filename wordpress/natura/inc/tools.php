@@ -28,6 +28,13 @@ function natura_tools(): array {
 			'group' => 'choose',
 			'icon'  => 'lens',
 		),
+		'pot-size-calculator' => array(
+			'title' => __( 'Pot size calculator', 'natura' ),
+			'text'  => __( 'How much compost a pot or trough holds, how many bags to buy, and the pot size each plant needs.', 'natura' ),
+			'needs' => __( 'A tape measure: the width and depth of your pot', 'natura' ),
+			'group' => 'care',
+			'icon'  => 'pot',
+		),
 		'guided-diagnosis'  => array(
 			'title' => __( 'Symptom checker', 'natura' ),
 			'text'  => __( 'Pick the plant and where the trouble shows, and see the likely causes before you treat anything.', 'natura' ),
@@ -137,6 +144,9 @@ add_filter(
 function natura_tool_page_title( string $slug ): string {
 	if ( 'plant-finder' === $slug ) {
 		return __( 'Plant finder: what to grow in your pots', 'natura' );
+	}
+	if ( 'pot-size-calculator' === $slug ) {
+		return __( 'Pot size calculator: how much compost does your pot hold?', 'natura' );
 	}
 	if ( 'guided-diagnosis' === $slug ) {
 		return __( 'Symptom checker: what is wrong with my plant?', 'natura' );
@@ -511,8 +521,9 @@ function natura_diagnosis_query( array $answers ): WP_Query {
  * @param string                                                     $key      Answer name in the address.
  * @param array{label: string, hint: string, choices: array<string, string>} $question Question.
  * @param array<string, string>                                      $answers  Current answers.
+ * @param bool                                                       $any      Offer "Any" first.
  */
-function natura_the_tool_question( string $key, array $question, array $answers ): void {
+function natura_the_tool_question( string $key, array $question, array $answers, bool $any = true ): void {
 	?>
 	<fieldset class="finder-question">
 		<legend><?php echo esc_html( $question['label'] ); ?></legend>
@@ -520,10 +531,12 @@ function natura_the_tool_question( string $key, array $question, array $answers 
 			<p class="finder-hint"><?php echo esc_html( $question['hint'] ); ?></p>
 		<?php endif; ?>
 		<div class="finder-choices">
-			<label>
-				<input type="radio" name="<?php echo esc_attr( $key ); ?>" value=""<?php checked( ! isset( $answers[ $key ] ) ); ?>>
-				<span><?php esc_html_e( 'Any', 'natura' ); ?></span>
-			</label>
+			<?php if ( $any ) : ?>
+				<label>
+					<input type="radio" name="<?php echo esc_attr( $key ); ?>" value=""<?php checked( ! isset( $answers[ $key ] ) ); ?>>
+					<span><?php esc_html_e( 'Any', 'natura' ); ?></span>
+				</label>
+			<?php endif; ?>
 			<?php foreach ( $question['choices'] as $value => $label ) : ?>
 				<label>
 					<input type="radio" name="<?php echo esc_attr( $key ); ?>" value="<?php echo esc_attr( (string) $value ); ?>"<?php checked( ( $answers[ $key ] ?? null ) === (string) $value ); ?>>
@@ -533,4 +546,119 @@ function natura_the_tool_question( string $key, array $question, array $answers 
 		</div>
 	</fieldset>
 	<?php
+}
+
+/* ---------------------------------------------------------------------------
+   Pot size calculator
+   --------------------------------------------------------------------------- */
+
+/**
+ * Common bag sizes: litres => label. UK bags are sold in litres, US bags in
+ * cubic feet (1 cu ft = 28.3 L).
+ *
+ * @return array<int, string>
+ */
+function natura_pot_bags(): array {
+	return array(
+		10 => '10 L',
+		20 => '20 L',
+		28 => '1 cu ft (28 L)',
+		40 => '40 L',
+		42 => '1.5 cu ft (42 L)',
+		50 => '50 L',
+		57 => '2 cu ft (57 L)',
+		70 => '70 L',
+	);
+}
+
+/**
+ * The calculator's measurements from the address, checked: shape, unit,
+ * sizes (top, bottom, length, depth), and bag size in litres.
+ *
+ * @return array{shape: string, unit: string, top: float, bottom: float, length: float, depth: float, bag: int}
+ */
+function natura_pot_input(): array {
+	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only calculator.
+	$text   = static fn( string $key ): string => isset( $_GET[ $key ] ) ? sanitize_text_field( wp_unslash( (string) $_GET[ $key ] ) ) : '';
+	$number = static function ( string $key ) use ( $text ): float {
+		$value = (float) str_replace( ',', '.', $text( $key ) );
+
+		return ( $value > 0 && $value < 1000 ) ? $value : 0.0;
+	};
+	$input  = array(
+		'shape'  => in_array( $text( 'shape' ), array( 'round', 'square', 'trough' ), true ) ? $text( 'shape' ) : 'round',
+		'unit'   => 'in' === $text( 'unit' ) ? 'in' : 'cm',
+		'top'    => $number( 'top' ),
+		'bottom' => $number( 'bottom' ),
+		'length' => $number( 'length' ),
+		'depth'  => $number( 'depth' ),
+		'bag'    => isset( natura_pot_bags()[ (int) $text( 'bag' ) ] ) ? (int) $text( 'bag' ) : 40,
+	);
+	// phpcs:enable
+
+	return $input;
+}
+
+/**
+ * The volume of the pot in litres, or 0 when a measurement is missing.
+ *
+ * Round pot: a cylinder, or a truncated cone when the bottom is narrower.
+ * Square pot: a cuboid, or a truncated pyramid. Trough: length × width ×
+ * depth. Inches are converted at 2.54 cm.
+ *
+ * @param array{shape: string, unit: string, top: float, bottom: float, length: float, depth: float, bag: int} $input Measurements.
+ */
+function natura_pot_litres( array $input ): float {
+	$scale  = 'in' === $input['unit'] ? 2.54 : 1.0;
+	$top    = $input['top'] * $scale;
+	$bottom = ( $input['bottom'] > 0 ? $input['bottom'] : $input['top'] ) * $scale;
+	$depth  = $input['depth'] * $scale;
+	$length = $input['length'] * $scale;
+	if ( $top <= 0 || $depth <= 0 ) {
+		return 0.0;
+	}
+
+	switch ( $input['shape'] ) {
+		case 'trough':
+			$cm3 = $length > 0 ? $length * $top * $depth : 0.0;
+			break;
+		case 'square':
+			$cm3 = $depth / 3 * ( $top * $top + $bottom * $bottom + $top * $bottom );
+			break;
+		default:
+			$r1  = $top / 2;
+			$r2  = $bottom / 2;
+			$cm3 = M_PI * $depth / 3 * ( $r1 * $r1 + $r1 * $r2 + $r2 * $r2 );
+	}
+
+	return $cm3 / 1000;
+}
+
+/**
+ * The plant guides that give a pot size, by name.
+ *
+ * @return array<int, array{name: string, url: string, size: string}>
+ */
+function natura_pot_sizes_from_guides(): array {
+	$rows = array();
+	foreach ( get_posts(
+		array(
+			'post_type'      => 'plant',
+			'posts_per_page' => 200,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+		)
+	) as $id ) {
+		$size = trim( (string) natura_field( 'pot_size', (int) $id ) );
+		if ( '' !== $size ) {
+			$rows[] = array(
+				'name' => natura_plant_short_name( (int) $id ),
+				'url'  => (string) get_permalink( (int) $id ),
+				'size' => $size,
+			);
+		}
+	}
+	usort( $rows, static fn( array $a, array $b ): int => strcasecmp( $a['name'], $b['name'] ) );
+
+	return $rows;
 }

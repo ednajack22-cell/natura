@@ -65,9 +65,13 @@ Ordre de construction, chacun avec la même méthode :
    problèmes), comme la méthode UC IPM. Chaque fiche trouvée affiche ses
    causes sous la forme « If you see … → Likely cause », avec un lien vers
    la cause dans la fiche. Rien n'est deviné : le lecteur compare.
-2. **Pot size calculator** (`/tools/pot-size-calculator/`) : volume du pot
-   (rond, carré, jardinière ; cm ou pouces) et nombre de sacs de terreau,
-   calcul exact ; plus la taille de pot conseillée par chaque fiche.
+2. **Pot size calculator** (`/tools/pot-size-calculator/`) : **fait**. Pot
+   rond, carré ou jardinière, droit ou évasé (cône ou pyramide tronqués),
+   en cm ou en pouces ; volume en litres et en gallons US, nombre de sacs
+   (10 à 70 L, ou 1 à 2 cu ft), pots remplis par sac ; puis la taille de pot
+   donnée par chaque fiche. Calcul fait sur le serveur : marche sans
+   JavaScript. Conseil repris d'Empress of Dirt : prévoir un peu plus, le
+   terreau se tasse.
 3. **Frost risk check** (`/tools/frost-risk/`) : la température minimale
    annoncée, et les plantes du site qui craignent le gel. Demande un nouveau
    champ de fiche, « Frost tolerance » (tender, half-hardy, hardy), rempli

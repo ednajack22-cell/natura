@@ -312,6 +312,7 @@ Sun ou Plants → Growing spaces.
 | --- | --- |
 | `/tools/` | la page des outils, rangés par groupe |
 | `/tools/plant-finder/` | le Plant finder : lumière, lieu, type, expérience, ce mois-ci |
+| `/tools/pot-size-calculator/` | le Pot size calculator : volume d'un pot rond, carré ou d'une jardinière (droit ou évasé), sacs de terreau à acheter, et taille de pot de chaque fiche |
 | `/tools/guided-diagnosis/` | le Symptom checker : la plante, puis où se voit le problème ; il répond avec les fiches problèmes et le « What you see » de chaque cause |
 
 Le Plant finder répond avec vos fiches : remplissez **Sun**, **Growing
@@ -326,8 +327,8 @@ un (voir `design/TOOLS.md`).
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
 plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
 Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
-les listes par lumière et par lieu, la page Tools, le Plant finder et le Symptom checker.
+les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker et le Pot size calculator.
 
-À venir : les autres outils (Pot size calculator, Frost risk check, Watering
-routine), Gear, DIY Projects. Ces liens du menu
+À venir : les autres outils (Frost risk check, Watering routine), Gear, DIY
+Projects. Ces liens du menu
 mènent encore à une page « Page not found ».
