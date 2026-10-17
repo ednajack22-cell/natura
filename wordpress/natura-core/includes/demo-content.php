@@ -317,6 +317,8 @@ function natura_core_demo_plants(): array {
 				'difficulty'     => 'Moderate',
 				'sun'            => '6–8 hours of direct sun',
 				'pot_size'       => '20–30 L (5–8 gal) per plant',
+				// RHS plant page for Solanum lycopersicum.
+				'hardiness'      => 'H1c',
 				'watering'       => 'Deeply, when the top 2–3 cm is dry',
 				'harvest'        => '60–80 days after planting out',
 				'season'         => 'Late spring to early autumn',
@@ -423,6 +425,8 @@ function natura_core_demo_plants(): array {
 				'difficulty'     => 'Easy',
 				'sun'            => '6+ hours of sun',
 				'pot_size'       => '3–5 L per plant',
+				// RHS plant page for Ocimum basilicum.
+				'hardiness'      => 'H1c',
 				'watering'       => 'When the top of the compost is dry',
 				'harvest'        => '3–4 weeks after planting',
 				'season'         => 'Early summer to early autumn',
@@ -461,6 +465,8 @@ function natura_core_demo_plants(): array {
 				'difficulty'     => 'Easy',
 				'sun'            => '6–8 hours of sun',
 				'pot_size'       => '3 L per plant, or 3 plants per 30 cm pot',
+				// RHS plant page for Fragaria × ananassa.
+				'hardiness'      => 'H6',
 				'watering'       => 'Keep evenly moist while fruiting',
 				'harvest'        => 'Early summer to autumn',
 				'season'         => 'Plant in spring or early autumn',

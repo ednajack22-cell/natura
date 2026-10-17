@@ -47,6 +47,7 @@ function natura_home_defaults(): array {
 		'natura_tool_intro_plant_finder' => __( 'Answer a few questions about your light, space, and experience, and see the plant guides that suit you.', 'natura' ),
 		'natura_tool_intro_guided_diagnosis' => __( 'Choose the plant and where the trouble shows, then compare what you see with the signs of each likely cause, before you spray, feed, or repot.', 'natura' ),
 		'natura_tool_intro_pot_size_calculator' => __( 'Measure your pot, trough, or window box and see how much compost it holds and how many bags to buy, with the pot size each plant needs.', 'natura' ),
+		'natura_tool_intro_frost_risk' => __( 'Type tonight\'s lowest temperature from your forecast and see which plants are below the limit of their RHS hardiness rating, and why a pot can be colder than the forecast.', 'natura' ),
 		'natura_calendar_intro'   => __( 'What to sow, plant out, and harvest in pots, month by month. Each plant links to its full growing guide.', 'natura' ),
 		'natura_calendar_climate' => __( 'For a temperate climate such as the UK or northern Europe. In a warmer area, start a few weeks earlier; in a colder one, later.', 'natura' ),
 		'natura_calendar_jobs_1' => '',

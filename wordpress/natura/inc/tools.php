@@ -35,6 +35,13 @@ function natura_tools(): array {
 			'group' => 'care',
 			'icon'  => 'pot',
 		),
+		'frost-risk'        => array(
+			'title' => __( 'Frost risk check', 'natura' ),
+			'text'  => __( 'Type tonight\'s forecast low and see which of your plants are below their limit.', 'natura' ),
+			'needs' => __( 'Tonight\'s lowest temperature from your weather forecast', 'natura' ),
+			'group' => 'fix',
+			'icon'  => 'sun',
+		),
 		'guided-diagnosis'  => array(
 			'title' => __( 'Symptom checker', 'natura' ),
 			'text'  => __( 'Pick the plant and where the trouble shows, and see the likely causes before you treat anything.', 'natura' ),
@@ -147,6 +154,9 @@ function natura_tool_page_title( string $slug ): string {
 	}
 	if ( 'pot-size-calculator' === $slug ) {
 		return __( 'Pot size calculator: how much compost does your pot hold?', 'natura' );
+	}
+	if ( 'frost-risk' === $slug ) {
+		return __( 'Frost risk check: are my pots safe tonight?', 'natura' );
 	}
 	if ( 'guided-diagnosis' === $slug ) {
 		return __( 'Symptom checker: what is wrong with my plant?', 'natura' );
@@ -661,4 +671,101 @@ function natura_pot_sizes_from_guides(): array {
 	usort( $rows, static fn( array $a, array $b ): int => strcasecmp( $a['name'], $b['name'] ) );
 
 	return $rows;
+}
+
+/* ---------------------------------------------------------------------------
+   Frost risk check
+   --------------------------------------------------------------------------- */
+
+/**
+ * The RHS hardiness ratings: the lowest temperature (°C) of each band, and
+ * what it means. Source: RHS hardiness rating (rhs.org.uk/advice/rhs-hardiness-rating).
+ * H7 has no lower limit in the table ("below −20 °C").
+ *
+ * @return array<string, array{min: float|null, text: string}>
+ */
+function natura_rhs_ratings(): array {
+	return array(
+		'H1a' => array( 'min' => 15.0, 'text' => __( 'under glass all year', 'natura' ) ),
+		'H1b' => array( 'min' => 10.0, 'text' => __( 'outdoors in summer only', 'natura' ) ),
+		'H1c' => array( 'min' => 5.0, 'text' => __( 'outdoors in summer only', 'natura' ) ),
+		'H2'  => array( 'min' => 1.0, 'text' => __( 'tender: will not survive being frozen', 'natura' ) ),
+		'H3'  => array( 'min' => -5.0, 'text' => __( 'half hardy: at risk from early frosts', 'natura' ) ),
+		'H4'  => array( 'min' => -10.0, 'text' => __( 'hardy in an average winter', 'natura' ) ),
+		'H5'  => array( 'min' => -15.0, 'text' => __( 'hardy in a cold winter', 'natura' ) ),
+		'H6'  => array( 'min' => -20.0, 'text' => __( 'hardy in a very cold winter', 'natura' ) ),
+		'H7'  => array( 'min' => null, 'text' => __( 'very hardy', 'natura' ) ),
+	);
+}
+
+/**
+ * The forecast low from the address, in °C, or null when not given.
+ *
+ * @return array{low: float|null, unit: string, typed: string}
+ */
+function natura_frost_input(): array {
+	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only check.
+	$unit  = isset( $_GET['unit'] ) && 'f' === sanitize_key( wp_unslash( (string) $_GET['unit'] ) ) ? 'f' : 'c';
+	$typed = isset( $_GET['low'] ) ? trim( sanitize_text_field( wp_unslash( (string) $_GET['low'] ) ) ) : '';
+	// phpcs:enable
+	$typed = str_replace( array( ',', '−' ), array( '.', '-' ), $typed );
+	$low   = null;
+	if ( is_numeric( $typed ) ) {
+		$value = (float) $typed;
+		$value = 'f' === $unit ? ( $value - 32 ) * 5 / 9 : $value;
+		$low   = ( $value >= -40 && $value <= 45 ) ? $value : null;
+	}
+
+	return array(
+		'low'   => $low,
+		'unit'  => $unit,
+		'typed' => $typed,
+	);
+}
+
+/**
+ * The plant guides with an RHS hardiness rating, coldest-sensitive first.
+ *
+ * @return array<int, array{name: string, url: string, rating: string, min: float|null, text: string}>
+ */
+function natura_frost_plants(): array {
+	$ratings = natura_rhs_ratings();
+	$rows    = array();
+	foreach ( get_posts(
+		array(
+			'post_type'      => 'plant',
+			'posts_per_page' => 200,
+			'fields'         => 'ids',
+			'no_found_rows'  => true,
+		)
+	) as $id ) {
+		$rating = (string) natura_field( 'hardiness', (int) $id );
+		if ( isset( $ratings[ $rating ] ) ) {
+			$rows[] = array(
+				'name'   => natura_plant_short_name( (int) $id ),
+				'url'    => (string) get_permalink( (int) $id ),
+				'rating' => $rating,
+				'min'    => $ratings[ $rating ]['min'],
+				'text'   => $ratings[ $rating ]['text'],
+			);
+		}
+	}
+	usort(
+		$rows,
+		static fn( array $a, array $b ): int => array( -( $a['min'] ?? -99 ), $a['name'] ) <=> array( -( $b['min'] ?? -99 ), $b['name'] )
+	);
+
+	return $rows;
+}
+
+/**
+ * A temperature in the reader's unit, e.g. "5 °C" or "41 °F".
+ *
+ * @param float  $celsius Temperature in °C.
+ * @param string $unit    c or f.
+ */
+function natura_temperature( float $celsius, string $unit ): string {
+	return 'f' === $unit
+		? number_format_i18n( round( $celsius * 9 / 5 + 32 ) ) . ' °F'
+		: number_format_i18n( round( $celsius ) ) . ' °C';
 }

@@ -72,10 +72,12 @@ Ordre de construction, chacun avec la même méthode :
    donnée par chaque fiche. Calcul fait sur le serveur : marche sans
    JavaScript. Conseil repris d'Empress of Dirt : prévoir un peu plus, le
    terreau se tasse.
-3. **Frost risk check** (`/tools/frost-risk/`) : la température minimale
-   annoncée, et les plantes du site qui craignent le gel. Demande un nouveau
-   champ de fiche, « Frost tolerance » (tender, half-hardy, hardy), rempli
-   d'après des sources.
+3. **Frost risk check** (`/tools/frost-risk/`) : **fait**. La température
+   minimale annoncée (°C ou °F) est comparée à la limite basse de la **note
+   de rusticité RHS** de chaque fiche (nouveau champ « RHS hardiness
+   rating », H1a à H7, rempli d'après la page RHS de la plante). Aucune
+   marge inventée : l'outil explique pourquoi un pot peut être plus froid
+   que la prévision (gel au sol, Met Office) et cite ses deux sources.
 4. **Watering routine** (`/tools/watering-calculator/`) : quand vérifier le
    terreau selon la taille et la matière du pot, le soleil et la chaleur.
    Règles tirées de sources citées (RHS, extensions universitaires), sans

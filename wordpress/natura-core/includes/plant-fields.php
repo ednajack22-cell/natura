@@ -65,6 +65,23 @@ function natura_core_plant_facts(): array {
 			'help'  => __( 'Example: Late spring to early autumn', 'natura-core' ),
 			'type'  => 'text',
 		),
+		'hardiness'      => array(
+			'label'   => __( 'RHS hardiness rating', 'natura-core' ),
+			'help'    => __( 'From the RHS page of this plant (rhs.org.uk/plants), for example tomato H1c, strawberry H6. Used by the Frost risk check.', 'natura-core' ),
+			'type'    => 'select',
+			'options' => array(
+				''    => __( '— Choose —', 'natura-core' ),
+				'H1a' => 'H1a — ' . __( 'under glass all year (above 15 °C)', 'natura-core' ),
+				'H1b' => 'H1b — ' . __( 'outdoors in summer only (10 to 15 °C)', 'natura-core' ),
+				'H1c' => 'H1c — ' . __( 'outdoors in summer only (5 to 10 °C)', 'natura-core' ),
+				'H2'  => 'H2 — ' . __( 'tender, no frost (1 to 5 °C)', 'natura-core' ),
+				'H3'  => 'H3 — ' . __( 'half hardy (−5 to 1 °C)', 'natura-core' ),
+				'H4'  => 'H4 — ' . __( 'hardy, average winter (−10 to −5 °C)', 'natura-core' ),
+				'H5'  => 'H5 — ' . __( 'hardy, cold winter (−15 to −10 °C)', 'natura-core' ),
+				'H6'  => 'H6 — ' . __( 'hardy, very cold winter (−20 to −15 °C)', 'natura-core' ),
+				'H7'  => 'H7 — ' . __( 'very hardy (below −20 °C)', 'natura-core' ),
+			),
+		),
 		'pin_image'      => array(
 			'label' => __( 'Pinterest image', 'natura-core' ),
 			'help'  => __( 'A vertical image (2:3, e.g. 1000 × 1500 px) with the title on it. Used by the "Save" button. Falls back to the main photo.', 'natura-core' ),

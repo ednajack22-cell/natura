@@ -65,7 +65,9 @@ Administration → **Plants** → **Add plant guide** :
 4. **Image mise en avant** : la photo principale.
 5. **Plant types** : Vegetables, Herbs ou Fruit.
 6. **Quick facts** (sous le texte) : soleil, pot, arrosage, récolte,
-   difficulté, saison, et l'image verticale pour Pinterest.
+   difficulté, saison, l'image verticale pour Pinterest, et la **note de
+   rusticité RHS** (H1a à H7, sur la page RHS de la plante : tomate H1c,
+   fraisier H6…), utilisée par le Frost risk check.
 7. **Shopping list, FAQ, and sources** : la liste « What you need », en
    cartes produit. Pour chaque produit : le nom, une étiquette facultative
    (« Best for small balconies »), une ligne d'explication, le lien affilié
@@ -313,6 +315,7 @@ Sun ou Plants → Growing spaces.
 | `/tools/` | la page des outils, rangés par groupe |
 | `/tools/plant-finder/` | le Plant finder : lumière, lieu, type, expérience, ce mois-ci |
 | `/tools/pot-size-calculator/` | le Pot size calculator : volume d'un pot rond, carré ou d'une jardinière (droit ou évasé), sacs de terreau à acheter, et taille de pot de chaque fiche |
+| `/tools/frost-risk/` | le Frost risk check : la température minimale annoncée cette nuit, comparée à la note de rusticité RHS de chaque fiche |
 | `/tools/guided-diagnosis/` | le Symptom checker : la plante, puis où se voit le problème ; il répond avec les fiches problèmes et le « What you see » de chaque cause |
 
 Le Plant finder répond avec vos fiches : remplissez **Sun**, **Growing
@@ -327,8 +330,7 @@ un (voir `design/TOOLS.md`).
 Fait : page d'accueil, fiches plantes (`/plants/cherry-tomato/`), liste des
 plantes (`/plants/`), pages par type (`/plants/herbs/`), la rubrique Plant
 Care (fiches problèmes, articles par thème), le calendrier (`/calendar/`) et
-les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker et le Pot size calculator.
+les listes par lumière et par lieu, la page Tools, le Plant finder, le Symptom checker, le Pot size calculator et le Frost risk check.
 
-À venir : les autres outils (Frost risk check, Watering routine), Gear, DIY
-Projects. Ces liens du menu
+À venir : le Watering routine, puis Gear et DIY Projects. Ces liens du menu
 mènent encore à une page « Page not found ».

@@ -337,6 +337,11 @@ function natura_option_tabs(): array {
 					'type'  => 'textarea',
 					'label' => __( 'Pot size calculator: introduction', 'natura' ),
 				),
+				'tool_frost_risk'                => $switch( __( 'Frost risk check', 'natura' ), __( 'Tonight\'s forecast low against the RHS hardiness rating set in each plant guide\'s Quick facts.', 'natura' ) ),
+				'natura_tool_intro_frost_risk'   => array(
+					'type'  => 'textarea',
+					'label' => __( 'Frost risk check: introduction', 'natura' ),
+				),
 				'tool_guided_diagnosis'          => $switch( __( 'Symptom checker', 'natura' ), __( 'Plant, then where the problem shows; answers from the problem guides ("Plants affected", "Where it shows", and each cause\'s "What you see").', 'natura' ) ),
 				'natura_tool_intro_guided_diagnosis' => array(
 					'type'  => 'textarea',

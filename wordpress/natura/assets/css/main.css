@@ -1303,3 +1303,19 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .pot-guides thead th { color: var(--muted); font-weight: 600; font-size: .8125rem; text-transform: uppercase; letter-spacing: .05em; }
 .pot-guides tbody th a { color: var(--forest); font-weight: 600; }
 .pot-field[hidden] { display: none; }
+
+/* Frost risk check. */
+.frost-low { max-width: 22rem; }
+.frost-result.is-risk { background: var(--clay-strong); }
+.frost-table { margin-top: 1.5rem; }
+.frost-table td span { color: var(--muted); }
+.frost-table tr.is-risk th, .frost-table tr.is-risk td { background: #fbeee8; }
+.frost-flag { display: inline-flex; align-items: center; min-height: 28px; padding: 0 .6rem; border-radius: 999px; color: white; background: var(--clay-strong); font: 600 .8125rem var(--font-sans); }
+.frost-notes { max-width: 46rem; margin: 2rem 0 2.5rem; padding: 1.25rem; border-radius: var(--radius); background: var(--sage); }
+.frost-notes h2 { margin: 0 0 .75rem; font-size: 1.375rem; }
+.frost-notes ul { display: grid; gap: .6rem; margin: 0 0 1rem; padding-left: 1.2rem; font: 400 1rem/1.55 var(--font-serif); }
+.frost-sources { margin: 0; color: var(--ink-soft); font: 400 .875rem/1.6 var(--font-sans); }
+.frost-sources a { color: var(--forest); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+.frost-meaning { display: block; font-size: .875rem; }
+@media (max-width: 479px) { .pot-guides th, .pot-guides td { padding: .6rem .45rem; font-size: .875rem; } }
+.frost-table td .frost-flag { color: white; }
