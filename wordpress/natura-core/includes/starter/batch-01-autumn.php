@@ -27,6 +27,8 @@ return array(
 	'guides' => array(
 		'plant' => array(
 			'salad-leaves-in-pots' => array(
+				'image_prompt' => 'A wooden trough on a sunny balcony railing filled with mixed cut-and-come-again salad leaves, red and green loose-leaf lettuce, rocket and mizuna, some cut to short stumps and regrowing. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+				'pin_prompt'   => 'Mixed baby salad leaves in a window box with kitchen scissors resting on the edge, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'   => 'How to Grow Cut-and-Come-Again Salad Leaves in Pots',
 				'type'    => 'vegetables',
 				'sun'     => array( 'full-sun', 'part-shade' ),
@@ -122,6 +124,8 @@ return array(
 			),
 
 			'radishes-in-pots'     => array(
+				'image_prompt' => 'Freshly pulled round red radishes with green leaves lying on the edge of a 30 cm pot of compost on a sunny patio, more radish leaves still growing in the pot. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+				'pin_prompt'   => 'A bunch of red radishes held above a pot of radish seedlings on a balcony, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'   => 'How to Grow Radishes in Pots',
 				'type'    => 'vegetables',
 				'sun'     => array( 'full-sun', 'part-shade' ),
@@ -209,6 +213,8 @@ return array(
 			),
 
 			'mint-in-pots'         => array(
+				'image_prompt' => 'A vigorous spearmint plant with bright green, toothed, pointed leaves filling a wide terracotta pot on a partly shaded balcony, sprigs ready for picking. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+				'pin_prompt'   => 'A pot of spearmint on a sunny kitchen windowsill with a few picked sprigs beside it, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'   => 'How to Grow Mint in Pots',
 				'type'    => 'herbs',
 				'sun'     => array( 'full-sun', 'part-shade' ),
@@ -286,6 +292,8 @@ return array(
 
 		'post'  => array(
 			'protect-pots-in-winter' => array(
+				'image_prompt' => 'Terracotta pots on pot feet grouped against a house wall on a frosty balcony, two pots wrapped in bubble wrap and hessian tied with twine, frost on the floor, winter morning light. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+				'pin_prompt'   => 'A terracotta pot wrapped in hessian tied with twine, standing on pot feet on a frosty patio, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'   => 'How to Protect Pots and Container Plants in Winter',
 				'topic'   => 'seasonal-care',
 				'excerpt' => 'Roots in a pot are far more exposed to frost than roots in the ground, and winter rain can waterlog the compost. Raise pots off the ground, group them by a wall, wrap the pots in frosty spells, and bring tender plants indoors.',

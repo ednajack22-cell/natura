@@ -324,7 +324,24 @@ function natura_core_render_starter_page(): void {
 					$type     = get_post_type_object( $item['kind'] );
 					?>
 					<tr>
-						<td><strong><?php echo esc_html( $item['guide']['title'] ); ?></strong></td>
+						<td>
+							<strong><?php echo esc_html( $item['guide']['title'] ); ?></strong>
+							<?php if ( ! empty( $item['guide']['image_prompt'] ) ) : ?>
+								<details class="natura-prompts">
+									<summary><?php esc_html_e( 'Image prompts', 'natura-core' ); ?></summary>
+									<p>
+										<label for="<?php echo esc_attr( 'photo-' . $key ); ?>"><?php esc_html_e( 'Main photo (landscape 3:2)', 'natura-core' ); ?></label>
+										<textarea id="<?php echo esc_attr( 'photo-' . $key ); ?>" class="large-text" rows="4" readonly onclick="this.select()"><?php echo esc_textarea( $item['guide']['image_prompt'] ); ?></textarea>
+									</p>
+									<?php if ( ! empty( $item['guide']['pin_prompt'] ) ) : ?>
+										<p>
+											<label for="<?php echo esc_attr( 'pin-' . $key ); ?>"><?php esc_html_e( 'Pinterest image (portrait 2:3, 1000 × 1500 px)', 'natura-core' ); ?></label>
+											<textarea id="<?php echo esc_attr( 'pin-' . $key ); ?>" class="large-text" rows="4" readonly onclick="this.select()"><?php echo esc_textarea( $item['guide']['pin_prompt'] ); ?></textarea>
+										</p>
+									<?php endif; ?>
+								</details>
+							<?php endif; ?>
+						</td>
 						<td><?php echo esc_html( $type ? $type->labels->singular_name : $item['kind'] ); ?></td>
 						<td><?php echo esc_html( $item['batch'] ); ?></td>
 						<td>

@@ -180,6 +180,8 @@ function natura_core_demo_plants(): array {
 
 	return array(
 		'cherry-tomato'      => array(
+			'image_prompt' => 'A cherry tomato plant tied to a bamboo cane in a 30-litre terracotta pot on a sunny balcony, trusses of small round red and green tomatoes, yellow star-shaped flowers, compound serrated leaves, late summer light. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'A single cherry tomato plant heavy with ripe red trusses in a large pot against a warm balcony wall, photographed vertically from low down. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'     => 'How to Grow Cherry Tomatoes in Pots',
 			'type'      => 'vegetables',
 			// From the guide: 6–8 hours of sun, a big pot on a sunny balcony.
@@ -290,6 +292,8 @@ function natura_core_demo_plants(): array {
 				),
 		),
 		'genovese-basil'     => array(
+			'image_prompt' => 'A bushy Genovese basil plant with large glossy bright green leaves in a terracotta pot on a sunny kitchen windowsill, pinched shoot tips showing side shoots, soft morning light. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'A lush basil plant in a terracotta pot on a wooden windowsill, a few picked leaves beside it, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'     => 'How to Grow Basil in Pots',
 			'type'      => 'herbs',
 			// From the guide: 6+ hours of sun, a bright windowsill, then the balcony.
@@ -331,6 +335,8 @@ function natura_core_demo_plants(): array {
 				$p( 'Water when the top of the compost feels dry, in the morning, and avoid wetting the leaves. Basil sitting in cold, wet compost is the most common reason it collapses.' ),
 		),
 		'balcony-strawberry' => array(
+			'image_prompt' => 'Strawberry plants with trifoliate serrated leaves, white flowers and ripe red berries hanging over the edge of a balcony planter, straw tucked under the fruit, sunny early summer light. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'Ripe red strawberries hanging from a hanging pot on a sunny balcony railing, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'     => 'How to Grow Strawberries on a Balcony',
 			'type'      => 'fruit',
 			// From the guide: 6–8 hours of sun, grown on a balcony.
@@ -385,6 +391,8 @@ function natura_core_demo_problems(): array {
 
 	return array(
 		'yellow-leaves-container-plants' => array(
+			'image_prompt' => 'A tomato plant in a terracotta pot with several lower leaves turned pale yellow while the upper leaves stay green, on a balcony floor, a watering can in the background. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'Close view of a yellowing lower leaf on a potted plant next to healthy green leaves, balcony background blurred. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'   => 'Why Are the Leaves on My Container Plants Turning Yellow?',
 			'image'     => 'demo/problem-yellow-leaves.jpg',
 			'image_alt' => 'A tomato plant in a terracotta pot with yellowing lower leaves and green upper leaves',
@@ -459,6 +467,8 @@ function natura_core_demo_problems(): array {
 				),
 		),
 		'blossom-end-rot'                => array(
+			'image_prompt' => 'A green tomato with a dark sunken leathery patch at its base, still on the plant in a pot, next to healthy unblemished fruit, realistic and not gross. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'Close-up of tomatoes on a potted plant, one with a dark patch at the base, soft daylight. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'   => 'Why Do My Tomatoes Have Black Bottoms? (Blossom End Rot)',
 			'image'     => 'demo/problem-blossom-end-rot.jpg',
 			'image_alt' => 'A green tomato with a dark sunken patch at its base, next to healthy fruit',
@@ -521,6 +531,8 @@ function natura_core_demo_articles(): array {
 
 	return array(
 		'how-often-to-water-container-plants' => array(
+			'image_prompt' => 'A metal watering can with a long spout watering the base of herbs and a tomato plant in pots on a sunny balcony, water soaking into dark compost. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'A hand-held watering can pouring water at the base of a potted herb on a balcony, photographed vertically, early morning light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'   => 'How Often Should You Water Container Plants?',
 			'image'     => 'demo/article-watering.jpg',
 			'image_alt' => 'A metal watering can watering herbs and tomatoes in pots on a sunny balcony',
@@ -560,6 +572,8 @@ function natura_core_demo_articles(): array {
 				$p( 'Group pots together in the shade, water them well the evening before you leave, and stand them in deep saucers. For longer trips, a self-watering pot or a simple drip system is more reliable than asking plants to wait.' ),
 		),
 		'compost-for-containers'              => array(
+			'image_prompt' => 'An open bag of peat-free container compost beside empty terracotta pots and a trowel on a balcony floor, dark crumbly compost spilling slightly. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'Close view of crumbly dark peat-free compost filling a terracotta pot, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'   => 'Which Compost Should You Use in Pots?',
 			'image'     => 'demo/article-compost.jpg',
 			'image_alt' => 'Hands filling a terracotta pot with dark peat-free compost on a potting bench',
@@ -611,6 +625,8 @@ function natura_core_demo_gear(): array {
 
 	return array(
 		'best-compost-for-pots' => array(
+			'image_prompt' => 'Three small heaps of different composts, peat-free multi-purpose, soil-based and ericaceous, on a wooden board next to terracotta pots on a patio. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'Bags of peat-free compost and a terracotta pot on a sunny patio, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'     => 'The Best Compost for Pots: Which Type to Buy',
 			'category'  => array( 'compost-feed' ),
 			'method'    => 'researched',
@@ -683,6 +699,8 @@ function natura_core_demo_projects(): array {
 
 	return array(
 		'self-watering-pot' => array(
+			'image_prompt' => 'A homemade self-watering pot made from two plastic containers, the inner pot holding a young tomato plant, a strip of cotton wick visible through a side fill hole, on a balcony. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
+			'pin_prompt'   => 'A DIY self-watering container with a basil plant on a sunny balcony, side fill hole visible, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'     => 'Make a Self-Watering Pot From Two Containers',
 			'category'  => array( 'watering' ),
 			'image'     => 'demo/project-self-watering.jpg',
