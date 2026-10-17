@@ -9,10 +9,11 @@ Livre fourni par la propriétaire du site (Google Drive, dossier
 - **Autrice** : jardinière et journaliste, diplôme de troisième cycle en
   horticulture (université de Reading), prix de la Garden Writers' Guild
   (2004). Source sérieuse, mais grand public.
-- **Lu** : pages 1 à 143 du PDF (introduction, puis janvier à juillet).
-  **Pas lu** : août à décembre, conservation, plans de culture, ravageurs,
-  maladies et carences (p. 144 à 252). Google Drive ne renvoie le texte que
-  jusque-là, et le téléchargement est limité à 10 Mo (le PDF fait 32 Mo).
+- **Lu** : pages 1 à 207 du livre (introduction, puis janvier à début
+  novembre), en deux fichiers.
+  **Pas lu** : pages 208 à 252 (fin novembre, décembre, agrumes, plans de
+  culture, ravageurs, maladies, carences). Google Drive coupe le texte des
+  longs fichiers ; il faut un troisième fichier (pages 210 à 258 du PDF).
 
 ## Règles d'usage sur Natura
 
@@ -105,6 +106,42 @@ Livre fourni par la propriétaire du site (Google Drive, dossier
 - **Tipi de tuteurs dans un grand pot** (p. 84, 88–89).
 - **Bocal à graines germées** avec mousseline et élastique (p. 36–37).
 - **Entonnoir d'arrosage** avec une demi-bouteille en plastique (p. 122).
+
+### Ajouts de la deuxième partie (p. 128–207)
+- **Hiver des pots sur un balcon** (p. 204–205) : surélever les pots en
+  terre cuite pour qu'ils s'égouttent ; envelopper les pots (papier bulle,
+  voile, toile de jute) dans les régions froides sans boucher les trous ;
+  les petits pots et la terre cuite fine craignent le plus le gel, le béton
+  épais résiste ; rapprocher les grands pots du mur à l'abri du vent.
+  **Sujet de guide prioritaire, absent du site.**
+- **Fruitiers en pot** (p. 174, 187, 188, 198–199, 202) : porte-greffe
+  semi-nanisant ; pot à peine plus large que les racines, puis rempotage
+  chaque automne dans un pot environ 10 cm plus large jusqu'à la taille
+  adulte ; myrtillier en terreau pour plantes de terre de bruyère (pH 4 à
+  5,5) ; framboisier et mûrier compacts adaptés aux pots ; vérifier les
+  groupes de pollinisation.
+- **Agrumes en pot** (p. 87, 189) : rentrer à l'automne, au moins 7 °C,
+  lumière, loin des radiateurs ; pas d'engrais avant le printemps.
+- **Tomates en fin de saison** (p. 156, 169, 193) : retirer quelques
+  feuilles du bas pour faire mûrir ; rentrer les variétés buissonnantes en
+  pot avant le gel ; faire mûrir les fruits verts à l'intérieur.
+- **Poivrons et piments** (p. 158, 193) : cueillir les premiers fruits
+  verts relance la production ; ils ne mûrissent plus une fois cueillis.
+  (« Moins d'eau, plus piquant » : à vérifier avant de le reprendre.)
+- **Herbes** (p. 149, 161, 169, 199) : sécher les herbes ligneuses (sauge,
+  laurier, origan) en bouquets ; basilic et coriandre se conservent mieux
+  hachés et congelés en glaçons ; diviser la menthe à l'automne et en rentrer
+  un pot pour l'hiver ; laurier, ciboulette et mélisse se plaisent en pot.
+- **Salades d'hiver** (p. 155, 166) : repiquer de jeunes pousses dans un
+  grand pot à l'abri ; semer épinards et laitues d'hiver en septembre.
+- **Carence en magnésium** (p. 157) : jaunissement entre les nervures
+  (tomates notamment). À relier à la fiche « feuilles jaunes ».
+- **Récolter ses graines** (p. 172–173) : tomates, haricots, pois ; inutile
+  avec les hybrides F1.
+- **Conservation** (p. 128–181 : confiture, sirops, pesto, congélation,
+  séchage, conserves, pickles, vin) : hors du cœur du site. Pourrait nourrir
+  plus tard des articles « que faire de sa récolte », sans reprendre les
+  recettes du livre.
 
 ### Calendrier
 Les pages mensuelles (semer, planter, récolter) confirment les mois des
