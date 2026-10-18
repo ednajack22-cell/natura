@@ -93,11 +93,11 @@ return array(
 					$p( 'If you want the crisp white bulbs, you need the annual vegetable instead: see <a href="/plants/florence-fennel-in-pots/">how to grow Florence fennel in pots</a>. Herb fennel also looks a little like dill, but it is taller and lives for years; dill is covered in <a href="/plants/dill-in-pots/">dill in pots</a>.' ) .
 
 					$h2( 'Pot, compost and a sheltered spot' ) .
-					$p( 'One plant needs 30 cm (1 ft) of width and depth as a minimum; fill the pot with peat-free multi-purpose compost. Pick a heavy, stable pot: a full-grown plant is tall and top-heavy, and the RHS warns it can easily be blown over. Fennel likes free-draining conditions and its roots can rot if they sit wet, so make sure the drainage holes are clear. More on mixes is in <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'One plant needs 30 cm (1 ft) of width and depth as a minimum; fill the pot with peat-free multi-purpose compost. Pick a heavy, stable pot: a full-grown plant is tall and top-heavy, and the RHS warns it can easily be blown over. Fennel likes free-draining conditions and its roots can rot if they sit wet, so make sure the drainage holes are clear. More on mixes is in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 					$p( 'Stand the pot in full sun, somewhere warm and out of strong gusts. Because it grows so tall, Backyard Harvest suggests placing it behind lower herbs, so on a balcony it works well at the back of a group of pots, where it adds height without shading the others.' ) .
 
 					$h2( 'Sow it where it will grow' ) .
-					$p( 'Fennel resents root disturbance, so the simplest route is to sow straight into its final pot from mid-spring. Sow about 1 cm (½ in) deep and thin the seedlings as they grow; the thinnings can go into a salad. If you prefer to start indoors in spring, sow one seed per module in peat-free seed compost, as explained in <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>.' ) .
+					$p( 'Fennel resents root disturbance, so the simplest route is to sow straight into its final pot from mid-spring. Sow about 1 cm (½ in) deep and thin the seedlings as they grow; the thinnings can go into a salad. If you prefer to start indoors in spring, sow one seed per module in peat-free seed compost, as explained in <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
 					$p( 'Module-raised plants must go outside while they are still very young, before the tap root develops. Water them first, <a href="/plant-care/how-to-harden-off-seedlings/">harden them off</a>, then slide each one out and plant it at the same depth without breaking up the root ball. Young plants from a nursery can be planted in late spring and early summer. Shelter seedlings from <a href="/problems/slugs-and-snails/">slugs and snails</a>.' ) .
 
 					$h2( 'Watering and support' ) .
@@ -192,7 +192,7 @@ return array(
 					$p( 'Little Black Prince is the smallest the RHS names, at about 1 m (3¼ ft), and needs no supports. Loch Tay is a little taller and semi-upright. Loch Ness crops heavily but can reach 2.5 m (8 ft), so it suits a large pot against a sunny wall. Hybrid berries such as tayberries and loganberries are grown in the same way in the ground, but they are too vigorous for a container.' ) .
 
 					$h2( 'Container, compost and position' ) .
-					$p( 'Use a pot at least 45 cm (18 in) wide and deep and fill it with a good loam-based compost, such as a peat-free John Innes No 3 type, which holds moisture and stays stable for years. See <a href="/plant-care/compost-for-containers/">compost for containers</a> for how loam-based and multi-purpose mixes differ.' ) .
+					$p( 'Use a pot at least 45 cm (18 in) wide and deep and fill it with a good loam-based compost, such as a peat-free John Innes No 3 type, which holds moisture and stays stable for years. See <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> for how loam-based and multi-purpose mixes differ.' ) .
 					$p( 'A sunny, sheltered spot gives the best crop, although blackberries still fruit in light shade. Avoid anywhere the pot will sit in water: the plants dislike waterlogged roots.' ) .
 
 					$h2( 'Planting and the first year' ) .
@@ -204,7 +204,7 @@ return array(
 					$p( 'Little Black Prince is different: the RHS describes it as ever-bearing, fruiting on both one- and two-year-old stems, so follow the pruning advice that comes with the plant. For a taller variety against a wall, horizontal wires spaced about 45 cm (18 in) apart give the canes something to be tied to; see <a href="/diy-projects/fix-a-wire-trellis-to-a-wall/">fix a wire trellis to a wall</a>.' ) .
 
 					$h2( 'Water, mulch and feed' ) .
-					$p( 'A blackberry in the ground rarely needs watering once settled, but in a pot it needs regular water right through the growing season so the compost never dries out; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has the routine. A layer of organic mulch in early spring, kept clear of the stems, helps hold moisture. For a feeding plan suited to fruit in pots, see <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'A blackberry in the ground rarely needs watering once settled, but in a pot it needs regular water right through the growing season so the compost never dries out; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has the routine. A layer of organic mulch in early spring, kept clear of the stems, helps hold moisture. For a feeding plan suited to fruit in pots, see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'When to pick blackberries' ) .
 					$p( 'Depending on the variety, berries ripen from mid-summer into early autumn. Check every few days and take only those that are entirely black, plump and glossy; they often come away with the core still in place. Picked blackberries stay fresh for only a day or two, so eat them quickly or see <a href="/plant-care/how-to-freeze-berries/">how to freeze berries</a>.' ) .
@@ -214,7 +214,7 @@ return array(
 					$list(
 						array(
 							'<strong>Raspberry beetle:</strong> grubs damage the fruit of blackberries as well as raspberries. The signs and the RHS approach are in <a href="/plants/raspberries-in-pots/">raspberries in pots</a>.',
-							'<strong>Grey mould:</strong> fuzzy grey rot on berries in damp weather. See <a href="/problems/grey-mould/">grey mould</a>.',
+							'<strong>Grey mould:</strong> fuzzy grey rot on berries in damp weather. See <a href="/problems/gray-mold/">grey mould</a>.',
 							'<strong>Aphids:</strong> sap-sucking insects on shoot tips and flower stalks. See <a href="/problems/aphids-container-plants/">aphids on container plants</a>.',
 							'<strong>Red berry mite:</strong> a microscopic mite that makes blackberries ripen unevenly.',
 						)
@@ -301,11 +301,11 @@ return array(
 					$p( 'Do not sow seed saved from a supermarket melon: the RHS warns of biosecurity risks.' ) .
 
 					$h2( 'Sowing in spring' ) .
-					$p( 'Sow from mid-April to mid-May. Push two seeds about 1.5 cm (½ in) deep into a small pot roughly 7.5 cm (3 in) across. They need 18–21 °C (64–70 °F) to germinate, so a heated propagator is ideal, though a constantly warm, sunny windowsill may do. Seedlings appear in about a week; if both come up, pull out the weaker one. Keep them warm, well lit and watered. The general method is in <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>.' ) .
+					$p( 'Sow from mid-April to mid-May. Push two seeds about 1.5 cm (½ in) deep into a small pot roughly 7.5 cm (3 in) across. They need 18–21 °C (64–70 °F) to germinate, so a heated propagator is ideal, though a constantly warm, sunny windowsill may do. Seedlings appear in about a week; if both come up, pull out the weaker one. Keep them warm, well lit and watered. The general method is in <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
 
 					$h2( 'Planting into the pot' ) .
 					$p( 'When a plant has three or four leaves and nights stay reliably above 12–15 °C (54–59 °F), usually from early June, it can go outside. Acclimatise it gradually, as a sudden drop in temperature can check its growth or kill it; see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
-					$p( 'Set a single melon in the middle of a pot that measures 40 cm (16 in) or more across and in depth, using peat-free multi-purpose compost, or one plant in a standard growing bag (<a href="/diy-projects/plant-up-a-growing-bag/">plant up a growing bag</a>). Keep the stem at the same level it grew before: Backyard Harvest warns that planting too deep invites rot at the neck of the stem.' ) .
+					$p( 'Set a single melon in the middle of a pot that measures 40 cm (16 in) or more across and in depth, using peat-free multi-purpose compost, or one plant in a standard growing bag (<a href="/diy-projects/plant-up-a-grow-bag/">plant up a growing bag</a>). Keep the stem at the same level it grew before: Backyard Harvest warns that planting too deep invites rot at the neck of the stem.' ) .
 
 					$h2( 'Training, pollinating and thinning' ) .
 					$p( 'Growing the stems up strong canes, trellis or netting saves floor space. Pinch out the growing tip once the plant has five leaves, keep the four strongest side shoots that follow and remove the rest. Ideas for frames are in <a href="/plant-care/supports-for-climbing-crops/">supports for climbing crops</a>.' ) .
@@ -320,7 +320,7 @@ return array(
 					$p( 'Outdoor melons ripen in late summer, and plants decline quickly once nights turn cold, so cover them with fleece or a cloche by late summer to buy time. A fruit is ready when it smells strongly of melon, the stalk begins to crack and the base gives a little under gentle pressure.' ) .
 					$list(
 						array(
-							'<strong>Red spider mite:</strong> thrives in hot, dry air; see <a href="/problems/red-spider-mite/">red spider mite</a>.',
+							'<strong>Red spider mite:</strong> thrives in hot, dry air; see <a href="/problems/spider-mites/">red spider mite</a>.',
 							'<strong>Powdery mildew:</strong> more likely after the compost has dried out; see <a href="/problems/powdery-mildew/">powdery mildew</a>.',
 							'<strong>Slugs and snails:</strong> attack young plants; see <a href="/problems/slugs-and-snails/">slugs and snails</a>.',
 							'<strong>Mosaic virus:</strong> melons share it with cucumbers and courgettes; see <a href="/plants/cucumbers-in-pots/">cucumbers in pots</a>.',
@@ -404,12 +404,12 @@ return array(
 
 					$h2( 'Planting the crown' ) .
 					$p( 'Dormant bare-root crowns are sold from November to March and should be planted soon after they arrive. Potted rhubarb can be planted at any time, though spring and autumn are best; avoid very hot, dry weather. Buy from a reputable supplier so the plant is healthy and free of viruses.' ) .
-					$p( 'Make sure the container has plenty of drainage holes and fill it with peat-free soil-based compost, leaving room at the top for watering; Backyard Harvest suggests finishing about 5 cm (2 in) below the rim. Set the plant so its main bud, where the leaf stalks emerge, sits just above the compost surface, then water it in well. See <a href="/plant-care/compost-for-containers/">compost for containers</a> for why a loam-based mix suits a long-term pot.' ) .
+					$p( 'Make sure the container has plenty of drainage holes and fill it with peat-free soil-based compost, leaving room at the top for watering; Backyard Harvest suggests finishing about 5 cm (2 in) below the rim. Set the plant so its main bud, where the leaf stalks emerge, sits just above the compost surface, then water it in well. See <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> for why a loam-based mix suits a long-term pot.' ) .
 					$p( 'Stand the pot in an open, sunny spot; light shade is fine. Avoid a frost pocket, as late frosts can damage the young stalks.' ) .
 
 					$h2( 'Watering, mulching and feeding' ) .
 					$p( 'In a container the compost dries out quickly, so water regularly from spring to late summer and keep it moist but never soggy: waterlogged compost rots the roots. Never leave the pot sitting in a saucer of water, especially in winter. Our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> covers the routine. In hot, dry spells growth slows or stops altogether.' ) .
-					$p( 'Each spring, spread about 7 cm (2½ in) of well-rotted organic matter on the surface without covering the crown. If growth is slow, the RHS suggests a high-nitrogen, organic-based fertiliser in spring or summer; see <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Each spring, spread about 7 cm (2½ in) of well-rotted organic matter on the surface without covering the crown. If growth is slow, the RHS suggests a high-nitrogen, organic-based fertiliser in spring or summer; see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'When and how to harvest' ) .
 					$p( 'Patience pays here. Pick nothing in the first year, only a few stalks in the second, and harvest normally from the third. Most varieties are ready from April or May. Choose a young stalk about 30 cm (1 ft) long whose leaf has just opened, hold it near the base and twist it gently away. Take no more than a third of the stalks at once, and stop in late June or early July so the plant can build up strength.' ) .
@@ -512,7 +512,7 @@ return array(
 
 					$h2( 'Water, feed and repot' ) .
 					$p( 'A potted apricot needs a steady supply of water through the growing season, most of all in early to mid-summer while the fruit swells. Water early or late in the day, ideally with rainwater. The routine is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
-					$p( 'Feed it every fortnight in the growing season with an organic high-potassium liquid fertiliser, or sprinkle a handful of general-purpose granular feed on the compost in spring, as set out in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>. Every few years in spring, move it into a slightly larger pot; once that is no longer practical, replace the loose compost and lightly trim the roots, and top-dress in the years between. See <a href="/plant-care/how-to-repot-container-plants/">how to repot container plants</a>.' ) .
+					$p( 'Feed it every fortnight in the growing season with an organic high-potassium liquid fertiliser, or sprinkle a handful of general-purpose granular feed on the compost in spring, as set out in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>. Every few years in spring, move it into a slightly larger pot; once that is no longer practical, replace the loose compost and lightly trim the roots, and top-dress in the years between. See <a href="/plant-care/how-to-repot-container-plants/">how to repot container plants</a>.' ) .
 
 					$h2( 'Thinning, pruning and winter shelter' ) .
 					$p( 'Apricots rarely need thinning. If a tree sets a very heavy crop, wait until the fruitlets are the size of cherries in late spring and reduce pairs and clusters so the rest are 5–8 cm (2–3 in) apart, taking misshapen or shaded ones first.' ) .

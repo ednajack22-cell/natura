@@ -89,17 +89,17 @@ return array(
 					$h2( 'Why a window box suits herbs' ) .
 					$p( 'Most kitchen herbs are small, shallow-rooted plants that you pick a sprig at a time, so a box just outside the window puts them within reach while you cook. The woody Mediterranean herbs also share one set of needs, sun and sharp drainage, which makes them easy companions in a single container.' ) .
 					$h2( 'Growing each herb' ) .
-					$p( 'This project covers building and planting the box. For harvesting, pruning and winter care, see the guides to <a href="/plants/thyme-in-pots/">thyme</a>, <a href="/plants/sage-in-pots/">sage</a>, <a href="/plants/rosemary-in-pots/">rosemary</a> and <a href="/plants/oregano-in-pots/">oregano</a>. Chives and mint are better in separate pots: see <a href="/plants/chives-in-pots/">chives</a> and <a href="/plants/mint-in-pots/">mint</a>. Small boxes dry out and go hungry faster than big pots, so follow <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> and <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'This project covers building and planting the box. For harvesting, pruning and winter care, see the guides to <a href="/plants/thyme-in-pots/">thyme</a>, <a href="/plants/sage-in-pots/">sage</a>, <a href="/plants/rosemary-in-pots/">rosemary</a> and <a href="/plants/oregano-in-pots/">oregano</a>. Chives and mint are better in separate pots: see <a href="/plants/chives-in-pots/">chives</a> and <a href="/plants/mint-in-pots/">mint</a>. Small boxes dry out and go hungry faster than big pots, so follow <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> and <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Backyard Harvest (p. 85) recommends window boxes for herbs you want to pick from the kitchen window. The compost mix, spacing and planting depth follow the RHS guides to herbs in containers; we left out the layer of crocks some older advice suggests, because the RHS no longer recommends it. The weight and balcony points come from the RHS guide to roof gardens and balconies. Fixing the box before filling it and checking where the water drips are common-sense safety points we added. We have not built this exact version ourselves.' ),
 			),
 
-			'make-a-comfrey-liquid-feed'  => array(
+			'make-comfrey-liquid-fertilizer'  => array(
 				'image_prompt' => 'A black plastic bucket with a tight lid, half-lifted to show dark green comfrey leaves held under water by a brick, standing in the corner of a balcony beside a watering can and a rinsed plastic milk bottle with a blank label, gardening gloves on the floor, soft overcast light.' . $photo_end,
 				'pin_prompt'   => 'Gloved hands pouring dark brown comfrey liquid from a labelled bottle into a watering can of water on a balcony, the diluted feed the colour of weak tea, a large tomato pot behind, photographed vertically.' . $pin_end,
 				'title'        => 'Make a Comfrey Liquid Feed',
 				'category'     => array( 'watering' ),
-				'plants'       => array( 'cherry-tomato', 'balcony-strawberry', 'courgettes-in-pots', 'chillies-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'balcony-strawberry', 'zucchini-in-pots', 'chili-peppers-in-pots' ),
 				'excerpt'      => 'Pack comfrey leaves into a lidded bucket, weigh them down, cover them with water and leave them for two to four weeks until a dark liquid forms. Dilute it about one part to ten with water and pour it onto moist compost around hungry fruiting plants.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -152,7 +152,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'Soft green leaves are full of nutrients. Left to rot under water, they release them into the liquid, which you then thin down and pour on as a plant food. Comfrey is a favourite because it is easy to grow and rich in potassium. The result is free, but its strength varies from batch to batch and it is weaker than bought fertiliser.' ) .
 					$h2( 'When to use it' ) .
-					$p( 'Because it is weaker, a homemade feed goes on little and often rather than in one big drench. It is most useful for plants in containers and crops in active growth, such as tomatoes and strawberries; established shrubs do not need it. For the season and the timing, see <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Because it is weaker, a homemade feed goes on little and often rather than in one big drench. It is most useful for plants in containers and crops in active growth, such as tomatoes and strawberries; established shrubs do not need it. For the season and the timing, see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'The method, the dilution, the storage advice and the safety warnings come from three RHS pages on comfrey and homemade fertilisers. The RHS pages differ slightly: one says fresh leaves need no added water and should be diluted one to twenty, while the comfrey guides cover the leaves with water and dilute about one to ten. We follow the comfrey guides. Keeping the bucket away from windows and filling it where it will stand are common-sense points we added for balconies. We have not made this exact batch ourselves.' ),
 			),
@@ -274,7 +274,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'A long trough gives every plant the same depth of compost and the same light, which makes watering simple. Raising it on a stand lifts the trusses clear of the floor, so the berries hang over the edge where they stay clean and are easy to see and pick.' ) .
 					$h2( 'Looking after the plants' ) .
-					$p( 'Watering, feeding and choosing varieties are covered in <a href="/plants/balcony-strawberry/">how to grow strawberries on a balcony</a>. Plants in containers are more at risk from <a href="/problems/vine-weevil/">vine weevil</a>, and damp weather can bring <a href="/problems/grey-mould/">grey mould</a> to the fruit.' ) .
+					$p( 'Watering, feeding and choosing varieties are covered in <a href="/plants/balcony-strawberry/">how to grow strawberries on a balcony</a>. Plants in containers are more at risk from <a href="/problems/black-vine-weevil/">vine weevil</a>, and damp weather can bring <a href="/problems/gray-mold/">grey mould</a> to the fruit.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'The compost, spacing, crown depth, planting season and the warning about side-pocket pots come from the RHS strawberry guides; the RHS crops-in-pots feature notes that the fruit stays clean hanging over the rim. Cold-stored plants and replacing plants every three years come from Backyard Harvest (pp. 82 and 133–135). The stand, the drainage check and placing the plants along the front edge are common-sense points we added. We have not built this exact version ourselves.' ),
 			),

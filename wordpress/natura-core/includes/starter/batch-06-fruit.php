@@ -91,7 +91,7 @@ return array(
 					$p( 'Most blueberries are partially self-fertile, so one bush will fruit on its own. If you have space for more pots, grow two or three different varieties together for bigger harvests.' ) .
 
 					$h2( 'Which pot, compost and spot' ) .
-					$p( 'Give a young bush a container at least 30 cm (12 in) across, and move it on to one 45–50 cm (18–20 in) across once it is larger. Fill with a soil-based, peat-free ericaceous compost. Do not use ordinary multi-purpose compost or add manure or mushroom compost: both make the mix less acid. For a closer look at what container compost does, see <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'Give a young bush a container at least 30 cm (12 in) across, and move it on to one 45–50 cm (18–20 in) across once it is larger. Fill with a soil-based, peat-free ericaceous compost. Do not use ordinary multi-purpose compost or add manure or mushroom compost: both make the mix less acid. For a closer look at what container compost does, see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 					$p( 'Pick a sheltered position in sun or light shade. A bush in partial shade still gives a reasonable crop, but full sun means more berries and brighter autumn colour.' ) .
 
 					$h2( 'Planting a blueberry' ) .
@@ -196,7 +196,7 @@ return array(
 					$p( 'In a container, size is what counts. The RHS recommends a compact, dwarf variety such as \'Ruby Beauty\', which stays at about 0.5–1 m (1½–3¼ ft). Raspberries are self-fertile, so one plant is enough. Check the label to see which group your variety belongs to before you prune.' ) .
 
 					$h2( 'Pot, compost and position' ) .
-					$p( 'Use a pot at least 40 cm (16 in) wide and 30 cm (12 in) deep. Fill it with a blend of about two thirds peat-free multi-purpose compost and one third peat-free John Innes No 3, a loam-based mix. Why the two are combined is explained in <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'Use a pot at least 40 cm (16 in) wide and 30 cm (12 in) deep. Fill it with a blend of about two thirds peat-free multi-purpose compost and one third peat-free John Innes No 3, a loam-based mix. Why the two are combined is explained in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 					$p( 'Sun gives the best crop. Raspberries still fruit in light shade, but the plants are smaller, less healthy and give fewer berries. Shelter matters on a balcony: strong wind keeps pollinating insects away and can snap the thin side-branches that carry the fruit.' ) .
 
 					$h2( 'Planting one cane' ) .
@@ -317,7 +317,7 @@ return array(
 					) .
 
 					$h2( 'Pot, compost and position' ) .
-					$p( 'Start a young tree in a pot around 30 cm (1 ft) wide and deep, filled with good-quality, peat-free, soil-based compost; see <a href="/plant-care/compost-for-containers/">compost for containers</a> for why soil-based mixes last longer. Spring is the best time to plant, so the tree has a whole season to settle.' ) .
+					$p( 'Start a young tree in a pot around 30 cm (1 ft) wide and deep, filled with good-quality, peat-free, soil-based compost; see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> for why soil-based mixes last longer. Spring is the best time to plant, so the tree has a whole season to settle.' ) .
 					$p( 'Figs need warmth and sun to ripen their fruit. Choose the warmest, most sheltered place you have, ideally in front of a south-facing wall, which gives off heat.' ) .
 					$p( 'Every couple of years in March, repot into a container only slightly larger than the last; a fig that is overpotted fruits less. When the pot is as large as you can move, keep it, but each repotting time remove the loose compost, trim the roots lightly and refill with fresh. In the years in between, swap the top layer of compost for new.' ) .
 

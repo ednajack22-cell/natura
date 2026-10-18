@@ -40,7 +40,7 @@ return array(
 				'pin_prompt'   => 'Close vertical view of a courgette leaf with a yellow and green mosaic pattern and downward-curling edges, a stunted plant in a pot on a balcony behind it and a small misshapen fruit at the base. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are My Courgette Leaves Mottled and the Fruit Twisted? (Cucumber Mosaic Virus)',
 				'excerpt'      => 'A yellow and green mosaic on the leaves, small crinkled leaves that curl down, a squat plant and lumpy, misshapen fruit point to cucumber mosaic virus, which aphids carry from plant to plant. There is no cure, so take the plant out promptly, wash your hands and tools, and grow a resistant variety next time.',
-				'plants'       => array( 'courgettes-in-pots', 'cucumbers-in-pots', 'aubergines-in-pots', 'spinach-in-pots', 'lettuce-in-pots' ),
+				'plants'       => array( 'zucchini-in-pots', 'cucumbers-in-pots', 'eggplant-in-pots', 'spinach-in-pots', 'lettuce-in-pots' ),
 				'parts'        => array( 'leaves', 'flowers-fruit', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -69,7 +69,7 @@ return array(
 							'cause'    => 'Look-alikes: mites or weedkiller',
 							'sign'     => 'Mottled or yellowing leaves, but with fine pale speckling and webbing, or with stunting and twisting that started after a new soil mix',
 							'check'    => 'Red spider mite also mottles courgette leaves, mostly in hot summers. Weedkiller can stunt and distort growth and yellow the leaves; the RHS has traced cases to manure carrying hormone weedkiller residues.',
-							'fix'      => 'For speckles and webbing, see <a href="/problems/red-spider-mite/">red spider mite</a>. If you added manure to the pot, suspect that before blaming a virus.',
+							'fix'      => 'For speckles and webbing, see <a href="/problems/spider-mites/">red spider mite</a>. If you added manure to the pot, suspect that before blaming a virus.',
 							'recovery' => '',
 						),
 					),
@@ -93,7 +93,7 @@ return array(
 					$h2( 'How to keep cucumber mosaic virus out of your pots' ) .
 					$list(
 						array(
-							'Choose a resistant variety when you sow <a href="/plants/courgettes-in-pots/">courgettes in pots</a> or <a href="/plants/cucumbers-in-pots/">cucumbers in pots</a>.',
+							'Choose a resistant variety when you sow <a href="/plants/zucchini-in-pots/">courgettes in pots</a> or <a href="/plants/cucumbers-in-pots/">cucumbers in pots</a>.',
 							'Check shoot tips for aphids every few days in spring and summer; <a href="/problems/aphids-container-plants/">aphids on container plants</a> explains how to deal with them.',
 							'Keep groundsel, chickweed and other weeds out of pots and the paving around them.',
 							'Wash hands and tools after handling any plant that looks mottled.',
@@ -107,7 +107,7 @@ return array(
 				'pin_prompt'   => 'Vertical close-up of an outer lettuce leaf folded back, showing angular yellow patches on top and white downy mould beneath, the potted lettuce on a wet balcony in soft overcast light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Do My Lettuce Leaves Have Angular Yellow Blotches With Mould Underneath? (Downy Mildew)',
 				'excerpt'      => 'Yellow patches on top of a leaf, often with straight edges along the veins, and a fuzzy white, grey or purple mould in the same spot underneath are downy mildew, a disease of long spells of wet leaves. Remove affected leaves at once, give pots space and water in the morning; no fungicide is available to gardeners.',
-				'plants'       => array( 'lettuce-in-pots', 'salad-leaves-in-pots', 'spinach-in-pots', 'kale-in-pots', 'radishes-in-pots', 'turnips-in-pots', 'spring-onions-in-pots', 'chives-in-pots' ),
+				'plants'       => array( 'lettuce-in-pots', 'salad-greens-in-pots', 'spinach-in-pots', 'kale-in-pots', 'radishes-in-pots', 'turnips-in-pots', 'green-onions-in-pots', 'chives-in-pots' ),
 				'parts'        => array( 'leaves', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -116,7 +116,7 @@ return array(
 							'sign'     => 'Angular yellow patches on the upper side of lettuce leaves, a whitish fuzz under each one, and later brown, dead patches',
 							'check'    => 'Turn a leaf over: the mould sits exactly beneath the yellow patch. Outdoor lettuces get it from early summer to mid-autumn; lettuces under glass can get it at any time of year. It often stays on the outer leaves.',
 							'fix'      => 'Pick off affected leaves as soon as you see them, before they release spores. If only the outer leaves are hit, cut the heart to eat and bin the rest of the plant.',
-							'recovery' => 'Dead patches are often taken over by <a href="/problems/grey-mould/">grey mould</a>, so do not leave damaged leaves on the plant.',
+							'recovery' => 'Dead patches are often taken over by <a href="/problems/gray-mold/">grey mould</a>, so do not leave damaged leaves on the plant.',
 						),
 						array(
 							'cause'    => 'Brassica downy mildew on kale, radishes, turnips and their relatives',
@@ -175,7 +175,7 @@ return array(
 				'pin_prompt'   => 'Vertical close-up of a leek leaf in a patio container covered in raised bright orange rust pustules, soft autumn light, the rest of the leeks blurred below. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'What Are the Orange Pustules on My Leeks, Beans or Plum Tree? (Rust)',
 				'excerpt'      => 'Small raised spots that burst into orange, brown or black dust, usually under the leaf or on both sides, are rust, a group of fungi that each attack only a few related plants. Pick off the first few affected leaves, do not overfeed with nitrogen, avoid crowding, and clear up fallen leaves; often the crop is barely affected.',
-				'plants'       => array( 'leeks-in-pots', 'garlic-in-pots', 'chives-in-pots', 'french-beans-in-pots', 'runner-beans-in-pots', 'broad-beans-in-pots', 'plum-tree-in-pot', 'pear-tree-in-pot', 'raspberries-in-pots', 'blueberries-in-pots' ),
+				'plants'       => array( 'leeks-in-pots', 'garlic-in-pots', 'chives-in-pots', 'green-beans-in-pots', 'runner-beans-in-pots', 'fava-beans-in-pots', 'plum-tree-in-pot', 'pear-tree-in-pot', 'raspberries-in-pots', 'blueberries-in-pots' ),
 				'parts'        => array( 'leaves', 'stems' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -233,7 +233,7 @@ return array(
 					$h2( 'How to keep rust down in pots' ) .
 					$list(
 						array(
-							'Feed steadily rather than heavily; <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a> has the routine.',
+							'Feed steadily rather than heavily; <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a> has the routine.',
 							'Leave space between pots of leeks, garlic and beans so the leaves dry quickly after rain.',
 							'Clear rusty leaves and debris at the end of the crop or at leaf fall, and do not grow the same crop in that compost straight away.',
 							'For orange spots on mint or oregano, see <a href="/plants/mint-in-pots/">mint in pots</a>.',
@@ -246,7 +246,7 @@ return array(
 				'pin_prompt'   => 'Vertical close-up of a bean leaflet with dark brown spots ringed by yellow halos, a potted bean plant on a balcony behind it in soft light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Do My Leaves Have Brown Spots With a Yellow Ring? (Leaf Spots)',
 				'excerpt'      => 'Small brown or black spots, sometimes ringed with yellow or falling out to leave holes, are leaf spots caused by bacteria or fungi that spread in rain splash and on fallen leaves. Pick off spotted leaves, water the compost rather than the foliage, clear up leaf litter, and start beans from clean seed.',
-				'plants'       => array( 'french-beans-in-pots', 'runner-beans-in-pots', 'currants-in-pots', 'gooseberries-in-pots', 'cherry-tree-in-pot', 'plum-tree-in-pot' ),
+				'plants'       => array( 'green-beans-in-pots', 'runner-beans-in-pots', 'currants-in-pots', 'gooseberries-in-pots', 'cherry-tree-in-pot', 'plum-tree-in-pot' ),
 				'parts'        => array( 'leaves', 'flowers-fruit' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -275,7 +275,7 @@ return array(
 							'cause'    => 'Spots on broad beans',
 							'sign'     => 'Small round red-brown spots that darken and spread in cool, damp weather, or dusty dark brown spots ringed with pale yellow',
 							'check'    => 'The first is chocolate spot, the second broad bean rust.',
-							'fix'      => 'See <a href="/plants/broad-beans-in-pots/">broad beans in pots</a> for chocolate spot and <a href="/problems/rust-on-leaves/">rust</a> for the dusty spots.',
+							'fix'      => 'See <a href="/plants/fava-beans-in-pots/">broad beans in pots</a> for chocolate spot and <a href="/problems/rust-on-leaves/">rust</a> for the dusty spots.',
 							'recovery' => '',
 						),
 					),
@@ -315,7 +315,7 @@ return array(
 				'pin_prompt'   => 'Vertical close-up of a few pale potatoes with rough, raised brown scabby patches, resting on dark compost next to a fabric grow bag on a patio. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Do My Potatoes Have Rough, Scabby Skins? (Potato Scab)',
 				'excerpt'      => 'Raised, rough, corky patches on the skin are common scab, which is worse when the compost dries out as the tubers form; sunken, powdery scabs with papery edges are powdery scab, which is worse in wet compost. Light scab is skin-deep, so peel and eat the potatoes, and keep the next bag evenly moist but well drained.',
-				'plants'       => array( 'potatoes-in-bags', 'radishes-in-pots', 'beetroot-in-pots', 'turnips-in-pots' ),
+				'plants'       => array( 'potatoes-in-bags', 'radishes-in-pots', 'beets-in-pots', 'turnips-in-pots' ),
 				'parts'        => array( 'roots-compost' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -437,7 +437,7 @@ return array(
 						array(
 							'Water a potted <a href="/plants/apple-tree-in-pot/">apple tree</a> on a steady routine through summer, more often in hot, dry spells; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has the method.',
 							'Keep a mulch on top of the compost.',
-							'Feed with a balanced fertiliser rather than high-nitrogen or high-potash products; <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a> explains the routine.',
+							'Feed with a balanced fertiliser rather than high-nitrogen or high-potash products; <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a> explains the routine.',
 							'Pick only when the apples are fully ripe.',
 							'Dark sunken patches at the base of tomatoes and peppers come from the same calcium problem: see <a href="/problems/blossom-end-rot/">blossom end rot</a>.',
 						)
@@ -509,7 +509,7 @@ return array(
 					),
 			),
 
-			'carrot-fly' => array(
+			'carrot-rust-fly' => array(
 				'image_prompt' => 'Freshly pulled orange carrots lying on a wooden balcony table next to a deep 35 cm container of carrots covered with fine white insect-proof mesh, two of the carrots scarred with rusty brown rings and tunnels, one cut lengthways to show a narrow tunnel with a slender creamy-yellow maggot inside, feathery green carrot tops still attached. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 				'pin_prompt'   => 'Vertical close-up of a carrot cut open to show rusty brown tunnels and a thin creamy maggot, more carrots and a mesh-covered pot on a balcony behind. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are My Carrots Riddled With Rusty Brown Tunnels? (Carrot Fly)',
@@ -557,7 +557,7 @@ return array(
 						array( 'question' => 'Can I store carrots with a few tunnels in them?', 'answer' => 'No. The tunnels let rots in, and carrot fly damage shortens how long the roots keep. Eat the undamaged parts soon and store only clean roots.' ),
 					),
 					'sources'  => array(
-						array( 'title' => 'RHS — Carrot fly', 'url' => 'https://www.rhs.org.uk/biodiversity/carrot-fly' ),
+						array( 'title' => 'RHS — Carrot fly', 'url' => 'https://www.rhs.org.uk/biodiversity/carrot-rust-fly' ),
 						array( 'title' => 'RHS — Testing barrier methods for the protection of carrots from the carrot fly', 'url' => 'https://www.rhs.org.uk/science/plant-health-in-gardens/entomology/rhs-projects-on-plant-pests/carrot-fly-barrier' ),
 						array( 'title' => 'RHS — How to grow carrots', 'url' => 'https://www.rhs.org.uk/vegetables/carrots/grow-your-own' ),
 						$book,
@@ -567,7 +567,7 @@ return array(
 					$h2( 'How to avoid carrot fly damage next time' ) .
 					$list(
 						array(
-							'Fill the pot with fresh peat-free compost for every carrot sowing; <a href="/plant-care/compost-for-containers/">compost for containers</a> explains how to reuse old compost for other crops.',
+							'Fill the pot with fresh peat-free compost for every carrot sowing; <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> explains how to reuse old compost for other crops.',
 							'Cover, sow and time the crop as set out in <a href="/plants/carrots-in-pots/">carrots in pots</a>.',
 							'Grow parsley in its own fresh compost, away from last year\'s carrot pots.',
 						)

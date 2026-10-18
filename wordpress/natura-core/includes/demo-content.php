@@ -583,7 +583,7 @@ function natura_core_demo_articles(): array {
 				$h2( 'When you go away' ) .
 				$p( 'Group pots together in the shade, water them well the evening before you leave, and stand them in deep saucers. For longer trips, a self-watering pot or a simple drip system is more reliable than asking plants to wait.' ),
 		),
-		'compost-for-containers'              => array(
+		'potting-mix-for-containers'              => array(
 			'image_prompt' => 'An open bag of peat-free container compost beside empty terracotta pots and a trowel on a balcony floor, dark crumbly compost spilling slightly. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 			'pin_prompt'   => 'Close view of crumbly dark peat-free compost filling a terracotta pot, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'   => 'How to Fill, Refresh and Reuse Compost in Pots',
@@ -609,14 +609,14 @@ function natura_core_demo_articles(): array {
 			'content' =>
 				$h2( 'Why not garden soil?' ) .
 				$p( 'In a pot, garden soil packs down into a dense block that drains poorly and holds little air. It can also bring in weed seeds, pests, and diseases. Container compost is made to stay open and drain freely while holding water.' ) .
-				$p( 'Not sure which bag to buy? Our <a href="/gear/best-compost-for-pots/">compost buying guide</a> compares the types.' ) .
+				$p( 'Not sure which bag to buy? Our <a href="/gear/best-potting-mix-for-containers/">compost buying guide</a> compares the types.' ) .
 				$h2( 'Filling a large container' ) .
 				$p( 'Big planters swallow a lot of compost. If you make your own garden compost, you can mix some in to reduce how much bagged compost you need. You can also stir a slow-release fertiliser into the potting compost so the plants get a steady supply of nutrients.' ) .
 				$h2( 'Use it while it is fresh' ) .
 				$p( 'Peat-free compost is at its best in the season you buy it. Left in the bag for longer, it begins to break down, so buy what you need for the year rather than stocking up.' ) .
 				$h2( 'Refresh compost every year' ) .
 				$p( 'Plants that live in containers for years benefit from repotting every few years, either into a bigger pot or back into the same one after the compost is refreshed. In the years between, and in pots too big to move, scrape away the top few centimetres each spring and replace them with fresh compost mixed with a slow-release feed.' ) .
-				$p( 'Once the fresh compost\'s own food runs out, the plants depend on you: see <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+				$p( 'Once the fresh compost\'s own food runs out, the plants depend on you: see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 				$h2( 'What to do with old compost' ) .
 				$list(
 					array(
@@ -641,7 +641,7 @@ function natura_core_demo_gear(): array {
 	$h2 = 'natura_core_demo_h2';
 
 	return array(
-		'best-compost-for-pots' => array(
+		'best-potting-mix-for-containers' => array(
 			'image_prompt' => 'Three small heaps of different composts, peat-free multi-purpose, soil-based and ericaceous, on a wooden board next to terracotta pots on a patio. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 			'pin_prompt'   => 'Bags of peat-free compost and a terracotta pot on a sunny patio, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			'title'     => 'The Best Compost for Pots: Which Type to Buy',
@@ -714,7 +714,7 @@ function natura_core_demo_gear(): array {
 				$h2( 'How we chose' ) .
 				$p( 'This guide compares types of compost, not brands. Each pick and each line comes from RHS advice on composts and container growing, listed in the sources. We have not run our own trial of these products.' ) .
 				$h2( 'After you buy' ) .
-				$p( 'How to fill pots, refresh the compost each spring and reuse old compost is covered in <a href="/plant-care/compost-for-containers/">how to fill, refresh and reuse compost in pots</a>.' ),
+				$p( 'How to fill pots, refresh the compost each spring and reuse old compost is covered in <a href="/plant-care/potting-mix-for-containers/">how to fill, refresh and reuse compost in pots</a>.' ),
 		),
 	);
 }

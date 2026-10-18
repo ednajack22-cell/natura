@@ -90,14 +90,14 @@ return array(
 
 					$h2( 'Buy a plant, not seed' ) .
 					$p( 'French tarragon hardly ever flowers and sets seed in the UK, so you buy it as a young plant in spring or summer from a garden centre or herb nursery. Plants sold under either name can vary a lot, so go in person if you can and crush a leaf: you want a warm, aniseed smell. One plant gives enough leaves for most kitchens.' ) .
-					$p( 'If you only find seed, it is Russian tarragon. Sow it from spring to early summer, thinly, on moist peat-free seed compost, barely covered, and pot the seedlings into 7.5 cm (3 in) pots once they have several leaves. Our guide to <a href="/plant-care/how-to-sow-seeds-indoors/">sowing seeds indoors</a> covers the method.' ) .
+					$p( 'If you only find seed, it is Russian tarragon. Sow it from spring to early summer, thinly, on moist peat-free seed compost, barely covered, and pot the seedlings into 7.5 cm (3 in) pots once they have several leaves. Our guide to <a href="/plant-care/how-to-start-seeds-indoors/">sowing seeds indoors</a> covers the method.' ) .
 
 					$h2( 'Pot, compost and position' ) .
 					$p( 'Give one plant a container at least 20 cm (8 in) wide and the same depth, with plenty of holes in the base. Use a peat-free soil-based compost and add grit, as much as 25 per cent by volume, so that surplus water drains away quickly.' ) .
 					$p( 'Plant from mid-spring to early summer. Tarragon wants the warmest, sunniest corner you have, sheltered from wind. If the plant was raised indoors, acclimatise it first; see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
 
 					$h2( 'Watering and care through summer' ) .
-					$p( 'Established tarragon copes with drought, but a pot dries out much faster than open ground, so look at the compost regularly in summer and water when it is dry. Wet roots are the bigger danger: never leave the pot standing in water, and water less as the weather cools. For a routine, see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>; feeding is covered in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Established tarragon copes with drought, but a pot dries out much faster than open ground, so look at the compost regularly in summer and water when it is dry. Wet roots are the bigger danger: never leave the pot standing in water, and water less as the weather cools. For a routine, see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>; feeding is covered in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$p( 'Pinch out any stem that starts to form flower buds. That keeps the plant producing leaves for longer.' ) .
 
 					$h2( 'Picking tarragon' ) .
@@ -193,7 +193,7 @@ return array(
 							'<strong>Thin or plant out:</strong> thin crowded seedlings to about 15 cm (6 in) apart. Move indoor-sown plants into their final pot from mid-spring, when they are around 5 cm (2 in) tall, before the tap root develops.',
 						)
 					) .
-					$p( 'The slender seeds are about 5 mm long and easy to handle. They stay viable for only about a year, so buy fresh packets. Water right after sowing and keep the compost moist. For a steady supply, start a new pot every few weeks; our <a href="/plant-care/succession-sowing-small-spaces/">succession sowing guide</a> explains how to plan it.' ) .
+					$p( 'The slender seeds are about 5 mm long and easy to handle. They stay viable for only about a year, so buy fresh packets. Water right after sowing and keep the compost moist. For a steady supply, start a new pot every few weeks; our <a href="/plant-care/succession-planting-small-spaces/">succession sowing guide</a> explains how to plan it.' ) .
 
 					$h2( 'Keep it from bolting' ) .
 					$p( 'Chervil will flower fairly soon whatever you do, and once it flowers the leaves lose their quality. Hot, dry conditions bring this on faster. Water regularly, because compost in a pot dries quickly in warm weather (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>), and keep summer sowings in part shade. If a pot bolts anyway, the <a href="/problems/plants-bolting/">bolting guide</a> explains what is going on.' ) .
@@ -278,12 +278,12 @@ return array(
 					$p( 'The RHS rates it H3, half hardy. That is why a pot makes sense on a balcony or patio: you grow it outside in summer and carry it under cover for the winter.' ) .
 
 					$h2( 'Choosing the pot and compost' ) .
-					$p( 'Pick a pot with plenty of holes in the base and a size you can still lift or wheel indoors. Herbs that stay in a pot for years appreciate a deep root run. Fill it with a peat-free, loam-based potting compost, which the RHS recommends for lemon verbena grown under glass. More on mixes in <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'Pick a pot with plenty of holes in the base and a size you can still lift or wheel indoors. Herbs that stay in a pot for years appreciate a deep root run. Fill it with a peat-free, loam-based potting compost, which the RHS recommends for lemon verbena grown under glass. More on mixes in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 					$p( 'Buy plants in late spring, once frosts are over: herbs planted in cold, wet compost often suffer root damage. If a plant has spent its life in a warm shop, harden it off gradually; see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
 
 					$h2( 'Sun, water and food' ) .
 					$p( 'In a cool climate lemon verbena needs full sun and a sheltered position. Keep the compost evenly moist through summer without letting it become soggy, and check pots often in hot spells (our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> has the routine).' ) .
-					$p( 'It is a hungry plant in a pot. Illinois Extension suggests a general-purpose liquid fertiliser about every two weeks during the growing season; the general method is in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'It is a hungry plant in a pot. Illinois Extension suggests a general-purpose liquid fertiliser about every two weeks during the growing season; the general method is in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'Picking and using the leaves' ) .
 					$p( 'Pick leaves whenever you need them through the growing season. Regular picking also keeps the plant tidy. The flavour is best just before the flower spikes open.' ) .
@@ -384,7 +384,7 @@ return array(
 							'<strong>Under cover:</strong> you can also sow in pots at about 18 °C (64 °F), then grow the seedlings on cooler, around 15 °C (59 °F), harden them off and plant them out.',
 						)
 					) .
-					$p( 'For sowing indoors step by step, see <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>. Crowded seedlings can collapse with <a href="/problems/damping-off-seedlings/">damping off</a>, so sow thinly.' ) .
+					$p( 'For sowing indoors step by step, see <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>. Crowded seedlings can collapse with <a href="/problems/damping-off-seedlings/">damping off</a>, so sow thinly.' ) .
 
 					$h2( 'Deadhead for more flowers' ) .
 					$p( 'Pinch out the growing tips of young plants to make them bushier. Once flowering starts, remove faded flowers regularly: the plant keeps making new buds instead of setting seed. Cut plants back after the main flush.' ) .

@@ -129,7 +129,7 @@ return array(
 					),
 			),
 
-			'succession-sowing-small-spaces'        => array(
+			'succession-planting-small-spaces'        => array(
 				'image_prompt' => 'Three matching window boxes on a sunny balcony ledge showing salad leaves at three stages: freshly sown compost with tiny seedlings, young leaves about 5 cm tall, and a full box of mixed lettuce and rocket ready to cut, summer daylight.' . $photo_end,
 				'pin_prompt'   => 'Three small pots of lettuce at different stages, from seedlings to leaves ready to pick, lined up on a bright kitchen windowsill, photographed vertically.' . $pin_end,
 				'title'        => 'Succession Sowing: How to Grow Little and Often in a Small Space',
@@ -581,7 +581,7 @@ return array(
 				'pin_prompt'   => 'A half plastic bottle used as a funnel, sunk neck-down into a large pot next to a bush tomato plant on a balcony, photographed vertically.' . $pin_end,
 				'title'        => 'Make a Bottle Watering Funnel',
 				'category'     => array( 'watering' ),
-				'plants'       => array( 'cherry-tomato', 'courgettes-in-pots', 'raspberries-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'zucchini-in-pots', 'raspberries-in-pots' ),
 				'excerpt'      => 'Cut a plastic bottle in half and sink the top half neck-down into the compost next to a thirsty plant. Water poured into it goes straight down to the roots instead of running off the surface.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -636,7 +636,7 @@ return array(
 				'pin_prompt'   => 'A compact wooden cold frame with a clear sloping lid on a balcony, lid propped open, young seedlings visible inside, photographed vertically from the front.' . $pin_end,
 				'title'        => 'Make a Mini Cold Frame for a Balcony',
 				'category'     => array( 'planters' ),
-				'plants'       => array( 'salad-leaves-in-pots', 'lettuce-in-pots', 'peas-in-pots' ),
+				'plants'       => array( 'salad-greens-in-pots', 'lettuce-in-pots', 'peas-in-pots' ),
 				'excerpt'      => 'A wooden box with a clear, sloping lid makes a small cold frame for hardening off seedlings, starting salads early and sheltering young plants from wind and light frost. On a balcony, use rigid clear plastic rather than glass, and fix the frame down.',
 				'facts'        => array(
 					'project_method' => 'adapted',

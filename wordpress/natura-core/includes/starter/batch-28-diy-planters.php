@@ -42,7 +42,7 @@ return array(
 				'pin_prompt'   => 'Close view of a clean tin can with a row of punched holes round its base, planted with a young basil plant with bright green oval leaves, standing on a tile on a balcony floor, photographed vertically from a low angle.' . $pin_end,
 				'title'        => 'Make a Planter From a Recycled Container',
 				'category'     => array( 'planters' ),
-				'plants'       => array( 'parsley-in-pots', 'chives-in-pots', 'chillies-in-pots', 'potatoes-in-bags' ),
+				'plants'       => array( 'parsley-in-pots', 'chives-in-pots', 'chili-peppers-in-pots', 'potatoes-in-bags' ),
 				'excerpt'      => 'Almost any sturdy container can grow food once it is scrubbed clean and has holes punched or drilled in its base. Line wood or anything full of gaps, raise it on bricks or tiles, and fill it with peat-free compost.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -97,17 +97,17 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'Roots do not care what the outside of a pot looks like. They need enough compost, air and water, and a way for extra water to escape. Give an old tin, tub or crate those things and it does the same job as a bought pot, for little or no money.' ) .
 					$h2( 'Before you choose' ) .
-					$p( 'How big a container each crop needs, and how the materials compare, is covered in <a href="/plant-care/how-to-choose-pots-for-vegetables/">how to choose pots for vegetables</a>. For which compost to use, see <a href="/plant-care/compost-for-containers/">compost for containers</a>. To grow potatoes in a dustbin or an old compost sack, follow <a href="/plants/potatoes-in-bags/">potatoes in bags</a>.' ) .
+					$p( 'How big a container each crop needs, and how the materials compare, is covered in <a href="/plant-care/how-to-choose-pots-for-vegetables/">how to choose pots for vegetables</a>. For which compost to use, see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>. To grow potatoes in a dustbin or an old compost sack, follow <a href="/plants/potatoes-in-bags/">potatoes in bags</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Backyard Harvest (pp. 8 and 84–85) says almost any large, durable, well-drained container suits crops, and suggests old cans, metal tubs, crates and bags. Cleaning tins, punching holes, avoiding plastic colanders and MDF, and preferring plastic-free items come from the RHS guide to DIY planters; the linings and the bricks under the pot come from the RHS school container guide and the RHS raised bed guide. Clamping the container while drilling and taping sharp edges are safety points we added. We have not built these exact planters ourselves.' ),
 			),
 
-			'plant-up-a-growing-bag'                   => array(
+			'plant-up-a-grow-bag'                   => array(
 				'image_prompt' => 'A peat-free growing bag lying flat on a sunny balcony floor against a warm rendered wall, two young tomato plants with hairy stems and divided serrated leaves planted in square holes cut in the plastic, each tied loosely to a bamboo cane, a watering can beside the bag, early summer morning light.' . $photo_end,
 				'pin_prompt'   => 'Hands with a knife cutting a square planting hole in the top of a growing bag on a patio, two potted pepper plants with glossy pointed leaves waiting beside it, photographed vertically from above.' . $pin_end,
 				'title'        => 'Plant Up a Growing Bag',
 				'category'     => array( 'planters' ),
-				'plants'       => array( 'cherry-tomato', 'sweet-peppers-in-pots', 'aubergines-in-pots', 'cucumbers-in-pots', 'lettuce-in-pots', 'leeks-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'bell-peppers-in-pots', 'eggplant-in-pots', 'cucumbers-in-pots', 'lettuce-in-pots', 'leeks-in-pots' ),
 				'excerpt'      => 'Lay the bag flat in its final sunny, sheltered spot, cut planting holes in the top and drainage slits underneath, then plant and put in supports straight away. After that, keep the compost evenly moist: a bag dries out and floods more easily than a big pot.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -162,7 +162,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'A growing bag is a pillow of compost in its own plastic skin. Lying flat, it gives fruiting crops a long, shallow root run on a hard floor, with no pot to buy or fill. Backyard Harvest notes that it works indoors or out, for anything from tomatoes and peppers to salads and leeks.' ) .
 					$h2( 'Choosing the bag and the plants' ) .
-					$p( 'Which bag to buy, and how many plants of each crop one bag holds, are compared in <a href="/gear/best-grow-bags/">the best growing bags</a>. For a cordon tomato, a hanging string is an easy support: see <a href="/diy-projects/make-a-string-support-for-tomatoes/">make a string support for tomatoes</a>. Feeding through the summer is explained in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Which bag to buy, and how many plants of each crop one bag holds, are compared in <a href="/gear/best-grow-bags/">the best growing bags</a>. For a cordon tomato, a hanging string is an easy support: see <a href="/diy-projects/make-a-string-support-for-tomatoes/">make a string support for tomatoes</a>. Feeding through the summer is explained in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Cutting planting holes and drainage slits, the frost-free planting date, deep planting for tomatoes and the warning about uneven watering come from the RHS tomato pages. The several-canes advice comes from the RHS chilli guide, and sowing salads in bags from the RHS salad guide. Backyard Harvest (pp. 82, 85, 99, 101 and 114) lists the crops and says to put supports in at once. The tray, the cutting safety and keeping supports off the railing are common-sense points we added. We have not planted this exact bag ourselves.' ),
 			),
@@ -172,7 +172,7 @@ return array(
 				'pin_prompt'   => 'A small wooden raised bed on a paved patio filled with salad leaves and strawberries, a watering can on the paving beside it, photographed vertically from slightly above.' . $pin_end,
 				'title'        => 'Build a Small Raised Bed on a Patio',
 				'category'     => array( 'planters' ),
-				'plants'       => array( 'salad-leaves-in-pots', 'lettuce-in-pots', 'balcony-strawberry', 'radishes-in-pots' ),
+				'plants'       => array( 'salad-greens-in-pots', 'lettuce-in-pots', 'balcony-strawberry', 'radishes-in-pots' ),
 				'excerpt'      => 'On paving, a raised bed needs plenty of drainage holes low in its sides and a free-draining mix of topsoil, sharp sand and garden compost. Keep it narrow enough to reach the middle, and build it only on a ground-level patio, never on a balcony or roof.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -293,17 +293,17 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'Forcing chicory spends the summer building up a fat root. Brought indoors in winter and kept in total darkness, the root uses that store to push up a tight bud of leaves that never see light. The result, called a chicon, is pale, crisp and much less bitter than green chicory leaves.' ) .
 					$h2( 'Growing chicory for leaves' ) .
-					$p( 'Radicchio and sugarloaf types are grown for their heads or as cut-and-come-again leaves, not for forcing. For salads you can pick over and over, see <a href="/plants/salad-leaves-in-pots/">salad leaves in pots</a>, and for winter leaves <a href="/plants/oriental-salad-leaves-in-pots/">oriental salad leaves in pots</a>. Starting seedlings indoors is explained in <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>.' ) .
+					$p( 'Radicchio and sugarloaf types are grown for their heads or as cut-and-come-again leaves, not for forcing. For salads you can pick over and over, see <a href="/plants/salad-greens-in-pots/">salad leaves in pots</a>, and for winter leaves <a href="/plants/asian-greens-in-pots/">oriental salad leaves in pots</a>. Starting seedlings indoors is explained in <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Sowing, the container size, lifting in November, the trim height, storing in sand, five roots per 25 cm pot, the temperature, the size at harvest and the second chicon all come from the RHS chicory guide. Backyard Harvest (pp. 35, 95, 97, 185 and 216) describes the same method and adds watering only in the dark and wrapping chicons in the fridge; where its trim height (2 cm) differs, we follow the RHS. The saucer and keeping the pot steady are common-sense points we added. We have not forced this exact batch ourselves.' ),
 			),
 
-			'set-up-a-drip-watering-kit'               => array(
+			'set-up-a-drip-irrigation-kit'               => array(
 				'image_prompt' => 'A drip watering kit being installed on a sunny patio: a battery timer, a small filter and a pressure regulator screwed in a line onto an outside tap on a brick wall, thin black supply pipe running along the foot of the wall past large pots of tomato, pepper and courgette plants, a thin feeder tube rising into each pot to a dripper held by a small stake near the stem.' . $photo_end,
 				'pin_prompt'   => 'Close view of a small dripper on a plastic stake pushed into moist compost beside the stem of a pepper plant with glossy green fruit, a thin black tube curling away, photographed vertically.' . $pin_end,
 				'title'        => 'Set Up a Drip Watering Kit for Pots',
 				'category'     => array( 'watering' ),
-				'plants'       => array( 'cherry-tomato', 'sweet-peppers-in-pots', 'courgettes-in-pots', 'cucumbers-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'bell-peppers-in-pots', 'zucchini-in-pots', 'cucumbers-in-pots' ),
 				'excerpt'      => 'Fit the timer, filter and pressure regulator to an outside tap with a double check valve, run the supply pipe along your pots, and peg one or more drippers over each root ball. Flush the pipe, cap the end, then test it and adjust the timer until the compost is moist but not soaked.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -411,7 +411,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'The stones lift the pot clear of the water, so the roots stay out of it. Water slowly evaporating from the wet gravel adds moisture to the air right round the leaves, where heated rooms are driest. Standing several plants close together raises the humidity further, as they share the damp air.' ) .
 					$h2( 'The rest of winter care' ) .
-					$p( 'When to bring the tree in, how much to water it and how to feed it are covered in <a href="/plants/lemon-tree-in-pot/">how to grow a lemon tree in a pot</a>. Dry indoor air also suits <a href="/problems/red-spider-mite/">red spider mite</a>, so check the undersides of the leaves now and then.' ) .
+					$p( 'When to bring the tree in, how much to water it and how to feed it are covered in <a href="/plants/lemon-tree-in-pot/">how to grow a lemon tree in a pot</a>. Dry indoor air also suits <a href="/problems/spider-mites/">red spider mite</a>, so check the undersides of the leaves now and then.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Backyard Harvest (p. 222) advises standing a citrus pot on wet gravel in a centrally heated house, away from radiators and cold draughts. The materials, the water level and the warning about waterlogged compost come from the RHS citrus and houseplant leaf-damage guides; the wide tray and grouping plants come from the RHS guide to winter houseplant care, and oedema from the RHS leaf-damage guide. Checking the tray for leaks, lifting the tree with help and rinsing the gravel are common-sense points we added. We have not set up this exact tray ourselves.' ),
 			),

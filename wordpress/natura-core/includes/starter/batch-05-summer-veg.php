@@ -30,14 +30,14 @@ $photo_end = ' Photorealistic, natural light, shallow depth of field, no text, n
 $pin_end   = ' Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.';
 
 $water_link   = '<a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>';
-$compost_link = '<a href="/plant-care/compost-for-containers/">compost for containers</a>';
+$compost_link = '<a href="/plant-care/potting-mix-for-containers/">compost for containers</a>';
 $seed_link    = '<a href="/plant-care/how-to-save-seeds-from-your-plants/">saving seed from your plants</a>';
 
 return array(
 	'name'   => __( 'Summer veg in pots', 'natura-core' ),
 	'guides' => array(
 		'plant' => array(
-			'courgettes-in-pots'   => array(
+			'zucchini-in-pots'   => array(
 				'title'        => 'How to Grow Courgettes in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),
@@ -143,7 +143,7 @@ return array(
 				'pin_prompt'   => 'Vertical photograph of a compact courgette plant in a wide grey container on a sunny patio, its big lobed dark green leaves spreading over the rim, a yellow trumpet flower open and slim green courgettes visible near the base. The container and plant fill the lower two thirds; the top third is a calm, softly blurred pale wall with empty space.' . $pin_end,
 			),
 
-			'french-beans-in-pots' => array(
+			'green-beans-in-pots' => array(
 				'title'        => 'How to Grow French Beans in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),
@@ -218,7 +218,7 @@ return array(
 					$h2( 'Sowing French beans' ) .
 					$p( 'For the earliest pods, sow indoors from late April. Put one bean, 5 cm (2 in) deep, in each small pot or deep module of moist peat-free multi-purpose compost, and stand them in a propagator or on a warm, sunny windowsill. The seedlings grow fast in good light.' ) .
 					$p( 'Or wait until the frosts are over, usually late May or early June, and sow straight into the final pot. Set dwarf bean seeds 5 cm (2 in) deep and 15 cm (6 in) apart. For climbers, push a wigwam of 2.5 m (8 ft) canes into the container first, sow two seeds at the foot of each cane, and remove the weaker seedling if both come up.' ) .
-					$p( 'Dwarf beans only crop for a few weeks, so sow another pot every few weeks until midsummer for a longer supply. Our guide to <a href="/plant-care/succession-sowing-small-spaces/">succession sowing in a small space</a> explains how to plan it.' ) .
+					$p( 'Dwarf beans only crop for a few weeks, so sow another pot every few weeks until midsummer for a longer supply. Our guide to <a href="/plant-care/succession-planting-small-spaces/">succession sowing in a small space</a> explains how to plan it.' ) .
 
 					$h2( 'Planting out young bean plants' ) .
 					$p( 'Indoor-raised or bought plants go outside only after the last frost, once they have been hardened off. Water them well before and after planting, and space them 15 cm (6 in) apart. With climbing beans, put one plant at the base of each cane and loosely tie the shoot on to start it climbing.' ) .

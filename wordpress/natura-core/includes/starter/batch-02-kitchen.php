@@ -192,7 +192,7 @@ return array(
 				'pin_prompt'   => 'Close view of chives in a terracotta pot with lilac pompom flowers, a small bunch of freshly snipped chive leaves lying beside the pot on a wooden balcony floor, soft daylight.' . $pin_end,
 			),
 
-			'chillies-in-pots'  => array(
+			'chili-peppers-in-pots'  => array(
 				'title'        => 'How to Grow Chillies in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),
@@ -376,7 +376,7 @@ return array(
 			'aphids-container-plants' => array(
 				'title'        => 'What Are the Tiny Green or Black Bugs on My Plants? (Aphids)',
 				'excerpt'      => 'Clusters of tiny green, black or pink insects on shoot tips and under young leaves are aphids. Squash them, check plants often, and let ladybirds, hoverflies and lacewings do the rest: by midsummer, predators often wipe colonies out.',
-				'plants'       => array( 'chillies-in-pots', 'parsley-in-pots', 'chives-in-pots', 'salad-leaves-in-pots', 'cherry-tomato', 'balcony-strawberry', 'lemon-tree-in-pot' ),
+				'plants'       => array( 'chili-peppers-in-pots', 'parsley-in-pots', 'chives-in-pots', 'salad-greens-in-pots', 'cherry-tomato', 'balcony-strawberry', 'lemon-tree-in-pot' ),
 				'parts'        => array( 'leaves', 'stems', 'roots-compost' ),
 				'lists'        => array(
 					'causes'   => array(

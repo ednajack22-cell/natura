@@ -106,9 +106,9 @@ return array(
 						array(
 							'<strong>Shelled peas:</strong> 1½ minutes. Pick them while the peas are young and sweet, before they turn starchy. See <a href="/plants/peas-in-pots/">peas in pots</a>.',
 							'<strong>Mangetout and sugar snap pods:</strong> 1½ minutes for small pods, 2 for large ones.',
-							'<strong>French and runner beans:</strong> 3 minutes, cut into 5–10 cm (2–4 in) lengths. See <a href="/plants/french-beans-in-pots/">French beans</a> and <a href="/plants/runner-beans-in-pots/">runner beans</a>.',
+							'<strong>French and runner beans:</strong> 3 minutes, cut into 5–10 cm (2–4 in) lengths. See <a href="/plants/green-beans-in-pots/">French beans</a> and <a href="/plants/runner-beans-in-pots/">runner beans</a>.',
 							'<strong>Spinach and other leafy greens:</strong> 2 minutes, with woody stems removed. See <a href="/plants/spinach-in-pots/">spinach</a> and <a href="/plants/swiss-chard-in-pots/">Swiss chard</a>.',
-							'<strong>Courgettes:</strong> 3 minutes for slices about 1 cm (½ in) thick. See <a href="/plants/courgettes-in-pots/">courgettes in pots</a>.',
+							'<strong>Courgettes:</strong> 3 minutes for slices about 1 cm (½ in) thick. See <a href="/plants/zucchini-in-pots/">courgettes in pots</a>.',
 							'<strong>Carrots:</strong> 2 minutes for slices or strips, 5 for small whole carrots.',
 						)
 					) .
@@ -136,7 +136,7 @@ return array(
 					$p( 'The Food Standards Agency recommends a freezer temperature of around -18 °C (0 °F). At that temperature, blanched vegetables keep their best quality for about 8 to 12 months. Freezer burn, the dry, pale patches on badly wrapped food, spoils the texture but does not make it unsafe.' ) .
 
 					$h2( 'What not to freeze' ) .
-					$p( 'Crops you eat raw for their crunch, such as lettuce, radishes and cucumbers, go limp and watery after freezing. Keep them for fresh eating and sow a little at a time instead: see <a href="/plant-care/succession-sowing-small-spaces/">succession sowing</a>. Most frozen vegetables can go straight into boiling water without thawing.' ) .
+					$p( 'Crops you eat raw for their crunch, such as lettuce, radishes and cucumbers, go limp and watery after freezing. Keep them for fresh eating and sow a little at a time instead: see <a href="/plant-care/succession-planting-small-spaces/">succession sowing</a>. Most frozen vegetables can go straight into boiling water without thawing.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -228,7 +228,7 @@ return array(
 					),
 			),
 
-			'how-to-dry-chillies-and-tomatoes'        => array(
+			'how-to-dry-chili-peppers-and-tomatoes'        => array(
 				'image_prompt' => 'A string of bright red chillies threaded on cotton and hanging beside a sunny window, with a chilli plant in a terracotta pot on the sill below, and on the table in front a cooling rack of oven-dried tomato slices, dark red and shrivelled, next to an empty glass storage jar, autumn daylight.' . $photo_end,
 				'pin_prompt'   => 'A long garland of dried red chillies hanging against a pale wall next to a balcony door, a potted chilli plant with a few ripe fruits at its foot, photographed vertically.' . $pin_end,
 				'title'        => 'How to Dry Chillies and Tomatoes at Home',
@@ -259,7 +259,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'One <a href="/plants/chillies-in-pots/">chilli plant</a> can give more fruit than a household uses fresh, and a pot of <a href="/plants/cherry-tomato/">cherry tomatoes</a> often finishes with a rush. Drying removes enough water to stop the moulds and bacteria that spoil food. It works well for chillies, which are fairly dry already, and for tomatoes given steady, controlled heat. The methods here come from Colorado State University Extension and the National Center for Home Food Preservation; herbs are covered separately in <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'One <a href="/plants/chili-peppers-in-pots/">chilli plant</a> can give more fruit than a household uses fresh, and a pot of <a href="/plants/cherry-tomato/">cherry tomatoes</a> often finishes with a rush. Drying removes enough water to stop the moulds and bacteria that spoil food. It works well for chillies, which are fairly dry already, and for tomatoes given steady, controlled heat. The methods here come from Colorado State University Extension and the National Center for Home Food Preservation; herbs are covered separately in <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'What successful drying needs' ) .
 					$p( 'Colorado State University Extension lists three things: enough heat to draw the moisture out without cooking the food, dry air to carry the moisture away, and good air movement. Too little heat at the start lets microbes survive and grow before the food is dry. Too much heat seals the surface, so moisture is trapped inside.' ) .
@@ -362,7 +362,7 @@ return array(
 					$p( 'Once the foliage is dry and papery, keep the onions in net bags, in single layers on trays, or plaited and hung up. They need a light, cool, dry and airy spot: unlike potatoes, darkness makes them sprout. Use damaged onions first.' ) .
 
 					$h2( 'Beetroot and carrots' ) .
-					$p( 'Lift only roots in good condition. Twist off the leaves and pack the roots in layers of moist sand or a peat-free substitute in boxes, kept somewhere dark and frost-free. The moist packing stops them shrivelling. <a href="/plants/beetroot-in-pots/">Beetroot in pots</a> explains which sowings are worth storing; <a href="/plants/carrots-in-pots/">carrots in pots</a> covers when to lift.' ) .
+					$p( 'Lift only roots in good condition. Twist off the leaves and pack the roots in layers of moist sand or a peat-free substitute in boxes, kept somewhere dark and frost-free. The moist packing stops them shrivelling. <a href="/plants/beets-in-pots/">Beetroot in pots</a> explains which sowings are worth storing; <a href="/plants/carrots-in-pots/">carrots in pots</a> covers when to lift.' ) .
 
 					$h2( 'Winter squash and pumpkins' ) .
 					$p( 'A squash for storing should stay on the plant as long as possible to build up sugar, but must come in before frost: frosted fruit will not keep. It is ready when the skin is tough and richly coloured and it sounds hollow when tapped. Cut it with as much stalk as you can, because rot starts at that end.' ) .
@@ -384,7 +384,7 @@ return array(
 					),
 			),
 
-			'end-of-season-balcony-tidy'              => array(
+			'end-of-season-balcony-cleanup'              => array(
 				'image_prompt' => 'A small balcony on a still autumn afternoon being cleared at the end of the season: spent tomato plants pulled and laid on a sheet, a stack of scrubbed terracotta and plastic pots drying upside down, bundled bamboo canes and plant labels in a bucket, secateurs and a stiff brush on a low table, one pot of seedheads left standing in a corner.' . $photo_end,
 				'pin_prompt'   => 'Clean, empty terracotta pots stacked upside down on a balcony floor next to a brush, a watering can and a bundle of canes, a pot of dry seedheads left standing beside them, photographed vertically.' . $pin_end,
 				'title'        => 'End-of-Season Balcony Tidy: What to Do With Your Pots in Autumn',
@@ -419,7 +419,7 @@ return array(
 
 					$h2( 'Clear out finished crops' ) .
 					$p( 'Pull up annual crops that have stopped producing, such as tomatoes, beans and courgettes. Look at each plant as it comes out. The RHS advises clearing up infected leaves and fruit at the end of the season to break the cycle of reinfection, and warns that a home compost heap does not get hot enough to kill persistent diseases. Anything diseased, such as plants with <a href="/problems/tomato-blight/">tomato blight</a>, goes in the council green waste rather than your compost; healthy material can be composted.' ) .
-					$p( 'Before you empty a pot, tip the root ball out and look for the white, C-shaped grubs of <a href="/problems/vine-weevil/">vine weevil</a>, a common pest in containers. The spent compost itself can be reused in a few ways, explained in <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'Before you empty a pot, tip the root ball out and look for the white, C-shaped grubs of <a href="/problems/black-vine-weevil/">vine weevil</a>, a common pest in containers. The spent compost itself can be reused in a few ways, explained in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 
 					$h2( 'Leave some shelter for wildlife' ) .
 					$p( 'Tidiness has limits. The RHS describes it as a balance: too much tidying discourages wildlife. Where there is no sign of disease, dead leaves and old plant material give shelter, and stems left standing over winter can house hibernating insects in their hollows. Ladybird adults need sheltered places to spend the winter, and lacewings hibernate in crevices and leaf litter.' ) .
@@ -442,7 +442,7 @@ return array(
 					$p( 'If you have a water butt, the RHS also suggests cleaning gutters and disinfecting butts, and using mains water for cuttings and young plants.' ) .
 
 					$h2( 'Get the pots that stay ready for winter' ) .
-					$p( 'Perennial herbs, fruit and winter crops stay put. The RHS advises stopping feeding after late summer until mid-spring for most container plants. Group pots near a wall, lift them onto feet and wrap them before hard frost; <a href="/diy-projects/wrap-pots-for-winter/">wrap pots for winter</a> shows how. Empty pots can be sown with garlic or winter salads: see <a href="/plants/garlic-in-pots/">garlic</a> and <a href="/plants/oriental-salad-leaves-in-pots/">winter salad leaves</a>.' ) .
+					$p( 'Perennial herbs, fruit and winter crops stay put. The RHS advises stopping feeding after late summer until mid-spring for most container plants. Group pots near a wall, lift them onto feet and wrap them before hard frost; <a href="/diy-projects/wrap-pots-for-winter/">wrap pots for winter</a> shows how. Empty pots can be sown with garlic or winter salads: see <a href="/plants/garlic-in-pots/">garlic</a> and <a href="/plants/asian-greens-in-pots/">winter salad leaves</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -494,10 +494,10 @@ return array(
 						array(
 							'<strong>Lower cost:</strong> raising plants from seed is by far the cheapest way to fill your pots.',
 							'<strong>Choice:</strong> seed catalogues offer far more varieties than garden centres sell as plants, including compact and trailing ones bred for containers.',
-							'<strong>Little and often:</strong> one packet can be sown in small batches all season; see <a href="/plant-care/succession-sowing-small-spaces/">succession sowing</a>.',
+							'<strong>Little and often:</strong> one packet can be sown in small batches all season; see <a href="/plant-care/succession-planting-small-spaces/">succession sowing</a>.',
 						)
 					) .
-					$p( 'The cost is time and windowsill space for crops that are started indoors. <a href="/plant-care/how-to-sow-seeds-indoors/">How to sow seeds indoors</a> explains what that involves.' ) .
+					$p( 'The cost is time and windowsill space for crops that are started indoors. <a href="/plant-care/how-to-start-seeds-indoors/">How to sow seeds indoors</a> explains what that involves.' ) .
 
 					$h2( 'What young plants give you' ) .
 					$list(
@@ -512,9 +512,9 @@ return array(
 					$h2( 'Crop by crop: sow or buy?' ) .
 					$list(
 						array(
-							'<strong>Sow where they will grow:</strong> radishes, salad leaves, rocket, carrots, beetroot, spring onions and peas. They are cheap from seed and quick to grow. See <a href="/plants/radishes-in-pots/">radishes</a>, <a href="/plants/salad-leaves-in-pots/">salad leaves</a> and <a href="/plants/carrots-in-pots/">carrots</a>.',
+							'<strong>Sow where they will grow:</strong> radishes, salad leaves, rocket, carrots, beetroot, spring onions and peas. They are cheap from seed and quick to grow. See <a href="/plants/radishes-in-pots/">radishes</a>, <a href="/plants/salad-greens-in-pots/">salad leaves</a> and <a href="/plants/carrots-in-pots/">carrots</a>.',
 							'<strong>Sow or buy:</strong> courgettes, French and runner beans and cucumbers grow fast from seed sown indoors in spring, but one or two bought plants are enough for most balconies.',
-							'<strong>Often better bought:</strong> tomatoes, chillies, sweet peppers and aubergines need a long, warm start indoors from late winter. Without a heated windowsill, young plants are the easier route; see <a href="/plants/chillies-in-pots/">chillies</a> and <a href="/plants/aubergines-in-pots/">aubergines</a>.',
+							'<strong>Often better bought:</strong> tomatoes, chillies, sweet peppers and aubergines need a long, warm start indoors from late winter. Without a heated windowsill, young plants are the easier route; see <a href="/plants/chili-peppers-in-pots/">chillies</a> and <a href="/plants/eggplant-in-pots/">aubergines</a>.',
 							'<strong>Grown from tubers, sets or cloves:</strong> the RHS advises certified virus-free seed potatoes, and calls onion sets the easiest and fastest way to grow onions. Garlic is grown from cloves; see <a href="/plants/garlic-in-pots/">garlic in pots</a>.',
 							'<strong>Always bought as plants:</strong> fruit bushes and trees, and perennial herbs such as rosemary and bay.',
 						)
@@ -711,7 +711,7 @@ return array(
 						array(
 							'<strong>Flowers:</strong> adult hoverflies have short tongues and need open flowers, such as those of the daisy and carrot families. Mix a few pots of <a href="/plants/calendula-in-pots/">calendula</a> or other open blooms among your crops, and aim for flowers from spring to autumn.',
 							'<strong>Water:</strong> the RHS says even a large pot of water can act as a small pond. Give it one sloping side or a few stones so small creatures can climb out.',
-							'<strong>Winter shelter:</strong> lacewings hibernate in crevices and leaf litter, and ladybird adults need sheltered spots. Leave a few hollow stems or a pot of seedheads over winter; see <a href="/plant-care/end-of-season-balcony-tidy/">the end-of-season tidy</a>.',
+							'<strong>Winter shelter:</strong> lacewings hibernate in crevices and leaf litter, and ladybird adults need sheltered spots. Leave a few hollow stems or a pot of seedheads over winter; see <a href="/plant-care/end-of-season-balcony-cleanup/">the end-of-season tidy</a>.',
 							'<strong>Earwig shelter:</strong> on a fruit tree, a flower pot loosely stuffed with hay and hung in the branches gives earwigs somewhere to hide by day.',
 						)
 					) .
@@ -729,9 +729,9 @@ return array(
 					$h2( 'Find your pest' ) .
 					$list(
 						array(
-							'Sap-suckers: <a href="/problems/aphids-container-plants/">aphids</a>, <a href="/problems/whitefly/">whitefly</a>, <a href="/problems/red-spider-mite/">red spider mite</a>, <a href="/problems/mealybugs/">mealybugs</a> and <a href="/problems/scale-insects/">scale insects</a>.',
+							'Sap-suckers: <a href="/problems/aphids-container-plants/">aphids</a>, <a href="/problems/whiteflies/">whitefly</a>, <a href="/problems/spider-mites/">red spider mite</a>, <a href="/problems/mealybugs/">mealybugs</a> and <a href="/problems/scale-insects/">scale insects</a>.',
 							'Leaf eaters: <a href="/problems/slugs-and-snails/">slugs and snails</a>, <a href="/problems/caterpillars-on-brassicas/">cabbage caterpillars</a> and <a href="/problems/flea-beetle-holes-in-leaves/">flea beetles</a>.',
-							'Below the surface: <a href="/problems/vine-weevil/">vine weevil</a> and <a href="/problems/root-aphids/">root aphids</a>.',
+							'Below the surface: <a href="/problems/black-vine-weevil/">vine weevil</a> and <a href="/problems/root-aphids/">root aphids</a>.',
 						)
 					) .
 

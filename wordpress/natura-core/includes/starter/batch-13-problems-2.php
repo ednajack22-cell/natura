@@ -35,7 +35,7 @@ return array(
 				'pin_prompt'   => 'A pot of curly kale on a balcony with holed leaves and yellow and black caterpillars on one leaf, a clutch of tiny yellow skittle-shaped eggs on the underside of another leaf, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'What Is Eating My Kale and Cabbage Leaves? (Cabbage Caterpillars)',
 				'excerpt'      => 'Holes in the leaves of kale, cabbage, pak choi or nasturtiums, with green or yellow-and-black caterpillars and their droppings, are the work of cabbage white butterflies and cabbage moths. Pick off the eggs and caterpillars every few days, and cover the pot with fine netting that does not touch the leaves.',
-				'plants'       => array( 'kale-in-pots', 'pak-choi-in-pots', 'nasturtiums-in-pots' ),
+				'plants'       => array( 'kale-in-pots', 'bok-choy-in-pots', 'nasturtiums-in-pots' ),
 				'parts'        => array( 'leaves' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -104,7 +104,7 @@ return array(
 				'pin_prompt'   => 'A trough of rocket and radish seedlings with leaves full of tiny round holes, a piece of fine white insect mesh folded back at one end, photographed vertically on a balcony. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'What Are the Tiny Holes in My Radish and Rocket Leaves?',
 				'excerpt'      => 'Lots of tiny, round holes in the leaves of radish, rocket, pak choi or young kale are made by flea beetles, small shiny beetles that jump away when you touch the plant. On bigger plants the damage is mostly cosmetic; seedlings are most at risk, and insect-proof mesh keeps the beetles off.',
-				'plants'       => array( 'radishes-in-pots', 'salad-leaves-in-pots', 'pak-choi-in-pots', 'kale-in-pots', 'nasturtiums-in-pots' ),
+				'plants'       => array( 'radishes-in-pots', 'salad-greens-in-pots', 'bok-choy-in-pots', 'kale-in-pots', 'nasturtiums-in-pots' ),
 				'parts'        => array( 'leaves' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -163,7 +163,7 @@ return array(
 				'pin_prompt'   => 'A small pot of seedlings on a windowsill where a cluster has toppled over at compost level next to upright healthy seedlings, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are My Seedlings Collapsing? (Damping Off)',
 				'excerpt'      => 'Seedlings that suddenly fall over and rot, often under a fuzz of white mould, have damping off, caused by fungi and fungus-like organisms that live in soil and dirty water. Collapsed seedlings cannot be saved, so sow again thinly in fresh compost and clean pots, water less, and give the seedlings fresh air.',
-				'plants'       => array( 'cherry-tomato', 'chillies-in-pots', 'sweet-peppers-in-pots', 'salad-leaves-in-pots', 'lettuce-in-pots', 'genovese-basil' ),
+				'plants'       => array( 'cherry-tomato', 'chili-peppers-in-pots', 'bell-peppers-in-pots', 'salad-greens-in-pots', 'lettuce-in-pots', 'genovese-basil' ),
 				'parts'        => array( 'stems', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -231,7 +231,7 @@ return array(
 				'pin_prompt'   => 'Thin, stretched tomato seedlings in small pots leaning towards a bright window, a cardboard box lined with kitchen foil standing beside them, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are My Seedlings Tall, Pale and Floppy?',
 				'excerpt'      => 'Seedlings that grow tall and thin, with long gaps between the leaves, and lean towards the window are stretching for light; gardeners call them leggy. Move them to the brightest spot you have, turn them regularly, take off any cover once they are up, and keep them a little cooler.',
-				'plants'       => array( 'cherry-tomato', 'chillies-in-pots', 'sweet-peppers-in-pots', 'french-beans-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'chili-peppers-in-pots', 'bell-peppers-in-pots', 'green-beans-in-pots' ),
 				'parts'        => array( 'stems', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -302,7 +302,7 @@ return array(
 				'pin_prompt'   => 'A cherry tomato plant in a pot on a balcony with a truss of ripe fruit, some split open, a watering can beside the pot, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are My Tomatoes Splitting?',
 				'excerpt'      => 'Tomatoes split when the water supply swings from dry to wet: the fruit swells suddenly and the skin cracks. Plants in pots are most at risk, so keep the compost evenly moist, feed regularly, and pick ripe fruit promptly after heavy rain.',
-				'plants'       => array( 'cherry-tomato', 'radishes-in-pots', 'carrots-in-pots', 'beetroot-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'radishes-in-pots', 'carrots-in-pots', 'beets-in-pots' ),
 				'parts'        => array( 'flowers-fruit', 'roots-compost' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -423,7 +423,7 @@ return array(
 				'pin_prompt'   => 'A cherry tomato plant in a pot on a sunny balcony with clusters of small yellow star-shaped flowers, some flower stalks bare and a few dropped yellow flowers on the compost, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are the Flowers Falling Off My Tomatoes and Peppers?',
 				'excerpt'      => 'Flowers that wither and drop before they set fruit are usually a sign of stress: dry compost, very hot days and nights, hunger, or too few pollinating insects. Keep pots evenly moist, water daily in hot weather, feed once flowering starts, and give plants a sunny, sheltered spot.',
-				'plants'       => array( 'cherry-tomato', 'sweet-peppers-in-pots', 'chillies-in-pots', 'french-beans-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'bell-peppers-in-pots', 'chili-peppers-in-pots', 'green-beans-in-pots' ),
 				'parts'        => array( 'flowers-fruit' ),
 				'lists'        => array(
 					'causes'   => array(

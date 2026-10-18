@@ -100,7 +100,7 @@ return array(
 					$p( 'For cooking, choose a bushy type: the upright sprigs are much easier to cut. Creeping thymes are lovely at the edge of a mixed pot, and both groups flower in summer. Most varieties are sold only as plants, so a specialist herb nursery has the widest range.' ) .
 
 					$h2( 'A small pot, gritty compost, full sun' ) .
-					$p( 'Thyme is one of the few herbs happy in a small container. One plant needs a pot at least 15 cm (6 in) wide and 10 cm (4 in) deep, and the base should be well drilled with holes. A peat-free soil-based mix such as a peat-free John Innes No 2 suits it; stir in horticultural grit, up to a quarter of the volume. Why grit matters, and how to refresh old compost, is covered in <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'Thyme is one of the few herbs happy in a small container. One plant needs a pot at least 15 cm (6 in) wide and 10 cm (4 in) deep, and the base should be well drilled with holes. A peat-free soil-based mix such as a peat-free John Innes No 2 suits it; stir in horticultural grit, up to a quarter of the volume. Why grit matters, and how to refresh old compost, is covered in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 					$p( 'Then give it the sunniest, warmest spot you have: a south- or west-facing ledge, the top step of a patio, or the front of a balcony. Finish with a thin layer of grit or fine gravel on the surface; it lifts the low stems off damp compost, which could otherwise make them rot. Pot new plants from mid-spring to early summer, and harden off any raised indoors first.' ) .
 
 					$h2( 'Sow thyme from seed' ) .
@@ -305,7 +305,7 @@ return array(
 					$p( 'Coloured-leaf forms are just as good to eat and brighten a balcony: purple \'Purpurascens\', yellow-edged \'Icterina\' and pink-tinged \'Tricolor\'. \'Berggarten\' has large leaves with a strong flavour, and \'Kew Gold\' stays compact. Young plants are easiest to find in spring and early summer, and bigger plants in 2 or 3 litre pots are sold all year.' ) .
 
 					$h2( 'Choose a large pot in a sheltered sun trap' ) .
-					$p( 'A single sage needs a pot no smaller than 30 cm (12 in) in width and depth, with several holes in the base, then add peat-free soil-based compost mixed with horticultural grit, up to a quarter of the volume (more on mixes in <a href="/plant-care/compost-for-containers/">compost for containers</a>). Plant in spring as the weather warms, keeping the top of the root ball only lightly covered.' ) .
+					$p( 'A single sage needs a pot no smaller than 30 cm (12 in) in width and depth, with several holes in the base, then add peat-free soil-based compost mixed with horticultural grit, up to a quarter of the volume (more on mixes in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>). Plant in spring as the weather warms, keeping the top of the root ball only lightly covered.' ) .
 					$p( 'Sage wants warmth and full sun, but it also likes shelter: a corner of a balcony screened from strong wind is ideal. It looks good grouped with other sun-lovers such as <a href="/plants/thyme-in-pots/">thyme</a>, <a href="/plants/rosemary-in-pots/">rosemary</a> and <a href="/plants/oregano-in-pots/">oregano</a>.' ) .
 
 					$h2( 'Starting from seed' ) .
@@ -348,7 +348,7 @@ return array(
 				'pin_prompt'   => 'A large terracotta pot of grey-green culinary sage with soft oblong leaves on a sunny patio table, a small bunch of picked sage leaves tied with twine beside it, photographed vertically against a pale wall.' . $pin_end,
 			),
 
-			'coriander-in-pots' => array(
+			'cilantro-in-pots' => array(
 				'title'        => 'How to Grow Coriander in Pots',
 				'type'         => 'herbs',
 				'sun'          => array( 'full-sun', 'part-shade' ),
@@ -424,7 +424,7 @@ return array(
 							'For seed crops, thin the plants to 20 cm (8 in) apart.',
 						)
 					) .
-					$p( 'Outdoor sowings run from spring to autumn. For leaves, sow a small batch every few weeks; the method is explained in <a href="/plant-care/succession-sowing-small-spaces/">succession sowing</a>. A late batch under a cloche, or in a greenhouse, keeps leaves coming into early winter. If you bought young plants instead, harden them off and set them about 10 cm (4 in) apart from spring, with fleece handy in cold weather.' ) .
+					$p( 'Outdoor sowings run from spring to autumn. For leaves, sow a small batch every few weeks; the method is explained in <a href="/plant-care/succession-planting-small-spaces/">succession sowing</a>. A late batch under a cloche, or in a greenhouse, keeps leaves coming into early winter. If you bought young plants instead, harden them off and set them about 10 cm (4 in) apart from spring, with fleece handy in cold weather.' ) .
 
 					$h2( 'Coriander on a windowsill' ) .
 					$p( 'From February you can sow into pots or small trays of peat-free seed compost on a warm, sunny sill. Germination takes two to three weeks; thin the seedlings to 5 cm (2 in) once you can handle them. Indoor coriander is short-lived: in low light it turns pale, and in heat or dry compost it bolts. A bright but fairly cool spot helps, and keep in mind that the plants can smell unpleasant in a closed room. For the quickest crop of all, cut the seedlings after a couple of weeks as <a href="/plants/microgreens-on-a-windowsill/">microgreens</a>.' ) .

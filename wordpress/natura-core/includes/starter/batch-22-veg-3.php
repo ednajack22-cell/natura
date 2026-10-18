@@ -105,14 +105,14 @@ return array(
 					$p( 'The RHS says it does best in the ground but works in a large container, especially picked small. If you like the idea of a quick root-like crop, <a href="/plants/turnips-in-pots/">turnips in pots</a> follow the same pick-them-young approach.' ) .
 
 					$h2( 'Pot, compost and position' ) .
-					$p( 'The RHS minimum is 30 cm (1 ft) both across and deep, with holes in the base. Fill the pot with a peat-free multi-purpose mix (more on mixes in <a href="/plant-care/compost-for-containers/">compost for containers</a>). Kohlrabi likes sun, but some varieties tolerate partial shade in summer, which helps on an east- or west-facing balcony. Final spacing is 15 cm (6 in) between plants.' ) .
+					$p( 'The RHS minimum is 30 cm (1 ft) both across and deep, with holes in the base. Fill the pot with a peat-free multi-purpose mix (more on mixes in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>). Kohlrabi likes sun, but some varieties tolerate partial shade in summer, which helps on an east- or west-facing balcony. Final spacing is 15 cm (6 in) between plants.' ) .
 
 					$h2( 'Sowing straight into the pot' ) .
-					$p( 'From March to July, or into August where autumns are mild, water the compost, scatter seed thinly and cover it with about 1.5 cm (½ in) of compost. Seedlings usually show within two weeks. When they are 2.5 cm (1 in) tall or have their first true leaves, thin them to 15 cm (6 in) apart. Small batches every few weeks keep a steady supply; see <a href="/plant-care/succession-sowing-small-spaces/">succession sowing in small spaces</a>.' ) .
+					$p( 'From March to July, or into August where autumns are mild, water the compost, scatter seed thinly and cover it with about 1.5 cm (½ in) of compost. Seedlings usually show within two weeks. When they are 2.5 cm (1 in) tall or have their first true leaves, thin them to 15 cm (6 in) apart. Small batches every few weeks keep a steady supply; see <a href="/plant-care/succession-planting-small-spaces/">succession sowing in small spaces</a>.' ) .
 					$p( 'Early in spring, hold back until it is reliably above 10 °C (50 °F) outside. A cold spell at the seedling stage is one of the commonest reasons the stems never swell.' ) .
 
 					$h2( 'Starting plants indoors' ) .
-					$p( 'In a cold area, make the first sowings indoors in a modular tray of peat-free seed compost, two seeds per cell 1.5 cm (½ in) deep, and remove the weaker seedling if both come up (<a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a> covers the basics). About three to four weeks after they appear, and while they are no more than 5 cm (2 in) tall, harden them off over a couple of weeks (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>) and plant them 15 cm (6 in) apart. Aim for mid- to late spring: kohlrabi also moves badly in hot weather.' ) .
+					$p( 'In a cold area, make the first sowings indoors in a modular tray of peat-free seed compost, two seeds per cell 1.5 cm (½ in) deep, and remove the weaker seedling if both come up (<a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a> covers the basics). About three to four weeks after they appear, and while they are no more than 5 cm (2 in) tall, harden them off over a couple of weeks (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>) and plant them 15 cm (6 in) apart. Aim for mid- to late spring: kohlrabi also moves badly in hot weather.' ) .
 
 					$h2( 'Water, mesh and weeding' ) .
 					$list(
@@ -204,11 +204,11 @@ return array(
 				),
 				'content'      =>
 					$h2( 'Bulb onions and shallots in a container' ) .
-					$p( 'This guide is about onions and shallots grown to full-size bulbs for keeping. If you want thin green onions to pull young, see <a href="/plants/spring-onions-in-pots/">spring onions in pots</a>; garlic, planted in a similar way but at a different time, has its own page at <a href="/plants/garlic-in-pots/">garlic in pots</a>.' ) .
+					$p( 'This guide is about onions and shallots grown to full-size bulbs for keeping. If you want thin green onions to pull young, see <a href="/plants/green-onions-in-pots/">spring onions in pots</a>; garlic, planted in a similar way but at a different time, has its own page at <a href="/plants/garlic-in-pots/">garlic in pots</a>.' ) .
 					$p( 'Both crops take little room and look after themselves, but they need a warm, sunny spot and compost that drains well. The RHS suggests containers when the ground is too wet or there is no ground at all, which makes them a fair choice for a sunny patio.' ) .
 
 					$h2( 'Pot size and compost' ) .
-					$p( 'Onions want a tub no smaller than 45 cm (18 in) across and the same depth; shallots manage with 30 cm (1 ft) each way. Fill with peat-free soil-based compost, which holds water and nutrients well and keeps its structure all season. Both crops have small root systems, which is why a rich, moisture-holding mix matters. <a href="/plant-care/compost-for-containers/">Compost for containers</a> explains the difference between soil-based and multi-purpose mixes.' ) .
+					$p( 'Onions want a tub no smaller than 45 cm (18 in) across and the same depth; shallots manage with 30 cm (1 ft) each way. Fill with peat-free soil-based compost, which holds water and nutrients well and keeps its structure all season. Both crops have small root systems, which is why a rich, moisture-holding mix matters. <a href="/plant-care/potting-mix-for-containers/">Compost for containers</a> explains the difference between soil-based and multi-purpose mixes.' ) .
 
 					$h2( 'Planting sets' ) .
 					$p( 'Most onion sets go in from early to mid-spring for a July to September harvest. Overwintering, or Japanese, onions are planted in autumn and are ready in June and July. Shallot sets can be planted in spring, and some varieties in autumn or winter.' ) .
@@ -222,13 +222,13 @@ return array(
 					) .
 
 					$h2( 'Growing from seed instead' ) .
-					$p( 'Seed is cheaper and offers more varieties, but needs more care. The plants must be growing strongly by late spring, because lengthening days set off bulb formation, and more leaves at that point mean bigger bulbs. Sow onions indoors from midwinter to early spring, 1.3 cm (½ in) deep in modules; shallots in late winter, five or six seeds per module, thinned to three or four. Plant the clumps out whole in spring after hardening them off. Backyard Harvest also describes sowing in clumps of several seeds to grow bunches of smaller bulbs. For the technique, see <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>.' ) .
+					$p( 'Seed is cheaper and offers more varieties, but needs more care. The plants must be growing strongly by late spring, because lengthening days set off bulb formation, and more leaves at that point mean bigger bulbs. Sow onions indoors from midwinter to early spring, 1.3 cm (½ in) deep in modules; shallots in late winter, five or six seeds per module, thinned to three or four. Plant the clumps out whole in spring after hardening them off. Backyard Harvest also describes sowing in clumps of several seeds to grow bunches of smaller bulbs. For the technique, see <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
 
 					$h2( 'Care through spring and summer' ) .
 					$list(
 						array(
 							'<strong>Water</strong>: pots need watering more often than the ground, especially while roots are forming. Pour onto the compost, not over the leaves, which encourages fungal disease. Stop once the bulbs have swollen in midsummer, or spring-planted bulbs will not keep as well.',
-							'<strong>Feed</strong>: the RHS suggests an occasional organic-based general liquid feed for shallots in containers from spring to midsummer; for onions it relies on a rich compost at planting. See <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.',
+							'<strong>Feed</strong>: the RHS suggests an occasional organic-based general liquid feed for shallots in containers from spring to midsummer; for onions it relies on a rich compost at planting. See <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'<strong>Weed</strong>: the narrow leaves cast little shade, so weeds sprout easily and compete. Pull them out by hand.',
 							'<strong>Flower stems</strong>: remove them as soon as they appear; a bulb that tried to flower will not store.',
 						)
@@ -312,7 +312,7 @@ return array(
 				),
 				'content'      =>
 					$h2( 'Which chicories and endives to grow' ) .
-					$p( 'This page covers the heading types grown for autumn and early-winter salads: red radicchio, green sugarloaf chicory, curly frisée and broad escarole. Forcing chicory is a different job, done indoors in winter, and has its own step-by-step page: <a href="/diy-projects/force-chicory-in-a-pot/">force chicory in a pot</a>. Mizuna, mustards and other winter salad leaves are in <a href="/plants/oriental-salad-leaves-in-pots/">oriental salad leaves in pots</a>.' ) .
+					$p( 'This page covers the heading types grown for autumn and early-winter salads: red radicchio, green sugarloaf chicory, curly frisée and broad escarole. Forcing chicory is a different job, done indoors in winter, and has its own step-by-step page: <a href="/diy-projects/force-chicory-in-a-pot/">force chicory in a pot</a>. Mizuna, mustards and other winter salad leaves are in <a href="/plants/asian-greens-in-pots/">oriental salad leaves in pots</a>.' ) .
 					$list(
 						array(
 							'<strong>Radicchio</strong>: a tight head of deep red, white-veined leaves; the colour usually deepens from late summer as nights get cooler.',
@@ -421,16 +421,16 @@ return array(
 				'content'      =>
 					$h2( 'Can a winter squash really grow in a pot?' ) .
 					$p( 'Honestly, it is one of the harder crops for a container. The RHS says squashes need plenty of space and most do best in the ground; even bush types spread to about 90 cm (3 ft). It does allow that smaller varieties can be grown in large containers, and Backyard Harvest suggests small-fruited ones trained upwards where space is tight. Expect a handful of fruits rather than a big harvest.' ) .
-					$p( 'Courgettes are a far easier container crop from the same family; see <a href="/plants/courgettes-in-pots/">courgettes in pots</a>. Winter squash is worth trying if you have a warm, sunny, sheltered corner and want something to store.' ) .
+					$p( 'Courgettes are a far easier container crop from the same family; see <a href="/plants/zucchini-in-pots/">courgettes in pots</a>. Winter squash is worth trying if you have a warm, sunny, sheltered corner and want something to store.' ) .
 
 					$h2( 'Choose a variety that fits' ) .
 					$p( 'There are two routes. A compact bush variety, such as Harlequin, stays low in its container and does not trail away across the floor. A small-fruited trailing variety, such as Sweet Dumpling or Jack be Little, can be tied up a sturdy support so it takes wall space rather than floor space. The whole method for training one upwards is in <a href="/diy-projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>. Avoid big trailing types such as Crown Prince, whose vines reach about 3 m.' ) .
 
 					$h2( 'Container and spot' ) .
-					$p( 'Plant one squash in a container at least 45 cm (18 in) across, filled with peat-free multi-purpose or soil-based compost (see <a href="/plant-care/compost-for-containers/">compost for containers</a>). It needs full sun and warmth. Leave room around the container: crowded, still air encourages fungal diseases.' ) .
+					$p( 'Plant one squash in a container at least 45 cm (18 in) across, filled with peat-free multi-purpose or soil-based compost (see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>). It needs full sun and warmth. Leave room around the container: crowded, still air encourages fungal diseases.' ) .
 
 					$h2( 'From seed to planting out' ) .
-					$p( 'In the second half of April, push a single seed edgeways into a small 7.5 cm (3 in) pot, about 13 mm (½ in) down, and keep it warm, ideally 18–21 °C (65–70 °F); <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a> covers the routine. Buying a young plant in late spring is a simpler option if you only want one. Squash is tender, so harden it off and plant it out only after the last frost, usually late May or early June (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>).' ) .
+					$p( 'In the second half of April, push a single seed edgeways into a small 7.5 cm (3 in) pot, about 13 mm (½ in) down, and keep it warm, ideally 18–21 °C (65–70 °F); <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a> covers the routine. Buying a young plant in late spring is a simpler option if you only want one. Squash is tender, so harden it off and plant it out only after the last frost, usually late May or early June (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>).' ) .
 
 					$h2( 'Water, feed and ripen' ) .
 					$list(
@@ -525,7 +525,7 @@ return array(
 
 					$h2( 'Sow at the right time' ) .
 					$p( 'Early sowings bolt easily, so patience pays. The RHS suggests sowing outdoors in June or July, thinly in shallow drills about 1.5 cm (½ in) deep, or straight into the container, then thinning gradually to the final spacing; the thinnings go into salads. Backyard Harvest gives the same warning about cold soil.' ) .
-					$p( 'For an earlier crop, sow indoors from late spring, one seed per module so the whole root ball can be moved intact; <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a> explains modules. Plant out from May, after the last frost and careful hardening off (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>), at the same depth as before. Keep a cloche or fleece handy if cold nights are forecast.' ) .
+					$p( 'For an earlier crop, sow indoors from late spring, one seed per module so the whole root ball can be moved intact; <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a> explains modules. Plant out from May, after the last frost and careful hardening off (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>), at the same depth as before. Keep a cloche or fleece handy if cold nights are forecast.' ) .
 
 					$h2( 'Keep it growing steadily' ) .
 					$list(

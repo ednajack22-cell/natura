@@ -31,7 +31,7 @@ return array(
 	'name'   => __( 'Seedlings, feeding and simple projects', 'natura-core' ),
 	'guides' => array(
 		'post'    => array(
-			'how-to-sow-seeds-indoors'     => array(
+			'how-to-start-seeds-indoors'     => array(
 				'image_prompt' => 'A bright south-facing kitchen windowsill in early spring with a black plastic seed tray and a row of small square pots of peat-free compost, some showing tiny tomato and chilli seedlings with two smooth oval seed leaves, a clear plastic propagator lid set aside, wooden plant labels with handwritten dates.' . $photo_end,
 				'pin_prompt'   => 'Hands sprinkling a thin pinch of seed over the flat, firmed surface of a small pot of fine peat-free compost on a windowsill, a seed packet and a wooden label beside it, photographed vertically from above.' . $pin_end,
 				'title'        => 'How to Sow Seeds Indoors on a Windowsill',
@@ -93,7 +93,7 @@ return array(
 
 					$h2( 'Prick out into their own pots' ) .
 					$p( 'When the seedlings are big enough to handle, move each one into its own 7.5–9 cm (3–3½ in) pot or a cell of a module tray so they do not crowd each other. Hold a seedling lightly by one of its first leaves, never by the stem, and ease the roots out from below with a pencil or dibber. Set it in a hole in the new compost, firm gently and water. Later, move plants into larger pots as they fill these.' ) .
-					$p( 'Seedlings in peat-free compost benefit from a weak feed once their first leaves have formed; see <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Seedlings in peat-free compost benefit from a weak feed once their first leaves have formed; see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'If seedlings collapse' ) .
 					$p( 'Seedlings that suddenly fall over at compost level usually have damping off. Our guide to <a href="/problems/damping-off-seedlings/">collapsing seedlings</a> explains how to prevent it.' ) .
@@ -175,7 +175,7 @@ return array(
 					),
 			),
 
-			'how-to-feed-container-plants' => array(
+			'how-to-fertilize-container-plants' => array(
 				'image_prompt' => 'A watering can with diluted liquid seaweed feed being poured at the base of a fruiting cherry tomato plant in a large pot on a sunny balcony, a bottle of feed with a blank label and a measuring cap on the floor beside it, summer light.' . $photo_end,
 				'pin_prompt'   => 'Liquid plant feed being measured into a watering can next to pots of tomatoes, beans and herbs on a sunny patio, photographed vertically.' . $pin_end,
 				'title'        => 'How to Feed Container Plants',
@@ -307,7 +307,7 @@ return array(
 					$p( 'Peat-free multi-purpose compost suits most container plants. For shrubs, fruit trees and bushes that will stay put for years, a peat-free loam-based compost of the John Innes type holds its structure longer. Mixing a controlled-release fertiliser into the new compost feeds long-term plants for the season.' ) .
 
 					$h2( 'Refreshing without repotting' ) .
-					$p( 'In the years between repotting, or for pots too big to lift, you can replace just the top layer of compost; this, and what to do with the old compost, is covered in <a href="/plant-care/compost-for-containers/">filling, refreshing and reusing compost in pots</a>.' ) .
+					$p( 'In the years between repotting, or for pots too big to lift, you can replace just the top layer of compost; this, and what to do with the old compost, is covered in <a href="/plant-care/potting-mix-for-containers/">filling, refreshing and reusing compost in pots</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -323,7 +323,7 @@ return array(
 		),
 
 		'project' => array(
-			'grow-sprouting-seeds-in-a-jar' => array(
+			'grow-sprouts-in-a-jar' => array(
 				'image_prompt' => 'A large clean glass jar lying tilted at an angle on a draining rack on a kitchen worktop, out of direct sun, its neck covered with muslin held by an elastic band, filled about a third with mung bean sprouts with short white shoots, a second jar of alfalfa sprouts with tiny green tips beside it.' . $photo_end,
 				'pin_prompt'   => 'Two glass sprouting jars with muslin tops on a bright kitchen worktop, one with crisp white bean sprouts and one with fine green alfalfa sprouts, photographed vertically.' . $pin_end,
 				'title'        => 'Make a Jar for Sprouting Seeds',
@@ -388,7 +388,7 @@ return array(
 				'pin_prompt'   => 'A foil-lined cardboard box with its open side facing a bright window and young seedlings standing upright inside, photographed vertically from the room side.' . $pin_end,
 				'title'        => 'Make a Seedling Light Box from a Cardboard Box',
 				'category'     => array( 'planters' ),
-				'plants'       => array( 'cherry-tomato', 'chillies-in-pots', 'sweet-peppers-in-pots', 'genovese-basil' ),
+				'plants'       => array( 'cherry-tomato', 'chili-peppers-in-pots', 'bell-peppers-in-pots', 'genovese-basil' ),
 				'excerpt'      => 'Cut the front off a small cardboard box, line the inside with kitchen foil and stand your seedlings in it with the open side facing the window. The foil bounces light back onto the room side of the plants, so they grow straighter instead of leaning towards the glass.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -434,7 +434,7 @@ return array(
 				'content'      =>
 					$h2( 'How it works' ) .
 					$p( 'Plants grow towards light, a response called phototropism. On a windowsill all the light comes from one side, so seedlings bend that way and can end up crooked and weak. The foil reflects some of the window light back onto the room side, so the seedlings receive light from more directions and grow more upright.' ) .
-					$p( 'The box helps prevent leaning; it does not fix seedlings that have already stretched. For that, see <a href="/problems/leggy-seedlings/">tall, pale and floppy seedlings</a>, and for the whole sowing method, <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>.' ) .
+					$p( 'The box helps prevent leaning; it does not fix seedlings that have already stretched. For that, see <a href="/problems/leggy-seedlings/">tall, pale and floppy seedlings</a>, and for the whole sowing method, <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'The cardboard box with its front cut away and its back lined with foil is described in Backyard Harvest (p. 13). The RHS explains why seedlings lean and advises giving them all-round light. We added the waterproof tray and the other checks. We have not built this exact version ourselves.' ),
 			),
@@ -444,7 +444,7 @@ return array(
 				'pin_prompt'   => 'A productive hanging basket with a trailing tomato, salad leaves and herbs spilling over a coir liner, hanging on a sturdy bracket against a sunny wall, photographed vertically.' . $pin_end,
 				'title'        => 'Plant a Vegetable Hanging Basket',
 				'category'     => array( 'vertical' ),
-				'plants'       => array( 'cherry-tomato', 'salad-leaves-in-pots', 'lettuce-in-pots', 'balcony-strawberry', 'thyme-in-pots', 'rocket-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'salad-greens-in-pots', 'lettuce-in-pots', 'balcony-strawberry', 'thyme-in-pots', 'arugula-in-pots' ),
 				'excerpt'      => 'Line a basket, fill it with peat-free compost and plant a trailing tomato or upright herbs in the middle with salad leaves, strawberries or trailing herbs round the edge. A watered basket is heavy, so hang it from a strong bracket fixed into a solid wall, in a sunny, sheltered spot you can reach safely.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -502,7 +502,7 @@ return array(
 						array(
 							'Check the compost every day, and water before the plants droop. If they do wilt, hold a bucket underneath while you water and pour the run-off back in.',
 							'If the basket is too heavy to lift down, water it in place with a hose on a gentle spray.',
-							'Water first, then feed. From April to September give a liquid feed now and then, switching tomatoes to a high-potassium feed once they flower. See <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.',
+							'Water first, then feed. From April to September give a liquid feed now and then, switching tomatoes to a high-potassium feed once they flower. See <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Pick often: salad leaves and herbs keep producing when cut young.',
 						)
 					) .
@@ -515,7 +515,7 @@ return array(
 				'pin_prompt'   => 'A cane wigwam in a wide pot on a patio covered in climbing bean plants with red flowers and long green pods, photographed vertically from a low angle.' . $pin_end,
 				'title'        => 'Make a Bean Tepee in a Pot',
 				'category'     => array( 'supports' ),
-				'plants'       => array( 'french-beans-in-pots', 'runner-beans-in-pots' ),
+				'plants'       => array( 'green-beans-in-pots', 'runner-beans-in-pots' ),
 				'excerpt'      => 'Push five canes into a heavy container at least 75 cm wide and 45 cm deep, tie them together at the top and again lower down, and sow or plant one or two climbing beans at the foot of each cane. On a balcony, choose the most sheltered spot and stop the beans at the top of the canes so the tepee does not become top-heavy.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -570,7 +570,7 @@ return array(
 					$h2( 'Wind on a balcony' ) .
 					$p( 'On a balcony the wind is often the biggest problem, and a tall frame clothed in leaves feels all of it. Choose the most sheltered place, behind a wall or solid panel; a slatted screen filters wind better than a solid one. Heavier containers, and loam-based compost, resist toppling; if your pot is light, the RHS suggests fixing it so it cannot blow over. Check the ties after every windy spell.' ) .
 					$h2( 'Water and picking' ) .
-					$p( 'Beans in containers dry out quickly and need generous watering, especially once they flower and set pods. Pick the pods young and often, every few days at the peak, or the plants stop flowering. For growing details, see <a href="/plants/french-beans-in-pots/">French beans in pots</a> and <a href="/plants/runner-beans-in-pots/">runner beans in pots</a>.' ) .
+					$p( 'Beans in containers dry out quickly and need generous watering, especially once they flower and set pods. Pick the pods young and often, every few days at the peak, or the plants stop flowering. For growing details, see <a href="/plants/green-beans-in-pots/">French beans in pots</a> and <a href="/plants/runner-beans-in-pots/">runner beans in pots</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Tepees in large containers are described in Backyard Harvest (pp. 84 and 88–89), including tying the canes at the top and lower down. Container size, cane height, spacing, sowing and stopping the plants follow the RHS guides to French and runner beans. We added the balcony checks. We have not built this exact version ourselves.' ),
 			),

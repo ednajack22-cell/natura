@@ -169,7 +169,7 @@ return array(
 				'pin_prompt'   => 'Close view of a metal vine eye in a brick wall holding a taut galvanised wire, a soft twine tie looping a young green stem to it, leaves blurred behind, photographed vertically.' . $pin_end,
 				'title'        => 'Fix Wires or Trellis to a Balcony Wall',
 				'category'     => array( 'supports' ),
-				'plants'       => array( 'cucumbers-in-pots', 'currants-in-pots', 'french-beans-in-pots', 'runner-beans-in-pots' ),
+				'plants'       => array( 'cucumbers-in-pots', 'currants-in-pots', 'green-beans-in-pots', 'runner-beans-in-pots' ),
 				'excerpt'      => 'Screw vine eyes into a solid wall and run taut galvanised wires through them, about 30–45 cm apart and about 5 cm out from the surface, so climbers and trained fruit in pots below have something to cling to. Ask the landlord or building manager first, and put the wires up before the plants arrive.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -296,7 +296,7 @@ return array(
 				'pin_prompt'   => 'A trough of young carrots and pak choi under an arched mesh tunnel on a balcony, one end folded back to show the plants, photographed vertically.' . $pin_end,
 				'title'        => 'Make a Hoop Tunnel for a Trough',
 				'category'     => array( 'supports' ),
-				'plants'       => array( 'carrots-in-pots', 'kale-in-pots', 'pak-choi-in-pots', 'rocket-in-pots' ),
+				'plants'       => array( 'carrots-in-pots', 'kale-in-pots', 'bok-choy-in-pots', 'arugula-in-pots' ),
 				'excerpt'      => 'Push stiff wire hoops into a trough about every 30 cm and cover them with insect-proof mesh against flying pests, or with fleece against frost. Leave slack for growth, keep the cover off the leaves, and seal every edge so nothing can creep in underneath.',
 				'facts'        => array(
 					'project_method' => 'adapted',
@@ -341,7 +341,7 @@ return array(
 					'sources'   => array(
 						$rhs_mesh,
 						array( 'title' => 'RHS — Cloches', 'url' => 'https://www.rhs.org.uk/prevention-protection/cloches' ),
-						array( 'title' => 'RHS — Carrot fly', 'url' => 'https://www.rhs.org.uk/biodiversity/carrot-fly' ),
+						array( 'title' => 'RHS — Carrot fly', 'url' => 'https://www.rhs.org.uk/biodiversity/carrot-rust-fly' ),
 						$book,
 					),
 				),
@@ -349,7 +349,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'A tunnel cloche is just a flexible cover held up on hoops. With mesh it is a physical barrier that keeps egg-laying flies, butterflies and beetles off without spraying anything; with fleece it traps a little warmth on cold nights. The hoops hold the cover clear of the plants, and the sealed edges do the real work.' ) .
 					$h2( 'Which crops it helps' ) .
-					$p( 'It suits low crops in troughs: <a href="/plants/carrots-in-pots/">carrots</a>, <a href="/plants/kale-in-pots/">kale</a>, <a href="/plants/pak-choi-in-pots/">pak choi</a> and <a href="/plants/rocket-in-pots/">rocket</a>. To recognise the pests it keeps out, see <a href="/problems/caterpillars-on-brassicas/">caterpillars on brassicas</a> and <a href="/problems/flea-beetle-holes-in-leaves/">flea beetle holes in leaves</a>. For a sturdier shelter with a lid, see <a href="/diy-projects/make-a-mini-cold-frame/">make a mini cold frame</a>.' ) .
+					$p( 'It suits low crops in troughs: <a href="/plants/carrots-in-pots/">carrots</a>, <a href="/plants/kale-in-pots/">kale</a>, <a href="/plants/bok-choy-in-pots/">pak choi</a> and <a href="/plants/arugula-in-pots/">rocket</a>. To recognise the pests it keeps out, see <a href="/problems/caterpillars-on-brassicas/">caterpillars on brassicas</a> and <a href="/problems/flea-beetle-holes-in-leaves/">flea beetle holes in leaves</a>. For a sturdier shelter with a lid, see <a href="/diy-projects/make-a-mini-cold-frame/">make a mini cold frame</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Backyard Harvest (pp. 103, 136 and 168) describes rigid wire hoops about every 30 cm, net or fleece laid over and held down, fine netting against cabbage whites, and fleece taken off by day. The RHS pages on insect-proof mesh and cloches give the mesh sizes, sealing the edges at least 5 cm deep, leaving slack, keeping mesh off the leaves, the pollination warning and the hoop materials; the RHS carrot fly page finds a complete cover works better than a barrier. Sealing the edges inside a trough and filing the wire are our own adaptations. We have not tried this exact tunnel.' ),
 			),
@@ -476,7 +476,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'A trailing squash sends out stems that would sprawl for several metres across the ground. Tied to a vertical support, the same stems take up a strip of wall instead of a square of floor, and the fruits hang clear of the floor. The price is a sturdy support and regular tying in.' ) .
 					$h2( 'Care in a container' ) .
-					$p( 'A big squash plant in a pot is thirsty, especially once it fruits, and dry compost encourages <a href="/problems/powdery-mildew/">powdery mildew</a>; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. Sowing and moving young plants outside follow the same pattern as for <a href="/plants/courgettes-in-pots/">courgettes in pots</a>; see also <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a> and <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
+					$p( 'A big squash plant in a pot is thirsty, especially once it fruits, and dry compost encourages <a href="/problems/powdery-mildew/">powdery mildew</a>; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. Sowing and moving young plants outside follow the same pattern as for <a href="/plants/zucchini-in-pots/">courgettes in pots</a>; see also <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a> and <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Backyard Harvest (pp. 88, 112, 115 and 125) suggests training small-fruited winter squashes up tepees or trellis where space is short, names two varieties for this, and shows quick salads grown round the base of tepees. The RHS squash and pumpkin guides give the container size, sowing, planting after frost, feeding, harvesting and the need for strong supports and netting under heavy fruit; the slings and the butternut and turban examples come from an RHS adviser\'s feature on veg supports. Keeping the vine off the railing is a safety point we added. We have not grown a squash this way ourselves.' ),
 			),

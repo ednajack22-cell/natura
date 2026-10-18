@@ -158,7 +158,7 @@ return array(
 					$p( 'Run a new kit for a few days while you are at home and check the compost in each pot. Other ways to keep pots going while you travel are in <a href="/plant-care/watering-pots-when-on-holiday/">watering pots when you are on holiday</a>, and you can also <a href="/diy-projects/self-watering-pot/">make a self-watering pot</a>.' ),
 			),
 
-			'best-liquid-feed-for-vegetables-in-pots' => array(
+			'best-liquid-fertilizer-for-vegetables-in-pots' => array(
 				'image_prompt' => 'Two plain unlabelled bottles of liquid plant feed and a measuring cap beside a metal watering can, next to a large pot of fruiting tomato plants on a sunny balcony.' . $photo_end,
 				'pin_prompt'   => 'A measuring cap of brown liquid feed being poured into a watering can, with potted vegetables behind on a balcony, photographed vertically.' . $pin_end,
 				'title'    => 'The Best Liquid Feed for Vegetables in Pots',
@@ -230,7 +230,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'This guide sorts liquid feeds by type and leaves brands aside. Each pick rests on the RHS pages on fertilisers, labels and feeding, plus Backyard Harvest (pp. 17, 84 and 120), all in the Sources list. We have not trialled any feed ourselves.' ) .
 					$h2( 'Using the feed' ) .
-					$p( 'When to start, how often to feed and how to avoid harm are explained in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>. If you would rather make your own, see <a href="/diy-projects/make-a-comfrey-liquid-feed/">make a comfrey liquid feed</a>.' ),
+					$p( 'When to start, how often to feed and how to avoid harm are explained in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>. If you would rather make your own, see <a href="/diy-projects/make-comfrey-liquid-fertilizer/">make a comfrey liquid feed</a>.' ),
 			),
 
 			'best-grow-bags' => array(
@@ -294,7 +294,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'Here we weigh up kinds of growing bag rather than brands. The facts come from RHS crop guides and Backyard Harvest (pp. 85, 99 and 114), as listed in Sources. None of these bags has been through a trial by Natura.' ) .
 					$h2( 'After planting' ) .
-					$p( 'For the crop itself, see <a href="/plants/cherry-tomato/">cherry tomatoes in pots</a> or <a href="/plants/sweet-peppers-in-pots/">sweet peppers in pots</a>; uneven watering is a common cause of <a href="/problems/tomatoes-splitting/">split tomatoes</a>, and other containers are compared in <a href="/plant-care/how-to-choose-pots-for-vegetables/">how to choose pots for vegetables</a>.' ),
+					$p( 'For the crop itself, see <a href="/plants/cherry-tomato/">cherry tomatoes in pots</a> or <a href="/plants/bell-peppers-in-pots/">sweet peppers in pots</a>; uneven watering is a common cause of <a href="/problems/tomatoes-splitting/">split tomatoes</a>, and other containers are compared in <a href="/plant-care/how-to-choose-pots-for-vegetables/">how to choose pots for vegetables</a>.' ),
 			),
 
 			'best-plant-supports-for-pots' => array(

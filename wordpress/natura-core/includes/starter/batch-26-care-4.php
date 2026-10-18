@@ -44,7 +44,7 @@ return array(
 	'name'   => __( 'Watering, feeding and shelter', 'natura-core' ),
 	'guides' => array(
 		'post' => array(
-			'watering-pots-in-a-heatwave'                => array(
+			'watering-pots-in-a-heat-wave'                => array(
 				'image_prompt' => 'A small sunny city balcony in high summer, several pots of tomatoes, courgette and herbs pulled back from the hot railing into the shade of the wall and grouped together on a large plastic tray, a metal watering can resting beside them, dark freshly watered compost, late evening golden light.' . $photo_end,
 				'pin_prompt'   => 'A watering can spout pouring water gently onto the compost at the base of a tomato plant in a large pot on a shaded balcony, evening light, photographed vertically.' . $pin_end,
 				'title'        => 'How to Keep Pots Alive in a Heatwave',
@@ -111,7 +111,7 @@ return array(
 					) .
 
 					$h2( 'Feeding and pruning in hot weather' ) .
-					$p( 'Container crops are the exception to the RHS advice not to feed in a drought: keep giving them their usual feed every other week until September, always on compost you have just watered. Do not add extra feeds, and leave heavy pruning until it is cooler, because both push out soft new growth when the plant is already struggling to take up water. Light jobs such as picking off dead flowers are fine. Routine feeding is in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Container crops are the exception to the RHS advice not to feed in a drought: keep giving them their usual feed every other week until September, always on compost you have just watered. Do not add extra feeds, and leave heavy pruning until it is cooler, because both push out soft new growth when the plant is already struggling to take up water. Light jobs such as picking off dead flowers are fine. Routine feeding is in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'Make the water go further' ) .
 					$list(
@@ -169,7 +169,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Seedlings and young plants have small roots that cannot go far looking for water, so they suffer first when the compost dries out, and they are also the easiest to drown. This page covers the weeks from sowing until a new plant has rooted into its pot. The sowing method itself is in <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>.' ) .
+					$p( 'Seedlings and young plants have small roots that cannot go far looking for water, so they suffer first when the compost dries out, and they are also the easiest to drown. This page covers the weeks from sowing until a new plant has rooted into its pot. The sowing method itself is in <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
 
 					$h2( 'Moisten the compost before you sow' ) .
 					$p( 'Water the compost before the seed goes in, so it is moist but not soggy. The RHS points out that saturated compost is colder, which slows germination. If you sow into a trough outside, water the drill first so there is moisture at the depth where the seed will sit, then keep the surface moist afterwards.' ) .
@@ -300,7 +300,7 @@ return array(
 					$p( 'Summer waterlogging does more harm than winter wet, because roots need more oxygen when they are growing fast.' ),
 			),
 
-			'how-to-read-a-fertiliser-label'             => array(
+			'how-to-read-a-fertilizer-label'             => array(
 				'image_prompt' => 'Three generic fertiliser containers with plain unbranded labels on a wooden potting bench on a patio, a bottle of liquid feed, a tub of granules and a small bag of pellets, beside a measuring jug and a pot of flowering tomato plants, soft daylight, labels blank or blurred.' . $photo_end,
 				'pin_prompt'   => 'A hand holding a plain bottle of liquid plant feed with a blurred, unreadable label beside a potted chilli plant on a balcony table, photographed vertically.' . $pin_end,
 				'title'        => 'How to Read a Fertiliser Label',
@@ -327,7 +327,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Fertiliser packs can look like a chemistry test, but the label is there to help: in Great Britain its contents are set by law, so one pack can be compared fairly with another. This page explains what the numbers and words mean. When and how often to feed is covered in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Fertiliser packs can look like a chemistry test, but the label is there to help: in Great Britain its contents are set by law, so one pack can be compared fairly with another. This page explains what the numbers and words mean. When and how often to feed is covered in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'What every label has to show' ) .
 					$list(
@@ -374,7 +374,7 @@ return array(
 					) .
 
 					$h2( 'Liquid, powder or granules' ) .
-					$p( 'Liquids and soluble powders diluted in a watering can act quickly, and the RHS rates them best for plants in containers. Powders, pellets and granules are scattered around plants or mixed into compost at planting time. A homemade liquid such as <a href="/diy-projects/make-a-comfrey-liquid-feed/">comfrey feed</a> has no printed analysis, and its strength varies.' ) .
+					$p( 'Liquids and soluble powders diluted in a watering can act quickly, and the RHS rates them best for plants in containers. Powders, pellets and granules are scattered around plants or mixed into compost at planting time. A homemade liquid such as <a href="/diy-projects/make-comfrey-liquid-fertilizer/">comfrey feed</a> has no printed analysis, and its strength varies.' ) .
 
 					$h2( 'What the label cannot tell you' ) .
 					$list(
@@ -389,7 +389,7 @@ return array(
 					$p( 'The label also gives the rate, the timing and how to apply the product. Measure it every time and never make it stronger. More fertiliser than the plant can use is wasted, can harm the life in the compost, and can wash out and pollute water.' ),
 			),
 
-			'ericaceous-compost-for-pots'                => array(
+			'acidic-potting-mix-for-pots'                => array(
 				'image_prompt' => 'A patio corner with three glazed pots of acid-loving plants grouped beside a green water butt: a blueberry bush with blue berries, a low trailing cranberry plant with glossy red berries, and a small pink-flowered heather, the compost topped with brown pine-needle mulch, soft late summer light.' . $photo_end,
 				'pin_prompt'   => 'A watering can filling from the tap of a water butt next to a potted blueberry bush on a balcony, photographed vertically.' . $pin_end,
 				'title'        => 'Ericaceous Compost: Which Pot Plants Need It and Why',
@@ -421,7 +421,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Gardeners call lime-hating, acid-loving plants ericaceous: rhododendrons, camellias, heathers and blueberries are the classic examples. A container lets you give these plants the acid root run that most garden soils cannot. This page explains which plants need it and how to keep a pot acid. To choose a bag, see <a href="/gear/best-compost-for-pots/">the best compost for pots</a>; for blueberry care in detail, see <a href="/plants/blueberries-in-pots/">blueberries in pots</a>.' ) .
+					$p( 'Gardeners call lime-hating, acid-loving plants ericaceous: rhododendrons, camellias, heathers and blueberries are the classic examples. A container lets you give these plants the acid root run that most garden soils cannot. This page explains which plants need it and how to keep a pot acid. To choose a bag, see <a href="/gear/best-potting-mix-for-containers/">the best compost for pots</a>; for blueberry care in detail, see <a href="/plants/blueberries-in-pots/">blueberries in pots</a>.' ) .
 
 					$h2( 'pH in two minutes' ) .
 					$p( 'The pH scale runs from 0 to 14. Seven is neutral, anything lower is acid and anything higher is alkaline, or limy. The RHS calls pH 6.5, slightly acid, the best general-purpose level: nutrients are most available there and a wide range of plants thrive, lime-haters excepted. Fruit and vegetables cope with most levels short of the extremes.' ) .
@@ -456,7 +456,7 @@ return array(
 					$p( 'Sulphur and other acidifying products are sold for garden soil, and the RHS lists them as unsuitable for potting compost; home pH kits are likewise designed for soil. In a pot, start with ericaceous compost instead. Even then the pH creeps up over time with the water you add, so refresh or replace the compost every few years as part of <a href="/plant-care/how-to-repot-container-plants/">repotting</a>.' ) .
 
 					$h2( 'Mulch and feed to match' ) .
-					$p( 'Pine needles rot down into an acid leafmould that the RHS recommends for mulching ericaceous plants; collect them in a separate bag from other leaves. For feeding, choose an ericaceous liquid feed, or one containing chelated (sequestered) iron, which stays available whatever the pH. When and how often to feed is in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Pine needles rot down into an acid leafmould that the RHS recommends for mulching ericaceous plants; collect them in a separate bag from other leaves. For feeding, choose an ericaceous liquid feed, or one containing chelated (sequestered) iron, which stays available whatever the pH. When and how often to feed is in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -499,7 +499,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Garden compost, the home-made kind, is different from the bagged potting compost your plants grow in; that is covered in <a href="/plant-care/compost-for-containers/">compost for containers</a>. The RHS notes that only in the very smallest spaces is a compost bin hard to fit or fill, and suggests worm composting there instead. On a balcony you have three options, and many people combine two of them.' ) .
+					$p( 'Garden compost, the home-made kind, is different from the bagged potting compost your plants grow in; that is covered in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>. The RHS notes that only in the very smallest spaces is a compost bin hard to fit or fill, and suggests worm composting there instead. On a balcony you have three options, and many people combine two of them.' ) .
 
 					$h2( 'Choose a method' ) .
 					$list(
@@ -532,7 +532,7 @@ return array(
 					$p( 'Wet compost and full bins are heavy, so think about weight on a balcony; see <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
 
 					$h2( 'Leafmould in a bag' ) .
-					$p( 'Fallen leaves make leafmould with no bin at all. Fill a bin liner with leaves, wet them if they are dry, pierce the bag with holes, tie it loosely and stack it out of the way. Most leaves take about two years. Gather them from quiet streets rather than main roads, and pick out any litter. Pine needles kept in a separate bag give an acid leafmould for <a href="/plant-care/ericaceous-compost-for-pots/">acid-loving plants</a>.' ) .
+					$p( 'Fallen leaves make leafmould with no bin at all. Fill a bin liner with leaves, wet them if they are dry, pierce the bag with holes, tie it loosely and stack it out of the way. Most leaves take about two years. Gather them from quiet streets rather than main roads, and pick out any litter. Pine needles kept in a separate bag give an acid leafmould for <a href="/plant-care/acidic-potting-mix-for-pots/">acid-loving plants</a>.' ) .
 
 					$h2( 'Using what you make' ) .
 					$list(
@@ -540,7 +540,7 @@ return array(
 							'Worm compost is rich in nitrogen and potassium: use it as a top dressing for pots.',
 							'Garden compost and young leafmould make a mulch on top of the compost in large pots.',
 							'Leafmould more than two years old can go into home-made sowing or potting mixes.',
-							'Diluted wormery liquid and bokashi tea are feeds of variable strength; for the routine, see <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.',
+							'Diluted wormery liquid and bokashi tea are feeds of variable strength; for the routine, see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Cleaned seafood and nut shells, which do not rot, make a decorative mulch for containers.',
 						)
 					),
@@ -674,13 +674,13 @@ return array(
 					$p( 'Dwarf peas need little or no support, and shorter varieties manage with a few twiggy sticks pushed into the pot. Taller varieties need netting or chicken wire fixed to canes or posts. Some reach 1.8 m (6 ft) and become top-heavy, so the support must be tall and sturdy, especially in a windy spot. Pea tendrils look delicate but hold on very firmly. For pot sizes and varieties, see <a href="/plants/peas-in-pots/">peas in pots</a>.' ) .
 
 					$h2( 'Climbing beans: smooth canes' ) .
-					$p( 'Climbing French and runner beans need tall supports, about 2.5 m (8 ft) canes or hazel poles, put in before you sow or plant. A wigwam of five or more canes tied at the top suits a large container. Tie each young plant loosely to its cane to start it off, especially if wind or rain knocks it about; after that it will twist upwards on its own. When the beans reach the top, pinch out the tips. Dwarf beans need only short twiggy sticks between the plants to keep them upright and lift the pods. See <a href="/plants/french-beans-in-pots/">French beans</a> and <a href="/plants/runner-beans-in-pots/">runner beans</a> in pots.' ) .
+					$p( 'Climbing French and runner beans need tall supports, about 2.5 m (8 ft) canes or hazel poles, put in before you sow or plant. A wigwam of five or more canes tied at the top suits a large container. Tie each young plant loosely to its cane to start it off, especially if wind or rain knocks it about; after that it will twist upwards on its own. When the beans reach the top, pinch out the tips. Dwarf beans need only short twiggy sticks between the plants to keep them upright and lift the pods. See <a href="/plants/green-beans-in-pots/">French beans</a> and <a href="/plants/runner-beans-in-pots/">runner beans</a> in pots.' ) .
 
 					$h2( 'Tomatoes: a cane or a string' ) .
 					$p( 'Cordon (single-stem) tomatoes need a tall, sturdy cane, or a vertical string tied to something overhead and anchored under the root ball when you plant. Tie the main stem to the cane at regular intervals, loosely enough for it to thicken, or wind the string gently around the top of the stem as it grows. Bush tomatoes usually stand on their own, but add short canes if heavy trusses start to droop. Trailing types in baskets need nothing. The rest of the routine is in <a href="/plants/cherry-tomato/">how to grow cherry tomatoes</a>.' ) .
 
 					$h2( 'Cucumbers and squashes: netting, wigwams or trellis' ) .
-					$p( 'Outdoor cucumbers climb a wigwam of tall canes, stout netting held up by stakes, or a trellis or wires on a wall. Put the support in at planting so the tendrils have something to catch, and tie the stems in at first. Trailing squashes can be trained up a strong trellis or wigwam too, but the fruit is heavy: choose small-fruited varieties and cradle each fruit in a netting or hessian sling. Some courgettes are sold as climbing varieties for canes or wires. See <a href="/plants/cucumbers-in-pots/">cucumbers in pots</a> and <a href="/plants/courgettes-in-pots/">courgettes in pots</a>.' ) .
+					$p( 'Outdoor cucumbers climb a wigwam of tall canes, stout netting held up by stakes, or a trellis or wires on a wall. Put the support in at planting so the tendrils have something to catch, and tie the stems in at first. Trailing squashes can be trained up a strong trellis or wigwam too, but the fruit is heavy: choose small-fruited varieties and cradle each fruit in a netting or hessian sling. Some courgettes are sold as climbing varieties for canes or wires. See <a href="/plants/cucumbers-in-pots/">cucumbers in pots</a> and <a href="/plants/zucchini-in-pots/">courgettes in pots</a>.' ) .
 
 					$h2( 'Tying in without damage' ) .
 					$list(

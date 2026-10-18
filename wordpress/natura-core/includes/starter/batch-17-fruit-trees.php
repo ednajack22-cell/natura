@@ -101,7 +101,7 @@ return array(
 					$p( 'On a patio there is often room for only one tree, so choose a self-fertile variety. All acid cherries are self-fertile, and so are many modern sweet ones. Even so, a self-fertile tree usually crops better when another cherry flowering at the same time grows nearby.' ) .
 
 					$h2( 'Pot, compost and position' ) .
-					$p( 'The RHS recommends a container at least 45–50 cm (18–20 in) wide and just as deep. A terracotta pot or a half-barrel both work. Fill it with a loam-based compost such as peat-free John Innes No 3, or peat-free multi-purpose compost with some horticultural grit mixed in. More on mixes is in <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'The RHS recommends a container at least 45–50 cm (18–20 in) wide and just as deep. A terracotta pot or a half-barrel both work. Fill it with a loam-based compost such as peat-free John Innes No 3, or peat-free multi-purpose compost with some horticultural grit mixed in. More on mixes is in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 					$p( 'Stand a sweet cherry against a sunny south- or south-west-facing wall, out of the wind. An acid cherry tolerates a shadier corner. Avoid a frost pocket: late frosts damage the blossom, and shelter helps bees reach the flowers.' ) .
 
 					$h2( 'Plant while it is dormant' ) .
@@ -110,7 +110,7 @@ return array(
 
 					$h2( 'Water, feed and protect the blossom' ) .
 					$p( 'A potted cherry needs water through every dry spell from spring to autumn, so that the compost stays evenly moist; the routine is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. Never leave the pot standing in water, especially in winter, when roots in sodden compost can rot. In summer, ease off a little as the fruit ripens to avoid split cherries.' ) .
-					$p( 'Feed every fortnight from April to August with an organic high-potassium liquid fertiliser, or scatter a general-purpose granular feed on the compost each spring. Our <a href="/plant-care/how-to-feed-container-plants/">feeding guide</a> covers both.' ) .
+					$p( 'Feed every fortnight from April to August with an organic high-potassium liquid fertiliser, or scatter a general-purpose granular feed on the compost each spring. Our <a href="/plant-care/how-to-fertilize-container-plants/">feeding guide</a> covers both.' ) .
 					$p( 'Cherry blossom is easily hurt by frost. On a cold night, drape fleece or an old sheet over a small tree and take it off in the morning so pollinating insects can get in. A pot can also be wheeled into a porch or greenhouse while it flowers.' ) .
 
 					$h2( 'Beat the birds and pick' ) .
@@ -203,7 +203,7 @@ return array(
 					$p( 'Every peach and nectarine is self-fertile, so one tree is enough and you do not need to think about a pollination partner. Avoid growing one from a supermarket stone: it may not suit the UK climate, can take years to fruit and brings a biosecurity risk.' ) .
 
 					$h2( 'Pot, compost and a warm spot' ) .
-					$p( 'Use a container at least 45 cm (18 in) wide and deep, with drainage holes that stay clear as the roots fill the pot. Fill it with a loam-based mix such as peat-free John Innes No 3 (see <a href="/plant-care/compost-for-containers/">compost for containers</a>). Stand it in full sun on a sheltered patio or courtyard; a south- or south-west-facing wall behind it adds warmth. An unheated greenhouse suits it for all or part of the year.' ) .
+					$p( 'Use a container at least 45 cm (18 in) wide and deep, with drainage holes that stay clear as the roots fill the pot. Fill it with a loam-based mix such as peat-free John Innes No 3 (see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>). Stand it in full sun on a sheltered patio or courtyard; a south- or south-west-facing wall behind it adds warmth. An unheated greenhouse suits it for all or part of the year.' ) .
 					$p( 'Late autumn is a good moment to plant, and any time from November to March works. Container-grown trees can be planted in other months, but not in hot, dry weather.' ) .
 
 					$h2( 'Prevent peach leaf curl' ) .
@@ -222,7 +222,7 @@ return array(
 					$p( 'When the young fruits are between hazelnut and walnut size, thin them so the rest sit about 20 cm (8 in) apart. Take off misshapen, badly placed or small ones first; where fruitlets are bunched, cut some in half with secateurs and they will fall without harming the shoot.' ) .
 
 					$h2( 'Water and feed' ) .
-					$p( 'Keep the compost evenly moist through the growing season, especially in early to mid-summer when the fruit swells; uneven watering makes unripe fruit drop. Our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> has the routine. Feed every two weeks with an organic high-potassium liquid feed, or add a general-purpose granular feed each spring, as described in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Keep the compost evenly moist through the growing season, especially in early to mid-summer when the fruit swells; uneven watering makes unripe fruit drop. Our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> has the routine. Feed every two weeks with an organic high-potassium liquid feed, or add a general-purpose granular feed each spring, as described in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'Prune in spring or summer, then harvest' ) .
 					$p( 'Like other stone fruit, a peach is pruned only in spring or summer, on a dry day, to avoid silver leaf and bacterial canker. Prune a newly planted tree soon after its buds open; a free-standing tree after fruiting. The fruit forms almost entirely on shoots made the previous year, so pruning swaps old fruited wood for young shoots. Naturally compact varieties need little or none.' ) .
@@ -309,14 +309,14 @@ return array(
 					$p( 'On the RHS list of pears for pots, Concorde and Conference are in pollination group 3 and Beth in group 4, so any two of them flower close enough together.' ) .
 
 					$h2( 'Container, compost and site' ) .
-					$p( 'Choose a container 45–50 cm (18–20 in) wide and deep that is heavy and stable enough not to tip over in a gale. Fill it with peat-free John Innes No 3, a loam-based compost; see <a href="/plant-care/compost-for-containers/">compost for containers</a>. Set it on a warm, sunny, sheltered patio facing south or west.' ) .
+					$p( 'Choose a container 45–50 cm (18–20 in) wide and deep that is heavy and stable enough not to tip over in a gale. Fill it with peat-free John Innes No 3, a loam-based compost; see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>. Set it on a warm, sunny, sheltered patio facing south or west.' ) .
 					$p( 'Plant while the tree is dormant, from October to April. Avoid hot, dry spells and frozen weather. Soak a bare-root tree for half an hour first, plant it at the depth it grew before, and fix it to a stake.' ) .
 
 					$h2( 'Guard the early blossom' ) .
 					$p( 'Pears flower significantly earlier than apples, so a late frost or a cold spring storm can wipe out the flowers or keep bees away. When frost is forecast during flowering, bring the pot indoors overnight or cover a small tree with fleece or hessian. A sheltered spot also helps pollinating insects.' ) .
 
 					$h2( 'Water, feed and repot' ) .
-					$p( 'Water whenever the weather is dry so the compost stays evenly moist, ideally with stored rainwater in the early morning or evening; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has more. A pear in a pot benefits from an organic high-potassium liquid feed every fortnight through the growing season, or a handful of general-purpose granules each spring (<a href="/plant-care/how-to-feed-container-plants/">feeding guide</a>).' ) .
+					$p( 'Water whenever the weather is dry so the compost stays evenly moist, ideally with stored rainwater in the early morning or evening; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has more. A pear in a pot benefits from an organic high-potassium liquid feed every fortnight through the growing season, or a handful of general-purpose granules each spring (<a href="/plant-care/how-to-fertilize-container-plants/">feeding guide</a>).' ) .
 					$p( 'The RHS pear guide suggests repotting into a larger container every few years, in spring, and top-dressing with fresh compost in between. Once the pot is as big as you can manage, trim the roots lightly and return the tree to the same pot. The steps are in <a href="/plant-care/how-to-repot-container-plants/">how to repot container plants</a>.' ) .
 
 					$h2( 'Thin, prune and pick' ) .
@@ -398,7 +398,7 @@ return array(
 					$p( 'For variety, stay with dessert plums. The RHS says no cooking plum suits a container, but Blue Tit, Opal and Victoria grow well in one. All three are self-fertile, so a single tree on its own can set fruit.' ) .
 
 					$h2( 'Pot and compost' ) .
-					$p( 'A plum needs a container at least 50 cm (20 in) wide and deep; a terracotta pot or a half-barrel is ideal. Fill it with peat-free John Innes No 3 (more in <a href="/plant-care/compost-for-containers/">compost for containers</a>). Trees in pots need more care than those in the ground, so plan to water and feed through the whole growing season.' ) .
+					$p( 'A plum needs a container at least 50 cm (20 in) wide and deep; a terracotta pot or a half-barrel is ideal. Fill it with peat-free John Innes No 3 (more in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>). Trees in pots need more care than those in the ground, so plan to water and feed through the whole growing season.' ) .
 					$p( 'Backyard Harvest recommends knocking a young potted fruit tree out each autumn, teasing out the edge of the roots, and moving it into a container roughly 10 cm (4 in) wider at the top, until it is full sized. Our <a href="/plant-care/how-to-repot-container-plants/">repotting guide</a> covers the method.' ) .
 
 					$h2( 'A warm, sheltered position' ) .
@@ -406,7 +406,7 @@ return array(
 					$p( 'If a frost is forecast while the tree is in flower, drape fleece or an old sheet over it for the night and remove it in the morning, or wheel the pot into a porch, greenhouse or other sheltered place.' ) .
 
 					$h2( 'Water and feed through summer' ) .
-					$p( 'Water regularly in dry spells to keep the compost evenly moist, but do not let the pot stand in water, especially in winter; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. A dry pot makes young fruit fall. From April to August, give an organic high-potassium liquid feed every fortnight; a spring sprinkling of general-purpose granules is the alternative (<a href="/plant-care/how-to-feed-container-plants/">feeding guide</a>).' ) .
+					$p( 'Water regularly in dry spells to keep the compost evenly moist, but do not let the pot stand in water, especially in winter; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. A dry pot makes young fruit fall. From April to August, give an organic high-potassium liquid feed every fortnight; a spring sprinkling of general-purpose granules is the alternative (<a href="/plant-care/how-to-fertilize-container-plants/">feeding guide</a>).' ) .
 
 					$h2( 'Thin the crop and support branches' ) .
 					$p( 'Plums are inclined to set too much fruit, and a laden branch can snap. In early summer, reduce the fruitlets to one every 5–8 cm (2–3 in) or a pair every 15 cm (6 in). On a small potted tree this is quick. If the crop is still heavy, prop up the branches in mid- and late summer.' ) .
@@ -495,7 +495,7 @@ return array(
 					$p( 'Keep dogs away from the plant: the RHS warns that grapes are harmful to dogs if eaten.' ) .
 
 					$h2( 'Pot, compost and planting' ) .
-					$p( 'Plant a dormant vine between November and early March; early spring is a good time if the pot will live outside. Start with a pot about 30–38 cm (12–15 in) across and deep, filled with peat-free soil-based compost (<a href="/plant-care/compost-for-containers/">compost for containers</a> explains the choice). Use heavy clay for stability. Plant a pot-grown vine at its old depth and a bare-root one with the top roots just under the surface. Push a sturdy cane in at the same time.' ) .
+					$p( 'Plant a dormant vine between November and early March; early spring is a good time if the pot will live outside. Start with a pot about 30–38 cm (12–15 in) across and deep, filled with peat-free soil-based compost (<a href="/plant-care/potting-mix-for-containers/">compost for containers</a> explains the choice). Use heavy clay for stability. Plant a pot-grown vine at its old depth and a bare-root one with the top roots just under the surface. Push a sturdy cane in at the same time.' ) .
 					$p( 'Move the vine on into a slightly bigger pot as it grows, until it reaches a final size of 45 cm (18 in) wide and deep; see <a href="/plant-care/how-to-repot-container-plants/">how to repot container plants</a>. Stand it in your warmest, sunniest spot outdoors, or in a greenhouse or conservatory.' ) .
 
 					$h2( 'Train the stem and head' ) .
@@ -514,12 +514,12 @@ return array(
 					$p( 'In late spring, trim each fruiting shoot to two leaves beyond its bunch, and stop shoots without fruit at five leaves. Keep one bunch per shoot, five or six in all. The bunches are heavy, so tie the shoots to the cane maypole-fashion or use an umbrella-style support.' ) .
 
 					$h2( 'Water, feed and winter chill' ) .
-					$p( 'A vine in a container needs regular watering through the growing season (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>). Start feeding a month after growth begins in spring with an organic high-potassium liquid feed every two to three weeks, and stop when the grapes start to colour, because feeding then can spoil their flavour; more in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'A vine in a container needs regular watering through the growing season (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>). Start feeding a month after growth begins in spring with an organic high-potassium liquid feed every two to three weeks, and stop when the grapes start to colour, because feeding then can spoil their flavour; more in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$p( 'Vines need a cold spell to set flower buds. A vine kept somewhere heated all year should go outside for four to six weeks in winter, when it is below 5 °C (41 °F).' ) .
 
 					$h2( 'Harvest and problems' ) .
 					$p( 'Grapes ripen from late summer to mid-autumn. Taste them: they are ready when sweet and soft, and they do not ripen further once picked. Cut whole bunches with their stalk. Net the vine if birds raid it.' ) .
-					$p( 'If a potted vine grows poorly despite good care, tip it out and look for small white C-shaped grubs: vine weevil larvae can eat most of the roots. Vines also suffer from fungal diseases including <a href="/problems/powdery-mildew/">powdery mildew</a>, and under glass from <a href="/problems/red-spider-mite/">red spider mite</a>.' ) .
+					$p( 'If a potted vine grows poorly despite good care, tip it out and look for small white C-shaped grubs: vine weevil larvae can eat most of the roots. Vines also suffer from fungal diseases including <a href="/problems/powdery-mildew/">powdery mildew</a>, and under glass from <a href="/problems/spider-mites/">red spider mite</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(

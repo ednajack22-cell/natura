@@ -89,7 +89,7 @@ return array(
 				'pin_prompt'   => 'Young pea and broad bean seedlings in pots on a spring balcony, photographed vertically, with a close view of a leaf edge scalloped by small rounded notches. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'What Is Biting Little Notches Out of My Broad Bean and Pea Leaves? (Pea and Bean Weevil)',
 				'excerpt'      => 'Neat U-shaped notches around the edges of broad bean and pea leaves in spring are made by the pea and bean weevil, a 4–5 mm grey-brown beetle. It looks alarming but rarely affects the crop: keep young plants growing strongly and the damage usually needs no action.',
-				'plants'       => array( 'broad-beans-in-pots', 'peas-in-pots' ),
+				'plants'       => array( 'fava-beans-in-pots', 'peas-in-pots' ),
 				'parts'        => array( 'leaves', 'roots-compost' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -121,8 +121,8 @@ return array(
 					),
 					'faq'      => array(
 						array( 'question' => 'Should I spray broad beans with notched leaves?', 'answer' => 'No. The RHS says control is usually unnecessary because the plants tolerate the feeding. Healthy, well-watered seedlings are the best defence.' ),
-						array( 'question' => 'Is the pea and bean weevil related to vine weevil?', 'answer' => 'Yes, both are broad-nosed weevils, but they behave differently. Pea and bean weevil grubs nibble root nodules of peas and beans with little effect, while vine weevil grubs eat the roots of many pot plants. See <a href="/problems/vine-weevil/">vine weevil</a> if you find C-shaped grubs in a pot.' ),
-						array( 'question' => 'How can I give beans a head start if weevils are bad here?', 'answer' => 'The book suggests raising young plants in small pots before planting them out, so they are bigger when the weevils find them; see <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a>.' ),
+						array( 'question' => 'Is the pea and bean weevil related to vine weevil?', 'answer' => 'Yes, both are broad-nosed weevils, but they behave differently. Pea and bean weevil grubs nibble root nodules of peas and beans with little effect, while vine weevil grubs eat the roots of many pot plants. See <a href="/problems/black-vine-weevil/">vine weevil</a> if you find C-shaped grubs in a pot.' ),
+						array( 'question' => 'How can I give beans a head start if weevils are bad here?', 'answer' => 'The book suggests raising young plants in small pots before planting them out, so they are bigger when the weevils find them; see <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ),
 					),
 					'sources'  => array(
 						array( 'title' => 'RHS — Pea and bean weevils', 'url' => 'https://www.rhs.org.uk/biodiversity/pea-and-bean-weevils' ),
@@ -136,7 +136,7 @@ return array(
 							'Raise seedlings in small pots and move them into their final container once they are sturdy.',
 							'Keep the compost moist in dry spring weather, so plants grow quickly past the seedling stage.',
 							'Use fleece or a cloche in cold spells; harden plants off afterwards, as in <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.',
-							'Irregular holes with slime trails are <a href="/problems/slugs-and-snails/">slugs and snails</a>, not weevils. More on the crops is in <a href="/plants/broad-beans-in-pots/">broad beans in pots</a> and <a href="/plants/peas-in-pots/">peas in pots</a>.',
+							'Irregular holes with slime trails are <a href="/problems/slugs-and-snails/">slugs and snails</a>, not weevils. More on the crops is in <a href="/plants/fava-beans-in-pots/">broad beans in pots</a> and <a href="/plants/peas-in-pots/">peas in pots</a>.',
 						)
 					),
 			),
@@ -168,7 +168,7 @@ return array(
 							'cause'    => 'Rot following the damage',
 							'sign'     => 'Soft, smelly, slimy stems and bulbs',
 							'check'    => 'Fungi and bacteria move into tissue damaged by either insect. The rot is often the first thing you notice.',
-							'fix'      => 'Discard rotting plants. Do not refill the same container with alliums next year: pupae left in the old compost can hatch under a new cover. Start with fresh peat-free compost, as in <a href="/plant-care/compost-for-containers/">compost for containers</a>.',
+							'fix'      => 'Discard rotting plants. Do not refill the same container with alliums next year: pupae left in the old compost can hatch under a new cover. Start with fresh peat-free compost, as in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.',
 							'recovery' => '',
 						),
 					),
@@ -436,7 +436,7 @@ return array(
 							'Strip mummies off the tree in winter.',
 							'Protect fruit from birds and keep codling moth numbers down, as in <a href="/problems/codling-moth/">worms in apples and plums</a>.',
 							'Look closely at tight clusters, where rot passes from one fruit to the next.',
-							'A fuzzy grey coat on soft fruit is <a href="/problems/grey-mould/">grey mould</a>, not brown rot. Plum care is in <a href="/plants/plum-tree-in-pot/">plum tree in a pot</a>.',
+							'A fuzzy grey coat on soft fruit is <a href="/problems/gray-mold/">grey mould</a>, not brown rot. Plum care is in <a href="/plants/plum-tree-in-pot/">plum tree in a pot</a>.',
 						)
 					),
 			),
@@ -461,7 +461,7 @@ return array(
 							'cause'    => 'Grey mould nearby',
 							'sign'     => 'Fuzzy grey-brown mould on old flowers, leaves or stems of the same plant',
 							'check'    => 'Ghost spots warn that grey mould spores are being produced close by. If conditions stay damp, the fungus can attack fruit and stems directly.',
-							'fix'      => 'Bag and remove the mouldy parts carefully, as the spores spread easily; see <a href="/problems/grey-mould/">grey mould</a>. The RHS lists no fungicide for it.',
+							'fix'      => 'Bag and remove the mouldy parts carefully, as the spores spread easily; see <a href="/problems/gray-mold/">grey mould</a>. The RHS lists no fungicide for it.',
 							'recovery' => '',
 						),
 					),
@@ -474,7 +474,7 @@ return array(
 						array( 'question' => 'Why do my tomatoes get ghost spot under cover?', 'answer' => 'Greenhouses, porches and covered balconies can stay humid, which suits the grey mould fungus. Open vents and doors on mild days, avoid splashing the fruit when watering, and do not crowd the pots.' ),
 					),
 					'sources'  => array(
-						array( 'title' => 'RHS — Grey mould', 'url' => 'https://www.rhs.org.uk/disease/grey-mould' ),
+						array( 'title' => 'RHS — Grey mould', 'url' => 'https://www.rhs.org.uk/disease/gray-mold' ),
 						array( 'title' => 'UConn Extension — Fungal leaf and fruit spots of tomatoes II', 'url' => 'https://ipm.cahnr.uconn.edu/fungal-leaf-fruit-spots-of-tomatoes-ii/' ),
 						array( 'title' => 'Pacific Northwest Plant Disease Management Handbook — Tomato, gray mold (ghost spot)', 'url' => 'https://pnwhandbooks.org/node/3618' ),
 						$book,

@@ -27,7 +27,7 @@ return array(
 	'name'   => __( 'Fruiting vegetables', 'natura-core' ),
 	'guides' => array(
 		'plant' => array(
-			'sweet-peppers-in-pots' => array(
+			'bell-peppers-in-pots' => array(
 				'title'        => 'How to Grow Sweet Peppers in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),
@@ -132,7 +132,7 @@ return array(
 				'pin_prompt'   => 'Vertical photograph of a compact sweet pepper plant in a 30 cm terracotta pot on a sunny balcony, set against a warm brick wall. Glossy dark green leaves, a bamboo cane with soft twine, and blocky bell peppers in green and bright red hanging low on the plant. The pot and plant fill the lower two thirds of the frame; the top third is a calm, softly blurred wall and pale sky with empty space. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			),
 
-			'aubergines-in-pots'    => array(
+			'eggplant-in-pots'    => array(
 				'title'        => 'How to Grow Aubergines in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),

@@ -35,7 +35,7 @@ return array(
 				'pin_prompt'   => 'A pot of young lettuce on a wet patio at evening with ragged holes in the leaves, a snail on the pot rim and glistening slime trails on the paving, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Do My Seedlings Vanish Overnight? (Slugs and Snails in Pots)',
 				'excerpt'      => 'Ragged holes in soft leaves, seedlings eaten down to stumps and silvery trails in the morning point to slugs and snails, which feed at night. Protect the young and tender plants, pick the culprits off by torchlight on damp evenings, and use traps rather than pellets.',
-				'plants'       => array( 'lettuce-in-pots', 'salad-leaves-in-pots', 'rocket-in-pots', 'spinach-in-pots', 'pak-choi-in-pots', 'radishes-in-pots' ),
+				'plants'       => array( 'lettuce-in-pots', 'salad-greens-in-pots', 'arugula-in-pots', 'spinach-in-pots', 'bok-choy-in-pots', 'radishes-in-pots' ),
 				'parts'        => array( 'leaves', 'stems', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -95,12 +95,12 @@ return array(
 					),
 			),
 
-			'whitefly' => array(
+			'whiteflies' => array(
 				'image_prompt' => 'Close-up of the underside of a tomato leaf, compound and serrated, on a plant in a large pot in a sunny conservatory, dozens of tiny white-winged insects resting on it and a few flying off, flat pale oval scale-like nymphs on the leaf surface, a glossy sticky sheen and patches of black sooty mould on a leaf below. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 				'pin_prompt'   => 'A potted tomato plant by a bright window with a small cloud of white flies lifting off a leaf that has been brushed, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'What Are the Tiny White Flies on My Tomato and Pepper Plants?',
 				'excerpt'      => 'If a cloud of tiny white insects flies up when you brush a tomato, pepper or cucumber leaf, the plant has glasshouse whitefly, a sap feeder that thrives in warmth indoors and under cover. Check new plants before bringing them in, give good ventilation, and use the parasitic wasp Encarsia formosa early in the season.',
-				'plants'       => array( 'cherry-tomato', 'sweet-peppers-in-pots', 'chillies-in-pots', 'cucumbers-in-pots', 'kale-in-pots' ),
+				'plants'       => array( 'cherry-tomato', 'bell-peppers-in-pots', 'chili-peppers-in-pots', 'cucumbers-in-pots', 'kale-in-pots' ),
 				'parts'        => array( 'leaves' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -156,12 +156,12 @@ return array(
 					),
 			),
 
-			'red-spider-mite' => array(
+			'spider-mites' => array(
 				'image_prompt' => 'Close-up of an aubergine plant in a large black pot by a sunny conservatory window, its broad soft leaves finely speckled with pale dots and turning dull and bronzed, fine silk webbing strung between a leaf and the stem, tiny yellowish-green mites visible on the webbing. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 				'pin_prompt'   => 'A cucumber leaf in a pot on a hot balcony, its surface mottled with countless pale specks, a thin veil of webbing at the leaf edge, photographed vertically against a soft blurred background. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are My Leaves Covered in Tiny Pale Speckles and Fine Webbing?',
 				'excerpt'      => 'A fine pale mottling across the upper side of the leaves, sometimes with silk webbing, is the work of glasshouse red spider mite, a tiny sap feeder that loves hot, dry air. Raise the humidity around the plant, clear away hiding places in winter, and use a predatory mite if numbers build up.',
-				'plants'       => array( 'cherry-tomato', 'cucumbers-in-pots', 'aubergines-in-pots', 'sweet-peppers-in-pots', 'chillies-in-pots', 'peach-tree-in-pot', 'grapevine-in-pot', 'lemon-tree-in-pot' ),
+				'plants'       => array( 'cherry-tomato', 'cucumbers-in-pots', 'eggplant-in-pots', 'bell-peppers-in-pots', 'chili-peppers-in-pots', 'peach-tree-in-pot', 'grapevine-in-pot', 'lemon-tree-in-pot' ),
 				'parts'        => array( 'leaves', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -221,7 +221,7 @@ return array(
 				'pin_prompt'   => 'A pot of pea plants climbing a cane wigwam on a balcony, several leaves dusted with a white powdery coating next to clean green ones, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Do My Courgette and Pea Leaves Look Dusted With Flour? (Powdery Mildew)',
 				'excerpt'      => 'A white, dusty coating that spreads over leaves, stems and sometimes fruit is powdery mildew, a fungal disease that weakens plants and is worst on dry roots in still, humid air. Keep pots evenly watered, give plants space and air, and cut off infected growth early.',
-				'plants'       => array( 'courgettes-in-pots', 'cucumbers-in-pots', 'peas-in-pots', 'gooseberries-in-pots', 'currants-in-pots', 'grapevine-in-pot', 'apple-tree-in-pot' ),
+				'plants'       => array( 'zucchini-in-pots', 'cucumbers-in-pots', 'peas-in-pots', 'gooseberries-in-pots', 'currants-in-pots', 'grapevine-in-pot', 'apple-tree-in-pot' ),
 				'parts'        => array( 'leaves', 'stems', 'flowers-fruit' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -270,7 +270,7 @@ return array(
 							'Keep the compost evenly moist through summer (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water pots</a>).',
 							'Stand susceptible crops in full sun, with space around each pot.',
 							'Avoid tucking courgettes, peas and gooseberries into a still corner against a wall.',
-							'Go easy on high-nitrogen feeds (feeding routine: <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>).',
+							'Go easy on high-nitrogen feeds (feeding routine: <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>).',
 							'Cut out the first infected leaves straight away, and clear up fallen ones in autumn.',
 							'Pick mildew-resistant varieties when you buy seed.',
 						)
@@ -283,7 +283,7 @@ return array(
 				'pin_prompt'   => 'A single lettuce in a pot that has shot up into a tall flowering stem next to a young leafy lettuce in a second pot, photographed vertically on a balcony. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Has My Lettuce Suddenly Shot Up and Started to Flower?',
 				'excerpt'      => 'A leafy crop that suddenly grows a tall stem and flowers has bolted, or run to seed, usually because of dry compost, heat, a cold spell or longer days. You cannot reverse it, but sowing at the right time, steady watering, light summer shade and bolt-resistant varieties keep it at bay.',
-				'plants'       => array( 'lettuce-in-pots', 'spinach-in-pots', 'coriander-in-pots', 'salad-leaves-in-pots', 'rocket-in-pots', 'pak-choi-in-pots', 'beetroot-in-pots', 'swiss-chard-in-pots', 'dill-in-pots' ),
+				'plants'       => array( 'lettuce-in-pots', 'spinach-in-pots', 'cilantro-in-pots', 'salad-greens-in-pots', 'arugula-in-pots', 'bok-choy-in-pots', 'beets-in-pots', 'swiss-chard-in-pots', 'dill-in-pots' ),
 				'parts'        => array( 'whole-plant', 'flowers-fruit' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -346,7 +346,7 @@ return array(
 					$h2( 'How to stop crops running to seed' ) .
 					$list(
 						array(
-							'Sow little and often so a fresh batch is always coming on: see <a href="/plant-care/succession-sowing-small-spaces/">succession sowing in small spaces</a>.',
+							'Sow little and often so a fresh batch is always coming on: see <a href="/plant-care/succession-planting-small-spaces/">succession sowing in small spaces</a>.',
 							'Keep summer pots of leaves moist and in light shade (watering routine: <a href="/plant-care/how-often-to-water-container-plants/">how often to water pots</a>).',
 							'Choose varieties sold as slow to bolt for early and midsummer sowings.',
 							'Sow spinach where it will grow, and thin crowded seedlings.',
@@ -354,7 +354,7 @@ return array(
 						)
 					) .
 					$h2( 'Crop-by-crop advice' ) .
-					$p( 'Each growing guide explains the best sowing times and varieties for that crop: <a href="/plants/lettuce-in-pots/">lettuce</a>, <a href="/plants/spinach-in-pots/">spinach</a>, <a href="/plants/coriander-in-pots/">coriander</a>, <a href="/plants/salad-leaves-in-pots/">cut-and-come-again salad leaves</a>, <a href="/plants/rocket-in-pots/">rocket</a> and <a href="/plants/pak-choi-in-pots/">pak choi</a>.' ),
+					$p( 'Each growing guide explains the best sowing times and varieties for that crop: <a href="/plants/lettuce-in-pots/">lettuce</a>, <a href="/plants/spinach-in-pots/">spinach</a>, <a href="/plants/cilantro-in-pots/">coriander</a>, <a href="/plants/salad-greens-in-pots/">cut-and-come-again salad leaves</a>, <a href="/plants/arugula-in-pots/">rocket</a> and <a href="/plants/bok-choy-in-pots/">pak choi</a>.' ),
 			),
 		),
 	),

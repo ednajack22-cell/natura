@@ -29,7 +29,7 @@ return array(
 	'name'   => __( 'Rocket, spinach and winter leaves', 'natura-core' ),
 	'guides' => array(
 		'plant' => array(
-			'rocket-in-pots'                => array(
+			'arugula-in-pots'                => array(
 				'title'        => 'How to Grow Rocket in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun', 'part-shade' ),
@@ -94,11 +94,11 @@ return array(
 					$p( 'On a small balcony, a pot of each works well: wild rocket for a steady supply, and salad rocket for quick, tender leaves.' ) .
 
 					$h2( 'Container and position' ) .
-					$p( 'Almost any container suits rocket: a patio pot, a window box, a hanging basket or a growing bag. Go for something at least 30 cm (1 ft) wide, because a bigger volume of compost stays moist for longer. Fill it with peat-free multi-purpose compost; <a href="/plant-care/compost-for-containers/">compost for containers</a> explains what a pot needs from it.' ) .
+					$p( 'Almost any container suits rocket: a patio pot, a window box, a hanging basket or a growing bag. Go for something at least 30 cm (1 ft) wide, because a bigger volume of compost stays moist for longer. Fill it with peat-free multi-purpose compost; <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> explains what a pot needs from it.' ) .
 					$p( 'Spring and late-summer sowings do best in sun. For sowings made in early and midsummer, pick a cooler spot in light shade: salad rocket lasts longer there before it flowers.' ) .
 
 					$h2( 'Sowing rocket' ) .
-					$p( 'Sow from February to September. In February and March, start the seed indoors on a bright windowsill, in small pots or modules of moist peat-free seed compost; <a href="/plant-care/how-to-sow-seeds-indoors/">sowing seeds indoors</a> covers the method. From April to early September you can sow outside.' ) .
+					$p( 'Sow from February to September. In February and March, start the seed indoors on a bright windowsill, in small pots or modules of moist peat-free seed compost; <a href="/plant-care/how-to-start-seeds-indoors/">sowing seeds indoors</a> covers the method. From April to early September you can sow outside.' ) .
 					$list(
 						array(
 							'Moisten the compost in the final container.',
@@ -107,14 +107,14 @@ return array(
 							'Seedlings appear in just a few days. Thin them to about 15 cm (6 in) apart and eat the thinnings: crowded rocket bolts sooner.',
 						)
 					) .
-					$p( 'Indoor-raised plants can go outside when they are about 10 cm (4 in) tall, after <a href="/plant-care/how-to-harden-off-seedlings/">hardening off</a>. Salad rocket is short-lived, so sow a small batch every few weeks; <a href="/plant-care/succession-sowing-small-spaces/">succession sowing</a> explains how to plan it.' ) .
+					$p( 'Indoor-raised plants can go outside when they are about 10 cm (4 in) tall, after <a href="/plant-care/how-to-harden-off-seedlings/">hardening off</a>. Salad rocket is short-lived, so sow a small batch every few weeks; <a href="/plant-care/succession-planting-small-spaces/">succession sowing</a> explains how to plan it.' ) .
 
 					$h2( 'Keep it from bolting' ) .
 					$p( 'Rocket needs very little care beyond water and watching for slugs and snails. Compost in a container dries out quickly in warm weather, and dry plants run to seed early, so check the pot often; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has the routine.' ) .
 					$p( 'During hot spells, carry the pot into the shade to delay flowering. Pinching out flower stems on salad rocket helps for a short while only. Wild rocket keeps making leaves after it flowers; if it gets big and sprawling, trim it back and fresh growth follows.' ) .
 
 					$h2( 'Picking rocket' ) .
-					$p( 'The first leaves are usually ready four to six weeks after sowing. Young leaves are the mildest and most tender, and regular picking keeps new ones coming. Work along the pot taking a few leaves from each plant: a plant stripped bare is slow to recover. For the general method of cutting and regrowth, see <a href="/plants/salad-leaves-in-pots/">cut-and-come-again salad leaves</a>.' ) .
+					$p( 'The first leaves are usually ready four to six weeks after sowing. Young leaves are the mildest and most tender, and regular picking keeps new ones coming. Work along the pot taking a few leaves from each plant: a plant stripped bare is slow to recover. For the general method of cutting and regrowth, see <a href="/plants/salad-greens-in-pots/">cut-and-come-again salad leaves</a>.' ) .
 					$p( 'Older leaves are still good lightly cooked or stirred into a sauce. The flowers are edible too. Once salad rocket has bolted, pull it out and use the pot for the next sowing.' ) .
 
 					$h2( 'Pests' ) .
@@ -194,7 +194,7 @@ return array(
 					$p( 'Savoy types have big, crinkled leaves; smooth-leaved types are flatter, more upright and usually tougher, and they cope with warm weather a little better. For leaves through winter, check the packet and choose a hardy variety.' ) .
 
 					$h2( 'Pot and position' ) .
-					$p( 'A growing bag, or a pot no less than 30 cm (1 ft) across and as deep, holds enough compost not to dry out too fast. Peat-free multi-purpose compost suits it; <a href="/plant-care/compost-for-containers/">our compost guide</a> covers what makes a good mix.' ) .
+					$p( 'A growing bag, or a pot no less than 30 cm (1 ft) across and as deep, holds enough compost not to dry out too fast. Peat-free multi-purpose compost suits it; <a href="/plant-care/potting-mix-for-containers/">our compost guide</a> covers what makes a good mix.' ) .
 					$p( 'Spinach grows in sun or light shade. Spring and winter crops need the sunniest spot you have; in summer, a place out of the hot midday sun holds off bolting.' ) .
 
 					$h2( 'When and how to sow' ) .
@@ -204,7 +204,7 @@ return array(
 							'<strong>Late summer to early autumn</strong> for leaves in autumn and early spring, using a hardy variety. Wait if late summer is still very hot, but sow early enough for plants to establish before winter.',
 						)
 					) .
-					$p( 'Scatter the seed thinly 2.5 cm (1 in) deep across the moist compost and water it in. Spinach is best sown where it is to grow. Repeat every few weeks in each season for a steady supply; <a href="/plant-care/succession-sowing-small-spaces/">succession sowing</a> shows how to time it.' ) .
+					$p( 'Scatter the seed thinly 2.5 cm (1 in) deep across the moist compost and water it in. Spinach is best sown where it is to grow. Repeat every few weeks in each season for a steady supply; <a href="/plant-care/succession-planting-small-spaces/">succession sowing</a> shows how to time it.' ) .
 
 					$h2( 'Thinning and spacing' ) .
 					$p( 'When the seedlings are big enough to handle, thin them to 7.5 cm (3 in) apart, keeping the strongest. A few weeks later, pull every second plant for salad, leaving the rest about 15 cm (6 in) apart. Good spacing lets air move around the leaves, which helps prevent downy mildew. If you only want baby leaves, you can skip thinning.' ) .
@@ -231,7 +231,7 @@ return array(
 				'pin_prompt'   => 'Vertical photograph of a hand-sized bunch of fresh baby spinach leaves, smooth and dark green, lying in a small wooden bowl beside a pot of growing spinach rosettes on a balcony floor. The pot and bowl sit in the lower half of the frame; the top third is calm, softly blurred pale wall, empty for a title. Soft morning light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			),
 
-			'oriental-salad-leaves-in-pots' => array(
+			'asian-greens-in-pots' => array(
 				'title'        => 'How to Grow Winter and Oriental Salad Leaves in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun', 'part-shade' ),
@@ -292,7 +292,7 @@ return array(
 				'content'      =>
 					$h2( 'Salads for the dark half of the year' ) .
 					$p( 'Most summer salads give up as the days shorten, but a group of tough, leafy plants keeps going. Oriental greens such as mizuna and mibuna are cool-season crops: they grow best in the mild, damp weather of autumn, and late sowings carry on into winter with a little shelter. Alongside them, the RHS suggests oriental mustards, komatsuna, corn salad (lamb\'s lettuce), land cress and rocket, plus hardy winter lettuce.' ) .
-					$p( 'This guide is about timing and shelter for these cold-season leaves. For summer pots of mixed baby leaves, see <a href="/plants/salad-leaves-in-pots/">cut-and-come-again salad leaves</a>; for whole heads of lettuce, see <a href="/plants/lettuce-in-pots/">lettuce in pots</a>. Rocket has <a href="/plants/rocket-in-pots/">its own guide</a> too.' ) .
+					$p( 'This guide is about timing and shelter for these cold-season leaves. For summer pots of mixed baby leaves, see <a href="/plants/salad-greens-in-pots/">cut-and-come-again salad leaves</a>; for whole heads of lettuce, see <a href="/plants/lettuce-in-pots/">lettuce in pots</a>. Rocket has <a href="/plants/arugula-in-pots/">its own guide</a> too.' ) .
 
 					$h2( 'Choose your leaves' ) .
 					$list(
@@ -311,8 +311,8 @@ return array(
 					$p( 'Sow small batches a few weeks apart, so one pot is coming on while you pick another.' ) .
 
 					$h2( 'Sowing in a pot' ) .
-					$p( 'Choose a container at least 30 cm (1 ft) wide, as smaller ones dry out too fast, and fill it with peat-free multi-purpose compost (<a href="/plant-care/compost-for-containers/">compost for containers</a> has more on choosing it). Scatter the seed thinly or sow in short rows about 1 cm (½ in) deep, then water. Mizuna and mibuna come up in about a week.' ) .
-					$p( 'For pickings of small leaves, thin the plants to 10–15 cm (4–6 in) apart; for bigger leaves, give them about 20 cm (8 in). Seed can also be started in modules indoors and planted into the pot after a few weeks; <a href="/plant-care/how-to-sow-seeds-indoors/">sowing seeds indoors</a> explains how.' ) .
+					$p( 'Choose a container at least 30 cm (1 ft) wide, as smaller ones dry out too fast, and fill it with peat-free multi-purpose compost (<a href="/plant-care/potting-mix-for-containers/">compost for containers</a> has more on choosing it). Scatter the seed thinly or sow in short rows about 1 cm (½ in) deep, then water. Mizuna and mibuna come up in about a week.' ) .
+					$p( 'For pickings of small leaves, thin the plants to 10–15 cm (4–6 in) apart; for bigger leaves, give them about 20 cm (8 in). Seed can also be started in modules indoors and planted into the pot after a few weeks; <a href="/plant-care/how-to-start-seeds-indoors/">sowing seeds indoors</a> explains how.' ) .
 
 					$h2( 'Shelter through winter' ) .
 					$p( 'These plants are hardy, but cold rain and wind soon ruin tender leaves. To keep pickings coming, give the pot some cover before winter sets in:' ) .
@@ -410,7 +410,7 @@ return array(
 					$p( 'If space is tight, grow baby leeks: they are ready in a couple of months and can be planted closer together. For full-sized stems, choose a winter variety and a big pot.' ) .
 
 					$h2( 'The pot and the position' ) .
-					$p( 'Choose a large, deep container with drainage holes; one about 40 cm (16 in) wide holds four or five mature leeks. Fill it with peat-free multi-purpose compost; <a href="/plant-care/compost-for-containers/">compost for containers</a> covers what to look for. Start with fresh compost rather than a pot that has just grown onions, garlic or chives: the RHS advises against growing leeks where members of the onion family grew in recent years.' ) .
+					$p( 'Choose a large, deep container with drainage holes; one about 40 cm (16 in) wide holds four or five mature leeks. Fill it with peat-free multi-purpose compost; <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> covers what to look for. Start with fresh compost rather than a pot that has just grown onions, garlic or chives: the RHS advises against growing leeks where members of the onion family grew in recent years.' ) .
 					$p( 'Stand the pot in full sun if you can, though leeks tolerate partial shade.' ) .
 
 					$h2( 'Sowing' ) .
@@ -490,7 +490,7 @@ return array(
 						array( 'name' => 'Small watering can with a fine rose, or a mister', 'badge' => '', 'note' => 'Wets the compost without flattening the seedlings.', 'url' => '' ),
 					),
 					'faq'        => array(
-						array( 'question' => 'Are microgreens the same as sprouts?', 'answer' => 'No. Microgreens grow in compost in the light and are cut above the surface once the first true leaves appear. Sprouts are germinated in water, usually in a jar, with no compost at all; see <a href="/diy-projects/grow-sprouting-seeds-in-a-jar/">sprouting seeds in a jar</a>.' ),
+						array( 'question' => 'Are microgreens the same as sprouts?', 'answer' => 'No. Microgreens grow in compost in the light and are cut above the surface once the first true leaves appear. Sprouts are germinated in water, usually in a jar, with no compost at all; see <a href="/diy-projects/grow-sprouts-in-a-jar/">sprouting seeds in a jar</a>.' ),
 						array( 'question' => 'When are microgreens ready to cut?', 'answer' => 'The first pair of leaves after germination are seed leaves. When the next pair, the true leaves, opens and the seedlings look sturdy, they are ready. Taste as you go: the flavour develops as they grow.' ),
 						array( 'question' => 'Can I use ordinary multi-purpose compost?', 'answer' => 'Yes, if you sieve it first to remove lumps, so the tiny seeds sit in even contact with it. Peat-free seed compost is finer and needs no sieving.' ),
 						array( 'question' => 'Do microgreens grow back after cutting?', 'answer' => 'Treat each tray as a single harvest. Cut what you need, then compost the rest and sow a fresh tray. For leaves that regrow, grow baby salad leaves in a larger pot instead.' ),
@@ -504,7 +504,7 @@ return array(
 				'content'      =>
 					$h2( 'What microgreens are' ) .
 					$p( 'Microgreens are not a special kind of seed. The word describes a method: seeds of ordinary vegetables and herbs, such as radish, beetroot, cress or kale, are sown densely and cut very young, just after the first true leaves appear. At that stage they are small but full of flavour.' ) .
-					$p( 'They grow in compost, in the light, and you cut the stems above the surface. That makes them different from sprouts, which are started in a jar of water rather than compost; that method has its own guide: <a href="/diy-projects/grow-sprouting-seeds-in-a-jar/">sprouting seeds in a jar</a>.' ) .
+					$p( 'They grow in compost, in the light, and you cut the stems above the surface. That makes them different from sprouts, which are started in a jar of water rather than compost; that method has its own guide: <a href="/diy-projects/grow-sprouts-in-a-jar/">sprouting seeds in a jar</a>.' ) .
 
 					$h2( 'Which seeds to use' ) .
 					$p( 'The RHS suggests cress, radish, chard, turnip, mustard and beetroot, and every variety of kale works too. For something different, try coriander, purple basil, fenugreek, amaranth or Greek cress. Sowing two or three kinds in separate trays lets you compare how fast they come up and how they taste.' ) .

@@ -104,7 +104,7 @@ return array(
 				'pin_prompt'   => 'A wilting lettuce in a pot on a sunny balcony next to its root ball held in a trowel, the roots coated in white wax with tiny pale aphids, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Do My Lettuces Wilt When the Compost Is Still Moist? (Root Aphids)',
 				'excerpt'      => 'Lettuces, beans or carrots that flag in warm weather, stop growing or lose colour although the compost is damp may have root aphids: tiny yellowish, greenish or brown aphids, often under white wax, feeding on the roots. Tip the plant out to look, wash off the old compost and repot, and keep the plant well watered and fed.',
-				'plants'       => array( 'lettuce-in-pots', 'salad-leaves-in-pots', 'french-beans-in-pots', 'runner-beans-in-pots', 'carrots-in-pots' ),
+				'plants'       => array( 'lettuce-in-pots', 'salad-greens-in-pots', 'green-beans-in-pots', 'runner-beans-in-pots', 'carrots-in-pots' ),
 				'parts'        => array( 'roots-compost', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -159,18 +159,18 @@ return array(
 							'Slide plug plants and new pot plants out of their containers and look at the roots before planting.',
 							'Cover lettuces, salads and carrots with insect-proof mesh from May to August.',
 							'Keep pots well watered in summer: stressed roots show the damage sooner. Our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> explains how to check.',
-							'Use fresh compost for the next lettuce or carrot sowing; <a href="/plant-care/compost-for-containers/">compost for containers</a> covers refreshing old compost.',
+							'Use fresh compost for the next lettuce or carrot sowing; <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> covers refreshing old compost.',
 							'For aphids on leaves and shoot tips, see <a href="/problems/aphids-container-plants/">aphids on container plants</a>.',
 						)
 					),
 			),
 
-			'grey-mould' => array(
+			'gray-mold' => array(
 				'image_prompt' => 'Close-up of a strawberry plant with three-lobed toothed leaves growing in a 30 cm terracotta pot on a balcony in a damp, overcast early summer, one ripening red strawberry covered in soft fuzzy grey-brown mould and slightly collapsed, healthy red and white berries hanging beside it. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 				'pin_prompt'   => 'A strawberry pot on a balcony with one berry rotted under fuzzy grey mould among healthy ripe fruit, photographed vertically with soft overcast light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'What Is the Fuzzy Grey Mould on My Strawberries? (Grey Mould)',
 				'excerpt'      => 'A soft rot covered in fuzzy grey-brown mould on strawberries, lettuce, tomatoes or flowers is grey mould, caused by the fungus Botrytis cinerea, which thrives in damp, still air. No fungicide is approved for gardeners, so remove affected parts carefully, clear away dead material, and give pots space and air.',
-				'plants'       => array( 'balcony-strawberry', 'lettuce-in-pots', 'cherry-tomato', 'courgettes-in-pots', 'cucumbers-in-pots', 'french-beans-in-pots', 'raspberries-in-pots', 'grapevine-in-pot' ),
+				'plants'       => array( 'balcony-strawberry', 'lettuce-in-pots', 'cherry-tomato', 'zucchini-in-pots', 'cucumbers-in-pots', 'green-beans-in-pots', 'raspberries-in-pots', 'grapevine-in-pot' ),
 				'parts'        => array( 'flowers-fruit', 'leaves', 'stems' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -213,7 +213,7 @@ return array(
 						array( 'question' => 'What are the little black specks on my mouldy flowers?', 'answer' => 'Resting bodies of the fungus, called sclerotia. They can lie dormant and later produce new spores, so bin the material rather than leaving it on the pot.' ),
 					),
 					'sources'  => array(
-						array( 'title' => 'RHS — Grey mould', 'url' => 'https://www.rhs.org.uk/disease/grey-mould' ),
+						array( 'title' => 'RHS — Grey mould', 'url' => 'https://www.rhs.org.uk/disease/gray-mold' ),
 						array( 'title' => 'RHS — How to grow lettuce', 'url' => 'https://www.rhs.org.uk/vegetables/lettuce/grow-your-own' ),
 						$book,
 					),
@@ -231,7 +231,7 @@ return array(
 					),
 			),
 
-			'vine-weevil' => array(
+			'black-vine-weevil' => array(
 				'image_prompt' => 'A strawberry plant tipped out of a 25 cm black plastic pot on a patio table in autumn, its root ball broken open to show several plump, creamy-white, legless C-shaped grubs with pale brown heads among chewed roots, the strawberry leaves wilted, a trowel beside it. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 				'pin_prompt'   => 'Close view of creamy-white C-shaped vine weevil grubs in dark compost beside the roots of a potted strawberry, with the wilted plant above, photographed vertically on a patio. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'What Are the White C-Shaped Grubs in My Pots? (Vine Weevil)',
@@ -273,7 +273,7 @@ return array(
 						array( 'question' => 'Why are pots worse affected than plants in the ground?', 'answer' => 'The RHS notes that container plants, outdoors or under cover, are the most likely to be badly damaged.' ),
 					),
 					'sources'  => array(
-						array( 'title' => 'RHS — Vine weevil', 'url' => 'https://www.rhs.org.uk/biodiversity/vine-weevil' ),
+						array( 'title' => 'RHS — Vine weevil', 'url' => 'https://www.rhs.org.uk/biodiversity/black-vine-weevil' ),
 						array( 'title' => 'RHS — Biological control in the garden', 'url' => 'https://www.rhs.org.uk/prevention-protection/biological-control-garden' ),
 					),
 				),
@@ -284,7 +284,7 @@ return array(
 							'Look for notched leaf edges on strawberries from spring to late summer: they show adults are laying eggs nearby.',
 							'Check under pots and in dark corners of the balcony, where the adults rest by day.',
 							'Treat pots that have had grubs with nematodes in August or early September.',
-							'When you repot or refresh compost, look through the roots for grubs; <a href="/plant-care/compost-for-containers/">compost for containers</a> covers refreshing.',
+							'When you repot or refresh compost, look through the roots for grubs; <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> covers refreshing.',
 							'Birds, frogs, toads and ground beetles eat vine weevils, so leave them be.',
 						)
 					),
@@ -487,7 +487,7 @@ return array(
 					$list(
 						array(
 							'Grow <a href="/plants/blueberries-in-pots/">blueberries</a> and other lime-haters in peat-free ericaceous compost, and water them with rainwater.',
-							'Use tomato feed at the label dose, not stronger; the routine is in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.',
+							'Use tomato feed at the label dose, not stronger; the routine is in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Keep the compost evenly moist, since stressed roots take up nutrients poorly.',
 							'If the whole leaf is yellow, or the veins are yellow too, go to <a href="/problems/yellow-leaves-container-plants/">why container plant leaves turn yellow</a>.',
 						)
@@ -499,7 +499,7 @@ return array(
 				'pin_prompt'   => 'Two pots of leafy greens side by side on a balcony, photographed vertically: one small and pale yellow-green, the other full and dark green. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Are My Plants in Pots Stunted and Pale Green?',
 				'excerpt'      => 'Container plants that stay small and spindly with pale leaves, the oldest ones paler first, have usually run out of nitrogen: compost in pots runs short after a few months and watering washes it out. A general-purpose liquid feed corrects it, but rule out cold, waterlogging, drought and root pests first.',
-				'plants'       => array( 'salad-leaves-in-pots', 'lettuce-in-pots', 'swiss-chard-in-pots', 'kale-in-pots', 'spinach-in-pots', 'genovese-basil' ),
+				'plants'       => array( 'salad-greens-in-pots', 'lettuce-in-pots', 'swiss-chard-in-pots', 'kale-in-pots', 'spinach-in-pots', 'genovese-basil' ),
 				'parts'        => array( 'whole-plant', 'leaves' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -554,7 +554,7 @@ return array(
 					$h2( 'How to keep container plants growing strongly' ) .
 					$list(
 						array(
-							'Potting compost feeds plants for about six to eight weeks after potting; plan feeds after that with <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.',
+							'Potting compost feeds plants for about six to eight weeks after potting; plan feeds after that with <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Check moisture before you feed: hungry-looking plants are often too wet or too dry.',
 							'Pot on plants whose roots fill the container.',
 							'Seedlings that are tall and pale rather than short and pale are short of light: see <a href="/problems/leggy-seedlings/">leggy seedlings</a>.',
@@ -568,7 +568,7 @@ return array(
 				'pin_prompt'   => 'A lush, leafy courgette plant in a pot on a patio with large green leaves and only a couple of yellow flowers, photographed vertically from slightly above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'        => 'Why Is My Plant All Leaves and No Flowers or Fruit?',
 				'excerpt'      => 'Plenty of leaves but few flowers or fruit usually comes down to too much nitrogen, too little potassium, a shady or cold spot, or a plant that is still too young. Switch to a high-potassium feed once flowering is due, give the pot full sun and shelter, and keep picking.',
-				'plants'       => array( 'courgettes-in-pots', 'cucumbers-in-pots', 'cherry-tomato', 'lemon-tree-in-pot' ),
+				'plants'       => array( 'zucchini-in-pots', 'cucumbers-in-pots', 'cherry-tomato', 'lemon-tree-in-pot' ),
 				'parts'        => array( 'flowers-fruit', 'whole-plant' ),
 				'lists'        => array(
 					'causes'   => array(
@@ -632,7 +632,7 @@ return array(
 					$list(
 						array(
 							'Give fruiting crops the sunniest, most sheltered spot on the balcony or patio.',
-							'Switch from a general feed to a high-potassium one when flowering starts; timings are in <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.',
+							'Switch from a general feed to a high-potassium one when flowering starts; timings are in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Pot on plants whose roots fill the container.',
 							'Pick courgettes and cucumbers young, and often.',
 							'If flowers open and then fall off, the causes are different: see <a href="/problems/flowers-dropping-off/">why flowers drop off</a>.',

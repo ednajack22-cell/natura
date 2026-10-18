@@ -1,6 +1,6 @@
 <?php
 /**
- * Gear: buying guides (/gear/, /gear/best-compost-for-pots/) and their
+ * Gear: buying guides (/gear/, /gear/best-potting-mix-for-containers/) and their
  * categories (/gear/category/compost-feed/).
  *
  * A buying guide has a fixed shape, so every guide answers the same way

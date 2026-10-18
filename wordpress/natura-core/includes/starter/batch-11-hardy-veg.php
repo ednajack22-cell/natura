@@ -128,7 +128,7 @@ return array(
 				'pin_prompt'   => 'Vertical photograph of a compact curly kale plant in a charcoal-grey pot on a balcony in late autumn, with deeply frilled, tightly curled mid-green leaves on a short sturdy stem and a light frost on the leaf edges. The pot sits in the lower half of the frame; the top third is calm, softly blurred pale sky and wall, empty for a title. Cool morning side light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			),
 
-			'pak-choi-in-pots' => array(
+			'bok-choy-in-pots' => array(
 				'title'        => 'How to Grow Pak Choi in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun', 'part-shade' ),
@@ -389,7 +389,7 @@ return array(
 					'sources'    => array(
 						array( 'title' => 'RHS — How to grow carrots', 'url' => 'https://www.rhs.org.uk/vegetables/carrots/grow-your-own' ),
 						array( 'title' => 'RHS — Daucus carota subsp. sativus (hardiness rating)', 'url' => 'https://www.rhs.org.uk/plants/158355/daucus-carota-subsp-sativus/details' ),
-						array( 'title' => 'RHS — Carrot fly', 'url' => 'https://www.rhs.org.uk/biodiversity/carrot-fly' ),
+						array( 'title' => 'RHS — Carrot fly', 'url' => 'https://www.rhs.org.uk/biodiversity/carrot-rust-fly' ),
 						array( 'title' => 'RHS — Vegetables in containers', 'url' => 'https://www.rhs.org.uk/vegetables/containers' ),
 						array( 'title' => 'RHS — Daucus carota \'Parmex\'', 'url' => 'https://www.rhs.org.uk/plants/107446/daucus-carota-parmex/details' ),
 						array( 'title' => 'RHS — Daucus carota \'Rondo\'', 'url' => 'https://www.rhs.org.uk/plants/246954/daucus-carota-rondo/details' ),

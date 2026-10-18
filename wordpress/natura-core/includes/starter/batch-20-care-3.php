@@ -75,8 +75,8 @@ return array(
 					$p( 'Some crops manage with less. These sizes come from our plant guides:' ) .
 					$list(
 						array(
-							'<strong>About 30 cm (1 ft) wide:</strong> <a href="/plants/radishes-in-pots/">radishes</a>, <a href="/plants/salad-leaves-in-pots/">salad leaves</a> and <a href="/plants/spring-onions-in-pots/">spring onions</a>.',
-							'<strong>About 40–45 cm (16–18 in) wide:</strong> <a href="/plants/beetroot-in-pots/">beetroot</a>, <a href="/plants/swiss-chard-in-pots/">Swiss chard</a>, <a href="/plants/peas-in-pots/">peas</a> and one <a href="/plants/courgettes-in-pots/">courgette</a> plant.',
+							'<strong>About 30 cm (1 ft) wide:</strong> <a href="/plants/radishes-in-pots/">radishes</a>, <a href="/plants/salad-greens-in-pots/">salad leaves</a> and <a href="/plants/green-onions-in-pots/">spring onions</a>.',
+							'<strong>About 40–45 cm (16–18 in) wide:</strong> <a href="/plants/beets-in-pots/">beetroot</a>, <a href="/plants/swiss-chard-in-pots/">Swiss chard</a>, <a href="/plants/peas-in-pots/">peas</a> and one <a href="/plants/zucchini-in-pots/">courgette</a> plant.',
 							'<strong>20–30 litres per plant:</strong> a <a href="/plants/cherry-tomato/">cherry tomato</a>.',
 							'<strong>45–50 cm (18–20 in) wide and deep:</strong> fruit trees such as the <a href="/plants/apple-tree-in-pot/">apple</a> and <a href="/plants/pear-tree-in-pot/">pear</a>.',
 						)
@@ -116,7 +116,7 @@ return array(
 							'<strong>Self-watering pots:</strong> a water reservoir in the base cuts down daily watering. You can <a href="/diy-projects/self-watering-pot/">make one yourself</a>.',
 						)
 					) .
-					$p( 'Whatever you choose, fill it with peat-free compost suited to the crop; <a href="/plant-care/compost-for-containers/">compost for containers</a> explains which.' ) .
+					$p( 'Whatever you choose, fill it with peat-free compost suited to the crop; <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> explains which.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -281,7 +281,7 @@ return array(
 							'Move on to the next female: one male flower can pollinate several.',
 						)
 					) .
-					$p( 'Early in the season young plants often make only male flowers, so there is nothing to pollinate yet. In very hot weather, or in a stuffy greenhouse, the opposite can happen and male flowers become scarce. Growing tips are in our <a href="/plants/courgettes-in-pots/">courgette guide</a>.' ) .
+					$p( 'Early in the season young plants often make only male flowers, so there is nothing to pollinate yet. In very hot weather, or in a stuffy greenhouse, the opposite can happen and male flowers become scarce. Growing tips are in our <a href="/plants/zucchini-in-pots/">courgette guide</a>.' ) .
 
 					$h2( 'Strawberries under cover' ) .
 					$p( 'Potted strawberries moved into an unheated greenhouse or cold frame in February, or covered with cloches, crop earlier than plants left outside. The covers also keep insects off the flowers. Either brush each open flower lightly with a soft paintbrush, or lift the covers during the day while the plants are in flower so insects can visit. More in our <a href="/plants/balcony-strawberry/">strawberry guide</a>.' ) .
@@ -292,7 +292,7 @@ return array(
 					$h2( 'Aubergines, tomatoes and grapes under glass' ) .
 					$list(
 						array(
-							'<strong>Aubergines:</strong> open the doors and vents on warm days so insects can get in, mist the flowers, or brush them with a small paintbrush. See <a href="/plants/aubergines-in-pots/">aubergines</a>.',
+							'<strong>Aubergines:</strong> open the doors and vents on warm days so insects can get in, mist the flowers, or brush them with a small paintbrush. See <a href="/plants/eggplant-in-pots/">aubergines</a>.',
 							'<strong>Tomatoes:</strong> no brush needed; tap or gently shake the trusses when the flowers are fully open, and keep the vents open.',
 							'<strong>Grapes:</strong> mostly wind-pollinated. Under glass, at about midday on a dry, sunny day, shake the stems or run a cupped hand over each bunch of flowers. See <a href="/plants/grapevine-in-pot/">grapevines</a>.',
 						)
@@ -373,7 +373,7 @@ return array(
 					$p( '<a href="/plants/microgreens-on-a-windowsill/">Microgreens</a> are the best fit of all: a shallow tray, a harvest about one to three weeks after sowing, and they can be sown at any time of year. Kale is among the crops the RHS suggests for them.' ) .
 
 					$h2( 'Salad leaves' ) .
-					$p( '<a href="/plants/salad-leaves-in-pots/">Cut-and-come-again salad leaves</a> need a trough about 30 cm (1 ft) wide and give a first cut in about four weeks in summer, nearer eight when it is cool. The RHS suggests keeping autumn sowings on a sunny windowsill through winter. For hardier winter leaves such as mizuna and mustards, see <a href="/plants/oriental-salad-leaves-in-pots/">oriental salad leaves</a>.' ) .
+					$p( '<a href="/plants/salad-greens-in-pots/">Cut-and-come-again salad leaves</a> need a trough about 30 cm (1 ft) wide and give a first cut in about four weeks in summer, nearer eight when it is cool. The RHS suggests keeping autumn sowings on a sunny windowsill through winter. For hardier winter leaves such as mizuna and mustards, see <a href="/plants/asian-greens-in-pots/">oriental salad leaves</a>.' ) .
 
 					$h2( 'Herbs that do well indoors' ) .
 					$list(
@@ -387,7 +387,7 @@ return array(
 					$h2( 'Herbs that are harder indoors' ) .
 					$list(
 						array(
-							'<strong><a href="/plants/coriander-in-pots/">Coriander</a>:</strong> grows on a sill but does not last; the RHS notes it can turn leggy if kept indoors for long. Treat it as a short-term crop.',
+							'<strong><a href="/plants/cilantro-in-pots/">Coriander</a>:</strong> grows on a sill but does not last; the RHS notes it can turn leggy if kept indoors for long. Treat it as a short-term crop.',
 							'<strong><a href="/plants/dill-in-pots/">Dill</a>:</strong> can be sown indoors at any time of year for a sunny sill, but plants are bushier when light levels are higher, and it wants a pot about 30 cm (12 in) wide and deep.',
 						)
 					) .
@@ -395,14 +395,14 @@ return array(
 					$h2( 'Fruiting crops for a sunny sill' ) .
 					$list(
 						array(
-							'<strong><a href="/plants/chillies-in-pots/">Chillies</a>:</strong> the RHS says compact varieties can be grown on a sunny windowsill indoors. A 22 cm (9 in) pot per plant, with chillies from midsummer to autumn.',
-							'<strong><a href="/plants/sweet-peppers-in-pots/">Sweet peppers</a>:</strong> dwarf and compact varieties can grow even on a kitchen windowsill, one plant to a pot at least 30 cm (1 ft) wide. Give them your warmest, brightest sill.',
+							'<strong><a href="/plants/chili-peppers-in-pots/">Chillies</a>:</strong> the RHS says compact varieties can be grown on a sunny windowsill indoors. A 22 cm (9 in) pot per plant, with chillies from midsummer to autumn.',
+							'<strong><a href="/plants/bell-peppers-in-pots/">Sweet peppers</a>:</strong> dwarf and compact varieties can grow even on a kitchen windowsill, one plant to a pot at least 30 cm (1 ft) wide. Give them your warmest, brightest sill.',
 						)
 					) .
 					$p( 'If their flowers drop without forming fruit, see <a href="/problems/flowers-dropping-off/">why flowers fall off</a>.' ) .
 
 					$h2( 'What to leave outside' ) .
-					$p( 'Crops that need a large container do not fit a sill: potatoes, courgettes, beans, peas, fruit bushes and trees. The windowsill is still useful for them as a place to start seeds in spring; see <a href="/plant-care/how-to-sow-seeds-indoors/">sowing seeds indoors</a>. If you have a balcony as well, our guide to <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">arranging pots in a small space</a> helps you divide crops between the two.' ) .
+					$p( 'Crops that need a large container do not fit a sill: potatoes, courgettes, beans, peas, fruit bushes and trees. The windowsill is still useful for them as a place to start seeds in spring; see <a href="/plant-care/how-to-start-seeds-indoors/">sowing seeds indoors</a>. If you have a balcony as well, our guide to <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">arranging pots in a small space</a> helps you divide crops between the two.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -462,12 +462,12 @@ return array(
 					$list(
 						array(
 							'<strong><a href="/plants/lettuce-in-pots/">Lettuce</a>:</strong> sunny spots are best in spring, but light shade in summer helps stop it running to seed. Loose-leaf types are ready in 4–6 weeks; pot at least 30 cm (1 ft) wide and deep.',
-							'<strong><a href="/plants/salad-leaves-in-pots/">Salad leaves</a> and <a href="/plants/rocket-in-pots/">rocket</a>:</strong> both suit light shade, which the RHS recommends for summer sowings to delay bolting. A first cut in about a month; 30 cm wide troughs.',
+							'<strong><a href="/plants/salad-greens-in-pots/">Salad leaves</a> and <a href="/plants/arugula-in-pots/">rocket</a>:</strong> both suit light shade, which the RHS recommends for summer sowings to delay bolting. A first cut in about a month; 30 cm wide troughs.',
 							'<strong><a href="/plants/spinach-in-pots/">Spinach</a>:</strong> grows in sun or partial shade. Baby leaves in about a month.',
-							'<strong><a href="/plants/oriental-salad-leaves-in-pots/">Mizuna and other oriental leaves</a>:</strong> grow in sun or semi-shade, and an RHS adviser suggests mizuna for a balcony with good light but no direct sun.',
+							'<strong><a href="/plants/asian-greens-in-pots/">Mizuna and other oriental leaves</a>:</strong> grow in sun or semi-shade, and an RHS adviser suggests mizuna for a balcony with good light but no direct sun.',
 							'<strong><a href="/plants/swiss-chard-in-pots/">Swiss chard</a>:</strong> prefers sun but tolerates light shade in summer, and keeps giving leaves for months. Needs a bigger pot, about 40 cm (16 in) wide and deep.',
 							'<strong><a href="/plants/kale-in-pots/">Kale</a>:</strong> likes sun but copes in light shade, cropping from autumn into spring. One plant per 30 cm (1 ft) pot.',
-							'<strong><a href="/plants/pak-choi-in-pots/">Pak choi</a>:</strong> a cool, lightly shaded spot suits summer crops.',
+							'<strong><a href="/plants/bok-choy-in-pots/">Pak choi</a>:</strong> a cool, lightly shaded spot suits summer crops.',
 						)
 					) .
 
@@ -478,7 +478,7 @@ return array(
 							'<strong><a href="/plants/mint-in-pots/">Mint</a> and <a href="/plants/chives-in-pots/">chives</a>:</strong> both are happy in partial shade and come back every year.',
 							'<strong><a href="/plants/chervil-in-pots/">Chervil</a>:</strong> actually prefers light shade, because hot sun makes it flower early.',
 							'<strong><a href="/plants/sorrel-in-pots/">Sorrel</a> and <a href="/plants/lemon-balm-in-pots/">lemon balm</a>:</strong> both grow in sun or partial shade.',
-							'<strong><a href="/plants/coriander-in-pots/">Coriander</a>:</strong> summer sowings benefit from some shade, which slows bolting.',
+							'<strong><a href="/plants/cilantro-in-pots/">Coriander</a>:</strong> summer sowings benefit from some shade, which slows bolting.',
 						)
 					) .
 
@@ -567,16 +567,16 @@ return array(
 					$list(
 						array(
 							'<strong><a href="/plants/radishes-in-pots/">Radishes</a>:</strong> about 4–6 weeks from sowing, in a pot at least 30 cm (1 ft) wide and deep. Sun, or light shade in midsummer.',
-							'<strong><a href="/plants/salad-leaves-in-pots/">Salad leaves</a>:</strong> a first cut in about four weeks in summer, and the plants regrow. A 30 cm wide trough; sun or light shade.',
-							'<strong><a href="/plants/spring-onions-in-pots/">Spring onions</a>:</strong> about eight weeks, in the same size of trough, in full sun.',
+							'<strong><a href="/plants/salad-greens-in-pots/">Salad leaves</a>:</strong> a first cut in about four weeks in summer, and the plants regrow. A 30 cm wide trough; sun or light shade.',
+							'<strong><a href="/plants/green-onions-in-pots/">Spring onions</a>:</strong> about eight weeks, in the same size of trough, in full sun.',
 						)
 					) .
-					$p( 'All three are worth sowing a little at a time; see <a href="/plant-care/succession-sowing-small-spaces/">succession sowing</a>.' ) .
+					$p( 'All three are worth sowing a little at a time; see <a href="/plant-care/succession-planting-small-spaces/">succession sowing</a>.' ) .
 
 					$h2( 'A bigger pot, a bigger harvest' ) .
 					$list(
 						array(
-							'<strong><a href="/plants/french-beans-in-pots/">Dwarf French beans</a>:</strong> the first pods eight to ten weeks after sowing, then picking for weeks. A pot 30–45 cm (12–18 in) wide in a warm, sunny spot; no tall supports needed.',
+							'<strong><a href="/plants/green-beans-in-pots/">Dwarf French beans</a>:</strong> the first pods eight to ten weeks after sowing, then picking for weeks. A pot 30–45 cm (12–18 in) wide in a warm, sunny spot; no tall supports needed.',
 							'<strong><a href="/plants/potatoes-in-bags/">Potatoes in a bag</a>:</strong> planted in late March or April, first earlies are ready in June or July. A bag at least 30 cm (12 in) wide and deep, in full sun.',
 							'<strong><a href="/plants/peas-in-pots/">Peas</a>:</strong> easy, though they need a pot at least 45 cm (18 in) wide and some twigs to climb.',
 						)
@@ -592,7 +592,7 @@ return array(
 					) .
 
 					$h2( 'Your first step up: tomatoes and courgettes' ) .
-					$p( 'An RHS adviser suggests a couple of bush tomatoes for a balcony. A <a href="/plants/cherry-tomato/">cherry tomato</a> is a little more demanding than the crops above: it needs 20–30 litres of compost, your sunniest spot and steady daily watering, and starts cropping about 60–80 days after planting out. <a href="/plants/courgettes-in-pots/">Courgettes</a> are easy but large: one plant fills a 45 cm (18 in) pot. Try one of either in your first year, beside the quick crops.' ) .
+					$p( 'An RHS adviser suggests a couple of bush tomatoes for a balcony. A <a href="/plants/cherry-tomato/">cherry tomato</a> is a little more demanding than the crops above: it needs 20–30 litres of compost, your sunniest spot and steady daily watering, and starts cropping about 60–80 days after planting out. <a href="/plants/zucchini-in-pots/">Courgettes</a> are easy but large: one plant fills a 45 cm (18 in) pot. Try one of either in your first year, beside the quick crops.' ) .
 
 					$h2( 'Match crops to your light' ) .
 					$p( 'Beans, potatoes, spring onions, strawberries and tomatoes need full sun. Radishes, salad leaves, chives and mint manage in partial shade too. If your space is shady, start with <a href="/plant-care/what-to-grow-on-a-shady-balcony/">what to grow on a shady balcony</a>; if you have only a windowsill, see <a href="/plant-care/vegetables-on-a-windowsill/">vegetables on a windowsill</a>.' ) .

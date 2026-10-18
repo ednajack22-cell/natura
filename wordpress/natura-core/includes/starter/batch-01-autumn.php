@@ -26,7 +26,7 @@ return array(
 	'name'   => __( 'Autumn 2026', 'natura-core' ),
 	'guides' => array(
 		'plant' => array(
-			'salad-leaves-in-pots' => array(
+			'salad-greens-in-pots' => array(
 				'image_prompt' => 'A wooden trough on a sunny balcony railing filled with mixed cut-and-come-again salad leaves, red and green loose-leaf lettuce, rocket and mizuna, some cut to short stumps and regrowing. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 				'pin_prompt'   => 'Mixed baby salad leaves in a window box with kitchen scissors resting on the edge, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 				'title'   => 'How to Grow Cut-and-Come-Again Salad Leaves in Pots',

@@ -90,15 +90,15 @@ return array(
 				'content'      =>
 					$h2( 'Hearting or loose-leaf: which lettuce for a pot?' ) .
 					$p( 'Lettuces fall into two broad groups. Hearting lettuces build a dense centre and are cut whole, which can take up to about three months. There are three kinds: butterheads, with soft, mild leaves; cos (romaine), upright with a crisp midrib; and crispheads such as iceberg, which keep well in the fridge and resist bolting better. Loose-leaf lettuces make an open rosette instead, grow faster and let you pick single leaves from the same plant for weeks.' ) .
-					$p( 'Hearting types take more room, so they are usually grown in the ground, but a large container works. Compact varieties such as Little Gem suit a balcony best. This guide is about growing each lettuce to full size; for a trough of mixed baby leaves cut young and left to regrow, see <a href="/plants/salad-leaves-in-pots/">cut-and-come-again salad leaves in pots</a>.' ) .
+					$p( 'Hearting types take more room, so they are usually grown in the ground, but a large container works. Compact varieties such as Little Gem suit a balcony best. This guide is about growing each lettuce to full size; for a trough of mixed baby leaves cut young and left to regrow, see <a href="/plants/salad-greens-in-pots/">cut-and-come-again salad leaves in pots</a>.' ) .
 
 					$h2( 'Container and position' ) .
-					$p( 'Use a pot at least 30 cm (1 ft) wide and deep, or a growing bag. Fill it with peat-free multi-purpose compost; <a href="/plant-care/compost-for-containers/">our compost guide</a> explains what a container mix needs. Give each hearting plant about 30 cm (1 ft) of space and each loose-leaf plant about 15 cm (6 in). Squeezed together, hearting lettuces stay loose and never firm up.' ) .
+					$p( 'Use a pot at least 30 cm (1 ft) wide and deep, or a growing bag. Fill it with peat-free multi-purpose compost; <a href="/plant-care/potting-mix-for-containers/">our compost guide</a> explains what a container mix needs. Give each hearting plant about 30 cm (1 ft) of space and each loose-leaf plant about 15 cm (6 in). Squeezed together, hearting lettuces stay loose and never firm up.' ) .
 					$p( 'Spring and autumn plantings like a warm, sunny spot. From late spring into summer, move the pot where it gets light shade in the hottest hours: heat pushes lettuce into flower.' ) .
 
 					$h2( 'Sowing and planting' ) .
 					$p( 'Lettuce can be sown from February to October. For summer and autumn heads, sow from late March to late July. Early sowings are best started indoors: scatter seed thinly in small pots or modules of moist peat-free seed compost and keep them on a bright windowsill. Once the seedlings have a few leaves, prick them out into their own modules, then harden them off and move them to the final container from spring, under fleece or a cloche if nights are still cold.' ) .
-					$p( 'You can also sow straight into the container, 1 cm (½ in) deep, then thin in stages to the spacings above. The thinnings are good to eat. Rather than one big sowing, start a few plants every couple of weeks so they do not all heart up together; <a href="/plant-care/succession-sowing-small-spaces/">succession sowing</a> explains how to plan this in a small space.' ) .
+					$p( 'You can also sow straight into the container, 1 cm (½ in) deep, then thin in stages to the spacings above. The thinnings are good to eat. Rather than one big sowing, start a few plants every couple of weeks so they do not all heart up together; <a href="/plant-care/succession-planting-small-spaces/">succession sowing</a> explains how to plan this in a small space.' ) .
 					$p( 'In very hot weather some varieties will not germinate. Sow in the evening, water with cold water and shade the pot until the seedlings show.' ) .
 
 					$h2( 'Watering, feeding and stopping bolting' ) .
@@ -110,7 +110,7 @@ return array(
 					$p( 'Press the centre of a hearting lettuce gently. When it feels firm, cut the stem with a sharp knife, leaving a stump about 2.5 cm (1 in) tall. Do not wait for it to get bigger, as a mature lettuce soon starts to flower. Keep the stump watered and it may give you one or two smaller crops of leaves. Pick in the morning when the leaves are crisp.' ) .
 
 					$h2( 'Lettuce through the cooler months' ) .
-					$p( 'For heads in spring, the RHS suggests sowing a hardy variety such as Winter Density in September or October and keeping it in a greenhouse or cold frame, or under cloches in mild areas. The RHS rates both Little Gem and Winter Density H2, so on an open balcony lettuce needs cover in winter. Autumn and winter salads have <a href="/plants/oriental-salad-leaves-in-pots/">their own guide</a>.' ) .
+					$p( 'For heads in spring, the RHS suggests sowing a hardy variety such as Winter Density in September or October and keeping it in a greenhouse or cold frame, or under cloches in mild areas. The RHS rates both Little Gem and Winter Density H2, so on an open balcony lettuce needs cover in winter. Autumn and winter salads have <a href="/plants/asian-greens-in-pots/">their own guide</a>.' ) .
 
 					$h2( 'Pests and diseases' ) .
 					$list(
@@ -200,7 +200,7 @@ return array(
 					$p( 'You pick a few leaves at a time and the plant keeps making more, so a spring sowing crops right through summer into autumn, and a midsummer sowing stands through winter to give early leaves the next spring. With colourful stems it also looks good among flowers on a patio.' ) .
 
 					$h2( 'Choose the container and the spot' ) .
-					$p( 'Chard grows large, with leaves at least 30 cm (1 ft) tall, so pick a container at least 40 cm (16 in) wide and deep. Fill it with peat-free multi-purpose compost; for more on mixing and refreshing it, see <a href="/plant-care/compost-for-containers/">compost for containers</a>.' ) .
+					$p( 'Chard grows large, with leaves at least 30 cm (1 ft) tall, so pick a container at least 40 cm (16 in) wide and deep. Fill it with peat-free multi-purpose compost; for more on mixing and refreshing it, see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>.' ) .
 					$p( 'Stand the pot in a warm, sunny place. In summer it tolerates some light shade. Choose white-stemmed varieties if your balcony is cold and exposed, as they tend to be the hardiest and most productive.' ) .
 
 					$h2( 'Sow in spring and again in midsummer' ) .
@@ -243,7 +243,7 @@ return array(
 				'pin_prompt'   => 'Vertical photograph of a rainbow Swiss chard plant with glossy dark green, puckered leaves on bright red, yellow and orange stalks, growing in a tall grey container on a balcony, a few freshly cut stalks lying beside the pot. The plant fills the lower half of the frame; the top third is calm, softly blurred pale sky and wall, empty for a title. Warm side light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			),
 
-			'beetroot-in-pots'      => array(
+			'beets-in-pots'      => array(
 				'title'        => 'How to Grow Beetroot in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),
@@ -304,7 +304,7 @@ return array(
 					$p( 'Beetroot takes up little room, especially if you pull it young, which makes it one of the easier root crops for a balcony. Besides the familiar purple-red, there are crimson, orange, yellow, white and striped varieties; paler kinds do not stain your hands, while darker ones tend to taste richer and earthier. The leaves are edible too, so a single pot gives you two crops.' ) .
 
 					$h2( 'Pot, compost and variety' ) .
-					$p( 'Choose a container at least 40 cm (16 in) wide and deep and fill it with peat-free multi-purpose compost; see <a href="/plant-care/compost-for-containers/">compost for containers</a> for what a good mix needs. Pick a variety with round or oval roots; long, tapering ones are better left for open ground. Put the pot in full sun.' ) .
+					$p( 'Choose a container at least 40 cm (16 in) wide and deep and fill it with peat-free multi-purpose compost; see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> for what a good mix needs. Pick a variety with round or oval roots; long, tapering ones are better left for open ground. Put the pot in full sun.' ) .
 					$p( 'Early sowings are prone to bolting, when the plant flowers instead of swelling its root, so for March and April choose a bolt-resistant variety such as Boltardy.' ) .
 
 					$h2( 'Sow from March to July' ) .
@@ -317,7 +317,7 @@ return array(
 							'Water again gently if the surface looks dry.',
 						)
 					) .
-					$p( 'For a longer harvest, sow a short batch every few weeks rather than filling the pot at once; <a href="/plant-care/succession-sowing-small-spaces/">succession sowing in small spaces</a> shows how. You can also start beetroot indoors in modules, one cluster per cell 2.5 cm (1 in) deep, and plant out when the seedlings are at least 5 cm (2 in) tall, hardened off and well rooted.' ) .
+					$p( 'For a longer harvest, sow a short batch every few weeks rather than filling the pot at once; <a href="/plant-care/succession-planting-small-spaces/">succession sowing in small spaces</a> shows how. You can also start beetroot indoors in modules, one cluster per cell 2.5 cm (1 in) deep, and plant out when the seedlings are at least 5 cm (2 in) tall, hardened off and well rooted.' ) .
 
 					$h2( 'Thinning' ) .
 					$p( 'For golf-ball roots, leave the seedlings as they are. For bigger roots, thin them when they reach about 2.5 cm (1 in) tall, keeping the strongest one every 10 cm (4 in). The pulled seedlings are good in salads. If you raised clumps in modules, plant each clump whole about 15 cm (6 in) apart and do not split it.' ) .
@@ -344,7 +344,7 @@ return array(
 				'pin_prompt'   => 'Vertical photograph of a bunch of freshly pulled round beetroots with deep red skins and red-veined green leaves, held just above a terracotta pot of growing beetroot on a balcony. The pot and roots fill the lower half of the frame; the top third is calm, softly blurred pale wall and sky, empty for a title. Soft daylight. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
 			),
 
-			'spring-onions-in-pots' => array(
+			'green-onions-in-pots' => array(
 				'title'        => 'How to Grow Spring Onions in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),
@@ -406,10 +406,10 @@ return array(
 					$p( 'Spring onions are quick, tidy and happy in a container. They are varieties of the common onion (Allium cepa) or of a related species, Allium fistulosum. Some form a small round white or purple bulb, others stay straight like slim leeks. You pull them young and eat them raw or in stir-fries.' ) .
 
 					$h2( 'Pot and position' ) .
-					$p( 'A pot at least 30 cm (1 ft) wide is enough. Peat-free multi-purpose compost suits them (<a href="/plant-care/compost-for-containers/">our compost guide</a> covers the details). Stand the pot in a warm, sunny, sheltered spot near the kitchen door, so you can pull a few as you cook. Spring onions have a small root system, which is why rich compost and steady moisture matter.' ) .
+					$p( 'A pot at least 30 cm (1 ft) wide is enough. Peat-free multi-purpose compost suits them (<a href="/plant-care/potting-mix-for-containers/">our compost guide</a> covers the details). Stand the pot in a warm, sunny, sheltered spot near the kitchen door, so you can pull a few as you cook. Spring onions have a small root system, which is why rich compost and steady moisture matter.' ) .
 
 					$h2( 'Sowing' ) .
-					$p( 'Water the compost well, scatter the seed thinly over the surface and cover it with about 1 cm (½ in) of compost. Outdoor sowings can start in March and continue through summer. A pinch of seed every couple of weeks keeps them coming without a glut; the <a href="/plant-care/succession-sowing-small-spaces/">succession sowing guide</a> has a simple plan. Ishikura is the exception: one sowing crops over a long period.' ) .
+					$p( 'Water the compost well, scatter the seed thinly over the surface and cover it with about 1 cm (½ in) of compost. Outdoor sowings can start in March and continue through summer. A pinch of seed every couple of weeks keeps them coming without a glut; the <a href="/plant-care/succession-planting-small-spaces/">succession sowing guide</a> has a simple plan. Ishikura is the exception: one sowing crops over a long period.' ) .
 					$p( 'If you want an early crop, sow in modules indoors in March, harden the young plants off and move them out in spring, a few centimetres apart, watering before and after planting. Young plants are also sold in spring and early summer if you only need a few.' ) .
 
 					$h2( 'Thinning and care' ) .

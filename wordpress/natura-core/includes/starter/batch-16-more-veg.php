@@ -33,7 +33,7 @@ return array(
 	'name'   => __( 'Broad beans, runner beans and turnips', 'natura-core' ),
 	'guides' => array(
 		'plant' => array(
-			'broad-beans-in-pots'  => array(
+			'fava-beans-in-pots'  => array(
 				'title'        => 'How to Grow Broad Beans in Pots',
 				'type'         => 'vegetables',
 				'sun'          => array( 'full-sun' ),
@@ -94,11 +94,11 @@ return array(
 					$p( 'Most varieties grow tall and need a framework of stakes and string. For a container, pick a dwarf variety: these reach about 50 cm (20 in), cope better with wind and usually prop each other up.' ) .
 
 					$h2( 'Choose the container and the spot' ) .
-					$p( 'A container 40 cm (15 in) across or wider holds a small group of dwarf plants. Drainage holes are essential, and either a peat-free multi-purpose mix or a loam-based one will do: <a href="/plant-care/compost-for-containers/">compost for containers</a> compares them. Stand it where it gets sun and some shelter from wind.' ) .
+					$p( 'A container 40 cm (15 in) across or wider holds a small group of dwarf plants. Drainage holes are essential, and either a peat-free multi-purpose mix or a loam-based one will do: <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> compares them. Stand it where it gets sun and some shelter from wind.' ) .
 
 					$h2( 'Sowing broad beans' ) .
-					$p( 'From February, you can start the seeds under cover, one per small pot or module of peat-free multi-purpose compost, 5 cm (2 in) deep with the scar pointing down. This keeps them away from mice, which dig up and eat the large seeds, and from slugs; see <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a> for the basics.' ) .
-					$p( 'From March to early May you can sow straight into the final container instead: set each seed 5 cm (2 in) deep, scar down, and 15 cm (6 in) apart. Two or three batches a few weeks apart give a longer picking season; our guide to <a href="/plant-care/succession-sowing-small-spaces/">succession sowing in small spaces</a> shows how to plan them.' ) .
+					$p( 'From February, you can start the seeds under cover, one per small pot or module of peat-free multi-purpose compost, 5 cm (2 in) deep with the scar pointing down. This keeps them away from mice, which dig up and eat the large seeds, and from slugs; see <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a> for the basics.' ) .
+					$p( 'From March to early May you can sow straight into the final container instead: set each seed 5 cm (2 in) deep, scar down, and 15 cm (6 in) apart. Two or three batches a few weeks apart give a longer picking season; our guide to <a href="/plant-care/succession-planting-small-spaces/">succession sowing in small spaces</a> shows how to plan them.' ) .
 					$p( 'In a mild area or a very sheltered corner, a hardy variety can also go in during October or November, with a cloche or fleece over it in cold spells, for pods as early as May.' ) .
 
 					$h2( 'Planting out young plants' ) .
@@ -116,7 +116,7 @@ return array(
 
 					$h2( 'Picking broad beans' ) .
 					$p( 'Pods form first at the bottom of the plant and can fill up quickly, so look every few days. For shelling, pick while the pods are full but not yet large: small beans are the sweetest. Check the scar on a bean; if it has turned black, the beans are past their best. For eating whole, pick pods at about 5 cm (2 in) long.' ) .
-					$p( 'Cut the pods off with scissors or secateurs rather than pulling, so the stems are not damaged. Regular picking encourages more pods. When the plants are finished, cut them down to the base and compost the tops. Beans store nitrogen in their roots, so the RHS suggests leaving the roots in place. A container cleared in June or July can then take a sowing of <a href="/plants/beetroot-in-pots/">beetroot</a>.' ) .
+					$p( 'Cut the pods off with scissors or secateurs rather than pulling, so the stems are not damaged. Regular picking encourages more pods. When the plants are finished, cut them down to the base and compost the tops. Beans store nitrogen in their roots, so the RHS suggests leaving the roots in place. A container cleared in June or July can then take a sowing of <a href="/plants/beets-in-pots/">beetroot</a>.' ) .
 
 					$h2( 'Pests and diseases' ) .
 					$p( 'Broad beans are robust, but a few problems are common. Black aphids gather on the soft tips in spring and summer; pinching out helps, and our page on <a href="/problems/aphids-container-plants/">aphids on container plants</a> covers the rest. Slugs and snails eat young shoots (see <a href="/problems/slugs-and-snails/">slugs and snails</a>). Pea and bean weevils cut neat notches in leaf edges in spring, which looks alarming but rarely harms the crop.' ) .
@@ -202,10 +202,10 @@ return array(
 							'<strong>Climbing runner beans</strong>: a tub 75 cm (30 in) across and 45 cm (18 in) deep, heavy enough to stay upright once the plants are covered in leaves.',
 						)
 					) .
-					$p( 'Fill it with peat-free multi-purpose or loam-based compost (more on that in <a href="/plant-care/compost-for-containers/">compost for containers</a>) and choose a sunny spot out of strong wind, which also helps bees find the flowers. Put the supports in before you sow: our project <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a> shows how to build one.' ) .
+					$p( 'Fill it with peat-free multi-purpose or loam-based compost (more on that in <a href="/plant-care/potting-mix-for-containers/">compost for containers</a>) and choose a sunny spot out of strong wind, which also helps bees find the flowers. Put the supports in before you sow: our project <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a> shows how to build one.' ) .
 
 					$h2( 'Sowing runner beans' ) .
-					$p( 'Runner beans cannot take frost. For an earlier crop, or in a cold area, start them indoors from mid-April to May. Push a single seed 5 cm (2 in) down into a small pot or deep module of damp peat-free multi-purpose compost, and keep the pots somewhere bright at more than 12 °C (54 °F). The seedlings grow fast and need regular water. Our guide on <a href="/plant-care/how-to-sow-seeds-indoors/">how to sow seeds indoors</a> has more detail.' ) .
+					$p( 'Runner beans cannot take frost. For an earlier crop, or in a cold area, start them indoors from mid-April to May. Push a single seed 5 cm (2 in) down into a small pot or deep module of damp peat-free multi-purpose compost, and keep the pots somewhere bright at more than 12 °C (54 °F). The seedlings grow fast and need regular water. Our guide on <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a> has more detail.' ) .
 					$p( 'To sow outside, wait until the frosts have finished and the compost has warmed up, usually mid-May in the south of the UK and early June in the north. Sow 5 cm (2 in) deep and 15 cm (6 in) apart in the final container. With climbers, sow two seeds by each cane and pull out the smaller seedling if both germinate.' ) .
 
 					$h2( 'Planting out' ) .
@@ -221,7 +221,7 @@ return array(
 
 					$h2( 'When things go wrong' ) .
 					$p( 'Flowers that fall without making pods are the most common complaint, often early in the season, in hot weather or when the roots are dry; <a href="/problems/flowers-dropping-off/">why flowers drop off</a> goes through the causes. If birds peck the flowers, a dwarf variety such as Hestia is easy to cover with netting.' ) .
-					$p( 'Slugs and snails attack young plants (see <a href="/problems/slugs-and-snails/">slugs and snails</a>), and blackfly can build up on the shoot tips (see <a href="/problems/aphids-container-plants/">aphids</a>). In warm, dry spells, look under the leaves for <a href="/problems/red-spider-mite/">red spider mite</a>. Rust and halo blight sometimes appear but are less common.' ) .
+					$p( 'Slugs and snails attack young plants (see <a href="/problems/slugs-and-snails/">slugs and snails</a>), and blackfly can build up on the shoot tips (see <a href="/problems/aphids-container-plants/">aphids</a>). In warm, dry spells, look under the leaves for <a href="/problems/spider-mites/">red spider mite</a>. Rust and halo blight sometimes appear but are less common.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -301,11 +301,11 @@ return array(
 					$p( 'They grow best in cool weather. Spring sowings come up fast; in hot, dry spells the seed germinates less well and the plants are more likely to bolt. Because they are so quick, turnips are handy for filling a pot between two slower crops.' ) .
 
 					$h2( 'Container, compost and position' ) .
-					$p( 'Use a container at least 40 cm (16 in) wide, with drainage holes, filled with peat-free multi-purpose compost (see <a href="/plant-care/compost-for-containers/">compost for containers</a> for more). Put it somewhere warm and sunny.' ) .
+					$p( 'Use a container at least 40 cm (16 in) wide, with drainage holes, filled with peat-free multi-purpose compost (see <a href="/plant-care/potting-mix-for-containers/">compost for containers</a> for more). Put it somewhere warm and sunny.' ) .
 
 					$h2( 'Sowing turnips' ) .
 					$p( 'Water the compost first, scatter the seed thinly over the surface, cover it with 2 cm (1 in) of compost and firm it gently. When the seedlings are up, thin them to 10 cm (4 in) apart for mini roots. The thinnings make a good salad.' ) .
-					$p( 'Early varieties are sown from March to June for summer roots, and maincrops from July to mid-August for autumn. A small pinch of seed every few weeks gives a steady supply instead of a glut; see <a href="/plant-care/succession-sowing-small-spaces/">succession sowing in small spaces</a>.' ) .
+					$p( 'Early varieties are sown from March to June for summer roots, and maincrops from July to mid-August for autumn. A small pinch of seed every few weeks gives a steady supply instead of a glut; see <a href="/plant-care/succession-planting-small-spaces/">succession sowing in small spaces</a>.' ) .
 					$p( 'For the earliest roots, sow a hardy variety indoors in late winter, in modules of peat-free seed compost, 2 cm (1 in) deep: two seeds per cell, keeping the stronger one, or up to four left together as a clump. Harden them off and plant them out from March without splitting the clumps.' ) .
 
 					$h2( 'Watering and care' ) .
