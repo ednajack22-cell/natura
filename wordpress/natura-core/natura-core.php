@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Natura Core
  * Description: Content types for Natura: plant guides, plant problem guides, Plant Care topics, and buying guides, with their quick facts, causes, shopping lists, FAQ, and sources. Keeps content safe when the theme changes.
- * Version: 0.13.0
+ * Version: 0.14.0
  * Requires at least: 6.5
  * Requires PHP: 8.1
  * Author: Natura
@@ -14,7 +14,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'NATURA_CORE_VERSION', '0.13.0' );
+define( 'NATURA_CORE_VERSION', '0.14.0' );
 define( 'NATURA_CORE_FILE', __FILE__ );
 define( 'NATURA_CORE_DIR', plugin_dir_path( __FILE__ ) );
 define( 'NATURA_CORE_URL', plugin_dir_url( __FILE__ ) );
