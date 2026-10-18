@@ -125,3 +125,42 @@ The extracted text of *Backyard Harvest* is in the session scratchpad:
 `book/p3/clean.txt` (part 3). Use `grep -n` to find a topic. Page numbers
 are in `BACKYARD-HARVEST.md`. Never copy its sentences.
 
+
+## No duplicate content (read before writing)
+
+Two pages that answer the same question compete in Google and one of them
+is dropped. Each page on Natura answers **one question that no other page
+answers**.
+
+1. Before writing, read every existing guide close to your topic (grep the
+   batch files in `natura-core/includes/starter/` and
+   `natura-core/includes/demo-content.php`). Where a topic is covered
+   elsewhere, write one sentence and link to that page
+   (`/plants/slug/`, `/problems/slug/`, `/plant-care/slug/`,
+   `/diy-projects/slug/`, `/gear/slug/`); do not explain it again.
+2. Never reuse a title, an excerpt, a FAQ question, a key point or a
+   paragraph from another guide, even reworded. FAQ questions must be
+   unique across the whole site.
+3. General container advice (drainage, peat-free compost, watering in hot
+   weather) gets one short sentence and a link to the guide that owns it,
+   not a section.
+4. `wordpress/tools/check-duplicates.php` must report nothing for your
+   file.
+
+Who owns which question (pages that sit close together):
+
+| Page | Owns | Does not cover (link instead) |
+| --- | --- | --- |
+| salad-leaves-in-pots | cut-and-come-again mixed leaves | whole lettuces, winter leaves |
+| lettuce-in-pots | whole hearting and loose-leaf lettuces grown to full size | cut-and-come-again |
+| oriental-salad-leaves-in-pots | winter and autumn salads in pots (mizuna, mustards, winter lettuce) | summer cut-and-come-again |
+| spinach-in-pots | spinach only | other leaves |
+| microgreens-on-a-windowsill | seedlings grown in compost on a tray, cut young | sprouts in a jar |
+| grow-sprouting-seeds-in-a-jar (DIY) | seeds sprouted in water in a jar, no compost | microgreens |
+| how-to-feed-container-plants (post) | how and when to feed pots | diagnosing deficiencies |
+| deficiency problem guides | recognising one deficiency and fixing it | general feeding routine |
+| compost-for-containers (post) | what pots need from compost, mixing, refreshing and reusing it | which bag to buy |
+| best-compost-for-pots (gear) | choosing and buying a bag of compost | how to refresh or reuse |
+| how-to-sow-seeds-indoors (post) | sowing method | leggy-seedlings, damping-off-seedlings (problems) |
+| how-to-water... posts | watering routine | holiday watering (its own post) |
+| nasturtiums-in-pots, calendula-in-pots | each flower | no separate edible-flowers post |

@@ -574,20 +574,20 @@ function natura_core_demo_articles(): array {
 		'compost-for-containers'              => array(
 			'image_prompt' => 'An open bag of peat-free container compost beside empty terracotta pots and a trowel on a balcony floor, dark crumbly compost spilling slightly. Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.',
 			'pin_prompt'   => 'Close view of crumbly dark peat-free compost filling a terracotta pot, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.',
-			'title'   => 'Which Compost Should You Use in Pots?',
+			'title'   => 'How to Fill, Refresh and Reuse Compost in Pots',
 			'image'     => 'demo/article-compost.jpg',
 			'image_alt' => 'Hands filling a terracotta pot with dark peat-free compost on a potting bench',
-			'excerpt' => 'Use fresh, peat-free container compost, never garden soil. Multipurpose compost suits vegetables, herbs, and summer plants; a soil-based peat-free mix suits shrubs and fruit that stay in the same pot for years.',
+			'excerpt' => 'Fill pots with fresh peat-free potting compost, never garden soil, and use a bag within the season you buy it. Each spring, repot long-term plants or replace the top layer of compost; old compost can bulk out large planters or go on the compost heap.',
 			'topic'   => 'soil-feeding',
 			'pin'     => 'demo/pin-compost.jpg',
 			'lists'   => array(
 				'products' => array(
-					array( 'name' => 'Peat-free multipurpose compost', 'badge' => 'For vegetables and herbs', 'note' => 'Light and open; refresh it every year.', 'url' => 'https://www.example.com/compost', 'image' => 'demo/product-compost.jpg' ),
-					array( 'name' => 'Horticultural grit', 'badge' => '', 'note' => 'Mix in about a fifth for thyme, rosemary, and sage.', 'url' => 'https://www.example.com/grit' ),
+					array( 'name' => 'Peat-free multipurpose compost', 'badge' => 'For vegetables and herbs', 'note' => 'Buy what you will use this season: it is best fresh.', 'url' => 'https://www.example.com/compost', 'image' => 'demo/product-compost.jpg' ),
+					array( 'name' => 'Slow-release fertiliser', 'badge' => '', 'note' => 'Mixed into fresh compost when you top-dress or repot.', 'url' => 'https://www.example.com/fertiliser' ),
 				),
 				'faq'     => array(
-					array( 'question' => 'Can I reuse last year\'s compost?', 'answer' => 'Not for hungry crops like tomatoes: its food is used up and its structure has broken down. Mix it into garden beds or a compost heap, and start pots with fresh compost.' ),
-					array( 'question' => 'Do I need to add grit?', 'answer' => 'For Mediterranean herbs such as thyme and rosemary, yes: mixing in about a fifth grit helps the compost drain. Most vegetables do not need it.' ),
+					array( 'question' => 'Can I reuse last year\'s compost?', 'answer' => 'Not for hungry crops like tomatoes: its food is used up and its structure has broken down. Use it to bulk out the bottom of a large planter, add it to a compost heap, or dig it into beds as a soil improver.' ),
+					array( 'question' => 'How long does an opened bag of compost keep?', 'answer' => 'The RHS advises using peat-free compost within the growing season you bought it. Kept longer, it starts to break down and plants grow less well in it.' ),
 				),
 				'sources' => array(
 					array( 'title' => 'RHS — Peat-free compost choices', 'url' => 'https://www.rhs.org.uk/soil-composts-mulches/peat-free' ),
@@ -597,17 +597,22 @@ function natura_core_demo_articles(): array {
 			'content' =>
 				$h2( 'Why not garden soil?' ) .
 				$p( 'In a pot, garden soil packs down into a dense block that drains poorly and holds little air. It can also bring in weed seeds, pests, and diseases. Container compost is made to stay open and drain freely while holding water.' ) .
-				$h2( 'Multipurpose or soil-based?' ) .
+				$p( 'Not sure which bag to buy? Our <a href="/gear/best-compost-for-pots/">compost buying guide</a> compares the types.' ) .
+				$h2( 'Filling a large container' ) .
+				$p( 'Big planters swallow a lot of compost. If you make your own garden compost, you can mix some in to reduce how much bagged compost you need. You can also stir a slow-release fertiliser into the potting compost so the plants get a steady supply of nutrients.' ) .
+				$h2( 'Use it while it is fresh' ) .
+				$p( 'Peat-free compost is at its best in the season you buy it. Left in the bag for longer, it begins to break down, so buy what you need for the year rather than stocking up.' ) .
+				$h2( 'Refresh compost every year' ) .
+				$p( 'Plants that live in containers for years benefit from repotting every few years, either into a bigger pot or back into the same one after the compost is refreshed. In the years between, and in pots too big to move, scrape away the top few centimetres each spring and replace them with fresh compost mixed with a slow-release feed.' ) .
+				$p( 'Once the fresh compost\'s own food runs out, the plants depend on you: see <a href="/plant-care/how-to-feed-container-plants/">how to feed container plants</a>.' ) .
+				$h2( 'What to do with old compost' ) .
 				$list(
 					array(
-						'<strong>Peat-free multipurpose compost</strong> is light and suits plants that spend one season in their pot: vegetables, herbs, and summer flowers.',
-						'<strong>Peat-free soil-based compost</strong>, such as a peat-free John Innes No. 3, is heavier and holds food longer. Use it for shrubs, fruit bushes, and anything that stays in the same pot for several years. Traditional John Innes contains peat, so check the bag says peat-free.',
+						'Fill the bottom of a large planter with it, under a layer of fresh compost.',
+						'Add it to your compost heap or bin.',
+						'Dig it into beds and borders as a soil improver.',
 					)
-				) .
-				$h2( 'When to start feeding' ) .
-				$p( 'Fresh compost contains enough food for the first few weeks. After that, container plants rely on you: start a liquid feed at the dilution given on the label, more often for hungry crops such as tomatoes. Plants in peat-free compost may need feeding a little more often.' ) .
-				$h2( 'Refresh compost every year' ) .
-				$p( 'Repot plants that stay in their containers each spring, or, in pots too big to move, scrape away the top few centimetres and replace them with fresh compost mixed with a slow-release feed.' ),
+				),
 		),
 	);
 }
@@ -636,9 +641,10 @@ function natura_core_demo_gear(): array {
 			'pin'       => 'demo/pin-compost.jpg',
 			'lists'     => array(
 				'criteria' => array(
-					array( 'name' => 'Peat-free on the bag', 'why' => 'Traditional John Innes and many older mixes contain peat. Check that the bag says peat-free.' ),
+					array( 'name' => 'Peat-free on the bag', 'why' => 'Traditional John Innes and many older mixes contain peat. If the bag does not say peat-free, it most likely is not: words such as "organic" or "environmentally friendly" do not mean peat-free.' ),
 					array( 'name' => 'How long the plant stays in the pot', 'why' => 'One season (vegetables, herbs, summer flowers): a light multipurpose compost. Several years (shrubs, fruit bushes): a heavier soil-based compost that holds food longer.' ),
-					array( 'name' => 'Fresh, not last year\'s', 'why' => 'Used compost has lost its food and its open structure. Hungry crops such as tomatoes need fresh compost.' ),
+					array( 'name' => 'What the bag says it is for', 'why' => 'The label tells you whether a mix is meant for sowing seeds or for acid-loving plants. Choose the one that matches what you grow.' ),
+					array( 'name' => 'How fresh it is', 'why' => 'Peat-free compost is best used within the season you buy it. Some brands print the production date on the bag, so you can check.' ),
 				),
 				'picks'    => array(
 					array(
@@ -666,10 +672,26 @@ function natura_core_demo_gear(): array {
 						'cons'     => 'Not needed for most vegetables',
 						'specs'    => "Weight: Heavy\nBest for: Mediterranean herbs\nFeeding: None (mix about a fifth into compost)",
 					),
+					array(
+						'name'     => 'Peat-free seed compost',
+						'best_for' => 'Best for sowing seeds',
+						'verdict'  => 'A fine, free-draining mix made for germinating seeds. It holds only a little food on purpose, because rich compost can damage seedlings, so move seedlings on into multipurpose compost once they grow.',
+						'pros'     => "Fine texture for small seeds\nLow in nutrients, which suits seedlings",
+						'cons'     => 'Too poor in food for growing plants on',
+						'specs'    => "Best for: Seed sowing\nFeeding: Very little",
+					),
+					array(
+						'name'     => 'Peat-free ericaceous compost',
+						'best_for' => 'Best for blueberries',
+						'verdict'  => 'A lower-pH mix for acid-loving plants such as blueberries. Peat-free versions of good quality are available; the choice is smaller than for multipurpose compost.',
+						'pros'     => 'Gives acid-loving plants the conditions they need',
+						'cons'     => 'Not needed for most fruit, vegetables and herbs',
+						'specs'    => "Best for: Acid-loving plants\nFeeding: Follow the label",
+					),
 				),
 				'faq'      => array(
-					array( 'question' => 'Can I use garden soil in pots?', 'answer' => 'No. In a pot, garden soil packs down into a dense block that drains poorly and holds little air, and it can bring in weed seeds, pests, and diseases.' ),
-					array( 'question' => 'Can I reuse last year\'s compost?', 'answer' => 'Not for hungry crops like tomatoes: its food is used up and its structure has broken down. Start pots with fresh compost.' ),
+					array( 'question' => 'Is organic compost always peat-free?', 'answer' => 'No. Words such as "organic" or "environmentally friendly" do not mean a compost is peat-free. Look for "peat-free" printed on the bag.' ),
+					array( 'question' => 'Which compost do blueberries need in a pot?', 'answer' => 'An ericaceous compost, which is more acid than ordinary mixes. Choose a peat-free one.' ),
 				),
 				'sources'  => array(
 					array( 'title' => 'RHS — Peat-free compost choices', 'url' => 'https://www.rhs.org.uk/soil-composts-mulches/peat-free' ),
@@ -679,8 +701,8 @@ function natura_core_demo_gear(): array {
 			'content'   =>
 				$h2( 'How we chose' ) .
 				$p( 'This guide compares types of compost, not brands. Each pick and each line comes from RHS advice on composts and container growing, listed in the sources. We have not run our own trial of these products.' ) .
-				$h2( 'When to start feeding' ) .
-				$p( 'Fresh compost contains enough food for the first few weeks. After that, container plants rely on you: start a liquid feed at the dilution given on the label, more often for hungry crops such as tomatoes.' ),
+				$h2( 'After you buy' ) .
+				$p( 'How to fill pots, refresh the compost each spring and reuse old compost is covered in <a href="/plant-care/compost-for-containers/">how to fill, refresh and reuse compost in pots</a>.' ),
 		),
 	);
 }
