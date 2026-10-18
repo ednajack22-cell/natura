@@ -111,3 +111,17 @@ lemon-balm-in-pots, sweet-peppers-in-pots, aubergines-in-pots,
 cucumbers-in-pots, kale-in-pots, pak-choi-in-pots, garlic-in-pots,
 carrots-in-pots, currants-in-pots, gooseberries-in-pots,
 apple-tree-in-pot, nasturtiums-in-pots.
+Second wave (you may link to them too): rocket-in-pots, spinach-in-pots,
+oriental-salad-leaves-in-pots, leeks-in-pots, microgreens-on-a-windowsill,
+broad-beans-in-pots, runner-beans-in-pots, turnips-in-pots,
+cherry-tree-in-pot, peach-tree-in-pot, pear-tree-in-pot, plum-tree-in-pot,
+grapevine-in-pot, french-tarragon-in-pots, chervil-in-pots,
+lemon-verbena-in-pot, calendula-in-pots, sorrel-in-pots.
+
+## Book text
+
+The extracted text of *Backyard Harvest* is in the session scratchpad:
+`book/clean.txt` (part 1), `book/p2clean.txt` (part 2) and
+`book/p3/clean.txt` (part 3). Use `grep -n` to find a topic. Page numbers
+are in `BACKYARD-HARVEST.md`. Never copy its sentences.
+
