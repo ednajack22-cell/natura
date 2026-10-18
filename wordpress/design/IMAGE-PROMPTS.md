@@ -152,6 +152,216 @@ A young lemon tree about 1 m tall with glossy dark green leaves, a few white fra
 A potted lemon tree with ripe yellow lemons and white blossoms standing in a bright conservatory by a window in winter light, the pot on a tray of grey gravel. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
 ```
 
+### How to Grow Thyme in Pots
+
+**Photo principale :**
+
+```
+A compact, bushy common thyme plant with tiny, narrow, grey-green leaves on thin woody stems, dotted with small pale pink flowers, growing in a 15 cm terracotta pot topped with fine grey grit, on a sunny balcony ledge in warm summer light, a creeping thyme spilling over the edge of a second small pot beside it. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A small terracotta pot of bushy thyme with tiny grey-green leaves and pale pink flowers on a sunny patio step, a few freshly snipped sprigs lying beside the pot, photographed vertically from slightly above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Rosemary in Pots
+
+**Photo principale :**
+
+```
+An upright rosemary shrub about 60 cm tall with dense, dark green, needle-like leaves that are silvery underneath and a scattering of small pale blue flowers, growing in a 35 cm frost-resistant terracotta pot on a sunny patio against a warm brick wall in spring. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A trailing rosemary with arching stems of dark green needle-like leaves and small pale blue flowers spilling over a tall grey pot on a sunny balcony, a pair of secateurs and a few cut sprigs on the floor beside it, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Sage in Pots
+
+**Photo principale :**
+
+```
+A bushy culinary sage plant with soft, oblong, grey-green leaves with a finely wrinkled texture, beside a smaller purple sage with dusky purple-grey leaves, both in 30 cm terracotta pots on a sheltered, sunny balcony in late spring, short spikes of violet-blue flowers just opening. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A large terracotta pot of grey-green culinary sage with soft oblong leaves on a sunny patio table, a small bunch of picked sage leaves tied with twine beside it, photographed vertically against a pale wall. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Coriander in Pots
+
+**Photo principale :**
+
+```
+A rectangular trough of young coriander plants with bright green, flat, lobed lower leaves and a few finer feathery upper leaves, growing densely in dark peat-free compost on a balcony in dappled midday shade, one plant just showing a small umbel of tiny white flowers, summer daylight. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A pot of leafy coriander with bright green, flat, lobed leaves on a bright kitchen windowsill, a few cut stems lying on a wooden board in front, photographed vertically with soft daylight from the window. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Lettuce in Pots
+
+**Photo principale :**
+
+```
+Three mature lettuces in a 40 cm wide terracotta trough on a sunny balcony in early summer: a compact Little Gem cos lettuce with an upright, tight, mid-green heart, a frilly red-edged Lollo Rossa, and a lime-green oak-leaved Salad Bowl lettuce with deeply lobed leaves. The compost is dark and moist, a watering can and a metal railing are softly blurred behind, morning light from the side. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a single firm cos lettuce, upright with crisp mid-green leaves and a tight heart, growing in a 30 cm round terracotta pot on a wooden balcony floor, with a small kitchen knife resting beside the pot. The pot sits in the lower half of the frame; the top third is a calm, softly blurred pale wall, empty for a title. Soft morning light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Swiss Chard in Pots
+
+**Photo principale :**
+
+```
+A large Swiss chard plant of the variety Bright Lights growing in a 45 cm wide charcoal-grey container on a sunny patio in late summer. Broad, glossy, slightly puckered dark green leaves rise on thick upright stalks in vivid red, yellow, orange and pink; a few outer stalks have been cut cleanly at the base. The compost is dark and moist, brick paving and a wooden bench are softly blurred behind, warm afternoon sunlight. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a rainbow Swiss chard plant with glossy dark green, puckered leaves on bright red, yellow and orange stalks, growing in a tall grey container on a balcony, a few freshly cut stalks lying beside the pot. The plant fills the lower half of the frame; the top third is calm, softly blurred pale sky and wall, empty for a title. Warm side light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Beetroot in Pots
+
+**Photo principale :**
+
+```
+A wide 45 cm terracotta pot of beetroot on a sunny balcony in midsummer, with upright, glossy dark green leaves veined with deep red on red stalks, and the round, dark purple-red shoulders of golf-ball-sized roots showing above the dark compost. Two freshly pulled beetroots with leaves lie on the wooden floor beside the pot. Bright morning sunlight, railing softly blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a bunch of freshly pulled round beetroots with deep red skins and red-veined green leaves, held just above a terracotta pot of growing beetroot on a balcony. The pot and roots fill the lower half of the frame; the top third is calm, softly blurred pale wall and sky, empty for a title. Soft daylight. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Spring Onions in Pots
+
+**Photo principale :**
+
+```
+A 30 cm round glazed blue pot packed with a dense clump of spring onions on a sunny, sheltered balcony in early summer. The plants have straight, hollow, upright blue-green leaves about 15 cm tall above slim white stems; a few have been pulled and lie on the edge of the pot, showing small white bulbs and fine white roots. Dark moist compost, wooden decking and a railing softly blurred behind, bright morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a small bunch of freshly pulled spring onions with slim white stems, small white bulbs and hollow green leaves, resting on the rim of a pot of growing spring onions on a balcony. The pot fills the lower half of the frame; the top third is calm, softly blurred pale wall, empty for a title. Soft daylight. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Courgettes in Pots
+
+**Photo principale :**
+
+```
+A compact bush courgette plant growing in a wide 50 cm charcoal-grey plastic container on a sunny patio of pale stone slabs, in midsummer. Very large, deeply lobed, dark green leaves with silvery mottling and prickly hollow stalks rise from a short central crown. Two bright yellow trumpet-shaped flowers are open, and three slim, glossy dark green courgettes about 12 cm long sit low among the stalks near the compost. A garden wall and a watering can softly blurred in the background, warm morning sunlight. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a compact courgette plant in a wide grey container on a sunny patio, its big lobed dark green leaves spreading over the rim, a yellow trumpet flower open and slim green courgettes visible near the base. The container and plant fill the lower two thirds; the top third is a calm, softly blurred pale wall with empty space. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow French Beans in Pots
+
+**Photo principale :**
+
+```
+A round 40 cm terracotta pot on a sunny balcony floor holding a group of bushy dwarf French bean plants about 40 cm tall, in midsummer. Each leaf is made of three broad, pointed, mid-green leaflets. Small white flowers are visible, and slender, smooth, pencil-thin green pods about 15 cm long hang in bunches, some spilling over the rim of the pot. No canes. A metal balcony railing and a few other pots softly blurred behind, bright afternoon light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of dwarf French bean plants in a terracotta pot on a sunny balcony, slim green pods hanging over the rim among three-part leaves and small white flowers. The pot fills the lower two thirds of the frame; the top third is a soft, out-of-focus pale sky and railing with empty space. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Peas in Pots
+
+**Photo principale :**
+
+```
+A wide rectangular wooden trough on a sunny balcony in early summer, planted with a short row of dwarf sugarsnap pea plants about 60 cm tall climbing a cluster of twiggy hazel pea sticks. Pale blue-green paired oval leaflets, large leafy stipules and fine curling tendrils gripping the twigs. Small white butterfly-shaped flowers and several plump, rounded, bright green pods about 7 cm long hanging low on the plants. A balcony railing and soft city background blurred, morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of dwarf sugarsnap peas climbing twiggy sticks in a wooden trough on a sunny balcony, white flowers and plump green pods hanging among blue-green leaves and curling tendrils. The trough and plants fill the lower two thirds; the top third is a calm, softly blurred pale sky with empty space. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Potatoes in Bags and Sacks
+
+**Photo principale :**
+
+```
+A tall dark green fabric potato grow bag about 40 cm wide standing on a sunny patio in early summer, its sides rolled to just below the rim and filled with dark peat-free compost. A bushy potato plant grows from it: upright green stems with matt, mid-green compound leaves made of oval leaflets, and a few clusters of small white star-shaped flowers with yellow centres. Beside the bag, a handful of freshly harvested small cream-skinned new potatoes rest on the compost-dusted paving. Soft background of a brick wall, warm morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a potato plant in flower growing in a green fabric grow bag on a sunny patio, with small white star-shaped flowers and a few freshly dug new potatoes beside the bag. The bag and plant fill the lower two thirds of the frame; the top third is a calm, softly blurred brick wall with empty space. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Blueberries in Pots
+
+**Photo principale :**
+
+```
+A compact blueberry bush about 70 cm tall growing in a round, dark grey glazed pot about 45 cm across on a sunny balcony with a wooden deck, in late July. Small oval, smooth-edged green leaves on slender woody stems; clusters of round berries at different stages, some still green, some pinkish, most dusky blue with a pale powdery bloom. A water butt is softly blurred in the background. Late-afternoon sunlight, the berry clusters in sharp focus. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a compact blueberry bush in a dark grey glazed pot on a sunny balcony in summer, with small oval green leaves and clusters of dusky blue berries with a pale bloom, a few still green, filling the lower two thirds of the frame. The top third is calm, softly blurred pale sky and railing. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Raspberries in Pots
+
+**Photo principale :**
+
+```
+A compact raspberry plant about 80 cm tall growing in a large charcoal-grey plastic pot about 40 cm wide on a sunny, sheltered balcony in July. Upright green canes are tied to two bamboo canes with soft twine. The leaves are compound, with three to five oval, toothed leaflets, mid-green on top and paler underneath. Ripe, plump red raspberries and a few unripe pale green ones hang from short side-branches. A small shallow bowl holds freshly picked berries on the decking beside the pot. Morning sun, the fruit in sharp focus. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a compact raspberry plant in a large pot on a sunny balcony in summer, its canes tied to bamboo supports, with toothed compound leaves and ripe red raspberries in the lower two thirds of the frame. The top third is calm, softly blurred pale wall and sky. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow a Fig Tree in a Pot
+
+**Photo principale :**
+
+```
+A small bush-trained fig tree about 1.2 m tall in a large, frost-proof terracotta pot about 45 cm wide, standing in front of a warm, south-facing brick wall on a sunny patio in late August. Large, deeply lobed, hand-shaped leaves with three to five rounded lobes, rough and mid-green; several pear-shaped figs, some soft and purple-brown and hanging limply, others still green. A sharp close focus on a ripe fig with a tiny drop of liquid at its base. Warm late-afternoon light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a small fig tree in a terracotta pot against a sunny brick wall in late summer, with large lobed, hand-shaped leaves and ripe purple-brown, pear-shaped figs in the lower two thirds of the frame. The top third is calm, softly blurred warm brick wall. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
 ### How to Grow Oregano and Marjoram in Pots
 
 **Photo principale :**
@@ -362,6 +572,258 @@ A young dwarf apple tree about 1.5 m tall, grafted on a dwarfing rootstock, grow
 Vertical photograph of a small dwarf apple tree in a large terracotta pot on a sunny stone patio in early autumn, with a staked trunk, oval toothed green leaves and several ripe red-flushed apples in the lower two thirds of the frame. The top third is calm, softly blurred pale wall and warm sky. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
 ```
 
+### How to Grow Rocket in Pots
+
+**Photo principale :**
+
+```
+A rectangular terracotta-coloured trough of young salad rocket on a sunny balcony ledge in late spring. The plants are about 12 cm tall, with bright green, lobed leaves that are wider and rounded at the tips, a few leaves already picked from each plant. A pair of kitchen scissors rests on the trough edge; a metal railing and pale city buildings are softly blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a round grey pot of wild rocket on a balcony table, the plant a loose clump of long, narrow, deeply cut dark green leaves with a few small pale yellow four-petalled flowers. The pot sits in the lower half of the frame; the top third is calm, softly blurred pale wall, empty for a title. Soft summer daylight. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Spinach in Pots
+
+**Photo principale :**
+
+```
+A wide, deep charcoal-grey pot of young spinach on a lightly shaded patio in spring. The plants are compact rosettes of smooth, glossy, dark green oval leaves on short stalks, about 15 cm tall, evenly spaced in dark moist compost, with a few outer leaves freshly picked. A wooden fence and green foliage are softly blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a hand-sized bunch of fresh baby spinach leaves, smooth and dark green, lying in a small wooden bowl beside a pot of growing spinach rosettes on a balcony floor. The pot and bowl sit in the lower half of the frame; the top third is calm, softly blurred pale wall, empty for a title. Soft morning light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Winter and Oriental Salad Leaves in Pots
+
+**Photo principale :**
+
+```
+A wide wooden trough of winter salad leaves inside a small clear-lidded cold frame on a city balcony in late autumn. Visible plants: feathery, finely cut bright green mizuna rosettes, frilly purple-red mustard leaves, and small rosettes of dark green lamb's lettuce, all about 10–15 cm tall in moist dark compost. The lid is propped open; low, soft autumn sunlight and a blurred railing behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a terracotta pot of mixed winter salad leaves, feathery green mizuna and frilly purple mustard, on a sunny indoor windowsill on a grey winter day, a light frost visible on the glass. The pot sits in the lower half of the frame; the top third is calm, softly blurred pale window light, empty for a title. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Leeks in Pots
+
+**Photo principale :**
+
+```
+A tall, deep dark-green ceramic pot about 40 cm wide on a sunny patio in early winter, holding five mature leeks with straight, thick white shanks rising into fans of flat, blue-green, strap-shaped leaves about 60 cm tall. A light frost on the leaf tips; one leek lies freshly pulled on the paving beside the pot, roots and white stem visible. Brick wall softly blurred behind, low winter sun. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a tall pot of leeks on a balcony in late autumn, the plants showing upright white stems and fans of flat blue-green leaves. The pot sits in the lower half of the frame; the top third is calm, softly blurred pale sky, empty for a title. Cool, soft daylight. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Microgreens on a Windowsill
+
+**Photo principale :**
+
+```
+Three shallow black seed trays of dense microgreens on a bright white kitchen windowsill: purple-stemmed radish seedlings with rounded green seed leaves, dark red beetroot seedlings, and blue-green kale seedlings just opening their first small true leaves, all about 5–8 cm tall in fine dark compost. A pair of small scissors and a few cut seedlings lie in front. Soft daylight from the window. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a single shallow tray of thick, upright radish microgreens with pink stems and bright green rounded seed leaves on a sunny windowsill, a small label pushed in at one edge. The tray sits in the lower half of the frame; the top third is calm, softly blurred bright window, empty for a title. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Broad Beans in Pots
+
+**Photo principale :**
+
+```
+A wide, round, dark grey container about 45 cm across on a sunny patio in early summer, holding a group of compact dwarf broad bean plants about 45 cm tall. The plants have upright, square-sectioned stems with grey-green, oval, slightly fleshy leaflets in pairs, a few white flowers with black blotches still open near the top, and short, fat, glossy green pods held upright along the lower stems. The soft growing tips have been pinched out. Paving and a brick wall softly blurred behind, bright morning sun. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of dwarf broad bean plants in a dark grey container on a sunny patio, with grey-green paired leaflets, white-and-black flowers and plump green pods along the stems. The container sits in the lower half of the frame; the top third is a calm, softly blurred pale wall and sky, empty for a title. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Runner Beans in Pots
+
+**Photo principale :**
+
+```
+A large, heavy, square dark green tub about 75 cm across on a sunny patio in late summer, with a wigwam of tall bamboo canes covered in climbing runner bean plants. The vines twine around the canes, with large, heart-shaped, three-part mid-green leaves, clusters of bright scarlet flowers, and long, slightly rough, flat green pods about 20 cm long hanging at eye level. A brick wall and a few pots softly blurred behind, warm afternoon sun. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of climbing runner beans on a tall cane wigwam in a large dark green tub on a sunny patio, with scarlet flower clusters, broad three-part leaves and long flat green pods hanging down. The wigwam rises through the lower two thirds of the frame; the top third is calm, softly blurred pale sky, empty for a title. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Turnips in Pots
+
+**Photo principale :**
+
+```
+A round, light grey container about 40 cm wide on a sunny balcony in late spring, densely planted with young turnips. Upright rosettes of rough, lobed, bright green leaves about 20 cm tall rise from the compost, and the tops of small, smooth white roots with purple shoulders sit half above the surface. A few freshly pulled golf-ball-sized white and purple turnips, leaves attached, lie beside the pot on wooden decking. Metal railing softly blurred behind, clear morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of young turnips in a light grey container on a sunny balcony, with rough, lobed, bright green leaves and small round white roots with purple tops showing at the compost surface, a few pulled turnips beside the pot. The pot fills the lower half of the frame; the top third is calm, softly blurred pale sky, empty for a title. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow a Cherry Tree in a Pot
+
+**Photo principale :**
+
+```
+A compact cherry tree about 1.8 m tall growing in a large terracotta pot 50 cm across on a sunny south-facing patio in early July. The tree has a short staked trunk, glossy oval leaves with finely serrated edges, and clusters of shiny dark red cherries hanging in pairs on long thin stalks. A light plastic-free net is folded on the paving beside the pot. Warm morning sunlight, cherries in sharp focus, a brick wall softly blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a small cherry tree in a large terracotta pot on a sunny brick patio in midsummer, glossy serrated oval leaves and bunches of ripe dark red cherries on long stalks filling the lower two thirds of the frame. The top third is calm, softly blurred pale sky and wall. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow a Peach or Nectarine Tree in a Pot
+
+**Photo principale :**
+
+```
+A dwarf patio peach tree about 1.2 m tall in a large glazed terracotta pot 45 cm across on a warm, sheltered stone patio against a sunny wall in early August. Long, narrow, glossy lance-shaped leaves crowd the short branches, and several round peaches with velvety yellow skin heavily flushed red sit close to the stems. Golden late-afternoon light, the fruit in sharp focus, the wall softly blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a compact peach tree in a large terracotta pot against a warm sunny wall in summer, long narrow green leaves and ripe red-flushed velvety peaches in the lower two thirds of the frame. The top third is calm, softly blurred warm wall and sky. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow a Pear Tree in a Pot
+
+**Photo principale :**
+
+```
+A slender, upright dwarf pear tree about 1.8 m tall in a heavy frost-proof terracotta pot 50 cm across, standing on a sunny west-facing patio in early September. The tree has glossy oval mid-green leaves with finely toothed edges and several plump, classic pear-shaped green fruits with a light red flush hanging close to the stem. A wooden stake and tie support the trunk. Soft evening sunlight, the pears in sharp focus, a garden fence blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a narrow columnar pear tree in a large terracotta pot on a sunny patio in late summer, glossy oval leaves and green pears with a red blush in the lower two thirds of the frame. The top third is calm, softly blurred sky and greenery. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow a Plum Tree in a Pot
+
+**Photo principale :**
+
+```
+A compact plum tree about 1.8 m tall in a large terracotta pot 50 cm across on a sunny, sheltered patio in early August, an open goblet of three or four branches above a short trunk. Oval, finely toothed mid-green leaves, and branches hung with oval reddish-purple plums with a faint dusty bloom on the skin. Warm afternoon light, the plums in sharp focus, a stone wall softly blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a small plum tree in a large terracotta pot on a sunny patio in late summer, oval toothed leaves and clusters of ripe reddish-purple plums with a soft bloom in the lower two thirds of the frame. The top third is calm, softly blurred pale wall and sky. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow a Grapevine in a Pot
+
+**Photo principale :**
+
+```
+A standard-trained grapevine in a heavy terracotta pot 45 cm across on a sunny patio in late September: a straight clear woody trunk about 1 m tall tied to a bamboo cane, topped by a rounded head of short spurs with large, palmately lobed, toothed green leaves just starting to turn yellow. Five or six bunches of ripe reddish-black grapes hang below the head. Warm low autumn sun, the bunches in sharp focus, a house wall softly blurred behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Vertical photograph of a lollipop-shaped standard grapevine in a large terracotta pot on a sunny patio in autumn, clear woody trunk, lobed green leaves and hanging bunches of dark grapes in the lower two thirds of the frame. The top third is calm, softly blurred warm wall and sky. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow French Tarragon in Pots
+
+**Photo principale :**
+
+```
+A French tarragon plant with slender upright stems and narrow, smooth, lance-shaped glossy green leaves, a soft feathery look, growing in a 20 cm terracotta pot topped with grit on a sunny, sheltered balcony beside a brick wall, summer morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A pot of French tarragon with narrow, smooth, bright green leaves on upright stems standing on a small wooden patio table, a few cut shoot tips and a small dish of chopped leaves beside it, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Chervil in Pots
+
+**Photo principale :**
+
+```
+A 25 cm grey pot of young chervil with soft, bright green, finely divided fern-like leaves, similar to flat-leaf parsley but lacier, growing in light shade on a balcony floor next to a north-facing wall, a few tiny white flower umbels just starting on one stem. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Lush chervil with delicate, lacy, bright green leaves in a pale ceramic pot on a shaded patio table, a pair of kitchen scissors and a small bowl of freshly cut sprigs beside it, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Lemon Verbena in a Pot
+
+**Photo principale :**
+
+```
+A bushy lemon verbena shrub about 60 cm tall with narrow, pointed, bright green leaves held in groups of three along the stems and loose sprays of tiny white to pale lilac flowers at the tips, growing in a large terracotta pot on a sunny, sheltered patio, late summer light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A lemon verbena plant with long, narrow, pointed bright green leaves in a terracotta pot on a sunny balcony, a glass teapot with a few fresh leaves infusing on a small table beside it, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Calendula (Pot Marigold) in Pots
+
+**Photo principale :**
+
+```
+A terracotta trough of pot marigolds, Calendula officinalis, with bright orange and soft yellow double daisy-like flowers above oblong, slightly hairy, pale green leaves, on a sunny balcony railing in high summer, a bee on one flower. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Orange calendula flowers in a terracotta pot on a sunny patio, a small bowl of loose orange petals and a salad scattered with petals on a table beside it, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Grow Sorrel in Pots
+
+**Photo principale :**
+
+```
+A wide 35 cm pot of common sorrel with upright clumps of bright green, arrow-shaped leaves, next to a smaller pot of red-veined sorrel with green leaves and dark red veins, on a partly shaded balcony in late spring. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A trough of sorrel with fresh, arrow-shaped green leaves on a balcony ledge, a handful of picked young leaves on a wooden board beside it, photographed vertically from slightly above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
 ## Plant Care → Plant problems
 
 ### Why Are the Leaves on My Container Plants Turning Yellow?
@@ -408,6 +870,76 @@ Close-up of a cluster of small green aphids on the tender shoot tip and undersid
 
 ```
 Macro photograph of green aphids on a pale green shoot tip of a potted herb, with a red ladybird nearby, soft daylight, blurred balcony background. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Do My Seedlings Vanish Overnight? (Slugs and Snails in Pots)
+
+**Photo principale :**
+
+```
+Close-up at dusk of a terracotta trough of young butterhead lettuce on a damp balcony floor, several soft green leaves chewed into ragged holes, a shiny silvery slime trail across the rim of the pot, a brown garden snail with a coiled shell on one leaf, a scooped-out half grapefruit skin lying cut side down beside the trough. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A pot of young lettuce on a wet patio at evening with ragged holes in the leaves, a snail on the pot rim and glistening slime trails on the paving, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### What Are the Tiny White Flies on My Tomato and Pepper Plants?
+
+**Photo principale :**
+
+```
+Close-up of the underside of a tomato leaf, compound and serrated, on a plant in a large pot in a sunny conservatory, dozens of tiny white-winged insects resting on it and a few flying off, flat pale oval scale-like nymphs on the leaf surface, a glossy sticky sheen and patches of black sooty mould on a leaf below. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A potted tomato plant by a bright window with a small cloud of white flies lifting off a leaf that has been brushed, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Are My Leaves Covered in Tiny Pale Speckles and Fine Webbing?
+
+**Photo principale :**
+
+```
+Close-up of an aubergine plant in a large black pot by a sunny conservatory window, its broad soft leaves finely speckled with pale dots and turning dull and bronzed, fine silk webbing strung between a leaf and the stem, tiny yellowish-green mites visible on the webbing. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A cucumber leaf in a pot on a hot balcony, its surface mottled with countless pale specks, a thin veil of webbing at the leaf edge, photographed vertically against a soft blurred background. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Do My Courgette and Pea Leaves Look Dusted With Flour? (Powdery Mildew)
+
+**Photo principale :**
+
+```
+Close-up of a courgette plant in a large round pot on a sunny patio against a brick wall, its big lobed leaves covered in spreading white, dusty-looking patches of powdery mildew, a young green courgette and a yellow flower below the leaves still healthy. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A pot of pea plants climbing a cane wigwam on a balcony, several leaves dusted with a white powdery coating next to clean green ones, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Has My Lettuce Suddenly Shot Up and Started to Flower?
+
+**Photo principale :**
+
+```
+A rectangular trough on a sunny balcony with three lettuces that have bolted, each sending up a tall, narrow central stem crowded with small pointed leaves and topped with tight flower buds, the lower leaves loose and starting to yellow, a pot of coriander behind with feathery leaves and small white flower umbels. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A single lettuce in a pot that has shot up into a tall flowering stem next to a young leafy lettuce in a second pot, photographed vertically on a balcony. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
 ```
 
 ### What Is Eating My Kale and Cabbage Leaves? (Cabbage Caterpillars)
@@ -508,6 +1040,132 @@ A sweet pepper plant with glossy dark green oval leaves in a 30 cm pot on a hot,
 A cherry tomato plant in a pot on a sunny balcony with clusters of small yellow star-shaped flowers, some flower stalks bare and a few dropped yellow flowers on the compost, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
 ```
 
+### What Is the White Fluffy Stuff on My Lemon Tree? (Mealybugs)
+
+**Photo principale :**
+
+```
+Close-up of a lemon tree branch with glossy, oval, dark green leaves, growing in a 35 cm terracotta pot on a bright conservatory windowsill in winter, small tufts of white cotton-like wax tucked into the joints where leaf stalks meet the stem, a few soft oval whitish insects visible, a faint sticky shine and a little black sooty mould on a leaf below. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A potted lemon tree on a bright windowsill indoors, photographed vertically, with a close view of one stem where white fluffy wax clusters sit in the leaf joints and a lower leaf looks shiny and speckled black. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Do My Lettuces Wilt When the Compost Is Still Moist? (Root Aphids)
+
+**Photo principale :**
+
+```
+A loose-leaf lettuce lifted out of a 25 cm plastic pot on a balcony table in late summer, its root ball turned on its side to show fine white roots dusted with a greyish-white waxy powder and tiny pale yellow aphids, the lettuce leaves slightly limp, a second healthy lettuce in a pot behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A wilting lettuce in a pot on a sunny balcony next to its root ball held in a trowel, the roots coated in white wax with tiny pale aphids, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### What Is the Fuzzy Grey Mould on My Strawberries? (Grey Mould)
+
+**Photo principale :**
+
+```
+Close-up of a strawberry plant with three-lobed toothed leaves growing in a 30 cm terracotta pot on a balcony in a damp, overcast early summer, one ripening red strawberry covered in soft fuzzy grey-brown mould and slightly collapsed, healthy red and white berries hanging beside it. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A strawberry pot on a balcony with one berry rotted under fuzzy grey mould among healthy ripe fruit, photographed vertically with soft overcast light. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### What Are the White C-Shaped Grubs in My Pots? (Vine Weevil)
+
+**Photo principale :**
+
+```
+A strawberry plant tipped out of a 25 cm black plastic pot on a patio table in autumn, its root ball broken open to show several plump, creamy-white, legless C-shaped grubs with pale brown heads among chewed roots, the strawberry leaves wilted, a trowel beside it. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Close view of creamy-white C-shaped vine weevil grubs in dark compost beside the roots of a potted strawberry, with the wilted plant above, photographed vertically on a patio. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### What Are the Brown Bumps Under My Bay and Lemon Leaves? (Scale Insects)
+
+**Photo principale :**
+
+```
+Close-up of the underside of a glossy, dark green, leathery bay leaf from a clipped bay tree in a 40 cm grey pot on a patio, several flat, oval, pale yellow-brown scale insects about 4 mm long lined along the midrib, the upper surface of a lower leaf sticky and partly coated in black sooty mould. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A bay tree in a pot on a patio, photographed vertically, with one leaf turned over to show flat brown scale insects along the central vein and blackened sticky leaves below. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Have My Leaves Gone Brown and Crisp After Hot Sun or Wind?
+
+**Photo principale :**
+
+```
+A clipped bay tree with leathery, glossy dark green oval leaves in a 40 cm terracotta pot on a high, open balcony in summer, the leaves on the sunny, windward side of the crown dry and brown at the edges and in patches, the leaves on the shaded side still green, a slatted wooden screen at one end of the balcony. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A potted bay tree on a bright windy balcony, photographed vertically, showing crisp brown leaf edges on the exposed side and green leaves on the sheltered side. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Are My Leaves Yellow Between Green Veins?
+
+**Photo principale :**
+
+```
+Close-up of an older, lower leaf on a cherry tomato plant growing in a 30 cm pot on a sunny balcony in late summer, the compound leaf with toothed leaflets showing yellow tissue between dark green veins, a few reddish-brown tints and small dead brown patches, healthy green upper leaves and trusses of red cherry tomatoes behind. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A potted blueberry bush with small oval leaves on a balcony, photographed vertically, its youngest leaves at the shoot tips pale yellow between green veins while older leaves stay green. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Are My Plants in Pots Stunted and Pale Green?
+
+**Photo principale :**
+
+```
+A wooden trough of Swiss chard and lettuce on a balcony railing in midsummer, the plants small and spindly with pale yellow-green leaves, the oldest outer leaves the palest with a faint pink tint, compost slightly shrunk from the sides of the trough, a lush dark green chard plant in a fresh pot beside it for comparison. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Two pots of leafy greens side by side on a balcony, photographed vertically: one small and pale yellow-green, the other full and dark green. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Why Is My Plant All Leaves and No Flowers or Fruit?
+
+**Photo principale :**
+
+```
+A large courgette plant in a 45 cm black pot on a sunny patio in early summer, big lobed, slightly prickly dark green leaves with silver markings, several bright yellow male flowers on long thin stalks and no small courgettes forming at the base of any flower. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A lush, leafy courgette plant in a pot on a patio with large green leaves and only a couple of yellow flowers, photographed vertically from slightly above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
 ## Plant Care (articles)
 
 ### How Often Should You Water Container Plants?
@@ -526,7 +1184,7 @@ A hand-held watering can pouring water at the base of a potted herb on a balcony
 
 Texte alternatif conseillé : A metal watering can watering herbs and tomatoes in pots on a sunny balcony
 
-### Which Compost Should You Use in Pots?
+### How to Fill, Refresh and Reuse Compost in Pots
 
 **Photo principale :**
 
@@ -554,6 +1212,62 @@ Terracotta pots on pot feet grouped against a house wall on a frosty balcony, tw
 
 ```
 A terracotta pot wrapped in hessian tied with twine, standing on pot feet on a frosty patio, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Sow Seeds Indoors on a Windowsill
+
+**Photo principale :**
+
+```
+A bright south-facing kitchen windowsill in early spring with a black plastic seed tray and a row of small square pots of peat-free compost, some showing tiny tomato and chilli seedlings with two smooth oval seed leaves, a clear plastic propagator lid set aside, wooden plant labels with handwritten dates. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Hands sprinkling a thin pinch of seed over the flat, firmed surface of a small pot of fine peat-free compost on a windowsill, a seed packet and a wooden label beside it, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Harden Off Seedlings on a Balcony or Patio
+
+**Photo principale :**
+
+```
+Young tomato, courgette and French bean plants in small pots grouped on the floor of a sheltered sunny balcony against a south-facing brick wall, a roll of white horticultural fleece beside them, a tray to carry them back indoors, late spring morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A tray of young vegetable plants in small pots standing by a balcony door in spring sunshine, half covered by a sheet of white fleece, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Feed Container Plants
+
+**Photo principale :**
+
+```
+A watering can with diluted liquid seaweed feed being poured at the base of a fruiting cherry tomato plant in a large pot on a sunny balcony, a bottle of feed with a blank label and a measuring cap on the floor beside it, summer light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Liquid plant feed being measured into a watering can next to pots of tomatoes, beans and herbs on a sunny patio, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Repot Container Plants
+
+**Photo principale :**
+
+```
+A young potted bay tree lifted out of its plastic pot on a balcony potting tray, its root ball showing white roots circling the outside, a slightly larger terracotta pot beside it part-filled with fresh dark peat-free compost, a trowel and a pair of secateurs nearby. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Hands lowering a plant with a tidy root ball into a new pot of peat-free compost on a patio table, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
 ```
 
 ### How to Arrange Pots in a Small Space
@@ -640,6 +1354,90 @@ Dry, papery pea and bean pods and a cut-open ripe red tomato with its seeds spre
 Hand-labelled paper seed envelopes and a small glass jar of dried bean seeds on a wooden table beside a pot of dry pea pods, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
 ```
 
+### How to Choose Pots for Growing Vegetables
+
+**Photo principale :**
+
+```
+A row of empty containers on a sunny balcony floor, ready for planting: an unglazed terracotta pot, a lightweight plastic pot in a terracotta colour, a wooden trough, a galvanised metal tub and an old enamel washing-up bowl with holes drilled in its base, one pot tipped slightly to show the drainage holes underneath, a bag of peat-free compost leaning against the wall, soft morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A wide terracotta pot, a tall plastic pot and a wooden crate lined with an old compost bag standing together on a small balcony, a young tomato plant waiting in its nursery pot beside them, photographed vertically from slightly above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Mulch Pots and Containers
+
+**Photo principale :**
+
+```
+Close view of three pots on a sunny patio table, each topped with a different mulch: a terracotta pot of thyme dressed with pale grey grit, a blueberry bush in a glazed pot with a layer of chipped pine bark, and a pot of chard covered with dark crumbly garden compost kept clear of the stems, late spring light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A hand scattering fine gravel around a young rosemary plant in a terracotta pot on a balcony, with a small bag of grit beside it, photographed vertically from above. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### How to Hand-Pollinate Fruit and Vegetables
+
+**Photo principale :**
+
+```
+Close-up of a courgette plant in a large pot on a sunny balcony: a hand holding a picked male flower with its petals removed, its pollen-covered centre pressed into an open yellow female flower that has a small green courgette behind it, large lobed leaves around, summer morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A small soft paintbrush touching the centre of a white strawberry flower on a potted plant under a clear cloche on a balcony, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Vegetables on a Windowsill: Which Crops Grow Well Indoors
+
+**Photo principale :**
+
+```
+A bright south-facing kitchen windowsill holding a row of edible plants in matching pots: a pot of Genovese basil with glossy leaves, a compact chilli plant with small red fruits, a clump of chives, curly parsley and a shallow tray of pea shoot microgreens, sunlight coming through the glass from one side. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A kitchen windowsill seen from inside the room, with pots of basil, parsley and a small chilli plant lined up against the glass and a tray of microgreens in front, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### What to Grow on a Shady Balcony
+
+**Photo principale :**
+
+```
+A north-facing balcony in soft, even daylight with no direct sun, holding containers of leafy crops: a trough of loose-leaf lettuce and rocket, a pot of glossy Swiss chard with red stems, a lush pot of mint, flat-leaved parsley, and a redcurrant bush in a large pot against the wall with strings of red berries. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A shaded corner of a balcony with pots of parsley, chives and a large pot of Swiss chard with colourful stems against a pale wall, photographed vertically in soft daylight. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Best Vegetables for Beginners in Pots
+
+**Photo principale :**
+
+```
+A sunny balcony in early summer with a first-year kitchen garden in pots: a trough of radishes with red roots showing, a trough of mixed salad leaves, a pot of dwarf French beans in flower, a potato growing bag with lush leaves, a pot of strawberries with ripening fruit and a pot of chives with purple flowers. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A small balcony with five easy crops in pots: radishes, salad leaves, chives, dwarf beans and strawberries, arranged on the floor and a low shelf, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
 ## DIY Projects
 
 ### Make a Self-Watering Pot From Two Containers
@@ -657,6 +1455,62 @@ A DIY self-watering container with a basil plant on a sunny balcony, side fill h
 ```
 
 Texte alternatif conseillé : Diagram of a self-watering pot: a planting container standing on bricks inside a second container, with a towel wick reaching into the water below
+
+### Make a Jar for Sprouting Seeds
+
+**Photo principale :**
+
+```
+A large clean glass jar lying tilted at an angle on a draining rack on a kitchen worktop, out of direct sun, its neck covered with muslin held by an elastic band, filled about a third with mung bean sprouts with short white shoots, a second jar of alfalfa sprouts with tiny green tips beside it. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Two glass sprouting jars with muslin tops on a bright kitchen worktop, one with crisp white bean sprouts and one with fine green alfalfa sprouts, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Make a Seedling Light Box from a Cardboard Box
+
+**Photo principale :**
+
+```
+A small cardboard box on a sunny windowsill with its front side cut away facing the window glass and its back and sides lined with shiny kitchen foil, a tray of straight, sturdy young tomato seedlings inside lit evenly from all sides, a waterproof tray under the pots. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A foil-lined cardboard box with its open side facing a bright window and young seedlings standing upright inside, photographed vertically from the room side. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Plant a Vegetable Hanging Basket
+
+**Photo principale :**
+
+```
+A wire hanging basket lined with coir hanging from a strong black wall bracket screwed into a brick wall on a sunny, sheltered patio, planted with a trailing cherry tomato in the centre, loose-leaf lettuce and thyme around the edge, small red and green tomatoes hanging over the rim, summer light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A productive hanging basket with a trailing tomato, salad leaves and herbs spilling over a coir liner, hanging on a sturdy bracket against a sunny wall, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Make a Bean Tepee in a Pot
+
+**Photo principale :**
+
+```
+A large heavy plastic container at least 75 cm wide on a sunny, sheltered balcony floor against a wall, five tall bamboo canes pushed into the compost in a circle and tied together at the top with garden twine, climbing French bean plants with heart-shaped leaves twining up the canes, some hanging green pods, summer light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A cane wigwam in a wide pot on a patio covered in climbing bean plants with red flowers and long green pods, photographed vertically from a low angle. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
 
 ### Make a Gutter Seed Tray for Peas
 
@@ -698,6 +1552,62 @@ A small home-made wooden cold frame on the floor of a sunny balcony against the 
 
 ```
 A compact wooden cold frame with a clear sloping lid on a balcony, lid propped open, young seedlings visible inside, photographed vertically from the front. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Plant a Herb Window Box
+
+**Photo principale :**
+
+```
+A long terracotta-coloured window box fixed with black metal brackets below a kitchen window on a sunny brick wall, planted with low grey-green sage, tiny-leaved thyme, upright needle-leaved rosemary and round-leaved oregano, a thin layer of pale gravel on the compost, late spring morning light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+A herb window box seen from inside an open kitchen window, with thyme, sage, oregano and a young rosemary growing in gritty compost and a pair of kitchen scissors on the sill, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Make a Comfrey Liquid Feed
+
+**Photo principale :**
+
+```
+A black plastic bucket with a tight lid, half-lifted to show dark green comfrey leaves held under water by a brick, standing in the corner of a balcony beside a watering can and a rinsed plastic milk bottle with a blank label, gardening gloves on the floor, soft overcast light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Gloved hands pouring dark brown comfrey liquid from a labelled bottle into a watering can of water on a balcony, the diluted feed the colour of weak tea, a large tomato pot behind, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Wrap Pots for Winter, Step by Step
+
+**Photo principale :**
+
+```
+Close view of hands in gardening gloves tying garden twine round a large terracotta pot wrapped in clear bubble polythene, the base of the pot left uncovered and standing on pot feet, a dormant blueberry bush in the pot, a frosty balcony floor and a brick wall behind, cold early winter light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Three pots on a balcony, one wrapped in bubble polythene and two in hessian over straw, all tied with twine and grouped against a wall, a light frost on the floor, photographed vertically. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
+```
+
+### Plant a Raised Strawberry Planter
+
+**Photo principale :**
+
+```
+A long wooden trough planted with a row of strawberry plants with three-lobed, toothed bright green leaves, white five-petalled flowers and ripe red berries hanging over the front edge, the trough standing on a sturdy low wooden plant stand against a sunny balcony wall, early summer light. Photorealistic, natural light, shallow depth of field, no text, no people's faces, no logos.
+```
+
+**Image Pinterest :**
+
+```
+Ripe red strawberries dangling over the rim of a raised trough planter on a sunny balcony, leaves and white flowers above, photographed vertically from the side. Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.
 ```
 
 ## Gear
