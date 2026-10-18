@@ -47,12 +47,12 @@ function natura_core_plant_facts(): array {
 		),
 		'pot_size'       => array(
 			'label' => __( 'Pot size', 'natura-core' ),
-			'help'  => __( 'Example: 20–30 L (5–8 gal) per plant', 'natura-core' ),
+			'help'  => __( 'Example: 5–8 gallons (20–30 liters) per plant', 'natura-core' ),
 			'type'  => 'text',
 		),
 		'watering'       => array(
 			'label' => __( 'Watering', 'natura-core' ),
-			'help'  => __( 'Example: Deeply, when the top 2–3 cm feels dry', 'natura-core' ),
+			'help'  => __( 'Example: Deeply, when the top 1 in (2–3 cm) feels dry', 'natura-core' ),
 			'type'  => 'text',
 		),
 		'harvest'        => array(
@@ -62,7 +62,7 @@ function natura_core_plant_facts(): array {
 		),
 		'season'         => array(
 			'label' => __( 'Growing season', 'natura-core' ),
-			'help'  => __( 'Example: Late spring to early autumn', 'natura-core' ),
+			'help'  => __( 'Example: Late spring to early fall', 'natura-core' ),
 			'type'  => 'text',
 		),
 		'hardiness'      => array(
@@ -71,15 +71,15 @@ function natura_core_plant_facts(): array {
 			'type'    => 'select',
 			'options' => array(
 				''    => __( '— Choose —', 'natura-core' ),
-				'H1a' => 'H1a — ' . __( 'under glass all year (above 15 °C)', 'natura-core' ),
-				'H1b' => 'H1b — ' . __( 'outdoors in summer only (10 to 15 °C)', 'natura-core' ),
-				'H1c' => 'H1c — ' . __( 'outdoors in summer only (5 to 10 °C)', 'natura-core' ),
-				'H2'  => 'H2 — ' . __( 'tender, no frost (1 to 5 °C)', 'natura-core' ),
-				'H3'  => 'H3 — ' . __( 'half hardy (−5 to 1 °C)', 'natura-core' ),
-				'H4'  => 'H4 — ' . __( 'hardy, average winter (−10 to −5 °C)', 'natura-core' ),
-				'H5'  => 'H5 — ' . __( 'hardy, cold winter (−15 to −10 °C)', 'natura-core' ),
-				'H6'  => 'H6 — ' . __( 'hardy, very cold winter (−20 to −15 °C)', 'natura-core' ),
-				'H7'  => 'H7 — ' . __( 'very hardy (below −20 °C)', 'natura-core' ),
+				'H1a' => 'H1a — ' . __( 'under glass all year (above 59 °F / 15 °C)', 'natura-core' ),
+				'H1b' => 'H1b — ' . __( 'outdoors in summer only (50 to 59 °F / 10 to 15 °C)', 'natura-core' ),
+				'H1c' => 'H1c — ' . __( 'outdoors in summer only (41 to 50 °F / 5 to 10 °C)', 'natura-core' ),
+				'H2'  => 'H2 — ' . __( 'tender, no frost (34 to 41 °F / 1 to 5 °C)', 'natura-core' ),
+				'H3'  => 'H3 — ' . __( 'half hardy (23 to 34 °F / −5 to 1 °C)', 'natura-core' ),
+				'H4'  => 'H4 — ' . __( 'hardy, average winter (14 to 23 °F / −10 to −5 °C)', 'natura-core' ),
+				'H5'  => 'H5 — ' . __( 'hardy, cold winter (5 to 14 °F / −15 to −10 °C)', 'natura-core' ),
+				'H6'  => 'H6 — ' . __( 'hardy, very cold winter (−4 to 5 °F / −20 to −15 °C)', 'natura-core' ),
+				'H7'  => 'H7 — ' . __( 'very hardy (below −4 °F / −20 °C)', 'natura-core' ),
 			),
 		),
 		'timing_start_indoors' => array(
@@ -157,7 +157,7 @@ function natura_core_plant_lists(): array {
 		),
 		'varieties'  => array(
 			'label'  => __( 'Varieties to try', 'natura-core' ),
-			'help'   => __( 'Varieties that do well in pots, each with why. A link (seed or plant shop) is optional; affiliate links get the affiliate notice.', 'natura-core' ),
+			'help'   => __( 'Varieties that do well in pots, each with why. A link (seed or plant store) is optional; affiliate links get the affiliate notice.', 'natura-core' ),
 			'add'    => __( 'Add a variety', 'natura-core' ),
 			'fields' => array(
 				'name'  => array( 'label' => __( 'Variety', 'natura-core' ), 'type' => 'text' ),

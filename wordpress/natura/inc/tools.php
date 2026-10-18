@@ -30,7 +30,7 @@ function natura_tools(): array {
 		),
 		'pot-size-calculator' => array(
 			'title' => __( 'Pot size calculator', 'natura' ),
-			'text'  => __( 'How much compost a pot or trough holds, how many bags to buy, and the pot size each plant needs.', 'natura' ),
+			'text'  => __( 'How much potting mix a pot or trough holds, how many bags to buy, and the pot size each plant needs.', 'natura' ),
 			'needs' => __( 'A tape measure: the width and depth of your pot', 'natura' ),
 			'group' => 'care',
 			'icon'  => 'pot',
@@ -52,13 +52,13 @@ function natura_tools(): array {
 		'guided-diagnosis'  => array(
 			'title' => __( 'Symptom checker', 'natura' ),
 			'text'  => __( 'Pick the plant and where the trouble shows, and see the likely causes before you treat anything.', 'natura' ),
-			'needs' => __( 'A close look at the leaves, fruit, stems, and compost', 'natura' ),
+			'needs' => __( 'A close look at the leaves, fruit, stems, and potting mix', 'natura' ),
 			'group' => 'fix',
 			'icon'  => 'leaf',
 		),
 		'planting-calendar' => array(
-			'title' => __( 'Planting calendar', 'natura' ),
-			'text'  => __( 'What to sow, plant out, and harvest in pots, month by month.', 'natura' ),
+			'title' => __( 'Planting calendar (UK)', 'natura' ),
+			'text'  => __( 'What to sow, plant out, and harvest in pots in the UK, month by month.', 'natura' ),
 			'needs' => __( 'Nothing: it opens on this month', 'natura' ),
 			'group' => 'choose',
 			'icon'  => 'calendar',
@@ -160,7 +160,7 @@ function natura_tool_page_title( string $slug ): string {
 		return __( 'Plant finder: what to grow in your pots', 'natura' );
 	}
 	if ( 'pot-size-calculator' === $slug ) {
-		return __( 'Pot size calculator: how much compost does your pot hold?', 'natura' );
+		return __( 'Pot size calculator: how much potting mix does your pot hold?', 'natura' );
 	}
 	if ( 'watering-calculator' === $slug ) {
 		return __( 'Watering routine: when to water plants in pots', 'natura' );
@@ -475,7 +475,7 @@ function natura_diagnosis_questions(): array {
 	);
 	$questions['part']  = array(
 		'label'   => __( 'Where do you see the problem?', 'natura' ),
-		'hint'    => __( 'Look at the whole plant, including the undersides of the leaves and the compost.', 'natura' ),
+		'hint'    => __( 'Look at the whole plant, including the undersides of the leaves and the potting mix.', 'natura' ),
 		'choices' => is_wp_error( $parts ) ? array() : wp_list_pluck( $parts, 'name', 'slug' ),
 	);
 
@@ -571,29 +571,66 @@ function natura_the_tool_question( string $key, array $question, array $answers,
    --------------------------------------------------------------------------- */
 
 /**
- * Common bag sizes: litres => label. UK bags are sold in litres, US bags in
- * cubic feet (1 cu ft = 28.3 L).
+ * Common bags of potting mix: key => label, volume in liters, and the
+ * country they are sold in. US bags are sold in dry quarts (1 qt = 1.101 L)
+ * and cubic feet (1 cu ft = 28.317 L); UK bags in liters.
  *
- * @return array<int, string>
+ * @return array<string, array{label: string, liters: float, group: string}>
  */
 function natura_pot_bags(): array {
+	$bag = static fn( string $label, float $liters, string $group ): array => array(
+		'label'  => $label,
+		'liters' => $liters,
+		'group'  => $group,
+	);
+
 	return array(
-		10 => '10 L',
-		20 => '20 L',
-		28 => '1 cu ft (28 L)',
-		40 => '40 L',
-		42 => '1.5 cu ft (42 L)',
-		50 => '50 L',
-		57 => '2 cu ft (57 L)',
-		70 => '70 L',
+		'8qt'     => $bag( __( '8 quarts (8.8 liters)', 'natura' ), 8 * 1.101, 'us' ),
+		'16qt'    => $bag( __( '16 quarts (17.6 liters)', 'natura' ), 16 * 1.101, 'us' ),
+		'1cuft'   => $bag( __( '1 cubic foot (28.3 liters)', 'natura' ), 28.317, 'us' ),
+		'1-5cuft' => $bag( __( '1.5 cubic feet (42.5 liters)', 'natura' ), 1.5 * 28.317, 'us' ),
+		'2cuft'   => $bag( __( '2 cubic feet (56.6 liters)', 'natura' ), 2 * 28.317, 'us' ),
+		'10'      => $bag( __( '10 liters', 'natura' ), 10.0, 'uk' ),
+		'20'      => $bag( __( '20 liters', 'natura' ), 20.0, 'uk' ),
+		'40'      => $bag( __( '40 liters', 'natura' ), 40.0, 'uk' ),
+		'50'      => $bag( __( '50 liters', 'natura' ), 50.0, 'uk' ),
+		'70'      => $bag( __( '70 liters', 'natura' ), 70.0, 'uk' ),
 	);
 }
 
 /**
- * The calculator's measurements from the address, checked: shape, unit,
- * sizes (top, bottom, length, depth), and bag size in litres.
+ * The groups of the bag list, in order.
  *
- * @return array{shape: string, unit: string, top: float, bottom: float, length: float, depth: float, bag: int}
+ * @return array<string, string>
+ */
+function natura_pot_bag_groups(): array {
+	return array(
+		'us' => __( 'US bags', 'natura' ),
+		'uk' => __( 'UK bags', 'natura' ),
+	);
+}
+
+/**
+ * A volume in US gallons first, liters in brackets, e.g. "2.6 gallons
+ * (9.8 liters)". 1 US gallon = 3.785 L.
+ *
+ * @param float $liters Volume in liters.
+ */
+function natura_pot_volume( float $liters ): string {
+	$round   = static fn( float $value ): float => $value < 10 ? round( $value, 1 ) : round( $value );
+	$text    = static fn( float $value ): string => number_format_i18n( $round( $value ), $value < 10 ? 1 : 0 );
+	$gallons = $liters / 3.785;
+
+	/* translators: 1: volume in US gallons, 2: volume in liters. */
+	return sprintf( _n( '%1$s gallon (%2$s liters)', '%1$s gallons (%2$s liters)', 1.0 === $round( $gallons ) ? 1 : 2, 'natura' ), $text( $gallons ), $text( $liters ) );
+}
+
+/**
+ * The calculator's measurements from the address, checked: shape, unit
+ * (inches unless cm is chosen), sizes (top, bottom, length, depth), and the
+ * bag (a key of natura_pot_bags()).
+ *
+ * @return array{shape: string, unit: string, top: float, bottom: float, length: float, depth: float, bag: string}
  */
 function natura_pot_input(): array {
 	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only calculator.
@@ -605,12 +642,12 @@ function natura_pot_input(): array {
 	};
 	$input  = array(
 		'shape'  => in_array( $text( 'shape' ), array( 'round', 'square', 'trough' ), true ) ? $text( 'shape' ) : 'round',
-		'unit'   => 'in' === $text( 'unit' ) ? 'in' : 'cm',
+		'unit'   => 'cm' === $text( 'unit' ) ? 'cm' : 'in',
 		'top'    => $number( 'top' ),
 		'bottom' => $number( 'bottom' ),
 		'length' => $number( 'length' ),
 		'depth'  => $number( 'depth' ),
-		'bag'    => isset( natura_pot_bags()[ (int) $text( 'bag' ) ] ) ? (int) $text( 'bag' ) : 40,
+		'bag'    => isset( natura_pot_bags()[ $text( 'bag' ) ] ) ? $text( 'bag' ) : '1cuft',
 	);
 	// phpcs:enable
 
@@ -618,13 +655,13 @@ function natura_pot_input(): array {
 }
 
 /**
- * The volume of the pot in litres, or 0 when a measurement is missing.
+ * The volume of the pot in liters, or 0 when a measurement is missing.
  *
  * Round pot: a cylinder, or a truncated cone when the bottom is narrower.
  * Square pot: a cuboid, or a truncated pyramid. Trough: length × width ×
  * depth. Inches are converted at 2.54 cm.
  *
- * @param array{shape: string, unit: string, top: float, bottom: float, length: float, depth: float, bag: int} $input Measurements.
+ * @param array{shape: string, unit: string, top: float, bottom: float, length: float, depth: float, bag: string} $input Measurements.
  */
 function natura_pot_litres( array $input ): float {
 	$scale  = 'in' === $input['unit'] ? 2.54 : 1.0;
@@ -713,7 +750,7 @@ function natura_rhs_ratings(): array {
  */
 function natura_frost_input(): array {
 	// phpcs:disable WordPress.Security.NonceVerification.Recommended -- read-only check.
-	$unit  = isset( $_GET['unit'] ) && 'f' === sanitize_key( wp_unslash( (string) $_GET['unit'] ) ) ? 'f' : 'c';
+	$unit  = isset( $_GET['unit'] ) && 'c' === sanitize_key( wp_unslash( (string) $_GET['unit'] ) ) ? 'c' : 'f';
 	$typed = isset( $_GET['low'] ) ? trim( sanitize_text_field( wp_unslash( (string) $_GET['low'] ) ) ) : '';
 	// phpcs:enable
 	$typed = str_replace( array( ',', '−' ), array( '.', '-' ), $typed );
@@ -767,15 +804,15 @@ function natura_frost_plants(): array {
 }
 
 /**
- * A temperature in the reader's unit, e.g. "5 °C" or "41 °F".
+ * A temperature in °F first, °C in brackets, e.g. "41 °F (5 °C)", whatever
+ * unit the reader typed in.
  *
- * @param float  $celsius Temperature in °C.
- * @param string $unit    c or f.
+ * @param float $celsius Temperature in °C.
  */
-function natura_temperature( float $celsius, string $unit ): string {
-	return 'f' === $unit
-		? number_format_i18n( round( $celsius * 9 / 5 + 32 ) ) . ' °F'
-		: number_format_i18n( round( $celsius ) ) . ' °C';
+function natura_temperature( float $celsius ): string {
+	$number = static fn( float $value ): string => str_replace( '-', '−', number_format_i18n( round( $value ) ) );
+
+	return $number( $celsius * 9 / 5 + 32 ) . ' °F (' . $number( $celsius ) . ' °C)';
 }
 
 /* ---------------------------------------------------------------------------
@@ -794,13 +831,13 @@ function natura_watering_questions(): array {
 			'label'   => __( 'Time of year', 'natura' ),
 			'hint'    => '',
 			'choices' => array(
-				'grow'   => __( 'Spring to autumn', 'natura' ),
+				'grow'   => __( 'Spring to fall', 'natura' ),
 				'winter' => __( 'Winter', 'natura' ),
 			),
 		),
 		'size'     => array(
 			'label'   => __( 'Your pots', 'natura' ),
-			'hint'    => __( 'A large pot holds more compost, so it dries out more slowly.', 'natura' ),
+			'hint'    => __( 'A large pot holds more potting mix, so it dries out more slowly.', 'natura' ),
 			'choices' => array(
 				'small' => __( 'Mostly small pots', 'natura' ),
 				'large' => __( 'Mostly large pots or troughs', 'natura' ),
@@ -872,14 +909,14 @@ function natura_watering_routine( array $a ): array {
 	$fast  = 'small' === $a['size'] || 'sun' === $a['sun'] || 'terracotta' === $a['material'];
 	$check = array();
 	if ( 'grow' === $a['season'] ) {
-		$check[] = __( 'Check the compost every day.', 'natura' );
+		$check[] = __( 'Check the potting mix every day.', 'natura' );
 		if ( 'hot' === $a['heat'] ) {
 			$check[] = $fast
 				? __( 'In this heat, check in the morning and again in the evening: small pots in full sun can need water up to twice a day.', 'natura' )
 				: __( 'Hot weather dries every pot faster: check daily without fail.', 'natura' );
 		}
 	} else {
-		$check[] = __( 'Rain is often enough in winter. Check the compost during dry, windy spells.', 'natura' );
+		$check[] = __( 'Rain is often enough in winter. Check the potting mix during dry, windy spells.', 'natura' );
 		$check[] = __( 'Take away trays and saucers so pots never stand in water, and raise pots on feet so they drain.', 'natura' );
 	}
 	if ( 'yes' === $a['shelter'] ) {
@@ -888,7 +925,7 @@ function natura_watering_routine( array $a ): array {
 
 	$why = array();
 	if ( 'small' === $a['size'] ) {
-		$why[] = __( 'Small pots hold little compost, so they dry out fastest. Fewer, larger pots are less work.', 'natura' );
+		$why[] = __( 'Small pots hold little potting mix, so they dry out fastest. Fewer, larger pots are less work.', 'natura' );
 	}
 	if ( 'terracotta' === $a['material'] ) {
 		$why[] = __( 'Unglazed terracotta is porous: it loses water through its sides and dries out faster than plastic.', 'natura' );
@@ -908,7 +945,7 @@ function natura_watering_routine( array $a ): array {
 		array(
 			'title'  => __( 'How to tell if a pot needs water', 'natura' ),
 			'points' => array(
-				__( 'Push a finger into the compost. Water when it is dry 2–3 cm (1 in) below the surface, not before.', 'natura' ),
+				__( 'Push a finger into the potting mix. Water when it is dry 1 in (2–3 cm) below the surface, not before.', 'natura' ),
 				__( 'Avoid a fixed routine such as "once a week": the need changes with the weather and the size of the plant.', 'natura' ),
 			),
 		),
@@ -916,7 +953,7 @@ function natura_watering_routine( array $a ): array {
 			'title'  => __( 'How to water', 'natura' ),
 			'points' => array(
 				__( 'Water early in the morning if you can: less is lost to evaporation. Evening is the next best time; avoid the heat of the day.', 'natura' ),
-				__( 'Water the compost, not the leaves, slowly and thoroughly, so the whole rootball is moist.', 'natura' ),
+				__( 'Water the potting mix, not the leaves, slowly and thoroughly, so the whole root ball is moist.', 'natura' ),
 			),
 		),
 	);
@@ -1006,11 +1043,11 @@ function natura_tool_share( string $slug ): array {
 						'bottom' => $input['bottom'] ? (string) $input['bottom'] : '',
 						'length' => $input['length'] ? (string) $input['length'] : '',
 						'depth'  => (string) $input['depth'],
-						'bag'    => (string) $input['bag'],
+						'bag'    => $input['bag'],
 					)
 				);
-				/* translators: %s: volume in litres. */
-				$title = sprintf( __( 'This pot holds about %s litres of compost', 'natura' ), number_format_i18n( $litres < 10 ? round( $litres, 1 ) : round( $litres ), $litres < 10 ? 1 : 0 ) );
+				/* translators: %s: volume, e.g. "2.6 gallons (9.8 liters)". */
+				$title = sprintf( __( 'This pot holds about %s of potting mix', 'natura' ), natura_pot_volume( $litres ) );
 			}
 			break;
 		case 'frost-risk':
@@ -1023,9 +1060,9 @@ function natura_tool_share( string $slug ): array {
 				$below   = count( array_filter( natura_frost_plants(), static fn( array $plant ): bool => null !== $plant['min'] && $input['low'] < $plant['min'] ) );
 				$title   = $below
 					/* translators: 1: temperature, 2: number of plants. */
-					? sprintf( _n( 'Frost check at %1$s: %2$s plant to protect', 'Frost check at %1$s: %2$s plants to protect', $below, 'natura' ), natura_temperature( $input['low'], $input['unit'] ), number_format_i18n( $below ) )
+					? sprintf( _n( 'Frost check at %1$s: %2$s plant to protect', 'Frost check at %1$s: %2$s plants to protect', $below, 'natura' ), natura_temperature( $input['low'] ), number_format_i18n( $below ) )
 					/* translators: %s: temperature. */
-					: sprintf( __( 'Frost check at %s: every plant within its limit', 'natura' ), natura_temperature( $input['low'], $input['unit'] ) );
+					: sprintf( __( 'Frost check at %s: every plant within its limit', 'natura' ), natura_temperature( $input['low'] ) );
 			}
 			break;
 		case 'watering-calculator':

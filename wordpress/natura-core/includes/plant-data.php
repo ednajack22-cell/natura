@@ -315,7 +315,7 @@ add_action(
  */
 function natura_core_render_calendar_box( WP_Post $post ): void {
 	natura_core_nonce_field();
-	printf( '<p class="description">%s</p>', esc_html__( 'Tick the months for a temperate climate such as the UK or northern Europe. They fill the "This month" strip on the home page and the monthly calendar pages.', 'natura-core' ) );
+	printf( '<p class="description">%s</p>', esc_html__( 'Check the months for the UK (a temperate climate). They fill the "This month" strip on the home page and the monthly calendar pages.', 'natura-core' ) );
 
 	echo '<table class="natura-months"><thead><tr><th></th>';
 	foreach ( natura_core_month_slugs() as $number => $slug ) {

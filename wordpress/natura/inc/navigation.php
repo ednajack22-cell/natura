@@ -76,7 +76,7 @@ function natura_default_primary_menu(): array {
 			array(
 				natura_menu_entry( __( 'Plant problems', 'natura' ), '/problems/', __( 'Yellow leaves, pests, wilting: find the cause.', 'natura' ) ),
 				natura_menu_entry( __( 'Watering', 'natura' ), '/plant-care/watering/', __( 'How much, how often, and how to check.', 'natura' ) ),
-				natura_menu_entry( __( 'Soil & feeding', 'natura' ), '/plant-care/soil-feeding/', __( 'Compost, fertiliser, and repotting.', 'natura' ) ),
+				natura_menu_entry( __( 'Soil & feeding', 'natura' ), '/plant-care/soil-feeding/', __( 'Potting mix, fertilizer, and repotting.', 'natura' ) ),
 				natura_menu_entry( __( 'Light & position', 'natura' ), '/plant-care/light-position/', __( 'Sun, shade, wind, and where to put pots.', 'natura' ) ),
 				natura_menu_entry( __( 'Seasonal care', 'natura' ), '/plant-care/seasonal-care/', __( 'What changes through the year.', 'natura' ) ),
 			)
@@ -87,15 +87,15 @@ function natura_default_primary_menu(): array {
 			'/tools/',
 			__( 'Calendars and calculators that answer one question each.', 'natura' ),
 			array(
-				natura_menu_entry( __( 'Planting calendar', 'natura' ), '/calendar/', __( 'What to sow, plant out, and harvest in pots, month by month.', 'natura' ) ),
+				natura_menu_entry( __( 'Planting calendar (UK)', 'natura' ), '/calendar/', __( 'What to sow, plant out, and harvest in pots in the UK, month by month.', 'natura' ) ),
 				natura_menu_entry( __( 'Plant finder', 'natura' ), '/tools/plant-finder/', __( 'Which plants suit your light and space.', 'natura' ) ),
 				natura_menu_entry( __( 'Pot size calculator', 'natura' ), '/tools/pot-size-calculator/', __( 'How big a container each plant needs.', 'natura' ) ),
-				natura_menu_entry( __( 'Watering routine', 'natura' ), '/tools/watering-calculator/', __( 'When to check the compost, and how to water.', 'natura' ) ),
+				natura_menu_entry( __( 'Watering routine', 'natura' ), '/tools/watering-calculator/', __( 'When to check the potting mix, and how to water.', 'natura' ) ),
 				natura_menu_entry( __( 'Frost risk check', 'natura' ), '/tools/frost-risk/', __( 'Whether tonight\'s low is a risk for your plants.', 'natura' ) ),
 				natura_menu_entry( __( 'Symptom checker', 'natura' ), '/tools/guided-diagnosis/', __( 'Note what you see before you treat.', 'natura' ) ),
 			)
 		),
-		natura_menu_entry( __( 'Gear', 'natura' ), '/gear/', __( 'Pots, soil, and kit compared, with clear criteria.', 'natura' ) ),
+		natura_menu_entry( __( 'Gear', 'natura' ), '/gear/', __( 'Pots, potting mix, and gear compared, with clear criteria.', 'natura' ) ),
 	);
 }
 

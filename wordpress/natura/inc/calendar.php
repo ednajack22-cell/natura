@@ -162,11 +162,11 @@ function natura_calendar_jobs( int $month ): array {
  */
 function natura_calendar_title( int $month ): string {
 	if ( ! $month ) {
-		return __( 'Planting calendar for pots', 'natura' );
+		return __( 'Planting calendar for pots (UK)', 'natura' );
 	}
 
 	/* translators: %s: month name. */
-	return sprintf( __( 'What to sow, plant and harvest in pots in %s', 'natura' ), natura_month_name( $month ) );
+	return sprintf( __( 'What to sow, plant and harvest in pots in %s (UK)', 'natura' ), natura_month_name( $month ) );
 }
 
 /**
@@ -183,11 +183,11 @@ function natura_calendar_description( int $month ): string {
 	$names = array_map( 'natura_plant_short_name', array_slice( $data['plants'], 0, 4 ) );
 	if ( ! $names ) {
 		/* translators: %s: month name. */
-		return sprintf( __( 'What to sow, plant out, and harvest in pots on a balcony, patio, or windowsill in %s.', 'natura' ), natura_month_name( $month ) );
+		return sprintf( __( 'What to sow, plant out, and harvest in pots on a balcony, patio, or windowsill in %s, for the UK.', 'natura' ), natura_month_name( $month ) );
 	}
 
 	/* translators: 1: month name, 2: plant names, e.g. "Basil, Cherry tomato". */
-	return sprintf( __( 'Your pots in %1$s: what to sow, plant out, and harvest, including %2$s. Each plant links to its full growing guide.', 'natura' ), natura_month_name( $month ), implode( ', ', $names ) );
+	return sprintf( __( 'Your pots in %1$s in the UK: what to sow, plant out, and harvest, including %2$s. Each plant links to its full growing guide.', 'natura' ), natura_month_name( $month ), implode( ', ', $names ) );
 }
 
 /**

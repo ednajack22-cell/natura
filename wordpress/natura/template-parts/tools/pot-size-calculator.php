@@ -1,8 +1,9 @@
 <?php
 /**
  * Pot size calculator: the volume of a round pot, a square pot, or a trough
- * (straight or tapered), the number of bags of compost to buy, and the pot
- * size each plant guide recommends.
+ * (straight or tapered), the number of bags of potting mix to buy, and the
+ * pot size each plant guide recommends. Inches by default (centimeters on
+ * request); the volume in US gallons first, liters in brackets.
  *
  * Worked out on the server from a plain GET form, so it works without
  * JavaScript; a few lines of script only hide the fields a shape does not
@@ -42,8 +43,8 @@ $natura_value  = static fn( float $value ): string => $value > 0 ? (string) roun
 			'label'   => __( 'Measured in', 'natura' ),
 			'hint'    => '',
 			'choices' => array(
-				'cm' => __( 'Centimetres', 'natura' ),
 				'in' => __( 'Inches', 'natura' ),
+				'cm' => __( 'Centimeters', 'natura' ),
 			),
 		),
 		array( 'unit' => $natura_input['unit'] ),
@@ -74,10 +75,16 @@ $natura_value  = static fn( float $value ): string => $value > 0 ? (string) roun
 	</fieldset>
 	<div class="finder-question">
 		<label class="pot-field pot-bag">
-			<span><?php esc_html_e( 'Size of the compost bags you buy', 'natura' ); ?></span>
+			<span><?php esc_html_e( 'Size of the potting mix bags you buy', 'natura' ); ?></span>
 			<select name="bag">
-				<?php foreach ( natura_pot_bags() as $natura_litres_option => $natura_label ) : ?>
-					<option value="<?php echo esc_attr( (string) $natura_litres_option ); ?>"<?php selected( $natura_input['bag'], $natura_litres_option ); ?>><?php echo esc_html( $natura_label ); ?></option>
+				<?php foreach ( natura_pot_bag_groups() as $natura_group => $natura_group_label ) : ?>
+					<optgroup label="<?php echo esc_attr( $natura_group_label ); ?>">
+						<?php foreach ( natura_pot_bags() as $natura_bag_key => $natura_bag ) : ?>
+							<?php if ( $natura_group === $natura_bag['group'] ) : ?>
+								<option value="<?php echo esc_attr( (string) $natura_bag_key ); ?>"<?php selected( $natura_input['bag'], (string) $natura_bag_key ); ?>><?php echo esc_html( $natura_bag['label'] ); ?></option>
+							<?php endif; ?>
+						<?php endforeach; ?>
+					</optgroup>
 				<?php endforeach; ?>
 			</select>
 		</label>
@@ -107,38 +114,38 @@ $natura_value  = static fn( float $value ): string => $value > 0 ? (string) roun
 <section class="finder-results" id="results" aria-labelledby="pot-results-title" aria-live="polite">
 	<?php if ( $natura_litres > 0 ) : ?>
 		<?php
-		$natura_bags   = (int) ceil( $natura_litres / $natura_input['bag'] );
-		$natura_rounded = $natura_litres < 10 ? round( $natura_litres, 1 ) : round( $natura_litres );
+		$natura_bag  = natura_pot_bags()[ $natura_input['bag'] ];
+		$natura_bags = (int) ceil( $natura_litres / $natura_bag['liters'] );
 		?>
 		<div class="pot-result">
 			<h2 id="pot-results-title">
 				<?php
-				/* translators: %s: volume in litres. */
-				echo esc_html( sprintf( __( 'This container holds about %s litres', 'natura' ), number_format_i18n( $natura_rounded, $natura_litres < 10 ? 1 : 0 ) ) );
+				/* translators: %s: volume, e.g. "2.6 gallons (9.8 liters)". */
+				echo esc_html( sprintf( __( 'This container holds about %s', 'natura' ), natura_pot_volume( $natura_litres ) ) );
 				?>
 			</h2>
 			<dl class="pot-figures">
 				<div>
-					<dt><?php esc_html_e( 'In US gallons', 'natura' ); ?></dt>
-					<dd><?php echo esc_html( number_format_i18n( $natura_litres / 3.785, 1 ) ); ?></dd>
+					<dt><?php esc_html_e( 'In quarts (dry)', 'natura' ); ?></dt>
+					<dd><?php echo esc_html( number_format_i18n( $natura_litres / 1.101, 1 ) ); ?></dd>
 				</div>
 				<div>
 					<dt>
 						<?php
-						/* translators: %s: bag size, e.g. "40 L". */
-						echo esc_html( sprintf( __( 'Bags of %s', 'natura' ), natura_pot_bags()[ $natura_input['bag'] ] ) );
+						/* translators: %s: bag size, e.g. "16 quarts (17.6 liters)". */
+						echo esc_html( sprintf( __( 'Bags of %s', 'natura' ), $natura_bag['label'] ) );
 						?>
 					</dt>
 					<dd><?php echo esc_html( number_format_i18n( $natura_bags ) ); ?></dd>
 				</div>
-				<?php if ( $natura_litres < $natura_input['bag'] ) : ?>
+				<?php if ( $natura_litres < $natura_bag['liters'] ) : ?>
 					<div>
 						<dt><?php esc_html_e( 'Pots like this per bag', 'natura' ); ?></dt>
-						<dd><?php echo esc_html( number_format_i18n( (int) floor( $natura_input['bag'] / $natura_litres ) ) ); ?></dd>
+						<dd><?php echo esc_html( number_format_i18n( (int) floor( $natura_bag['liters'] / $natura_litres ) ) ); ?></dd>
 					</div>
 				<?php endif; ?>
 			</dl>
-			<p class="pot-note"><?php esc_html_e( 'This is the full volume to the rim. Fill to just below the rim so water can soak in, and allow a little extra: fresh compost settles after the first watering.', 'natura' ); ?></p>
+			<p class="pot-note"><?php esc_html_e( 'This is the full volume to the rim. Fill to just below the rim so water can soak in, and allow a little extra: fresh potting mix settles after the first watering.', 'natura' ); ?></p>
 		</div>
 	<?php else : ?>
 		<h2 id="pot-results-title" class="screen-reader-text"><?php esc_html_e( 'Result', 'natura' ); ?></h2>

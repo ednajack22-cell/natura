@@ -45,7 +45,7 @@ while ( have_posts() ) :
 		natura_the_guide_header(
 			array(
 				'crumbs'  => $natura_crumbs,
-				/* translators: %s: category, e.g. "Compost & feed". */
+				/* translators: %s: category, e.g. "Potting mix & fertilizer". */
 				'tag'     => $natura_category ? sprintf( __( 'Buying guide · %s', 'natura' ), $natura_category->name ) : __( 'Buying guide', 'natura' ),
 				'tag_url' => $natura_category ? (string) get_term_link( $natura_category ) : (string) get_post_type_archive_link( 'gear' ),
 			)

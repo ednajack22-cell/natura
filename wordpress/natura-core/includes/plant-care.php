@@ -71,7 +71,7 @@ function natura_core_default_problem_parts(): array {
 		'leaves'        => __( 'Leaves', 'natura-core' ),
 		'flowers-fruit' => __( 'Flowers or fruit', 'natura-core' ),
 		'stems'         => __( 'Stems', 'natura-core' ),
-		'roots-compost' => __( 'Roots or compost', 'natura-core' ),
+		'roots-compost' => __( 'Roots or potting mix', 'natura-core' ),
 		'whole-plant'   => __( 'Whole plant', 'natura-core' ),
 	);
 }
@@ -174,7 +174,7 @@ function natura_core_default_topics(): array {
 		),
 		'soil-feeding'   => array(
 			'name'        => __( 'Soil & feeding', 'natura-core' ),
-			'description' => __( 'Compost for pots, fertiliser, and when to repot.', 'natura-core' ),
+			'description' => __( 'Potting mix for pots, fertilizer, and when to repot.', 'natura-core' ),
 		),
 		'light-position' => array(
 			'name'        => __( 'Light & position', 'natura-core' ),
@@ -272,7 +272,7 @@ add_action(
 	static function (): void {
 		add_meta_box(
 			'natura-problem-causes',
-			__( 'Causes, kit, FAQ, and sources', 'natura-core' ),
+			__( 'Causes, gear, FAQ, and sources', 'natura-core' ),
 			static fn( WP_Post $post ) => natura_core_render_lists( $post, natura_core_problem_lists() ),
 			'problem',
 			'normal',
@@ -302,7 +302,7 @@ function natura_core_render_problem_plants_box( WP_Post $post ): void {
 	);
 	$chosen = array_map( 'intval', get_post_meta( $post->ID, natura_core_meta_key( 'plant' ) ) );
 
-	printf( '<p class="description">%s</p>', esc_html__( 'Each plant guide you tick links to this problem, and this problem lists them.', 'natura-core' ) );
+	printf( '<p class="description">%s</p>', esc_html__( 'Each plant guide you check links to this problem, and this problem lists them.', 'natura-core' ) );
 
 	// Always submitted, so unticking every plant clears the list.
 	echo '<input type="hidden" name="natura[plants][]" value="0">';

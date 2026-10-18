@@ -30,8 +30,8 @@ $natura_topics       = natura_topics();
 $natura_checks       = array(
 	array(
 		'icon'  => 'drop',
-		'title' => __( 'Feel the compost at root depth', 'natura' ),
-		'text'  => __( 'Push a finger 5 cm into the pot, or use a moisture meter in deep containers. Wet compost days after watering means the roots are short of air; dust-dry compost means they are short of water.', 'natura' ),
+		'title' => __( 'Feel the potting mix at root depth', 'natura' ),
+		'text'  => __( 'Push a finger 2 in (5 cm) into the pot, or use a moisture meter in deep containers. Wet potting mix days after watering means the roots are short of air; dust-dry potting mix means they are short of water.', 'natura' ),
 	),
 	array(
 		'icon'  => 'roots',

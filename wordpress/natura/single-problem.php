@@ -20,7 +20,7 @@ while ( have_posts() ) :
 
 	$natura_crumbs    = natura_problem_breadcrumbs();
 	$natura_causes    = natura_problem_causes();
-	$natura_layout    = natura_guide_inserts( __( 'Useful kit', 'natura' ) );
+	$natura_layout    = natura_guide_inserts( __( 'Useful gear', 'natura' ) );
 	$natura_inserts   = $natura_layout['inserts'];
 	$natura_body      = trim( (string) apply_filters( 'the_content', get_the_content() ) );
 	$natura_plant_ids = natura_problem_plant_ids();

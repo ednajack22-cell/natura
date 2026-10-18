@@ -156,7 +156,7 @@ function natura_core_project_facts(): array {
 		),
 		'size'           => array(
 			'label' => __( 'Finished size', 'natura-core' ),
-			'help'  => __( 'Example: 60 × 20 × 20 cm (24 × 8 × 8 in)', 'natura-core' ),
+			'help'  => __( 'Example: 24 × 8 × 8 in (60 × 20 × 20 cm)', 'natura-core' ),
 			'type'  => 'text',
 		),
 	);
@@ -181,7 +181,7 @@ function natura_core_project_lists(): array {
 		),
 		'materials' => array(
 			'label'  => __( 'Materials', 'natura-core' ),
-			'help'   => __( 'Everything that ends up in the project. A shop link is optional (affiliate allowed): no prices.', 'natura-core' ),
+			'help'   => __( 'Everything that ends up in the project. A store link is optional (affiliate allowed): no prices.', 'natura-core' ),
 			'add'    => __( 'Add a material', 'natura-core' ),
 			'fields' => array(
 				'name'     => array( 'label' => __( 'Material', 'natura-core' ), 'type' => 'text' ),

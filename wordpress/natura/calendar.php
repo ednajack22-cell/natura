@@ -125,6 +125,9 @@ $natura_is_today = $natura_month === (int) wp_date( 'n' );
 				<p class="calendar-kicker"><?php natura_the_icon( 'calendar' ); ?> <?php esc_html_e( 'Month by month', 'natura' ); ?></p>
 				<h1><?php echo esc_html( natura_calendar_title( 0 ) ); ?></h1>
 				<p><?php echo esc_html( natura_home_setting( 'natura_calendar_intro' ) ); ?></p>
+				<?php if ( natura_section_enabled( 'calendar_us_note' ) && natura_home_setting( 'natura_calendar_us_note' ) ) : ?>
+					<p class="calendar-climate calendar-us-note"><?php natura_the_icon( 'sun' ); ?><span><?php echo esc_html( natura_home_setting( 'natura_calendar_us_note' ) ); ?></span></p>
+				<?php endif; ?>
 				<a class="button button-primary calendar-now" href="<?php echo esc_url( natura_core_calendar_url( $natura_today ) ); ?>">
 					<?php
 					/* translators: %s: month name. */
@@ -177,7 +180,7 @@ $natura_is_today = $natura_month === (int) wp_date( 'n' );
 					</div>
 				</section>
 			<?php elseif ( ! $natura_year ) : ?>
-				<p class="empty-state"><?php esc_html_e( 'No plant guide has a planting calendar yet. Tick the months in the Planting calendar box of each guide.', 'natura' ); ?></p>
+				<p class="empty-state"><?php esc_html_e( 'No plant guide has a planting calendar yet. Check the months in the Planting calendar box of each guide.', 'natura' ); ?></p>
 			<?php endif; ?>
 
 			<?php natura_the_share_bar( 'share_calendar', __( 'Share the planting calendar', 'natura' ) ); ?>

@@ -4,7 +4,8 @@
  * of each plant guide.
  *
  * The limit of each plant is the lowest temperature of its RHS rating band
- * (H1c: 5 °C, H3: −5 °C…), as set in its guide. The tool adds no margin of
+ * (H1c: 41 °F / 5 °C, H3: 23 °F / −5 °C…), as set in its guide. The forecast
+ * is typed in °F by default (°C on request); results show °F first. The tool adds no margin of
  * its own; it explains instead why a pot can be colder than the forecast
  * (Met Office: ground frost) and links to both sources.
  *
@@ -34,8 +35,8 @@ $natura_below  = null === $natura_low ? array() : array_filter( $natura_plants, 
 			'label'   => __( 'In', 'natura' ),
 			'hint'    => '',
 			'choices' => array(
-				'c' => __( 'Degrees Celsius (°C)', 'natura' ),
 				'f' => __( 'Degrees Fahrenheit (°F)', 'natura' ),
+				'c' => __( 'Degrees Celsius (°C)', 'natura' ),
 			),
 		),
 		array( 'unit' => $natura_unit ),
@@ -56,15 +57,15 @@ $natura_below  = null === $natura_low ? array() : array_filter( $natura_plants, 
 					esc_html_e( 'No plant guide has an RHS hardiness rating yet', 'natura' );
 				} elseif ( $natura_below ) {
 					/* translators: 1: number of plants, 2: temperature. */
-					echo esc_html( sprintf( _n( '%1$s plant is below its limit at %2$s', '%1$s plants are below their limit at %2$s', count( $natura_below ), 'natura' ), number_format_i18n( count( $natura_below ) ), natura_temperature( $natura_low, $natura_unit ) ) );
+					echo esc_html( sprintf( _n( '%1$s plant is below its limit at %2$s', '%1$s plants are below their limit at %2$s', count( $natura_below ), 'natura' ), number_format_i18n( count( $natura_below ) ), natura_temperature( $natura_low ) ) );
 				} else {
 					/* translators: %s: temperature. */
-					echo esc_html( sprintf( __( 'At %s, every plant is within its RHS rating', 'natura' ), natura_temperature( $natura_low, $natura_unit ) ) );
+					echo esc_html( sprintf( __( 'At %s, every plant is within its RHS rating', 'natura' ), natura_temperature( $natura_low ) ) );
 				}
 				?>
 			</h2>
 			<?php if ( $natura_below ) : ?>
-				<p class="pot-note"><?php esc_html_e( 'Move these pots indoors, into a porch or greenhouse, or against a house wall under fleece for the night.', 'natura' ); ?></p>
+				<p class="pot-note"><?php esc_html_e( 'Move these pots indoors, into a porch or greenhouse, or against a house wall under row cover (frost cloth) for the night.', 'natura' ); ?></p>
 			<?php endif; ?>
 		</div>
 	<?php else : ?>
@@ -91,7 +92,7 @@ $natura_below  = null === $natura_low ? array() : array_filter( $natura_plants, 
 							<tr<?php echo $natura_at_risk ? ' class="is-risk"' : ''; ?>>
 								<th scope="row"><a href="<?php echo esc_url( $natura_plant['url'] ); ?>"><?php echo esc_html( $natura_plant['name'] ); ?></a></th>
 								<td>
-									<strong><?php echo esc_html( $natura_plant['rating'] ); ?> · <?php echo null === $natura_plant['min'] ? esc_html__( 'below −20 °C', 'natura' ) : esc_html( natura_temperature( $natura_plant['min'], $natura_unit ) ); ?></strong>
+									<strong><?php echo esc_html( $natura_plant['rating'] ); ?> · <?php echo null === $natura_plant['min'] ? esc_html__( 'below −4 °F (−20 °C)', 'natura' ) : esc_html( natura_temperature( $natura_plant['min'] ) ); ?></strong>
 									<span class="frost-meaning"><?php echo esc_html( $natura_plant['text'] ); ?></span>
 								</td>
 								<?php if ( null !== $natura_low ) : ?>
@@ -110,7 +111,7 @@ $natura_below  = null === $natura_low ? array() : array_filter( $natura_plants, 
 	<div class="frost-notes">
 		<h2><?php esc_html_e( 'Before you trust the number', 'natura' ); ?></h2>
 		<ul>
-			<li><?php esc_html_e( 'A forecast gives the air temperature above the ground. On a clear, still night the ground, and the top of a pot, can freeze while the air stays above 0 °C: a ground frost.', 'natura' ); ?></li>
+			<li><?php esc_html_e( 'A forecast gives the air temperature above the ground. On a clear, still night the ground, and the top of a pot, can freeze while the air stays above 32 °F (0 °C): a ground frost.', 'natura' ); ?></li>
 			<li><?php esc_html_e( 'RHS ratings are a guide to the lowest temperature a plant is likely to withstand. In a pot, the roots have far less soil around them than in the ground, so treat the rating as the best case.', 'natura' ); ?></li>
 			<li><?php esc_html_e( 'Plants rated H1 are not only at risk from frost: they need warm nights, so they stay indoors until nights are reliably above their limit.', 'natura' ); ?></li>
 		</ul>

@@ -209,7 +209,7 @@ add_filter(
 		if ( is_post_type_archive( 'gear' ) ) {
 			$parts['title'] = __( 'Gear for growing in pots: buying guides', 'natura' );
 		} elseif ( is_tax( 'gear_category' ) ) {
-			/* translators: %s: category, e.g. "Compost & feed". */
+			/* translators: %s: category, e.g. "Potting mix & fertilizer". */
 			$parts['title'] = sprintf( __( '%s: buying guides', 'natura' ), single_term_title( '', false ) );
 		}
 		return $parts;

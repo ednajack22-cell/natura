@@ -34,7 +34,7 @@ $natura_featured   = ! $natura_category && ! is_paged() && natura_section_enable
 			<h1>
 				<?php
 				if ( $natura_category ) {
-					/* translators: %s: category, e.g. "Compost & feed". */
+					/* translators: %s: category, e.g. "Potting mix & fertilizer". */
 					echo esc_html( sprintf( __( '%s: buying guides', 'natura' ), $natura_category->name ) );
 				} else {
 					esc_html_e( 'Gear for growing in pots', 'natura' );

@@ -62,18 +62,18 @@ function natura_option_tabs(): array {
 			),
 		),
 		'design'     => array(
-			'title'  => __( 'Colours', 'natura' ),
+			'title'  => __( 'Colors', 'natura' ),
 			'icon'   => 'dashicons-art',
-			'intro'  => __( 'The two brand colours used across the site. Both carry white text (buttons, header, bands), so a colour too light to read is refused.', 'natura' ),
+			'intro'  => __( 'The two brand colors used across the site. Both carry white text (buttons, header, bands), so a color too light to read is refused.', 'natura' ),
 			'fields' => array(
 				'natura_color_primary' => array(
 					'type'  => 'color',
-					'label' => __( 'Main colour', 'natura' ),
+					'label' => __( 'Main color', 'natura' ),
 					'help'  => __( 'Header, footer, dark bands, main buttons. Default: forest green #1b3b2b.', 'natura' ),
 				),
 				'natura_color_accent'  => array(
 					'type'  => 'color',
-					'label' => __( 'Accent colour', 'natura' ),
+					'label' => __( 'Accent color', 'natura' ),
 					'help'  => __( 'Labels, search and "Check price" buttons, links in labels. Default: terracotta #9b441f.', 'natura' ),
 				),
 			),
@@ -123,7 +123,7 @@ function natura_option_tabs(): array {
 				'natura_author_role'  => array(
 					'type'        => 'text',
 					'label'       => __( 'Role', 'natura' ),
-					'placeholder' => __( 'Grows vegetables on a 4 m² balcony since 2019', 'natura' ),
+					'placeholder' => __( 'Grows vegetables on a 43 sq ft (4 m²) balcony since 2019', 'natura' ),
 				),
 				'natura_author_bio'   => array(
 					'type'  => 'textarea',
@@ -162,7 +162,7 @@ function natura_option_tabs(): array {
 		'pages'      => array(
 			'title'  => __( 'Pages & lists', 'natura' ),
 			'icon'   => 'dashicons-admin-page',
-			'intro'  => __( 'Your site\'s own pages, and the texts of the lists, the 404 page, and the search page. The legal pages are needed for AdSense and affiliate programmes.', 'natura' ),
+			'intro'  => __( 'Your site\'s own pages, and the texts of the lists, the 404 page, and the search page. The legal pages are needed for AdSense and affiliate programs.', 'natura' ),
 			'fields' => array(
 				'natura_page_about'       => array(
 					'type'  => 'page',
@@ -207,7 +207,7 @@ function natura_option_tabs(): array {
 				),
 				'care_problems'           => $switch( __( 'Plant Care page: What is wrong with your plant?', 'natura' ), __( 'The dark panel with the problem guides.', 'natura' ) ),
 				'care_checks'             => $switch( __( 'Plant Care page: Three checks', 'natura' ), __( 'The three checks before treating anything.', 'natura' ) ),
-				'list_problem_band'       => $switch( __( 'Plant looking unwell? band', 'natura' ), __( 'Under the plant list, towards the problem guides.', 'natura' ) ),
+				'list_problem_band'       => $switch( __( 'Plant looking unwell? band', 'natura' ), __( 'Under the plant list, leading to the problem guides.', 'natura' ) ),
 				'natura_404_title'        => array(
 					'type'  => 'text',
 					'label' => __( 'Page not found: title', 'natura' ),
@@ -237,6 +237,12 @@ function natura_option_tabs(): array {
 					'label' => __( 'Climate note', 'natura' ),
 					'help'  => __( 'Says which climate the months are for. Shown on every month page and under the calendar of each plant guide.', 'natura' ),
 				),
+				'natura_calendar_us_note' => array(
+					'type'  => 'textarea',
+					'label' => __( 'Note for US readers', 'natura' ),
+					'help'  => __( 'Under the introduction of the year page: the months are for the UK, so US readers are sent to the "When to plant" section of each plant guide. Leave empty to hide it.', 'natura' ),
+				),
+				'calendar_us_note'        => $switch( __( 'Note for US readers', 'natura' ), __( 'The line under the introduction of the year page that sends US readers to each guide\'s "When to plant" section.', 'natura' ) ),
 				'calendar_months_nav'     => $switch( __( 'Month strip', 'natura' ), __( 'The row of months at the top of every calendar page.', 'natura' ) ),
 				'calendar_summary'        => $switch( __( 'Sow / Plant out / Harvest counts', 'natura' ), __( 'The three buttons under the title of a month page, which jump to each section.', 'natura' ) ),
 				'calendar_year_table'     => $switch( __( 'Year table', 'natura' ), __( 'Every plant and its twelve months, on the year page.', 'natura' ) ),
@@ -331,7 +337,7 @@ function natura_option_tabs(): array {
 				'project_method'        => $switch( __( 'Built by us / Adapted note', 'natura' ), __( 'Says plainly where the instructions come from. Recommended.', 'natura' ) ),
 				'project_checks'        => $switch( __( 'Before you start', 'natura' ), __( 'The checks for a balcony: weight, where water drains, wind, safety.', 'natura' ) ),
 				'project_materials'     => $switch( __( 'Materials and tools', 'natura' ) ),
-				'project_plants'        => $switch( __( 'What to grow in it', 'natura' ), __( 'The plant guides ticked in the project.', 'natura' ) ),
+				'project_plants'        => $switch( __( 'What to grow in it', 'natura' ), __( 'The plant guides checked in the project.', 'natura' ) ),
 			),
 		),
 		'gear'       => array(
@@ -372,7 +378,7 @@ function natura_option_tabs(): array {
 					'type'  => 'textarea',
 					'label' => __( 'Plant finder: introduction', 'natura' ),
 				),
-				'tool_pot_size_calculator'       => $switch( __( 'Pot size calculator', 'natura' ), __( 'Volume of a round or square pot or a trough, bags of compost to buy, and the pot size from each plant guide.', 'natura' ) ),
+				'tool_pot_size_calculator'       => $switch( __( 'Pot size calculator', 'natura' ), __( 'Volume of a round or square pot or a trough, bags of potting mix to buy, and the pot size from each plant guide.', 'natura' ) ),
 				'natura_tool_intro_pot_size_calculator' => array(
 					'type'  => 'textarea',
 					'label' => __( 'Pot size calculator: introduction', 'natura' ),
@@ -1189,7 +1195,7 @@ function natura_render_options(): void {
 		'import_error'  => array( 'error', __( 'Nothing imported: paste the whole text of a Natura Options export.', 'natura' ) ),
 		'restored'      => array( 'success', __( 'That version is back. The settings you had just before are kept at the top of the list.', 'natura' ) ),
 		'restore_error' => array( 'error', __( 'That version could not be found.', 'natura' ) ),
-		'colour_refused' => array( 'warning', __( 'Saved, except a colour too light to carry white text: the default is used. Choose a darker shade.', 'natura' ) ),
+		'colour_refused' => array( 'warning', __( 'Saved, except a color too light to carry white text: the default is used. Choose a darker shade.', 'natura' ) ),
 	);
 	$notice  = isset( $_GET['natura-notice'] ) ? sanitize_key( wp_unslash( $_GET['natura-notice'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
 	?>

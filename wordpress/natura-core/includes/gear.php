@@ -97,8 +97,8 @@ function natura_core_default_gear_categories(): array {
 			'description' => __( 'Pots, troughs, window boxes, and grow bags for balconies, patios, and windowsills.', 'natura-core' ),
 		),
 		'compost-feed'   => array(
-			'name'        => __( 'Compost & feed', 'natura-core' ),
-			'description' => __( 'Compost, grit, and plant feed for container growing.', 'natura-core' ),
+			'name'        => __( 'Potting mix & fertilizer', 'natura-core' ),
+			'description' => __( 'Potting mix, grit, and fertilizer for container growing.', 'natura-core' ),
 		),
 		'watering'       => array(
 			'name'        => __( 'Watering', 'natura-core' ),
