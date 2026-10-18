@@ -342,7 +342,7 @@ return array(
 					$p( 'Indoor air is dry. Stand the pot on a tray of gravel or clay pellets, with the water level kept below the surface. In summer, misting early in the morning helps too.' ) .
 
 					$h2( 'Pot and compost' ) .
-					$p( 'A young tree can stay in its pot for several years. When roots show through the drainage holes, repot in spring into a pot only slightly larger than the root ball: overpotting causes problems. Use peat-free citrus compost, or a soil-based compost (John Innes No 2 or No 3) with about 20 per cent sharp sand or grit mixed in. In the years between repotting, replace the top few centimetres of compost.' ) .
+					$p( 'A young tree can stay in its pot for several years. When roots show through the drainage holes, repot in spring into a pot only slightly larger than the root ball: overpotting causes problems. Use peat-free citrus compost, or a peat-free soil-based compost (a peat-free John Innes No 2 or No 3) with about 20 per cent sharp sand or grit mixed in. In the years between repotting, replace the top few centimetres of compost.' ) .
 
 					$h2( 'Water with care' ) .
 					$p( 'In summer, water regularly, ideally with rainwater, keeping the compost just moist; check it daily. In winter, let the surface of the compost dry out partly, then water thoroughly with tepid rainwater. Overwatering in winter is one of the commonest problems: never leave the pot standing in water.' ) .
