@@ -60,6 +60,8 @@ return array(
 						array( 'title' => 'RHS — How to grow radishes', 'url' => 'https://www.rhs.org.uk/vegetables/radishes/grow-your-own' ),
 						array( 'title' => 'RHS — How to grow salad leaves', 'url' => 'https://www.rhs.org.uk/vegetables/salad-leaves/grow-your-own' ),
 						array( 'title' => 'RHS — How to grow tomatoes', 'url' => 'https://www.rhs.org.uk/vegetables/tomatoes/grow-your-own' ),
+						array( 'title' => 'RHS — Wind scorch and damage', 'url' => 'https://www.rhs.org.uk/prevention-protection/wind-scorch' ),
+						array( 'title' => 'RHS — Cloches', 'url' => 'https://www.rhs.org.uk/prevention-protection/cloches' ),
 						$book,
 					),
 				),
@@ -82,6 +84,7 @@ return array(
 
 					$h2( 'Work with the wind' ) .
 					$p( 'Strong wind and sun are the main limits on a balcony. Use any shelter you already have, such as a wall or a solid end panel. If you add a screen, choose a slatted or mesh one: a solid barrier causes turbulence on the sheltered side, while a permeable one filters the wind. Low-growing plants suffer less wind damage in exposed places.' ) .
+					$p( 'Wind also knocks things over. Stand pots against a sheltered house wall where you can, but not in a gap between buildings, where the wind is squeezed and blows harder. Pots filled with light peat-free compost may need fixing in place on an exposed balcony. Tie tall plants to a cane or stake as they grow, and peg or weigh down plastic cloches and covers: the RHS warns that a cloche which is not well anchored can blow away.' ) .
 
 					$h2( 'Use height' ) .
 					$p( 'When the floor is full, go up. Tiered shelves and plant theatres hold small herb pots against a wall; planting pockets hung on a wall or railing take salad leaves; a galvanised wire cage holds up a tomato or pepper and still lets light through. Place tall plants where they will not shade the smaller crops around them.' ) .
@@ -610,9 +613,11 @@ return array(
 					'faq'       => array(
 						array( 'question' => 'Will the funnel water my plants while I am away?', 'answer' => 'No. It only channels the water you pour in at the time; it does not store water. For holidays, see our guide to watering pots when you are away.' ),
 						array( 'question' => 'Which plants benefit most?', 'answer' => 'Thirsty plants in large containers, such as tomatoes, courgettes and soft fruit, where water tends to run off a dry surface or over the leaves.' ),
+						array( 'question' => 'Can I use a small plant pot instead of a bottle?', 'answer' => 'Yes. A small pot sunk beside the plant works the same way, and the RHS suggests one for cucumbers so that water goes down to the roots instead of sitting around the base of the stem, where it can cause rot. Liquid feed poured into the pot or funnel reaches the roots in the same way.' ),
 					),
 					'sources'   => array(
 						array( 'title' => 'RHS School Gardening — Teach pupils how to water plants correctly', 'url' => 'https://www.rhs.org.uk/education-learning/school-gardening/resources/planet-friendly/watering-plants' ),
+						array( 'title' => 'RHS — How to grow cucumbers', 'url' => 'https://www.rhs.org.uk/vegetables/cucumbers/grow-your-own' ),
 						array( 'title' => 'RHS — How to water containers', 'url' => 'https://www.rhs.org.uk/container-gardening/how-to-water-containers' ),
 						$book,
 					),

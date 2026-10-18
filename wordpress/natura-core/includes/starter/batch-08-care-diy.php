@@ -54,6 +54,10 @@ return array(
 					),
 					'sources'  => array(
 						array( 'title' => 'RHS — How to sow seeds indoors', 'url' => 'https://www.rhs.org.uk/propagation/seed-indoors' ),
+						array( 'title' => 'RHS — How to grow tomatoes', 'url' => 'https://www.rhs.org.uk/vegetables/tomatoes/grow-your-own' ),
+						array( 'title' => 'RHS — How to grow courgettes', 'url' => 'https://www.rhs.org.uk/vegetables/courgettes/grow-your-own' ),
+						array( 'title' => 'RHS — How to grow chilli peppers', 'url' => 'https://www.rhs.org.uk/vegetables/chilli-pepper/grow-your-own' ),
+						array( 'title' => 'RHS — How to grow cucumbers', 'url' => 'https://www.rhs.org.uk/vegetables/cucumbers/grow-your-own' ),
 						array( 'title' => 'RHS — Seed sowing techniques', 'url' => 'https://www.rhs.org.uk/advice/beginners-guide/vegetable-basics/seed-sowing-techniques' ),
 						array( 'title' => 'RHS — How plants sense the environment', 'url' => 'https://www.rhs.org.uk/advice/understanding-plants/how-plants-sense-the-environment' ),
 						array( 'title' => 'RHS — Nutrition: feeding plants', 'url' => 'https://www.rhs.org.uk/garden-jobs/nutrition-feeding-plants' ),
@@ -81,6 +85,7 @@ return array(
 
 					$h2( 'Warmth and the first days' ) .
 					$p( 'Most seeds germinate at about 18 °C (64 °F), but packets vary, so read them. Some seedlings show within a few days. The moment they do, take the cover off. Keep the compost just damp by watering lightly every few days: it should never dry out completely, nor sit soggy. Once they are up, seedlings grow better slightly cooler than the seeds needed to germinate.' ) .
+					$p( 'Warmth-loving vegetables want a little more. RHS figures put tomatoes at about 18 °C (64 °F), courgettes at 18–21 °C (65–70 °F), and chillies and cucumbers at about 21 °C (70 °F), which a heated propagator or a warm room makes easier to hold.' ) .
 					$p( 'Windowsills can get chilly after dark. On frosty nights, lift the pots off the sill into the room and put them back in the morning.' ) .
 
 					$h2( 'Light from one side' ) .

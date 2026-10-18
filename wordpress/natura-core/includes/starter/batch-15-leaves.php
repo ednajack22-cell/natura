@@ -399,6 +399,7 @@ return array(
 					'sources'    => array(
 						array( 'title' => 'RHS — How to grow leeks', 'url' => 'https://www.rhs.org.uk/vegetables/leeks/grow-your-own' ),
 						array( 'title' => 'RHS — Allium porrum (hardiness rating)', 'url' => 'https://www.rhs.org.uk/plants/106043/allium-porrum/details' ),
+						array( 'title' => 'RHS — Leek moth', 'url' => 'https://www.rhs.org.uk/biodiversity/leek-moth' ),
 						array( 'title' => 'RHS — Vegetables: growing for winter', 'url' => 'https://www.rhs.org.uk/vegetables/growing-for-winter' ),
 						$book,
 					),
@@ -429,7 +430,7 @@ return array(
 
 					$h2( 'Care through summer' ) .
 					$p( 'In the ground, leeks only need water in long dry spells, but in a container the compost dries out quickly, so water regularly all season; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. Aim at the compost rather than the leaves: wet foliage encourages leek rust, a fungus that causes orange spots.' ) .
-					$p( 'Several insects attack leeks, including allium leaf miner. Covering the pot with insect-proof mesh keeps them out. If a leek starts to flower, remove the stalk straight away.' ) .
+					$p( 'Several insects attack leeks, including allium leaf miner and leek moth, whose caterpillars leave white patches on the leaves and then tunnel into the stems; <a href="/problems/leek-moth/">leek moth and allium leaf miner</a> shows how to tell them apart. Covering the pot with insect-proof mesh keeps them out. If a leek starts to flower, remove the stalk straight away.' ) .
 
 					$h2( 'Harvest and winter' ) .
 					$p( 'Leeks can be pulled at any size. Start with a few small ones from late summer, which leaves more room for the rest to thicken. Ease each one out gently, taking only what you need. Late varieties stand through winter into spring: leeks are hardy, and established plants need no frost protection.' ) .

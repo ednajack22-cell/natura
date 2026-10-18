@@ -284,6 +284,7 @@ return array(
 
 					$h2( 'Divide and repot every few years' ) .
 					$p( 'In a pot, mint fills the compost with roots and loses vigour after a few years. Divide it in spring or autumn: tip the plant out, break or cut off healthy pieces with roots and shoots, and replant them in fresh compost. Extra pieces make plants to give away.' ) .
+					$p( 'You can also start new pots from cuttings of the underground stems (rhizomes) at any time of year: the RHS notes that a few lengths potted up indoors in November give fresh leaves for Christmas. In spring, soft new shoots root readily in a jar of water before being potted up.' ) .
 
 					$h2( 'Mint rust' ) .
 					$p( 'Mint rust is a fungus that causes dusty orange spots on stems and leaves, from spring to autumn, later turning yellow or black. No fungicide is available for use on mint. Remove affected plants, including their underground stems, before the black spores form, and replant healthy pieces in fresh compost.' ),

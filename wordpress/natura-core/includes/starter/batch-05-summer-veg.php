@@ -88,6 +88,7 @@ return array(
 						array( 'title' => 'RHS — How to grow courgettes', 'url' => 'https://www.rhs.org.uk/vegetables/courgettes/grow-your-own' ),
 						array( 'title' => 'RHS — Courgette \'Astia\' (hardiness rating)', 'url' => 'https://www.rhs.org.uk/plants/265848/astia-agm/details' ),
 						array( 'title' => 'RHS — Courgette \'Defender\'', 'url' => 'https://www.rhs.org.uk/plants/112370/defender-agm/details' ),
+						array( 'title' => 'RHS — Cucumber mosaic virus', 'url' => 'https://www.rhs.org.uk/disease/cucumber-mosaic-virus' ),
 						array( 'title' => 'RHS — Growing vegetables in containers', 'url' => 'https://www.rhs.org.uk/vegetables/containers' ),
 						array( 'title' => 'RHS — Slugs and snails', 'url' => 'https://www.rhs.org.uk/biodiversity/slugs-and-snails' ),
 						$book,
@@ -126,7 +127,7 @@ return array(
 
 					$h2( 'Slugs, mildew and fruits that fail' ) .
 					$p( 'Slugs and snails eat young plants, flowers and small fruits. Planting out a sturdy plant rather than a tiny seedling helps, and on mild, damp evenings you can pick them off by hand. The RHS also suggests watering in the morning rather than the evening, which gives them less help at night.' ) .
-					$p( 'In a cool early summer, plants may set no fruit, or the tiny fruits may rot. This comes from poor pollination and usually stops when the weather warms. Later in the season, powdery mildew often whitens the older leaves: cut off the worst affected ones. Courgettes cross easily with other squashes, so saved seed is unreliable; see our guide to ' . $seed_link . '.' ) .
+					$p( 'In a cool early summer, plants may set no fruit, or the tiny fruits may rot. This comes from poor pollination and usually stops when the weather warms. Later in the season, powdery mildew often whitens the older leaves: cut off the worst affected ones. A plant with yellow-mottled, crinkled leaves, stunted growth and lumpy fruit is a different matter: that points to <a href="/problems/cucumber-mosaic-virus/">cucumber mosaic virus</a>, spread by aphids, and the plant cannot be cured. Courgettes cross easily with other squashes, so saved seed is unreliable; see our guide to ' . $seed_link . '.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -394,6 +395,7 @@ return array(
 					),
 					'sources'    => array(
 						array( 'title' => 'RHS — How to grow potatoes', 'url' => 'https://www.rhs.org.uk/vegetables/potatoes/grow-your-own' ),
+						array( 'title' => 'RHS — Potato scabs', 'url' => 'https://www.rhs.org.uk/disease/potato-scabs' ),
 						array( 'title' => 'RHS — Potato \'Sharpe\'s Express\' (hardiness rating)', 'url' => 'https://www.rhs.org.uk/plants/199780/sharpes-express-agm/details' ),
 						array( 'title' => 'RHS — Potato \'Casablanca\'', 'url' => 'https://www.rhs.org.uk/plants/301266/casablanca-agm/details' ),
 						array( 'title' => 'RHS — Growing vegetables in containers', 'url' => 'https://www.rhs.org.uk/vegetables/containers' ),
@@ -404,7 +406,8 @@ return array(
 				'content'      =>
 					$h2( 'Why grow potatoes in a bag?' ) .
 					$p( 'Potatoes usually need a whole row in a vegetable plot, but a few plants in a large container give a decent crop of new potatoes. Harvesting is easy too: you tip the bag out and pick up the tubers, with no fork to spear them.' ) .
-					$p( 'Early varieties are the ones to grow. They make smaller plants, mature faster, and are lifted by midsummer. Blight is also less likely to affect them, and it is less common in dry summers.' ) .
+					$p( 'Early varieties are the ones to grow. They make smaller plants, mature faster, and are lifted by midsummer, in as little as 12 weeks according to the RHS. Blight is also less likely to affect them, and it is less common in dry summers.' ) .
+					$p( 'Check the texture on the label as well as the timing: varieties are either waxy or floury, so pick one that suits the way you cook. Maincrops stay in the ground until late August to October and give bigger potatoes for roasting, baking and storing, but they take far longer to fill a bag.' ) .
 
 					$h2( 'What to grow them in' ) .
 					$p( 'Any container at least 30 cm (12 in) wide and deep will do. Purpose-made potato grow bags and sacks work well, and some have a flap near the base so you can reach in for a few tubers. An old sack or a large, empty compost bag can be reused, but make drainage holes in the bottom first. Stand it in full sun, in an open spot where late frosts do not linger.' ) .
@@ -434,7 +437,7 @@ return array(
 					$h2( 'Harvesting new potatoes' ) .
 					$p( 'First earlies are usually ready in June and July, second earlies in July and August. A good sign is when the plants flower or the flower buds drop. Scrape back a little compost to look: the tubers should be about the size of a hen\'s egg. If they are still small, cover them up and wait.' ) .
 					$p( 'When they are ready, tip the bag onto a sheet or into a wheelbarrow and gather the potatoes by hand, discarding any green ones. Collect every tuber, as any left behind can sprout and carry disease. New potatoes taste best eaten soon after lifting.' ) .
-					$p( 'Some slugs live underground and tunnel into tubers, mostly maincrops in damp autumn weather. If the leaves develop fast-spreading brown, watery patches in warm, wet weather, see <a href="/problems/tomato-blight/">tomato and potato blight</a>.' ) .
+					$p( 'Some slugs live underground and tunnel into tubers, mostly maincrops in damp autumn weather. If the leaves develop fast-spreading brown, watery patches in warm, wet weather, see <a href="/problems/tomato-blight/">tomato and potato blight</a>. Rough, corky patches on the skins at harvest usually mean common scab, encouraged by dry compost while the tubers are forming; see <a href="/problems/potato-scab/">potato scab</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(

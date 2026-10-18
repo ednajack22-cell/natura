@@ -268,7 +268,7 @@ function natura_core_demo_plants(): array {
 
 				$h2( 'Support and pinch out' ) .
 				$p( 'Push a cane or spiral support into the pot at planting time, then tie the stem loosely to it every 20–30 cm as it grows.' ) .
-				$p( 'On cordon varieties, pinch out the side shoots that appear where a leaf meets the main stem. Do it while they are small, every few days. When the plant reaches the top of its support, or has set five or six trusses of flowers, pinch out the growing tip so the plant puts its energy into ripening fruit. Bush and trailing varieties need none of this.' ) .
+				$p( 'On cordon varieties, pinch out the side shoots that appear where a leaf meets the main stem. Do it while they are small, every few days. When the plant reaches the top of its support, or has set about four trusses outdoors (the RHS allows seven under glass, where the season is longer), pinch out the growing tip two leaves above the top truss so the plant puts its energy into ripening fruit. Bush and trailing varieties need none of this.' ) .
 
 				$h2( 'Water deeply and regularly' ) .
 				$p( 'Steady moisture is the single most important thing. Check the compost every day in summer by pushing a finger in: water when the top 2–3 cm feels dry, and keep going until water runs from the drainage holes. In a heatwave, a large plant may need watering morning and evening.' ) .
@@ -301,7 +301,7 @@ function natura_core_demo_plants(): array {
 			'space'     => array( 'windowsill', 'balcony' ),
 			'image'     => 'genovese-basil.jpg',
 			'months'    => array(
-				'sow'     => array( 3, 4, 5, 6 ),
+				'sow'     => array( 3, 4, 5, 6, 7 ),
 				'plant'   => array( 6 ),
 				'harvest' => array( 6, 7, 8, 9 ),
 			),
@@ -324,6 +324,10 @@ function natura_core_demo_plants(): array {
 					array( 'point' => 'Keep basil above 15 °C: indoors until nights are reliably warm.' ),
 					array( 'point' => 'Pick the top pair of leaves from each stem, and remove flower buds.' ),
 					array( 'point' => 'Water at the base, in the morning, when the top of the compost is dry.' ),
+					array( 'point' => 'Sow a fresh small batch every few weeks until July, so young plants take over when the first ones flower.' ),
+				),
+				'sources'    => array(
+					array( 'title' => 'RHS — How to grow basil', 'url' => 'https://www.rhs.org.uk/herbs/basil/grow-your-own' ),
 				),
 			),
 			'content'   =>
@@ -331,6 +335,7 @@ function natura_core_demo_plants(): array {
 				$p( 'Basil grows best above 15 °C (60 °F). Keep it indoors on a bright windowsill until nights are reliably warm, then move it to the sunniest, most sheltered corner of the balcony.' ) .
 				$h2( 'Pinch for a bushy plant' ) .
 				$p( 'Pick the top pair of leaves from each stem, just above a pair of side shoots. The plant branches at that point, and you get more leaves over the season. Remove flower buds as they appear.' ) .
+				$p( 'Plants usually start to flower from mid to late summer, which changes the taste of the leaves. The RHS suggests sowing indoors from March right through to July in small batches a few weeks apart: a pot sown in June gives tender young plants to pick when the spring-sown ones are past their best.' ) .
 				$h2( 'Water at the base' ) .
 				$p( 'Water when the top of the compost feels dry, in the morning, and avoid wetting the leaves. Basil sitting in cold, wet compost is the most common reason it collapses.' ),
 		),
@@ -366,15 +371,22 @@ function natura_core_demo_plants(): array {
 					array( 'point' => 'Choose everbearing varieties: fruit from early summer until autumn.' ),
 					array( 'point' => 'Plant with the crown exactly at the surface of the compost.' ),
 					array( 'point' => 'Water regularly while flowering and fruiting; feed every two weeks with a high-potash feed.' ),
+					array( 'point' => 'Replace plants every three or four years, using rooted runners or fresh plants.' ),
+				),
+				'sources'    => array(
+					array( 'title' => 'RHS — How to grow strawberries', 'url' => 'https://www.rhs.org.uk/fruit/strawberries/grow-your-own' ),
 				),
 			),
 			'content'   =>
 				$h2( 'Choose everbearing plants' ) .
 				$p( 'Everbearing (day-neutral) varieties crop in flushes from early summer until autumn, which suits a small space better than a single June harvest.' ) .
+				$p( 'Cold-stored runners, sold from spring to early summer, are another quick start: plant them straight away, leave their flowers on, and the RHS says they can fruit about two months later before settling into their normal season the next year. For an earlier crop the following spring, move a pot into a cold frame or unheated greenhouse in February: the RHS expects fruit about two weeks ahead of plants left outside, or at least a week ahead under a cloche. Our <a href="/plant-care/how-to-hand-pollinate-fruit-and-vegetables/">hand-pollination guide</a> explains how to help covered flowers set fruit.' ) .
 				$h2( 'Plant with the crown at soil level' ) .
 				$p( 'Set each plant so the crown, where the leaves meet the roots, sits exactly at the surface. Buried crowns rot; exposed roots dry out.' ) .
+				$p( 'Strawberry plants crop less well with age, and the RHS suggests replanting every three or four years. Runners make the replacements for free. In late summer, sink a few 9 cm (3½ in) pots of peat-free multi-purpose compost beside the parent plant, pin a runner onto each with a U-shaped piece of wire, and keep the compost just moist. Once the young plants have rooted, cut them from the parent. Remove any runners you do not need. Everbearing varieties make fewer runners, so you may need to buy new plants instead.' ) .
 				$h2( 'Keep fruit off the soil' ) .
-				$p( 'Hanging baskets and tall pots keep fruit clean and away from slugs. Water regularly while plants are flowering and fruiting, and feed every two weeks with a high-potash feed.' ),
+				$p( 'Hanging baskets and tall pots keep fruit clean and away from slugs. Water regularly while plants are flowering and fruiting, and feed every two weeks with a high-potash feed.' ) .
+				$p( 'In a wide pot, tuck a little straw or a strawberry collar under the trusses as the berries swell, so they rest on something dry rather than damp compost. Pick each berry once it is red all over: strawberries do not go on ripening after picking.' ),
 		),
 	);
 }

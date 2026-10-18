@@ -260,7 +260,7 @@ return array(
 					$p( 'Keep the compost evenly moist and be ready to water daily in hot, dry weather: flower buds may fall if plants get too dry. As soon as flowering starts, feed weekly with an organic, high-potassium liquid feed. Use several canes per plant, as stems laden with fruit can be brittle.' ) .
 
 					$h2( 'Harvest' ) .
-					$p( 'Under cover, picking runs from midsummer into autumn; outdoors it should start by August. To get the most chillies, pick them while still green: letting the first fruit ripen on the plant holds back new flowers and makes the total harvest much smaller. Leave the later fruit to colour if you want them red. Wear gloves for hot varieties, which can irritate skin and eyes.' ) .
+					$p( 'Under cover, picking runs from midsummer into autumn; outdoors it should start by August. To get the most chillies, pick them while still green: letting the first fruit ripen on the plant holds back new flowers and makes the total harvest much smaller. Leave the later fruit to colour if you want them red; green ones picked earlier can also finish ripening in the kitchen. Wear gloves for hot varieties, which can irritate skin and eyes. A glut keeps well: chillies can be frozen, dried or pickled for winter.' ) .
 
 					$h2( 'Keeping a plant over winter' ) .
 					$p( 'With somewhere heated, a chilli plant can live on. Prune it back to a manageable size, keep it warm and bright on a windowsill or in a conservatory, and water sparingly until spring.' ) .
@@ -352,6 +352,7 @@ return array(
 
 					$h2( 'Flowers and fruit' ) .
 					$p( 'Lemons are self-fertile, so one tree is enough. The fruit ripens slowly, over nine to twelve months. On a tree about 1 m (3 ft) tall, keep no more than 20 fruits, and thin the rest while small. Cut ripe lemons with secateurs. A grafted tree usually fruits after two or three years.' ) .
+					$p( 'If you would like a second citrus, the RHS names some kumquats, limes and calamondin oranges as fairly easy too, but check how much warmth each needs in winter: it gives about 7 °C (45 °F) or more for kumquats and at least 13 °C (55 °F) for calamondins, against as little as 5 °C (42 °F) for some lemons. Kumquats are the one citrus that can carry a heavy crop of their small fruits without thinning.' ) .
 
 					$h2( 'Pruning' ) .
 					$p( 'In February, thin crowded branches and cut back leggy stems by up to two-thirds. In summer, shorten strong new shoots to keep them within the crown. Flowers form on the tips of new sideshoots, so do not over-prune, and hard-prune no more than one branch a year.' ) .

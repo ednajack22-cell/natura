@@ -122,6 +122,7 @@ return array(
 							'<strong>Red and white currants</strong> fruit at the base of last year\'s shoots and on short spurs on older wood, so keep a permanent framework of branches. In late winter, shorten last season\'s growth on the main branches by a quarter to a half, cut side-shoots back to one or two buds, and keep the centre open.',
 						)
 					) .
+					$p( 'Vigorous red and white currants can also be trimmed in summer to keep them compact in a pot. Between mid-June and July, shorten this year\'s growth on the side-shoots to five leaves, leaving alone any shoot you will need to replace an old branch. Where floor space is tight, a redcurrant or whitecurrant trained as a single upright cordon against a wall suits a container particularly well; our project <a href="/diy-projects/train-a-cordon-redcurrant/">train a cordon redcurrant</a> takes you through it.' ) .
 					$p( 'Winter prunings make new plants: hardwood cuttings about 20 cm (8 in) long, taken from young, healthy wood between mid-autumn and late winter, root well pushed into a pot of compost.' ) .
 
 					$h2( 'Harvest and protect the crop' ) .
@@ -223,6 +224,7 @@ return array(
 							'Keep the centre open: good airflow reduces mildew and makes picking easier.',
 						)
 					) .
+					$p( 'For fewer but bigger berries that are easier to reach among the thorns, the RHS describes a second method, spur pruning. In winter, cut last year\'s growth on the main branches back to three or four buds and the side-shoots to two buds. Then, from mid-June to July, shorten the new growth on the side-shoots to five leaves, sparing any shoot needed to replace an old branch.' ) .
 					$p( 'Every few years, in spring, repot into a larger pot of fresh peat-free compost. Once the pot is as big as you can manage, refresh the compost and lightly trim the roots instead. In other years, replace the top layer of compost with fresh. Prunings 30 cm (1 ft) long from young, healthy bushes can be rooted as hardwood cuttings.' ) .
 
 					$h2( 'Harvest in two pickings' ) .
@@ -306,6 +308,9 @@ return array(
 						array( 'title' => 'RHS — Rootstocks for fruit', 'url' => 'https://www.rhs.org.uk/fruit/fruit-trees/rootstocks' ),
 						array( 'title' => 'RHS — Fruit pollination', 'url' => 'https://www.rhs.org.uk/advice/beginners-guide/fruit-basics/fruit-pollination' ),
 						array( 'title' => 'RHS — Apples: choosing cultivars', 'url' => 'https://www.rhs.org.uk/fruit/apples/choosing-cultivars' ),
+						array( 'title' => 'RHS — Apple and pear trees: winter pruning', 'url' => 'https://www.rhs.org.uk/fruit/apples/winter-pruning' ),
+						array( 'title' => 'RHS — Bitter pit in apples', 'url' => 'https://www.rhs.org.uk/problems/bitter-pit-in-apples' ),
+						array( 'title' => 'RHS — Codling moth', 'url' => 'https://www.rhs.org.uk/biodiversity/codling-moth' ),
 						array( 'title' => 'RHS — Malus domestica (hardiness rating)', 'url' => 'https://www.rhs.org.uk/plants/60558/malus-domestica-f/details' ),
 						$book,
 					),
@@ -344,6 +349,8 @@ return array(
 
 					$h2( 'Thin, prune and harvest' ) .
 					$p( 'Apple trees often set more fruit than they can carry and shed some naturally in early summer, the June drop. Thinning the rest in early July gives larger, better fruit. Prune a free-standing tree in winter; trained forms such as cordons are pruned in late summer.' ) .
+					$p( 'Before you prune, check on the label or in the catalogue whether your variety is a spur-bearer, which carries its fruit on short stubby shoots along the branches, or a tip-bearer, which fruits mainly at the ends of shoots. On a tip-bearer, the RHS advises shortening older branches that have fruited back to a strong younger side-shoot, rather than trimming every young shoot, which would cut off much of next year\'s crop.' ) .
+					$p( 'Two problems are worth knowing early. Small brown, sunken spots under the skin, often after a hot, dry summer, are <a href="/problems/bitter-pit/">bitter pit</a>, a shortage of calcium in the fruit that steady watering helps to prevent; a pot that dries out now and then makes it more likely. Apples with a tunnel to the core are the work of <a href="/problems/codling-moth/">codling moth</a>: a pheromone trap hung in the tree in May shows when the moths are flying, and on a lone tree it may catch enough males to reduce the damage.' ) .
 					$p( 'Pick apples as they ripen, from late summer into autumn depending on the variety: when they have swollen, started to colour and taste sweet. Cup the apple in your hand, lift and twist gently: a ripe one comes away with its stalk.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .

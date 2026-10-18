@@ -259,6 +259,7 @@ return array(
 					),
 					'sources'  => array(
 						array( 'title' => 'RHS — Powdery mildews', 'url' => 'https://www.rhs.org.uk/disease/powdery-mildews' ),
+						array( 'title' => 'RHS — Gooseberry mildew', 'url' => 'https://www.rhs.org.uk/disease/gooseberry-mildew' ),
 						$book,
 					),
 				),
@@ -273,7 +274,8 @@ return array(
 							'Cut out the first infected leaves straight away, and clear up fallen ones in autumn.',
 							'Pick mildew-resistant varieties when you buy seed.',
 						)
-					),
+					) .
+					$p( 'On gooseberries, and sometimes late in the season on blackcurrants, the white coating is usually American gooseberry mildew. It spends the winter in the buds and shoot tips, and on fallen blackcurrant leaves, so snip off affected tips as soon as you see them and clear the leaves in autumn. Prune the bush to an open shape so air moves through it, and choose a resistant variety; the <a href="/plants/gooseberries-in-pots/">gooseberry guide</a> names some.' ),
 			),
 
 			'plants-bolting' => array(
