@@ -71,7 +71,7 @@ return array(
 						array( 'question' => 'Can I grow salad leaves on a windowsill in winter?', 'answer' => 'Yes. Sow in autumn and keep the pot on a sunny windowsill, or under cover outside. Growth is slower in winter: allow around eight weeks before the first cut, and longer for the leaves to grow back.' ),
 						array( 'question' => 'Why have my salad leaves gone bitter?', 'answer' => 'Hot, dry weather makes many salad plants flower early (bolt), and the leaves turn bitter. Keep the compost moist, move the pot out of the midday sun, and sow a fresh batch.' ),
 						array( 'question' => 'Do salad leaves in pots need feeding?', 'answer' => 'Usually not. Fresh compost holds enough food for the few weeks a sowing lasts. Sow each new batch into fresh compost.' ),
-						array( 'question' => 'How often should I sow?', 'answer' => 'Sow a small batch every few weeks. When one pot is past its best after two or three cuts, the next one is ready.' ),
+						array( 'question' => 'When should I sow the next pot of salad leaves?', 'answer' => 'Sow a small batch every few weeks. When one pot is past its best after two or three cuts, the next one is ready.' ),
 					),
 					'sources'    => array(
 						array( 'title' => 'RHS — How to grow salad leaves', 'url' => 'https://www.rhs.org.uk/vegetables/salad-leaves/grow-your-own' ),
@@ -148,7 +148,7 @@ return array(
 				),
 				'lists'   => array(
 					'key_points' => array(
-						array( 'point' => 'Use a container at least 30 cm (1 ft) wide and deep, filled with peat-free multi-purpose compost.' ),
+						array( 'point' => 'Radishes want peat-free multi-purpose compost and a container of 30 cm (1 ft) or more in width and depth.' ),
 						array( 'point' => 'Sow 1 cm (½ in) deep and 2.5–5 cm (1–2 in) apart.' ),
 						array( 'point' => 'Seedlings appear in 7–10 days; roots are ready in about four to six weeks.' ),
 						array( 'point' => 'Keep the compost evenly moist: dry roots fail to swell, uneven watering splits them.' ),
@@ -179,7 +179,7 @@ return array(
 				),
 				'content' =>
 					$h2( 'Choose the pot and the spot' ) .
-					$p( 'Radishes need a container at least 30 cm (1 ft) wide and deep, with drainage holes, filled with peat-free multi-purpose compost. A deeper pot holds more water, which matters: radishes in containers dry out easily.' ) .
+					$p( 'Pick a container at least 30 cm (1 ft) wide and deep for radishes, with drainage holes and peat-free multi-purpose compost. A deeper pot holds more water, which matters: radishes in containers dry out easily.' ) .
 					$p( 'Give them an open, sunny spot. In midsummer, light shade is fine, and a place out of the midday sun helps stop them running to seed.' ) .
 
 					$h2( 'Sow' ) .
@@ -193,7 +193,7 @@ return array(
 					$p( 'Sow in spring, early summer and late summer. Skip the hottest, driest weeks of summer, when radishes tend to bolt and make no root. Rather than one big sowing, sow a few seeds every few weeks: radishes are best eaten fresh, and they do not keep their crunch if left in the pot.' ) .
 
 					$h2( 'Water little and often' ) .
-					$p( 'Watering decides the crop. Roots that go short of water fail to swell, and uneven watering, a dry pot followed by a soaking, makes them split. Check the compost every day in warm weather and water before it dries out.' ) .
+					$p( 'Watering decides the crop. Roots that go short of water fail to swell, and uneven watering, a dry pot followed by a soaking, makes them split. Look at the compost daily when the weather is warm, and water it before it dries out.' ) .
 
 					$h2( 'Harvest' ) .
 					$p( 'Summer radishes are usually ready about four to six weeks after sowing; early sowings in cool weather take six to eight. Pull them when the roots are about 2.5 cm (1 in) across. Left longer, or grown slowly, they turn pithy, woody and very hot.' ) .

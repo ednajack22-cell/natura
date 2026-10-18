@@ -91,7 +91,7 @@ return array(
 					$list(
 						array(
 							'Cover brassicas with fine netting or fleece from spring, held on canes or hoops so it does not touch the leaves.',
-							'On a balcony, a compact kale in a pot at least 30 cm (1 ft) wide and deep is easy to net completely.',
+							'On a balcony, a compact kale in a pot of at least 30 cm (1 ft) wide and deep is easy to net completely.',
 							'White butterflies fluttering around your plants are a sign they are laying eggs: check the leaves that day.',
 							'Turn the leaves over every few days and rub off any eggs before they hatch.',
 							'Leave the yellow cocoons of the parasitic wasp where you find them.',
@@ -489,7 +489,7 @@ return array(
 					$list(
 						array(
 							'Use a pot big enough to hold water for a day: 30–45 cm (12–18 in) for a tomato, at least 30 cm (1 ft) for a sweet pepper.',
-							'Check the compost every day in summer and water before it dries out.',
+							'Look at the compost daily in summer, and water before it dries out.',
 							'Give plants a warm, sunny spot that is sheltered from wind, so bees visit.',
 							'Start a high-potassium feed when flowering begins.',
 							'Pick beans every few days and keep picking ripe fruit.',

@@ -204,7 +204,7 @@ return array(
 					$p( 'Gooseberries are hardy, robust bushes that rarely turn up in shops, so they are well worth growing yourself. Their flowers are self-fertile, so one bush is enough. In the ground a bush reaches about 1–1.5 m (3½–5 ft) tall and wide; in a pot it stays manageable with pruning. You can also buy a standard, a bushy head on a stem about 1 m (3¼ ft) tall, which leaves room for smaller pots underneath.' ) .
 
 					$h2( 'Choose the pot and the spot' ) .
-					$p( 'Use a pot at least 40 cm (16 in) wide and deep, with plenty of drainage holes, and fill it with a soil-based compost such as peat-free John Innes No 3.' ) .
+					$p( 'Use a pot at least 40 cm (16 in) wide and deep, with plenty of drainage holes, and fill it with peat-free John Innes No 3, a soil-based compost.' ) .
 					$p( 'Gooseberries crop best and taste sweetest in sun, but tolerate some shade. Shelter matters more: the stems are brittle and can snap in wind, especially when heavy with fruit. Avoid frost pockets, as late frost damages the flowers, and avoid enclosed corners with still air, where mildew thrives.' ) .
 
 					$h2( 'Plant' ) .
@@ -212,7 +212,7 @@ return array(
 
 					$h2( 'Water and feed' ) .
 					$p( 'Gooseberries in pots need a steady supply of water through the growing season. Check the compost regularly and keep it evenly moist, especially while the bush is flowering and the berries are swelling. Water in the morning or evening, ideally with rainwater. As the roots fill the pot, check that water still drains freely: waterlogged compost can rot the roots.' ) .
-					$p( 'Feed every two weeks in the growing season with a high-potassium liquid feed, or mix a handful of high-potassium granular fertiliser into the fresh compost when you top-dress in spring. Avoid nitrogen-rich feeds: they cause soft, sappy growth that mildew attacks.' ) .
+					$p( 'Give a high-potassium liquid feed every two weeks in the growing season, or mix a handful of high-potassium granular fertiliser into the fresh compost when you top-dress in spring. Avoid nitrogen-rich feeds: they cause soft, sappy growth that mildew attacks.' ) .
 
 					$h2( 'Prune for an open bush' ) .
 					$p( 'Gooseberry branches are flexible and droop under the weight of the fruit, and an unpruned bush soon becomes a tangle. Wear thorn-proof gloves, start by removing dead or damaged shoots, then in winter:' ) .
@@ -337,10 +337,10 @@ return array(
 
 					$h2( 'Water and feed through summer' ) .
 					$p( 'An apple tree in a pot needs a steady supply of water throughout the growing season. Water generously, let the surface of the compost dry a little before the next watering, but never let it become bone dry. Water close to the base of the tree, early in the morning or late in the evening, ideally with stored rainwater. A tree that goes short of water in summer drops its fruit before it ripens, and its leaves brown at the edges.' ) .
-					$p( 'Feed every two weeks during the growing season with a high-potassium liquid feed, or sprinkle a handful of general-purpose granular fertiliser on the compost each spring.' ) .
+					$p( 'Feed every two weeks during the growing season with a high-potassium liquid feed. Alternatively, each spring, sprinkle a handful of general-purpose granular fertiliser over the compost.' ) .
 
 					$h2( 'Repot and top-dress' ) .
-					$p( 'To stop the roots becoming pot-bound, move a young tree into a slightly larger pot every year or every other year, after the leaves have fallen or in spring. Once it is in its final pot, tip it out every other year, trim the roots, and replace about a third of the compost with fresh. In the years between, scrape off the top layer of compost and replace it.' ) .
+					$p( 'To stop the roots becoming pot-bound, move a young tree into a slightly larger pot every year or every other year, after the leaves have fallen or in spring. Once it is in its final pot, tip it out every other year, trim the roots, and replace about a third of the compost with fresh. In the other years, remove the top layer of compost and replace it.' ) .
 
 					$h2( 'Thin, prune and harvest' ) .
 					$p( 'Apple trees often set more fruit than they can carry and shed some naturally in early summer, the June drop. Thinning the rest in early July gives larger, better fruit. Prune a free-standing tree in winter; trained forms such as cordons are pruned in late summer.' ) .

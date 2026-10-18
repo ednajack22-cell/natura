@@ -51,7 +51,7 @@ return array(
 				),
 				'lists'        => array(
 					'key_points' => array(
-						array( 'point' => 'Use a pot at least 25 cm (10 in) wide and deep, filled with peat-free multi-purpose compost.' ),
+						array( 'point' => 'Fill a pot at least 25 cm (10 in) across and 25 cm (10 in) deep with peat-free multi-purpose compost.' ),
 						array( 'point' => 'Sow about 1 cm (½ in) deep; seedlings can take a month or more to appear.' ),
 						array( 'point' => 'Keep the compost evenly moist and move the pot into shade in hot, sunny spells.' ),
 						array( 'point' => 'Pick a few outer stems at a time, near the base; regular picking means more leaves.' ),
@@ -84,7 +84,7 @@ return array(
 					$p( 'Both grow the same way. Flat-leaved parsley tends to have a stronger flavour and grows taller; curly parsley is more decorative, slightly milder, and shorter, which suits a windowsill.' ) .
 
 					$h2( 'Pot and position' ) .
-					$p( 'Use a pot at least 25 cm (10 in) wide and deep, with drainage holes, filled with peat-free multi-purpose compost. Parsley grows in full sun or partial shade, so it is one of the few herbs that copes with a balcony that only gets part of the day\'s sun.' ) .
+					$p( 'Parsley needs a pot of 25 cm (10 in) or more in width and depth, with drainage holes and peat-free multi-purpose compost. It grows in full sun or partial shade, so it is one of the few herbs that copes with a balcony that only gets part of the day\'s sun.' ) .
 
 					$h2( 'Sow, and be patient' ) .
 					$p( 'Sow outdoors from mid-spring to late summer, or indoors on a sunny windowsill from early spring. Sow about 1 cm (½ in) deep in moist compost, either straight into the final pot or in modules to plant out when the seedlings are 10–15 cm (4–6 in) tall.' ) .
@@ -318,7 +318,7 @@ return array(
 					),
 					'faq'        => array(
 						array( 'question' => 'Why is my lemon tree dropping its leaves?', 'answer' => 'Usually draughts, temperatures too low or too high in winter, often with too much water. Keep it in a bright, cool room away from cold draughts and hot air, and let the compost surface dry a little between waterings in winter.' ),
-						array( 'question' => 'Why are the flowers falling off?', 'answer' => 'Dry roots and dry air. Water before the compost dries out completely and stand the pot on a tray of wet gravel indoors.' ),
+						array( 'question' => 'Why is my lemon tree dropping its flowers indoors?', 'answer' => 'Usually dry roots and dry air. Water before the compost dries out completely and stand the pot on a tray of wet gravel indoors.' ),
 						array( 'question' => 'How long do lemons take to ripen?', 'answer' => 'Nine to twelve months, so a tree often carries flowers and fruit at the same time. Cut them off with secateurs when ripe.' ),
 						array( 'question' => 'Does a lemon tree need a partner to fruit?', 'answer' => 'No. Lemon trees are self-fertile.' ),
 						array( 'question' => 'What are the white fluffy patches or brown bumps on the stems?', 'answer' => 'Fluffy white wax is mealybug; small brown bumps are scale insects. Both leave sticky honeydew and sooty mould and are found all year on citrus indoors. Red spider mite causes mottled leaves from March to October.' ),
@@ -342,7 +342,7 @@ return array(
 					$p( 'Indoor air is dry. Stand the pot on a tray of gravel or clay pellets, with the water level kept below the surface. In summer, misting early in the morning helps too.' ) .
 
 					$h2( 'Pot and compost' ) .
-					$p( 'A young tree can stay in its pot for several years. When roots show through the drainage holes, repot in spring into a pot only slightly larger than the root ball: overpotting causes problems. Use peat-free citrus compost, or a soil-based compost such as John Innes No 2 or No 3 with about 20 per cent sharp sand or grit mixed in. In the years between repotting, replace the top few centimetres of compost.' ) .
+					$p( 'A young tree can stay in its pot for several years. When roots show through the drainage holes, repot in spring into a pot only slightly larger than the root ball: overpotting causes problems. Use peat-free citrus compost, or a soil-based compost (John Innes No 2 or No 3) with about 20 per cent sharp sand or grit mixed in. In the years between repotting, replace the top few centimetres of compost.' ) .
 
 					$h2( 'Water with care' ) .
 					$p( 'In summer, water regularly, ideally with rainwater, keeping the compost just moist; check it daily. In winter, let the surface of the compost dry out partly, then water thoroughly with tepid rainwater. Overwatering in winter is one of the commonest problems: never leave the pot standing in water.' ) .

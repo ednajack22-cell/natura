@@ -174,7 +174,7 @@ return array(
 					'faq'        => array(
 						array( 'question' => 'Why has my pak choi gone to flower?', 'answer' => 'Pak choi bolts easily. Hot, dry weather is the usual trigger, and a cold snap can do it too. Cut off the flower stems before the buds open and eat them, then harvest the rest of the plant straight away. Next time, sow in spring or late summer, choose a bolt-resistant variety, and keep the compost moist.' ),
 						array( 'question' => 'How long does pak choi take to grow?', 'answer' => 'Baby leaves can be ready in about 30 days. Semi-mature and full-sized heads take about 45 to 75 days.' ),
-						array( 'question' => 'What are the tiny holes in the leaves?', 'answer' => 'Flea beetles. The damage is only cosmetic. If you want unmarked leaves, cover the pot with insect-proof mesh.' ),
+						array( 'question' => 'Can I still eat pak choi leaves full of tiny holes?', 'answer' => 'Yes. The holes are made by flea beetles, and the damage is only cosmetic. If you want unmarked leaves, cover the pot with insect-proof mesh.' ),
 						array( 'question' => 'Can I grow pak choi in shade?', 'answer' => 'In summer, light shade is actually better, because it helps stop the plants bolting. Early and late sowings do best in a warm, sheltered, sunny spot.' ),
 					),
 					'sources'    => array(

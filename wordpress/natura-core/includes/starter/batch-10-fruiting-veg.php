@@ -213,7 +213,7 @@ return array(
 					$p( 'Aubergines must not go outside until after the last frost, usually in late May or early June. Harden the plants off first, putting them out by day and bringing them in at night, so their growth is not checked. Plant at the same depth they were growing before, and push in a cane for support. For the first couple of weeks outside, cover the plant with a cloche or plastic-free fleece to help it settle.' ) .
 
 					$h2( 'Water, feed and support' ) .
-					$p( 'Aubergines need a steady supply of moisture to grow and crop. Plants in pots are especially quick to dry out and may need water every day in hot weather; a drip watering system helps keep it even. Uneven watering can also cause blossom end rot, a dark, sunken patch at the flower end of the fruit.' ) .
+					$p( 'Aubergines need a steady supply of moisture to grow and crop. Plants in pots are especially quick to dry out and may need water every day in hot weather; a drip watering system helps keep it even. Uneven watering can also lead to blossom end rot: a sunken, dark patch at the flower end of the fruit.' ) .
 					$p( 'Once the first flowers appear, feed every two weeks with an organic high-potassium liquid fertiliser. When the plant is about 30 cm (1 ft) tall, pinch out the tip of the main stem to make it branch and carry more fruit. Aubergines can get top-heavy: tie the main stem to a sturdy cane, and add more canes for the side-shoots once fruits form.' ) .
 
 					$h2( 'Help the fruits ripen' ) .
@@ -247,7 +247,7 @@ return array(
 					'plant'   => array( 5, 6 ),
 					'harvest' => array( 7, 8, 9, 10 ),
 				),
-				'excerpt'      => 'Outdoor (ridge) cucumbers grow well in a pot at least 30 cm (1 ft) wide and deep, trained up canes or netting in a warm, sunny, sheltered spot. Sow indoors in late April, plant out in June once nights stay above 12 °C (53 °F), and keep the compost moist for crunchy fruits from mid-summer.',
+				'excerpt'      => 'Outdoor (ridge) cucumbers are happy in a container at least 30 cm (1 ft) wide and deep, trained up canes or netting in a warm, sunny, sheltered spot. Sow indoors in late April, plant out in June once nights stay above 12 °C (53 °F), and keep the compost moist for crunchy fruits from mid-summer.',
 				'facts'        => array(
 					'short_name'     => 'Cucumber',
 					'botanical_name' => 'Cucumis sativus',
@@ -280,7 +280,7 @@ return array(
 						array( 'name' => 'Sharp knife or secateurs', 'badge' => '', 'note' => 'Cut the fruits cleanly instead of pulling.', 'url' => '' ),
 					),
 					'faq'        => array(
-						array( 'question' => 'Can I grow cucumbers on a balcony?', 'answer' => 'Yes. Choose an outdoor (ridge) variety, plant it in a pot at least 30 cm (1 ft) wide and deep, and train it up canes, netting or a trellis in a warm, sunny spot sheltered from wind. Growing upwards takes very little floor space.' ),
+						array( 'question' => 'Can I grow cucumbers on a balcony?', 'answer' => 'Yes. Choose an outdoor (ridge) variety, plant it in a container at least 30 cm (1 ft) wide and deep, and train it up canes, netting or a trellis in a warm, sunny spot sheltered from wind. Growing upwards takes very little floor space.' ),
 						array( 'question' => 'Should I remove the male flowers from my cucumber?', 'answer' => 'Not on an outdoor variety. Its female flowers, the ones with a tiny fruit behind them, must be pollinated to make cucumbers, so leave the male flowers on. Only all-female greenhouse varieties need male flowers removed, because pollinated fruits may taste bitter.' ),
 						array( 'question' => 'What is the white powder on my cucumber leaves?', 'answer' => 'Most likely powdery mildew, a fungus that spreads over the leaves and weakens the plant. Water at the base rather than over the leaves, keep the compost from drying out, and choose a mildew-resistant variety next time.' ),
 						array( 'question' => 'Why are my cucumber leaves yellow, mottled and twisted?', 'answer' => 'This can be cucumber mosaic virus, which aphids spread between plants. There is no cure: remove and destroy the plant promptly, wash your hands and tools, and keep weeds down near your pots.' ),
@@ -302,7 +302,7 @@ return array(
 					$p( 'There are two main kinds. Outdoor varieties, often called ridge cucumbers, grow in a sunny, sheltered spot outside; they start later and finish earlier than greenhouse types, but still crop well in warm weather. Indoor varieties are bred for a greenhouse, polytunnel or large coldframe. Mini and small-fruited varieties give lots of fruits that are ready sooner than long ones; many of them, such as \'Mini Munch\', are greenhouse varieties, so check the packet before you grow one outside.' ) .
 
 					$h2( 'Choose the pot and the spot' ) .
-					$p( 'Use a pot at least 30 cm (1 ft) wide and deep, with drainage holes, filled with peat-free multi-purpose compost. Plant one cucumber in the centre, or two in a standard growing bag.' ) .
+					$p( 'Give each cucumber its own pot, at least 30 cm (1 ft) wide and deep, with drainage holes and peat-free multi-purpose compost; a standard growing bag takes two.' ) .
 					$p( 'Choose the warmest, sunniest spot you have, sheltered from wind. A south- or west-facing wall with a trellis is ideal on a balcony.' ) .
 
 					$h2( 'Sow indoors' ) .

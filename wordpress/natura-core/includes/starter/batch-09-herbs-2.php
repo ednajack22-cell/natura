@@ -78,7 +78,7 @@ return array(
 						array( 'question' => 'Can oregano stay outside in winter?', 'answer' => 'Origanum vulgare and its varieties are reliably hardy: the RHS rates the species H6. The real danger is wet compost, which rots the roots. Move the pot to a sheltered place, such as next to a wall where rain does not reach. Sweet marjoram is frost-tender and needs to come under cover.' ),
 						array( 'question' => 'Does oregano in a pot need feeding?', 'answer' => 'Very little. It grows well in fairly poor compost. Once a plant has been in the same pot for more than a year, sprinkle a little general-purpose granular feed on the compost in late spring or early summer.' ),
 						array( 'question' => 'Can I keep picking oregano in winter?', 'answer' => 'Possibly. A pot brought indoors in autumn may keep producing leaves if it has enough warmth and light.' ),
-						array( 'question' => 'What are the orange spots on my oregano?', 'answer' => 'Probably mint rust, a fungus that also attacks marjoram. It causes dusty orange, yellow and black spots on the leaves and distorted shoots. No fungicide is available for herbs grown for eating. Remove affected plants promptly, before the black spores form, and start again with healthy plants in fresh compost.' ),
+						array( 'question' => 'What are the orange spots on my oregano?', 'answer' => 'Probably mint rust, a fungus that also attacks marjoram. It causes dusty orange, yellow and black spots on the leaves and distorted shoots. No fungicide is available for herbs grown for eating. Remove affected plants promptly, before the black spores form; then replant with healthy plants in fresh compost.' ),
 					),
 					'sources'    => array(
 						array( 'title' => 'RHS — How to grow oregano', 'url' => 'https://www.rhs.org.uk/herbs/oregano/grow-your-own' ),
@@ -105,7 +105,7 @@ return array(
 							'To grow from seed, sow indoors in spring on the surface of moist peat-free seed compost. The seeds are tiny: do not cover them.',
 							'Cover the tray with a clear plastic bag or put it in a propagator. Seeds germinate well at around 20 °C (68 °F) and come up in one to three weeks.',
 							'Keep the seedlings warm and bright, and water without overdoing it: seedlings are prone to damping off.',
-							'When they have several leaves, move each one into its own 7.5 cm (3 in) pot of soil-based compost.',
+							'When they have several leaves, pot each one on into a 7.5 cm (3 in) pot of soil-based compost.',
 							'Harden them off and move them outside in late spring or early summer, after the last frost.',
 						)
 					) .
@@ -115,7 +115,7 @@ return array(
 
 					$h2( 'Pick, trim and dry' ) .
 					$p( 'Snip a few shoots whenever you need them, from late spring to autumn, and strip off the leaves. Regular picking keeps the plant bushy. The flavour is best before the flowers open, and the flowers themselves are edible in salads.' ) .
-					$p( 'In late spring, trim established plants to keep them compact and remove dead or straggly stems. Cut off the flower stems once the flowers fade. To dry oregano, hang leafy sprigs in a dark, well-ventilated place for a few weeks, then strip the leaves and keep them in an airtight jar.' ) .
+					$p( 'In late spring, trim established plants to keep them compact and remove dead or straggly stems. Cut off the flower stems once the flowers fade. Oregano dries well: see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Winter' ) .
 					$p( 'Origanum vulgare is reliably hardy, but winter wet rots its roots. Move the pot to a sheltered spot, such as close to a wall where rain does not reach. Some less common species are less hardy: check the label, and bring sweet marjoram, which is frost-tender, into a greenhouse or indoors.' ) .
@@ -224,7 +224,7 @@ return array(
 
 					$h2( 'Pick and dry the leaves' ) .
 					$p( 'Because bay is evergreen, you can pick leaves whenever you need them, all year. Use them in soups, stews, stocks and sauces, and take them out before serving: they barely soften in cooking. Bay is also the key ingredient of a bouquet garni.' ) .
-					$p( 'To dry leaves, leave sprigs or single leaves in a warm room, or press them between the pages of an old book with a weight on top so they stay flat. Store them in an airtight jar and use them within a few months, before the flavour fades. Freezing keeps the flavour longer.' ) .
+					$p( 'To keep bay leaves, follow our guide on <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -301,7 +301,7 @@ return array(
 					$p( 'Dill is an annual herb grown mainly for its soft, feathery leaves, which taste fresh with a light hint of aniseed. It flowers, sets seed and dies in one season. In the open it can reach 1.5 m (5 ft), but it usually flowers and stops growing at around 90 cm (3 ft). The flowers and seeds are edible too, and the tiny yellow flowers attract pollinators.' ) .
 
 					$h2( 'Choose the pot and the spot' ) .
-					$p( 'Use a container at least 30 cm (12 in) wide and deep, with drainage holes, and fill it with peat-free multi-purpose compost. Compact varieties such as \'Domino\' and \'Diana\' are the best choice for pots.' ) .
+					$p( 'Grow dill in peat-free multi-purpose compost, in a container at least 30 cm (12 in) wide and deep with drainage holes. Compact varieties such as \'Domino\' and \'Diana\' are the best choice for pots.' ) .
 					$p( 'Dill wants a warm, sunny place, sheltered from strong wind. It dislikes cold, soggy conditions, so avoid a shady corner where the compost stays wet.' ) .
 
 					$h2( 'Sow straight into the pot' ) .
@@ -322,7 +322,7 @@ return array(
 
 					$h2( 'Pick the leaves' ) .
 					$p( 'Start picking about six weeks after sowing. Snip a few leaves at a time and always leave at least a third of the plant to keep growing. Regular picking, or pinching out the shoot tips, keeps plants bushy and delays flowering. If you only want leaves, cut off flower stems as they appear.' ) .
-					$p( 'Use the leaves quickly: they wilt soon after picking, even in the fridge. To dry dill, hang sprigs in a dark, well-ventilated place for a few weeks, then strip the leaves and keep them in an airtight jar.' ) .
+					$p( 'Use the leaves quickly: they wilt soon after picking, even in the fridge. To keep dill for later, see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Flowers and seeds' ) .
 					$p( 'If you have room for a second pot, let a few plants flower. The flowers can go in salads or a jar of pickles, and the seeds ripen in late summer and autumn. Collect them when they are dry and brown. Seeds left on the plant drop and come up as new seedlings; move them while they are small, before they form a tap root.' ) .

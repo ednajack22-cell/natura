@@ -621,7 +621,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'Water given at the base of a plant soaks down to its roots, where it is needed. Poured onto dry compost or over the leaves, much of it runs off or evaporates. The funnel channels each can of water straight into the root zone.' ) .
 					$h2( 'Good watering still matters' ) .
-					$p( 'Check the compost before you water: push a finger about a third of the way down the pot, and water if it is dry at that depth. Water slowly and thoroughly, and stop just before water runs out of the drainage holes. Light showers rarely wet the compost more than a few centimetres down.' ) .
+					$p( 'Check the compost before you water: push a finger about a third of the way down the pot, and water if it is dry at that depth. Water slowly and thoroughly, and stop just before water runs out of the drainage holes. A light shower rarely wets the compost more than a few centimetres down.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Half plastic bottles used as watering funnels appear in Backyard Harvest (p. 122), and the RHS school gardening guide suggests sinking upside-down bottles with the bottoms cut off next to thirsty plants. We have adapted the idea for a pot on a balcony and added the checks. We have not built this exact version ourselves.' ),
 			),
