@@ -77,6 +77,12 @@ function natura_core_create_guide( string $kind, string $slug, array $guide, str
 	foreach ( (array) ( $guide['facts'] ?? array() ) as $key => $value ) {
 		update_post_meta( $post_id, natura_core_meta_key( $key ), $value );
 	}
+	foreach ( (array) ( $guide['timing'] ?? array() ) as $key => $value ) {
+		$value = natura_core_clean_range( $value );
+		if ( '' !== $value ) {
+			update_post_meta( $post_id, natura_core_meta_key( 'timing_' . sanitize_key( $key ) ), $value );
+		}
+	}
 
 	switch ( $kind ) {
 		case 'plant':

@@ -82,6 +82,31 @@ function natura_core_plant_facts(): array {
 				'H7'  => 'H7 — ' . __( 'very hardy (below −20 °C)', 'natura-core' ),
 			),
 		),
+		'timing_start_indoors' => array(
+			'label' => __( 'Start seeds indoors (weeks from last frost)', 'natura-core' ),
+			'help'  => __( 'Two numbers, from and to, in weeks from the last spring frost; minus means before. Example: -8, -6 (6 to 8 weeks before). From a US extension source. Leave empty if not done.', 'natura-core' ),
+			'type'  => 'range',
+		),
+		'timing_sow_outdoors' => array(
+			'label' => __( 'Sow outdoors (weeks from last frost)', 'natura-core' ),
+			'help'  => __( 'Example: -4, 2 (from 4 weeks before to 2 weeks after the last frost).', 'natura-core' ),
+			'type'  => 'range',
+		),
+		'timing_plant_out' => array(
+			'label' => __( 'Plant outside (weeks from last frost)', 'natura-core' ),
+			'help'  => __( 'Example: 0, 2 (from the last frost to 2 weeks after).', 'natura-core' ),
+			'type'  => 'range',
+		),
+		'timing_fall_sow' => array(
+			'label' => __( 'Fall sowing (weeks from first fall frost)', 'natura-core' ),
+			'help'  => __( 'Example: -10, -8 (8 to 10 weeks before the first fall frost). Only for crops a source says can be sown for fall.', 'natura-core' ),
+			'type'  => 'range',
+		),
+		'timing_harvest_days' => array(
+			'label' => __( 'Days to first harvest', 'natura-core' ),
+			'help'  => __( 'Example: 60, 80. From sowing or planting out, as the source says.', 'natura-core' ),
+			'type'  => 'range',
+		),
 		'pin_image'      => array(
 			'label' => __( 'Pinterest image', 'natura-core' ),
 			'help'  => __( 'A vertical image (2:3, e.g. 1000 × 1500 px) with the title on it. Used by the "Save" button. Falls back to the main photo.', 'natura-core' ),
@@ -231,7 +256,7 @@ function natura_core_save_plant( int $post_id ): void {
 			continue;
 		}
 
-		$value = sanitize_text_field( $raw );
+		$value = 'range' === $field['type'] ? natura_core_clean_range( $raw ) : sanitize_text_field( $raw );
 		if ( 'select' === $field['type'] && ! array_key_exists( $value, $field['options'] ) ) {
 			$value = '';
 		}
@@ -246,3 +271,44 @@ function natura_core_save_plant( int $post_id ): void {
 	natura_core_save_lists( $post_id, natura_core_shared_lists() + natura_core_plant_lists(), $input );
 }
 add_action( 'save_post_plant', 'natura_core_save_plant' );
+
+/**
+ * Cleans a "from, to" pair of whole numbers (weeks or days), as stored for
+ * the timing fields. Returns "" when the input is not two numbers.
+ *
+ * @param mixed $raw Typed or imported value: "-8, -6", "-8 to -6", or array( -8, -6 ).
+ */
+function natura_core_clean_range( $raw ): string {
+	if ( is_array( $raw ) ) {
+		$raw = implode( ',', array_map( 'strval', $raw ) );
+	}
+	$raw = str_replace( array( '−', '–' ), array( '-', ',' ), (string) $raw );
+	if ( ! preg_match_all( '/-?\d+/', $raw, $found ) || count( $found[0] ) < 1 ) {
+		return '';
+	}
+	$numbers = array_map( 'intval', array_slice( $found[0], 0, 2 ) );
+	if ( 1 === count( $numbers ) ) {
+		$numbers[] = $numbers[0];
+	}
+	foreach ( $numbers as $number ) {
+		if ( $number < -52 || $number > 400 ) {
+			return '';
+		}
+	}
+	sort( $numbers );
+
+	return $numbers[0] . ',' . $numbers[1];
+}
+
+/**
+ * A timing field of a plant as two numbers, or null when it is not set.
+ *
+ * @param int    $post_id Plant ID.
+ * @param string $key     start_indoors, sow_outdoors, plant_out, fall_sow or harvest_days.
+ * @return int[]|null
+ */
+function natura_core_plant_timing( int $post_id, string $key ): ?array {
+	$value = natura_core_clean_range( get_post_meta( $post_id, natura_core_meta_key( 'timing_' . $key ), true ) );
+
+	return '' === $value ? null : array_map( 'intval', explode( ',', $value ) );
+}
