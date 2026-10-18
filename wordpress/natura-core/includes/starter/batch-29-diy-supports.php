@@ -421,7 +421,7 @@ return array(
 				'pin_prompt'   => 'A small orange squash hanging in a netting sling on a trellis, large lobed leaves around it, a balcony wall behind, photographed vertically.' . $pin_end,
 				'title'        => 'Grow a Squash up a Trellis in a Pot',
 				'category'     => array( 'vertical' ),
-				'plants'       => array(),
+				'plants'       => array( 'winter-squash-in-pots' ),
 				'excerpt'      => 'Choose a trailing squash with small fruits, plant it in a container at least 45 cm wide after the last frost, and tie its stems to a strong trellis, wires or wigwam as they grow. Once the fruits get heavy, cradle each one in a sling of netting or hessian tied to the support.',
 				'facts'        => array(
 					'project_method' => 'adapted',

@@ -241,7 +241,7 @@ return array(
 				'pin_prompt'   => 'Pale yellow-white forced chicory heads with tightly folded leaves growing from roots in a pot, an upturned pot lifted away to reveal them, photographed vertically on a wooden worktop.' . $pin_end,
 				'title'        => 'Force Chicory in a Pot for Winter Chicons',
 				'category'     => array( 'planters' ),
-				'plants'       => array(),
+				'plants'       => array( 'chicory-and-endive-in-pots' ),
 				'excerpt'      => 'Grow forcing chicory roots in summer, lift and trim them in November, then plant a few upright in a large pot of moist compost and cover it so no light gets in. At 10–15 °C, pale chicons are ready to cut in about a month, and the stump may give a second, smaller one.',
 				'facts'        => array(
 					'project_method' => 'adapted',
