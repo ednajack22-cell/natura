@@ -44,7 +44,7 @@ while ( have_posts() ) :
 				'tag'       => $natura_type ? sprintf( __( 'Growing guide · %s', 'natura' ), $natura_type->name ) : __( 'Growing guide', 'natura' ),
 				'tag_url'   => $natura_type ? (string) get_term_link( $natura_type ) : '',
 				'botanical' => (string) natura_field( 'botanical_name' ),
-				'now'       => natura_section_enabled( 'guide_calendar' ) ? natura_plant_this_month( $natura_calendar ) : '',
+				'now'       => '',
 			)
 		);
 		?>

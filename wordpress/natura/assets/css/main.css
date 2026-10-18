@@ -1021,6 +1021,14 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .plant-calendar { margin: 0 0 2rem; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
 .plant-calendar h2 { margin: 0 0 1rem; font-size: 1.5rem; line-height: 1.2; }
 .plant-calendar-scroll { overflow-x: auto; }
+.plant-timing { display: grid; gap: .5rem; margin: 0 0 1rem; }
+.plant-timing div { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: .25rem 1rem; padding: .625rem .75rem; border-radius: 6px; background: var(--paper-mid); }
+.plant-timing dt { color: var(--heading); font-weight: 600; }
+.plant-timing dd { margin: 0; min-width: 0; }
+@media (max-width: 480px) { .plant-timing div { grid-template-columns: minmax(0, 1fr); } }
+.plant-calendar-uk { margin-top: 1rem; }
+.plant-calendar-uk summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; color: var(--heading); font-weight: 600; }
+.plant-calendar-uk[open] summary { margin-bottom: .75rem; }
 .plant-calendar table { width: 100%; min-width: 300px; border-collapse: separate; border-spacing: 3px; table-layout: fixed; }
 .plant-calendar th { color: var(--muted); font: 600 .8125rem/1.2 var(--font-sans); text-align: center; }
 .plant-calendar thead th.is-now { color: var(--clay); }
