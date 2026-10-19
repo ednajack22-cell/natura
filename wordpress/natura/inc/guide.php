@@ -338,24 +338,16 @@ function natura_the_author_box(): void {
 }
 
 /**
- * Prints the sticky right column: Pinterest box, 300 × 600 ad, "Read next".
- *
- * @param string $post_type Post type of the "Read next" guides.
+ * Prints the sticky right column: Pinterest box and 300 × 600 ad. The "Read
+ * next" list sits at the end of the text instead (natura_the_read_next()), so
+ * it is never shown twice on phones, where this column follows the text.
  */
-function natura_the_guide_sidebar( string $post_type ): void {
+function natura_the_guide_sidebar(): void {
 	$pin_url  = natura_section_enabled( 'guide_side_pin' ) ? natura_pinterest_save_url() : '';
 	$image_id = natura_guide_pin_image_id() ?: (int) get_post_thumbnail_id();
 	$ad       = natura_ad_slot( __( 'Guide sidebar', 'natura' ), 'sidebar', 'ads_sidebar' );
-	$next     = natura_section_enabled( 'guide_read_next' ) ? get_posts(
-		array(
-			'post_type'      => $post_type,
-			'posts_per_page' => 3,
-			'post__not_in'   => array( get_the_ID() ),
-			'no_found_rows'  => true,
-		)
-	) : array();
 	// Everything switched off: no column at all, the text takes the full width.
-	if ( ! $pin_url && ! $ad && ! $next ) {
+	if ( ! $pin_url && ! $ad ) {
 		return;
 	}
 	?>
@@ -379,28 +371,236 @@ function natura_the_guide_sidebar( string $post_type ): void {
 			<?php endif; ?>
 
 			<?php echo $ad; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot(). ?>
-
-			<?php if ( $next ) : ?>
-				<div class="side-card side-next">
-					<h2 class="label"><?php esc_html_e( 'Read next', 'natura' ); ?></h2>
-					<ol>
-						<?php foreach ( $next as $natura_item ) : ?>
-							<li>
-								<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
-									<strong><?php echo esc_html( get_the_title( $natura_item ) ); ?></strong>
-									<?php if ( has_excerpt( $natura_item ) ) : ?>
-										<span><?php echo esc_html( wp_trim_words( get_the_excerpt( $natura_item ), 10 ) ); ?></span>
-									<?php endif; ?>
-								</a>
-							</li>
-						<?php endforeach; ?>
-					</ol>
-				</div>
-			<?php endif; ?>
 		</div>
 	</aside>
 	<?php
 }
+
+/**
+ * The post types that use the guide layout, with the taxonomy whose terms
+ * make two guides "related" for the "Read next" list.
+ *
+ * @return array<string, string>
+ */
+function natura_guide_taxonomies(): array {
+	return array(
+		'plant'   => 'plant_type',
+		'problem' => 'problem_part',
+		'post'    => 'category',
+		'gear'    => 'gear_category',
+		'project' => 'project_category',
+	);
+}
+
+/**
+ * IDs of up to 5 published guides to read next: same type and same term
+ * first (for a problem, the same part of the plant, then the same plants),
+ * then the newest guides of the same type.
+ *
+ * Cached for 12 hours per guide. Saving or deleting any guide starts a new
+ * cache generation (natura_flush_read_next()), so a renamed, unpublished or
+ * new guide shows up at once.
+ *
+ * @param int $post_id Current guide.
+ * @return int[]
+ */
+function natura_read_next_ids( int $post_id ): array {
+	$type = (string) get_post_type( $post_id );
+	$map  = natura_guide_taxonomies();
+	if ( ! isset( $map[ $type ] ) ) {
+		return array();
+	}
+
+	$key    = 'natura_read_next_' . $post_id . '_' . (int) get_option( 'natura_read_next_gen', 0 );
+	$cached = get_transient( $key );
+	if ( is_array( $cached ) ) {
+		return array_map( 'intval', $cached );
+	}
+
+	$ids  = array();
+	$base = array(
+		'post_type'           => $type,
+		'post_status'         => 'publish',
+		'fields'              => 'ids',
+		'orderby'             => 'date',
+		'order'               => 'DESC',
+		'ignore_sticky_posts' => true,
+		'no_found_rows'       => true,
+	);
+	$add  = static function ( array $args ) use ( &$ids, $base, $post_id ): void {
+		$left = 5 - count( $ids );
+		if ( $left < 1 ) {
+			return;
+		}
+		$found = get_posts(
+			$args + array(
+				'posts_per_page' => $left,
+				'post__not_in'   => array_merge( array( $post_id ), $ids ),
+			) + $base
+		);
+		$ids   = array_merge( $ids, array_map( 'intval', $found ) );
+	};
+
+	$taxonomy = $map[ $type ];
+	if ( taxonomy_exists( $taxonomy ) ) {
+		$terms = wp_get_post_terms( $post_id, $taxonomy, array( 'fields' => 'ids' ) );
+		$terms = is_array( $terms ) ? array_map( 'intval', $terms ) : array();
+		if ( 'category' === $taxonomy ) {
+			// "Uncategorized" says nothing about the subject.
+			$terms = array_values( array_diff( $terms, array( (int) get_option( 'default_category' ) ) ) );
+		}
+		if ( $terms ) {
+			$add(
+				array(
+					'tax_query' => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query -- cached for 12 hours.
+						array(
+							'taxonomy' => $taxonomy,
+							'terms'    => $terms,
+						),
+					),
+				)
+			);
+		}
+	}
+
+	if ( 'problem' === $type ) {
+		$plants = array_filter( array_map( 'absint', (array) get_post_meta( $post_id, '_natura_plant' ) ) );
+		if ( $plants ) {
+			$add(
+				array(
+					'meta_query' => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- cached for 12 hours.
+						array(
+							'key'     => '_natura_plant',
+							'value'   => array_values( $plants ),
+							'compare' => 'IN',
+						),
+					),
+				)
+			);
+		}
+	}
+
+	$add( array() );
+
+	set_transient( $key, $ids, 12 * HOUR_IN_SECONDS );
+
+	return $ids;
+}
+
+/**
+ * Starts a new "Read next" cache generation when a guide is saved or
+ * deleted: the lists of other guides may name it.
+ *
+ * @param int $post_id Saved or deleted post.
+ */
+function natura_flush_read_next( int $post_id ): void {
+	if ( wp_is_post_revision( $post_id ) || wp_is_post_autosave( $post_id ) ) {
+		return;
+	}
+	if ( ! isset( natura_guide_taxonomies()[ (string) get_post_type( $post_id ) ] ) ) {
+		return;
+	}
+	update_option( 'natura_read_next_gen', (int) get_option( 'natura_read_next_gen', 0 ) + 1, true );
+}
+add_action( 'save_post', 'natura_flush_read_next' );
+add_action( 'before_delete_post', 'natura_flush_read_next' );
+
+/**
+ * The short line under a "Read next" title: the kind of guide, and its
+ * plant type, topic, or category.
+ *
+ * @param WP_Post $item Guide.
+ */
+function natura_read_next_meta( WP_Post $item ): string {
+	$labels = array(
+		'plant'   => __( 'Growing guide', 'natura' ),
+		'problem' => __( 'Plant problem', 'natura' ),
+		'post'    => __( 'Plant Care', 'natura' ),
+		'gear'    => __( 'Buying guide', 'natura' ),
+		'project' => __( 'DIY project', 'natura' ),
+	);
+	$label    = $labels[ $item->post_type ] ?? '';
+	$taxonomy = natura_guide_taxonomies()[ $item->post_type ] ?? '';
+	if ( 'problem' === $item->post_type || ! $taxonomy || ! taxonomy_exists( $taxonomy ) ) {
+		return $label;
+	}
+
+	$terms = get_the_terms( $item, $taxonomy );
+	if ( is_array( $terms ) ) {
+		foreach ( $terms as $term ) {
+			if ( 'category' === $taxonomy && (int) get_option( 'default_category' ) === $term->term_id ) {
+				continue;
+			}
+			// A Plant Care article shows its topic alone: "Watering".
+			return 'post' === $item->post_type ? $term->name : $label . ' · ' . $term->name;
+		}
+	}
+
+	return $label;
+}
+
+/**
+ * Prints "Read next" at the end of a guide: a numbered list of titles,
+ * without images, so it costs almost nothing to load. Shown from 2 guides.
+ */
+function natura_the_read_next(): void {
+	if ( ! natura_section_enabled( 'guide_read_next' ) ) {
+		return;
+	}
+	$ids   = natura_read_next_ids( (int) get_the_ID() );
+	$items = $ids ? get_posts(
+		array(
+			'post_type'           => array_keys( natura_guide_taxonomies() ),
+			'post_status'         => 'publish',
+			'post__in'            => $ids,
+			'orderby'             => 'post__in',
+			'posts_per_page'      => 5,
+			'ignore_sticky_posts' => true,
+			'no_found_rows'       => true,
+		)
+	) : array();
+	if ( count( $items ) < 2 ) {
+		return;
+	}
+	$title = trim( natura_home_setting( 'natura_read_next_title' ) );
+	if ( '' === $title ) {
+		$title = __( 'Read next', 'natura' );
+	}
+	?>
+	<section class="read-next" aria-labelledby="read-next-title">
+		<h2 id="read-next-title"><?php echo esc_html( $title ); ?></h2>
+		<ol>
+			<?php foreach ( $items as $natura_item ) : ?>
+				<?php $natura_meta = natura_read_next_meta( $natura_item ); ?>
+				<li>
+					<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
+						<span class="read-next-title"><?php echo esc_html( get_the_title( $natura_item ) ); ?></span>
+						<?php if ( '' !== $natura_meta ) : ?>
+							<span class="read-next-meta"><?php echo esc_html( $natura_meta ); ?></span>
+						<?php endif; ?>
+					</a>
+				</li>
+			<?php endforeach; ?>
+		</ol>
+	</section>
+	<?php
+}
+
+/**
+ * The reading progress bar of guides: a 3 px line at the top of the screen,
+ * filled by assets/js/navigation.js as the reader moves through the text.
+ * Decorative (the scroll bar already says the same), and hidden until the
+ * script runs.
+ */
+add_action(
+	'wp_body_open',
+	static function (): void {
+		if ( ! is_singular( array_keys( natura_guide_taxonomies() ) ) || ! natura_section_enabled( 'guide_progress' ) ) {
+			return;
+		}
+		echo '<div class="reading-progress" aria-hidden="true" hidden></div>' . "\n";
+	}
+);
 
 /**
  * Prints a full-width related section.

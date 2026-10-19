@@ -59,6 +59,7 @@ function natura_option_tabs(): array {
 					'help'  => __( 'Upload your logo, or leave empty to show the site name with the leaf mark.', 'natura' ),
 				),
 				'site_header_search' => $switch( __( 'Search in the header', 'natura' ), __( 'The home page always has its own search instead.', 'natura' ) ),
+				'site_header_autohide' => $switch( __( 'Header hides while reading (phones and tablets)', 'natura' ), __( 'Below 1024 px wide, the header slides away when the reader scrolls down and comes back as soon as they scroll up. Wide screens keep it in place.', 'natura' ) ),
 			),
 		),
 		'design'     => array(
@@ -155,8 +156,13 @@ function natura_option_tabs(): array {
 				'guide_toc'         => $switch( __( 'In this guide (contents)', 'natura' ), __( 'The numbered list of sections, before the text.', 'natura' ) ),
 				'guide_faq'         => $switch( __( 'Questions & answers', 'natura' ), __( 'The questions under the text. Hidden questions are also left out of the data given to Google.', 'natura' ) ),
 				'guide_sources'     => $switch( __( 'Sources', 'natura' ), __( 'The references under each guide (RHS, university extensions…). Showing them builds trust with readers and Google; keep filling them in even when hidden.', 'natura' ) ),
-				'guide_read_next'   => $switch( __( 'Read next', 'natura' ), __( 'Three guides in the side column.', 'natura' ) ),
-				'guide_related'     => $switch( __( 'Related guides', 'natura' ), __( 'Common problems, plants affected, more guides: under the text.', 'natura' ) ),
+				'guide_progress'    => $switch( __( 'Reading progress bar', 'natura' ), __( 'A thin bar at the top of the screen that fills as the reader moves through the guide.', 'natura' ) ),
+				'guide_read_next'   => $switch( __( 'Read next', 'natura' ), __( 'A numbered list of up to 5 guides of the same kind at the end of each guide, titles only: same plant type, topic, or category first, then the newest.', 'natura' ) ),
+				'natura_read_next_title' => array(
+					'type'  => 'text',
+					'label' => __( 'Read next: heading', 'natura' ),
+				),
+				'guide_related'     => $switch( __( 'Related guides', 'natura' ), __( 'Photo cards under the text: common problems on plant guides, plants affected on problem guides.', 'natura' ) ),
 			),
 		),
 		'pages'      => array(

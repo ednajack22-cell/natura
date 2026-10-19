@@ -25,14 +25,6 @@ while ( have_posts() ) :
 	$natura_checks   = array_filter( array_map( static fn( array $row ): string => trim( (string) ( $row['point'] ?? '' ) ), natura_field_list( 'checks' ) ) );
 	$natura_steps    = natura_project_steps();
 	$natura_plants   = natura_section_enabled( 'project_plants' ) ? natura_project_plants() : array();
-	$natura_related  = get_posts(
-		array(
-			'post_type'      => 'project',
-			'posts_per_page' => 3,
-			'post__not_in'   => array( get_the_ID() ),
-			'no_found_rows'  => true,
-		)
-	);
 	?>
 	<main id="main-content" class="guide-page project-page">
 		<?php echo natura_structured_data( $natura_crumbs ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
@@ -162,13 +154,13 @@ while ( have_posts() ) :
 				<?php natura_the_share_bar( 'share_guides', __( 'Made it? Share it', 'natura' ) ); ?>
 				<?php natura_the_faq_and_sources(); ?>
 				<?php natura_the_author_box(); ?>
+				<?php natura_the_read_next(); ?>
 			</article>
 
-			<?php natura_the_guide_sidebar( 'project' ); ?>
+			<?php natura_the_guide_sidebar(); ?>
 		</div>
 
 		<?php
-		natura_the_related( 'project-related-title', __( 'Keep building', 'natura' ), __( 'More DIY projects', 'natura' ), $natura_related, 'template-parts/project-card', 'problem-grid' );
 		natura_the_guide_end_ad();
 		?>
 	</main>

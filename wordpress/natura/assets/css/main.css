@@ -183,6 +183,32 @@ a:hover > * > .read-more svg, a:hover > .read-more svg { transform: translateX(3
 .site-header .brand small { color: #f6c9b3; }
 /* Logged-in editors see the admin bar; keep the header below it. */
 .admin-bar { --header-offset: 32px; }
+/* Phones and tablets: the header slides away while the reader scrolls down,
+   and comes back on the way up (assets/js/navigation.js). It stays sticky and
+   keeps its place in the page, so nothing below it moves. */
+@media (max-width: 1023.98px) {
+  .site-header[data-autohide] { transition: transform .2s ease-out; }
+  .site-header.is-hidden { transform: translateY(calc(-100% - var(--header-offset))); box-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header[data-autohide] { transition: none; }
+}
+
+/* Reading progress on guides: fixed, so it takes no space; drawn with a
+   transform, so it never triggers layout. */
+.reading-progress {
+  position: fixed;
+  top: var(--header-offset);
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: 3px;
+  background: var(--clay);
+  transform: scaleX(var(--progress, 0));
+  transform-origin: left center;
+  pointer-events: none;
+}
+.reading-progress[hidden] { display: none; }
 @media (max-width: 782px) { .admin-bar { --header-offset: 46px; } }
 @media (max-width: 600px) { .admin-bar { --header-offset: 0px; } }
 
@@ -535,6 +561,10 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .guide-content li { margin: .45rem 0; }
 .guide-content li::marker { color: var(--clay); }
 .guide-content strong { color: var(--heading); font-weight: 600; }
+/* About 65 characters a line on wide screens: running text only, not
+   tables, images, or the boxes between sections. Phones are narrower anyway. */
+.guide-content > :is(p, ul, ol, blockquote),
+.guide-content .cause > :is(p, ul, ol) { max-width: 50ch; }
 
 /* Shopping list: product cards, as in the Stitch "Recommended equipment". */
 .product-box { margin: 2.5rem 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-low); font-family: var(--font-sans); }
@@ -592,14 +622,18 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .side-pin p { margin: 0; }
 .side-pin p:not(.label) { color: var(--ink-soft); font-size: .9375rem; line-height: 1.45; }
 .side-pin .pin-button { grid-column: 1 / -1; }
-.side-next ol { margin: 0; padding: 0; list-style: none; counter-reset: next; }
-.side-next li { counter-increment: next; border-top: 1px solid var(--line-soft); }
-.side-next li:first-child { border-top: 0; }
-.side-next a { display: grid; grid-template-columns: 2rem minmax(0, 1fr); gap: .1rem .5rem; padding: .85rem 0; }
-.side-next a::before { grid-row: 1 / 3; color: var(--line); font: 400 1.75rem/1 var(--font-serif); content: counter(next, decimal-leading-zero); }
-.side-next strong { color: var(--heading); font: 400 1.125rem/1.3 var(--font-serif); }
-.side-next span { color: var(--muted); font-size: .875rem; line-height: 1.45; }
-.side-next a:hover strong { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+/* "Read next": numbered titles at the end of the guide, no images. */
+.read-next { margin-top: 3rem; padding-top: 1.75rem; border-top: 1px solid var(--line); }
+.read-next h2 { margin: 0 0 .5rem; font-size: clamp(1.5rem, 4.5vw, 1.875rem); line-height: 1.2; }
+.read-next ol { margin: 0; padding: 0; list-style: none; counter-reset: next; }
+.read-next li { counter-increment: next; border-top: 1px solid var(--line-soft); }
+.read-next li:first-child { border-top: 0; }
+.read-next a { display: grid; grid-template-columns: 2.25rem minmax(0, 1fr); align-content: center; gap: .15rem .75rem; min-height: 56px; padding: .8rem 0; }
+.read-next a::before { grid-row: 1 / span 2; align-self: start; color: var(--clay); font: 400 1.75rem/1 var(--font-serif); content: counter(next); }
+.read-next-title { color: var(--heading); font: 400 1.1875rem/1.3 var(--font-serif); }
+.read-next-meta { color: var(--muted); font: 600 .8125rem/1.4 var(--font-sans); letter-spacing: .02em; }
+.read-next a:hover .read-next-title { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
 /* Full-width sections after the guide */
 .guide-related { margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid var(--line); }

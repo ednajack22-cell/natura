@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 <?php wp_body_open(); ?>
 <a class="skip-link" href="#main-content"><?php esc_html_e( 'Skip to content', 'natura' ); ?></a>
 
-<header class="site-header">
+<header class="site-header"<?php echo natura_section_enabled( 'site_header_autohide' ) ? ' data-autohide' : ''; ?>>
 	<div class="site-container header-inner">
 		<?php if ( has_custom_logo() ) : ?>
 			<div class="brand brand-logo"><?php the_custom_logo(); ?></div>

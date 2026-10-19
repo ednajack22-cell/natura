@@ -5,7 +5,7 @@
  * Layout from wordpress/design/BLUEPRINT.md (inc/guide.php): the answer first
  * (title, summary, photo, "At a glance"), then the numbered guide with its
  * shopping list and Pinterest image, a sticky sidebar, and, at the end, the
- * problems this plant is prone to and more plants.
+ * problems this plant is prone to; "Read next" closes the text.
  *
  * @package Natura
  */
@@ -24,15 +24,6 @@ while ( have_posts() ) :
 	$natura_layout   = natura_guide_inserts( __( 'What you need', 'natura' ) );
 	$natura_prepared = natura_prepare_content( (string) apply_filters( 'the_content', get_the_content() ), $natura_layout['inserts'], $natura_layout['keep'] );
 	$natura_problems = natura_plant_problems( get_the_ID(), 3 );
-	$natura_more     = get_posts(
-		array(
-			'post_type'      => 'plant',
-			'posts_per_page' => 4,
-			'post__not_in'   => array( get_the_ID() ),
-			'orderby'        => 'rand',
-			'no_found_rows'  => true,
-		)
-	);
 	?>
 	<main id="main-content" class="guide-page plant-page">
 		<?php echo natura_structured_data( $natura_crumbs ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
@@ -83,14 +74,14 @@ while ( have_posts() ) :
 				<?php natura_the_share_bar( 'share_guides', __( 'Found this useful? Share it', 'natura' ) ); ?>
 				<?php natura_the_faq_and_sources(); ?>
 				<?php natura_the_author_box(); ?>
+				<?php natura_the_read_next(); ?>
 			</article>
 
-			<?php natura_the_guide_sidebar( 'plant' ); ?>
+			<?php natura_the_guide_sidebar(); ?>
 		</div>
 
 		<?php
 		natura_the_related( 'plant-problems-title', __( 'Troubleshooting', 'natura' ), __( 'Common problems', 'natura' ), $natura_problems ? $natura_problems->posts : array(), 'template-parts/problem-card', 'problem-grid' );
-		natura_the_related( 'plant-related-title', __( 'Keep growing', 'natura' ), __( 'More plants to grow', 'natura' ), $natura_more, 'template-parts/plant-card', 'plant-grid' );
 		natura_the_guide_end_ad();
 		?>
 	</main>

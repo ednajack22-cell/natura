@@ -1,5 +1,5 @@
 /**
- * Natura menus, plus one small page behaviour (see the end of the file).
+ * Natura menus, plus a few small page behaviours (see the end of the file).
  *
  * Everything works without this file: dropdowns open on hover and keyboard
  * focus through CSS, and the mobile sheet is a native <details>. This adds what
@@ -65,5 +65,67 @@
   // sidebar, where there is room to show it open.
   if (window.matchMedia("(min-width: 1024px)").matches) {
     document.querySelectorAll(".plant-toc").forEach((toc) => { toc.open = true; });
+  }
+
+  // Below 1024px the header slides away while the reader scrolls down and
+  // comes back on the way up (Natura Options → General). It never hides near
+  // the top of the page, while the menu sheet is open, or while it holds the
+  // keyboard focus. The CSS keeps it sticky, so nothing moves under it.
+  const header = document.querySelector(".site-header[data-autohide]");
+  if (header) {
+    const narrow = window.matchMedia("(max-width: 1023.98px)");
+    const threshold = 8;
+    let lastY = window.scrollY;
+    let queued = false;
+    const show = () => header.classList.remove("is-hidden");
+    const update = () => {
+      queued = false;
+      const y = Math.max(0, window.scrollY);
+      const pinned = !narrow.matches || mobileMenu?.open || header.contains(document.activeElement);
+      if (pinned || y <= header.offsetHeight) {
+        show();
+        lastY = y;
+        return;
+      }
+      // Small moves add up until they pass the threshold: no flicker.
+      if (Math.abs(y - lastY) < threshold) return;
+      header.classList.toggle("is-hidden", y > lastY);
+      lastY = y;
+    };
+    window.addEventListener("scroll", () => {
+      if (!queued) {
+        queued = true;
+        window.requestAnimationFrame(update);
+      }
+    }, { passive: true });
+    header.addEventListener("focusin", show);
+    mobileMenu?.addEventListener("toggle", show);
+    narrow.addEventListener("change", show);
+  }
+
+  // Reading progress of guides: how far the reader is through the article
+  // itself, not the whole page with its footer. Decorative, so it is
+  // aria-hidden in the markup; it stays hidden when this script does not run.
+  const bar = document.querySelector(".reading-progress");
+  const article = document.querySelector(".guide-main");
+  if (bar && article) {
+    let queued = false;
+    const draw = () => {
+      queued = false;
+      const box = article.getBoundingClientRect();
+      const span = box.height - window.innerHeight;
+      const done = span > 0 ? -box.top / span : (box.bottom <= window.innerHeight ? 1 : 0);
+      bar.style.setProperty("--progress", Math.min(1, Math.max(0, done)).toFixed(4));
+    };
+    const queue = () => {
+      if (!queued) {
+        queued = true;
+        window.requestAnimationFrame(draw);
+      }
+    };
+    bar.hidden = false;
+    draw();
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue, { passive: true });
   }
 })();

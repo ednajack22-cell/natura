@@ -23,20 +23,6 @@ while ( have_posts() ) :
 	$natura_method   = natura_gear_method();
 	$natura_criteria = array_filter( natura_field_list( 'criteria' ), static fn( array $row ): bool => '' !== trim( (string) ( $row['name'] ?? '' ) ) );
 	$natura_labels   = natura_gear_spec_labels( $natura_picks );
-	$natura_related  = $natura_category ? get_posts(
-		array(
-			'post_type'      => 'gear',
-			'posts_per_page' => 3,
-			'post__not_in'   => array( get_the_ID() ),
-			'no_found_rows'  => true,
-			'tax_query'      => array( // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-				array(
-					'taxonomy' => 'gear_category',
-					'terms'    => $natura_category->term_id,
-				),
-			),
-		)
-	) : array();
 	?>
 	<main id="main-content" class="guide-page gear-page">
 		<?php echo natura_structured_data( $natura_crumbs ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
@@ -201,13 +187,13 @@ while ( have_posts() ) :
 				<?php natura_the_share_bar( 'share_guides', __( 'Found this useful? Share it', 'natura' ) ); ?>
 				<?php natura_the_faq_and_sources(); ?>
 				<?php natura_the_author_box(); ?>
+				<?php natura_the_read_next(); ?>
 			</article>
 
-			<?php natura_the_guide_sidebar( 'gear' ); ?>
+			<?php natura_the_guide_sidebar(); ?>
 		</div>
 
 		<?php
-		natura_the_related( 'gear-related-title', __( 'Buying guides', 'natura' ), __( 'More buying guides', 'natura' ), $natura_related, 'template-parts/gear-card', 'gear-grid' );
 		natura_the_guide_end_ad();
 		?>
 	</main>

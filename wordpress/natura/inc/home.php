@@ -72,6 +72,7 @@ function natura_home_defaults(): array {
 		'natura_intro_plant_care' => __( 'Keep container plants healthy: find out why a plant is struggling, then learn the watering, feeding, and positioning habits that prevent it.', 'natura' ),
 		'natura_404_title'        => __( 'This page has not grown yet.', 'natura' ),
 		'natura_404_text'         => __( 'The link may be old, or the section is still being written. Try a search, or start from the plant guides.', 'natura' ),
+		'natura_read_next_title'  => __( 'Read next', 'natura' ),
 		'natura_search_empty'     => __( 'No guide matches this search yet. Try a plant name (basil, tomato) or what you can see (yellow leaves).', 'natura' ),
 	);
 }

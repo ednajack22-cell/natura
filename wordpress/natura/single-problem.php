@@ -34,14 +34,6 @@ while ( have_posts() ) :
 			'no_found_rows'  => true,
 		)
 	) : array();
-	$natura_related   = get_posts(
-		array(
-			'post_type'      => 'problem',
-			'posts_per_page' => 3,
-			'post__not_in'   => array( get_the_ID() ),
-			'no_found_rows'  => true,
-		)
-	);
 	?>
 	<main id="main-content" class="guide-page problem-page">
 		<?php echo natura_structured_data( $natura_crumbs ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- JSON encoded with JSON_HEX_TAG. ?>
@@ -138,14 +130,14 @@ while ( have_posts() ) :
 				<?php natura_the_share_bar( 'share_guides', __( 'Found this useful? Share it', 'natura' ) ); ?>
 				<?php natura_the_faq_and_sources(); ?>
 				<?php natura_the_author_box(); ?>
+				<?php natura_the_read_next(); ?>
 			</article>
 
-			<?php natura_the_guide_sidebar( 'problem' ); ?>
+			<?php natura_the_guide_sidebar(); ?>
 		</div>
 
 		<?php
 		natura_the_related( 'problem-plants-title', __( 'Plants affected', 'natura' ), __( 'Plants this often affects', 'natura' ), $natura_plants, 'template-parts/plant-card', 'plant-grid' );
-		natura_the_related( 'problem-related-title', __( 'Troubleshooting', 'natura' ), __( 'Other plant problems', 'natura' ), $natura_related, 'template-parts/problem-card', 'problem-grid' );
 		natura_the_guide_end_ad();
 		?>
 	</main>

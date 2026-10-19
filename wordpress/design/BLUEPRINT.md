@@ -59,11 +59,23 @@ Ordre, de haut en bas :
      8. après la section 5 : annonce ;
      9. **Varieties to try** (plante) : cartes variété (RHS « Recommended
         varieties », Gardening Know How) ;
-     10. FAQ, sources, encadré auteur.
-   - **Colonne de droite**, collante : bloc Pinterest, annonce 300×600,
-     guides populaires (3, numérotés).
+     10. FAQ, sources, encadré auteur ;
+     11. **Read next** : liste numérotée de 1 à 5 fiches du même type, titres
+         seuls avec une ligne grise (type, thème), même terme d'abord
+         (type de plante, partie touchée puis plantes, thème, catégorie),
+         puis les plus récentes. Affichée à partir de 2 fiches. Elle remplace
+         l'ancienne liste « Read next » de la colonne de droite et les
+         grilles « More plants / Other problems / More on… » : une seule
+         liste, jamais deux fois sur téléphone (BENCH-PRESSE, point 9).
+   - **Colonne de droite**, collante : bloc Pinterest, annonce 300×600.
 6. Pleine largeur : « Common problems » (plante), plantes concernées
-   (problème), puis 4 fiches liées, puis bloc multiplex.
+   (problème), puis bloc multiplex.
+
+Lecture (octobre 2026, BENCH-PRESSE, points 3 et 4) : barre de progression
+de 3 px en haut de l'écran sur les fiches ; en-tête qui se cache en
+descendant et revient en remontant sous 1024 px ; colonne de texte limitée
+à 50ch (environ 67 caractères par ligne au lieu de 103 à 1280 px). Chaque
+point a son interrupteur dans Natura Options.
 
 Sur téléphone, une seule colonne : la colonne de droite passe après le texte,
 sans son annonce (le texte en a déjà deux).
