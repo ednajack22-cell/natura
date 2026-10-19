@@ -79,6 +79,11 @@ function natura_plant_hardiness_text( string $rating ): string {
 		return sprintf( __( 'Very hardy, below −4 °F (−20 °C) · RHS %s', 'natura' ), $rating );
 	}
 
+	if ( $min > 0 ) {
+		/* translators: 1: temperature in °F, 2: temperature in °C, 3: RHS rating. */
+		return sprintf( __( 'No frost: harmed below %1$s °F (%2$s °C) · a summer crop in every USDA zone · RHS %3$s', 'natura' ), natura_temperature_number( $min * 9 / 5 + 32 ), natura_temperature_number( $min ), $rating );
+	}
+
 	/* translators: 1: temperature in °F, 2: temperature in °C, 3: USDA zone, e.g. 8b, 4: RHS rating. */
 	return sprintf( __( 'Down to %1$s °F (%2$s °C) · USDA zone %3$s+ · RHS %4$s', 'natura' ), natura_temperature_number( $min * 9 / 5 + 32 ), natura_temperature_number( $min ), $zones[ $rating ], $rating );
 }
