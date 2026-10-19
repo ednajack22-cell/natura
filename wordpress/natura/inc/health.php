@@ -63,6 +63,7 @@ function natura_guide_checks( WP_Post $post ): array {
 		case 'plant':
 			$checks[ __( 'Sun and space', 'natura' ) ]         = taxonomy_exists( 'plant_sun' ) && has_term( '', 'plant_sun', $id ) && has_term( '', 'plant_space', $id );
 			$checks[ __( 'Planting calendar', 'natura' ) ]     = function_exists( 'natura_core_plant_months' ) && ( natura_core_plant_months( $id, 'sow' ) || natura_core_plant_months( $id, 'plant' ) || natura_core_plant_months( $id, 'harvest' ) );
+			$checks[ __( 'When to plant (frost dates)', 'natura' ) ] = (bool) natura_plant_timing( $id );
 			$checks[ __( 'RHS hardiness rating', 'natura' ) ]  = '' !== (string) natura_field( 'hardiness', $id );
 			$checks[ __( 'In short (key points)', 'natura' ) ] = (bool) natura_field_list( 'key_points', $id );
 			$checks[ __( 'Questions & answers', 'natura' ) ]   = (bool) natura_field_list( 'faq', $id );

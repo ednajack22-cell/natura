@@ -195,7 +195,7 @@ $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsle
 						<h2 id="home-season-title">
 							<?php
 							/* translators: %s: month name, e.g. "October". */
-							printf( esc_html__( 'In your pots this %s', 'natura' ), esc_html( $natura_month['month'] ) );
+							printf( esc_html__( 'In UK pots this %s', 'natura' ), esc_html( $natura_month['month'] ) );
 							?>
 						</h2>
 						<p><?php echo esc_html( natura_calendar_climate_note() ); ?></p>
