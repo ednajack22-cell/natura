@@ -111,7 +111,7 @@ function natura_plant_timing( int $post_id = 0 ): array {
 		'start_indoors' => __( 'Start seeds indoors', 'natura' ),
 		'sow_outdoors'  => __( 'Sow outdoors', 'natura' ),
 		'plant_out'     => __( 'Plant outside', 'natura' ),
-		'fall_sow'      => __( 'Sow for a fall crop', 'natura' ),
+		'fall_sow'      => __( 'Sow or plant in fall', 'natura' ),
 		'harvest_days'  => __( 'First harvest', 'natura' ),
 	) as $key => $label ) {
 		$range = natura_core_plant_timing( $post_id, $key );
@@ -314,7 +314,7 @@ function natura_plant_timing_label( string $key ): string {
 		'start_indoors' => __( 'Start seeds indoors', 'natura' ),
 		'sow_outdoors'  => __( 'Sow outdoors', 'natura' ),
 		'plant_out'     => __( 'Plant outside', 'natura' ),
-		'fall_sow'      => __( 'Sow for a fall crop', 'natura' ),
+		'fall_sow'      => __( 'Sow or plant in fall', 'natura' ),
 		'harvest_days'  => __( 'First harvest', 'natura' ),
 	);
 
