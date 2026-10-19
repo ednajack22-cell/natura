@@ -140,7 +140,7 @@ function natura_frost_weeks_text( array $range, string $frost ): string {
 	if ( $to <= 0 ) {
 		if ( 0 === $from && 0 === $to ) {
 			/* translators: %s: frost, e.g. "your last spring frost". */
-			return sprintf( __( 'around %s', 'natura' ), $frost );
+			return sprintf( __( 'once %s has passed', 'natura' ), $frost );
 		}
 		/* translators: 1: weeks, e.g. "6–8", 2: frost. */
 		return sprintf( __( '%1$s weeks before %2$s', 'natura' ), natura_range_text( abs( $to ), abs( $from ) ), $frost );
