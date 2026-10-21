@@ -326,8 +326,11 @@ En attendant vos vraies photos, chaque fiche sans image reçoit :
   vrai titre de la fiche et le nom du site.
 
 Ce sont des illustrations, pas de fausses photos. Elles sont dessinées sur
-votre serveur (extension PHP GD, présente chez presque tous les hébergeurs),
-avec les polices du site fournies dans l'extension.
+votre serveur (extension PHP GD, présente chez presque tous les hébergeurs).
+Les lettres viennent de planches de caractères tirées des polices du site
+(Newsreader et Inter), fournies dans l'extension : elles s'affichent même
+sur un serveur sans FreeType, comme WordPress Playground. Pour refaire ces
+planches : `python3 wordpress/tools/make-cover-glyphs.py`.
 
 - Les fiches importées depuis cet écran les reçoivent automatiquement.
 - Pour les fiches déjà sur le site sans image, cliquez **Add stand-in images**

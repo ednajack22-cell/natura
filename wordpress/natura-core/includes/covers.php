@@ -6,8 +6,9 @@
  * illustrations, never presented as photos, and they are marked so the
  * owner can find and replace them: the health report lists them.
  *
- * Drawn with PHP's GD extension and two fonts shipped with the plugin
- * (Newsreader and Inter, SIL Open Font License, see assets/fonts/OFL.txt).
+ * Drawn with PHP's GD extension. Text comes from glyph sheets of the site's
+ * fonts (Newsreader and Inter, SIL Open Font License, see
+ * assets/covers/OFL.txt), so it works without FreeType.
  *
  * @package NaturaCore
  */
@@ -21,7 +22,7 @@ const NATURA_CORE_COVER_META = '_natura_cover';
  * Whether this server can draw covers.
  */
 function natura_core_covers_available(): bool {
-	return function_exists( 'imagecreatetruecolor' ) && function_exists( 'imagettftext' ) && function_exists( 'imagejpeg' );
+	return function_exists( 'imagecreatetruecolor' ) && function_exists( 'imagecreatefrompng' ) && function_exists( 'imagejpeg' );
 }
 
 /**
@@ -132,30 +133,124 @@ function natura_core_cover_leaf( $image, float $cx, float $cy, float $length, fl
 }
 
 /**
- * Path of a cover font.
+ * Letter metrics of a cover face (see includes/cover-glyphs.php).
  *
  * @param string $face serif or sans.
+ * @return array{size: int, ascent: int, glyphs: array<string, array>, kerning: array<string, float>}
  */
-function natura_core_cover_font( string $face ): string {
-	return dirname( __DIR__ ) . '/assets/fonts/natura-cover-' . ( 'serif' === $face ? 'serif' : 'sans' ) . '.ttf';
+function natura_core_cover_face( string $face ): array {
+	static $faces = null;
+	if ( null === $faces ) {
+		$faces = require __DIR__ . '/cover-glyphs.php';
+	}
+
+	return $faces[ 'serif' === $face ? 'serif' : 'sans' ];
+}
+
+/**
+ * The glyph sheet of a face, in one colour. Sheets are kept for the request.
+ *
+ * @param string $face  serif or sans.
+ * @param int[]  $color Red, green, blue.
+ * @return GdImage|false
+ */
+function natura_core_cover_sheet( string $face, array $color ) {
+	static $sheets = array();
+	$key = $face . implode( ',', $color );
+	if ( ! isset( $sheets[ $key ] ) ) {
+		$sheet = imagecreatefrompng( dirname( __DIR__ ) . '/assets/covers/glyphs-' . ( 'serif' === $face ? 'serif' : 'sans' ) . '.png' );
+		if ( $sheet ) {
+			imagealphablending( $sheet, false );
+			imagesavealpha( $sheet, true );
+			imagefilter( $sheet, IMG_FILTER_COLORIZE, $color[0], $color[1], $color[2] );
+		}
+		$sheets[ $key ] = $sheet;
+	}
+
+	return $sheets[ $key ];
+}
+
+/**
+ * Letters of a text, with any letter missing from the sheets replaced.
+ *
+ * @param string $text Text.
+ * @param array  $font Face metrics.
+ * @return string[]
+ */
+function natura_core_cover_letters( string $text, array $font ): array {
+	$letters = preg_split( '//u', $text, -1, PREG_SPLIT_NO_EMPTY );
+
+	return array_map( static fn( string $letter ): string => isset( $font['glyphs'][ $letter ] ) ? $letter : '?', $letters ? $letters : array() );
+}
+
+/**
+ * Width of a text.
+ *
+ * @param string $face    serif or sans.
+ * @param float  $size    Letter size in pixels.
+ * @param string $text    Text.
+ * @param float  $spacing Extra space between letters, in pixels.
+ */
+function natura_core_cover_text_width( string $face, float $size, string $text, float $spacing = 0 ): float {
+	$font  = natura_core_cover_face( $face );
+	$scale = $size / $font['size'];
+	$width = 0.0;
+	$last  = '';
+	foreach ( natura_core_cover_letters( $text, $font ) as $letter ) {
+		$width += ( $font['glyphs'][ $letter ][6] + ( $font['kerning'][ $last . $letter ] ?? 0 ) ) * $scale + $spacing;
+		$last   = $letter;
+	}
+
+	return max( 0.0, $width - $spacing );
+}
+
+/**
+ * Writes a text from the glyph sheets.
+ *
+ * @param GdImage $image    Image.
+ * @param string  $face     serif or sans.
+ * @param float   $size     Letter size in pixels.
+ * @param float   $x        Left.
+ * @param float   $baseline Baseline.
+ * @param int[]   $color    Red, green, blue.
+ * @param string  $text     Text.
+ * @param float   $spacing  Extra space between letters, in pixels.
+ */
+function natura_core_cover_text( $image, string $face, float $size, float $x, float $baseline, array $color, string $text, float $spacing = 0 ): void {
+	$font  = natura_core_cover_face( $face );
+	$sheet = natura_core_cover_sheet( $face, $color );
+	if ( ! $sheet ) {
+		return;
+	}
+	$scale = $size / $font['size'];
+	$last  = '';
+	imagealphablending( $image, true );
+	foreach ( natura_core_cover_letters( $text, $font ) as $letter ) {
+		list( $gx, $gy, $gw, $gh, $ox, $oy, $advance ) = $font['glyphs'][ $letter ];
+		$x += ( $font['kerning'][ $last . $letter ] ?? 0 ) * $scale;
+		if ( '' !== trim( $letter ) ) {
+			imagecopyresampled( $image, $sheet, (int) round( $x + $ox * $scale ), (int) round( $baseline + $oy * $scale ), $gx, $gy, (int) round( $gw * $scale ), (int) round( $gh * $scale ), $gw, $gh );
+		}
+		$x   += $advance * $scale + $spacing;
+		$last = $letter;
+	}
 }
 
 /**
  * Splits a text into lines no wider than a width.
  *
  * @param string $text  Text.
- * @param string $font  Font file.
- * @param float  $size  Size in points.
+ * @param string $face  serif or sans.
+ * @param float  $size  Letter size in pixels.
  * @param int    $width Width in pixels.
  * @return string[]
  */
-function natura_core_cover_wrap( string $text, string $font, float $size, int $width ): array {
+function natura_core_cover_wrap( string $text, string $face, float $size, int $width ): array {
 	$lines = array();
 	$line  = '';
 	foreach ( preg_split( '/\s+/', trim( $text ) ) as $word ) {
 		$try = '' === $line ? $word : $line . ' ' . $word;
-		$box = imagettfbbox( $size, 0, $font, $try );
-		if ( '' !== $line && $box[2] - $box[0] > $width ) {
+		if ( '' !== $line && natura_core_cover_text_width( $face, $size, $try ) > $width ) {
 			$lines[] = $line;
 			$line    = $word;
 		} else {
@@ -170,43 +265,12 @@ function natura_core_cover_wrap( string $text, string $font, float $size, int $w
 }
 
 /**
- * Writes text with letter spacing (for small capitals labels).
+ * Upper-case form of a label.
  *
- * @param GdImage $image   Image.
- * @param float   $size    Size.
- * @param int     $x       Left.
- * @param int     $y       Baseline.
- * @param int     $color   Colour.
- * @param string  $font    Font file.
- * @param string  $text    Text.
- * @param float   $spacing Extra space between letters, in pixels.
- * @return int Right edge.
+ * @param string $label Label.
  */
-function natura_core_cover_spaced( $image, float $size, int $x, int $y, int $color, string $font, string $text, float $spacing ): int {
-	foreach ( preg_split( '//u', $text, -1, PREG_SPLIT_NO_EMPTY ) as $letter ) {
-		$box = imagettftext( $image, $size, 0, $x, $y, $color, $font, $letter );
-		$x   = (int) round( $box[2] + $spacing );
-	}
-
-	return $x;
-}
-
-/**
- * Width of letter-spaced text.
- *
- * @param float  $size    Size.
- * @param string $font    Font file.
- * @param string $text    Text.
- * @param float  $spacing Extra space between letters.
- */
-function natura_core_cover_spaced_width( float $size, string $font, string $text, float $spacing ): int {
-	$width = 0;
-	foreach ( preg_split( '//u', $text, -1, PREG_SPLIT_NO_EMPTY ) as $letter ) {
-		$box    = imagettfbbox( $size, 0, $font, $letter );
-		$width += $box[2] - $box[0] + $spacing;
-	}
-
-	return (int) round( $width - $spacing );
+function natura_core_cover_caps( string $label ): string {
+	return function_exists( 'mb_strtoupper' ) ? mb_strtoupper( $label ) : strtoupper( $label );
 }
 
 /**
@@ -235,18 +299,14 @@ function natura_core_draw_cover( string $kind, string $seed ) {
 	imagecopyresampled( $image, $badge, 600 - $d / 2, 400 - $d / 2, 0, 0, $d, $d, $d * 2, $d * 2 );
 	imagedestroy( $badge );
 
-	$ink   = imagecolorallocate( $image, 3, 37, 23 );
-	$clay  = imagecolorallocate( $image, 155, 68, 31 );
-	$serif = natura_core_cover_font( 'serif' );
-	$sans  = natura_core_cover_font( 'sans' );
+	$ink  = array( 3, 37, 23 );
+	$clay = array( 155, 68, 31 );
 
 	$name = 'natura';
-	$box  = imagettfbbox( 46, 0, $serif, $name );
-	imagettftext( $image, 46, 0, (int) ( 600 - ( $box[2] - $box[0] ) / 2 ), 405, $ink, $serif, $name );
+	natura_core_cover_text( $image, 'serif', 62, 600 - natura_core_cover_text_width( 'serif', 62, $name ) / 2, 405, $ink, $name );
 
-	$label = function_exists( 'mb_strtoupper' ) ? mb_strtoupper( $style['label'] ) : strtoupper( $style['label'] );
-	$lw    = natura_core_cover_spaced_width( 13, $sans, $label, 2.5 );
-	natura_core_cover_spaced( $image, 13, (int) ( 600 - $lw / 2 ), 448, $clay, $sans, $label, 2.5 );
+	$label = natura_core_cover_caps( $style['label'] );
+	natura_core_cover_text( $image, 'sans', 17, 600 - natura_core_cover_text_width( 'sans', 17, $label, 2.5 ) / 2, 448, $clay, $label, 2.5 );
 
 	return $image;
 }
@@ -270,39 +330,34 @@ function natura_core_draw_pin( string $kind, string $seed, string $title, string
 	imagecopy( $image, $top, 0, 0, 0, 0, 1000, 760 );
 	imagedestroy( $top );
 
-	$ink   = imagecolorallocate( $image, 3, 37, 23 );
-	$soft  = imagecolorallocate( $image, 66, 72, 67 );
-	$clay  = imagecolorallocate( $image, 155, 68, 31 );
-	$rule  = imagecolorallocate( $image, 220, 214, 203 );
-	$serif = natura_core_cover_font( 'serif' );
-	$sans  = natura_core_cover_font( 'sans' );
+	$ink  = array( 3, 37, 23 );
+	$soft = array( 66, 72, 67 );
+	$clay = array( 155, 68, 31 );
 
-	// Section label on a band across the bottom of the pattern.
+	// Section label under a band across the bottom of the pattern.
 	imagefilledrectangle( $image, 0, 760, 999, 767, imagecolorallocate( $image, ...$style['accent'] ) );
-	$label = function_exists( 'mb_strtoupper' ) ? mb_strtoupper( $style['label'] ) : strtoupper( $style['label'] );
-	natura_core_cover_spaced( $image, 20, 80, 850, $clay, $sans, $label, 4 );
+	natura_core_cover_text( $image, 'sans', 27, 80, 850, $clay, natura_core_cover_caps( $style['label'] ), 4 );
 
 	// The title, as large as fits between the label and the footer rule.
-	$size  = 70;
-	$lines = natura_core_cover_wrap( $title, $serif, $size, 840 );
-	$step  = (int) round( $size * 1.25 * 96 / 72 );
-	while ( count( $lines ) * $step > 440 && $size > 36 ) {
-		$size -= 4;
-		$lines = natura_core_cover_wrap( $title, $serif, $size, 840 );
-		$step  = (int) round( $size * 1.25 * 96 / 72 );
+	$size  = 94;
+	$lines = natura_core_cover_wrap( $title, 'serif', $size, 840 );
+	$step  = (int) round( $size * 1.25 );
+	while ( count( $lines ) * $step > 440 && $size > 48 ) {
+		$size -= 5;
+		$lines = natura_core_cover_wrap( $title, 'serif', $size, 840 );
+		$step  = (int) round( $size * 1.25 );
 	}
 	$lines = array_slice( $lines, 0, (int) floor( 440 / $step ) );
 	$y     = 880 + $step;
 	foreach ( $lines as $line ) {
-		imagettftext( $image, $size, 0, 80, $y, $ink, $serif, $line );
+		natura_core_cover_text( $image, 'serif', $size, 80, $y, $ink, $line );
 		$y += $step;
 	}
 
-	imagefilledrectangle( $image, 80, 1372, 920, 1373, $rule );
-	imagettftext( $image, 34, 0, 80, 1438, $ink, $serif, $site );
+	imagefilledrectangle( $image, 80, 1372, 920, 1373, imagecolorallocate( $image, 220, 214, 203 ) );
+	natura_core_cover_text( $image, 'serif', 46, 80, 1438, $ink, $site );
 	$more = __( 'Growing food in pots', 'natura-core' );
-	$box  = imagettfbbox( 17, 0, $sans, $more );
-	imagettftext( $image, 17, 0, 920 - ( $box[2] - $box[0] ), 1432, $soft, $sans, $more );
+	natura_core_cover_text( $image, 'sans', 23, 920 - natura_core_cover_text_width( 'sans', 23, $more ), 1432, $soft, $more );
 
 	return $image;
 }
