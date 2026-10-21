@@ -25,6 +25,16 @@ defined( 'ABSPATH' ) || exit;
 const NATURA_SHORT_GUIDE_WORDS = 500;
 
 /**
+ * Whether an image is one of the plugin's drawn stand-in covers, waiting
+ * for the owner's own photo.
+ *
+ * @param int $attachment_id Image.
+ */
+function natura_is_stand_in( int $attachment_id ): bool {
+	return function_exists( 'natura_core_is_cover' ) && natura_core_is_cover( $attachment_id );
+}
+
+/**
  * The checks for one guide: label => whether it passes. Only checks that
  * apply to its type.
  *
@@ -48,8 +58,8 @@ function natura_guide_checks( WP_Post $post ): array {
 
 	$checks = array(
 		__( 'Summary (excerpt)', 'natura' )     => '' !== trim( (string) $post->post_excerpt ),
-		__( 'Main photo', 'natura' )            => has_post_thumbnail( $id ),
-		__( 'Pinterest image', 'natura' )       => (bool) absint( natura_field( 'pin_image', $id ) ),
+		__( 'Your own main photo', 'natura' )   => has_post_thumbnail( $id ) && ! natura_is_stand_in( (int) get_post_thumbnail_id( $id ) ),
+		__( 'Your own Pinterest image', 'natura' ) => (bool) absint( natura_field( 'pin_image', $id ) ) && ! natura_is_stand_in( absint( natura_field( 'pin_image', $id ) ) ),
 		__( 'Sources', 'natura' )               => (bool) natura_field_list( 'sources', $id ),
 		__( 'Links to other guides', 'natura' ) => $links > 0,
 	);

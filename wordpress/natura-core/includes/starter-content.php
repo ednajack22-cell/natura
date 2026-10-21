@@ -4,8 +4,9 @@
  * import as drafts from Tools → Natura starter guides.
  *
  * Each guide is created as a draft with its text, facts, lists, FAQ and
- * sources, but no photo or Pinterest image: the site owner adds their own,
- * reads the draft, and publishes it. Nothing is imported unless an
+ * sources. Its photo and Pinterest image are drawn stand-ins (see
+ * covers.php) until the site owner adds their own; they read the draft and
+ * publish it. Nothing is imported unless an
  * administrator or editor asks for it, and a guide whose address is already
  * taken is never overwritten.
  *
@@ -24,7 +25,7 @@ defined( 'ABSPATH' ) || exit;
  * @param string               $slug       Address.
  * @param array<string, mixed> $guide      Guide data.
  * @param string               $status     publish or draft.
- * @param string               $image_base Image folder or URL; '' adds no image.
+ * @param string               $image_base Image folder or URL; '' draws stand-in covers.
  * @param int                  $author     Author ID.
  * @return int|WP_Error Guide ID.
  */
@@ -72,6 +73,8 @@ function natura_core_create_guide( string $kind, string $slug, array $guide, str
 	natura_core_demo_save_fields( $post_id, $lists, $pin, $image_base );
 	if ( '' !== $image_base ) {
 		natura_core_demo_set_photo( $post_id, $guide, $image_base );
+	} else {
+		natura_core_add_covers( (int) $post_id );
 	}
 
 	foreach ( (array) ( $guide['facts'] ?? array() ) as $key => $value ) {
@@ -276,6 +279,28 @@ add_action(
 	}
 );
 
+/*
+ * Stand-in covers for guides that still have no photo or Pinterest image,
+ * a few at a time so a slow server does not time out.
+ */
+add_action(
+	'admin_post_natura_add_covers',
+	static function (): void {
+		if ( ! current_user_can( 'edit_others_posts' ) ) {
+			wp_die( esc_html__( 'You are not allowed to add images.', 'natura-core' ), 403 );
+		}
+		check_admin_referer( 'natura_add_covers' );
+
+		$added = 0;
+		foreach ( natura_core_guides_without_images( 15 ) as $post_id ) {
+			$added += natura_core_add_covers( (int) $post_id );
+		}
+
+		wp_safe_redirect( add_query_arg( 'covers', $added, admin_url( 'tools.php?page=natura-starter-guides' ) ) );
+		exit;
+	}
+);
+
 /**
  * Prints Tools → Natura starter guides.
  */
@@ -285,11 +310,13 @@ function natura_core_render_starter_page(): void {
 	}
 	$guides   = natura_core_starter_guides();
 	$imported = isset( $_GET['imported'] ) ? absint( $_GET['imported'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
+	$covers   = isset( $_GET['covers'] ) ? absint( $_GET['covers'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
+	$bare     = natura_core_guides_without_images();
 	$waiting  = array_filter( $guides, static fn( array $item ): bool => ! natura_core_starter_existing( $item['kind'], $item['slug'] ) );
 	?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Natura starter guides', 'natura-core' ); ?></h1>
-		<p><?php esc_html_e( 'Finished guides written for Natura from the sources listed in each one. Importing creates a draft: add your own photo and Pinterest image, read it through, then publish. A guide already on your site is never changed.', 'natura-core' ); ?></p>
+		<p><?php esc_html_e( 'Finished guides written for Natura from the sources listed in each one. Importing creates a draft with a drawn stand-in photo and Pinterest image: replace them with your own when you have them, read the draft through, then publish. A guide already on your site is never changed.', 'natura-core' ); ?></p>
 
 		<?php if ( null !== $imported ) : ?>
 			<div class="notice notice-success is-dismissible"><p>
@@ -298,6 +325,33 @@ function natura_core_render_starter_page(): void {
 				echo esc_html( sprintf( _n( '%d draft created.', '%d drafts created.', $imported, 'natura-core' ), $imported ) );
 				?>
 			</p></div>
+		<?php endif; ?>
+
+		<?php if ( null !== $covers ) : ?>
+			<div class="notice notice-success is-dismissible"><p>
+				<?php
+				/* translators: %d: number of images. */
+				echo esc_html( sprintf( _n( '%d stand-in image added.', '%d stand-in images added.', $covers, 'natura-core' ), $covers ) );
+				?>
+			</p></div>
+		<?php endif; ?>
+
+		<?php if ( $bare && natura_core_covers_available() ) : ?>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<input type="hidden" name="action" value="natura_add_covers">
+				<?php wp_nonce_field( 'natura_add_covers' ); ?>
+				<p>
+					<?php
+					printf(
+						/* translators: %d: number of guides. */
+						esc_html( _n( '%d guide has no photo or no Pinterest image yet.', '%d guides have no photo or no Pinterest image yet.', count( $bare ), 'natura-core' ) ),
+						count( $bare )
+					);
+					echo ' ';
+					submit_button( __( 'Add stand-in images (15 guides at a time)', 'natura-core' ), 'secondary', 'submit', false );
+					?>
+				</p>
+			</form>
 		<?php endif; ?>
 
 		<?php if ( $waiting ) : ?>

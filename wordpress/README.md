@@ -308,11 +308,38 @@ sources citées : la RHS, et les livres décrits dans `design/sources/`.
    fiche et si elle est déjà sur votre site.
 3. Cliquez **Import as draft** sur une fiche, ou importez toutes les fiches
    manquantes en une fois. Chaque fiche arrive en **brouillon**.
-4. Ouvrez le brouillon et ajoutez :
-   - votre photo principale ;
-   - l'image Pinterest ;
-   - vos liens affiliés dans « What you need ».
+4. Chaque brouillon reçoit des **images provisoires** dessinées par
+   l'extension (voir ci-dessous). Ouvrez le brouillon et ajoutez vos liens
+   affiliés dans « What you need ».
 5. Relisez le texte, puis cliquez **Publier**.
+
+### Images provisoires
+
+En attendant vos vraies photos, chaque fiche sans image reçoit :
+
+- une **photo principale provisoire** (1200 × 800) : un motif de feuilles aux
+  couleurs de la rubrique, avec un médaillon « natura » et le nom de la
+  rubrique (vert foncé pour les plantes, terre cuite pour les problèmes, vert
+  sauge pour Plant Care, ocre pour les projets DIY, vert très foncé pour le
+  matériel) ;
+- une **image Pinterest provisoire** (1000 × 1500) : le même motif, puis le
+  vrai titre de la fiche et le nom du site.
+
+Ce sont des illustrations, pas de fausses photos. Elles sont dessinées sur
+votre serveur (extension PHP GD, présente chez presque tous les hébergeurs),
+avec les polices du site fournies dans l'extension.
+
+- Les fiches importées depuis cet écran les reçoivent automatiquement.
+- Pour les fiches déjà sur le site sans image, cliquez **Add stand-in images**
+  en haut de l'écran (15 fiches par clic ; recliquez jusqu'à ce que le bouton
+  disparaisse).
+- Pour remplacer une image : dans la fiche, changez l'image mise en avant ou
+  la case Pinterest image. Une image que vous avez ajoutée n'est jamais
+  remplacée.
+- L'onglet Content health signale « Your own main photo » et « Your own
+  Pinterest image » tant qu'une fiche garde une image provisoire : c'est
+  votre liste de photos à faire. Les prompts sont dans
+  `design/IMAGE-PROMPTS.md`.
 
 Une fiche déjà présente sur le site, en brouillon ou publiée, n'est jamais
 modifiée. Seuls les éditeurs et les administrateurs voient cet écran.
@@ -322,7 +349,8 @@ chaque fiche.
 Nouvelles fiches : chaque lot est un fichier dans
 `natura-core/includes/starter/`. Les fiches de démonstration (tomate,
 basilic, fraisier, etc.) en font aussi partie. Elles arrivent sans les
-photos de démonstration et sans les liens `example.com`.
+photos de démonstration (avec des images provisoires) et sans les liens
+`example.com`.
 
 ## Contenu de démonstration
 
