@@ -13,7 +13,12 @@ du projet Stitch « Garden Website AdSense Integration », en particulier
    choisir ; l'accueil oriente. Chaque bloc doit servir ce but.
 2. **Une section n'apparaît qu'avec assez de contenu.** Grilles : au moins
    2 éléments, et la grille s'adapte au nombre (2 éléments prennent toute la
-   largeur, jamais une colonne vide). Une liste « à côté » d'une grande carte
+   largeur, jamais une colonne vide). **Jamais une carte seule sur sa ligne**
+   (demande du 21 octobre 2026) : les listes
+   montrent 12 fiches par page (4 lignes de 3, 6 lignes de 2) ; quand le
+   nombre ne tombe pas juste, les dernières cartes passent à 2 par ligne,
+   plus larges ; une carte seule sur tablette ou une liste d'une seule
+   fiche devient une carte large, photo à côté du texte. Une liste « à côté » d'une grande carte
    demande au moins 2 éléments, sinon les cartes passent côte à côte.
 3. **La réponse avant la publicité.** Aucune annonce au-dessus du titre ni
    avant le premier encadré utile (« At a glance »).
@@ -86,9 +91,10 @@ sans son annonce (le texte en a déjà deux).
 2. Cartes « catalogue » : photo 4:3 avec étiquette, titre, nom botanique,
    2 lignes de résumé, grille soleil / pot / eau / difficulté, bouton.
    3 par ligne sur ordinateur, 1 sur téléphone.
-3. Après la 1re ligne (3 cartes), annonce pleine largeur « in-feed ».
-4. Bandeau vert foncé vers les problèmes (« Plant looking unwell? »).
-5. Pagination.
+3. Après la 1re ligne (3 cartes), annonce pleine largeur « in-feed »,
+   seulement sur les pages d'au moins 6 fiches.
+4. Pagination, centrée, juste sous les cartes (boutons de 44 px).
+5. Bandeau vert foncé vers les problèmes (« Plant looking unwell? »).
 
 ## Accueil (version du 14 octobre 2026, d'après les 12 pages d'accueil)
 

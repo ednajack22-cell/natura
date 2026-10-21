@@ -662,9 +662,14 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 /* ---------------------------------------------------------------------------
    Cards and lists
    Square-cut white cards on parchment, a small-caps label, a serif title,
-   and "Read …" at the foot. The whole card is one link. Grids fill the row
-   whatever the number of cards: two cards share the width, never leaving an
-   empty column.
+   and "Read …" at the foot. The whole card is one link.
+   No card is ever left alone on a row. Grids have six tracks: a card takes
+   two (three a row) on a computer and three (two a row) on a tablet. Where
+   the count does not divide evenly, the last cards take three tracks each,
+   so the last row holds two wider cards; a single card left over on a
+   tablet, or a list of one, becomes a wide card with the photo beside the
+   text. The ad after the first row (only on pages of six cards or more)
+   counts as a row of its own.
    --------------------------------------------------------------------------- */
 
 .plant-grid, .post-grid, .problem-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.25rem; }
@@ -719,16 +724,47 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .filter-chips a:hover { border-color: var(--forest); color: var(--heading); }
 .filter-chips a[aria-current] { color: white; border-color: var(--forest); background: var(--forest); }
 .plant-archive { padding-bottom: 4rem; }
+
+/* Page numbers under a list, centred. */
+.pagination { margin: 2.5rem 0 0; }
+.pagination .nav-links { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: .5rem; }
+.pagination .page-numbers { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 .9rem; border: 1px solid var(--line-soft); border-radius: var(--radius); color: var(--heading); background: var(--card); font: 600 .9375rem var(--font-sans); text-decoration: none; }
+.pagination a.page-numbers:hover { border-color: var(--forest); }
+.pagination .page-numbers.current { border-color: var(--forest); color: white; background: var(--forest); }
+.pagination .page-numbers.dots { border-color: transparent; background: none; }
 .plant-archive > .site-container:not(.breadcrumbs) { padding-top: 1.5rem; }
 
 @media (min-width: 640px) {
-  .plant-grid, .post-grid, .problem-grid { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+  .plant-grid, .post-grid, .problem-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  :is(.plant-grid, .post-grid, .problem-grid) > * { grid-column: span 3; }
+  :is(.plant-grid, .post-grid, .problem-grid) > .plant-grid-break { grid-column: 1 / -1; }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  /* Two a row: an odd card out takes the whole row. Before the ad there are
+     always three cards; after it, the cards left over. */
+  :is(.plant-grid, .post-grid, .problem-grid):not(:has(> .plant-grid-break)) > :is(.plant-card, .post-card, .problem-card):nth-child(odd of :is(.plant-card, .post-card, .problem-card)):nth-last-child(1 of :is(.plant-card, .post-card, .problem-card)),
+  :is(.plant-grid, .post-grid, .problem-grid):has(> .plant-grid-break) > :is(.plant-card, .post-card, .problem-card):nth-child(even of :is(.plant-card, .post-card, .problem-card)):nth-last-child(1 of :is(.plant-card, .post-card, .problem-card)),
+  :is(.plant-grid, .post-grid, .problem-grid) > :is(.plant-card, .post-card, .problem-card):has(+ .plant-grid-break) { grid-column: 1 / -1; }
 }
 @media (min-width: 1024px) {
-  .plant-grid, .post-grid, .problem-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-  /* Three per row at most: wider cards read better than a fourth column. */
-  .site-container > .plant-grid, .site-container > .post-grid, .site-container > .problem-grid,
-  .guide-related .plant-grid, .guide-related .post-grid, .guide-related .problem-grid { grid-template-columns: repeat(auto-fit, minmax(max(300px, calc((100% - 3rem) / 3)), 1fr)); }
+  .plant-grid, .post-grid, .problem-grid { gap: 1.5rem; }
+  :is(.plant-grid, .post-grid, .problem-grid) > * { grid-column: span 2; }
+  :is(.plant-grid, .post-grid, .problem-grid) > .plant-grid-break { grid-column: 1 / -1; }
+  /* Three a row. One card over (4, 7, 10…): the last four go two and two.
+     Two over (2, 5, 8…): the last two share the row. */
+  :is(.plant-grid, .post-grid, .problem-grid):has(> :is(.plant-card, .post-card, .problem-card):nth-last-child(1 of :is(.plant-card, .post-card, .problem-card)):nth-child(3n+4 of :is(.plant-card, .post-card, .problem-card))) > :is(.plant-card, .post-card, .problem-card):nth-last-child(-n+4 of :is(.plant-card, .post-card, .problem-card)),
+  :is(.plant-grid, .post-grid, .problem-grid):has(> :is(.plant-card, .post-card, .problem-card):nth-last-child(1 of :is(.plant-card, .post-card, .problem-card)):nth-child(3n+2 of :is(.plant-card, .post-card, .problem-card))) > :is(.plant-card, .post-card, .problem-card):nth-last-child(-n+2 of :is(.plant-card, .post-card, .problem-card)) { grid-column: span 3; }
+  /* A list of one. */
+  :is(.plant-grid, .post-grid, .problem-grid) > :is(.plant-card, .post-card, .problem-card):nth-child(1 of :is(.plant-card, .post-card, .problem-card)):nth-last-child(1 of :is(.plant-card, .post-card, .problem-card)) { grid-column: 1 / -1; }
+}
+/* A card across a whole row puts its photo beside the text. */
+:is(.plant-card, .post-card, .problem-card) { container-type: inline-size; }
+@container (min-width: 700px) {
+  :is(.plant-card-link, .post-card-link, .problem-card-link) { flex-direction: row; }
+  :is(.plant-card-media, .post-card-media, .problem-card-media) { flex: 0 0 45%; aspect-ratio: auto; min-height: 280px; max-height: none; }
+  :is(.plant-card-text, .post-card-text, .problem-card-text) { justify-content: center; padding: 1.75rem 2rem; }
+}
+@media (min-width: 1024px) {
   .cta-band { grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1.75rem; padding: 2.25rem 2.5rem; }
 }
 

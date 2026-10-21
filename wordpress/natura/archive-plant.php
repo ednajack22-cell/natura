@@ -81,15 +81,13 @@ foreach ( array( $natura_current_type, $natura_condition ) as $natura_term ) {
 					the_post();
 					get_template_part( 'template-parts/plant-card' );
 					++$natura_count;
-					if ( 3 === $natura_count && $GLOBALS['wp_query']->post_count > 3 ) {
-						echo '<div class="plant-grid-break">' . natura_ad_slot( __( 'In the list, after the first row', 'natura' ), 'in-content', 'ads_lists' ) . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot().
-					}
+					natura_the_list_break( $natura_count );
 				endwhile;
 				?>
 			</div>
+			<?php the_posts_pagination(); ?>
 			<?php natura_the_share_bar( 'share_lists', __( 'Share this list', 'natura' ) ); ?>
 			<?php natura_the_problem_band(); ?>
-		<?php the_posts_pagination(); ?>
 		<?php else : ?>
 			<p class="empty-state"><?php esc_html_e( 'No plant guides here yet.', 'natura' ); ?></p>
 		<?php endif; ?>

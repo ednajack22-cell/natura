@@ -176,3 +176,21 @@ function natura_ad_slot( string $placement, string $format = 'in-content', strin
 
 	return '';
 }
+
+/**
+ * Prints the ad that sits after the first row of a list, once the third card
+ * is out. Only on pages with at least six cards, so the rows after it can
+ * still be filled (see "Cards and lists" in main.css), and only when an ad
+ * is shown: an empty break would split the grid for nothing.
+ *
+ * @param int $count Cards printed so far.
+ */
+function natura_the_list_break( int $count ): void {
+	if ( 3 !== $count || $GLOBALS['wp_query']->post_count < 6 ) {
+		return;
+	}
+	$ad = natura_ad_slot( __( 'In the list, after the first row', 'natura' ), 'in-content', 'ads_lists' );
+	if ( '' !== $ad ) {
+		echo '<div class="plant-grid-break">' . $ad . '</div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- built and escaped in natura_ad_slot().
+	}
+}

@@ -103,3 +103,18 @@ add_action(
 	},
 	1
 );
+
+/*
+ * Lists show 12 guides a page: four full rows of three on a computer, six
+ * of two on a tablet. WordPress's own default (10) left one card alone on
+ * the last row.
+ */
+add_action(
+	'pre_get_posts',
+	static function ( WP_Query $query ): void {
+		if ( is_admin() || ! $query->is_main_query() || ! ( $query->is_archive() || $query->is_home() ) ) {
+			return;
+		}
+		$query->set( 'posts_per_page', 12 );
+	}
+);
