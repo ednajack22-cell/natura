@@ -77,7 +77,7 @@ $natura_now     = natura_section_enabled( 'home_month' ) ? natura_home_now_plant
 $natura_topics  = natura_home_topics( 8 );
 $natura_author  = natura_section_enabled( 'home_author' ) ? natura_home_author() : null;
 $natura_picks   = natura_section_enabled( 'home_picks' ) ? natura_home_picks( 3 ) : array();
-$natura_pins    = natura_home_pins( 5 );
+$natura_pins    = natura_home_pins( 3 );
 $natura_pin_url = natura_home_setting( 'natura_pinterest_url' );
 $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsletter_ready() ) ? natura_home_setting( 'natura_newsletter_code' ) : '';
 ?>
@@ -374,7 +374,7 @@ $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsle
 					<?php foreach ( $natura_pins as $natura_item ) : ?>
 						<li>
 							<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
-								<?php echo wp_get_attachment_image( absint( natura_field( 'pin_image', $natura_item->ID ) ), 'medium', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 200px, 42vw', 'loading' => 'lazy' ) + natura_pin_attributes( $natura_item->ID ) ); ?>
+								<?php echo wp_get_attachment_image( absint( natura_field( 'pin_image', $natura_item->ID ) ), 'medium_large', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 290px, (min-width: 640px) 30vw, 64vw', 'loading' => 'lazy' ) + natura_pin_attributes( $natura_item->ID ) ); ?>
 								<span><?php echo esc_html( get_the_title( $natura_item ) ); ?></span>
 							</a>
 						</li>

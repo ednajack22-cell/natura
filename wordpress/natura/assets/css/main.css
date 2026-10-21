@@ -989,11 +989,14 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .home-pins-intro p:not(.label) { margin: 0 0 1rem; color: var(--ink-soft); font: 400 1.0625rem/1.55 var(--font-serif); }
 .home-pins-follow { min-height: 44px; border-radius: 999px; }
 /* Phones: two pins side by side, all visible; no row cut at the screen edge. */
-.pin-scroller { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem .75rem; margin: 0; padding: 0; list-style: none; }
+/* Three large pins: a sideways row on phones (the next one peeks in), three
+   columns from tablets up. */
+.pin-scroller { display: grid; grid-auto-flow: column; grid-auto-columns: 64%; gap: 1rem; margin: 0; padding: 0 0 .5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; list-style: none; }
+.pin-scroller li { scroll-snap-align: start; }
 .pin-scroller::-webkit-scrollbar { display: none; }
 .pin-scroller a { display: grid; gap: .5rem; }
 .pin-scroller img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; box-shadow: 0 6px 18px rgba(27, 59, 43, .12); }
-.pin-scroller span { color: var(--heading); font: 500 1rem/1.3 var(--font-serif); }
+.pin-scroller span { color: var(--heading); font: 500 1.125rem/1.3 var(--font-serif); }
 .pin-scroller a:hover span { text-decoration: underline; text-underline-offset: 3px; }
 
 /* 11. Who writes Natura and the newsletter */
@@ -1020,7 +1023,7 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
   .season-also { grid-column: 1 / -1; }
   .mini-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
   .home-picks .product-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .pin-scroller { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .pin-scroller { grid-auto-flow: row; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; }
   .author-card { padding: 2rem; }
   .author-card-photo, .author-card .avatar-large { width: 96px; height: 96px; }
   .newsletter-card { padding: 2rem; }
@@ -1057,9 +1060,8 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
   .home-picks .product-list { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
 
   .home-pins { margin-top: 3.5rem; padding-block: 3rem; }
-  .home-pins-inner { grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); align-items: center; gap: 3rem; }
-  .pin-scroller { display: flex; gap: 1.25rem; }
-  .pin-scroller li { flex: 1 1 0; max-width: 220px; }
+  .home-pins-inner { grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); align-items: center; gap: 2.5rem; }
+  .pin-scroller { gap: 1.5rem; }
 
   .home-closing { margin-top: 3.5rem; padding-block: 3rem; }
   .home-closing-inner.has-two { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 1.5rem; }
