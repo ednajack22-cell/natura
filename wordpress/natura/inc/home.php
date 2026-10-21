@@ -25,7 +25,9 @@ function natura_home_defaults(): array {
 		'natura_pinterest_verify' => '',
 		'natura_newsletter_code'  => '',
 		'natura_newsletter_text'  => __( 'One email a month: what to sow and plant now, and one problem to watch for. No spam, unsubscribe in one click.', 'natura' ),
-		'natura_home_season'      => '',
+		'natura_home_now_title'   => __( 'What to plant now', 'natura' ),
+		'natura_home_now_intro'   => __( 'Enter your average last spring frost date to see what to start indoors, sow, or plant outside this week. Add your first fall frost for fall crops. The timing of each plant comes from US Cooperative Extension advice, cited in its guide.', 'natura' ),
+		'natura_home_now_help'    => 'https://www.ncei.noaa.gov/access/us-climate-normals/',
 		'natura_author_name'      => '',
 		'natura_author_role'      => '',
 		'natura_author_bio'       => '',
@@ -107,7 +109,6 @@ add_action(
 			'natura_pinterest_verify' => array( __( 'Pinterest site verification code', 'natura' ), 'text', 'natura_sanitize_pinterest_code', __( 'Claim your website in Pinterest (Settings → Claimed accounts → Websites → "Add HTML tag") and paste only the code from content="…". Claiming shows your profile on every pin from the site and opens the site\'s Pinterest statistics.', 'natura' ) ),
 			'natura_newsletter_code'  => array( __( 'Newsletter form shortcode', 'natura' ), 'text', 'sanitize_text_field', __( 'From your email plugin (MailerLite, Mailchimp for WordPress…), e.g. [mc4wp_form id="12"]. Leave empty to hide the newsletter block.', 'natura' ) ),
 			'natura_newsletter_text'  => array( __( 'Newsletter text', 'natura' ), 'textarea', 'sanitize_textarea_field', '' ),
-			'natura_home_season'      => array( __( 'This month: extra items', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'The "This month" strip lists the plant guides to sow, plant out, or harvest this month by itself. Add other things to do now, one per line, with an optional link after a vertical bar: "Garlic | /plants/garlic/".', 'natura' ) ),
 			'natura_author_name'      => array( __( 'Who writes Natura: name', 'natura' ), 'text', 'sanitize_text_field', __( 'The real person behind the site. The block appears once a name and a short bio are set.', 'natura' ) ),
 			'natura_author_role'      => array( __( 'Who writes Natura: role', 'natura' ), 'text', 'sanitize_text_field', __( 'Example: Grows vegetables on a 43 sq ft (4 m²) balcony in Lyon since 2019', 'natura' ) ),
 			'natura_author_bio'       => array( __( 'Who writes Natura: short bio', 'natura' ), 'textarea', 'sanitize_textarea_field', __( 'Two or three sentences: what you grow, where, and how you test advice. Only facts you can stand behind.', 'natura' ) ),
@@ -188,85 +189,68 @@ function natura_plant_short_name( int $post_id ): string {
 }
 
 /**
- * "This month": the plant guides to sow, plant out, and harvest in the current
- * month (from each guide's planting calendar), then the extra items set in the
- * Customizer, one per line with an optional link after a vertical bar.
+ * "What to plant now": every plant guide with frost-date timing, for the
+ * home page block that matches them to the reader's own frost dates in the
+ * browser (the page stays the same for everyone, so it can be cached).
+ * Kept for a day; saving or deleting a plant guide clears it.
  *
- * @return array{month: string, short: string, groups: array<int, array{key: string, label: string, items: array<int, array{name: string, url: string, image: int, facts: string}>}>}
+ * @return array<int, array{name: string, url: string, image: string, facts: string, timing: array<string, int[]>}>
  */
-function natura_home_this_month(): array {
-	$month  = (int) wp_date( 'n' );
-	$groups = array();
-	$labels = array(
-		'sow'     => __( 'Sow', 'natura' ),
-		'plant'   => __( 'Plant out', 'natura' ),
-		'harvest' => __( 'Harvest', 'natura' ),
-	);
-
-	if ( post_type_exists( 'plant' ) ) {
-		foreach ( $labels as $activity => $label ) {
-			$ids = get_posts(
-				array(
-					'post_type'      => 'plant',
-					'posts_per_page' => 8,
-					'fields'         => 'ids',
-					'no_found_rows'  => true,
-					'orderby'        => 'title',
-					'order'          => 'ASC',
-					'meta_key'       => '_natura_' . $activity . '_month', // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- home page only, cached by the page cache.
-					'meta_value'     => $month, // phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value
-				)
-			);
-			if ( $ids ) {
-				$groups[] = array(
-					'key'   => $activity,
-					'label' => $label,
-					'items' => array_map(
-						static fn( int $id ): array => array(
-							'name'  => natura_plant_short_name( $id ),
-							'url'   => (string) get_permalink( $id ),
-							'image' => (int) get_post_thumbnail_id( $id ),
-							// What a reader checks before acting: light and pot size.
-							'facts' => implode( ' · ', array_filter( array( (string) natura_field( 'sun', $id ), (string) natura_field( 'pot_size', $id ) ) ) ),
-						),
-						$ids
-					),
-				);
+function natura_home_now_plants(): array {
+	$cached = get_transient( 'natura_home_now' );
+	if ( is_array( $cached ) ) {
+		return $cached;
+	}
+	$plants = array();
+	if ( post_type_exists( 'plant' ) && function_exists( 'natura_core_plant_timing' ) ) {
+		$ids = get_posts(
+			array(
+				'post_type'      => 'plant',
+				'posts_per_page' => 300,
+				'fields'         => 'ids',
+				'no_found_rows'  => true,
+				'orderby'        => 'title',
+				'order'          => 'ASC',
+			)
+		);
+		foreach ( $ids as $id ) {
+			$timing = array();
+			foreach ( array( 'start_indoors', 'sow_outdoors', 'plant_out', 'fall_sow' ) as $key ) {
+				$range = natura_core_plant_timing( $id, $key );
+				if ( null !== $range ) {
+					$timing[ $key ] = $range;
+				}
 			}
+			if ( ! $timing ) {
+				continue;
+			}
+			$plants[] = array(
+				'name'   => natura_plant_short_name( $id ),
+				'url'    => (string) get_permalink( $id ),
+				'image'  => (string) get_the_post_thumbnail_url( $id, 'thumbnail' ),
+				// What a reader checks before acting: light and pot size.
+				'facts'  => implode( ' · ', array_filter( array( (string) natura_field( 'sun', $id ), (string) natura_field( 'pot_size', $id ) ) ) ),
+				'timing' => $timing,
+			);
 		}
 	}
+	set_transient( 'natura_home_now', $plants, DAY_IN_SECONDS );
 
-	$extra = array();
-	foreach ( preg_split( '/\R/', natura_home_setting( 'natura_home_season' ) ) ?: array() as $line ) {
-		$parts = array_map( 'trim', explode( '|', $line, 2 ) );
-		if ( '' === $parts[0] ) {
-			continue;
-		}
-		$url = $parts[1] ?? '';
-		if ( str_starts_with( $url, '/' ) ) {
-			$url = home_url( $url );
-		}
-		$extra[] = array(
-			'name'  => $parts[0],
-			'url'   => $url ? esc_url_raw( $url, array( 'http', 'https' ) ) : '',
-			'image' => 0,
-			'facts' => '',
-		);
-	}
-	if ( $extra ) {
-		$groups[] = array(
-			'key'   => 'also',
-			'label' => __( 'Also now', 'natura' ),
-			'items' => array_slice( $extra, 0, 8 ),
-		);
-	}
-
-	return array(
-		'month'  => wp_date( 'F' ),
-		'short'  => wp_date( 'M' ),
-		'groups' => $groups,
-	);
+	return $plants;
 }
+
+add_action(
+	'save_post_plant',
+	static function (): void {
+		delete_transient( 'natura_home_now' );
+	}
+);
+add_action(
+	'deleted_post',
+	static function (): void {
+		delete_transient( 'natura_home_now' );
+	}
+);
 
 /**
  * The "Who writes Natura" block's content, or null until a name and a bio are

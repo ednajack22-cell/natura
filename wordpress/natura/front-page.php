@@ -73,7 +73,7 @@ if ( ! $natura_hero_photo && $natura_lead ) {
 	$natura_hero_photo = (int) get_post_thumbnail_id( $natura_lead );
 }
 
-$natura_month   = natura_home_this_month();
+$natura_now     = natura_section_enabled( 'home_month' ) ? natura_home_now_plants() : array();
 $natura_topics  = natura_home_topics( 8 );
 $natura_author  = natura_section_enabled( 'home_author' ) ? natura_home_author() : null;
 $natura_picks   = natura_section_enabled( 'home_picks' ) ? natura_home_picks( 3 ) : array();
@@ -184,71 +184,67 @@ $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsle
 		</section>
 	<?php endif; ?>
 
-	<?php // 4. This month: from the guides' planting calendars, plus Customizer extras. ?>
-	<?php if ( $natura_month['groups'] && natura_section_enabled( 'home_month' ) ) : ?>
-		<section class="home-season" aria-labelledby="home-season-title">
+	<?php // 4. What to plant now: the reader's frost dates against each plant guide's timing (assets/js/home-now.js). ?>
+	<?php if ( $natura_now ) : ?>
+		<section class="home-season home-now" aria-labelledby="home-now-title" data-natura-now>
 			<div class="site-container">
 				<div class="season-head">
-					<p class="season-month" aria-hidden="true"><?php echo esc_html( $natura_month['short'] ); ?></p>
+					<span class="season-month now-icon" aria-hidden="true"><?php natura_the_icon( 'frost' ); ?></span>
 					<div>
-						<p class="label"><?php esc_html_e( 'What to do now', 'natura' ); ?></p>
-						<h2 id="home-season-title">
-							<?php
-							/* translators: %s: month name, e.g. "October". */
-							printf( esc_html__( 'In UK pots this %s', 'natura' ), esc_html( $natura_month['month'] ) );
-							?>
-						</h2>
-						<p><?php echo esc_html( natura_calendar_climate_note() ); ?></p>
+						<p class="label"><?php esc_html_e( 'By your frost dates', 'natura' ); ?></p>
+						<h2 id="home-now-title"><?php echo esc_html( natura_home_setting( 'natura_home_now_title' ) ); ?></h2>
+						<p><?php echo esc_html( natura_home_setting( 'natura_home_now_intro' ) ); ?></p>
 					</div>
-					<?php if ( function_exists( 'natura_core_calendar_url' ) ) : ?>
-						<a class="text-link season-more" href="<?php echo esc_url( natura_core_calendar_url( (int) wp_date( 'n' ) ) ); ?>">
-							<?php
-							/* translators: %s: month name. */
-							echo esc_html( sprintf( __( 'Everything for %s', 'natura' ), $natura_month['month'] ) );
-							?>
-							<?php natura_the_icon( 'arrow' ); ?>
-						</a>
-					<?php endif; ?>
 				</div>
-				<ul class="season-grid">
-					<?php foreach ( $natura_month['groups'] as $natura_group ) : ?>
-						<?php if ( 'also' === $natura_group['key'] ) : ?>
-							<li class="season-also">
-								<h3><span class="season-badge season-badge-also"><?php echo esc_html( $natura_group['label'] ); ?></span></h3>
-								<ul class="season-chips">
-									<?php foreach ( $natura_group['items'] as $natura_item ) : ?>
-										<li>
-											<?php if ( $natura_item['url'] ) : ?>
-												<a href="<?php echo esc_url( $natura_item['url'] ); ?>"><?php echo esc_html( $natura_item['name'] ); ?></a>
-											<?php else : ?>
-												<span><?php echo esc_html( $natura_item['name'] ); ?></span>
-											<?php endif; ?>
-										</li>
-									<?php endforeach; ?>
-								</ul>
-							</li>
-						<?php else : ?>
-							<?php foreach ( $natura_group['items'] as $natura_item ) : ?>
-								<li>
-									<a class="season-card" href="<?php echo esc_url( $natura_item['url'] ); ?>">
-										<?php
-										if ( $natura_item['image'] ) {
-											echo wp_get_attachment_image( $natura_item['image'], 'thumbnail', false, array( 'alt' => '', 'sizes' => '72px', 'loading' => 'lazy' ) + natura_no_pin() );
-										}
-										?>
-										<span class="season-card-text">
-											<span class="season-badge season-badge-<?php echo esc_attr( $natura_group['key'] ); ?>"><?php echo esc_html( $natura_group['label'] ); ?></span>
-											<strong><?php echo esc_html( $natura_item['name'] ); ?></strong>
-											<?php if ( $natura_item['facts'] ) : ?>
-												<span class="season-card-facts"><?php echo esc_html( $natura_item['facts'] ); ?></span>
-											<?php endif; ?>
-										</span>
-									</a>
-								</li>
-							<?php endforeach; ?>
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</ul>
+				<form class="now-form" data-now-form>
+					<label class="pot-field">
+						<span><?php esc_html_e( 'Average last spring frost', 'natura' ); ?></span>
+						<input type="date" name="last" required>
+					</label>
+					<label class="pot-field">
+						<span><?php esc_html_e( 'Average first fall frost (optional)', 'natura' ); ?></span>
+						<input type="date" name="first">
+					</label>
+					<button type="submit" class="button button-primary"><?php esc_html_e( 'Show my plants', 'natura' ); ?></button>
+				</form>
+				<?php if ( natura_home_setting( 'natura_home_now_help' ) ) : ?>
+					<p class="now-help">
+						<a href="<?php echo esc_url( natura_home_setting( 'natura_home_now_help' ) ); ?>" target="_blank" rel="noopener">
+							<?php esc_html_e( 'Don\'t know your frost dates? Look them up for your area', 'natura' ); ?>
+							<span class="screen-reader-text"><?php esc_html_e( '(opens in a new tab)', 'natura' ); ?></span>
+						</a>
+					</p>
+				<?php endif; ?>
+				<p class="now-status" data-now-status aria-live="polite"></p>
+				<ul class="season-grid now-grid" data-now-list hidden></ul>
+				<button type="button" class="button button-light now-more" data-now-more hidden></button>
+				<noscript>
+					<p class="now-status"><?php esc_html_e( 'Each plant guide has a "When to plant" section counted from your frost dates.', 'natura' ); ?> <a href="<?php echo esc_url( (string) get_post_type_archive_link( 'plant' ) ); ?>"><?php esc_html_e( 'See all plants', 'natura' ); ?></a></p>
+				</noscript>
+				<script type="application/json" data-now-plants><?php echo wp_json_encode( $natura_now, JSON_HEX_TAG | JSON_HEX_AMP | JSON_UNESCAPED_SLASHES ); ?></script>
+				<script type="application/json" data-now-text>
+				<?php
+				echo wp_json_encode(
+					array(
+						'start_indoors' => __( 'Start indoors', 'natura' ),
+						'sow_outdoors'  => __( 'Sow outside', 'natura' ),
+						'plant_out'     => __( 'Plant outside', 'natura' ),
+						'fall_sow'      => __( 'Fall crop', 'natura' ),
+						/* translators: 1: number of plants, 2: date such as "April 15". */
+						'found'         => __( '%1$s plants to sow or plant this week, for a last spring frost around %2$s.', 'natura' ),
+						/* translators: %s: date such as "April 15". */
+						'foundOne'      => __( '1 plant to sow or plant this week, for a last spring frost around %s.', 'natura' ),
+						/* translators: 1: activity such as "start indoors", 2: plant name, 3: number of weeks. */
+						'next'          => __( 'Nothing to sow or plant this week. Next: %1$s %2$s in about %3$s weeks.', 'natura' ),
+						'nextOne'       => __( 'Nothing to sow or plant this week. Next: %1$s %2$s in about 1 week.', 'natura' ),
+						'none'          => __( 'Nothing to sow or plant for these dates. See each plant guide for its timing.', 'natura' ),
+						/* translators: %s: number of plants. */
+						'more'          => __( 'Show %s more', 'natura' ),
+					),
+					JSON_HEX_TAG | JSON_HEX_AMP
+				);
+				?>
+				</script>
 			</div>
 		</section>
 	<?php endif; ?>

@@ -100,11 +100,19 @@ function natura_option_tabs(): array {
 				),
 				'home_topics'        => $switch( __( 'Topic bar', 'natura' ), __( 'Buttons under the opening band: plant types, problems, care topics.', 'natura' ) ),
 				'home_new'           => $switch( __( 'New on Natura', 'natura' ), __( 'The newest guide in large, and the next ones as a list.', 'natura' ) ),
-				'home_month'         => $switch( __( 'In your pots this month', 'natura' ), __( 'Plants to sow, plant out, or harvest this month, from each guide\'s planting calendar.', 'natura' ) ),
-				'natura_home_season' => array(
+				'home_month'         => $switch( __( 'What to plant now', 'natura' ), __( 'Readers type their frost dates and see the plants to start indoors, sow, or plant outside this week, from the "When to plant" timing of each plant guide.', 'natura' ) ),
+				'natura_home_now_title' => array(
+					'type'  => 'text',
+					'label' => __( 'What to plant now: title', 'natura' ),
+				),
+				'natura_home_now_intro' => array(
 					'type'  => 'textarea',
-					'label' => __( 'This month: other jobs', 'natura' ),
-					'help'  => __( 'One per line, with an optional link after a vertical bar: "Garlic | /plants/garlic/".', 'natura' ),
+					'label' => __( 'What to plant now: introduction', 'natura' ),
+				),
+				'natura_home_now_help'  => array(
+					'type'  => 'url',
+					'label' => __( 'What to plant now: where to find frost dates', 'natura' ),
+					'help'  => __( 'The page readers open to look up their average frost dates. By default, NOAA\'s U.S. Climate Normals.', 'natura' ),
 				),
 				'home_more_guides'   => $switch( __( 'More growing guides', 'natura' ) ),
 				'home_problems'      => $switch( __( 'Something wrong with a plant?', 'natura' ), __( 'The dark band with the plant problem guides.', 'natura' ) ),

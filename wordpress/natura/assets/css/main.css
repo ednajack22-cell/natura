@@ -940,6 +940,7 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .season-chips a, .season-chips span { display: inline-flex; align-items: center; min-height: 40px; padding: 0 .9rem; border: 1px solid var(--line); border-radius: 999px; color: var(--heading); background: var(--paper); font: 500 .9375rem var(--font-sans); }
 .season-chips a:hover { border-color: var(--forest); }
 
+
 /* 5. More guides: medium cards */
 .mini-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
 .mini-card-link { display: flex; flex-direction: column; height: 100%; overflow: hidden; border: 1px solid var(--line-soft); border-radius: 6px; background: var(--card); transition: box-shadow .15s ease; }
@@ -1542,3 +1543,36 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .project-step-ad { list-style: none; }
 .project-plants { margin: 0 0 2rem; }
 .project-qty { display: block; color: var(--muted); font-size: .875rem; }
+
+/* What to plant now: the frost-date form, then the matching plants. */
+.now-grid[hidden], .now-grid > li[hidden], .now-more[hidden] { display: none; }
+.now-icon { color: var(--forest); }
+.now-icon svg { width: 34px; height: 34px; }
+.now-form { display: grid; grid-template-columns: minmax(0, 1fr); gap: .75rem 1rem; align-items: end; margin: 0 0 .75rem; }
+.now-form input { width: 100%; min-height: 48px; }
+.now-help { margin: 0 0 1rem; font-size: .9375rem; }
+.now-help a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.now-status { margin: 0 0 1rem; color: var(--heading); font: 500 1.125rem/1.45 var(--font-serif); }
+.now-status:empty { display: none; }
+.now-more { margin-top: 1rem; }
+.season-badge-start-indoors { color: #6a4a10; background: #f3e3bd; }
+.season-badge-sow-outdoors { color: #24502b; background: #cfe3c8; }
+.season-badge-plant-out { color: white; background: var(--forest); }
+.season-badge-fall-sow { color: var(--clay); background: var(--clay-tint); }
+@media (min-width: 640px) {
+  .now-form { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; }
+}
+/* Never one card alone on a row: six tracks, as in the lists. */
+@media (min-width: 640px) {
+  .season-grid.now-grid { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .now-grid > li { grid-column: span 3; }
+}
+@media (min-width: 640px) and (max-width: 1023.98px) {
+  .now-grid > li:not([hidden]):nth-child(odd of li:not([hidden])):nth-last-child(1 of li:not([hidden])) { grid-column: 1 / -1; }
+}
+@media (min-width: 1024px) {
+  .now-grid > li { grid-column: span 2; }
+  .now-grid:has(> li:not([hidden]):nth-last-child(1 of li:not([hidden])):nth-child(3n+4 of li:not([hidden]))) > li:not([hidden]):nth-last-child(-n+4 of li:not([hidden])),
+  .now-grid:has(> li:not([hidden]):nth-last-child(1 of li:not([hidden])):nth-child(3n+2 of li:not([hidden]))) > li:not([hidden]):nth-last-child(-n+2 of li:not([hidden])) { grid-column: span 3; }
+  .now-grid > li:not([hidden]):nth-child(1 of li:not([hidden])):nth-last-child(1 of li:not([hidden])) { grid-column: 1 / -1; }
+}

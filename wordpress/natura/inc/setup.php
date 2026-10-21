@@ -60,6 +60,20 @@ add_action(
 				'strategy'  => 'defer',
 			)
 		);
+
+		// "What to plant now" on the home page.
+		if ( is_front_page() && natura_section_enabled( 'home_month' ) ) {
+			wp_enqueue_script(
+				'natura-home-now',
+				$theme_uri . '/assets/js/home-now.js',
+				array(),
+				NATURA_VERSION,
+				array(
+					'in_footer' => true,
+					'strategy'  => 'defer',
+				)
+			);
+		}
 	}
 );
 

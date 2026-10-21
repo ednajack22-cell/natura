@@ -139,10 +139,12 @@ Les 12 pages d'accueil ont été relues, sur ordinateur et sur téléphone.
 3. **New on Natura** : la fiche plante la plus récente en grand (bouton
    Pinterest « Save » sur la photo), à côté la liste à vignettes des 4 fiches
    et articles suivants.
-4. **In your pots this [mois]** (bande vert sauge) : une case de calendrier
-   avec le mois, le titre, puis une carte par plante (photo, action en
-   couleur, ensoleillement et taille de pot) et une carte « Also now » avec
-   les autres travaux en pastilles.
+4. **What to plant now** (bande vert sauge), version américaine du
+   21 octobre 2026 : le lecteur tape ses dates de gel ; une carte par plante
+   à semer ou planter cette semaine (photo, action en couleur, soleil et
+   taille de pot), d'après les semaines « When to plant » de chaque fiche.
+   6 cartes au plus, lignes toujours pleines. Remplace l'ancien bloc par
+   mois, qui suivait le calendrier britannique.
 5. « More growing guides » : cartes moyennes, seulement pour les fiches que la
    liste n'a pas montrées (au moins 2).
 6. **La seule annonce de la page.**
@@ -165,7 +167,7 @@ rempli), sauf si une extension SEO les fournit déjà.
 Ajouts prévus quand les pages correspondantes existeront :
 
 - tuiles **Tools** (calendrier mensuel, Plant finder) ; le lien du bloc
-  « This month » vers la page du mois est fait ;
+  « What to plant now » vers les fiches est fait ;
 - rangée de **guides d'achat** (section Gear), à la place ou à côté de
   « Our picks ».
 

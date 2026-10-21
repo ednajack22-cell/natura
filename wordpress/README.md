@@ -161,7 +161,7 @@ onglet dans la barre de gauche, boutons **Save Changes**, **Reset Section** et
 | Dashboard | Ce qui reste à régler avant le lancement, et le nombre de fiches |
 | General | Logo, recherche de l'en-tête |
 | Colours | Couleur principale et couleur d'accent ; une couleur trop claire pour du texte blanc est refusée |
-| Home page | Photo d'ouverture, titre, introduction, sections de l'accueil, travaux du mois |
+| Home page | Photo d'ouverture, titre, introduction, sections de l'accueil, bloc « What to plant now » |
 | Who writes Natura | Nom, rôle, bio, photo, lien ; encadré auteur des fiches |
 | Guides | « At a glance », sommaire, questions-réponses, « Read next », fiches liées, **sources** (affichées par défaut ; continuez à les remplir même masquées) |
 | Pages & lists | Choix des pages À propos, politique éditoriale, contact, **confidentialité**, mentions légales, **affiliation** ; textes des listes, de la page 404 et de la recherche vide ; blocs de la page Plant Care |
@@ -203,16 +203,21 @@ Apparence → Personnaliser → **Natura: home page** :
   balcony since 2019 »), une courte bio et une photo. Le bloc s'affiche dès
   que le nom et la bio sont remplis. N'écrivez que des faits vrais : c'est ce
   que Google et les lecteurs vérifient ;
-- **This month: extra items** : ce qu'il y a à faire ce mois-ci en plus des
-  fiches, une ligne par élément, avec un lien facultatif après une barre
-  verticale (`Garlic | /plants/garlic/`) ;
+- **What to plant now** : le titre, l'introduction et le lien où le lecteur
+  trouve ses dates de gel (par défaut, les normales climatiques de la NOAA) ;
 - l'adresse de votre profil Pinterest (bouton « Follow ») et le code de votre
   formulaire de newsletter.
 
-Le bloc **This month** se remplit seul à partir du **Planting calendar** de
-chaque fiche plante (cases à cocher Sow / Plant out / Harvest par mois, sous le
-texte de la fiche) : pensez à le remplir pour chaque nouvelle fiche, ainsi que
-le **Short name** (« Cherry tomato ») dans Quick facts.
+Le bloc **What to plant now** est fait pour les États-Unis. Le lecteur tape
+la date moyenne de son dernier gel de printemps (et, s'il veut, celle du
+premier gel d'automne). Le bloc affiche alors les plantes à semer à
+l'intérieur, à semer dehors ou à planter dehors cette semaine, d'après la
+partie **When to plant** de chaque fiche plante (semaines avant ou après le
+gel, tirées des services d'extension américains). 6 cartes au plus, puis un
+bouton « Show more » ; jamais une carte seule sur une ligne. Le navigateur
+du lecteur garde ses dates pour sa prochaine visite. Pensez à remplir
+**When to plant** et le **Short name** (« Cherry tomato ») de chaque nouvelle
+fiche.
 
 Le reste de la page d'accueil se remplit seul, à partir de vos fiches : la
 fiche plante la plus récente en grand avec la liste des suivantes, la barre des
