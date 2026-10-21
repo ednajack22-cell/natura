@@ -1555,6 +1555,7 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .now-status { margin: 0 0 1rem; color: var(--heading); font: 500 1.125rem/1.45 var(--font-serif); }
 .now-status:empty { display: none; }
 .now-more { margin-top: 1rem; }
+.now-badges { display: flex; flex-wrap: wrap; gap: .3rem; }
 .season-badge-start-indoors { color: #6a4a10; background: #f3e3bd; }
 .season-badge-sow-outdoors { color: #24502b; background: #cfe3c8; }
 .season-badge-plant-out { color: white; background: var(--forest); }

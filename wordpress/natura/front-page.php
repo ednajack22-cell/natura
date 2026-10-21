@@ -234,9 +234,20 @@ $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsle
 						'found'         => __( '%1$s plants to sow or plant this week, for a last spring frost around %2$s.', 'natura' ),
 						/* translators: %s: date such as "April 15". */
 						'foundOne'      => __( '1 plant to sow or plant this week, for a last spring frost around %s.', 'natura' ),
-						/* translators: 1: activity such as "start indoors", 2: plant name, 3: number of weeks. */
-						'next'          => __( 'Nothing to sow or plant this week. Next: %1$s %2$s in about %3$s weeks.', 'natura' ),
-						'nextOne'       => __( 'Nothing to sow or plant this week. Next: %1$s %2$s in about 1 week.', 'natura' ),
+						/* translators: 1: what to do, such as "start leeks indoors", 2: number of weeks. */
+						'next'          => __( 'Nothing to sow or plant this week. Next: %1$s in about %2$s weeks.', 'natura' ),
+						/* translators: %s: what to do, such as "start leeks indoors". */
+						'nextOne'       => __( 'Nothing to sow or plant this week. Next: %s in about 1 week.', 'natura' ),
+						'verbs'         => array(
+							/* translators: %s: plant name. */
+							'start_indoors' => __( 'start %s indoors', 'natura' ),
+							/* translators: %s: plant name. */
+							'sow_outdoors'  => __( 'sow %s outside', 'natura' ),
+							/* translators: %s: plant name. */
+							'plant_out'     => __( 'plant %s outside', 'natura' ),
+							/* translators: %s: plant name. */
+							'fall_sow'      => __( 'sow or plant %s for a fall crop', 'natura' ),
+						),
 						'none'          => __( 'Nothing to sow or plant for these dates. See each plant guide for its timing.', 'natura' ),
 						/* translators: %s: number of plants. */
 						'more'          => __( 'Show %s more', 'natura' ),

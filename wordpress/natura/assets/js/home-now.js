@@ -25,6 +25,14 @@
 	}
 
 	var SHOWN = 6;
+	var lastSpringWeek = 0;
+	plants.forEach( function ( plant ) {
+		[ 'start_indoors', 'sow_outdoors', 'plant_out' ].forEach( function ( activity ) {
+			if ( plant.timing[ activity ] ) {
+				lastSpringWeek = Math.max( lastSpringWeek, plant.timing[ activity ][ 1 ] );
+			}
+		} );
+	} );
 	var ORDER = [ 'plant_out', 'sow_outdoors', 'start_indoors', 'fall_sow' ];
 	var DAY = 86400000;
 	var STORE = 'natura-frost-dates';
@@ -48,7 +56,7 @@
 		return Math.round( ( today - date ) / DAY / 7 );
 	}
 
-	function card( plant, activity ) {
+	function card( plant, activities ) {
 		var li = document.createElement( 'li' );
 		var a = document.createElement( 'a' );
 		a.className = 'season-card';
@@ -65,12 +73,17 @@
 		}
 		var body = document.createElement( 'span' );
 		body.className = 'season-card-text';
-		var badge = document.createElement( 'span' );
-		badge.className = 'season-badge season-badge-' + activity.replace( '_', '-' );
-		badge.textContent = text[ activity ];
+		var badges = document.createElement( 'span' );
+		badges.className = 'now-badges';
+		activities.forEach( function ( activity ) {
+			var badge = document.createElement( 'span' );
+			badge.className = 'season-badge season-badge-' + activity.replace( '_', '-' );
+			badge.textContent = text[ activity ];
+			badges.appendChild( badge );
+		} );
 		var name = document.createElement( 'strong' );
 		name.textContent = plant.name;
-		body.appendChild( badge );
+		body.appendChild( badges );
 		body.appendChild( name );
 		if ( plant.facts ) {
 			var facts = document.createElement( 'span' );
@@ -91,8 +104,8 @@
 		if ( ! spring ) {
 			return;
 		}
-		// Late in the year, count towards next spring.
-		if ( weeksFrom( spring, today ) > 26 ) {
+		// Once every spring window has passed, count towards next spring.
+		if ( weeksFrom( spring, today ) > lastSpringWeek ) {
 			spring = new Date( today.getFullYear() + 1, spring.getMonth(), spring.getDate() );
 		}
 		var now = { spring: weeksFrom( spring, today ), fall: fall ? weeksFrom( fall, today ) : null };
@@ -100,6 +113,7 @@
 		var next = null;
 
 		plants.forEach( function ( plant ) {
+			var due = [];
 			ORDER.forEach( function ( activity ) {
 				var range = plant.timing[ activity ];
 				var week = 'fall_sow' === activity ? now.fall : now.spring;
@@ -107,19 +121,23 @@
 					return;
 				}
 				if ( week >= range[ 0 ] && week <= range[ 1 ] ) {
-					found.push( { plant: plant, activity: activity } );
+					due.push( activity );
 				} else if ( range[ 0 ] > week && ( ! next || range[ 0 ] - week < next.weeks ) ) {
 					next = { plant: plant, activity: activity, weeks: range[ 0 ] - week };
 				}
 			} );
+			if ( due.length ) {
+				found.push( { plant: plant, activities: due } );
+			}
 		} );
+		// Most urgent first: what goes outside, then what starts indoors.
 		found.sort( function ( a, b ) {
-			return ORDER.indexOf( a.activity ) - ORDER.indexOf( b.activity ) || a.plant.name.localeCompare( b.plant.name );
+			return ORDER.indexOf( a.activities[ 0 ] ) - ORDER.indexOf( b.activities[ 0 ] ) || a.plant.name.localeCompare( b.plant.name );
 		} );
 
 		list.textContent = '';
 		found.forEach( function ( item, i ) {
-			var li = card( item.plant, item.activity );
+			var li = card( item.plant, item.activities );
 			li.hidden = i >= SHOWN;
 			list.appendChild( li );
 		} );
@@ -129,7 +147,7 @@
 		if ( found.length ) {
 			status.textContent = 1 === found.length ? format( text.foundOne, [ date ] ) : format( text.found, [ found.length, date ] );
 		} else if ( next ) {
-			status.textContent = format( 1 === next.weeks ? text.nextOne : text.next, [ text[ next.activity ].toLowerCase(), next.plant.name, next.weeks ] );
+			status.textContent = format( 1 === next.weeks ? text.nextOne : text.next, [ format( text.verbs[ next.activity ], [ next.plant.name.toLowerCase() ] ), next.weeks ] );
 		} else {
 			status.textContent = text.none;
 		}
