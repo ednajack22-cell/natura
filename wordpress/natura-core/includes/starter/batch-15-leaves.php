@@ -111,11 +111,11 @@ return array(
 					$p( 'On a small balcony, a pot of each works well: wild arugula for a steady supply, and salad arugula for quick, tender leaves.' ) .
 
 					$h2( 'Container and position' ) .
-					$p( 'Almost any container suits arugula: a patio pot, a window box, a hanging basket or a grow bag. Go for something at least 1 ft (30 cm) wide, because a bigger volume of potting mix stays moist for longer. Peat-free all-purpose potting mix is the right filling; <a href="/plant-care/potting-mix-for-containers/">our guide to container potting mix</a> explains what a pot needs from it.' ) .
+					$p( 'Almost any container suits arugula: a patio pot, a window box, a hanging basket or a grow bag. Go for something at least 1 ft (30 cm) wide, because a bigger volume of potting mix stays moist for longer. Peat-free all-purpose potting mix is the right filling; <a href="/potting-mix-for-containers/">our guide to container potting mix</a> explains what a pot needs from it.' ) .
 					$p( 'Spring and late-summer sowings do best in sun. For sowings made in early and midsummer, pick a cooler spot in light shade: salad arugula lasts longer there before it flowers.' ) .
 
 					$h2( 'Sowing arugula' ) .
-					$p( 'Sow from late winter to early fall. In late winter and early spring, start seeds indoors on a bright windowsill, in modules or little pots filled with damp peat-free seed-starting mix; <a href="/plant-care/how-to-start-seeds-indoors/">starting seeds indoors</a> covers the method. From mid-spring to the start of fall you can sow outside.' ) .
+					$p( 'Sow from late winter to early fall. In late winter and early spring, start seeds indoors on a bright windowsill, in modules or little pots filled with damp peat-free seed-starting mix; <a href="/how-to-start-seeds-indoors/">starting seeds indoors</a> covers the method. From mid-spring to the start of fall you can sow outside.' ) .
 					$list(
 						array(
 							'Moisten the potting mix in the final container.',
@@ -124,10 +124,10 @@ return array(
 							'Seedlings appear in just a few days. Thin them to about 6 in (15 cm) apart and eat the thinnings: crowded arugula bolts sooner.',
 						)
 					) .
-					$p( 'Indoor-raised plants can go outside when they are about 4 in (10 cm) tall, after <a href="/plant-care/how-to-harden-off-seedlings/">hardening off</a>. Salad arugula is short-lived, so sow a small batch every few weeks; <a href="/plant-care/succession-planting-small-spaces/">succession planting</a> explains how to plan it.' ) .
+					$p( 'Indoor-raised plants can go outside when they are about 4 in (10 cm) tall, after <a href="/how-to-harden-off-seedlings/">hardening off</a>. Salad arugula is short-lived, so sow a small batch every few weeks; <a href="/succession-planting-small-spaces/">succession planting</a> explains how to plan it.' ) .
 
 					$h2( 'Keep it from bolting' ) .
-					$p( 'Arugula needs very little care beyond water and watching for slugs and snails. Potting mix in a container dries out quickly in warm weather, and dry plants run to seed early, so check the pot often; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has the routine.' ) .
+					$p( 'Arugula needs very little care beyond water and watching for slugs and snails. Potting mix in a container dries out quickly in warm weather, and dry plants run to seed early, so check the pot often; <a href="/how-often-to-water-container-plants/">how often to water container plants</a> has the routine.' ) .
 					$p( 'During hot spells, carry the pot into the shade to delay flowering. Pinching out flower stems on salad arugula helps for a short while only. Wild arugula keeps making leaves after it flowers; if it gets big and sprawling, trim it back and fresh growth follows.' ) .
 
 					$h2( 'Picking arugula' ) .
@@ -217,7 +217,7 @@ return array(
 					$p( 'Savoy types have big, crinkled leaves; smooth-leaved types are flatter, more upright and usually tougher, and they cope with warm weather a little better. For leaves through winter, check the packet and choose a hardy variety.' ) .
 
 					$h2( 'Pot and position' ) .
-					$p( 'A grow bag, or a pot no less than 1 ft (30 cm) across and as deep, holds enough potting mix not to dry out too fast. Peat-free all-purpose potting mix suits it; <a href="/plant-care/potting-mix-for-containers/">our potting mix guide</a> covers what makes a good mix.' ) .
+					$p( 'A grow bag, or a pot no less than 1 ft (30 cm) across and as deep, holds enough potting mix not to dry out too fast. Peat-free all-purpose potting mix suits it; <a href="/potting-mix-for-containers/">our potting mix guide</a> covers what makes a good mix.' ) .
 					$p( 'Spinach grows in sun or light shade. Spring and winter crops need the sunniest spot you have; in summer, a place out of the hot midday sun holds off bolting.' ) .
 
 					$h2( 'When and how to sow' ) .
@@ -227,13 +227,13 @@ return array(
 							'<strong>Late summer to early fall</strong> for leaves in fall and early spring, using a hardy variety. Wait if late summer is still very hot, but sow early enough for plants to establish before winter.',
 						)
 					) .
-					$p( 'Scatter the seed thinly 1 in (2.5 cm) deep across the moist potting mix and water it in. Spinach is best sown where it is to grow. Repeat every few weeks in each season for a steady supply; <a href="/plant-care/succession-planting-small-spaces/">succession planting</a> shows how to time it.' ) .
+					$p( 'Scatter the seed thinly 1 in (2.5 cm) deep across the moist potting mix and water it in. Spinach is best sown where it is to grow. Repeat every few weeks in each season for a steady supply; <a href="/succession-planting-small-spaces/">succession planting</a> shows how to time it.' ) .
 
 					$h2( 'Thinning and spacing' ) .
 					$p( 'When the seedlings are big enough to handle, thin them to 3 in (7.5 cm) apart, keeping the strongest. A few weeks later, pull every second plant for salad, leaving the rest about 6 in (15 cm) apart. Good spacing lets air move around the leaves, which helps prevent downy mildew. If you only want baby leaves, you can skip thinning.' ) .
 
 					$h2( 'Watering and winter cover' ) .
-					$p( 'Spinach is thirsty, and plants in containers are especially at risk: a lack of water halts growth and brings on flowering. Check the pot often and water early in the day. Watering in the evening leaves the potting mix damp overnight, which attracts slugs and snails and favors downy mildew. <a href="/plant-care/how-often-to-water-container-plants/">Our watering guide</a> covers the routine.' ) .
+					$p( 'Spinach is thirsty, and plants in containers are especially at risk: a lack of water halts growth and brings on flowering. Check the pot often and water early in the day. Watering in the evening leaves the potting mix damp overnight, which attracts slugs and snails and favors downy mildew. <a href="/how-often-to-water-container-plants/">Our watering guide</a> covers the routine.' ) .
 					$p( 'From mid-fall, cover overwintering plants with a cloche or biodegradable row cover unless you live somewhere mild, or move the pot into a greenhouse or cold frame before hard weather. Give early spring sowings the same protection.' ) .
 
 					$h2( 'Harvest' ) .
@@ -338,8 +338,8 @@ return array(
 					$p( 'Sow small batches a few weeks apart, so one pot is coming on while you pick another.' ) .
 
 					$h2( 'Sowing in a pot' ) .
-					$p( 'Choose a container at least 1 ft (30 cm) wide, as smaller ones dry out too fast, and use peat-free all-purpose potting mix to fill it (<a href="/plant-care/potting-mix-for-containers/">what pots need from potting mix</a> has more on choosing it). Scatter the seed thinly or sow in short rows about ½ in (1 cm) deep, then water. Mizuna and mibuna come up in about a week.' ) .
-					$p( 'For pickings of small leaves, thin the plants to 4–6 in (10–15 cm) apart; for bigger leaves, give them about 8 in (20 cm). You can also start seeds indoors in modules and plant them into the pot after a few weeks; <a href="/plant-care/how-to-start-seeds-indoors/">starting seeds indoors</a> explains how.' ) .
+					$p( 'Choose a container at least 1 ft (30 cm) wide, as smaller ones dry out too fast, and use peat-free all-purpose potting mix to fill it (<a href="/potting-mix-for-containers/">what pots need from potting mix</a> has more on choosing it). Scatter the seed thinly or sow in short rows about ½ in (1 cm) deep, then water. Mizuna and mibuna come up in about a week.' ) .
+					$p( 'For pickings of small leaves, thin the plants to 4–6 in (10–15 cm) apart; for bigger leaves, give them about 8 in (20 cm). You can also start seeds indoors in modules and plant them into the pot after a few weeks; <a href="/how-to-start-seeds-indoors/">starting seeds indoors</a> explains how.' ) .
 
 					$h2( 'Shelter through winter' ) .
 					$p( 'These plants are hardy, but cold rain and wind soon ruin tender leaves. To keep pickings coming, give the pot some cover before winter sets in:' ) .
@@ -351,7 +351,7 @@ return array(
 							'a sunny windowsill indoors, which also works for fall-sown salads.',
 						)
 					) .
-					$p( 'Growth is slow in the depths of winter, so the pot needs much less water than in summer; check it rather than watering by habit. For general cold-weather care of containers, see <a href="/plant-care/protect-pots-in-winter/">protecting pots in winter</a>.' ) .
+					$p( 'Growth is slow in the depths of winter, so the pot needs much less water than in summer; check it rather than watering by habit. For general cold-weather care of containers, see <a href="/protect-pots-in-winter/">protecting pots in winter</a>.' ) .
 
 					$h2( 'Picking in the cold months' ) .
 					$p( 'Start taking baby leaves about a month after sowing, once the plants are 3–4 in (8–10 cm) tall; University of Minnesota Extension gives mustard greens 30 to 40 days to maturity. Take a few outer leaves from each plant; mizuna can give up to five pickings this way before it flowers. You can also cut whole rosettes after six to eight weeks, about 2 in (5 cm) above the potting mix, and they should sprout again.' ) .
@@ -443,7 +443,7 @@ return array(
 					$p( 'If space is tight, grow baby leeks: they are ready in a couple of months and can be planted closer together. For full-sized stems, choose a winter variety and a big pot.' ) .
 
 					$h2( 'The pot and the position' ) .
-					$p( 'Choose a large, deep container with drainage holes; one about 16 in (40 cm) wide holds four or five mature leeks. A peat-free all-purpose potting mix suits leeks; <a href="/plant-care/potting-mix-for-containers/">our container potting mix guide</a> covers what to look for. Start with fresh potting mix rather than a pot that has just grown onions, garlic or chives: the RHS advises against growing leeks where members of the onion family grew in recent years.' ) .
+					$p( 'Choose a large, deep container with drainage holes; one about 16 in (40 cm) wide holds four or five mature leeks. A peat-free all-purpose potting mix suits leeks; <a href="/potting-mix-for-containers/">our container potting mix guide</a> covers what to look for. Start with fresh potting mix rather than a pot that has just grown onions, garlic or chives: the RHS advises against growing leeks where members of the onion family grew in recent years.' ) .
 					$p( 'Stand the pot in full sun if you can, though leeks tolerate partial shade.' ) .
 
 					$h2( 'Sowing' ) .
@@ -451,7 +451,7 @@ return array(
 					$p( 'Outdoors, the main sowings go in during early and mid-spring; later varieties can follow in late spring and early summer for winter and spring picking. Cold spells can make early sowings bolt, so cover them with row cover if temperatures drop.' ) .
 
 					$h2( 'Planting deep' ) .
-					$p( 'Leeks are ready to move when they are about 8 in (20 cm) tall and pencil-thick. University of New Hampshire Extension says leek transplants can go outside about 4 weeks before your last spring frost, and University of Minnesota Extension waits until daytime temperatures reach at least 45 °F (7 °C). <a href="/plant-care/how-to-harden-off-seedlings/">Harden off</a> indoor-raised plants first. Then:' ) .
+					$p( 'Leeks are ready to move when they are about 8 in (20 cm) tall and pencil-thick. University of New Hampshire Extension says leek transplants can go outside about 4 weeks before your last spring frost, and University of Minnesota Extension waits until daytime temperatures reach at least 45 °F (7 °C). <a href="/how-to-harden-off-seedlings/">Harden off</a> indoor-raised plants first. Then:' ) .
 					$list(
 						array(
 							'Make holes in the potting mix about 6 in (15 cm) deep and 2 in (5 cm) across, with a large dibble or trowel handle.',
@@ -462,7 +462,7 @@ return array(
 					) .
 
 					$h2( 'Care through summer' ) .
-					$p( 'In the ground, leeks only need water in long dry spells, but in a container the potting mix dries out quickly, so water regularly all season; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. Aim at the potting mix rather than the leaves: wet foliage encourages leek rust, a fungus that causes orange spots.' ) .
+					$p( 'In the ground, leeks only need water in long dry spells, but in a container the potting mix dries out quickly, so water regularly all season; see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>. Aim at the potting mix rather than the leaves: wet foliage encourages leek rust, a fungus that causes orange spots.' ) .
 					$p( 'Several insects attack leeks, including allium leaf miner and leek moth, whose caterpillars leave white patches on the leaves and then tunnel into the stems; <a href="/problems/leek-moth/">leek moth and allium leaf miner</a> shows how to tell them apart. Covering the pot with insect-proof mesh keeps them out. If a leek starts to flower, remove the stalk straight away.' ) .
 
 					$h2( 'Harvest and winter' ) .

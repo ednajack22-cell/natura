@@ -112,7 +112,7 @@ return array(
 					$p( 'For cooking, choose a bushy type: the upright sprigs are much easier to cut. Creeping thymes are lovely at the edge of a mixed pot, and both groups flower in summer. Most varieties are sold only as plants, so a specialist herb nursery has the widest range.' ) .
 
 					$h2( 'A small pot, gritty potting mix, full sun' ) .
-					$p( 'Thyme is one of the few herbs happy in a small container. One plant needs a pot at least 6 in (15 cm) wide and 4 in (10 cm) deep, and the base should be well drilled with holes. A peat-free soil-based potting mix (in the UK, a peat-free John Innes No. 2) suits it; stir in horticultural grit, up to a quarter of the volume. Why grit matters, and how to refresh an old mix, is covered in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>.' ) .
+					$p( 'Thyme is one of the few herbs happy in a small container. One plant needs a pot at least 6 in (15 cm) wide and 4 in (10 cm) deep, and the base should be well drilled with holes. A peat-free soil-based potting mix (in the UK, a peat-free John Innes No. 2) suits it; stir in horticultural grit, up to a quarter of the volume. Why grit matters, and how to refresh an old mix, is covered in <a href="/potting-mix-for-containers/">potting mix for containers</a>.' ) .
 					$p( 'Then give it the sunniest, warmest spot you have: a south- or west-facing ledge, the top step of a patio, or the front of a balcony. Finish with a thin layer of grit or fine gravel on the surface; it lifts the low stems off damp potting mix, which could otherwise make them rot. Set new plants outside once the danger of frost has passed, from mid-spring to early summer, and harden off any raised indoors first.' ) .
 
 					$h2( 'Start thyme from seed' ) .
@@ -128,14 +128,14 @@ return array(
 					) .
 
 					$h2( 'Watering: less than you think' ) .
-					$p( 'Once settled, thyme copes with drought and rarely needs a drink, except in a pot during hot, dry weather. Soggy potting mix is the real danger, above all in winter, when wet roots rot. Let the surface dry between waterings; the general routine for pots is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. Thyme also dislikes being smothered by bigger neighbors or buried under fallen leaves, so keep it at the front of a group.' ) .
+					$p( 'Once settled, thyme copes with drought and rarely needs a drink, except in a pot during hot, dry weather. Soggy potting mix is the real danger, above all in winter, when wet roots rot. Let the surface dry between waterings; the general routine for pots is in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>. Thyme also dislikes being smothered by bigger neighbors or buried under fallen leaves, so keep it at the front of a group.' ) .
 
 					$h2( 'Trim, pick and replace' ) .
 					$p( 'Snip young shoots whenever you need them. Thyme is evergreen, so there is something to pick in every season, though the soft growth of late spring and summer has the strongest flavor. Regular cutting also keeps the plant compact.' ) .
-					$p( 'Give bushy thymes a light trim in mid- to late spring, after flowering, or both. Avoid cutting into bare old wood, which may not sprout again. Creeping thymes only need the faded flowers shaved off. After several years, shrubby plants still go straggly: take softwood cuttings in spring or early summer, or semi-ripe ones in summer, and grow on a replacement. Creeping kinds can be divided in spring or fall. Thyme keeps a strong flavor when dried: see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'Give bushy thymes a light trim in mid- to late spring, after flowering, or both. Avoid cutting into bare old wood, which may not sprout again. Creeping thymes only need the faded flowers shaved off. After several years, shrubby plants still go straggly: take softwood cuttings in spring or early summer, or semi-ripe ones in summer, and grow on a replacement. Creeping kinds can be divided in spring or fall. Thyme keeps a strong flavor when dried: see <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Winter and pests' ) .
-					$p( 'Common thyme is rated H5 by the RHS, so most widely sold kinds survive a UK winter outside. Check the label all the same: less hardy thymes, such as Thymus cilicicus, need a porch or greenhouse until spring. In a wet winter, stand the pot by a wall where rain does not reach. More ideas are in <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
+					$p( 'Common thyme is rated H5 by the RHS, so most widely sold kinds survive a UK winter outside. Check the label all the same: less hardy thymes, such as Thymus cilicicus, need a porch or greenhouse until spring. In a wet winter, stand the pot by a wall where rain does not reach. More ideas are in <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
 					$p( 'Few animals like the taste of thyme. Slugs and snails may nibble young shoots, and rosemary beetles and sage leafhoppers can mark the leaves, but the damage is rarely serious.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
@@ -228,17 +228,17 @@ return array(
 					$p( 'Spring, once the danger of frost has passed and the weather starts to warm, is the best moment to plant. Go for a container that measures 1 ft (30 cm) or more both across and in depth, drilled with several holes underneath. Fill it with peat-free soil-based potting mix blended with horticultural grit, up to a quarter of the volume. Set the plant so the top of its root ball is only just covered. Stand the pot in full sun; a spot sheltered from cold winds keeps the foliage in better shape through winter.' ) .
 
 					$h2( 'Water and feed' ) .
-					$p( 'In the ground, established rosemary hardly ever needs watering. In a container the potting mix dries fast in hot, sunny weather, so water during dry spells, especially in the first year, but never leave it waterlogged. The basics are in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. After a year or more in the same pot, scatter a little general-purpose granular fertilizer on the surface in late spring or early summer.' ) .
+					$p( 'In the ground, established rosemary hardly ever needs watering. In a container the potting mix dries fast in hot, sunny weather, so water during dry spells, especially in the first year, but never leave it waterlogged. The basics are in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>. After a year or more in the same pot, scatter a little general-purpose granular fertilizer on the surface in late spring or early summer.' ) .
 
 					$h2( 'Prune once a year, after flowering' ) .
 					$p( 'Left alone, rosemary grows leggy and woody with a bare base. Each year, once the flowers fade, trim it back lightly to keep it bushy and full of fresh shoots. Stay within the leafy growth: old wood rarely regrows, and a heavily pruned plant usually does not recover. Upright varieties can be clipped into a neat shape.' ) .
 					$p( 'Because old plants decline, root a few cuttings every so often: softwood cuttings from new growth in late spring or summer, or semi-ripe cuttings in summer. Low stems can also be pegged into a pot of potting mix in spring or fall to root while still attached.' ) .
 
 					$h2( 'Pick sprigs any time' ) .
-					$p( 'Rosemary keeps its leaves all year, so you can cut a sprig whenever a recipe calls for it. Shoots made in late spring and summer are softer and taste better than old, tough ones. Cut evenly around the plant so it keeps a good shape. The woody stems dry well; the method is in <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'Rosemary keeps its leaves all year, so you can cut a sprig whenever a recipe calls for it. Shoots made in late spring and summer are softer and taste better than old, tough ones. Cut evenly around the plant so it keeps a good shape. The woody stems dry well; the method is in <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Get it through winter' ) .
-					$p( 'Rosemary is rated H4, hardy through most of the UK, yet harsh frost and cold wind can still burn the shoots or kill a young plant. A pot is the weak point, since the potting mix and roots can freeze solid in a long cold spell. Group pots together, wrap the container in old blankets or reused bubble wrap, and throw frost cloth, burlap or an old sheet over the plant when a severe frost is due. Rain is the other enemy: move the pot into the rain shadow of a building, even in a mild winter. See also <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
+					$p( 'Rosemary is rated H4, hardy through most of the UK, yet harsh frost and cold wind can still burn the shoots or kill a young plant. A pot is the weak point, since the potting mix and roots can freeze solid in a long cold spell. Group pots together, wrap the container in old blankets or reused bubble wrap, and throw frost cloth, burlap or an old sheet over the plant when a severe frost is due. Rain is the other enemy: move the pot into the rain shadow of a building, even in a mild winter. See also <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
 
 					$h2( 'Rosemary beetle and other pests' ) .
 					$p( 'The rosemary beetle is a shiny insect about ¼ in (6–7 mm) long, striped metallic purple and green; its grayish larvae have darker stripes. Both eat the leaves and flowers, mostly from late summer to spring, and also feed on sage, thyme and lavender. Healthy plants usually shrug it off, so the RHS advises tolerating it. To keep numbers down, hold a sheet of newspaper under the plant, tap the branches and pick up what falls. Sage leafhoppers, which leave pale mottling, scale insects and the harmless froth of spittlebugs may also turn up.' ) .
@@ -326,7 +326,7 @@ return array(
 					$p( 'Colored-leaf forms are just as good to eat and brighten a balcony: purple \'Purpurascens\', yellow-edged \'Icterina\' and pink-tinged \'Tricolor\'. \'Berggarten\' has large leaves with a strong flavor, and \'Kew Gold\' stays compact. Young plants are easiest to find in spring and early summer, and bigger plants in nursery pots of about ½–¾ gallon (2–3 litres) are sold all year.' ) .
 
 					$h2( 'Choose a large pot in a sheltered sun trap' ) .
-					$p( 'A single sage needs a pot no smaller than 12 in (30 cm) in width and depth, with several holes in the base, then add peat-free soil-based potting mix mixed with horticultural grit, up to a quarter of the volume (more on mixes in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>). Plant in spring after your last frost, as the days warm up, keeping the top of the root ball only lightly covered.' ) .
+					$p( 'A single sage needs a pot no smaller than 12 in (30 cm) in width and depth, with several holes in the base, then add peat-free soil-based potting mix mixed with horticultural grit, up to a quarter of the volume (more on mixes in <a href="/potting-mix-for-containers/">potting mix for containers</a>). Plant in spring after your last frost, as the days warm up, keeping the top of the root ball only lightly covered.' ) .
 					$p( 'Sage wants warmth and full sun, but it also likes shelter: a corner of a balcony screened from strong wind is ideal. It looks good grouped with other sun-lovers such as <a href="/plants/thyme-in-pots/">thyme</a>, <a href="/plants/rosemary-in-pots/">rosemary</a> and <a href="/plants/oregano-in-pots/">oregano</a>.' ) .
 
 					$h2( 'Starting from seed' ) .
@@ -342,7 +342,7 @@ return array(
 					) .
 
 					$h2( 'Watering and feeding through the year' ) .
-					$p( 'Sage in the ground manages on rainfall once established, but potting mix in a container dries quickly. Through summer, check it regularly and aim to keep it slightly moist rather than soaked; the general routine is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. In winter the risk flips: heavy rain rots the roots, so move the pot into the rain shadow of a wall.' ) .
+					$p( 'Sage in the ground manages on rainfall once established, but potting mix in a container dries quickly. Through summer, check it regularly and aim to keep it slightly moist rather than soaked; the general routine is in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>. In winter the risk flips: heavy rain rots the roots, so move the pot into the rain shadow of a wall.' ) .
 					$p( 'A sage that has been in the same pot for over a year benefits from a sprinkle of general-purpose granular fertilizer in late spring or early summer. That is all the feeding it needs.' ) .
 
 					$h2( 'Prune in spring for fresh leaves' ) .
@@ -350,7 +350,7 @@ return array(
 					$p( 'Even with good pruning, sage tends to become woody and straggly after six or seven years. Take softwood cuttings from new growth in late spring or early summer, or peg a low stem into a pot of potting mix in spring or fall, and you will always have a young plant ready to take over.' ) .
 
 					$h2( 'Harvesting sage' ) .
-					$p( 'Pick single leaves or whole young shoots whenever you need them; regular picking keeps the plant bushy. The fresh growth of spring and summer tastes best, but the leaves are there all winter too. Sage is at its best used fresh, and it also dries and freezes well: see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'Pick single leaves or whole young shoots whenever you need them; regular picking keeps the plant bushy. The fresh growth of spring and summer tastes best, but the leaves are there all winter too. Sage is at its best used fresh, and it also dries and freezes well: see <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Pests and diseases' ) .
 					$p( 'Sage is generally healthy in a sunny spot with free-draining potting mix. Rosemary beetles, sage leafhoppers and plant bugs may chew or mottle the leaves, but the damage is seldom serious enough to need control: just pick off spoiled leaves. Powdery mildew can leave a white, dusty coating. For the striped beetle, see the rosemary beetle section in <a href="/plants/rosemary-in-pots/">how to grow rosemary in pots</a>.' ) .
@@ -449,7 +449,7 @@ return array(
 							'For seed crops, thin the plants to 8 in (20 cm) apart.',
 						)
 					) .
-					$p( 'Sow outdoors once the danger of frost has passed, and keep sowing through summer into fall. For leaves, sow a small batch every 3–4 weeks, as University of Illinois Extension suggests; the method is explained in <a href="/plant-care/succession-planting-small-spaces/">succession planting</a>. A late batch under a cloche, or in a greenhouse, keeps leaves coming into early winter. If you bought young plants instead, harden them off and set them about 4 in (10 cm) apart after your last frost, with row cover handy in cold weather.' ) .
+					$p( 'Sow outdoors once the danger of frost has passed, and keep sowing through summer into fall. For leaves, sow a small batch every 3–4 weeks, as University of Illinois Extension suggests; the method is explained in <a href="/succession-planting-small-spaces/">succession planting</a>. A late batch under a cloche, or in a greenhouse, keeps leaves coming into early winter. If you bought young plants instead, harden them off and set them about 4 in (10 cm) apart after your last frost, with row cover handy in cold weather.' ) .
 
 					$h2( 'Cilantro on a windowsill' ) .
 					$p( 'From late winter you can sow into pots or small trays of peat-free seed-starting mix on a warm, sunny sill. Germination takes two to three weeks; thin the seedlings to 2 in (5 cm) once you can handle them. Indoor cilantro is short-lived: in low light it turns pale, and in heat or dry potting mix it bolts. A bright but fairly cool spot helps, and keep in mind that the plants can smell unpleasant in a closed room. For the quickest crop of all, cut the seedlings after a couple of weeks as <a href="/plants/microgreens-on-a-windowsill/">microgreens</a>.' ) .
@@ -460,9 +460,9 @@ return array(
 					$h2( 'Harvest leaves, flowers and seeds' ) .
 					$list(
 						array(
-							'<strong>Leaves:</strong> start when plants are 4–6 in (10–15 cm) tall, which can be as little as ten weeks from sowing. Take a few leaves from each plant, leave them a couple of weeks to recover, then pick again. A bunch keeps for a few days in the fridge. Cilantro does not dry well; freezing is covered in <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.',
+							'<strong>Leaves:</strong> start when plants are 4–6 in (10–15 cm) tall, which can be as little as ten weeks from sowing. Take a few leaves from each plant, leave them a couple of weeks to recover, then pick again. A bunch keeps for a few days in the fridge. Cilantro does not dry well; freezing is covered in <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.',
 							'<strong>Flowers:</strong> every plant flowers in the end. Scatter the small white or pale purple flowers on salads, or leave them to set seed.',
-							'<strong>Seeds:</strong> use them green for a milder flavor, or wait until they turn brown. Saving and storing them is explained in <a href="/plant-care/how-to-save-seeds-from-your-plants/">how to save seeds</a>; keep a few for next year\'s sowings.',
+							'<strong>Seeds:</strong> use them green for a milder flavor, or wait until they turn brown. Saving and storing them is explained in <a href="/how-to-save-seeds-from-your-plants/">how to save seeds</a>; keep a few for next year\'s sowings.',
 						)
 					) .
 

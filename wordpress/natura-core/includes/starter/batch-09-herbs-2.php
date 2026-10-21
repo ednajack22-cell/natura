@@ -124,7 +124,7 @@ return array(
 
 					$h2( 'Pick, trim and dry' ) .
 					$p( 'Snip a few shoots whenever you need them, from late spring to fall, and strip off the leaves. Regular picking keeps the plant bushy. The flavor is best before the flowers open, and the flowers themselves are edible in salads.' ) .
-					$p( 'In late spring, trim established plants to keep them compact and remove dead or straggly stems. Cut off the flower stems once the flowers fade. Oregano dries well: see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'In late spring, trim established plants to keep them compact and remove dead or straggly stems. Cut off the flower stems once the flowers fade. Oregano dries well: see <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Winter' ) .
 					$p( 'Origanum vulgare is reliably hardy, but winter wet rots its roots. Move the pot to a sheltered spot, such as close to a wall where rain does not reach. Some less common species are less hardy: check the label, and bring sweet marjoram, which is frost-tender, into a greenhouse or indoors.' ) .
@@ -234,7 +234,7 @@ return array(
 
 					$h2( 'Pick and dry the leaves' ) .
 					$p( 'Because bay is evergreen, you can pick leaves whenever you need them, all year. Use them in soups, stews, stocks and sauces, and take them out before serving: they barely soften in cooking. Bay is also the key ingredient of a bouquet garni.' ) .
-					$p( 'To keep bay leaves, follow our guide on <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'To keep bay leaves, follow our guide on <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -336,7 +336,7 @@ return array(
 
 					$h2( 'Pick the leaves' ) .
 					$p( 'Start picking about six weeks after sowing. Snip a few leaves at a time and always leave at least a third of the plant to keep growing. Regular picking, or pinching out the shoot tips, keeps plants bushy and delays flowering. If you only want leaves, cut off flower stems as they appear.' ) .
-					$p( 'Use the leaves quickly: they wilt soon after picking, even in the fridge. To keep dill for later, see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'Use the leaves quickly: they wilt soon after picking, even in the fridge. To keep dill for later, see <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Flowers and seeds' ) .
 					$p( 'If you have room for a second pot, let a few plants flower. The flowers can go in salads or a jar of pickles, and the seeds ripen in late summer and fall. Collect them when they are dry and brown. Seeds left on the plant drop and come up as new seedlings; move them while they are small, before they form a tap root.' ) .

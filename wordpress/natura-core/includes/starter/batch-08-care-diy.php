@@ -95,13 +95,13 @@ return array(
 
 					$h2( 'Prick out into their own pots' ) .
 					$p( 'When the seedlings are big enough to handle, move each one into its own 3–3½ in (7.5–9 cm) pot or a cell of a module tray so they do not crowd each other. Hold a seedling lightly by one of its first leaves, never by the stem, and ease the roots out from below with a pencil or dibber. Set it in a hole in the new potting mix, firm gently and water. Later, move plants into larger pots as they fill these.' ) .
-					$p( 'Seedlings in peat-free mix benefit from a weak feed once their first leaves have formed; see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Seedlings in peat-free mix benefit from a weak feed once their first leaves have formed; see <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'If seedlings collapse' ) .
 					$p( 'Seedlings that suddenly fall over at soil level usually have damping off. Our guide to <a href="/problems/damping-off-seedlings/">collapsing seedlings</a> explains how to prevent it.' ) .
 
 					$h2( 'Before they go outside' ) .
-					$p( 'Plants raised indoors need two to three weeks to get used to outdoor life before they are planted out, and tender crops must wait until your last spring frost has passed. Our step-by-step guide to <a href="/plant-care/how-to-harden-off-seedlings/">hardening off seedlings</a> shows how to do it on a balcony.' ) .
+					$p( 'Plants raised indoors need two to three weeks to get used to outdoor life before they are planted out, and tender crops must wait until your last spring frost has passed. Our step-by-step guide to <a href="/how-to-harden-off-seedlings/">hardening off seedlings</a> shows how to do it on a balcony.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -226,7 +226,7 @@ return array(
 
 					$h2( 'Which feed' ) .
 					$p( 'Liquid feeds act fast and suit pots best. A general-purpose feed contains nitrogen, phosphorus and potassium; with soilless potting mix, choose one that also lists trace elements. Once fruiting crops start to flower, switch to a high-potassium feed such as tomato feed, because potassium supports flowering and fruiting. The RHS gives beans in containers a high-potassium feed every two weeks from the first flowers.' ) .
-					$p( 'Organic feeds based on seaweed, or homemade nettle and comfrey feeds, work too; they are weaker, so use them more often. Dry granules and pellets release food slowly and are best mixed into the potting mix when you plant, top-dress or <a href="/plant-care/how-to-repot-container-plants/">repot</a>.' ) .
+					$p( 'Organic feeds based on seaweed, or homemade nettle and comfrey feeds, work too; they are weaker, so use them more often. Dry granules and pellets release food slowly and are best mixed into the potting mix when you plant, top-dress or <a href="/how-to-repot-container-plants/">repot</a>.' ) .
 
 					$h2( 'How to feed without harm' ) .
 					$list(
@@ -291,7 +291,7 @@ return array(
 
 					$h2( 'Bigger pot, or the same pot?' ) .
 					$p( 'If the plant is still meant to grow, move it into a pot no more than a third larger than the current one. For pots under 10 in (25 cm) across, that means one about 1–2 in (2.5–5 cm) wider and deeper. Bigger jumps leave wet, unused potting mix around the roots.' ) .
-					$p( 'If it is as big as you want it, or the pot is already as heavy as your balcony can sensibly take, root-prune it and replant into the same container. On a balcony, remember that soil-based potting mix and big pots add a lot of weight; see <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
+					$p( 'If it is as big as you want it, or the pot is already as heavy as your balcony can sensibly take, root-prune it and replant into the same container. On a balcony, remember that soil-based potting mix and big pots add a lot of weight; see <a href="/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
 
 					$h2( 'How to repot, step by step' ) .
 					$list(
@@ -309,7 +309,7 @@ return array(
 					$p( 'Peat-free all-purpose potting mix suits most container plants. For shrubs, fruit trees and bushes that will stay put for years, a soil-based potting mix holds its structure longer; in the UK, choose a peat-free John Innes No. 3. Mixing a controlled-release fertilizer into the new mix feeds long-term plants for the season.' ) .
 
 					$h2( 'Refreshing without repotting' ) .
-					$p( 'In the years between repotting, or for pots too big to lift, you can replace just the top layer of potting mix; this, and what to do with the old mix, is covered in <a href="/plant-care/potting-mix-for-containers/">filling, refreshing and reusing potting mix in pots</a>.' ) .
+					$p( 'In the years between repotting, or for pots too big to lift, you can replace just the top layer of potting mix; this, and what to do with the old mix, is covered in <a href="/potting-mix-for-containers/">filling, refreshing and reusing potting mix in pots</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -436,7 +436,7 @@ return array(
 				'content'      =>
 					$h2( 'How it works' ) .
 					$p( 'Plants grow towards light, a response called phototropism. On a windowsill all the light comes from one side, so seedlings bend that way and can end up crooked and weak. The foil reflects some of the window light back onto the room side, so the seedlings receive light from more directions and grow more upright.' ) .
-					$p( 'The box helps prevent leaning; it does not fix seedlings that have already stretched. For that, see <a href="/problems/leggy-seedlings/">tall, pale and floppy seedlings</a>, and for the whole sowing method, <a href="/plant-care/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
+					$p( 'The box helps prevent leaning; it does not fix seedlings that have already stretched. For that, see <a href="/problems/leggy-seedlings/">tall, pale and floppy seedlings</a>, and for the whole sowing method, <a href="/how-to-start-seeds-indoors/">how to sow seeds indoors</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'The cardboard box with its front cut away and its back lined with foil is described in Backyard Harvest (p. 13). The RHS explains why seedlings lean and advises giving them all-round light. We added the waterproof tray and the other checks. We have not built this exact version ourselves.' ),
 			),
@@ -504,7 +504,7 @@ return array(
 						array(
 							'Check the potting mix every day, and water before the plants droop. If they do wilt, hold a bucket underneath while you water and pour the run-off back in.',
 							'If the basket is too heavy to lift down, water it in place with a hose on a gentle spray.',
-							'Water first, then feed. From mid-spring to the end of summer, give a liquid feed now and then, switching tomatoes to a high-potassium feed once they flower. See <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
+							'Water first, then feed. From mid-spring to the end of summer, give a liquid feed now and then, switching tomatoes to a high-potassium feed once they flower. See <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Pick often: salad greens and herbs keep producing when cut young.',
 						)
 					) .

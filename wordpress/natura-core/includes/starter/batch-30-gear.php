@@ -97,7 +97,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'These picks are kinds of watering can, not particular brands. Every point comes from the RHS watering guides and from Backyard Harvest (pp. 19 and 42–43), listed under Sources; we have not put any can through a trial of our own.' ) .
 					$h2( 'Once you have your can' ) .
-					$p( 'When and how much to water is explained in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>, and going away in summer is covered in <a href="/plant-care/watering-pots-when-on-holiday/">watering pots when you are on vacation</a>.' ),
+					$p( 'When and how much to water is explained in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>, and going away in summer is covered in <a href="/watering-pots-when-on-holiday/">watering pots when you are on vacation</a>.' ),
 			),
 
 			'best-drip-irrigation-kit-for-pots' => array(
@@ -156,7 +156,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'We compare kinds of watering system here, never named kits. The details come from the RHS guide to garden watering methods and from the watering kits described in Backyard Harvest (p. 122), all listed below. Natura has not installed or run any of these systems as a test.' ) .
 					$h2( 'Before you rely on it' ) .
-					$p( 'Run a new kit for a few days while you are at home and check the potting mix in each pot. Other ways to keep pots going while you travel are in <a href="/plant-care/watering-pots-when-on-holiday/">watering pots when you are on vacation</a>, and you can also <a href="/diy-projects/self-watering-pot/">make a self-watering pot</a>.' ),
+					$p( 'Run a new kit for a few days while you are at home and check the potting mix in each pot. Other ways to keep pots going while you travel are in <a href="/watering-pots-when-on-holiday/">watering pots when you are on vacation</a>, and you can also <a href="/diy-projects/self-watering-pot/">make a self-watering pot</a>.' ),
 			),
 
 			'best-liquid-fertilizer-for-vegetables-in-pots' => array(
@@ -231,7 +231,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'This guide sorts liquid fertilizers by type and leaves brands aside. Each pick rests on the RHS pages on fertilizers, labels and feeding, plus Backyard Harvest (pp. 17, 84 and 120), all in the Sources list. We have not trialed any fertilizer ourselves.' ) .
 					$h2( 'Using the fertilizer' ) .
-					$p( 'When to start, how often to fertilize and how to avoid harm are explained in <a href="/plant-care/how-to-fertilize-container-plants/">how to fertilize container plants</a>. If you would rather make your own, see <a href="/diy-projects/make-comfrey-liquid-fertilizer/">make a comfrey liquid fertilizer</a>.' ),
+					$p( 'When to start, how often to fertilize and how to avoid harm are explained in <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>. If you would rather make your own, see <a href="/diy-projects/make-comfrey-liquid-fertilizer/">make a comfrey liquid fertilizer</a>.' ),
 			),
 
 			'best-grow-bags' => array(
@@ -295,7 +295,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'Here we weigh up kinds of grow bag rather than brands. The facts come from RHS crop guides and Backyard Harvest (pp. 85, 99 and 114), as listed in Sources. None of these bags has been through a trial by Natura.' ) .
 					$h2( 'After planting' ) .
-					$p( 'For the crop itself, see <a href="/plants/cherry-tomato/">cherry tomatoes in pots</a> or <a href="/plants/bell-peppers-in-pots/">bell peppers in pots</a>; uneven watering is a common cause of <a href="/problems/tomatoes-splitting/">split tomatoes</a>, and other containers are compared in <a href="/plant-care/how-to-choose-pots-for-vegetables/">how to choose pots for vegetables</a>.' ),
+					$p( 'For the crop itself, see <a href="/plants/cherry-tomato/">cherry tomatoes in pots</a> or <a href="/plants/bell-peppers-in-pots/">bell peppers in pots</a>; uneven watering is a common cause of <a href="/problems/tomatoes-splitting/">split tomatoes</a>, and other containers are compared in <a href="/how-to-choose-pots-for-vegetables/">how to choose pots for vegetables</a>.' ),
 			),
 
 			'best-plant-supports-for-pots' => array(
@@ -529,7 +529,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'We look at kinds of cover and frame in this guide and name no brands. It draws on the RHS guides to cold frames, mini-greenhouses and cloches, together with Backyard Harvest (pp. 12–13 and 86), which are listed under Sources. We have not set up any of these to test them.' ) .
 					$h2( 'Using it well' ) .
-					$p( 'Open it on warm days and close it on cold nights. Moving plants outside gradually is explained in <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>, and a homemade option is <a href="/diy-projects/make-a-mini-cold-frame/">make a mini cold frame for a balcony</a>.' ),
+					$p( 'Open it on warm days and close it on cold nights. Moving plants outside gradually is explained in <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>, and a homemade option is <a href="/diy-projects/make-a-mini-cold-frame/">make a mini cold frame for a balcony</a>.' ),
 			),
 
 			'best-crop-covers' => array(
@@ -604,7 +604,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'This is a comparison of cover types, not of brands. Its facts come from the RHS guides to fleece (row cover), crop covers and cloches, the RHS carrot guide and Backyard Harvest (pp. 102–103 and 168), all named in Sources. Natura has not used these covers in a trial.' ) .
 					$h2( 'Where to go next' ) .
-					$p( 'Protecting the pots themselves in a cold snap is covered in <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>; for pests that mesh keeps out, see <a href="/problems/caterpillars-on-brassicas/">caterpillars on brassicas</a> and <a href="/plants/carrots-in-pots/">carrots in pots</a>.' ),
+					$p( 'Protecting the pots themselves in a cold snap is covered in <a href="/protect-pots-in-winter/">how to protect pots in winter</a>; for pests that mesh keeps out, see <a href="/problems/caterpillars-on-brassicas/">caterpillars on brassicas</a> and <a href="/plants/carrots-in-pots/">carrots in pots</a>.' ),
 			),
 		),
 	),

@@ -84,7 +84,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'A balcony rarely gives a glut, but a few pots of beans or peas can still crop faster than you can eat them. Freezing small batches as they come keeps that surplus. The steps below follow the advice of the National Center for Home Food Preservation, a food-safety service run from the University of Georgia, with notes from the UK Food Standards Agency. Herbs have their own guide: <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'A balcony rarely gives a glut, but a few pots of beans or peas can still crop faster than you can eat them. Freezing small batches as they come keeps that surplus. The steps below follow the advice of the National Center for Home Food Preservation, a food-safety service run from the University of Georgia, with notes from the UK Food Standards Agency. Herbs have their own guide: <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Why blanching matters' ) .
 					$p( 'Blanching means scalding vegetables briefly in boiling water. It stops the natural enzymes that keep working in the freezer and slowly spoil color, flavor and texture. It also cleans the surface and softens the pieces so they pack more easily.' ) .
@@ -120,7 +120,7 @@ return array(
 							'<strong>Bell peppers</strong> can be frozen raw in halves or strips, which keeps them crisper. Blanch them (3 minutes for halves, 2 for strips) only if they will go into cooked dishes.',
 							'<strong>Chili peppers</strong> need no blanching: wash them, remove the stalks and freeze them whole.',
 							'<strong>Tomatoes</strong> can be frozen raw after dipping them in boiling water for 30 seconds to loosen the skins and peeling them. They collapse when thawed, so keep them for sauces and soups.',
-							'<strong>Beets</strong> must be cooked until tender before freezing, then cooled, peeled and sliced. Roots from late sowings can also be <a href="/plant-care/how-to-store-your-harvest/">stored without freezing</a>.',
+							'<strong>Beets</strong> must be cooked until tender before freezing, then cooled, peeled and sliced. Roots from late sowings can also be <a href="/how-to-store-your-harvest/">stored without freezing</a>.',
 						)
 					) .
 
@@ -137,7 +137,7 @@ return array(
 					$p( 'The National Center for Home Food Preservation advises freezing and storing food at 0 °F (-18 °C) or lower, and the UK Food Standards Agency recommends the same temperature. At that temperature, blanched vegetables keep their best quality for about 8 to 12 months. Freezer burn, the dry, pale patches on badly wrapped food, spoils the texture but does not make it unsafe.' ) .
 
 					$h2( 'What not to freeze' ) .
-					$p( 'Crops you eat raw for their crunch, such as lettuce, radishes and cucumbers, go limp and watery after freezing. Keep them for fresh eating and plant a little at a time instead: see <a href="/plant-care/succession-planting-small-spaces/">succession planting</a>. Most frozen vegetables can go straight into boiling water without thawing.' ) .
+					$p( 'Crops you eat raw for their crunch, such as lettuce, radishes and cucumbers, go limp and watery after freezing. Keep them for fresh eating and plant a little at a time instead: see <a href="/succession-planting-small-spaces/">succession planting</a>. Most frozen vegetables can go straight into boiling water without thawing.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -260,7 +260,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'One <a href="/plants/chili-peppers-in-pots/">chili pepper plant</a> can give more fruit than a household uses fresh, and a pot of <a href="/plants/cherry-tomato/">cherry tomatoes</a> often finishes with a rush. Drying removes enough water to stop the molds and bacteria that spoil food. It works well for chili peppers, which are fairly dry already, and for tomatoes given steady, controlled heat. The methods here come from Colorado State University Extension and the National Center for Home Food Preservation; herbs are covered separately in <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'One <a href="/plants/chili-peppers-in-pots/">chili pepper plant</a> can give more fruit than a household uses fresh, and a pot of <a href="/plants/cherry-tomato/">cherry tomatoes</a> often finishes with a rush. Drying removes enough water to stop the molds and bacteria that spoil food. It works well for chili peppers, which are fairly dry already, and for tomatoes given steady, controlled heat. The methods here come from Colorado State University Extension and the National Center for Home Food Preservation; herbs are covered separately in <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'What successful drying needs' ) .
 					$p( 'Colorado State University Extension lists three things: enough heat to draw the moisture out without cooking the food, dry air to carry the moisture away, and good air movement. Too little heat at the start lets microbes survive and grow before the food is dry. Too much heat seals the surface, so moisture is trapped inside.' ) .
@@ -271,7 +271,7 @@ return array(
 
 					$h2( 'Dry chili peppers faster with heat' ) .
 					$p( 'In a dehydrator or oven, small red chili peppers can be dried whole, larger ones sliced. Colorado State University Extension allows 12 to 24 hours and describes the finished pods as shrunken, dark red and still flexible. It also recommends a short blanch for most vegetables before drying, to help destroy harmful bacteria, so follow its table if you dry large batches.' ) .
-					$p( 'Chili peppers also freeze well whole, with no blanching. See <a href="/plant-care/how-to-freeze-vegetables-from-your-pots/">how to freeze vegetables from your pots</a>.' ) .
+					$p( 'Chili peppers also freeze well whole, with no blanching. See <a href="/how-to-freeze-vegetables-from-your-pots/">how to freeze vegetables from your pots</a>.' ) .
 
 					$h2( 'Oven-dry or dehydrate tomatoes' ) .
 					$list(
@@ -282,7 +282,7 @@ return array(
 							'Dry at about 140 °F (60 °C) until crisp. Colorado State University Extension gives 6 to 24 hours, depending on size and equipment.',
 						)
 					) .
-					$p( 'A dehydrator with a thermostat holds that temperature easily. In an oven, set the lowest setting, prop the door open slightly so moist air escapes, and keep an oven thermometer on the rack, because many ovens run hotter or cooler than the dial says. Swap the trays round every half hour, and switch the heat off near the end, as nearly dry food scorches easily. Tomatoes picked green at the end of the season are better ripened first: see <a href="/plant-care/how-to-ripen-green-tomatoes/">how to ripen green tomatoes</a>.' ) .
+					$p( 'A dehydrator with a thermostat holds that temperature easily. In an oven, set the lowest setting, prop the door open slightly so moist air escapes, and keep an oven thermometer on the rack, because many ovens run hotter or cooler than the dial says. Swap the trays round every half hour, and switch the heat off near the end, as nearly dry food scorches easily. Tomatoes picked green at the end of the season are better ripened first: see <a href="/how-to-ripen-green-tomatoes/">how to ripen green tomatoes</a>.' ) .
 
 					$h2( 'Why not outside in the sun?' ) .
 					$p( 'The National Center for Home Food Preservation does not recommend drying vegetables outdoors: they are low in sugar and acid, so they spoil too easily when heat and humidity cannot be controlled. Even for fruit, it needs at least 85 °F (29 °C), humidity below 60 percent and several days of sun. A balcony in a cool or humid climate rarely offers that.' ) .
@@ -371,7 +371,7 @@ return array(
 
 					$h2( 'Apples and pears' ) .
 					$p( 'Late-ripening varieties store longest. Pick unblemished, medium-sized fruit, ideally slightly under-ripe and with the stalk on, and lay it in single layers in slatted trays or boxes, not touching. The RHS gives an even 39–46 °F (4–7 °C) as ideal; apples are damaged below about 37 °F (3 °C), while pears tolerate down to 32 °F (0 °C). Keep fruit away from onions, paint and fertilizers, whose smells taint it, and check pears almost daily, as they ripen fast.' ) .
-					$p( 'Without a cool shed or garage, small quantities of apples can go in the fridge in a pierced plastic bag for a few weeks. Choosing a tree in the first place is covered in <a href="/plant-care/how-to-choose-a-fruit-tree-for-a-pot/">how to choose a fruit tree for a pot</a>.' ) .
+					$p( 'Without a cool shed or garage, small quantities of apples can go in the fridge in a pierced plastic bag for a few weeks. Choosing a tree in the first place is covered in <a href="/how-to-choose-a-fruit-tree-for-a-pot/">how to choose a fruit tree for a pot</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -416,15 +416,15 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'By mid-fall most summer crops in pots are finished. A couple of hours of clearing now stops pests and diseases carrying over to next year, keeps tools working, and leaves the balcony ready for winter crops or a rest. This guide covers the clear-up itself; protecting the pots that stay planted is in <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
+					$p( 'By mid-fall most summer crops in pots are finished. A couple of hours of clearing now stops pests and diseases carrying over to next year, keeps tools working, and leaves the balcony ready for winter crops or a rest. This guide covers the clear-up itself; protecting the pots that stay planted is in <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
 
 					$h2( 'Clear out finished crops' ) .
 					$p( 'Pull up annual crops that have stopped producing, such as tomatoes, beans and zucchini. Look at each plant as it comes out. The RHS advises clearing up infected leaves and fruit at the end of the season to break the cycle of reinfection, and warns that a home compost heap does not get hot enough to kill persistent diseases. Anything diseased, such as plants with <a href="/problems/tomato-blight/">tomato blight</a>, stays out of your compost: dispose of it as your local waste rules allow (council green waste in the UK); healthy material can be composted.' ) .
-					$p( 'Before you empty a pot, tip the root ball out and look for the white, C-shaped grubs of <a href="/problems/black-vine-weevil/">black vine weevil</a>, a common pest in containers. The spent potting mix itself can be reused in a few ways, explained in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>.' ) .
+					$p( 'Before you empty a pot, tip the root ball out and look for the white, C-shaped grubs of <a href="/problems/black-vine-weevil/">black vine weevil</a>, a common pest in containers. The spent potting mix itself can be reused in a few ways, explained in <a href="/potting-mix-for-containers/">potting mix for containers</a>.' ) .
 
 					$h2( 'Leave some shelter for wildlife' ) .
 					$p( 'Tidiness has limits. The RHS describes it as a balance: too much tidying discourages wildlife. Where there is no sign of disease, dead leaves and old plant material give shelter, and stems left standing over winter can house hibernating insects in their hollows. Lady beetle (ladybug) adults need sheltered places to spend the winter, and lacewings hibernate in crevices and leaf litter.' ) .
-					$p( 'On a balcony, that can be as simple as one pot of seedheads left until spring, or a few hollow stems bundled in a corner. Both predators are on your side next summer: see <a href="/plant-care/natural-pest-control-on-a-balcony/">natural pest control on a balcony</a>.' ) .
+					$p( 'On a balcony, that can be as simple as one pot of seedheads left until spring, or a few hollow stems bundled in a corner. Both predators are on your side next summer: see <a href="/natural-pest-control-on-a-balcony/">natural pest control on a balcony</a>.' ) .
 
 					$h2( 'Clean pots and trays' ) .
 					$p( 'The RHS lists cleaning pots and seed trays among the jobs that slow the spread of pests and diseases. Empty them, scrub off old potting mix with a stiff brush, and pay attention to anything you will use for seedlings. Clay pots stained green with algae or white with lime can be brushed clean. Let everything dry before stacking it under cover.' ) .
@@ -495,10 +495,10 @@ return array(
 						array(
 							'<strong>Lower cost:</strong> raising plants from seed is by far the cheapest way to fill your pots.',
 							'<strong>Choice:</strong> seed catalogues offer far more varieties than garden centers sell as plants, including compact and trailing ones bred for containers.',
-							'<strong>Little and often:</strong> one packet can be sown in small batches all season; see <a href="/plant-care/succession-planting-small-spaces/">succession planting</a>.',
+							'<strong>Little and often:</strong> one packet can be sown in small batches all season; see <a href="/succession-planting-small-spaces/">succession planting</a>.',
 						)
 					) .
-					$p( 'The cost is time and windowsill space for crops that are started indoors. <a href="/plant-care/how-to-start-seeds-indoors/">How to start seeds indoors</a> explains what that involves.' ) .
+					$p( 'The cost is time and windowsill space for crops that are started indoors. <a href="/how-to-start-seeds-indoors/">How to start seeds indoors</a> explains what that involves.' ) .
 
 					$h2( 'What young plants give you' ) .
 					$list(
@@ -534,10 +534,10 @@ return array(
 
 					$h2( 'Plug plants and plants by post' ) .
 					$p( 'Plug plants are seedlings or young plants grown in small individual cells. They are cheaper than larger potted plants, but the RHS notes that the smaller ones need more aftercare: most have to be potted up and grown on indoors until they are big enough to go out. Plants that arrive by mail should be unpacked at once, watered and potted up as soon as possible.' ) .
-					$p( 'Whether you raised them or bought them, plants grown under cover need a gradual introduction to outdoor life: see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
+					$p( 'Whether you raised them or bought them, plants grown under cover need a gradual introduction to outdoor life: see <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
 
 					$h2( 'F1 seed and leftover packets' ) .
-					$p( 'Packets marked F1 are hybrids, bred to be uniform, vigorous and often more resistant to disease. They cost more, and seed you save from them will not come true; <a href="/plant-care/how-to-save-seeds-from-your-plants/">how to save seeds</a> explains why. Buy only the seed you need for the season. Kept cool and dry, most leftover seed stays usable for several years, though carrot and parsnip seed loses vigour sooner.' ) .
+					$p( 'Packets marked F1 are hybrids, bred to be uniform, vigorous and often more resistant to disease. They cost more, and seed you save from them will not come true; <a href="/how-to-save-seeds-from-your-plants/">how to save seeds</a> explains why. Buy only the seed you need for the season. Kept cool and dry, most leftover seed stays usable for several years, though carrot and parsnip seed loses vigour sooner.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -590,7 +590,7 @@ return array(
 							'<strong>How much sun?</strong> Most fruit trees want full sun in a warm, sheltered spot. The RHS warns that some, such as peaches, need a hot, sunny site to do well.',
 							'<strong>Room for one tree or two?</strong> Many fruit trees need a pollination partner. If you have space for only one, choose a self-fertile variety or check for a compatible tree in a neighbor\'s yard.',
 							'<strong>Can it come under cover in winter?</strong> A lemon must spend the winter indoors, and a peach does far better with shelter from rain in winter and spring.',
-							'<strong>Can your balcony take the weight?</strong> A tree in 18–20 in (45–50 cm) of wet potting mix is heavy. See <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.',
+							'<strong>Can your balcony take the weight?</strong> A tree in 18–20 in (45–50 cm) of wet potting mix is heavy. See <a href="/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.',
 						)
 					) .
 
@@ -681,7 +681,7 @@ return array(
 					$p( 'A balcony is a small, separate world: pests arrive on the wind or on new plants, and their predators have to find you too. The RHS does not support the use of pesticides and recommends non-chemical methods whenever control is needed. This guide is the overall plan; each pest has its own problem guide, linked below, with the diagnosis and the fix.' ) .
 
 					$h2( 'Start with healthy plants' ) .
-					$p( 'Plants grown in the right place, with the right care, resist pests and diseases better. Put sun-lovers in sun and shade-tolerant crops in shade, water steadily (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water</a>), and give plants room so air moves around them. Where a resistant variety exists, such as lettuces bred to resist <a href="/problems/root-aphids/">root aphids</a>, choose it.' ) .
+					$p( 'Plants grown in the right place, with the right care, resist pests and diseases better. Put sun-lovers in sun and shade-tolerant crops in shade, water steadily (see <a href="/how-often-to-water-container-plants/">how often to water</a>), and give plants room so air moves around them. Where a resistant variety exists, such as lettuces bred to resist <a href="/problems/root-aphids/">root aphids</a>, choose it.' ) .
 					$p( 'Check new plants before they join the others. The RHS suggests tipping out pots to look for black vine weevil grubs and keeping new arrivals apart for a while to watch their health.' ) .
 
 					$h2( 'Look often, act early' ) .
@@ -712,7 +712,7 @@ return array(
 						array(
 							'<strong>Flowers:</strong> adult hover flies have short tongues and need open flowers, such as those of the daisy and carrot families. Mix a few pots of <a href="/plants/calendula-in-pots/">calendula</a> or other open blooms among your crops, and aim for flowers from spring to fall.',
 							'<strong>Water:</strong> the RHS says even a large pot of water can act as a small pond. Give it one sloping side or a few stones so small creatures can climb out.',
-							'<strong>Winter shelter:</strong> lacewings hibernate in crevices and leaf litter, and lady beetle adults need sheltered spots. Leave a few hollow stems or a pot of seedheads over winter; see <a href="/plant-care/end-of-season-balcony-cleanup/">the end-of-season cleanup</a>.',
+							'<strong>Winter shelter:</strong> lacewings hibernate in crevices and leaf litter, and lady beetle adults need sheltered spots. Leave a few hollow stems or a pot of seedheads over winter; see <a href="/end-of-season-balcony-cleanup/">the end-of-season cleanup</a>.',
 							'<strong>Earwig shelter:</strong> on a fruit tree, a flower pot loosely stuffed with hay and hung in the branches gives earwigs somewhere to hide by day.',
 						)
 					) .

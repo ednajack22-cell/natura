@@ -90,7 +90,7 @@ return array(
 					$h2( 'Why a window box suits herbs' ) .
 					$p( 'Most kitchen herbs are small, shallow-rooted plants that you pick a sprig at a time, so a box just outside the window puts them within reach while you cook. The woody Mediterranean herbs also share one set of needs, sun and sharp drainage, which makes them easy companions in a single container.' ) .
 					$h2( 'Growing each herb' ) .
-					$p( 'This project covers building and planting the box. For harvesting, pruning and winter care, see the guides to <a href="/plants/thyme-in-pots/">thyme</a>, <a href="/plants/sage-in-pots/">sage</a>, <a href="/plants/rosemary-in-pots/">rosemary</a> and <a href="/plants/oregano-in-pots/">oregano</a>. Chives and mint are better in separate pots: see <a href="/plants/chives-in-pots/">chives</a> and <a href="/plants/mint-in-pots/">mint</a>. Small boxes dry out and go hungry faster than big pots, so follow <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> and <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'This project covers building and planting the box. For harvesting, pruning and winter care, see the guides to <a href="/plants/thyme-in-pots/">thyme</a>, <a href="/plants/sage-in-pots/">sage</a>, <a href="/plants/rosemary-in-pots/">rosemary</a> and <a href="/plants/oregano-in-pots/">oregano</a>. Chives and mint are better in separate pots: see <a href="/plants/chives-in-pots/">chives</a> and <a href="/plants/mint-in-pots/">mint</a>. Small boxes dry out and go hungry faster than big pots, so follow <a href="/how-often-to-water-container-plants/">how often to water container plants</a> and <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'Backyard Harvest (p. 85) recommends window boxes for herbs you want to pick from the kitchen window. The potting mix, spacing and planting depth follow the RHS guides to herbs in containers; we left out the layer of crocks some older advice suggests, because the RHS no longer recommends it. The weight and balcony points come from the RHS guide to roof gardens and balconies. Fixing the box before filling it and checking where the water drips are common-sense safety points we added. We have not built this exact version ourselves.' ),
 			),
@@ -153,7 +153,7 @@ return array(
 					$h2( 'How it works' ) .
 					$p( 'Soft green leaves are full of nutrients. Left to rot under water, they release them into the liquid, which you then thin down and pour on as a plant food. Comfrey is a favorite because it is easy to grow and rich in potassium. The result is free, but its strength varies from batch to batch and it is weaker than bought fertilizer.' ) .
 					$h2( 'When to use it' ) .
-					$p( 'Because it is weaker, a homemade feed goes on little and often rather than in one big drench. It is most useful for plants in containers and crops in active growth, such as tomatoes and strawberries; established shrubs do not need it. For the season and the timing, see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Because it is weaker, a homemade feed goes on little and often rather than in one big drench. It is most useful for plants in containers and crops in active growth, such as tomatoes and strawberries; established shrubs do not need it. For the season and the timing, see <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$h2( 'Where these instructions come from' ) .
 					$p( 'The method, the dilution, the storage advice and the safety warnings come from three RHS pages on comfrey and homemade fertilizers. The RHS pages differ slightly: one says fresh leaves need no added water and should be diluted one to twenty, while the comfrey guides cover the leaves with water and dilute about one to ten. We follow the comfrey guides. Keeping the bucket away from windows and filling it where it will stand are common-sense points we added for balconies. We have not made this exact batch ourselves.' ),
 			),
@@ -212,7 +212,7 @@ return array(
 				),
 				'content'      =>
 					$h2( 'Which pots to wrap, and why' ) .
-					$p( 'This page covers only the hands-on wrapping. For why roots in pots are at risk, which pots and plants need protecting, and what else to do before winter, read <a href="/plant-care/protect-pots-in-winter/">how to protect pots and container plants in winter</a>.' ) .
+					$p( 'This page covers only the hands-on wrapping. For why roots in pots are at risk, which pots and plants need protecting, and what else to do before winter, read <a href="/protect-pots-in-winter/">how to protect pots and container plants in winter</a>.' ) .
 					$h2( 'Choosing a material' ) .
 					$p( 'The RHS and Backyard Harvest both list bubble wrap, burlap, frost cloth (called fleece in the UK) and straw. Choose reused material where you can. Straw needs a layer of burlap or netting to hold it in and, in wet weather, a waterproof sheet on top. Whatever you use, tie it firmly and leave the base open.' ) .
 					$h2( 'Where these instructions come from' ) .

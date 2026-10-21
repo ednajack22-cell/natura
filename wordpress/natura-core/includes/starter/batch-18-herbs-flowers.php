@@ -98,21 +98,21 @@ return array(
 
 					$h2( 'Buy a plant, not seed' ) .
 					$p( 'French tarragon hardly ever flowers and sets seed in the UK, so you buy it as a young plant in spring or summer from a garden center or herb nursery. Plants sold under either name can vary a lot, so go in person if you can and crush a leaf: you want a warm, aniseed smell. One plant gives enough leaves for most kitchens.' ) .
-					$p( 'If you only find seed, it is Russian tarragon. Sow it from spring to early summer, thinly, on moist peat-free seed-starting mix, barely covered, and pot the seedlings into 3 in (7.5 cm) pots once they have several leaves. Our guide to <a href="/plant-care/how-to-start-seeds-indoors/">starting seeds indoors</a> covers the method.' ) .
+					$p( 'If you only find seed, it is Russian tarragon. Sow it from spring to early summer, thinly, on moist peat-free seed-starting mix, barely covered, and pot the seedlings into 3 in (7.5 cm) pots once they have several leaves. Our guide to <a href="/how-to-start-seeds-indoors/">starting seeds indoors</a> covers the method.' ) .
 
 					$h2( 'Pot, potting mix and position' ) .
 					$p( 'Give one plant a container at least 8 in (20 cm) wide and the same depth, with plenty of holes in the base. Use a peat-free soil-based potting mix and add grit, as much as 25 percent by volume, so that surplus water drains away quickly.' ) .
-					$p( 'Plant it outside after your last spring frost, as University of Minnesota Extension advises for herbs, and up to early summer. Tarragon wants the warmest, sunniest corner you have, sheltered from wind. If the plant was raised indoors, let it get used to outdoor conditions first; see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
+					$p( 'Plant it outside after your last spring frost, as University of Minnesota Extension advises for herbs, and up to early summer. Tarragon wants the warmest, sunniest corner you have, sheltered from wind. If the plant was raised indoors, let it get used to outdoor conditions first; see <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
 
 					$h2( 'Watering and care through summer' ) .
-					$p( 'Established tarragon copes with drought, but a pot dries out much faster than open ground, so look at the potting mix regularly in summer and water when it is dry. Wet roots are the bigger danger: never leave the pot standing in water, and water less as the weather cools. For a routine, see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>; feeding is covered in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'Established tarragon copes with drought, but a pot dries out much faster than open ground, so look at the potting mix regularly in summer and water when it is dry. Wet roots are the bigger danger: never leave the pot standing in water, and water less as the weather cools. For a routine, see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>; feeding is covered in <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 					$p( 'Pinch out any stem that starts to form flower buds. That keeps the plant producing leaves for longer.' ) .
 
 					$h2( 'Picking tarragon' ) .
-					$p( 'Start picking when new growth appears in spring and carry on into fall. Take the soft tips of the shoots often; this encourages more young growth. Strip the leaves from the stem and chop them finely. They taste best fresh. Dried tarragon is milder, and the leaves can also be frozen: see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'Start picking when new growth appears in spring and carry on into fall. Take the soft tips of the shoots often; this encourages more young growth. Strip the leaves from the stem and chop them finely. They taste best fresh. Dried tarragon is milder, and the leaves can also be frozen: see <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Getting French tarragon through winter' ) .
-					$p( 'The RHS rates French tarragon H4, but cold combined with wet is what kills it, and University of Maryland Extension notes that it needs winter protection in a cold climate. After the first hard frost the stems die down, which is normal. Move the pot under cover for the winter, into an unheated greenhouse or a porch. With no room inside, put it close to a building where rain does not reach. In spring, cut the old dead stems back to the lowest new shoots. Our <a href="/plant-care/protect-pots-in-winter/">winter pot protection guide</a> covers wrapping pots in a hard frost.' ) .
+					$p( 'The RHS rates French tarragon H4, but cold combined with wet is what kills it, and University of Maryland Extension notes that it needs winter protection in a cold climate. After the first hard frost the stems die down, which is normal. Move the pot under cover for the winter, into an unheated greenhouse or a porch. With no room inside, put it close to a building where rain does not reach. In spring, cut the old dead stems back to the lowest new shoots. Our <a href="/protect-pots-in-winter/">winter pot protection guide</a> covers wrapping pots in a hard frost.' ) .
 
 					$h2( 'Keep young plants coming' ) .
 					$p( 'Tarragon is a short-lived perennial, and the French kind tends to fade after a few years. Divide the clump in spring every few years, which is the simplest way to propagate it, and replant a healthy piece in fresh potting mix; University of Maryland Extension suggests renewing plants every 3–4 years. You can also take softwood cuttings from new growth in summer.' ) .
@@ -205,10 +205,10 @@ return array(
 							'<strong>Thin or plant out:</strong> thin crowded seedlings to about 6 in (15 cm) apart. Move indoor-sown plants into their final pot from mid-spring, when they are around 2 in (5 cm) tall, before the taproot develops.',
 						)
 					) .
-					$p( 'The slender seeds are about ¼ in (5 mm) long and easy to handle. They stay viable for only about a year, so buy fresh packets. Water right after sowing and keep the potting mix moist. For a steady supply, Illinois Extension suggests sowing again every three to four weeks; our <a href="/plant-care/succession-planting-small-spaces/">succession planting guide</a> explains how to plan it.' ) .
+					$p( 'The slender seeds are about ¼ in (5 mm) long and easy to handle. They stay viable for only about a year, so buy fresh packets. Water right after sowing and keep the potting mix moist. For a steady supply, Illinois Extension suggests sowing again every three to four weeks; our <a href="/succession-planting-small-spaces/">succession planting guide</a> explains how to plan it.' ) .
 
 					$h2( 'Keep it from bolting' ) .
-					$p( 'Chervil will flower fairly soon whatever you do, and once it flowers the leaves lose their quality. Hot, dry conditions bring this on faster. Water regularly, because potting mix in a pot dries quickly in warm weather (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>), and keep summer sowings in part shade. If a pot bolts anyway, the <a href="/problems/plants-bolting/">bolting guide</a> explains what is going on.' ) .
+					$p( 'Chervil will flower fairly soon whatever you do, and once it flowers the leaves lose their quality. Hot, dry conditions bring this on faster. Water regularly, because potting mix in a pot dries quickly in warm weather (see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>), and keep summer sowings in part shade. If a pot bolts anyway, the <a href="/problems/plants-bolting/">bolting guide</a> explains what is going on.' ) .
 					$p( 'When plants start to flower, pull them out and sow again, or leave one or two to set seed. Chervil self-seeds readily; if you collect seed, sow it within a year.' ) .
 
 					$h2( 'Harvesting the leaves' ) .
@@ -290,19 +290,19 @@ return array(
 					$p( 'The RHS rates it H3, half hardy, and Illinois Extension calls it frost sensitive. That is why a pot makes sense on a balcony or patio: you grow it outside in summer and carry it under cover for the winter.' ) .
 
 					$h2( 'Choosing the pot and potting mix' ) .
-					$p( 'Pick a pot with plenty of holes in the base and a size you can still lift or wheel indoors. Herbs that stay in a pot for years appreciate a deep root run. Fill it with a peat-free, soil-based potting mix, which the RHS recommends for lemon verbena grown under glass. More on mixes in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>.' ) .
-					$p( 'Buy plants in late spring, once frosts are over: herbs planted in cold, wet potting mix often suffer root damage. If a plant has spent its life in a warm store, harden it off gradually; see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
+					$p( 'Pick a pot with plenty of holes in the base and a size you can still lift or wheel indoors. Herbs that stay in a pot for years appreciate a deep root run. Fill it with a peat-free, soil-based potting mix, which the RHS recommends for lemon verbena grown under glass. More on mixes in <a href="/potting-mix-for-containers/">potting mix for containers</a>.' ) .
+					$p( 'Buy plants in late spring, once frosts are over: herbs planted in cold, wet potting mix often suffer root damage. If a plant has spent its life in a warm store, harden it off gradually; see <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
 
 					$h2( 'Sun, water and food' ) .
-					$p( 'In a cool climate lemon verbena needs full sun and a sheltered position. Keep the potting mix evenly moist through summer without letting it become soggy, and check pots often in hot spells (our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> has the routine).' ) .
-					$p( 'It is a hungry plant in a pot. Illinois Extension suggests a general-purpose liquid fertilizer about every two weeks during the growing season; the general method is in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
+					$p( 'In a cool climate lemon verbena needs full sun and a sheltered position. Keep the potting mix evenly moist through summer without letting it become soggy, and check pots often in hot spells (our <a href="/how-often-to-water-container-plants/">watering guide</a> has the routine).' ) .
+					$p( 'It is a hungry plant in a pot. Illinois Extension suggests a general-purpose liquid fertilizer about every two weeks during the growing season; the general method is in <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 
 					$h2( 'Picking and using the leaves' ) .
 					$p( 'Pick leaves whenever you need them through the growing season. Regular picking also keeps the plant tidy. The flavor is best just before the flower spikes open.' ) .
-					$p( 'Infuse the leaves for tea, or use them in cold drinks, fruit salads, desserts, sauces and marinades for fish and chicken. Heat dulls the lemon flavor a little. The scent survives drying well; for storing leaves, see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'Infuse the leaves for tea, or use them in cold drinks, fruit salads, desserts, sauces and marinades for fish and chicken. Heat dulls the lemon flavor a little. The scent survives drying well; for storing leaves, see <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Bringing it in for winter' ) .
-					$p( 'Move the pot indoors before the first frost and stand it in a bright place, such as a cool porch, greenhouse or unheated room. As temperatures fall the plant drops its leaves and rests in a semi-dormant state. Keep the potting mix slightly moist but never soggy, and feed less often than in summer. Our guide to <a href="/plant-care/protect-pots-in-winter/">protecting pots in winter</a> covers the rest.' ) .
+					$p( 'Move the pot indoors before the first frost and stand it in a bright place, such as a cool porch, greenhouse or unheated room. As temperatures fall the plant drops its leaves and rests in a semi-dormant state. Keep the potting mix slightly moist but never soggy, and feed less often than in summer. Our guide to <a href="/protect-pots-in-winter/">protecting pots in winter</a> covers the rest.' ) .
 					$p( 'Return it outside in late spring, after the last frost.' ) .
 
 					$h2( 'Pruning and new plants' ) .
@@ -402,21 +402,21 @@ return array(
 							'<strong>Method:</strong> sow the seed ¼–½ in (6–13 mm) deep in moist potting mix, since light holds back germination, and water with a fine rose. Seedlings appear in 5–15 days. Thin them to the final spacing.',
 						)
 					) .
-					$p( 'For sowing indoors step by step, see <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a>. Crowded seedlings can collapse with <a href="/problems/damping-off-seedlings/">damping off</a>, so sow thinly.' ) .
+					$p( 'For sowing indoors step by step, see <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a>. Crowded seedlings can collapse with <a href="/problems/damping-off-seedlings/">damping off</a>, so sow thinly.' ) .
 
 					$h2( 'Deadhead for more flowers' ) .
 					$p( 'Pinch out the growing tips of young plants to make them bushier. Once flowering starts, remove faded flowers regularly: the plant keeps making new buds instead of setting seed. Cut plants back after the main flush.' ) .
-					$p( 'Annuals in pots dry out quickly, so water regularly through summer without leaving the potting mix soggy; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>. To boost flowering in a container, the RHS suggests an occasional high-potassium liquid fertilizer such as tomato fertilizer.' ) .
+					$p( 'Annuals in pots dry out quickly, so water regularly through summer without leaving the potting mix soggy; see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>. To boost flowering in a container, the RHS suggests an occasional high-potassium liquid fertilizer such as tomato fertilizer.' ) .
 
 					$h2( 'Picking petals for the kitchen' ) .
 					$p( 'The petals have a gentle peppery taste and bright color. Scatter them over salads, or stir them into soups, stews and puddings. Pick young flowers on a dry morning, before the sun is strong, and give each one a shake to dislodge insects.' ) .
-					$p( 'Be sure of the plant before eating any flower. A bought plant not sold for eating should grow on for at least three months before you pick, and only from its later flowers, to reduce pesticide residues. Anyone with a pollen allergy should avoid eating flowers. The petals can also be dried; see <a href="/plant-care/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
+					$p( 'Be sure of the plant before eating any flower. A bought plant not sold for eating should grow on for at least three months before you pick, and only from its later flowers, to reduce pesticide residues. Anyone with a pollen allergy should avoid eating flowers. The petals can also be dried; see <a href="/how-to-dry-and-freeze-herbs/">how to dry and freeze herbs</a>.' ) .
 
 					$h2( 'Aphids and powdery mildew' ) .
 					$p( 'Calendula can attract aphids and get powdery mildew, especially late in the season. In the UK, no pesticides are approved for home gardeners to use on edible flowers. Wherever you garden, the simplest answer is to cut back affected growth and let the plant regrow. See <a href="/problems/aphids-container-plants/">aphids on container plants</a> and <a href="/problems/powdery-mildew/">powdery mildew</a>.' ) .
 
 					$h2( 'Seeds for next year' ) .
-					$p( 'Each plant dies at the end of its season, but calendula self-seeds readily. Leave a few heads to ripen, or collect the seed and sow it yourself; <a href="/plant-care/how-to-save-seeds-from-your-plants/">how to save seeds</a> explains the steps. University of Wisconsin-Madison Extension advises fresh seed, as it loses viability in storage.' ) .
+					$p( 'Each plant dies at the end of its season, but calendula self-seeds readily. Leave a few heads to ripen, or collect the seed and sow it yourself; <a href="/how-to-save-seeds-from-your-plants/">how to save seeds</a> explains the steps. University of Wisconsin-Madison Extension advises fresh seed, as it loses viability in storage.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -504,12 +504,12 @@ return array(
 					$p( 'Sorrel grows in full sun or partial shade. Space plants 8–12 in (20–30 cm) apart, which in practice means two or three to a large trough.' ) .
 
 					$h2( 'Sow seed or buy plants' ) .
-					$p( 'All three sorrels come easily from seed. University of Minnesota Extension suggests starting seed indoors about three weeks before your last spring frost, or sowing directly in early spring. Indoors, sow about ½ in (1 cm) deep in modules of peat-free seed-starting mix on a windowsill or in a covered seed tray; at around 59 °F (15 °C) seedlings appear in one to two weeks. Pot them into 3 in (7.5 cm) pots when they have several leaves, then plant them out after <a href="/plant-care/how-to-harden-off-seedlings/">hardening off</a>.' ) .
+					$p( 'All three sorrels come easily from seed. University of Minnesota Extension suggests starting seed indoors about three weeks before your last spring frost, or sowing directly in early spring. Indoors, sow about ½ in (1 cm) deep in modules of peat-free seed-starting mix on a windowsill or in a covered seed tray; at around 59 °F (15 °C) seedlings appear in one to two weeks. Pot them into 3 in (7.5 cm) pots when they have several leaves, then plant them out after <a href="/how-to-harden-off-seedlings/">hardening off</a>.' ) .
 					$p( 'You can also sow straight into the container outdoors from mid-spring to early summer, sparingly, and thin the seedlings to the spacing above. Young plants are sold in spring and summer and can go in from spring to early summer.' ) .
 
 					$h2( 'Watering through the year' ) .
-					$p( 'Potting mix in a pot dries out fast in warm weather, so check it often and keep it evenly moist; our <a href="/plant-care/how-often-to-water-container-plants/">container watering guide</a> has the routine. In hot, sunny spells, move the pot into shade to cut down on watering.' ) .
-					$p( 'Winter brings the opposite problem. Waterlogged potting mix can rot the roots, so put the pot near a building where rain does not reach. The <a href="/plant-care/protect-pots-in-winter/">winter pot guide</a> has more on sheltering containers.' ) .
+					$p( 'Potting mix in a pot dries out fast in warm weather, so check it often and keep it evenly moist; our <a href="/how-often-to-water-container-plants/">container watering guide</a> has the routine. In hot, sunny spells, move the pot into shade to cut down on watering.' ) .
+					$p( 'Winter brings the opposite problem. Waterlogged potting mix can rot the roots, so put the pot near a building where rain does not reach. The <a href="/protect-pots-in-winter/">winter pot guide</a> has more on sheltering containers.' ) .
 
 					$h2( 'Picking sorrel' ) .
 					$p( 'Pick young leaves from the moment growth starts in spring until fall; University of Minnesota Extension notes it is among the first crops ready in spring and can be picked until frost kills the growth. Regular picking keeps new, tender leaves coming; older ones turn tough and bitter, so strip those off. Use the leaves raw in salads and sandwiches, chopped over cooked food, or steamed like spinach.' ) .

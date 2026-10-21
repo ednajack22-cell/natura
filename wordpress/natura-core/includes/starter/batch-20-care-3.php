@@ -85,7 +85,7 @@ return array(
 							'<strong>18–20 in (45–50 cm) wide and deep:</strong> fruit trees such as the <a href="/plants/apple-tree-in-pot/">apple</a> and <a href="/plants/pear-tree-in-pot/">pear</a>.',
 						)
 					) .
-					$p( 'The exception is a single long-lived plant such as a bay or a lemon. Give it a pot only a little larger than its root ball: surplus potting mix stays wet and can rot the roots. Our guide to <a href="/plant-care/how-to-repot-container-plants/">repotting</a> explains how to move it up in stages.' ) .
+					$p( 'The exception is a single long-lived plant such as a bay or a lemon. Give it a pot only a little larger than its root ball: surplus potting mix stays wet and can rot the roots. Our guide to <a href="/how-to-repot-container-plants/">repotting</a> explains how to move it up in stages.' ) .
 
 					$h2( 'Think about shape' ) .
 					$list(
@@ -110,7 +110,7 @@ return array(
 					$p( 'Plants are just as happy in a plain plastic pot or a grow bag as in an expensive one, as long as the water can drain away. Spend on size before looks.' ) .
 
 					$h2( 'Weight and wind on a balcony' ) .
-					$p( 'Plastic and grow bags weigh far less than clay, which matters when you carry potting mix up stairs or have a floor limit. Large pots of wet potting mix are heavy whatever they are made of; our guide to <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">arranging pots in a small space</a> covers where to put the heaviest ones and how to plan around wind.' ) .
+					$p( 'Plastic and grow bags weigh far less than clay, which matters when you carry potting mix up stairs or have a floor limit. Large pots of wet potting mix are heavy whatever they are made of; our guide to <a href="/how-to-arrange-pots-in-a-small-space/">arranging pots in a small space</a> covers where to put the heaviest ones and how to plan around wind.' ) .
 
 					$h2( 'Special containers' ) .
 					$list(
@@ -120,7 +120,7 @@ return array(
 							'<strong>Self-watering pots:</strong> a water reservoir in the base cuts down daily watering. You can <a href="/diy-projects/self-watering-pot/">make one yourself</a>.',
 						)
 					) .
-					$p( 'Whatever you choose, fill it with peat-free potting mix suited to the crop; <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> explains which.' ) .
+					$p( 'Whatever you choose, fill it with peat-free potting mix suited to the crop; <a href="/potting-mix-for-containers/">potting mix for containers</a> explains which.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -177,7 +177,7 @@ return array(
 							'An organic mulch slowly adds nutrients and organic matter as it breaks down.',
 						)
 					) .
-					$p( 'Be realistic about the first point. Most of the water a potted plant uses goes out through its leaves, so a mulch helps but never replaces regular watering; <a href="/plant-care/how-often-to-water-container-plants/">how often to water</a> covers the routine. On its powdery mildew page, the RHS also suggests mulch to help the potting mix hold water.' ) .
+					$p( 'Be realistic about the first point. Most of the water a potted plant uses goes out through its leaves, so a mulch helps but never replaces regular watering; <a href="/how-often-to-water-container-plants/">how often to water</a> covers the routine. On its powdery mildew page, the RHS also suggests mulch to help the potting mix hold water.' ) .
 
 					$h2( 'Organic or mineral mulch?' ) .
 					$p( '<strong>Organic mulches</strong> rot down and need topping up: homemade compost, leaf mold, chipped or composted bark, and straw. <strong>Mineral mulches</strong> such as gravel, grit, slate, pebbles, shells or tumbled glass last for years and look decorative, but add no nutrients. Avoid anything made of plastic.' ) .
@@ -406,7 +406,7 @@ return array(
 					$p( 'If their flowers drop without forming fruit, see <a href="/problems/flowers-dropping-off/">why flowers fall off</a>.' ) .
 
 					$h2( 'What to leave outside' ) .
-					$p( 'Crops that need a large container do not fit a sill: potatoes, zucchini, beans, peas, fruit bushes and trees. The windowsill is still useful for them as a place to start seeds indoors in spring; see <a href="/plant-care/how-to-start-seeds-indoors/">starting seeds indoors</a>. If you have a balcony as well, our guide to <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">arranging pots in a small space</a> helps you divide crops between the two.' ) .
+					$p( 'Crops that need a large container do not fit a sill: potatoes, zucchini, beans, peas, fruit bushes and trees. The windowsill is still useful for them as a place to start seeds indoors in spring; see <a href="/how-to-start-seeds-indoors/">starting seeds indoors</a>. If you have a balcony as well, our guide to <a href="/how-to-arrange-pots-in-a-small-space/">arranging pots in a small space</a> helps you divide crops between the two.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -509,7 +509,7 @@ return array(
 							'Water less often than on a sunny balcony, but still check the potting mix: an overhang can keep rain off.',
 						)
 					) .
-					$p( 'For where to put each pot, see <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
+					$p( 'For where to put each pot, see <a href="/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -577,7 +577,7 @@ return array(
 							'<strong><a href="/plants/green-onions-in-pots/">Green onions</a>:</strong> about eight weeks, in the same size of trough, in full sun.',
 						)
 					) .
-					$p( 'All three are worth sowing a little at a time; see <a href="/plant-care/succession-planting-small-spaces/">succession planting</a>.' ) .
+					$p( 'All three are worth sowing a little at a time; see <a href="/succession-planting-small-spaces/">succession planting</a>.' ) .
 
 					$h2( 'A bigger pot, a bigger harvest' ) .
 					$list(
@@ -601,13 +601,13 @@ return array(
 					$p( 'An RHS adviser suggests a couple of bush tomatoes for a balcony. A <a href="/plants/cherry-tomato/">cherry tomato</a> is a little more demanding than the crops above: it needs about 5–8 gallons (20–30 litres) of potting mix, your sunniest spot and steady daily watering, and starts cropping about 60–80 days after planting out. <a href="/plants/zucchini-in-pots/">Zucchini</a> are easy but large: one plant fills an 18 in (45 cm) pot. Try one of either in your first year, beside the quick crops.' ) .
 
 					$h2( 'Match crops to your light' ) .
-					$p( 'Beans, potatoes, green onions, strawberries and tomatoes need full sun. Radishes, salad greens, chives and mint manage in partial shade too. If your space is shady, start with <a href="/plant-care/what-to-grow-on-a-shady-balcony/">what to grow on a shady balcony</a>; if you have only a windowsill, see <a href="/plant-care/vegetables-on-a-windowsill/">vegetables on a windowsill</a>.' ) .
+					$p( 'Beans, potatoes, green onions, strawberries and tomatoes need full sun. Radishes, salad greens, chives and mint manage in partial shade too. If your space is shady, start with <a href="/what-to-grow-on-a-shady-balcony/">what to grow on a shady balcony</a>; if you have only a windowsill, see <a href="/vegetables-on-a-windowsill/">vegetables on a windowsill</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
 						array(
 							'Sowing a whole packet at once, then facing a glut and a gap.',
-							'Buying lots of small pots instead of a few large ones: see <a href="/plant-care/how-to-choose-pots-for-vegetables/">choosing pots</a>.',
+							'Buying lots of small pots instead of a few large ones: see <a href="/how-to-choose-pots-for-vegetables/">choosing pots</a>.',
 							'Starting with slow, demanding crops such as eggplant.',
 							'Growing things you do not actually like to eat.',
 							'Forgetting that pots need checking for water every day in summer.',

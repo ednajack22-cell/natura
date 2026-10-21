@@ -98,20 +98,20 @@ return array(
 					$p( 'Most varieties grow tall and need a framework of stakes and string. For a container, pick a dwarf variety: these reach about 20 in (50 cm), cope better with wind and usually prop each other up.' ) .
 
 					$h2( 'Choose the container and the spot' ) .
-					$p( 'A container 15 in (40 cm) across or wider holds a small group of dwarf plants. Drainage holes are essential, and either a peat-free all-purpose mix or a soil-based one will do: <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> compares them. Stand it where it gets sun and some shelter from wind.' ) .
+					$p( 'A container 15 in (40 cm) across or wider holds a small group of dwarf plants. Drainage holes are essential, and either a peat-free all-purpose mix or a soil-based one will do: <a href="/potting-mix-for-containers/">potting mix for containers</a> compares them. Stand it where it gets sun and some shelter from wind.' ) .
 
 					$h2( 'Sowing fava beans' ) .
-					$p( 'From late winter, you can start seeds under cover, one per small pot or module of peat-free all-purpose potting mix, 2 in (5 cm) deep with the scar pointing down. This keeps them away from mice, which dig up and eat the large seeds, and from slugs; see <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a> for the basics.' ) .
-					$p( 'From early to late spring you can sow straight into the final container instead: set each seed 2 in (5 cm) deep, scar down, and 6 in (15 cm) apart. Two or three batches a few weeks apart give a longer picking season; our guide to <a href="/plant-care/succession-planting-small-spaces/">succession planting in small spaces</a> shows how to plan them.' ) .
+					$p( 'From late winter, you can start seeds under cover, one per small pot or module of peat-free all-purpose potting mix, 2 in (5 cm) deep with the scar pointing down. This keeps them away from mice, which dig up and eat the large seeds, and from slugs; see <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a> for the basics.' ) .
+					$p( 'From early to late spring you can sow straight into the final container instead: set each seed 2 in (5 cm) deep, scar down, and 6 in (15 cm) apart. Two or three batches a few weeks apart give a longer picking season; our guide to <a href="/succession-planting-small-spaces/">succession planting in small spaces</a> shows how to plan them.' ) .
 					$p( 'In a mild area or a very sheltered corner, a hardy variety can also go in during mid to late fall, with a cloche or row cover over it in cold spells, for pods as early as late spring.' ) .
 
 					$h2( 'Planting out young plants' ) .
-					$p( 'Pot-raised or bought plants go outside in early to mid-spring. Harden them off first so they do not stall (see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>), then set them 6 in (15 cm) apart in the container and water them in.' ) .
+					$p( 'Pot-raised or bought plants go outside in early to mid-spring. Harden them off first so they do not stall (see <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>), then set them 6 in (15 cm) apart in the container and water them in.' ) .
 
 					$h2( 'Water, fertilize and pinch out' ) .
 					$list(
 						array(
-							'<strong>Water</strong>: in a container, fava beans need watering often through the season, and a good soak matters most once they flower. For a routine, see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.',
+							'<strong>Water</strong>: in a container, fava beans need watering often through the season, and a good soak matters most once they flower. For a routine, see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.',
 							'<strong>Fertilize</strong>: when the first flowers open, feed every two weeks with a high-potassium liquid fertilizer, for example a tomato fertilizer.',
 							'<strong>Support</strong>: dwarf plants rarely need it, but a few twiggy sticks will hold up any that lean.',
 							'<strong>Pinch out</strong>: when the bottom flowers have formed small pods, nip off the top of each stem. The plant puts its effort into the pods, and black bean aphids lose their favorite feeding spot. Cook the tips like spinach.',
@@ -212,22 +212,22 @@ return array(
 							'<strong>Climbing runner beans</strong>: a tub 30 in (75 cm) across and 18 in (45 cm) deep, heavy enough to stay upright once the plants are covered in leaves.',
 						)
 					) .
-					$p( 'Use peat-free potting mix, either all-purpose or soil-based (more on that in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>) and choose a sunny spot out of strong wind, which also helps bees find the flowers. Put the supports in before you sow: our project <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a> shows how to build one.' ) .
+					$p( 'Use peat-free potting mix, either all-purpose or soil-based (more on that in <a href="/potting-mix-for-containers/">potting mix for containers</a>) and choose a sunny spot out of strong wind, which also helps bees find the flowers. Put the supports in before you sow: our project <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a> shows how to build one.' ) .
 
 					$h2( 'Sowing runner beans' ) .
-					$p( 'Runner beans cannot take frost. For an earlier crop, or in a cold area, University of Wisconsin-Madison Extension says you can start seeds indoors a few weeks before your average last frost. Push a single seed 2 in (5 cm) down into a small pot or deep module of damp peat-free all-purpose potting mix, and keep the pots somewhere bright at more than 54 °F (12 °C). The seedlings grow fast and need regular water. Our guide on <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a> has more detail.' ) .
+					$p( 'Runner beans cannot take frost. For an earlier crop, or in a cold area, University of Wisconsin-Madison Extension says you can start seeds indoors a few weeks before your average last frost. Push a single seed 2 in (5 cm) down into a small pot or deep module of damp peat-free all-purpose potting mix, and keep the pots somewhere bright at more than 54 °F (12 °C). The seedlings grow fast and need regular water. Our guide on <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a> has more detail.' ) .
 					$p( 'To sow outside, wait until the danger of frost has passed and the potting mix has warmed up; Oregon State University Extension aims for soil around 60 °F (16 °C) for dependable germination. Sow 2 in (5 cm) deep and 6 in (15 cm) apart in the final container. With climbers, sow two seeds by each stake and pull out the smaller seedling if both germinate.' ) .
 
 					$h2( 'Planting out' ) .
-					$p( 'Plants raised indoors or bought in go out once frost danger has passed, after a careful hardening off (see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>). Set one plant at the foot of each stake, water it in, and tie the stem loosely to the stake to get it started. Protect young plants from slugs and snails.' ) .
+					$p( 'Plants raised indoors or bought in go out once frost danger has passed, after a careful hardening off (see <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>). Set one plant at the foot of each stake, water it in, and tie the stem loosely to the stake to get it started. Protect young plants from slugs and snails.' ) .
 
 					$h2( 'Watering, fertilizing and training' ) .
-					$p( 'Runner beans are thirsty, and plants in containers dry out fast, so water often and generously, above all once they flower and start to form pods. Our page on <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> helps you set a routine.' ) .
+					$p( 'Runner beans are thirsty, and plants in containers dry out fast, so water often and generously, above all once they flower and start to form pods. Our page on <a href="/how-often-to-water-container-plants/">how often to water container plants</a> helps you set a routine.' ) .
 					$p( 'In a container, feed with an organic high-potassium liquid product, for instance a tomato fertilizer, at two-week intervals from the first flowers. Tie in any stems that blow loose. When climbers reach the top of their stakes, cut off the extra growth: side shoots then form lower down, the crop stays within reach and the plant is less top-heavy in wind.' ) .
 
 					$h2( 'Harvesting runner beans' ) .
 					$p( 'The first pods usually come around midsummer; University of Wisconsin-Madison Extension lists named varieties producing beans about 70 to 85 days after sowing. Pick them young, at about 8–10 in (20–25 cm), when they snap cleanly and the beans inside are still small and pale. Check every two or three days: once a pod is allowed to mature, the plant stops flowering. With regular picking, cropping carries on for eight weeks or more. Cook runner beans before eating; the RHS warns that raw pods and beans are harmful.' ) .
-					$p( 'If you want to keep some beans for next year, our guide on <a href="/plant-care/how-to-save-seeds-from-your-plants/">saving seeds from your plants</a> explains how.' ) .
+					$p( 'If you want to keep some beans for next year, our guide on <a href="/how-to-save-seeds-from-your-plants/">saving seeds from your plants</a> explains how.' ) .
 
 					$h2( 'When things go wrong' ) .
 					$p( 'Flowers that fall without making pods are the most common complaint, often early in the season, in hot weather or when the roots are dry; <a href="/problems/flowers-dropping-off/">why flowers drop off</a> goes through the causes. If birds peck the flowers, a dwarf variety such as Hestia is easy to cover with netting.' ) .
@@ -317,20 +317,20 @@ return array(
 					$p( 'They grow best in cool weather. Spring sowings come up fast; in hot, dry spells the seed germinates less well and the plants are more likely to bolt. Because they are so quick, turnips are handy for filling a pot between two slower crops.' ) .
 
 					$h2( 'Container, potting mix and position' ) .
-					$p( 'Use a container at least 16 in (40 cm) wide, with drainage holes, filled with peat-free all-purpose potting mix (see <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> for more). Put it somewhere warm and sunny.' ) .
+					$p( 'Use a container at least 16 in (40 cm) wide, with drainage holes, filled with peat-free all-purpose potting mix (see <a href="/potting-mix-for-containers/">potting mix for containers</a> for more). Put it somewhere warm and sunny.' ) .
 
 					$h2( 'Sowing turnips' ) .
 					$p( 'Water the potting mix first, scatter the seed thinly over the surface, cover it with 1 in (2 cm) of potting mix and firm it gently. When the seedlings are up, thin them to 4 in (10 cm) apart for baby roots. The thinnings make a good salad.' ) .
-					$p( 'Turnips cope with cold, and Colorado State University Extension lists them for sowing outside from 2–4 weeks ahead of your last spring frost, once the soil is dry enough to work. Early varieties are sown from early spring to early summer for summer roots, and main-crop types from midsummer to late summer for fall. A small pinch of seed every few weeks gives a steady supply instead of a glut; see <a href="/plant-care/succession-planting-small-spaces/">succession planting in small spaces</a>.' ) .
+					$p( 'Turnips cope with cold, and Colorado State University Extension lists them for sowing outside from 2–4 weeks ahead of your last spring frost, once the soil is dry enough to work. Early varieties are sown from early spring to early summer for summer roots, and main-crop types from midsummer to late summer for fall. A small pinch of seed every few weeks gives a steady supply instead of a glut; see <a href="/succession-planting-small-spaces/">succession planting in small spaces</a>.' ) .
 					$p( 'For the earliest roots, start a hardy variety indoors in late winter, in modules of peat-free seed-starting mix, 1 in (2 cm) deep: two seeds per cell, keeping the stronger one, or up to four left together as a clump. Harden them off and plant them out in early spring without splitting the clumps.' ) .
 
 					$h2( 'Watering and care' ) .
-					$p( 'Steady moisture is what makes a good turnip. If the potting mix dries out, the roots stay small and woody, may split, and the plant may bolt. A container dries fast in summer, so check it often; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> gives a routine. Pull weeds by hand so you do not nick the tops of the roots.' ) .
+					$p( 'Steady moisture is what makes a good turnip. If the potting mix dries out, the roots stay small and woody, may split, and the plant may bolt. A container dries fast in summer, so check it often; <a href="/how-often-to-water-container-plants/">how often to water container plants</a> gives a routine. Pull weeds by hand so you do not nick the tops of the roots.' ) .
 
 					$h2( 'Harvesting roots and leaves' ) .
 					$p( 'Early varieties can be ready in about six weeks, main-crop types in about ten; University of Minnesota Extension gives turnips 50 to 60 days to maturity. Pull early roots from late spring to early fall, at golf-ball size to eat raw or tennis-ball size to cook. Do not leave them to grow larger, as they become woody and bitter. Main-crop roots are lifted from mid-fall.' ) .
 					$p( 'The leaves, or turnip greens, can be picked from spring. Young ones are peppery in salads; larger ones, up to 6 in (15 cm), cook like spinach, and the plant grows more. If roots are the goal, take only a few leaves per plant.' ) .
-					$p( 'Turnip roots are not fully hardy. Lift late sowings before harsh frost, or in a mild area leave them under row cover or a cloche and pull them as needed. Spare roots keep for several weeks in trays of moist coir or sand in a cool, frost-free place. Our page on <a href="/plant-care/protect-pots-in-winter/">protecting pots in winter</a> covers the container itself.' ) .
+					$p( 'Turnip roots are not fully hardy. Lift late sowings before harsh frost, or in a mild area leave them under row cover or a cloche and pull them as needed. Spare roots keep for several weeks in trays of moist coir or sand in a cool, frost-free place. Our page on <a href="/protect-pots-in-winter/">protecting pots in winter</a> covers the container itself.' ) .
 
 					$h2( 'Pests to watch for' ) .
 					$p( 'Seedlings need protecting from slugs (see <a href="/problems/slugs-and-snails/">slugs and snails</a>), and birds sometimes eat the leaves. As cabbage-family plants, turnips also attract <a href="/problems/flea-beetle-holes-in-leaves/">flea beetles</a> and caterpillars.' ) .

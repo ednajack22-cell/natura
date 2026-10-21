@@ -92,19 +92,19 @@ return array(
 					$p( 'Most blueberries are partially self-fertile, so one bush will fruit on its own. If you have space for more pots, grow two or three different varieties together for bigger harvests.' ) .
 
 					$h2( 'Which pot, potting mix and spot' ) .
-					$p( 'Give a young bush a container at least 12 in (30 cm) across, and move it on to one 18–20 in (45–50 cm) across once it is larger. Fill with a soil-based, peat-free ericaceous (acid) potting mix. Do not use ordinary all-purpose potting mix or add manure or mushroom compost: both make the mix less acid. For a closer look at what container potting mix does, see <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>.' ) .
+					$p( 'Give a young bush a container at least 12 in (30 cm) across, and move it on to one 18–20 in (45–50 cm) across once it is larger. Fill with a soil-based, peat-free ericaceous (acid) potting mix. Do not use ordinary all-purpose potting mix or add manure or mushroom compost: both make the mix less acid. For a closer look at what container potting mix does, see <a href="/potting-mix-for-containers/">potting mix for containers</a>.' ) .
 					$p( 'Pick a sheltered position in sun or light shade. A bush in partial shade still gives a reasonable crop, but full sun means more berries and brighter fall color.' ) .
 
 					$h2( 'Planting a blueberry' ) .
 					$p( 'The bush settles in best while it is dormant, from mid-fall to early spring. Potted plants can go in at other times too, but not during hot, dry spells or when the potting mix is frozen. Set the plant so the roots are only just covered, firm the potting mix lightly and water it in with rainwater.' ) .
 
 					$h2( 'Rainwater, feed and an acid mulch' ) .
-					$p( 'In a pot, a blueberry needs regular watering to keep the potting mix slightly moist. Use rainwater from a rain barrel. Tap water is usually alkaline, particularly in hard water areas, and if you use it all the time it gradually raises the pH of the potting mix. Keep tap water for a drought when there is nothing else. For how often to check pots in general, see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
+					$p( 'In a pot, a blueberry needs regular watering to keep the potting mix slightly moist. Use rainwater from a rain barrel. Tap water is usually alkaline, particularly in hard water areas, and if you use it all the time it gradually raises the pH of the potting mix. Keep tap water for a drought when there is nothing else. For how often to check pots in general, see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
 					$p( 'From spring to late summer, give a liquid fertilizer made for acid-loving plants every two or three weeks. Do not overdo it: blueberries dislike too much fertilizer. In late winter or early spring, spread a 2–3 in (5–7.5 cm) layer of low-pH organic matter on top of the potting mix, such as composted or chipped pine bark, composted pine needles or leaf mold. It helps hold the moisture in and keeps conditions acid.' ) .
 
 					$h2( 'Frost on the flowers, and winter' ) .
 					$p( 'The RHS rates blueberries as hardy in the UK, but in colder areas a late frost can damage the flowers. When frost is forecast during flowering, move the pot under cover overnight, or cover the bush with row cover or an old bedsheet, and remove it in the morning so pollinating insects can get in.' ) .
-					$p( 'Bushes in pots can suffer in a very cold or very wet winter. If heavy rain keeps the potting mix sodden, move the pot somewhere more sheltered, such as against the house wall under the eaves. For wrapping and grouping pots in a freeze, see <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
+					$p( 'Bushes in pots can suffer in a very cold or very wet winter. If heavy rain keeps the potting mix sodden, move the pot somewhere more sheltered, such as against the house wall under the eaves. For wrapping and grouping pots in a freeze, see <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
 
 					$h2( 'Pruning: keep a mix of old and young stems' ) .
 					$p( 'In the first two years, prune only to remove crossing or damaged branches. After that, prune while the bush is dormant, from late fall to early spring, ideally in late winter. By then you can tell the buds apart: fat buds will flower and fruit, while small, flat ones make leaves and shoots. Keep branches with plenty of fat buds.' ) .
@@ -197,7 +197,7 @@ return array(
 					$p( 'In a container, size is what counts. The RHS recommends a compact, dwarf variety such as \'Ruby Beauty\', which stays at about 1½–3 ft (0.5–1 m). Raspberries are self-fertile, so one plant is enough. Check the label to see which group your variety belongs to before you prune.' ) .
 
 					$h2( 'Pot, potting mix and position' ) .
-					$p( 'Use a pot at least 16 in (40 cm) wide and 12 in (30 cm) deep. Fill it with a blend of about two thirds peat-free all-purpose potting mix and one third soil-based mix (a peat-free John Innes No. 3 if you garden in the UK). Why the two are combined is explained in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>.' ) .
+					$p( 'Use a pot at least 16 in (40 cm) wide and 12 in (30 cm) deep. Fill it with a blend of about two thirds peat-free all-purpose potting mix and one third soil-based mix (a peat-free John Innes No. 3 if you garden in the UK). Why the two are combined is explained in <a href="/potting-mix-for-containers/">potting mix for containers</a>.' ) .
 					$p( 'Sun gives the best crop. Raspberries still fruit in light shade, but the plants are smaller, less healthy and give fewer berries. Shelter matters on a balcony: strong wind keeps pollinating insects away and can snap the thin side-branches that carry the fruit.' ) .
 
 					$h2( 'Planting one cane' ) .
@@ -205,7 +205,7 @@ return array(
 					$p( 'Most newly planted raspberries should be cut down to 10 in (25 cm) straight away. The exception is summer-bearing raspberries sold as \'long canes\': leave those unpruned, or you lose that summer\'s fruit.' ) .
 
 					$h2( 'Water and feed' ) .
-					$p( 'Raspberries have shallow roots, and in a pot they rely on you. Through the growing season keep the potting mix consistently moist, ideally with rainwater from a rain barrel, especially in hard water areas, and water in the cooler part of the day, preferably the morning. For the general routine, see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
+					$p( 'Raspberries have shallow roots, and in a pot they rely on you. Through the growing season keep the potting mix consistently moist, ideally with rainwater from a rain barrel, especially in hard water areas, and water in the cooler part of the day, preferably the morning. For the general routine, see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
 					$p( 'Feed once a month during the growing season with an organic all-purpose liquid fertilizer.' ) .
 
 					$h2( 'How to prune each type' ) .
@@ -318,16 +318,16 @@ return array(
 					) .
 
 					$h2( 'Pot, potting mix and position' ) .
-					$p( 'Start a young tree in a pot around 1 ft (30 cm) wide and deep, filled with good-quality, peat-free, soil-based potting mix (UK gardeners can use a peat-free John Innes No. 3); see <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> for why soil-based mixes last longer. Spring is the best time to plant, so the tree has a whole season to settle.' ) .
+					$p( 'Start a young tree in a pot around 1 ft (30 cm) wide and deep, filled with good-quality, peat-free, soil-based potting mix (UK gardeners can use a peat-free John Innes No. 3); see <a href="/potting-mix-for-containers/">potting mix for containers</a> for why soil-based mixes last longer. Spring is the best time to plant, so the tree has a whole season to settle.' ) .
 					$p( 'Figs need warmth and sun to ripen their fruit. Choose the warmest, most sheltered place you have, ideally in front of a south-facing wall, which gives off heat.' ) .
 					$p( 'Every couple of years in early spring, repot into a container only slightly larger than the last; a fig that is overpotted fruits less. When the pot is as large as you can move, keep it, but each repotting time remove the loose potting mix, trim the roots lightly and refill with fresh. In the years in between, swap the top layer of potting mix for new.' ) .
 
 					$h2( 'Watering and feeding' ) .
-					$p( 'A fig needs a steady supply of moisture from spring to fall. Pot-grown trees dry out quickly, so check daily in hot, dry weather and keep the potting mix evenly moist; a thirsty fig sheds leaves and fruit. Too much water does harm as well, so never leave the pot standing in a saucer of water, least of all in winter. General routines are in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
+					$p( 'A fig needs a steady supply of moisture from spring to fall. Pot-grown trees dry out quickly, so check daily in hot, dry weather and keep the potting mix evenly moist; a thirsty fig sheds leaves and fruit. Too much water does harm as well, so never leave the pot standing in a saucer of water, least of all in winter. General routines are in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
 					$p( 'Every two weeks through the growing season, give an organic, high-potassium liquid fertilizer, such as a tomato fertilizer, and stop once the figs begin to ripen in late summer. Overfeeding only produces more leaves.' ) .
 
 					$h2( 'Getting the fruitlets through winter' ) .
-					$p( 'The mature wood of most figs copes with frost, but hard frost damages the young shoot tips and the fruitlets on them, which would ruin next year\'s crop. In fall, move a potted fig into an unheated greenhouse, shed or porch, and bring it out again once all danger of frost has passed in spring. If that is not possible, wrap the branches in straw or bracken held in place with row cover or burlap. General advice on pots in cold weather is in <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
+					$p( 'The mature wood of most figs copes with frost, but hard frost damages the young shoot tips and the fruitlets on them, which would ruin next year\'s crop. In fall, move a potted fig into an unheated greenhouse, shed or porch, and bring it out again once all danger of frost has passed in spring. If that is not possible, wrap the branches in straw or bracken held in place with row cover or burlap. General advice on pots in cold weather is in <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
 
 					$h2( 'Pruning a fig bush in a pot' ) .
 					$p( 'Prune twice a year. Wear gloves: the sap irritates skin, and the RHS notes it is harmful to skin in sunlight. Work from the bottom of the tree upwards so it does not drip on you.' ) .

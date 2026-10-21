@@ -84,7 +84,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Hot weather speeds up the loss of water through the leaves, and a plant in a pot has only a small volume of potting mix to replace it from. A balcony adds sun and wind on top. The everyday routine is covered in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>; this page is about getting pots through the hot spell itself.' ) .
+					$p( 'Hot weather speeds up the loss of water through the leaves, and a plant in a pot has only a small volume of potting mix to replace it from. A balcony adds sun and wind on top. The everyday routine is covered in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>; this page is about getting pots through the hot spell itself.' ) .
 
 					$h2( 'Check every pot morning and evening' ) .
 					$p( 'In hot weather the RHS suggests checking containers twice a day, and on a balcony plants can need water twice a day or more in summer. Test the potting mix with a fingertip a third of the way into the pot, and water if it is dry at that depth. Small pots, terracotta and anything facing south or west dry out first, so look at those before the rest.' ) .
@@ -102,7 +102,7 @@ return array(
 							'Watch metal containers, which heat up quickly and bake the potting mix, and unglazed terracotta, which dries fast.',
 						)
 					) .
-					$p( 'Do not leave pots sitting in a full tray for hours after watering: tip the runoff back onto the potting mix or onto another plant. A surface layer of gravel or bark also slows drying; see <a href="/plant-care/how-to-mulch-pots/">how to mulch pots</a>.' ) .
+					$p( 'Do not leave pots sitting in a full tray for hours after watering: tip the runoff back onto the potting mix or onto another plant. A surface layer of gravel or bark also slows drying; see <a href="/how-to-mulch-pots/">how to mulch pots</a>.' ) .
 
 					$h2( 'Crops that need extra care in the heat' ) .
 					$list(
@@ -117,7 +117,7 @@ return array(
 					) .
 
 					$h2( 'Feeding and pruning in hot weather' ) .
-					$p( 'Container crops are the exception to the RHS advice not to feed in a drought: keep giving them their usual feed every other week until early fall, always on potting mix you have just watered. Do not add extra feeds, and leave heavy pruning until it is cooler, because both push out soft new growth when the plant is already struggling to take up water. Light jobs such as picking off dead flowers are fine. Routine feeding is in <a href="/plant-care/how-to-fertilize-container-plants/">how to fertilize container plants</a>.' ) .
+					$p( 'Container crops are the exception to the RHS advice not to feed in a drought: keep giving them their usual feed every other week until early fall, always on potting mix you have just watered. Do not add extra feeds, and leave heavy pruning until it is cooler, because both push out soft new growth when the plant is already struggling to take up water. Light jobs such as picking off dead flowers are fine. Routine feeding is in <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>.' ) .
 
 					$h2( 'Make the water go further' ) .
 					$list(
@@ -130,7 +130,7 @@ return array(
 					) .
 
 					$h2( 'After the heat' ) .
-					$p( 'A little wilting in the afternoon is often temporary, and scorched plants usually grow out of it once the weather breaks. If a plant is still limp early in the morning, the potting mix needs checking; <a href="/plant-care/overwatered-or-underwatered/">overwatered or underwatered?</a> helps you tell which.' ) .
+					$p( 'A little wilting in the afternoon is often temporary, and scorched plants usually grow out of it once the weather breaks. If a plant is still limp early in the morning, the potting mix needs checking; <a href="/overwatered-or-underwatered/">overwatered or underwatered?</a> helps you tell which.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -175,7 +175,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Seedlings and young plants have small roots that cannot go far looking for water, so they suffer first when the potting mix dries out, and they are also the easiest to drown. This page covers the weeks from sowing until a new plant has rooted into its pot. The sowing method itself is in <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a>.' ) .
+					$p( 'Seedlings and young plants have small roots that cannot go far looking for water, so they suffer first when the potting mix dries out, and they are also the easiest to drown. This page covers the weeks from sowing until a new plant has rooted into its pot. The sowing method itself is in <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a>.' ) .
 
 					$h2( 'Moisten the mix before you sow' ) .
 					$p( 'Water the seed-starting mix before the seed goes in, so it is moist but not soggy. The RHS points out that a saturated mix is colder, which slows germination. If you sow into a trough outside, water the furrow first so there is moisture at the depth where the seed will sit, then keep the surface moist afterwards.' ) .
@@ -196,7 +196,7 @@ return array(
 							'Young plants that arrive by mail as plugs should be unpacked, planted and watered as soon as they come.',
 						)
 					) .
-					$p( 'Tender plants raised indoors also need <a href="/plant-care/how-to-harden-off-seedlings/">hardening off</a> before they go outside for good.' ) .
+					$p( 'Tender plants raised indoors also need <a href="/how-to-harden-off-seedlings/">hardening off</a> before they go outside for good.' ) .
 
 					$h2( 'The first two weeks' ) .
 					$p( 'Newly planted crops are the ones most at risk of drying out until their roots spread into the new potting mix. Backyard Harvest advises keeping them well watered for about two weeks while they settle. The RHS notes that young and newly planted plants can need water every day in warm, dry weather. Look for the first signs of wilting or yellowing leaves and water promptly if you see them, but check the potting mix first: a new plant in a large pot of wet mix needs air at its roots more than another drink.' ) .
@@ -251,7 +251,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Drooping leaves usually send us straight for the watering can. Yet a plant in a pot can droop for two opposite reasons, and the RHS notes that houseplants are often killed with kindness when wilting is mistaken for thirst. This page helps you work out which problem you have. The day-to-day routine is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
+					$p( 'Drooping leaves usually send us straight for the watering can. Yet a plant in a pot can droop for two opposite reasons, and the RHS notes that houseplants are often killed with kindness when wilting is mistaken for thirst. This page helps you work out which problem you have. The day-to-day routine is in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.' ) .
 
 					$h2( 'Why both problems look the same' ) .
 					$p( 'In dry potting mix, the column of water that runs from the roots to the leaves is broken, the cells lose their firmness and the plant goes limp. In waterlogged mix, water fills the air spaces, the roots run out of oxygen and stop working, and the water supply to the leaves fails just the same. A waterlogged plant is, in effect, short of water, which is why the symptoms are so easily confused.' ) .
@@ -334,7 +334,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Fertilizer packs can look like a chemistry test, but the label is there to help. In the US, state fertilizer laws require the maker to guarantee the nutrient content printed on it, called the guaranteed analysis; in Great Britain the contents of a label are also set by law. Either way, one pack can be compared fairly with another. This page explains what the numbers and words mean. When and how often to feed is covered in <a href="/plant-care/how-to-fertilize-container-plants/">how to fertilize container plants</a>.' ) .
+					$p( 'Fertilizer packs can look like a chemistry test, but the label is there to help. In the US, state fertilizer laws require the maker to guarantee the nutrient content printed on it, called the guaranteed analysis; in Great Britain the contents of a label are also set by law. Either way, one pack can be compared fairly with another. This page explains what the numbers and words mean. When and how often to feed is covered in <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>.' ) .
 
 					$h2( 'What every label has to show' ) .
 					$p( 'On a US bag, Clemson Extension lists the fertilizer grade (the three numbers), the guaranteed analysis by weight, the total nitrogen and its sources, which tell you how much of it is slow-release, and any secondary nutrients such as calcium, magnesium and sulfur. A UK label, the RHS says, must show:' ) .
@@ -389,7 +389,7 @@ return array(
 						array(
 							'Quality: lumps, how well it dissolves and what it is made from are not covered. Fertilizers sold to gardeners are almost always fine on these points.',
 							'Some agricultural fertilizers use potassium chloride, which certain garden plants dislike; garden products rarely do.',
-							'Whether the plant can use it: nutrients stay locked up when the potting mix is dry or its pH is extreme, so check the watering first. See <a href="/plant-care/overwatered-or-underwatered/">overwatered or underwatered?</a>',
+							'Whether the plant can use it: nutrients stay locked up when the potting mix is dry or its pH is extreme, so check the watering first. See <a href="/overwatered-or-underwatered/">overwatered or underwatered?</a>',
 						)
 					) .
 
@@ -461,10 +461,10 @@ return array(
 					) .
 
 					$h2( 'Do not try to acidify ordinary potting mix' ) .
-					$p( 'Sulfur and other acidifying products are sold for garden soil, and the RHS lists them as unsuitable for potting mix; home pH kits are likewise designed for soil. In a pot, start with an acidic mix instead. Even then the pH creeps up over time with the water you add, so refresh or replace the mix every few years as part of <a href="/plant-care/how-to-repot-container-plants/">repotting</a>.' ) .
+					$p( 'Sulfur and other acidifying products are sold for garden soil, and the RHS lists them as unsuitable for potting mix; home pH kits are likewise designed for soil. In a pot, start with an acidic mix instead. Even then the pH creeps up over time with the water you add, so refresh or replace the mix every few years as part of <a href="/how-to-repot-container-plants/">repotting</a>.' ) .
 
 					$h2( 'Mulch and feed to match' ) .
-					$p( 'Pine needles rot down into an acid leaf mold that the RHS recommends for mulching acid-loving plants; collect them in a separate bag from other leaves. For feeding, choose a liquid fertilizer for acid-loving plants, or one containing chelated (sequestered) iron, which stays available whatever the pH. When and how often to feed is in <a href="/plant-care/how-to-fertilize-container-plants/">how to fertilize container plants</a>.' ) .
+					$p( 'Pine needles rot down into an acid leaf mold that the RHS recommends for mulching acid-loving plants; collect them in a separate bag from other leaves. For feeding, choose a liquid fertilizer for acid-loving plants, or one containing chelated (sequestered) iron, which stays available whatever the pH. When and how often to feed is in <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -508,7 +508,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Compost, the homemade kind, is different from the bagged potting mix your plants grow in; that is covered in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>. The RHS notes that only in the very smallest spaces is a compost bin hard to fit or fill, and suggests worm composting there instead. On a balcony you have three options, and many people combine two of them.' ) .
+					$p( 'Compost, the homemade kind, is different from the bagged potting mix your plants grow in; that is covered in <a href="/potting-mix-for-containers/">potting mix for containers</a>. The RHS notes that only in the very smallest spaces is a compost bin hard to fit or fill, and suggests worm composting there instead. On a balcony you have three options, and many people combine two of them.' ) .
 
 					$h2( 'Choose a method' ) .
 					$list(
@@ -538,10 +538,10 @@ return array(
 
 					$h2( 'A small compost bin' ) .
 					$p( 'If you have a shady corner, a compact bin can take plant waste from your pots, peelings, and shredded paper and cardboard. Balance it: the RHS suggests a quarter to a half soft green material and the rest dry, chopped brown material. A slimy, smelly bin has too much green and too little air, so add brown waste and keep the rain off; a dry, fibrous one needs water and more green waste. On a hard floor, add a few shovelfuls of garden soil to start it off. Small bins are slower than big ones and can take six months to two years.' ) .
-					$p( 'Wet compost and full bins are heavy, so think about weight on a balcony; see <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
+					$p( 'Wet compost and full bins are heavy, so think about weight on a balcony; see <a href="/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
 
 					$h2( 'Leaf mold in a bag' ) .
-					$p( 'Fallen leaves make leaf mold with no bin at all. Fill a trash bag with leaves, wet them if they are dry, pierce the bag with holes, tie it loosely and stack it out of the way. Most leaves take about two years. Gather them from quiet streets rather than main roads, and pick out any litter. Pine needles kept in a separate bag give an acid leaf mold for <a href="/plant-care/acidic-potting-mix-for-pots/">acid-loving plants</a>.' ) .
+					$p( 'Fallen leaves make leaf mold with no bin at all. Fill a trash bag with leaves, wet them if they are dry, pierce the bag with holes, tie it loosely and stack it out of the way. Most leaves take about two years. Gather them from quiet streets rather than main roads, and pick out any litter. Pine needles kept in a separate bag give an acid leaf mold for <a href="/acidic-potting-mix-for-pots/">acid-loving plants</a>.' ) .
 
 					$h2( 'Using what you make' ) .
 					$list(
@@ -549,7 +549,7 @@ return array(
 							'Worm compost is rich in nitrogen and potassium: use it as a top dressing for pots.',
 							'Compost and young leaf mold make a mulch on top of the potting mix in large pots.',
 							'Leaf mold more than two years old can go into homemade seed-starting or potting mixes.',
-							'Diluted worm bin liquid and bokashi tea are fertilizers of variable strength; for the routine, see <a href="/plant-care/how-to-fertilize-container-plants/">how to fertilize container plants</a>.',
+							'Diluted worm bin liquid and bokashi tea are fertilizers of variable strength; for the routine, see <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>.',
 							'Cleaned seafood and nut shells, which do not rot, make a decorative mulch for containers.',
 						)
 					),
@@ -601,7 +601,7 @@ return array(
 						array(
 							'<strong>Warming the potting mix:</strong> a cloche can raise the soil temperature underneath by up to 18 °F (10 °C). Put it in place at least a week before sowing or planting.',
 							'<strong>A longer season:</strong> warmer conditions can add three to four weeks at either end of the cropping season.',
-							'<strong>Hardening off</strong> young plants; see <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.',
+							'<strong>Hardening off</strong> young plants; see <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>.',
 							'<strong>Shelter:</strong> covers keep off wind, hail and heavy rain. Out of the wind, salad greens, spinach and other leafy crops grow faster and softer.',
 							'<strong>Some protection from pests and disease:</strong> cloches stop birds, though row cover or insect mesh are better against insects. Well-ventilated covers keep leaves dry, which reduces airborne diseases such as tomato blight.',
 							'<strong>Fall and winter:</strong> salad greens and chard keep cropping for longer under cover, and late bush tomatoes and chili peppers are buffered against the first light frosts.',
@@ -621,7 +621,7 @@ return array(
 					$p( 'Lightweight frames and plastic covers are cheap and easy to move, which is exactly why the wind takes them. Peg or weight plastic cloches, and anchor a mini greenhouse firmly to something solid. The balcony safety checks for frames, including rigid plastic rather than glass, are in the <a href="/diy-projects/make-a-mini-cold-frame/">mini cold frame project</a>.' ) .
 
 					$h2( 'What covers cannot do' ) .
-					$p( 'Cloches, frames and mini greenhouses protect against mild frosts only. Heavier grades of row cover (frost cloth) add about 4 °F (2 °C) of frost protection. For a hard winter, see <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
+					$p( 'Cloches, frames and mini greenhouses protect against mild frosts only. Heavier grades of row cover (frost cloth) add about 4 °F (2 °C) of frost protection. For a hard winter, see <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -702,7 +702,7 @@ return array(
 					) .
 
 					$h2( 'Make it strong enough for a balcony' ) .
-					$p( 'A support covered in leaves and fruit carries a lot of weight and catches the wind like a sail. Tie tepees firmly where the stakes cross and again lower down so they cannot splay. Put supports in before or at planting, so you do not damage roots later. Reused materials work well: old netting, prunings, even a child\'s outgrown play structure. Where to put tall pots out of the wind is covered in <a href="/plant-care/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
+					$p( 'A support covered in leaves and fruit carries a lot of weight and catches the wind like a sail. Tie tepees firmly where the stakes cross and again lower down so they cannot splay. Put supports in before or at planting, so you do not damage roots later. Reused materials work well: old netting, prunings, even a child\'s outgrown play structure. Where to put tall pots out of the wind is covered in <a href="/how-to-arrange-pots-in-a-small-space/">how to arrange pots in a small space</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(

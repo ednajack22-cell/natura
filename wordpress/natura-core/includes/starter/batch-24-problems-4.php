@@ -170,7 +170,7 @@ return array(
 					$list(
 						array(
 							'Sow thinly and thin early, so each plant has air around it.',
-							'Water in the morning, onto the potting mix; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> covers the routine.',
+							'Water in the morning, onto the potting mix; <a href="/how-often-to-water-container-plants/">how often to water container plants</a> covers the routine.',
 							'Check the undersides of outer leaves after wet spells and pick off any with mold.',
 							'Use fresh potting mix for the next <a href="/plants/lettuce-in-pots/">lettuces</a>, green onions or brassicas after an outbreak.',
 							'A white powder on top of leaves in dry weather is a different disease: see <a href="/problems/powdery-mildew/">powdery mildew</a>.',
@@ -241,7 +241,7 @@ return array(
 					$h2( 'How to keep rust down in pots' ) .
 					$list(
 						array(
-							'Feed steadily rather than heavily; <a href="/plant-care/how-to-fertilize-container-plants/">how to fertilize container plants</a> has the routine.',
+							'Feed steadily rather than heavily; <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a> has the routine.',
 							'Leave space between pots of leeks, garlic and beans so the leaves dry quickly after rain.',
 							'Clear rusty leaves and debris at the end of the crop or at leaf fall, and do not grow the same crop in that potting mix straight away.',
 							'For orange spots on mint or oregano, see <a href="/plants/mint-in-pots/">mint in pots</a>.',
@@ -379,7 +379,7 @@ return array(
 					$list(
 						array(
 							'Start each bag with fresh peat-free potting mix and certified seed tubers without visible scab.',
-							'From a few weeks after the shoots appear, check the bag every day or two and water before it dries; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> explains how to test it.',
+							'From a few weeks after the shoots appear, check the bag every day or two and water before it dries; <a href="/how-often-to-water-container-plants/">how often to water container plants</a> explains how to test it.',
 							'Never stand the bag in water, and keep the drainage holes clear.',
 							'Do not add lime or manure to potato potting mix.',
 							'Choose a variety with scab resistance if your last crop was scabby.',
@@ -400,7 +400,7 @@ return array(
 							'cause'    => 'Uneven watering',
 							'sign'     => 'Small, sunken pits on the skin, with discolored, dry flesh just beneath; in bad cases brown flecks run through the apple and it tastes bitter',
 							'check'    => 'Bitter pit is more common after hot, dry summers and in seasons when rainfall and temperature swing a lot. An irregular water supply stops calcium being taken up and moved around the tree. Potting mix in a container dries out much faster than garden soil.',
-							'fix'      => 'Never let the potting mix dry out between waterings in summer, above all in dry spells, and lay a mulch over the surface to hold moisture; see <a href="/plant-care/how-to-mulch-pots/">how to mulch pots</a>.',
+							'fix'      => 'Never let the potting mix dry out between waterings in summer, above all in dry spells, and lay a mulch over the surface to hold moisture; see <a href="/how-to-mulch-pots/">how to mulch pots</a>.',
 							'recovery' => 'Affected apples will not improve, but steady watering protects the next crop.',
 						),
 						array(
@@ -445,9 +445,9 @@ return array(
 					$h2( 'How to prevent bitter pit on a potted apple tree' ) .
 					$list(
 						array(
-							'Water a potted <a href="/plants/apple-tree-in-pot/">apple tree</a> on a steady routine through summer, more often in hot, dry spells; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> has the method.',
+							'Water a potted <a href="/plants/apple-tree-in-pot/">apple tree</a> on a steady routine through summer, more often in hot, dry spells; <a href="/how-often-to-water-container-plants/">how often to water container plants</a> has the method.',
 							'Keep a mulch on top of the potting mix.',
-							'Feed with a balanced fertilizer rather than high-nitrogen or high-potassium products; <a href="/plant-care/how-to-fertilize-container-plants/">how to fertilize container plants</a> explains the routine.',
+							'Feed with a balanced fertilizer rather than high-nitrogen or high-potassium products; <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a> explains the routine.',
 							'Pick only when the apples are fully ripe.',
 							'Dark sunken patches at the base of tomatoes and peppers come from the same calcium problem: see <a href="/problems/blossom-end-rot/">blossom end rot</a>.',
 						)
@@ -581,7 +581,7 @@ return array(
 					$h2( 'How to avoid carrot rust fly damage next time' ) .
 					$list(
 						array(
-							'Fill the pot with fresh peat-free potting mix for every carrot sowing; <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> explains how to reuse old mix for other crops.',
+							'Fill the pot with fresh peat-free potting mix for every carrot sowing; <a href="/potting-mix-for-containers/">potting mix for containers</a> explains how to reuse old mix for other crops.',
 							'Cover, sow and time the crop as set out in <a href="/plants/carrots-in-pots/">carrots in pots</a>.',
 							'Grow parsley in its own fresh potting mix, away from last year\'s carrot pots.',
 						)

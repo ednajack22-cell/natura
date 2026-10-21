@@ -112,19 +112,19 @@ return array(
 					$p( 'The RHS says it does best in the ground but works in a large container, especially picked small. If you like the idea of a quick root-like crop, <a href="/plants/turnips-in-pots/">turnips in pots</a> follow the same pick-them-young approach.' ) .
 
 					$h2( 'Pot, potting mix and position' ) .
-					$p( 'The RHS minimum is 1 ft (30 cm) both across and deep, with holes in the base. Fill the pot with a peat-free all-purpose potting mix (more on mixes in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>). Kohlrabi likes sun, but some varieties tolerate partial shade in summer, which helps on an east- or west-facing balcony. Final spacing is 6 in (15 cm) between plants.' ) .
+					$p( 'The RHS minimum is 1 ft (30 cm) both across and deep, with holes in the base. Fill the pot with a peat-free all-purpose potting mix (more on mixes in <a href="/potting-mix-for-containers/">potting mix for containers</a>). Kohlrabi likes sun, but some varieties tolerate partial shade in summer, which helps on an east- or west-facing balcony. Final spacing is 6 in (15 cm) between plants.' ) .
 
 					$h2( 'Sowing straight into the pot' ) .
-					$p( 'From early spring to midsummer, or into late summer where falls are mild, water the potting mix, scatter seed thinly and cover it with about ½ in (1.5 cm) of potting mix. Seedlings usually show within two weeks. When they are 1 in (2.5 cm) tall or have their first true leaves, thin them to 6 in (15 cm) apart. Small batches every few weeks keep a steady supply; see <a href="/plant-care/succession-planting-small-spaces/">succession planting in small spaces</a>.' ) .
+					$p( 'From early spring to midsummer, or into late summer where falls are mild, water the potting mix, scatter seed thinly and cover it with about ½ in (1.5 cm) of potting mix. Seedlings usually show within two weeks. When they are 1 in (2.5 cm) tall or have their first true leaves, thin them to 6 in (15 cm) apart. Small batches every few weeks keep a steady supply; see <a href="/succession-planting-small-spaces/">succession planting in small spaces</a>.' ) .
 					$p( 'Colorado State University Extension groups kohlrabi with the hardy crops that can be sown outside 2–4 weeks before your last spring frost, and gives about 50 days from sowing to harvest. Early sowings are still a gamble: a cold spell at the seedling stage is one of the commonest reasons the stems never swell. The RHS suggests holding back until it is reliably above 50 °F (10 °C), and Minnesota Extension links late frosts and long runs of cold nights with plants that flower before they swell. If you sow at the early end, keep a cloche or row cover ready for cold nights.' ) .
 
 					$h2( 'Starting plants indoors' ) .
-					$p( 'In a cold area, make the first sowings indoors in a cell tray of peat-free seed-starting mix, two seeds per cell ½ in (1.5 cm) deep, and remove the weaker seedling if both come up (<a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a> covers the basics). About three to four weeks after they appear, and while they are no more than 2 in (5 cm) tall, harden them off over a couple of weeks (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>) and plant them 6 in (15 cm) apart. Aim for mid- to late spring: kohlrabi also moves badly in hot weather.' ) .
+					$p( 'In a cold area, make the first sowings indoors in a cell tray of peat-free seed-starting mix, two seeds per cell ½ in (1.5 cm) deep, and remove the weaker seedling if both come up (<a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a> covers the basics). About three to four weeks after they appear, and while they are no more than 2 in (5 cm) tall, harden them off over a couple of weeks (<a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>) and plant them 6 in (15 cm) apart. Aim for mid- to late spring: kohlrabi also moves badly in hot weather.' ) .
 
 					$h2( 'Water, mesh and weeding' ) .
 					$list(
 						array(
-							'<strong>Water</strong>: a shortage slows growth and makes the stems woody, and drought can trigger flowering. Keep the potting mix evenly moist; <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> sets out a routine.',
+							'<strong>Water</strong>: a shortage slows growth and makes the stems woody, and drought can trigger flowering. Keep the potting mix evenly moist; <a href="/how-often-to-water-container-plants/">how often to water container plants</a> sets out a routine.',
 							'<strong>Mulch</strong>: a layer of compost on the surface, added once plants are growing well, helps hold moisture in.',
 							'<strong>Protect</strong>: cover plants with insect-proof mesh against cabbage white butterflies (the imported cabbageworm), and watch young plants for slugs in damp weather (see <a href="/problems/slugs-and-snails/">slugs and snails</a>).',
 							'<strong>Weed by hand</strong>: pull weeds near the stems rather than using a tool, which can nick the swelling stem.',
@@ -220,7 +220,7 @@ return array(
 					$p( 'Both crops take little room and look after themselves, but they need a warm, sunny spot and potting mix that drains well. The RHS suggests containers when the ground is too wet or there is no ground at all, which makes them a fair choice for a sunny patio.' ) .
 
 					$h2( 'Pot size and potting mix' ) .
-					$p( 'Onions want a tub no smaller than 18 in (45 cm) across and the same depth; shallots manage with 1 ft (30 cm) each way. Fill with peat-free soil-based potting mix, which holds water and nutrients well and keeps its structure all season. Both crops have small root systems, which is why a rich, moisture-holding mix matters. <a href="/plant-care/potting-mix-for-containers/">Potting mix for containers</a> explains the difference between soil-based and all-purpose mixes.' ) .
+					$p( 'Onions want a tub no smaller than 18 in (45 cm) across and the same depth; shallots manage with 1 ft (30 cm) each way. Fill with peat-free soil-based potting mix, which holds water and nutrients well and keeps its structure all season. Both crops have small root systems, which is why a rich, moisture-holding mix matters. <a href="/potting-mix-for-containers/">Potting mix for containers</a> explains the difference between soil-based and all-purpose mixes.' ) .
 
 					$h2( 'Planting sets' ) .
 					$p( 'Most onion sets go in from early to mid-spring for a harvest from midsummer to early fall. Colorado State University Extension puts onions among the hardy crops that can be planted 2–4 weeks before your last spring frost, and gives about 110 days from planting sets to harvest. Overwintering, or Japanese, onions are planted in fall and are ready in early to midsummer. Shallot sets can be planted in spring, and some varieties in fall or winter.' ) .
@@ -234,13 +234,13 @@ return array(
 					) .
 
 					$h2( 'Growing from seed instead' ) .
-					$p( 'Seed is cheaper and offers more varieties, but needs more care. The plants must be growing strongly by late spring, because lengthening days set off bulb formation, and more leaves at that point mean bigger bulbs. Sow onions indoors from midwinter to early spring, ½ in (1.3 cm) deep in cells; shallots in late winter, five or six seeds per cell, thinned to three or four. Plant the clumps out whole in spring after hardening them off. Backyard Harvest also describes sowing in clumps of several seeds to grow bunches of smaller bulbs. For the technique, see <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a>.' ) .
+					$p( 'Seed is cheaper and offers more varieties, but needs more care. The plants must be growing strongly by late spring, because lengthening days set off bulb formation, and more leaves at that point mean bigger bulbs. Sow onions indoors from midwinter to early spring, ½ in (1.3 cm) deep in cells; shallots in late winter, five or six seeds per cell, thinned to three or four. Plant the clumps out whole in spring after hardening them off. Backyard Harvest also describes sowing in clumps of several seeds to grow bunches of smaller bulbs. For the technique, see <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a>.' ) .
 
 					$h2( 'Care through spring and summer' ) .
 					$list(
 						array(
 							'<strong>Water</strong>: pots need watering more often than the ground, especially while roots are forming. Pour onto the potting mix, not over the leaves, which encourages fungal disease. Stop once the bulbs have swollen in midsummer, or spring-planted bulbs will not keep as well.',
-							'<strong>Feed</strong>: the RHS suggests an occasional organic-based general liquid feed for shallots in containers from spring to midsummer; for onions it relies on a rich potting mix at planting. See <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
+							'<strong>Feed</strong>: the RHS suggests an occasional organic-based general liquid feed for shallots in containers from spring to midsummer; for onions it relies on a rich potting mix at planting. See <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'<strong>Weed</strong>: the narrow leaves cast little shade, so weeds sprout easily and compete. Pull them out by hand.',
 							'<strong>Flower stems</strong>: remove them as soon as they appear; a bulb that tried to flower will not store.',
 						)
@@ -248,7 +248,7 @@ return array(
 					$p( 'Onion maggots, the larvae of the onion fly, feed on roots and bulbs, making the outer leaves yellow and wilt; in the UK, the RHS says the pest is most common in central and eastern England and does most damage in early to midsummer. Early flowering is usually caused by cold in spring; <a href="/problems/plants-bolting/">plants bolting</a> explains it.' ) .
 
 					$h2( 'Lifting and drying the crop' ) .
-					$p( 'When the leaves turn yellow and flop over, ease the bulbs out with a hand fork, taking care not to bruise them; use any damaged ones straight away. Pull shallot clusters apart into single bulbs. To keep them, dry them for about two weeks in a single layer on a rack, in full sun or, in wet weather, somewhere airy under cover. The rest of the method is in <a href="/plant-care/how-to-store-your-harvest/">how to store your harvest</a>.' ) .
+					$p( 'When the leaves turn yellow and flop over, ease the bulbs out with a hand fork, taking care not to bruise them; use any damaged ones straight away. Pull shallot clusters apart into single bulbs. To keep them, dry them for about two weeks in a single layer on a rack, in full sun or, in wet weather, somewhere airy under cover. The rest of the method is in <a href="/how-to-store-your-harvest/">how to store your harvest</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -349,12 +349,12 @@ return array(
 							'Endive: seed needs potting mix at 59 °F (15 °C) or more to germinate, so sow outdoors from late spring to late summer, or indoors from late winter with a bolt-resistant variety. Thin to 9–15 in (23–38 cm).',
 							'Winter escarole: sow in late summer.',
 							'For a fall crop, the University of Minnesota Extension suggests sowing about three months before your average first fall frost.',
-							'Indoor seedlings go out once the weather is reliably warm, from late spring, after hardening off (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>).',
+							'Indoor seedlings go out once the weather is reliably warm, from late spring, after hardening off (<a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>).',
 						)
 					) .
 
 					$h2( 'Water and feeding' ) .
-					$p( 'In a pot the potting mix dries quickly in summer, and a dry spell both sends plants to flower and makes the leaves taste harsher. Water regularly (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>) and give a general-purpose liquid feed every two weeks through summer. Check for slugs, which love the tender centers, especially under any cover; <a href="/problems/slugs-and-snails/">slugs and snails</a> lists safe ways to deal with them.' ) .
+					$p( 'In a pot the potting mix dries quickly in summer, and a dry spell both sends plants to flower and makes the leaves taste harsher. Water regularly (see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>) and give a general-purpose liquid feed every two weeks through summer. Check for slugs, which love the tender centers, especially under any cover; <a href="/problems/slugs-and-snails/">slugs and snails</a> lists safe ways to deal with them.' ) .
 
 					$h2( 'Blanching for milder leaves' ) .
 					$p( 'Radicchio and sugarloaf need no help. Endive is more bitter, so once a plant is mature, exclude light from its heart. Make sure the leaves are dry first, or they rot. Tie the head together loosely, lay a plate or tile over the center, or cover the whole plant with an upturned pot. The RHS gives about two weeks, longer in cool fall weather; the center should then be pale and tender.' ) .
@@ -450,10 +450,10 @@ return array(
 					$p( 'There are two routes. A compact bush variety, such as Harlequin, stays low in its container and does not trail away across the floor. A small-fruited trailing variety, such as Sweet Dumpling or Jack be Little, can be tied up a sturdy support so it takes wall space rather than floor space. The whole method for training one upwards is in <a href="/diy-projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>. Avoid big trailing types such as Crown Prince, whose vines reach about 10 ft (3 m).' ) .
 
 					$h2( 'Container and spot' ) .
-					$p( 'Plant one squash in a container at least 18 in (45 cm) across, filled with peat-free all-purpose or soil-based potting mix (see <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>). It needs full sun and warmth. Leave room around the container: crowded, still air encourages fungal diseases.' ) .
+					$p( 'Plant one squash in a container at least 18 in (45 cm) across, filled with peat-free all-purpose or soil-based potting mix (see <a href="/potting-mix-for-containers/">potting mix for containers</a>). It needs full sun and warmth. Leave room around the container: crowded, still air encourages fungal diseases.' ) .
 
 					$h2( 'From seed to planting out' ) .
-					$p( 'University of Maryland Extension suggests starting squash indoors about 3 weeks before planting time, which comes once all danger of frost has passed and the soil has warmed. Push a single seed edgeways into a small 3 in (7.5 cm) pot, about ½ in (13 mm) down, and keep it warm, ideally 65–70 °F (18–21 °C); <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a> covers the routine. Buying a young plant in late spring is a simpler option if you only want one. Squash is tender, so harden it off before it goes out (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>), and handle the young plant gently: Maryland advises disturbing the roots as little as possible. Expect 60–100 days to maturity, depending on the variety.' ) .
+					$p( 'University of Maryland Extension suggests starting squash indoors about 3 weeks before planting time, which comes once all danger of frost has passed and the soil has warmed. Push a single seed edgeways into a small 3 in (7.5 cm) pot, about ½ in (13 mm) down, and keep it warm, ideally 65–70 °F (18–21 °C); <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a> covers the routine. Buying a young plant in late spring is a simpler option if you only want one. Squash is tender, so harden it off before it goes out (<a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>), and handle the young plant gently: Maryland advises disturbing the roots as little as possible. Expect 60–100 days to maturity, depending on the variety.' ) .
 
 					$h2( 'Water, feed and ripen' ) .
 					$list(
@@ -467,7 +467,7 @@ return array(
 					$p( 'If small fruits shrivel early in a cool summer, poor pollination is the usual reason; it often stops as the weather warms.' ) .
 
 					$h2( 'Harvesting and curing' ) .
-					$p( 'The riper a winter squash is when you cut it, the better it keeps, so leave it on the plant as long as possible, but bring it in before any frost: frosted fruit will not store. Cut it with at least 4 in (10 cm) of stalk, and never carry it by the stalk. Cure the fruits by leaving them somewhere sunny for one to two weeks until the skins toughen, then keep them in an airy place at 50–60 °F (10–15 °C), not touching. Depending on the variety, they last three months or more. The full storage routine is in <a href="/plant-care/how-to-store-your-harvest/">how to store your harvest</a>.' ) .
+					$p( 'The riper a winter squash is when you cut it, the better it keeps, so leave it on the plant as long as possible, but bring it in before any frost: frosted fruit will not store. Cut it with at least 4 in (10 cm) of stalk, and never carry it by the stalk. Cure the fruits by leaving them somewhere sunny for one to two weeks until the skins toughen, then keep them in an airy place at 50–60 °F (10–15 °C), not touching. Depending on the variety, they last three months or more. The full storage routine is in <a href="/how-to-store-your-harvest/">how to store your harvest</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -554,12 +554,12 @@ return array(
 
 					$h2( 'Sow at the right time' ) .
 					$p( 'Early sowings bolt easily, so patience pays. The RHS suggests sowing outdoors in early to midsummer, thinly in shallow rows about ½ in (1.5 cm) deep, or straight into the container, then thinning gradually to the final spacing; the thinnings go into salads. Backyard Harvest gives the same warning about cold soil.' ) .
-					$p( 'For an earlier crop, Utah State University Extension suggests starting seeds indoors 4–6 weeks before your last spring frost. Sow one seed per cell so the whole root ball can be moved intact; <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a> explains cell trays. Plant out once frost has passed, after careful hardening off (<a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>), at the same depth as before. Keep a cloche or row cover handy if cold nights are forecast. Utah State adds that fennel is sensitive to transplant shock, so sowing where it will grow often gives better results, and that bulbs take about 60–90 days to mature, depending on the variety.' ) .
+					$p( 'For an earlier crop, Utah State University Extension suggests starting seeds indoors 4–6 weeks before your last spring frost. Sow one seed per cell so the whole root ball can be moved intact; <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a> explains cell trays. Plant out once frost has passed, after careful hardening off (<a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>), at the same depth as before. Keep a cloche or row cover handy if cold nights are forecast. Utah State adds that fennel is sensitive to transplant shock, so sowing where it will grow often gives better results, and that bulbs take about 60–90 days to mature, depending on the variety.' ) .
 
 					$h2( 'Keep it growing steadily' ) .
 					$list(
 						array(
-							'<strong>Water</strong>: the potting mix must never dry out. Containers are the most at risk, so check them often in summer, use rainwater where you can and water early in the day; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.',
+							'<strong>Water</strong>: the potting mix must never dry out. Containers are the most at risk, so check them often in summer, use rainwater where you can and water early in the day; see <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.',
 							'<strong>Mulch</strong>: a layer of compost on top, added once plants are growing well, holds moisture in.',
 							'<strong>Weed by hand</strong>: weeds compete for water and shelter slugs, which eat young plants (see <a href="/problems/slugs-and-snails/">slugs and snails</a>).',
 							'<strong>Blanch</strong>: when the base begins to swell, pull potting mix up around it, which whitens and sweetens the bulb.',

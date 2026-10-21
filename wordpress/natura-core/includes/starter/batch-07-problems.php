@@ -270,10 +270,10 @@ return array(
 					$h2( 'How to prevent powdery mildew' ) .
 					$list(
 						array(
-							'Keep the potting mix evenly moist through summer (see <a href="/plant-care/how-often-to-water-container-plants/">how often to water pots</a>).',
+							'Keep the potting mix evenly moist through summer (see <a href="/how-often-to-water-container-plants/">how often to water pots</a>).',
 							'Stand susceptible crops in full sun, with space around each pot.',
 							'Avoid tucking zucchini, peas and gooseberries into a still corner against a wall.',
-							'Go easy on high-nitrogen feeds (feeding routine: <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>).',
+							'Go easy on high-nitrogen feeds (feeding routine: <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>).',
 							'Cut out the first infected leaves straight away, and clear up fallen ones in fall.',
 							'Pick mildew-resistant varieties when you buy seed.',
 						)
@@ -349,8 +349,8 @@ return array(
 					$h2( 'How to stop crops running to seed' ) .
 					$list(
 						array(
-							'Sow little and often so a fresh batch is always coming on: see <a href="/plant-care/succession-planting-small-spaces/">succession planting in small spaces</a>.',
-							'Keep summer pots of leaves moist and in light shade (watering routine: <a href="/plant-care/how-often-to-water-container-plants/">how often to water pots</a>).',
+							'Sow little and often so a fresh batch is always coming on: see <a href="/succession-planting-small-spaces/">succession planting in small spaces</a>.',
+							'Keep summer pots of leaves moist and in light shade (watering routine: <a href="/how-often-to-water-container-plants/">how often to water pots</a>).',
 							'Choose varieties sold as slow to bolt for early and midsummer sowings.',
 							'Sow spinach where it will grow, and thin crowded seedlings.',
 							'Wait until midsummer to sow bok choy and other Asian greens, or sow them in spring under row cover.',

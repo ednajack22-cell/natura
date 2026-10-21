@@ -119,7 +119,7 @@ return array(
 							'cause'    => 'A cold, dry spring',
 							'sign'     => 'Seedlings that sit still and look stunted, with or without notches',
 							'check'    => 'The RHS notes that cold dry spells check growth more than the weevils do. Feel the potting mix: pots dry out quickly in spring winds.',
-							'fix'      => 'Keep seedlings watered so they grow quickly through the vulnerable stage, and cover them with row cover or a cloche to help them outgrow the damage; the routine is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.',
+							'fix'      => 'Keep seedlings watered so they grow quickly through the vulnerable stage, and cover them with row cover or a cloche to help them outgrow the damage; the routine is in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.',
 							'recovery' => '',
 						),
 					),
@@ -130,7 +130,7 @@ return array(
 					'faq'      => array(
 						array( 'question' => 'Should I spray fava beans with notched leaves?', 'answer' => 'No. The RHS says control is usually unnecessary because the plants tolerate the feeding, and UC IPM says treatment is not normally needed once plants pass the six-leaf stage. Healthy, well-watered seedlings are the best defense.' ),
 						array( 'question' => 'Is the pea leaf weevil related to black vine weevil?', 'answer' => 'Yes, both are broad-nosed weevils, but they behave differently. Pea leaf weevil grubs nibble root nodules of peas and beans with little effect, while black vine weevil grubs eat the roots of many potted plants. See <a href="/problems/black-vine-weevil/">black vine weevil</a> if you find C-shaped grubs in a pot.' ),
-						array( 'question' => 'How can I give beans a head start if weevils are bad here?', 'answer' => 'The book suggests raising young plants in small pots before planting them out, so they are bigger when the weevils find them; see <a href="/plant-care/how-to-start-seeds-indoors/">how to start seeds indoors</a>.' ),
+						array( 'question' => 'How can I give beans a head start if weevils are bad here?', 'answer' => 'The book suggests raising young plants in small pots before planting them out, so they are bigger when the weevils find them; see <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a>.' ),
 					),
 					'sources'  => array(
 						array( 'title' => 'RHS — Pea and bean weevils', 'url' => 'https://www.rhs.org.uk/biodiversity/pea-and-bean-weevils' ),
@@ -144,7 +144,7 @@ return array(
 						array(
 							'Raise seedlings in small pots and move them into their final container once they are sturdy.',
 							'Keep the potting mix moist in dry spring weather, so plants grow quickly past the seedling stage.',
-							'Use row cover or a cloche over seedlings and in cold spells; harden plants off afterwards, as in <a href="/plant-care/how-to-harden-off-seedlings/">how to harden off seedlings</a>.',
+							'Use row cover or a cloche over seedlings and in cold spells; harden plants off afterwards, as in <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>.',
 							'Irregular holes with slime trails are <a href="/problems/slugs-and-snails/">slugs and snails</a>, not weevils. More on the crops is in <a href="/plants/fava-beans-in-pots/">fava beans in pots</a> and <a href="/plants/peas-in-pots/">peas in pots</a>.',
 						)
 					),
@@ -177,7 +177,7 @@ return array(
 							'cause'    => 'Rot following the damage',
 							'sign'     => 'Soft, smelly, slimy stems and bulbs',
 							'check'    => 'Fungi and bacteria move into tissue damaged by either insect. The rot is often the first thing you notice.',
-							'fix'      => 'Discard rotting plants. Do not refill the same container with alliums next year: pupae left in the old potting mix can hatch under a new cover. Start with fresh peat-free potting mix, as in <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>.',
+							'fix'      => 'Discard rotting plants. Do not refill the same container with alliums next year: pupae left in the old potting mix can hatch under a new cover. Start with fresh peat-free potting mix, as in <a href="/potting-mix-for-containers/">potting mix for containers</a>.',
 							'recovery' => '',
 						),
 					),

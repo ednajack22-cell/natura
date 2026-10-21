@@ -36,9 +36,9 @@ $csu_guide = array(
 $photo_end = ' Photorealistic, natural light, shallow depth of field, no text, no people\'s faces, no logos.';
 $pin_end   = ' Vertical 2:3, photorealistic, empty space at the top for text, no text in the image.';
 
-$water_link   = '<a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>';
-$compost_link = '<a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>';
-$seed_link    = '<a href="/plant-care/how-to-save-seeds-from-your-plants/">saving seed from your plants</a>';
+$water_link   = '<a href="/how-often-to-water-container-plants/">how often to water container plants</a>';
+$compost_link = '<a href="/potting-mix-for-containers/">potting mix for containers</a>';
+$seed_link    = '<a href="/how-to-save-seeds-from-your-plants/">saving seed from your plants</a>';
 
 return array(
 	'name'   => __( 'Summer veg in pots', 'natura-core' ),
@@ -237,7 +237,7 @@ return array(
 					$h2( 'Sowing green beans' ) .
 					$p( 'Beans are tender. According to Colorado State University Extension, bean seed can go in around the average date of your last spring frost, once the soil has warmed. Sow straight into the final pot. Set bush bean seeds 2 in (5 cm) deep and 6 in (15 cm) apart. For pole beans, push a teepee of 8 ft (2.5 m) stakes into the container first, sow two seeds at the foot of each stake, and remove the weaker seedling if both come up.' ) .
 					$p( 'For the earliest pods, you can also start seeds indoors a little before that. Put one bean, 2 in (5 cm) deep, in each small pot or deep cell of moist peat-free all-purpose potting mix, and stand them on a heat mat or on a warm, sunny windowsill. The seedlings grow fast in good light.' ) .
-					$p( 'Bush beans only crop for a few weeks, so sow another pot every few weeks until midsummer for a longer supply. Our guide to <a href="/plant-care/succession-planting-small-spaces/">succession planting in a small space</a> explains how to plan it.' ) .
+					$p( 'Bush beans only crop for a few weeks, so sow another pot every few weeks until midsummer for a longer supply. Our guide to <a href="/succession-planting-small-spaces/">succession planting in a small space</a> explains how to plan it.' ) .
 
 					$h2( 'Planting out young bean plants' ) .
 					$p( 'Indoor-raised or bought plants go outside only once all danger of frost has passed, after they have been hardened off. Water them well before and after planting, and space them 6 in (15 cm) apart. With pole beans, put one plant at the base of each stake and loosely tie the shoot on to start it climbing.' ) .

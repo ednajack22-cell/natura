@@ -401,7 +401,7 @@ function natura_core_demo_plants(): array {
 			'content'   =>
 				$h2( 'Choose everbearing plants' ) .
 				$p( 'Everbearing (day-neutral) varieties crop in flushes from early summer until fall, which suits a small space better than one big early-summer harvest.' ) .
-				$p( 'Cold-stored runners, sold from spring to early summer, are another quick start: plant them straight away, leave their flowers on, and the RHS says they can fruit about two months later before settling into their normal season the next year. For an earlier crop the following spring, move a pot into a cold frame or unheated greenhouse in late winter: the RHS expects fruit about two weeks ahead of plants left outside, or at least a week ahead under a cloche. Our <a href="/plant-care/how-to-hand-pollinate-fruit-and-vegetables/">hand-pollination guide</a> explains how to help covered flowers set fruit.' ) .
+				$p( 'Cold-stored runners, sold from spring to early summer, are another quick start: plant them straight away, leave their flowers on, and the RHS says they can fruit about two months later before settling into their normal season the next year. For an earlier crop the following spring, move a pot into a cold frame or unheated greenhouse in late winter: the RHS expects fruit about two weeks ahead of plants left outside, or at least a week ahead under a cloche. Our <a href="/how-to-hand-pollinate-fruit-and-vegetables/">hand-pollination guide</a> explains how to help covered flowers set fruit.' ) .
 				$h2( 'Plant with the crown at soil level' ) .
 				$p( 'Set each plant so the crown, where the leaves meet the roots, sits exactly at the surface. Buried crowns rot; exposed roots dry out. University of Minnesota Extension advises planting potted strawberries soon after you buy them, once the risk of frost has passed.' ) .
 				$p( 'Strawberry plants crop less well with age, and the RHS suggests replanting every three or four years. Runners make the replacements for free. In late summer, sink a few 3½ in (9 cm) pots of peat-free all-purpose potting mix beside the parent plant, pin a runner onto each with a U-shaped piece of wire, and keep the mix just moist. Once the young plants have rooted, cut them from the parent. Remove any runners you do not need. Everbearing varieties make fewer runners, so you may need to buy new plants instead.' ) .
@@ -637,7 +637,7 @@ function natura_core_demo_articles(): array {
 				$p( 'Peat-free potting mix is at its best in the season you buy it. Left in the bag for longer, it begins to break down, so buy what you need for the year rather than stocking up.' ) .
 				$h2( 'Refresh potting mix every year' ) .
 				$p( 'Plants that live in containers for years benefit from repotting every few years, either into a bigger pot or back into the same one after the potting mix is refreshed. In the years between, and in pots too big to move, scrape away the top inch or two each spring and replace it with fresh potting mix mixed with a slow-release fertilizer.' ) .
-				$p( 'Once the fresh mix\'s own food runs out, the plants depend on you: see <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
+				$p( 'Once the fresh mix\'s own food runs out, the plants depend on you: see <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.' ) .
 				$h2( 'What to do with old potting mix' ) .
 				$list(
 					array(
@@ -735,7 +735,7 @@ function natura_core_demo_gear(): array {
 				$h2( 'How we chose' ) .
 				$p( 'This guide compares types of potting mix, not brands. Each pick and each line comes from RHS advice on growing media and container growing, listed in the sources. We have not run our own trial of these products.' ) .
 				$h2( 'After you buy' ) .
-				$p( 'How to fill pots, refresh the potting mix each spring and reuse old mix is covered in <a href="/plant-care/potting-mix-for-containers/">how to fill, refresh and reuse potting mix in pots</a>.' ),
+				$p( 'How to fill pots, refresh the potting mix each spring and reuse old mix is covered in <a href="/potting-mix-for-containers/">how to fill, refresh and reuse potting mix in pots</a>.' ),
 		),
 	);
 }

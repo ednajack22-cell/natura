@@ -109,16 +109,16 @@ return array(
 					$p( 'Hearting types take more room, so they are usually grown in the ground, but a large container works. Compact varieties such as Little Gem suit a balcony best. This guide is about growing each lettuce to full size; for a trough of mixed baby leaves cut young and left to regrow, see <a href="/plants/salad-greens-in-pots/">cut-and-come-again salad greens in pots</a>.' ) .
 
 					$h2( 'Container and position' ) .
-					$p( 'Use a pot at least 1 ft (30 cm) wide and deep, or a grow bag. Fill it with peat-free potting mix; <a href="/plant-care/potting-mix-for-containers/">our potting mix guide</a> explains what a container mix needs. Give each hearting plant about 1 ft (30 cm) of space and each loose-leaf plant about 6 in (15 cm). Squeezed together, hearting lettuces stay loose and never firm up.' ) .
+					$p( 'Use a pot at least 1 ft (30 cm) wide and deep, or a grow bag. Fill it with peat-free potting mix; <a href="/potting-mix-for-containers/">our potting mix guide</a> explains what a container mix needs. Give each hearting plant about 1 ft (30 cm) of space and each loose-leaf plant about 6 in (15 cm). Squeezed together, hearting lettuces stay loose and never firm up.' ) .
 					$p( 'Spring and fall plantings like a warm, sunny spot. From late spring into summer, move the pot where it gets light shade in the hottest hours: heat pushes lettuce into flower.' ) .
 
 					$h2( 'Sowing and planting' ) .
 					$p( 'Lettuce is a cool-season crop. Colorado State University Extension says you can sow it outdoors as early as 2–4 weeks before your last spring frost, as soon as the soil is workable, and you can keep sowing through summer into early fall. For heads in summer and fall, sow from early spring until midsummer. The earliest sowings are best started indoors: scatter seed thinly in small pots or modules of moist peat-free seed-starting mix and keep them on a bright windowsill. Once the seedlings have a few leaves, prick them out into their own modules, then harden them off and move them to the final container in spring, under row cover or a cloche if nights are still cold.' ) .
-					$p( 'You can also sow straight into the container, ½ in (1 cm) deep, then thin in stages to the spacings above. The thinnings are good to eat. Rather than one big sowing, start a few plants every couple of weeks so they do not all heart up together; <a href="/plant-care/succession-planting-small-spaces/">succession planting</a> explains how to plan this in a small space.' ) .
+					$p( 'You can also sow straight into the container, ½ in (1 cm) deep, then thin in stages to the spacings above. The thinnings are good to eat. Rather than one big sowing, start a few plants every couple of weeks so they do not all heart up together; <a href="/succession-planting-small-spaces/">succession planting</a> explains how to plan this in a small space.' ) .
 					$p( 'In very hot weather some varieties will not germinate. Sow in the evening, water with cold water and shade the pot until the seedlings show.' ) .
 
 					$h2( 'Watering, feeding and stopping bolting' ) .
-					$p( 'Steady moisture is what makes a good lettuce. A pot dries out far faster than garden soil and may need water every day in summer; see <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a> for a routine. Water early in the morning rather than in the evening, because damp potting mix overnight attracts slugs and favors gray mold.' ) .
+					$p( 'Steady moisture is what makes a good lettuce. A pot dries out far faster than garden soil and may need water every day in summer; see <a href="/how-often-to-water-container-plants/">how often to water container plants</a> for a routine. Water early in the morning rather than in the evening, because damp potting mix overnight attracts slugs and favors gray mold.' ) .
 					$p( 'Lettuces in containers benefit from a general-purpose organic liquid fertilizer every two weeks through summer. Bolting, when the plant runs up a flower stem and the leaves turn bitter, comes sooner in hot, dry weather. Light shade and regular watering delay it. If bolting has spoiled crops before, choose romaine or crisphead varieties, which hold out longer.' ) .
 
 					$h2( 'When and how to harvest' ) .
@@ -221,7 +221,7 @@ return array(
 					$p( 'You pick a few leaves at a time and the plant keeps making more, so a spring sowing crops right through summer into fall, and a midsummer sowing stands through winter to give early leaves the next spring. With colorful stems it also looks good among flowers on a patio.' ) .
 
 					$h2( 'Choose the container and the spot' ) .
-					$p( 'Chard grows large, with leaves at least 1 ft (30 cm) tall, so pick a container at least 16 in (40 cm) wide and deep. Fill it with peat-free potting mix; for more on mixing and refreshing it, see <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a>.' ) .
+					$p( 'Chard grows large, with leaves at least 1 ft (30 cm) tall, so pick a container at least 16 in (40 cm) wide and deep. Fill it with peat-free potting mix; for more on mixing and refreshing it, see <a href="/potting-mix-for-containers/">potting mix for containers</a>.' ) .
 					$p( 'Stand the pot in a warm, sunny place. In summer it tolerates some light shade. Choose white-stemmed varieties if your balcony is cold and exposed, as they tend to be the hardiest and most productive.' ) .
 
 					$h2( 'Sow in spring and again in midsummer' ) .
@@ -230,7 +230,7 @@ return array(
 					$p( 'Two sowings are usually enough: one around your last spring frost for summer and fall, and one in midsummer for leaves the following spring. For baby salad leaves only, sow small batches every few weeks from early spring to late summer.' ) .
 
 					$h2( 'Watering and mulching' ) .
-					$p( 'Chard planted in the ground copes with dry spells once established, but a container dries out quickly, so water regularly all season; <a href="/plant-care/how-often-to-water-container-plants/">this watering guide</a> covers how to judge it. A mulch of compost on the surface helps hold moisture. Keep it a little away from the base of the plant so the stalks do not rot. Fresh potting mix gives chard all the food it needs.' ) .
+					$p( 'Chard planted in the ground copes with dry spells once established, but a container dries out quickly, so water regularly all season; <a href="/how-often-to-water-container-plants/">this watering guide</a> covers how to judge it. A mulch of compost on the surface helps hold moisture. Keep it a little away from the base of the plant so the stalks do not rot. Fresh potting mix gives chard all the food it needs.' ) .
 
 					$h2( 'Picking the leaves' ) .
 					$p( 'A typical harvest comes about 60 days after sowing, according to Colorado State University Extension. Take the outer leaves first, cutting each stalk cleanly at its base with pruners or scissors. Leave several central leaves to grow on for the next picking a few weeks later. Regular light picking encourages fresh growth.' ) .
@@ -331,7 +331,7 @@ return array(
 					$p( 'Beets take up little room, especially if you pull them young, which makes them one of the easier root crops for a balcony. Besides the familiar purple-red, there are crimson, orange, yellow, white and striped varieties; paler kinds do not stain your hands, while darker ones tend to taste richer and earthier. The leaves are edible too, so a single pot gives you two crops.' ) .
 
 					$h2( 'Pot, potting mix and variety' ) .
-					$p( 'Choose a container at least 16 in (40 cm) wide and deep and fill it with peat-free potting mix; see <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> for what a good mix needs. Pick a variety with round or oval roots; long, tapering ones are better left for open ground. Put the pot in full sun.' ) .
+					$p( 'Choose a container at least 16 in (40 cm) wide and deep and fill it with peat-free potting mix; see <a href="/potting-mix-for-containers/">potting mix for containers</a> for what a good mix needs. Pick a variety with round or oval roots; long, tapering ones are better left for open ground. Put the pot in full sun.' ) .
 					$p( 'Early sowings are prone to bolting, when the plant flowers instead of swelling its root, so for the first spring sowings choose a bolt-resistant variety such as Boltardy.' ) .
 
 					$h2( 'When and how to sow beets' ) .
@@ -344,13 +344,13 @@ return array(
 							'Water again gently if the surface looks dry.',
 						)
 					) .
-					$p( 'For a longer harvest, sow a short batch every few weeks rather than filling the pot at once; <a href="/plant-care/succession-planting-small-spaces/">succession planting in small spaces</a> shows how. You can also start beets indoors in modules, one cluster per cell 1 in (2.5 cm) deep, and plant out when the seedlings are at least 2 in (5 cm) tall, hardened off and well rooted.' ) .
+					$p( 'For a longer harvest, sow a short batch every few weeks rather than filling the pot at once; <a href="/succession-planting-small-spaces/">succession planting in small spaces</a> shows how. You can also start beets indoors in modules, one cluster per cell 1 in (2.5 cm) deep, and plant out when the seedlings are at least 2 in (5 cm) tall, hardened off and well rooted.' ) .
 
 					$h2( 'Thinning' ) .
 					$p( 'For golf-ball roots, leave the seedlings as they are. For bigger roots, thin them when they reach about 1 in (2.5 cm) tall, keeping the strongest one every 4 in (10 cm). The pulled seedlings are good in salads. If you raised clumps in modules, plant each clump whole about 6 in (15 cm) apart and do not split it.' ) .
 
 					$h2( 'Watering and feeding' ) .
-					$p( 'Watering decides the texture of the roots. Too little and they turn woody; a dry spell followed by a soaking makes them split; too much gives lush leaves and small roots. In a container, which dries out far quicker than the ground, aim for potting mix that stays fairly moist; our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> shows how to check.' ) .
+					$p( 'Watering decides the texture of the roots. Too little and they turn woody; a dry spell followed by a soaking makes them split; too much gives lush leaves and small roots. In a container, which dries out far quicker than the ground, aim for potting mix that stays fairly moist; our <a href="/how-often-to-water-container-plants/">watering guide</a> shows how to check.' ) .
 					$p( 'Beets rarely need feeding. If plants look weak and slow, give an organic high-nitrogen liquid fertilizer. Pull weeds by hand rather than with a tool, to avoid nicking the tops of the roots.' ) .
 
 					$h2( 'Harvest and storage' ) .
@@ -438,15 +438,15 @@ return array(
 					$p( 'Green onions, sold as scallions, salad onions or spring onions, are quick, tidy and happy in a container. They are varieties of the common onion (Allium cepa) or of a related species, Allium fistulosum. Some form a small round white or purple bulb, others stay straight like slim leeks. You pull them young and eat them raw or in stir-fries.' ) .
 
 					$h2( 'Pot and position' ) .
-					$p( 'A pot at least 1 ft (30 cm) wide is enough. Peat-free potting mix suits them (<a href="/plant-care/potting-mix-for-containers/">our potting mix guide</a> covers the details). Stand the pot in a warm, sunny, sheltered spot near the kitchen door, so you can pull a few as you cook. Green onions have a small root system, which is why a rich mix and steady moisture matter.' ) .
+					$p( 'A pot at least 1 ft (30 cm) wide is enough. Peat-free potting mix suits them (<a href="/potting-mix-for-containers/">our potting mix guide</a> covers the details). Stand the pot in a warm, sunny, sheltered spot near the kitchen door, so you can pull a few as you cook. Green onions have a small root system, which is why a rich mix and steady moisture matter.' ) .
 
 					$h2( 'Sowing' ) .
-					$p( 'Water the potting mix well, scatter the seed thinly over the surface and cover it with about ½ in (1 cm) of mix. Colorado State University Extension lists onions among the hardy crops, so outdoor sowings can start as early as 2–4 weeks before your last spring frost and continue through summer. A pinch of seed every couple of weeks keeps them coming without a glut; the <a href="/plant-care/succession-planting-small-spaces/">succession planting guide</a> has a simple plan. Ishikura is the exception: one sowing crops over a long period.' ) .
+					$p( 'Water the potting mix well, scatter the seed thinly over the surface and cover it with about ½ in (1 cm) of mix. Colorado State University Extension lists onions among the hardy crops, so outdoor sowings can start as early as 2–4 weeks before your last spring frost and continue through summer. A pinch of seed every couple of weeks keeps them coming without a glut; the <a href="/succession-planting-small-spaces/">succession planting guide</a> has a simple plan. Ishikura is the exception: one sowing crops over a long period.' ) .
 					$p( 'If you want an early crop, start seeds indoors in modules in early spring, harden the young plants off and move them out in spring, an inch or two apart, watering before and after planting. Young plants are also sold in spring and early summer if you only need a few.' ) .
 
 					$h2( 'Thinning and care' ) .
 					$p( 'Thin the seedlings to about 1 in (2.5 cm) apart and use the thinnings in salads. Plants left closer together are more likely to suffer from downy mildew. Pull out any weeds, as green onions grow poorly when they compete for light and moisture.' ) .
-					$p( 'In the ground, green onions only need water in long dry spells, but a pot dries out quickly, especially in hot weather, so water it more often; <a href="/plant-care/how-often-to-water-container-plants/">our watering guide</a> explains how to check.' ) .
+					$p( 'In the ground, green onions only need water in long dry spells, but a pot dries out quickly, especially in hot weather, so water it more often; <a href="/how-often-to-water-container-plants/">our watering guide</a> explains how to check.' ) .
 
 					$h2( 'Harvesting' ) .
 					$p( 'Green onions generally reach a usable size about two months, or around 60 days, after sowing. They are at their best young, around 6 in (15 cm) tall, with a bulb no wider than ½–1 in (1–2.5 cm), depending on the variety. Pull them as you need them. The longer they grow, the stronger the taste.' ) .

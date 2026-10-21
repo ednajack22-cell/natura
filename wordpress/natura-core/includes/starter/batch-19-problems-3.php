@@ -165,8 +165,8 @@ return array(
 						array(
 							'Slide transplants and new potted plants out of their containers and look at the roots before planting.',
 							'Cover lettuces, salad greens and carrots with insect-proof mesh from late spring to late summer.',
-							'Keep pots well watered in summer: stressed roots show the damage sooner. Our <a href="/plant-care/how-often-to-water-container-plants/">watering guide</a> explains how to check.',
-							'Use fresh potting mix for the next lettuce or carrot sowing; <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> covers refreshing an old mix.',
+							'Keep pots well watered in summer: stressed roots show the damage sooner. Our <a href="/how-often-to-water-container-plants/">watering guide</a> explains how to check.',
+							'Use fresh potting mix for the next lettuce or carrot sowing; <a href="/potting-mix-for-containers/">potting mix for containers</a> covers refreshing an old mix.',
 							'For aphids on leaves and shoot tips, see <a href="/problems/aphids-container-plants/">aphids on container plants</a>.',
 						)
 					),
@@ -231,7 +231,7 @@ return array(
 					$list(
 						array(
 							'Leave gaps between pots and thin crowded plants so air can move.',
-							'Water in the morning, onto the potting mix; the routine is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.',
+							'Water in the morning, onto the potting mix; the routine is in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.',
 							'Take off fading flowers, damaged leaves and rotting fruit every few days, and bag them as you remove them.',
 							'Pick strawberries as soon as they are ripe, and keep the berries off damp potting mix with a straw mulch, as Iowa State University Extension suggests.',
 							'Open vents on greenhouses and cold frames whenever the weather allows.',
@@ -294,7 +294,7 @@ return array(
 							'Look for notched leaf edges on strawberries from spring to late summer: they show adults are laying eggs nearby.',
 							'Check under pots and in dark corners of the balcony, where the adults rest by day.',
 							'Treat pots that have had grubs with nematodes in late summer or early fall.',
-							'When you repot or refresh potting mix, look through the roots for grubs; <a href="/plant-care/potting-mix-for-containers/">potting mix for containers</a> covers refreshing.',
+							'When you repot or refresh potting mix, look through the roots for grubs; <a href="/potting-mix-for-containers/">potting mix for containers</a> covers refreshing.',
 							'Birds, frogs, toads and ground beetles eat vine weevils, so leave them be.',
 						)
 					),
@@ -430,9 +430,9 @@ return array(
 					$list(
 						array(
 							'Use existing walls and screens for shelter, and add a slatted screen or netting on the windward side.',
-							'Choose wide, deep pots that do not dry out between waterings; the routine is in <a href="/plant-care/how-often-to-water-container-plants/">how often to water container plants</a>.',
+							'Choose wide, deep pots that do not dry out between waterings; the routine is in <a href="/how-often-to-water-container-plants/">how often to water container plants</a>.',
 							'Water the potting mix early or late in the day, not the leaves at midday.',
-							'Before winter, move evergreens such as bay out of cold winds; see <a href="/plant-care/protect-pots-in-winter/">how to protect pots in winter</a>.',
+							'Before winter, move evergreens such as bay out of cold winds; see <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.',
 						)
 					),
 			),
@@ -500,7 +500,7 @@ return array(
 					$list(
 						array(
 							'Grow <a href="/plants/blueberries-in-pots/">blueberries</a> and other acid-loving plants in peat-free ericaceous potting mix, and water them with rainwater.',
-							'Use tomato fertilizer at the label dose, not stronger; the routine is in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
+							'Use tomato fertilizer at the label dose, not stronger; the routine is in <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Keep the potting mix evenly moist, since stressed roots take up nutrients poorly.',
 							'If the whole leaf is yellow, or the veins are yellow too, go to <a href="/problems/yellow-leaves-container-plants/">why container plant leaves turn yellow</a>.',
 						)
@@ -567,7 +567,7 @@ return array(
 					$h2( 'How to keep container plants growing strongly' ) .
 					$list(
 						array(
-							'Potting mix feeds plants for about six to eight weeks after potting; plan feeds after that with <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
+							'Potting mix feeds plants for about six to eight weeks after potting; plan feeds after that with <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Check moisture before you feed: hungry-looking plants are often too wet or too dry.',
 							'Pot up plants whose roots fill the container.',
 							'Seedlings that are tall and pale rather than short and pale are short of light: see <a href="/problems/leggy-seedlings/">leggy seedlings</a>.',
@@ -645,7 +645,7 @@ return array(
 					$list(
 						array(
 							'Give fruiting crops the sunniest, most sheltered spot on the balcony or patio.',
-							'Switch from a general fertilizer to a high-potassium one when flowering starts; timings are in <a href="/plant-care/how-to-fertilize-container-plants/">how to feed container plants</a>.',
+							'Switch from a general fertilizer to a high-potassium one when flowering starts; timings are in <a href="/how-to-fertilize-container-plants/">how to feed container plants</a>.',
 							'Pot up plants whose roots fill the container.',
 							'Pick zucchini and cucumbers young, and often.',
 							'If flowers open and then fall off, the causes are different: see <a href="/problems/flowers-dropping-off/">why flowers drop off</a>.',
