@@ -996,8 +996,9 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .pin-scroller::-webkit-scrollbar { display: none; }
 .pin-scroller a { display: grid; gap: .5rem; }
 .pin-scroller img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; box-shadow: 0 6px 18px rgba(27, 59, 43, .12); }
-.pin-scroller span { color: var(--heading); font: 500 1.125rem/1.3 var(--font-serif); }
-.pin-scroller a:hover span { text-decoration: underline; text-underline-offset: 3px; }
+.pin-scroller img { transition: box-shadow .15s ease, transform .15s ease; }
+.pin-scroller a:hover img { box-shadow: var(--shadow-raised); transform: translateY(-2px); }
+.pin-scroller a:focus-visible { outline: var(--focus-ring); outline-offset: 4px; border-radius: 6px; }
 
 /* 11. Who writes Natura and the newsletter */
 .home-closing { margin-top: 2.5rem; padding-block: 2.25rem; background: var(--paper-mid); }

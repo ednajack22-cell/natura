@@ -375,7 +375,8 @@ $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsle
 						<li>
 							<a href="<?php echo esc_url( get_permalink( $natura_item ) ); ?>">
 								<?php echo wp_get_attachment_image( absint( natura_field( 'pin_image', $natura_item->ID ) ), 'medium_large', false, array( 'alt' => '', 'sizes' => '(min-width: 1024px) 290px, (min-width: 640px) 30vw, 64vw', 'loading' => 'lazy' ) + natura_pin_attributes( $natura_item->ID ) ); ?>
-								<span><?php echo esc_html( get_the_title( $natura_item ) ); ?></span>
+								<?php // The pin already shows the title; the link still needs a name. ?>
+								<span class="screen-reader-text"><?php echo esc_html( get_the_title( $natura_item ) ); ?></span>
 							</a>
 						</li>
 					<?php endforeach; ?>
