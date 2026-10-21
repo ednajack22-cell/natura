@@ -991,8 +991,8 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 /* Phones: two pins side by side, all visible; no row cut at the screen edge. */
 /* Three large pins: a sideways row on phones (the next one peeks in), three
    columns from tablets up. */
-.pin-scroller { display: grid; grid-auto-flow: column; grid-auto-columns: 64%; gap: 1rem; margin: 0; padding: 0 0 .5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; list-style: none; }
-.pin-scroller li { scroll-snap-align: start; }
+.pin-scroller { display: grid; grid-auto-flow: column; position: relative; grid-auto-columns: 64%; gap: 1rem; margin: 0; padding: 0 0 .5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; list-style: none; }
+.pin-scroller li { position: relative; scroll-snap-align: start; }
 .pin-scroller::-webkit-scrollbar { display: none; }
 .pin-scroller a { display: grid; gap: .5rem; }
 .pin-scroller img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: 6px; box-shadow: 0 6px 18px rgba(27, 59, 43, .12); }
