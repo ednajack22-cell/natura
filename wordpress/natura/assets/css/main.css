@@ -1542,5 +1542,3 @@ body.home .header-search-form, body.home .header-search-link { display: none; }
 .project-step-ad { list-style: none; }
 .project-plants { margin: 0 0 2rem; }
 .project-qty { display: block; color: var(--muted); font-size: .875rem; }
-/* A list with one card: a card-sized card, not a full-width banner. */
-.site-container > .problem-grid:has(> article:only-child) { grid-template-columns: minmax(0, 26rem); }
