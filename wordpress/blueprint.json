@@ -53,7 +53,11 @@
     },
     {
       "step": "runPHP",
-      "code": "<?php require_once '/wordpress/wp-load.php'; wp_delete_post( 1, true ); natura_core_import_demo( 'https://raw.githubusercontent.com/ednajack22-cell/natura/claude/site-design-ux-analysis-2hwbga/public/images' ); set_theme_mod( 'natura_home_season', \"Garlic\\nBroad beans\\nWinter salad leaves\\nSpring onions\\nStrawberry runners | /plants/balcony-strawberry/\" ); set_theme_mod( 'natura_hero_photo', natura_core_demo_attach_image( 'https://raw.githubusercontent.com/ednajack22-cell/natura/claude/site-design-ux-analysis-2hwbga/public/images/natura-balcony-hero.jpg', 0, 'Tomatoes, basil, rosemary, and strawberries in terracotta pots on a sunny balcony' ) );"
+      "code": "<?php require_once '/wordpress/wp-load.php'; wp_delete_post( 1, true ); natura_core_import_demo( 'https://raw.githubusercontent.com/ednajack22-cell/natura/claude/site-design-ux-analysis-2hwbga/public/images' ); set_theme_mod( 'natura_home_season', \"Garlic\\nFava beans\\nWinter salad greens\\nGreen onions\\nStrawberry runners | /plants/balcony-strawberry/\" ); set_theme_mod( 'natura_hero_photo', natura_core_demo_attach_image( 'https://raw.githubusercontent.com/ednajack22-cell/natura/claude/site-design-ux-analysis-2hwbga/public/images/natura-balcony-hero.jpg', 0, 'Tomatoes, basil, rosemary, and strawberries in terracotta pots on a sunny balcony' ) );"
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require_once '/wordpress/wp-load.php'; $author = (int) ( get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) )[0] ?? 1 ); foreach ( natura_core_starter_guides() as $entry ) { natura_core_create_guide( $entry['kind'], $entry['slug'], $entry['guide'], 'publish', '', $author ); } flush_rewrite_rules();"
     }
   ]
 }
