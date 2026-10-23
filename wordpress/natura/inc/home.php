@@ -20,7 +20,7 @@ defined( 'ABSPATH' ) || exit;
 function natura_home_defaults(): array {
 	return array(
 		'natura_home_title'       => __( 'Grow your own food in a small space', 'natura' ),
-		'natura_home_intro'       => __( 'Clear, tested advice for balconies, patios, and windowsills: what to grow, how to look after it, and what to do when something goes wrong.', 'natura' ),
+		'natura_home_intro'       => __( 'Balconies, patios, rooftops, windowsills, and community plots: practical, sourced advice to grow part of what you eat, wherever you live in the city.', 'natura' ),
 		'natura_pinterest_url'    => '',
 		'natura_pinterest_verify' => '',
 		'natura_newsletter_code'  => '',
