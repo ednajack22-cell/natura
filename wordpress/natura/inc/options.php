@@ -93,10 +93,23 @@ function natura_option_tabs(): array {
 					'type'  => 'text',
 					'label' => __( 'Main title', 'natura' ),
 				),
+				'natura_home_kicker' => array(
+					'type'  => 'text',
+					'label' => __( 'Line above the title', 'natura' ),
+				),
 				'natura_home_intro'  => array(
 					'type'  => 'textarea',
 					'label' => __( 'Introduction', 'natura' ),
 					'help'  => __( 'Also used as the home page\'s description for Google and Pinterest.', 'natura' ),
+					'max'   => 160,
+					'limit' => 'home_intro_limit',
+				),
+				'home_intro_limit'   => array(
+					'type'  => 'switch',
+					'label' => __( 'Keep the introduction within 160 characters', 'natura' ),
+					'help'  => __( 'Google and Pinterest show about 160 characters of a description and cut the rest. When on, a longer introduction is not saved.', 'natura' ),
+					'on'    => __( 'On', 'natura' ),
+					'off'   => __( 'Off', 'natura' ),
 				),
 				'home_topics'        => $switch( __( 'Topic bar', 'natura' ), __( 'Buttons under the opening band: plant types, problems, care topics.', 'natura' ) ),
 				'home_new'           => $switch( __( 'New on Natura', 'natura' ), __( 'The newest guide in large, and the next ones as a list.', 'natura' ) ),
@@ -780,10 +793,12 @@ function natura_values_as_input( array $values ): array {
  *
  * @param array<string, array{type: string}> $fields Fields to save.
  * @param array<string, mixed>               $input  Submitted values, by key.
+ * @return string[] Fields not saved because they break their length rule.
  */
-function natura_save_options( array $fields, array $input ): void {
+function natura_save_options( array $fields, array $input ): array {
 	$sections = get_option( 'natura_sections', array() );
 	$sections = is_array( $sections ) ? $sections : array();
+	$refused  = array();
 	foreach ( $fields as $key => $field ) {
 		if ( ! array_key_exists( $key, $input ) ) {
 			continue;
@@ -791,6 +806,15 @@ function natura_save_options( array $fields, array $input ): void {
 		$value = natura_sanitize_option( $field['type'], $input[ $key ] );
 		if ( 'select' === $field['type'] && ! isset( $field['choices'][ $value ] ) ) {
 			continue;
+		}
+		// A text with a length rule that is on: too long, and the old text stays.
+		if ( ! empty( $field['max'] ) && is_string( $value ) && mb_strlen( $value ) > $field['max'] ) {
+			$limit = (string) ( $field['limit'] ?? '' );
+			$on    = array_key_exists( $limit, $input ) ? '1' === (string) $input[ $limit ] : natura_section_enabled( $limit );
+			if ( $on ) {
+				$refused[] = $key;
+				continue;
+			}
 		}
 		if ( 'switch' === $field['type'] ) {
 			$sections[ $key ] = $value;
@@ -801,6 +825,8 @@ function natura_save_options( array $fields, array $input ): void {
 		}
 	}
 	update_option( 'natura_sections', $sections, true );
+
+	return $refused;
 }
 
 /**
@@ -998,7 +1024,9 @@ add_action(
 		} else {
 			$input = isset( $_POST['natura'] ) && is_array( $_POST['natura'] ) ? wp_unslash( $_POST['natura'] ) : array(); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- each value is sanitized per field in natura_save_options().
 			$tab_fields = array_filter( $fields, static fn( array $field ): bool => $field['tab'] === $tab );
-			natura_save_options( $tab_fields, $input );
+			if ( natura_save_options( $tab_fields, $input ) ) {
+				$notice = 'too_long';
+			}
 			// A colour given but refused (unreadable with white text) is reported.
 			foreach ( $tab_fields as $key => $field ) {
 				if ( 'color' === $field['type'] && ! empty( $input[ $key ] ) && '' === natura_sanitize_option( 'color', $input[ $key ] ) ) {
@@ -1112,9 +1140,9 @@ function natura_render_option_field( string $key, array $field ): void {
 					?>
 					<div class="natura-buttonset" role="radiogroup" aria-labelledby="<?php echo esc_attr( $id ); ?>-label">
 						<input type="radio" id="<?php echo esc_attr( $id ); ?>-on" name="<?php echo esc_attr( $name ); ?>" value="1" <?php checked( $value ); ?>>
-						<label for="<?php echo esc_attr( $id ); ?>-on"><?php esc_html_e( 'Show', 'natura' ); ?></label>
+						<label for="<?php echo esc_attr( $id ); ?>-on"><?php echo esc_html( $field['on'] ?? __( 'Show', 'natura' ) ); ?></label>
 						<input type="radio" id="<?php echo esc_attr( $id ); ?>-off" name="<?php echo esc_attr( $name ); ?>" value="0" <?php checked( ! $value ); ?>>
-						<label for="<?php echo esc_attr( $id ); ?>-off"><?php esc_html_e( 'Hide', 'natura' ); ?></label>
+						<label for="<?php echo esc_attr( $id ); ?>-off"><?php echo esc_html( $field['off'] ?? __( 'Hide', 'natura' ) ); ?></label>
 					</div>
 					<?php
 					break;
@@ -1150,6 +1178,14 @@ function natura_render_option_field( string $key, array $field ): void {
 					break;
 				case 'textarea':
 					printf( '<textarea id="%1$s" name="%2$s" rows="4" class="large-text">%3$s</textarea>', esc_attr( $id ), esc_attr( $name ), esc_textarea( (string) $value ) );
+					if ( ! empty( $field['max'] ) ) {
+						printf(
+							'<p class="natura-count" data-count-for="%1$s" data-max="%2$d" data-limit="%3$s" aria-live="polite"></p>',
+							esc_attr( $id ),
+							(int) $field['max'],
+							esc_attr( 'natura-' . ( $field['limit'] ?? '' ) )
+						);
+					}
 					break;
 				case 'media':
 					$image = absint( $value );
@@ -1209,6 +1245,7 @@ function natura_render_options(): void {
 		'import_error'  => array( 'error', __( 'Nothing imported: paste the whole text of a Natura Options export.', 'natura' ) ),
 		'restored'      => array( 'success', __( 'That version is back. The settings you had just before are kept at the top of the list.', 'natura' ) ),
 		'restore_error' => array( 'error', __( 'That version could not be found.', 'natura' ) ),
+		'too_long'      => array( 'warning', __( 'Saved, except a text longer than its limit: the previous text is kept. Shorten it, or turn its length rule off.', 'natura' ) ),
 		'colour_refused' => array( 'warning', __( 'Saved, except a color too light to carry white text: the default is used. Choose a darker shade.', 'natura' ) ),
 	);
 	$notice  = isset( $_GET['natura-notice'] ) ? sanitize_key( wp_unslash( $_GET['natura-notice'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.

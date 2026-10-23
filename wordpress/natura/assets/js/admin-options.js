@@ -154,4 +154,28 @@
 			link.remove();
 		}
 	} );
+	// Live character count under texts that have a length rule.
+	document.querySelectorAll( '.natura-count' ).forEach( function ( count ) {
+		var field = document.getElementById( count.getAttribute( 'data-count-for' ) );
+		var max = parseInt( count.getAttribute( 'data-max' ), 10 );
+		var limit = count.getAttribute( 'data-limit' );
+		if ( ! field ) {
+			return;
+		}
+		function ruleOn() {
+			var on = document.getElementById( limit + '-on' );
+			return ! on || on.checked;
+		}
+		function update() {
+			var length = Array.from( field.value ).length;
+			var over = length > max;
+			count.textContent = length + ' / ' + max + ' characters' + ( over ? ( ruleOn() ? ' — too long: shorten it to save it.' : ' — Google and Pinterest will cut the end.' ) : '' );
+			count.classList.toggle( 'is-over', over );
+		}
+		field.addEventListener( 'input', update );
+		document.querySelectorAll( 'input[name="natura[' + limit.replace( 'natura-', '' ) + ']"]' ).forEach( function ( radio ) {
+			radio.addEventListener( 'change', update );
+		} );
+		update();
+	} );
 }() );

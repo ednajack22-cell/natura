@@ -88,7 +88,9 @@ $natura_signup  = ( natura_section_enabled( 'home_newsletter' ) && natura_newsle
 	<section class="home-hero">
 		<div class="site-container home-hero-grid<?php echo $natura_hero_photo ? ' has-photo' : ''; ?>">
 			<div class="home-hero-inner">
-				<p class="label"><?php esc_html_e( 'Balconies · Patios · Windowsills', 'natura' ); ?></p>
+				<?php if ( natura_home_setting( 'natura_home_kicker' ) ) : ?>
+					<p class="label"><?php echo esc_html( natura_home_setting( 'natura_home_kicker' ) ); ?></p>
+				<?php endif; ?>
 				<h1><?php echo esc_html( natura_home_setting( 'natura_home_title' ) ); ?></h1>
 				<p class="home-intro"><?php echo esc_html( natura_home_setting( 'natura_home_intro' ) ); ?></p>
 				<?php get_search_form( array( 'natura_context' => 'hero' ) ); ?>

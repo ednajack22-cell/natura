@@ -119,3 +119,5 @@
 .natura-coverage span { color: #50575e; }
 .natura-box h4 { margin: 14px 0 8px; }
 .natura-health-summary .natura-box + .natura-box { margin-top: 0; }
+.natura-count { margin: 6px 0 0; color: #646970; }
+.natura-count.is-over { color: #b32d2e; font-weight: 600; }
