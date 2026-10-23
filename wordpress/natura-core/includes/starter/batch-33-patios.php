@@ -142,7 +142,7 @@ return array(
 					$p( 'Contaminated ground does not mean giving up on fresh food. The extension services agree that the main risk comes from swallowing or breathing in soil and dust, not from what the plants take up, so the aim is to keep you, your harvest and your children away from the old soil.' ) .
 					$list(
 						array(
-							'<strong>Build raised beds or use containers.</strong> Minnesota calls raised beds the most effective alternative to contaminated native soil. Illinois Extension suggests laying landscape fabric on the ground first and filling with clean topsoil and compost, and the New York State Department of Health suggests at least 10 in (25 cm) of clean soil. <a href="/diy-projects/build-a-small-raised-bed-on-a-patio/">Build a small raised bed on a patio</a> shows the construction; containers of potting mix work just as well.',
+							'<strong>Build raised beds or use containers.</strong> Minnesota calls raised beds the most effective alternative to contaminated native soil. Illinois Extension suggests laying landscape fabric on the ground first and filling with clean topsoil and compost, and the New York State Department of Health suggests at least 10 in (25 cm) of clean soil. <a href="/projects/build-a-small-raised-bed-on-a-patio/">Build a small raised bed on a patio</a> shows the construction; containers of potting mix work just as well.',
 							'<strong>Cover the bare ground.</strong> The EPA suggests covering soil and paths with mulch, landscape fabric, stones or bricks. Minnesota recommends a thick mulch, about 4 in (10 cm), and covering bare soil where children play.',
 							'<strong>Keep beds away from old walls and busy streets,</strong> or put a fence or hedge between the garden and the road to catch dust, as the EPA and UMass advise.',
 							'<strong>Help the soil hold on to metals.</strong> Adding compost and keeping the pH near neutral, about 6.5 to 7.0 according to UMass and Illinois Extension, makes lead less available to plants. A soil test tells you whether lime is needed.',
@@ -168,14 +168,14 @@ return array(
 					$p( 'In a small yard, the boundary is often the biggest growing surface you have. NC State Extension calls fences ideal for vining crops such as peas, beans, cucumbers and melons, and suggests setting a window box or trough at the foot of a fence or trellis to train them up. Heavy melons need a sling of netting or old hose tied to the fence to carry each fruit.' ) .
 					$list(
 						array(
-							'<strong>Add wires or a trellis</strong> to a wall or fence you own, or with the owner\'s permission: <a href="/diy-projects/fix-a-wire-trellis-to-a-wall/">fix wires or trellis to a wall</a>. Which support suits which crop is in <a href="/supports-for-climbing-crops/">supports for climbing crops</a>.',
-							'<strong>Grow from a pot</strong> where the base of the fence is paved: <a href="/diy-projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a> or <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a>.',
+							'<strong>Add wires or a trellis</strong> to a wall or fence you own, or with the owner\'s permission: <a href="/projects/fix-a-wire-trellis-to-a-wall/">fix wires or trellis to a wall</a>. Which support suits which crop is in <a href="/supports-for-climbing-crops/">supports for climbing crops</a>.',
+							'<strong>Grow from a pot</strong> where the base of the fence is paved: <a href="/projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a> or <a href="/projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a>.',
 							'<strong>Shelve pots up the wall.</strong> The RHS suggests a plant theater of open shelves, or fabric planting pockets fixed to a wall or fence, for herbs, salad greens and fruit.',
 						)
 					) .
 
 					$h2( 'Water within reach' ) .
-					$p( 'A yard often has an outdoor faucet, which makes a hose or a <a href="/diy-projects/set-up-a-drip-irrigation-kit/">drip watering kit</a> practical; see <a href="/gear/best-drip-irrigation-kit-for-pots/">the best drip irrigation kit for pots</a>. Put the thirstiest pots closest to the water, and remember that Clemson expects pots on hot paving to need water daily, or even twice a day, in hot, sunny weather.' ) .
+					$p( 'A yard often has an outdoor faucet, which makes a hose or a <a href="/projects/set-up-a-drip-irrigation-kit/">drip watering kit</a> practical; see <a href="/gear/best-drip-irrigation-kit-for-pots/">the best drip irrigation kit for pots</a>. Put the thirstiest pots closest to the water, and remember that Clemson expects pots on hot paving to need water daily, or even twice a day, in hot, sunny weather.' ) .
 					$p( 'A rain barrel on a downspout is tempting, but University of Minnesota Extension advises keeping that water off any edible part of a plant, because water from a roof can carry fecal germs and metals from roofing materials. Use it for flowers, shrubs and houseplants, or pour it at the base of tall, trellised crops such as tomatoes and cucumbers so it never touches what you pick.' ) .
 
 					$h2( 'Keep room to sit' ) .

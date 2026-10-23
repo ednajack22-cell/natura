@@ -117,7 +117,7 @@ return array(
 					) .
 					$p( 'Distance matters as much as direction. Light drops fast as you move away from the glass: Iowa State says spots more than a few feet back from even a bright window are often too dim for houseplants, and that the areas just to either side of a window are darker than they look. Keep food plants on the sill itself or pressed up to the window, and open the curtains fully by day.' ) .
 					$p( 'Iowa State suggests most herbs grown indoors want about eight hours of direct light a day, with some managing on six. Plants that are short of light tell you: the University of Minnesota and Missouri describe stretched stems with long gaps between the leaves, small or pale leaves, and lower leaves that yellow and drop. On seedlings, that is <a href="/problems/leggy-seedlings/">tall, pale and floppy growth</a>.' ) .
-					$p( 'Light through a window also comes from one side, so plants lean toward it. Penn State advises rotating windowsill pots often so every side gets its share; a <a href="/diy-projects/make-a-seedling-light-box/">foil-lined light box</a> helps seedlings too.' ) .
+					$p( 'Light through a window also comes from one side, so plants lean toward it. Penn State advises rotating windowsill pots often so every side gets its share; a <a href="/projects/make-a-seedling-light-box/">foil-lined light box</a> helps seedlings too.' ) .
 
 					$h2( 'Cold glass, hot glass and drafts' ) .
 					$p( 'A windowsill swings between extremes that the middle of a room never sees. The RHS warns that houseplants left on windowsills or shut behind curtains on winter nights can be damaged by cold, and Iowa State adds that a plant trapped between curtain and pane can get very warm in the sun by day and quite cold at night. Penn State notes that basil cannot survive below 50 °F (10 °C) and should not spend winter nights on a sill.' ) .
@@ -131,7 +131,7 @@ return array(
 					) .
 
 					$h2( 'Dry heated air' ) .
-					$p( 'Iowa State notes that most homes have very low humidity in winter, and Penn State adds that homes with central forced-air heating are the driest. Dry air can mean slow growth and brown leaf tips. Group pots together so they share moist air, or stand them on a tray of wet pebbles with the pot base above the water; a <a href="/diy-projects/make-a-humidity-tray/">humidity tray</a> shows how. Iowa State says misting does not raise humidity for more than a few minutes. If a room is too humid instead, Penn State suggests a fan, or a window opened a little in warm weather, to keep air moving.' ) .
+					$p( 'Iowa State notes that most homes have very low humidity in winter, and Penn State adds that homes with central forced-air heating are the driest. Dry air can mean slow growth and brown leaf tips. Group pots together so they share moist air, or stand them on a tray of wet pebbles with the pot base above the water; a <a href="/projects/make-a-humidity-tray/">humidity tray</a> shows how. Iowa State says misting does not raise humidity for more than a few minutes. If a room is too humid instead, Penn State suggests a fan, or a window opened a little in warm weather, to keep air moving.' ) .
 
 					$h2( 'Grow lights for food crops' ) .
 					$p( 'Where no window is bright enough, or in the short days of winter, a grow light makes indoor food growing possible. Iowa State describes setups from a compact fluorescent bulb in a task lamp for a few pots to a plug-in 4 ft (1.2 m) LED shop light for a larger collection.' ) .
@@ -151,7 +151,7 @@ return array(
 					$p( 'Quick, small and leafy crops repay a windowsill best; big plants and deep-rooted crops do not fit. <a href="/vegetables-on-a-windowsill/">Vegetables on a windowsill</a> compares the options crop by crop, and the plant guides listed below this page give the details. In short:' ) .
 					$list(
 						array(
-							'<strong>Microgreens and shoots</strong> need only a shallow tray and can be sown at any time of year, as the RHS notes; see <a href="/plants/microgreens-on-a-windowsill/">microgreens on a windowsill</a>. Sprouts need no potting mix at all: <a href="/diy-projects/grow-sprouts-in-a-jar/">grow sprouts in a jar</a>.',
+							'<strong>Microgreens and shoots</strong> need only a shallow tray and can be sown at any time of year, as the RHS notes; see <a href="/plants/microgreens-on-a-windowsill/">microgreens on a windowsill</a>. Sprouts need no potting mix at all: <a href="/projects/grow-sprouts-in-a-jar/">grow sprouts in a jar</a>.',
 							'<strong>Soft herbs</strong> are the classic indoor crop. Iowa State suggests growing each kind of herb in its own pot, because one pot rarely suits them all, and names some, such as rosemary and sage, as harder indoors because they need more light or suffer from spider mites.',
 							'<strong>Salad greens</strong> grown as cut-and-come-again leaves suit a trough on a bright sill or under a grow light.',
 							'<strong>Compact fruiting crops:</strong> the RHS says compact chili varieties can be grown on a sunny windowsill indoors, so give them your brightest, warmest spot.',
@@ -185,7 +185,7 @@ return array(
 					$p( 'Colorado State notes that plants that spent summer outdoors often bring fungus gnats in with them, so look over every pot before it comes back inside in fall.' ) .
 
 					$h2( 'Window boxes outside the glass' ) .
-					$p( 'A box fixed to the outside of a window gets full outdoor light rather than the fraction that passes through the glass, which suits sun-loving herbs. It also hangs over whatever lies below. The RHS reminds you that containers full of potting mix weigh a considerable amount, and that any fixings must be well supported. Fix the brackets into solid wall and check the empty box cannot slide or tip before you fill it; <a href="/diy-projects/plant-a-herb-window-box/">plant a herb window box</a> goes through it step by step. If you rent, ask permission first: the RHS notes that tenants may have to remove anything they add. On an apartment balcony, see the rules in <a href="/small-spaces/balconies/">growing food on a balcony</a>.' ) .
+					$p( 'A box fixed to the outside of a window gets full outdoor light rather than the fraction that passes through the glass, which suits sun-loving herbs. It also hangs over whatever lies below. The RHS reminds you that containers full of potting mix weigh a considerable amount, and that any fixings must be well supported. Fix the brackets into solid wall and check the empty box cannot slide or tip before you fill it; <a href="/projects/plant-a-herb-window-box/">plant a herb window box</a> goes through it step by step. If you rent, ask permission first: the RHS notes that tenants may have to remove anything they add. On an apartment balcony, see the rules in <a href="/small-spaces/balconies/">growing food on a balcony</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(

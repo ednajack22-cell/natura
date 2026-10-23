@@ -117,7 +117,7 @@ return array(
 						array(
 							'<strong>Grow bags:</strong> often good value, with reasonable potting mix already inside. The RHS lists them among the options for strawberries.',
 							'<strong>Strawberry pots with side pockets:</strong> they look attractive, but the RHS finds they make healthy, productive plants harder to keep. A large plain pot is easier: see our <a href="/plants/balcony-strawberry/">strawberry guide</a>.',
-							'<strong>Self-watering pots:</strong> a water reservoir in the base cuts down daily watering. You can <a href="/diy-projects/self-watering-pot/">make one yourself</a>.',
+							'<strong>Self-watering pots:</strong> a water reservoir in the base cuts down daily watering. You can <a href="/projects/self-watering-pot/">make one yourself</a>.',
 						)
 					) .
 					$p( 'Whatever you choose, fill it with peat-free potting mix suited to the crop; <a href="/potting-mix-for-containers/">potting mix for containers</a> explains which.' ) .

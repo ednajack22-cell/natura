@@ -367,7 +367,7 @@ return array(
 
 					$h2( 'Winter squash and pumpkins' ) .
 					$p( 'A squash for storing should stay on the plant as long as possible to build up sugar, but must come in before frost: frosted fruit will not keep. It is ready when the skin is tough and richly colored and it sounds hollow when tapped. Cut it with as much stalk as you can, because rot starts at that end.' ) .
-					$p( 'Cure the fruit in the sun for about a week to ten days, covering it on frosty nights, or under glass in wet weather, without the fruits touching. Then store it somewhere well ventilated between 50 and 60 °F (10 and 15 °C). Kept like this, the RHS says, pumpkins and winter squashes can last up to six months. Growing one on a balcony is covered in <a href="/diy-projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>.' ) .
+					$p( 'Cure the fruit in the sun for about a week to ten days, covering it on frosty nights, or under glass in wet weather, without the fruits touching. Then store it somewhere well ventilated between 50 and 60 °F (10 and 15 °C). Kept like this, the RHS says, pumpkins and winter squashes can last up to six months. Growing one on a balcony is covered in <a href="/projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>.' ) .
 
 					$h2( 'Apples and pears' ) .
 					$p( 'Late-ripening varieties store longest. Pick unblemished, medium-sized fruit, ideally slightly under-ripe and with the stalk on, and lay it in single layers in slatted trays or boxes, not touching. The RHS gives an even 39–46 °F (4–7 °C) as ideal; apples are damaged below about 37 °F (3 °C), while pears tolerate down to 32 °F (0 °C). Keep fruit away from onions, paint and fertilizers, whose smells taint it, and check pears almost daily, as they ripen fast.' ) .
@@ -443,7 +443,7 @@ return array(
 					$p( 'If you have a rain barrel, the RHS also suggests cleaning gutters and disinfecting barrels, and using tap water for cuttings and young plants.' ) .
 
 					$h2( 'Get the pots that stay ready for winter' ) .
-					$p( 'Perennial herbs, fruit and winter crops stay put. The RHS advises stopping feeding after late summer until mid-spring for most container plants. Group pots near a wall, lift them onto feet and wrap them before hard frost; <a href="/diy-projects/wrap-pots-for-winter/">wrap pots for winter</a> shows how. Empty pots can be planted with garlic or winter salads: see <a href="/plants/garlic-in-pots/">garlic</a> and <a href="/plants/asian-greens-in-pots/">Asian greens</a>.' ) .
+					$p( 'Perennial herbs, fruit and winter crops stay put. The RHS advises stopping feeding after late summer until mid-spring for most container plants. Group pots near a wall, lift them onto feet and wrap them before hard frost; <a href="/projects/wrap-pots-for-winter/">wrap pots for winter</a> shows how. Empty pots can be planted with garlic or winter salads: see <a href="/plants/garlic-in-pots/">garlic</a> and <a href="/plants/asian-greens-in-pots/">Asian greens</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -632,7 +632,7 @@ return array(
 					$p( 'A one-year-old tree, called a maiden, costs less than an older one and establishes quickly.' ) .
 
 					$h2( 'Trained trees for a wall' ) .
-					$p( 'Where floor space is tight, a cordon (a tree restricted to one or a few stems) fits against a wall or railing. The RHS describes double-U cordons as particularly suitable for containers. For apples and pears, choose a spur-bearing variety, which fruits on short side shoots: tip-bearing varieties are not suitable for cordon training. The same idea works for red currants; see <a href="/diy-projects/train-a-cordon-redcurrant/">train a cordon redcurrant</a>.' ) .
+					$p( 'Where floor space is tight, a cordon (a tree restricted to one or a few stems) fits against a wall or railing. The RHS describes double-U cordons as particularly suitable for containers. For apples and pears, choose a spur-bearing variety, which fruits on short side shoots: tip-bearing varieties are not suitable for cordon training. The same idea works for red currants; see <a href="/projects/train-a-cordon-redcurrant/">train a cordon redcurrant</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -719,7 +719,7 @@ return array(
 					$p( 'Growing <a href="/plants/nasturtiums-in-pots/">nasturtiums</a> as a decoy to draw aphids and caterpillars away from crops is popular, but the RHS says the evidence for it is limited.' ) .
 
 					$h2( 'Physical barriers' ) .
-					$p( 'Covering a crop before the pest arrives is often the simplest fix. Insect-proof mesh keeps out carrot rust fly and cabbage white butterflies; netting keeps birds off fruit. See <a href="/gear/best-crop-covers/">crop covers compared</a>, <a href="/diy-projects/make-a-hoop-tunnel-for-a-trough/">make a hoop tunnel for a trough</a> and <a href="/diy-projects/net-a-fruit-bush/">net a fruit bush</a>.' ) .
+					$p( 'Covering a crop before the pest arrives is often the simplest fix. Insect-proof mesh keeps out carrot rust fly and cabbage white butterflies; netting keeps birds off fruit. See <a href="/gear/best-crop-covers/">crop covers compared</a>, <a href="/projects/make-a-hoop-tunnel-for-a-trough/">make a hoop tunnel for a trough</a> and <a href="/projects/net-a-fruit-bush/">net a fruit bush</a>.' ) .
 
 					$h2( 'Biological controls, used with care' ) .
 					$p( 'Nematodes, microscopic worms watered into moist potting mix, are available for slugs and for black vine weevil grubs, and work outdoors when timed to the pest\'s vulnerable stage. Because they can also infect harmless creatures, the RHS advises using them in a targeted way. Most insect predators sold by mail order, such as predatory midges and parasitoid wasps, are designed for greenhouses and conservatories, where they need warmth and bright light to breed. Introduce them before the pest builds up, but not before it is present.' ) .
