@@ -41,7 +41,9 @@ Puis, en dernière ligne du menu, « Grow your own food » (à venir).
    le lien vers la liste complète `/plants/space/balcony/`, qui reste la seule
    page « plantes pour balcon ».
 5. **Guides for this space** : les fiches existantes choisies dans la boîte
-   « Related guides » de l'éditeur, avec leur carte habituelle.
+   « Related guides » de l'éditeur, avec leur carte habituelle ; 6 au plus
+   (2 lignes de 3), dans l'ordre choisi. Les autres restent liées dans le
+   texte.
 
 Interrupteurs dans Natura Options → Small Spaces : « Plants that suit this
 space », « Guides for this space » ; textes : introduction de la page Small

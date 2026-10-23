@@ -95,7 +95,9 @@ function natura_space_plants( WP_Term $term ): array {
 }
 
 /**
- * The published guides a place guide links to, in the order chosen.
+ * The published guides a place guide links to, in the order chosen: six at
+ * most (two full rows), so the cards stay large. The others remain linked
+ * from the text.
  *
  * @param int $post_id Place guide.
  * @return WP_Post[]
@@ -109,7 +111,7 @@ function natura_space_related_guides( int $post_id ): array {
 			'post_status'         => 'publish',
 			'post__in'            => $ids,
 			'orderby'             => 'post__in',
-			'posts_per_page'      => count( $ids ),
+			'posts_per_page'      => 6,
 			'ignore_sticky_posts' => true,
 			'no_found_rows'       => true,
 		)
