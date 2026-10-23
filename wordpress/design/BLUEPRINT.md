@@ -78,9 +78,10 @@ Ordre, de haut en bas :
 
 Lecture (octobre 2026, BENCH-PRESSE, points 3 et 4) : barre de progression
 de 3 px en haut de l'écran sur les fiches ; en-tête qui se cache en
-descendant et revient en remontant sous 1024 px ; colonne de texte limitée
-à 50ch (environ 67 caractères par ligne au lieu de 103 à 1280 px). Chaque
-point a son interrupteur dans Natura Options.
+descendant et revient en remontant sous 1024 px. Chaque point a son
+interrupteur dans Natura Options. La colonne de texte limitée à 50ch a été
+retirée le 23 octobre 2026 (demande du site) : le texte prend toute la
+largeur de la colonne, comme la photo.
 
 Sur téléphone, une seule colonne : la colonne de droite passe après le texte,
 sans son annonce (le texte en a déjà deux).

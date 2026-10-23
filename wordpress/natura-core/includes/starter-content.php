@@ -55,6 +55,7 @@ function natura_core_create_guide( string $kind, string $slug, array $guide, str
 		'post_title'   => $guide['title'],
 		'post_excerpt' => $guide['excerpt'],
 		'post_content' => $guide['content'],
+		'menu_order'   => (int) ( $guide['order'] ?? 0 ),
 	);
 	if ( 'post' === $kind ) {
 		$topic                 = get_term_by( 'slug', (string) ( $guide['topic'] ?? '' ), 'category' );

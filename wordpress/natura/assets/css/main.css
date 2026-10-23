@@ -561,10 +561,6 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .guide-content li { margin: .45rem 0; }
 .guide-content li::marker { color: var(--clay); }
 .guide-content strong { color: var(--heading); font-weight: 600; }
-/* About 65 characters a line on wide screens: running text only, not
-   tables, images, or the boxes between sections. Phones are narrower anyway. */
-.guide-content > :is(p, ul, ol, blockquote),
-.guide-content .cause > :is(p, ul, ol) { max-width: 50ch; }
 
 /* Shopping list: product cards, as in the Stitch "Recommended equipment". */
 .product-box { margin: 2.5rem 0; padding: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper-low); font-family: var(--font-sans); }

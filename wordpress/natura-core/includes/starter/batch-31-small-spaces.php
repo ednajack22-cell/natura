@@ -45,6 +45,7 @@ return array(
 				'pin_prompt'   => 'A small sunny balcony filled with food plants, photographed vertically from the doorway: pole beans climbing a wall trellis, a tomato in a large pot on a wheeled caddy, a trough of lettuce and herbs on the floor and a herb box on the inside of the railing, city rooftops softly blurred behind.' . $pin_end,
 				'title'        => 'How to Grow Food on a Balcony',
 				'short_name'   => 'Balconies',
+				'order'        => 1,
 				'space_term'   => 'balcony',
 				'excerpt'      => 'Count the hours of direct sun first: leafy crops manage with a few, while tomatoes and other fruiting crops want six or more. Then plan for what makes a balcony different: wind, a floor with a weight limit, rules about fixing things to walls and railings, and runoff onto the neighbors below.',
 				'related'      => array(
