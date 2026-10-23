@@ -43,6 +43,8 @@ function natura_core_create_guide( string $kind, string $slug, array $guide, str
 		natura_core_gear_activate();
 	} elseif ( 'project' === $kind ) {
 		natura_core_projects_activate();
+	} elseif ( 'space' === $kind ) {
+		natura_core_spaces_activate();
 	}
 
 	$post = array(
@@ -109,6 +111,20 @@ function natura_core_create_guide( string $kind, string $slug, array $guide, str
 			wp_set_object_terms( $post_id, $guide['category'], 'gear_category' );
 			update_post_meta( $post_id, natura_core_meta_key( 'method' ), $guide['method'] );
 			break;
+		case 'space':
+			update_post_meta( $post_id, natura_core_meta_key( 'short_name' ), sanitize_text_field( (string) ( $guide['short_name'] ?? '' ) ) );
+			update_post_meta( $post_id, natura_core_meta_key( 'space_term' ), natura_core_clean_space_term( $guide['space_term'] ?? '' ) );
+			$related = array();
+			foreach ( (array) ( $guide['related'] ?? array() ) as $type => $slugs ) {
+				foreach ( (array) $slugs as $related_slug ) {
+					$related_post = post_type_exists( $type ) ? get_page_by_path( $related_slug, OBJECT, $type ) : null;
+					if ( $related_post ) {
+						$related[] = (int) $related_post->ID;
+					}
+				}
+			}
+			natura_core_set_space_related( $post_id, $related );
+			break;
 		case 'project':
 			wp_set_object_terms( $post_id, $guide['category'], 'project_category' );
 			natura_core_set_project_plants( $post_id, natura_core_starter_plant_ids( (array) ( $guide['plants'] ?? array() ) ) );
@@ -173,6 +189,7 @@ function natura_core_starter_guides(): array {
 		'post'    => array(),
 		'gear'    => array(),
 		'project' => array(),
+		'space'   => array(),
 	);
 
 	// The guides written for the demo are real, sourced guides too.

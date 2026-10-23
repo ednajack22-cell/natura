@@ -37,6 +37,7 @@ function natura_core_cover_style( string $kind ): array {
 		'problem' => array( __( 'Problems & fixes', 'natura-core' ), array( 122, 52, 24 ), array( array( 146, 66, 33 ), array( 168, 85, 48 ), array( 190, 110, 70 ) ), array( 255, 219, 206 ) ),
 		'post'    => array( __( 'Plant care', 'natura-core' ), array( 58, 82, 62 ), array( array( 78, 104, 80 ), array( 101, 128, 99 ), array( 130, 156, 120 ) ), array( 229, 236, 228 ) ),
 		'gear'    => array( __( 'Gear guide', 'natura-core' ), array( 15, 42, 29 ), array( array( 33, 62, 46 ), array( 52, 84, 64 ), array( 155, 68, 31 ) ), array( 228, 185, 79 ) ),
+		'space'   => array( __( 'Small spaces', 'natura-core' ), array( 45, 77, 60 ), array( array( 63, 99, 76 ), array( 92, 128, 96 ), array( 155, 68, 31 ) ), array( 228, 185, 79 ) ),
 		'project' => array( __( 'DIY project', 'natura-core' ), array( 141, 101, 33 ), array( array( 160, 119, 47 ), array( 180, 139, 64 ), array( 70, 92, 60 ) ), array( 251, 249, 242 ) ),
 	);
 	$style  = $styles[ $kind ] ?? $styles['plant'];
@@ -451,7 +452,7 @@ function natura_core_is_cover( int $attachment_id ): bool {
  * @return int[]
  */
 function natura_core_guides_without_images( int $limit = -1 ): array {
-	$types = array_values( array_filter( array( 'plant', 'problem', 'post', 'gear', 'project' ), 'post_type_exists' ) );
+	$types = array_values( array_filter( array( 'plant', 'problem', 'post', 'gear', 'project', 'space' ), 'post_type_exists' ) );
 
 	return get_posts(
 		array(

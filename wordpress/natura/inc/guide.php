@@ -389,6 +389,8 @@ function natura_guide_taxonomies(): array {
 		'post'    => 'category',
 		'gear'    => 'gear_category',
 		'project' => 'project_category',
+		// Place guides have no topic: the other place guides come next.
+		'space'   => '',
 	);
 }
 
@@ -518,6 +520,7 @@ function natura_read_next_meta( WP_Post $item ): string {
 		'post'    => __( 'Plant Care', 'natura' ),
 		'gear'    => __( 'Buying guide', 'natura' ),
 		'project' => __( 'DIY project', 'natura' ),
+		'space'   => __( 'Small Spaces', 'natura' ),
 	);
 	$label    = $labels[ $item->post_type ] ?? '';
 	$taxonomy = natura_guide_taxonomies()[ $item->post_type ] ?? '';

@@ -92,6 +92,11 @@ function natura_guide_checks( WP_Post $post ): array {
 			$checks[ __( 'Before you start', 'natura' ) ]       = (bool) natura_field_list( 'checks', $id );
 			$checks[ __( 'Plants to grow in it', 'natura' ) ]   = (bool) get_post_meta( $id, '_natura_project_plant' );
 			break;
+		case 'space':
+			$checks[ __( 'Plant tag to list', 'natura' ) ]  = null !== natura_space_term( $id );
+			$checks[ __( 'At least two related guides', 'natura' ) ] = count( natura_space_related_guides( $id ) ) >= 2;
+			$checks[ __( 'Name in the menu', 'natura' ) ]   = '' !== trim( (string) get_post_meta( $id, '_natura_short_name', true ) );
+			break;
 		case 'gear':
 			$checks[ __( 'At least two picks', 'natura' ) ]   = count( natura_field_list( 'picks', $id ) ) >= 2;
 			$checks[ __( 'What to look for', 'natura' ) ]     = (bool) natura_field_list( 'criteria', $id );

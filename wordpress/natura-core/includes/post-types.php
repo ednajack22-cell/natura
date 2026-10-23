@@ -176,6 +176,7 @@ function natura_core_activate(): void {
 	natura_core_plant_data_activate();
 	natura_core_gear_activate();
 	natura_core_projects_activate();
+	natura_core_spaces_activate();
 	natura_core_plant_type_rules();
 	flush_rewrite_rules( false );
 }

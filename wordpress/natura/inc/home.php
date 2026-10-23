@@ -46,6 +46,8 @@ function natura_home_defaults(): array {
 		'natura_ga4_id'           => '',
 		'natura_ga4_consent'      => 'eu',
 		// Texts of the lists and of the 404 and search pages.
+		'natura_spaces_intro'     => __( 'Urban gardening for every kind of small space: balconies, rooftops and roof terraces, patios and small yards, windowsills and indoors, vertical gardens, and community plots. What changes in each place, and which plants and guides suit it.', 'natura' ),
+		'natura_spaces_related_title' => __( 'Guides for this space', 'natura' ),
 		'natura_projects_intro'   => __( 'Step-by-step builds for balconies, patios, and windowsills: planters, self-watering pots, supports, and vertical gardens, with what to check before you start.', 'natura' ),
 		'natura_gear_intro'       => __( 'Buying guides for balcony, patio, and windowsill growers: what to look for, and which products suit which space.', 'natura' ),
 		'natura_gear_how'         => __( "Every guide says whether we tested the picks ourselves or researched them.\nWe never write prices: they change. The Check price button shows today's price at the store.\nAffiliate links are marked, and the notice comes before the first link.", 'natura' ),

@@ -221,7 +221,7 @@ function natura_seo_plugin_active(): bool {
  * Post types that are guides: they get Open Graph tags and structured data.
  */
 function natura_guide_post_types(): array {
-	return array( 'plant', 'problem', 'post', 'gear', 'project' );
+	return array( 'plant', 'problem', 'post', 'gear', 'project', 'space' );
 }
 
 /**

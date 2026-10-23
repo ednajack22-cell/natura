@@ -350,6 +350,24 @@ function natura_option_tabs(): array {
 				),
 			),
 		),
+		'spaces'     => array(
+			'title'  => __( 'Small Spaces', 'natura' ),
+			'icon'   => 'dashicons-building',
+			'intro'  => __( 'The Small Spaces page (/small-spaces/) and each place guide. Place guides are written in Small Spaces → Add place guide; choose there the plant tag to list and the related guides.', 'natura' ),
+			'fields' => array(
+				'natura_spaces_intro'         => array(
+					'type'  => 'textarea',
+					'label' => __( 'Small Spaces page: introduction', 'natura' ),
+					'help'  => __( 'Also its description for Google.', 'natura' ),
+				),
+				'space_plants'                => $switch( __( 'Plants that suit this space', 'natura' ), __( 'Six plant guides with the place guide\'s plant tag, and a link to all of them.', 'natura' ) ),
+				'space_related'               => $switch( __( 'Guides for this space', 'natura' ), __( 'The existing guides checked in the place guide\'s "Related guides" box.', 'natura' ) ),
+				'natura_spaces_related_title' => array(
+					'type'  => 'text',
+					'label' => __( 'Guides for this space: title', 'natura' ),
+				),
+			),
+		),
 		'projects'   => array(
 			'title'  => __( 'DIY Projects', 'natura' ),
 			'icon'   => 'dashicons-hammer',

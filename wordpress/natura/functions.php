@@ -28,5 +28,6 @@ require_once get_template_directory() . '/inc/tools.php';
 require_once get_template_directory() . '/inc/share.php';
 require_once get_template_directory() . '/inc/gear.php';
 require_once get_template_directory() . '/inc/projects.php';
+require_once get_template_directory() . '/inc/spaces.php';
 require_once get_template_directory() . '/inc/options.php';
 require_once get_template_directory() . '/inc/health.php';

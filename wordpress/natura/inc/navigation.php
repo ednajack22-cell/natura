@@ -69,6 +69,7 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Fruit', 'natura' ), '/plants/fruit/', __( 'Strawberries and compact fruit for containers.', 'natura' ) ),
 			)
 		),
+		natura_menu_entry( __( 'Small Spaces', 'natura' ), '/small-spaces/', __( 'Urban gardening, place by place: balconies, rooftops, patios, windowsills.', 'natura' ) ),
 		natura_menu_entry(
 			__( 'Plant Care', 'natura' ),
 			'/plant-care/',
@@ -164,7 +165,7 @@ function natura_menu_tree( string $location ): array {
 		);
 		$tree     = isset( $defaults[ $location ] ) ? call_user_func( $defaults[ $location ] ) : array();
 
-		return natura_absolute_menu_urls( $tree );
+		return natura_menu_add_spaces( natura_absolute_menu_urls( $tree ) );
 	}
 
 	$tree     = array();
@@ -188,6 +189,48 @@ function natura_menu_tree( string $location ): array {
 	foreach ( $children as $parent_id => $entries ) {
 		if ( isset( $tree[ $parent_id ] ) ) {
 			$tree[ $parent_id ]['children'] = $entries;
+		}
+	}
+
+	return natura_menu_add_spaces( array_values( $tree ) );
+}
+
+/**
+ * Fills the Small Spaces entry (a link to /small-spaces/ with no sub-items of
+ * its own) with the published place guides, so a new place guide appears in
+ * the menu without editing it. Without any place guide, the entry is left
+ * out rather than leading to an empty page.
+ *
+ * @param array $tree Menu entries.
+ * @return array
+ */
+function natura_menu_add_spaces( array $tree ): array {
+	$spaces = null;
+	foreach ( $tree as $index => $entry ) {
+		if ( '/small-spaces/' !== trailingslashit( (string) wp_parse_url( $entry['url'], PHP_URL_PATH ) ) || $entry['children'] ) {
+			continue;
+		}
+		if ( null === $spaces ) {
+			$spaces = post_type_exists( 'space' ) ? get_posts(
+				array(
+					'post_type'      => 'space',
+					'post_status'    => 'publish',
+					'posts_per_page' => 12,
+					'orderby'        => array(
+						'menu_order' => 'ASC',
+						'title'      => 'ASC',
+					),
+					'no_found_rows'  => true,
+				)
+			) : array();
+		}
+		if ( ! $spaces ) {
+			unset( $tree[ $index ] );
+			continue;
+		}
+		foreach ( $spaces as $space ) {
+			$name                         = trim( (string) get_post_meta( $space->ID, '_natura_short_name', true ) );
+			$tree[ $index ]['children'][] = natura_menu_entry( '' !== $name ? $name : get_the_title( $space ), (string) get_permalink( $space ) );
 		}
 	}
 
@@ -478,3 +521,62 @@ function natura_add_menu_entries( int $menu_id, array $tree, int $parent_id ): v
 }
 
 add_action( 'after_switch_theme', 'natura_install_default_menus' );
+
+/**
+ * Menus created before the Small Spaces section existed get its entry once,
+ * right after Plants. If the site owner removes it later, it is not added
+ * back.
+ */
+function natura_menu_add_spaces_entry(): void {
+	if ( get_option( 'natura_menu_spaces_added' ) || ! post_type_exists( 'space' ) ) {
+		return;
+	}
+	update_option( 'natura_menu_spaces_added', 1, true );
+
+	$locations = get_nav_menu_locations();
+	$menu_id   = (int) ( $locations['primary'] ?? 0 );
+	$items     = $menu_id ? wp_get_nav_menu_items( $menu_id ) : false;
+	if ( ! $items ) {
+		return;
+	}
+	$plants   = 0;
+	$position = 0;
+	foreach ( $items as $item ) {
+		$path = trailingslashit( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ) );
+		if ( '/small-spaces/' === $path ) {
+			return;
+		}
+		if ( ! $plants && 0 === (int) $item->menu_item_parent && '/plants/' === $path ) {
+			$plants = (int) $item->ID;
+		}
+		if ( $plants && ( (int) $item->ID === $plants || (int) $item->menu_item_parent === $plants ) ) {
+			$position = max( $position, (int) $item->menu_order + 1 );
+		}
+	}
+	if ( ! $position ) {
+		$position = 1 + (int) max( wp_list_pluck( $items, 'menu_order' ) );
+	}
+	foreach ( $items as $item ) {
+		if ( (int) $item->menu_order >= $position ) {
+			wp_update_post(
+				array(
+					'ID'         => (int) $item->ID,
+					'menu_order' => (int) $item->menu_order + 1,
+				)
+			);
+		}
+	}
+	wp_update_nav_menu_item(
+		$menu_id,
+		0,
+		array(
+			'menu-item-title'       => __( 'Small Spaces', 'natura' ),
+			'menu-item-url'         => home_url( '/small-spaces/' ),
+			'menu-item-description' => __( 'Urban gardening, place by place: balconies, rooftops, patios, windowsills.', 'natura' ),
+			'menu-item-position'    => $position,
+			'menu-item-type'        => 'custom',
+			'menu-item-status'      => 'publish',
+		)
+	);
+}
+add_action( 'init', 'natura_menu_add_spaces_entry', 30 );
