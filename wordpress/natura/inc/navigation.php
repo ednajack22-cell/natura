@@ -139,11 +139,17 @@ function natura_default_footer_menu(): array {
  * @return array<int, array{title: string, url: string, description: string, children: array}>
  */
 function natura_default_legal_menu(): array {
-	return array(
+	$menu = array(
 		natura_menu_entry( __( 'Privacy', 'natura' ), natura_page_url( 'privacy', '/privacy-policy/' ) ),
-		natura_menu_entry( __( 'Legal notice', 'natura' ), natura_page_url( 'legal', '/legal-notice/' ) ),
 		natura_menu_entry( __( 'Affiliate disclosure', 'natura' ), natura_disclosure_url() ),
 	);
+	// A legal notice is required in some countries only: linked once a page is chosen.
+	$legal = absint( get_theme_mod( 'natura_page_legal' ) );
+	if ( $legal && 'publish' === get_post_status( $legal ) ) {
+		array_splice( $menu, 1, 0, array( natura_menu_entry( __( 'Legal notice', 'natura' ), (string) get_permalink( $legal ) ) ) );
+	}
+
+	return $menu;
 }
 
 /**
