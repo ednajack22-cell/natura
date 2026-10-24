@@ -35,7 +35,7 @@ function natura_home_defaults(): array {
 		'natura_author_photo'     => '',
 		'natura_author_url'       => '/about/',
 		// Footer and social profiles.
-		'natura_footer_text'      => __( 'Independent, source-aware gardening guidance for balconies, patios, containers, and indoor spaces.', 'natura' ),
+		'natura_footer_text'      => __( 'Practical, sourced advice for growing food in small city spaces: balconies, patios, rooftops, windowsills, and community plots.', 'natura' ),
 		'natura_social_instagram' => '',
 		'natura_social_youtube'   => '',
 		'natura_social_facebook'  => '',

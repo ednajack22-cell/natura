@@ -69,7 +69,6 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Fruit', 'natura' ), '/plants/fruit/', __( 'Strawberries and compact fruit for containers.', 'natura' ) ),
 			)
 		),
-		natura_menu_entry( __( 'Small Spaces', 'natura' ), '/small-spaces/', __( 'Urban gardening, place by place: balconies, rooftops, patios, windowsills.', 'natura' ) ),
 		natura_menu_entry(
 			__( 'Plant Care', 'natura' ),
 			'/plant-care/',
@@ -82,6 +81,7 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Seasonal care', 'natura' ), '/plant-care/seasonal-care/', __( 'What changes through the year.', 'natura' ) ),
 			)
 		),
+		natura_menu_entry( __( 'Small Spaces', 'natura' ), '/small-spaces/', __( 'Urban gardening, place by place: balconies, rooftops, patios, windowsills.', 'natura' ) ),
 		natura_menu_entry( __( 'DIY Projects', 'natura' ), '/diy-projects/', __( 'Step-by-step builds: herb troughs, salad crates, and more.', 'natura' ) ),
 		natura_menu_entry(
 			__( 'Tools', 'natura' ),
@@ -535,7 +535,7 @@ add_action( 'after_switch_theme', 'natura_install_default_menus' );
 
 /**
  * Menus created before the Small Spaces section existed get its entry once,
- * right after Plants. If the site owner removes it later, it is not added
+ * right after Plant Care. If the site owner removes it later, it is not added
  * back.
  */
 function natura_menu_add_spaces_entry(): void {
@@ -550,20 +550,12 @@ function natura_menu_add_spaces_entry(): void {
 	if ( ! $items ) {
 		return;
 	}
-	$plants   = 0;
-	$position = 0;
 	foreach ( $items as $item ) {
-		$path = trailingslashit( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ) );
-		if ( '/small-spaces/' === $path ) {
+		if ( '/small-spaces/' === trailingslashit( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ) ) ) {
 			return;
 		}
-		if ( ! $plants && 0 === (int) $item->menu_item_parent && '/plants/' === $path ) {
-			$plants = (int) $item->ID;
-		}
-		if ( $plants && ( (int) $item->ID === $plants || (int) $item->menu_item_parent === $plants ) ) {
-			$position = max( $position, (int) $item->menu_order + 1 );
-		}
 	}
+	$position = natura_menu_position_after( $items, '/plant-care/' );
 	if ( ! $position ) {
 		$position = 1 + (int) max( wp_list_pluck( $items, 'menu_order' ) );
 	}
@@ -591,6 +583,98 @@ function natura_menu_add_spaces_entry(): void {
 	);
 }
 add_action( 'init', 'natura_menu_add_spaces_entry', 30 );
+
+/**
+ * The menu position right after a top-level entry and everything under it,
+ * or 0 when the menu has no such entry.
+ *
+ * @param WP_Post[] $items Menu items, in menu order.
+ * @param string    $path  Address of the top-level entry, e.g. /plant-care/.
+ */
+function natura_menu_position_after( array $items, string $path ): int {
+	$branch   = array();
+	$position = 0;
+	foreach ( $items as $item ) {
+		$top = 0 === (int) $item->menu_item_parent;
+		if ( ! $branch && $top && trailingslashit( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ) ) === $path ) {
+			$branch[] = (int) $item->ID;
+		} elseif ( $branch && ( $top || ! in_array( (int) $item->menu_item_parent, $branch, true ) ) ) {
+			break;
+		} elseif ( $branch ) {
+			$branch[] = (int) $item->ID;
+		}
+		if ( $branch ) {
+			$position = (int) $item->menu_order + 1;
+		}
+	}
+
+	return $position;
+}
+
+/**
+ * Small Spaces moved after Plant Care (October 2026): a menu that still has
+ * it before Plant Care follows, once. Where the site owner placed it after
+ * Plant Care already, nothing changes.
+ */
+function natura_menu_move_spaces(): void {
+	if ( get_option( 'natura_menu_spaces_after_care' ) ) {
+		return;
+	}
+	update_option( 'natura_menu_spaces_after_care', 1, true );
+
+	$locations = get_nav_menu_locations();
+	$menu_id   = (int) ( $locations['primary'] ?? 0 );
+	$items     = $menu_id ? wp_get_nav_menu_items( $menu_id ) : false;
+	if ( ! $items ) {
+		return;
+	}
+	$spaces = null;
+	$care   = null;
+	foreach ( $items as $item ) {
+		$path = trailingslashit( (string) wp_parse_url( (string) $item->url, PHP_URL_PATH ) );
+		if ( 0 !== (int) $item->menu_item_parent ) {
+			continue;
+		}
+		if ( '/small-spaces/' === $path && ! $spaces ) {
+			$spaces = $item;
+		} elseif ( '/plant-care/' === $path && ! $care ) {
+			$care = $item;
+		}
+	}
+	if ( ! $spaces || ! $care || (int) $spaces->menu_order > (int) $care->menu_order ) {
+		return;
+	}
+
+	// Its own sub-entries, if the owner added some, move with it.
+	$moving = array( (int) $spaces->ID );
+	foreach ( $items as $item ) {
+		if ( in_array( (int) $item->menu_item_parent, $moving, true ) ) {
+			$moving[] = (int) $item->ID;
+		}
+	}
+	$rest  = array_values( array_filter( $items, static fn( WP_Post $item ): bool => ! in_array( (int) $item->ID, $moving, true ) ) );
+	$block = array_values( array_filter( $items, static fn( WP_Post $item ): bool => in_array( (int) $item->ID, $moving, true ) ) );
+	$after = natura_menu_position_after( $rest, '/plant-care/' );
+	$index = count( $rest );
+	foreach ( $rest as $i => $item ) {
+		if ( (int) $item->menu_order >= $after ) {
+			$index = $i;
+			break;
+		}
+	}
+	array_splice( $rest, $index, 0, $block );
+	foreach ( $rest as $order => $item ) {
+		if ( (int) $item->menu_order !== $order + 1 ) {
+			wp_update_post(
+				array(
+					'ID'         => (int) $item->ID,
+					'menu_order' => $order + 1,
+				)
+			);
+		}
+	}
+}
+add_action( 'init', 'natura_menu_move_spaces', 31 );
 
 /**
  * The DIY projects moved from /projects/ to /diy-projects/ (October 2026):
