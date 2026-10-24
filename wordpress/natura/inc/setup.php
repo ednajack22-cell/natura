@@ -121,7 +121,8 @@ add_action(
 /*
  * Lists show 12 guides a page: four full rows of three on a computer, six
  * of two on a tablet. WordPress's own default (10) left one card alone on
- * the last row.
+ * the last row. A list of 13 to 15 stays on one page, and longer lists are
+ * spread evenly so the last page is never nearly empty.
  */
 add_action(
 	'pre_get_posts',
@@ -129,6 +130,23 @@ add_action(
 		if ( is_admin() || ! $query->is_main_query() || ! ( $query->is_archive() || $query->is_home() ) ) {
 			return;
 		}
-		$query->set( 'posts_per_page', 12 );
+		$per_page = 12;
+		// Up to 15 guides fit on one page with full rows; a last page with
+		// one to three guides would leave them alone.
+		$total   = 0;
+		$queried = $query->get_queried_object();
+		if ( $queried instanceof WP_Term ) {
+			$total = (int) $queried->count;
+		} elseif ( $query->is_post_type_archive() ) {
+			$type  = (string) $query->get( 'post_type' );
+			$total = post_type_exists( $type ) ? (int) wp_count_posts( $type )->publish : 0;
+		}
+		if ( $total > $per_page && $total <= $per_page + 3 ) {
+			$per_page = $total;
+		} elseif ( $total > $per_page ) {
+			// Spread the guides evenly: 25 makes pages of 9, 9 and 7, not 12, 12 and 1.
+			$per_page = (int) ceil( $total / ceil( $total / $per_page ) );
+		}
+		$query->set( 'posts_per_page', $per_page );
 	}
 );
