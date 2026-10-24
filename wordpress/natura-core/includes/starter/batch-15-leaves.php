@@ -346,7 +346,7 @@ return array(
 					$list(
 						array(
 							'a cloche or plastic-free row cover over the pot outside, enough in mild areas;',
-							'a cold frame on the balcony floor; you can build one with <a href="/projects/make-a-mini-cold-frame/">our mini cold frame project</a>;',
+							'a cold frame on the balcony floor; you can build one with <a href="/diy-projects/make-a-mini-cold-frame/">our mini cold frame project</a>;',
 							'an unheated greenhouse or porch;',
 							'a sunny windowsill indoors, which also works for fall-sown salads.',
 						)
@@ -523,7 +523,7 @@ return array(
 						array( 'name' => 'Small watering can with a fine rose, or a mister', 'badge' => '', 'note' => 'Wets the mix without flattening the seedlings.', 'url' => '' ),
 					),
 					'faq'        => array(
-						array( 'question' => 'Are microgreens the same as sprouts?', 'answer' => 'No. Microgreens grow in potting mix in the light and are cut above the surface once the first true leaves appear. Sprouts are germinated in water, usually in a jar, with no potting mix at all; see <a href="/projects/grow-sprouts-in-a-jar/">sprouting seeds in a jar</a>.' ),
+						array( 'question' => 'Are microgreens the same as sprouts?', 'answer' => 'No. Microgreens grow in potting mix in the light and are cut above the surface once the first true leaves appear. Sprouts are germinated in water, usually in a jar, with no potting mix at all; see <a href="/diy-projects/grow-sprouts-in-a-jar/">sprouting seeds in a jar</a>.' ),
 						array( 'question' => 'When are microgreens ready to cut?', 'answer' => 'The first pair of leaves after germination are seed leaves. When the next pair, the true leaves, opens and the seedlings look sturdy, they are ready. Taste as you go: the flavor develops as they grow.' ),
 						array( 'question' => 'Can I use ordinary all-purpose potting mix?', 'answer' => 'Yes, if you sift it first to remove lumps, so the tiny seeds sit in even contact with it. Peat-free seed-starting mix is finer and needs no sifting.' ),
 						array( 'question' => 'Do microgreens grow back after cutting?', 'answer' => 'Treat each tray as a single harvest. Cut what you need, then compost the rest and sow a fresh tray. For leaves that regrow, grow baby salad greens in a larger pot instead.' ),
@@ -537,7 +537,7 @@ return array(
 				'content'      =>
 					$h2( 'What microgreens are' ) .
 					$p( 'Microgreens are not a special kind of seed. The word describes a method: seeds of ordinary vegetables and herbs, such as radish, beets, cress or kale, are sown densely and cut very young, just after the first true leaves appear. At that stage they are small but full of flavor.' ) .
-					$p( 'They grow in potting mix, in the light, and you cut the stems above the surface. That makes them different from sprouts, which are started in a jar of water rather than potting mix; that method has its own guide: <a href="/projects/grow-sprouts-in-a-jar/">sprouting seeds in a jar</a>.' ) .
+					$p( 'They grow in potting mix, in the light, and you cut the stems above the surface. That makes them different from sprouts, which are started in a jar of water rather than potting mix; that method has its own guide: <a href="/diy-projects/grow-sprouts-in-a-jar/">sprouting seeds in a jar</a>.' ) .
 
 					$h2( 'Which seeds to use' ) .
 					$p( 'The RHS suggests cress, radish, chard, turnip, mustard and beets, and every variety of kale works too. For something different, try cilantro, purple basil, fenugreek, amaranth or Greek cress. Sowing two or three kinds in separate trays lets you compare how fast they come up and how they taste.' ) .

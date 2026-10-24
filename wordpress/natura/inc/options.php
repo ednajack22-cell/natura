@@ -371,7 +371,7 @@ function natura_option_tabs(): array {
 		'projects'   => array(
 			'title'  => __( 'DIY Projects', 'natura' ),
 			'icon'   => 'dashicons-hammer',
-			'intro'  => __( 'The DIY Projects page (/projects/) and each project. Projects are written in DIY projects → Add project; say there whether you built it yourself or adapted it from a source.', 'natura' ),
+			'intro'  => __( 'The DIY Projects page (/diy-projects/) and each project. Projects are written in DIY projects → Add project; say there whether you built it yourself or adapted it from a source.', 'natura' ),
 			'fields' => array(
 				'natura_projects_intro' => array(
 					'type'  => 'textarea',

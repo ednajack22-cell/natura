@@ -82,7 +82,7 @@ function natura_default_primary_menu(): array {
 				natura_menu_entry( __( 'Seasonal care', 'natura' ), '/plant-care/seasonal-care/', __( 'What changes through the year.', 'natura' ) ),
 			)
 		),
-		natura_menu_entry( __( 'DIY Projects', 'natura' ), '/projects/', __( 'Step-by-step builds: herb troughs, salad crates, and more.', 'natura' ) ),
+		natura_menu_entry( __( 'DIY Projects', 'natura' ), '/diy-projects/', __( 'Step-by-step builds: herb troughs, salad crates, and more.', 'natura' ) ),
 		natura_menu_entry(
 			__( 'Tools', 'natura' ),
 			'/tools/',
@@ -231,6 +231,11 @@ function natura_menu_add_spaces( array $tree ): array {
 		foreach ( $spaces as $space ) {
 			$name                         = trim( (string) get_post_meta( $space->ID, '_natura_short_name', true ) );
 			$tree[ $index ]['children'][] = natura_menu_entry( '' !== $name ? $name : get_the_title( $space ), (string) get_permalink( $space ) );
+		}
+		// Last line: the Plant Care topic on growing food, once it has articles.
+		$food = get_term_by( 'slug', 'grow-your-own-food', 'category' );
+		if ( $food instanceof WP_Term && $food->count > 0 ) {
+			$tree[ $index ]['children'][] = natura_menu_entry( $food->name, (string) get_term_link( $food ) );
 		}
 	}
 
@@ -580,3 +585,23 @@ function natura_menu_add_spaces_entry(): void {
 	);
 }
 add_action( 'init', 'natura_menu_add_spaces_entry', 30 );
+
+/**
+ * The DIY projects moved from /projects/ to /diy-projects/ (October 2026):
+ * menu links still on the old address follow, once.
+ */
+function natura_menu_move_projects(): void {
+	if ( get_option( 'natura_menu_projects_moved' ) ) {
+		return;
+	}
+	update_option( 'natura_menu_projects_moved', 1, true );
+	foreach ( wp_get_nav_menus() as $menu ) {
+		foreach ( (array) wp_get_nav_menu_items( $menu->term_id ) as $item ) {
+			$path = (string) wp_parse_url( (string) $item->url, PHP_URL_PATH );
+			if ( 'custom' === $item->type && str_starts_with( $path, '/projects/' ) ) {
+				update_post_meta( (int) $item->ID, '_menu_item_url', home_url( '/diy-projects/' . substr( $path, strlen( '/projects/' ) ) ) );
+			}
+		}
+	}
+}
+add_action( 'init', 'natura_menu_move_projects', 30 );

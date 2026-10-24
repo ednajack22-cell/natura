@@ -91,7 +91,7 @@ return array(
 					$p( 'Windowsills can get chilly after dark. On frosty nights, lift the pots off the sill into the room and put them back in the morning.' ) .
 
 					$h2( 'Light from one side' ) .
-					$p( 'Seedlings bend towards the window. Give them light from all round by turning the pots every day or two, or by standing them in a <a href="/projects/make-a-seedling-light-box/">foil-lined light box</a>. If yours have already grown tall and thin, see <a href="/problems/leggy-seedlings/">why seedlings go tall, pale and floppy</a>.' ) .
+					$p( 'Seedlings bend towards the window. Give them light from all round by turning the pots every day or two, or by standing them in a <a href="/diy-projects/make-a-seedling-light-box/">foil-lined light box</a>. If yours have already grown tall and thin, see <a href="/problems/leggy-seedlings/">why seedlings go tall, pale and floppy</a>.' ) .
 
 					$h2( 'Prick out into their own pots' ) .
 					$p( 'When the seedlings are big enough to handle, move each one into its own 3–3½ in (7.5–9 cm) pot or a cell of a module tray so they do not crowd each other. Hold a seedling lightly by one of its first leaves, never by the stem, and ease the roots out from below with a pencil or dibber. Set it in a hole in the new potting mix, firm gently and water. Later, move plants into larger pots as they fill these.' ) .
@@ -163,7 +163,7 @@ return array(
 					$p( 'The RHS also describes a quicker version for vegetables, about 10–14 days: start with a warm, still day outside, back in at night, then whole days out under row cover. Keep an old curtain or spare row cover handy for a sudden frost late in spring.' ) .
 
 					$h2( 'With a cold frame' ) .
-					$p( 'A cold frame makes it easier. In the first week, prop the lid open a little by day and close it at night. Over the next two weeks, open it wider each day until it comes off altogether. You can <a href="/projects/make-a-mini-cold-frame/">build a small frame for a balcony</a>.' ) .
+					$p( 'A cold frame makes it easier. In the first week, prop the lid open a little by day and close it at night. Over the next two weeks, open it wider each day until it comes off altogether. You can <a href="/diy-projects/make-a-mini-cold-frame/">build a small frame for a balcony</a>.' ) .
 
 					$h2( 'Balcony points' ) .
 					$p( 'Strong wind is one of the main limits on a balcony, and young plants are the most exposed to it. Use the most sheltered corner you have, behind a wall or solid end panel, and weigh or clip the row cover down. Small pots on a high balcony can be blown over, so stand them on the floor in a tray, never on the railing or a ledge.' ) .

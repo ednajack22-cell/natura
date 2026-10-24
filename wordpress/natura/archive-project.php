@@ -1,7 +1,7 @@
 <?php
 /**
- * DIY Projects: every project (/projects/) or one category
- * (/projects/category/watering/). Same layout as the Gear page: categories
+ * DIY Projects: every project (/diy-projects/) or one category
+ * (/diy-projects/category/watering/). Same layout as the Gear page: categories
  * as chips, then cards with difficulty and time.
  *
  * @package Natura

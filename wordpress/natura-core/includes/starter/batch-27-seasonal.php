@@ -50,7 +50,7 @@ return array(
 				'image_prompt' => 'A kitchen countertop beside a window with a balcony visible outside: a colander of freshly picked green beans and pea pods, a pan of boiling water with a wire basket, a large bowl of iced water, and a row of flat, labeled freezer bags of blanched beans and shelled peas, late summer daylight.' . $photo_end,
 				'pin_prompt'   => 'Freshly picked green beans, shelled peas and sliced zucchini spread on a clean dish towel next to empty freezer bags and a marker pen, with potted bean plants on a sunny balcony in the soft background, photographed vertically from above.' . $pin_end,
 				'title'        => 'How to Freeze Vegetables From Your Pots',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Most vegetables need a short blanch in boiling water before freezing: about 1½ minutes for shelled peas, 2 for leafy greens and 3 for green beans or zucchini slices, followed by the same time in cold water. Drain them well, pack them in small, airtight, labeled portions and keep them at 0 °F (-18 °C) or below.',
 				'lists'        => array(
 					'products' => array(
@@ -155,7 +155,7 @@ return array(
 				'image_prompt' => 'A metal baking sheet lined with parchment paper on a kitchen table, covered with a single layer of raspberries, red currants and blueberries not touching each other, ready to go into the freezer, a potted raspberry cane and a blueberry bush in pots visible on the balcony through an open door, summer morning light.' . $photo_end,
 				'pin_prompt'   => 'Frozen raspberries, blueberries and red currants being poured loose from a tray into a clear freezer bag, frost on the berries, a pot of strawberries on a balcony table behind, photographed vertically.' . $pin_end,
 				'title'        => 'How to Freeze Berries So They Do Not Stick Together',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Spread ripe, dry berries in a single layer on a tray, freeze them until hard, then tip them into a freezer bag straight away: they stay loose, so you can pour out a handful at a time. Do not wash blueberries before freezing, and expect frozen berries to soften when thawed.',
 				'lists'        => array(
 					'products' => array(
@@ -233,7 +233,7 @@ return array(
 				'image_prompt' => 'A string of bright red chili peppers threaded on cotton and hanging beside a sunny window, with a chili pepper plant in a terracotta pot on the sill below, and on the table in front a cooling rack of oven-dried tomato slices, dark red and shriveled, next to an empty glass storage jar, fall daylight.' . $photo_end,
 				'pin_prompt'   => 'A long garland of dried red chili peppers hanging against a pale wall next to a balcony door, a potted chili pepper plant with a few ripe fruits at its foot, photographed vertically.' . $pin_end,
 				'title'        => 'How to Dry Chili Peppers and Tomatoes at Home',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Thread ripe chili peppers on cotton and hang them somewhere airy until shriveled and leathery, or dry them in a dehydrator or an oven held at 140 °F (60 °C). Tomatoes need the controlled heat of a dehydrator or oven: peel and slice them, dry them until crisp, then store them in airtight jars somewhere cool, dark and dry.',
 				'lists'        => array(
 					'products' => array(
@@ -314,7 +314,7 @@ return array(
 				'image_prompt' => 'A cool, dim corner of a laundry room in fall: a burlap sack of maincrop potatoes, a slatted wooden tray of dry onions laid in a single layer, a braid of onions hanging on a hook, a box of beets packed in sand, and two winter squashes with hard skins on a shelf, soft light from a small window.' . $photo_end,
 				'pin_prompt'   => 'Dry, papery onions spread in one layer on a wire rack in fall sun on a balcony table, with an empty potato bag and a pot of herbs nearby, photographed vertically.' . $pin_end,
 				'title'        => 'How to Store Potatoes, Onions, Roots and Squash From Your Pots',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Store only sound, undamaged crops: dry maincrop potatoes for a few hours and keep them in paper sacks in a cool, dark, frost-free place; dry onions for about two weeks and keep them cool, airy and in the light; pack beets and carrots in moist sand. Cure squashes in the sun for a week or so, then keep them at 50–60 °F (10–15 °C).',
 				'lists'        => array(
 					'products' => array(
@@ -367,7 +367,7 @@ return array(
 
 					$h2( 'Winter squash and pumpkins' ) .
 					$p( 'A squash for storing should stay on the plant as long as possible to build up sugar, but must come in before frost: frosted fruit will not keep. It is ready when the skin is tough and richly colored and it sounds hollow when tapped. Cut it with as much stalk as you can, because rot starts at that end.' ) .
-					$p( 'Cure the fruit in the sun for about a week to ten days, covering it on frosty nights, or under glass in wet weather, without the fruits touching. Then store it somewhere well ventilated between 50 and 60 °F (10 and 15 °C). Kept like this, the RHS says, pumpkins and winter squashes can last up to six months. Growing one on a balcony is covered in <a href="/projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>.' ) .
+					$p( 'Cure the fruit in the sun for about a week to ten days, covering it on frosty nights, or under glass in wet weather, without the fruits touching. Then store it somewhere well ventilated between 50 and 60 °F (10 and 15 °C). Kept like this, the RHS says, pumpkins and winter squashes can last up to six months. Growing one on a balcony is covered in <a href="/diy-projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>.' ) .
 
 					$h2( 'Apples and pears' ) .
 					$p( 'Late-ripening varieties store longest. Pick unblemished, medium-sized fruit, ideally slightly under-ripe and with the stalk on, and lay it in single layers in slatted trays or boxes, not touching. The RHS gives an even 39–46 °F (4–7 °C) as ideal; apples are damaged below about 37 °F (3 °C), while pears tolerate down to 32 °F (0 °C). Keep fruit away from onions, paint and fertilizers, whose smells taint it, and check pears almost daily, as they ripen fast.' ) .
@@ -443,7 +443,7 @@ return array(
 					$p( 'If you have a rain barrel, the RHS also suggests cleaning gutters and disinfecting barrels, and using tap water for cuttings and young plants.' ) .
 
 					$h2( 'Get the pots that stay ready for winter' ) .
-					$p( 'Perennial herbs, fruit and winter crops stay put. The RHS advises stopping feeding after late summer until mid-spring for most container plants. Group pots near a wall, lift them onto feet and wrap them before hard frost; <a href="/projects/wrap-pots-for-winter/">wrap pots for winter</a> shows how. Empty pots can be planted with garlic or winter salads: see <a href="/plants/garlic-in-pots/">garlic</a> and <a href="/plants/asian-greens-in-pots/">Asian greens</a>.' ) .
+					$p( 'Perennial herbs, fruit and winter crops stay put. The RHS advises stopping feeding after late summer until mid-spring for most container plants. Group pots near a wall, lift them onto feet and wrap them before hard frost; <a href="/diy-projects/wrap-pots-for-winter/">wrap pots for winter</a> shows how. Empty pots can be planted with garlic or winter salads: see <a href="/plants/garlic-in-pots/">garlic</a> and <a href="/plants/asian-greens-in-pots/">Asian greens</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -461,7 +461,7 @@ return array(
 				'image_prompt' => 'A balcony table in spring with two ways of starting crops side by side: on one side seed packets, a tray of peat-free seed-starting mix and a pot of radish seedlings; on the other side a garden-center tray of sturdy dark green tomato and zucchini young plants in small pots, and a mail-order box of small plug plants just opened, soft morning light.' . $photo_end,
 				'pin_prompt'   => 'A hand holding a small, sturdy, dark green tomato plug plant above an open seed packet and a tray of seedlings on a balcony table, photographed vertically.' . $pin_end,
 				'title'        => 'Seeds or Young Plants: Which Should You Buy for Your Pots?',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Sow seeds for quick crops that go straight into their final pot, such as radishes, salad greens, carrots and beans: seed is cheaper and offers far more varieties. Buy young plants when you have no warm windowsill or time for crops that need a long, warm start, such as tomatoes, chili peppers and eggplants, and buy fruit as plants.',
 				'lists'        => array(
 					'products' => array(
@@ -632,7 +632,7 @@ return array(
 					$p( 'A one-year-old tree, called a maiden, costs less than an older one and establishes quickly.' ) .
 
 					$h2( 'Trained trees for a wall' ) .
-					$p( 'Where floor space is tight, a cordon (a tree restricted to one or a few stems) fits against a wall or railing. The RHS describes double-U cordons as particularly suitable for containers. For apples and pears, choose a spur-bearing variety, which fruits on short side shoots: tip-bearing varieties are not suitable for cordon training. The same idea works for red currants; see <a href="/projects/train-a-cordon-redcurrant/">train a cordon redcurrant</a>.' ) .
+					$p( 'Where floor space is tight, a cordon (a tree restricted to one or a few stems) fits against a wall or railing. The RHS describes double-U cordons as particularly suitable for containers. For apples and pears, choose a spur-bearing variety, which fruits on short side shoots: tip-bearing varieties are not suitable for cordon training. The same idea works for red currants; see <a href="/diy-projects/train-a-cordon-redcurrant/">train a cordon redcurrant</a>.' ) .
 
 					$h2( 'Common mistakes to avoid' ) .
 					$list(
@@ -719,7 +719,7 @@ return array(
 					$p( 'Growing <a href="/plants/nasturtiums-in-pots/">nasturtiums</a> as a decoy to draw aphids and caterpillars away from crops is popular, but the RHS says the evidence for it is limited.' ) .
 
 					$h2( 'Physical barriers' ) .
-					$p( 'Covering a crop before the pest arrives is often the simplest fix. Insect-proof mesh keeps out carrot rust fly and cabbage white butterflies; netting keeps birds off fruit. See <a href="/gear/best-crop-covers/">crop covers compared</a>, <a href="/projects/make-a-hoop-tunnel-for-a-trough/">make a hoop tunnel for a trough</a> and <a href="/projects/net-a-fruit-bush/">net a fruit bush</a>.' ) .
+					$p( 'Covering a crop before the pest arrives is often the simplest fix. Insect-proof mesh keeps out carrot rust fly and cabbage white butterflies; netting keeps birds off fruit. See <a href="/gear/best-crop-covers/">crop covers compared</a>, <a href="/diy-projects/make-a-hoop-tunnel-for-a-trough/">make a hoop tunnel for a trough</a> and <a href="/diy-projects/net-a-fruit-bush/">net a fruit bush</a>.' ) .
 
 					$h2( 'Biological controls, used with care' ) .
 					$p( 'Nematodes, microscopic worms watered into moist potting mix, are available for slugs and for black vine weevil grubs, and work outdoors when timed to the pest\'s vulnerable stage. Because they can also infect harmless creatures, the RHS advises using them in a targeted way. Most insect predators sold by mail order, such as predatory midges and parasitoid wasps, are designed for greenhouses and conservatories, where they need warmth and bright light to breed. Introduce them before the pest builds up, but not before it is present.' ) .

@@ -184,6 +184,10 @@ function natura_core_default_topics(): array {
 			'name'        => __( 'Seasonal care', 'natura-core' ),
 			'description' => __( 'What changes through the year, from the last frost to winter protection.', 'natura-core' ),
 		),
+		'grow-your-own-food' => array(
+			'name'        => __( 'Grow your own food', 'natura-core' ),
+			'description' => __( 'Get the most food from a small space: what to grow, how to keep the harvest coming, and how to store it and save seed.', 'natura-core' ),
+		),
 	);
 }
 

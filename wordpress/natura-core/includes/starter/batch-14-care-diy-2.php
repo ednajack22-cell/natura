@@ -135,7 +135,7 @@ return array(
 				'image_prompt' => 'Three matching window boxes on a sunny balcony ledge showing salad greens at three stages: freshly sown potting mix with tiny seedlings, young leaves about 2 in (5 cm) tall, and a full box of mixed lettuce and arugula ready to cut, summer daylight.' . $photo_end,
 				'pin_prompt'   => 'Three small pots of lettuce at different stages, from seedlings to leaves ready to pick, lined up on a bright kitchen windowsill, photographed vertically.' . $pin_end,
 				'title'        => 'Succession Planting: How to Grow Little and Often in a Small Space',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Instead of sowing a whole packet at once, sow a small batch of quick crops every two to four weeks from spring to late summer. You get a steady supply of fresh leaves and roots, with no glut and no empty pots.',
 				'lists'        => array(
 					'products' => array(
@@ -356,7 +356,7 @@ return array(
 				'image_prompt' => 'Small bunches of sage, rosemary and bay hanging upside down from a wooden rail in a bright, airy room, an ice-cube tray of chopped green parsley and mint frozen in water on the table below, glass jars of dried leaves beside it.' . $photo_end,
 				'pin_prompt'   => 'An ice-cube tray filled with chopped fresh herbs in water next to a pot of flat-leaf parsley and a pot of mint on a kitchen windowsill, photographed vertically from above.' . $pin_end,
 				'title'        => 'How to Dry and Freeze Herbs From Your Pots',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Woody herbs such as sage, rosemary and bay dry well: hang sprigs somewhere warm, dark and airy, then store the leaves in an airtight jar. Soft herbs such as mint, parsley and basil keep their flavour better frozen, chopped into ice-cube trays.',
 				'lists'        => array(
 					'products' => array(
@@ -434,7 +434,7 @@ return array(
 				'image_prompt' => 'Dry, papery pea and bean pods and a cut-open ripe red tomato with its seeds spread on paper towel on a wooden balcony table, small labeled paper envelopes beside them, a pot of flowering lettuce in the background, late summer light.' . $photo_end,
 				'pin_prompt'   => 'Hand-labeled paper seed envelopes and a small glass jar of dried bean seeds on a wooden table beside a pot of dry pea pods, photographed vertically.' . $pin_end,
 				'title'        => 'How to Save Seeds From Your Plants',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Peas, beans, tomatoes, lettuce and many herbs give seed you can sow next year: let a few pods or fruits ripen fully, collect them on a dry day, dry the seed and store it in labeled paper envelopes in a cool, dry place. Skip F1 hybrids, which do not come true from seed.',
 				'lists'        => array(
 					'products' => array(

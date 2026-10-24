@@ -1,7 +1,7 @@
 <?php
 /**
- * DIY Projects: step-by-step builds (/projects/, /projects/{slug}/) and their
- * categories (/projects/category/{term}/).
+ * DIY Projects: step-by-step builds (/diy-projects/, /diy-projects/{slug}/) and their
+ * categories (/diy-projects/category/{term}/).
  *
  * A project has a fixed shape (design/DIY.md): difficulty, time, cost level
  * and finished size at a glance; whether we built it ourselves or adapted it
@@ -40,9 +40,9 @@ function natura_core_register_projects(): void {
 			'menu_position' => 8,
 			'menu_icon'     => 'dashicons-hammer',
 			'supports'      => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author', 'revisions' ),
-			'has_archive'   => 'projects',
+			'has_archive'   => 'diy-projects',
 			'rewrite'       => array(
-				'slug'       => 'projects',
+				'slug'       => 'diy-projects',
 				'with_front' => false,
 			),
 		)
@@ -68,18 +68,18 @@ function natura_core_register_projects(): void {
 add_action( 'init', 'natura_core_register_projects' );
 
 /**
- * Category addresses: /projects/category/{term}/.
+ * Category addresses: /diy-projects/category/{term}/.
  */
 function natura_core_project_rules(): void {
-	add_rewrite_rule( '^projects/category/([^/]+)/page/([0-9]+)/?$', 'index.php?project_category=$matches[1]&paged=$matches[2]', 'top' );
-	add_rewrite_rule( '^projects/category/([^/]+)/?$', 'index.php?project_category=$matches[1]', 'top' );
+	add_rewrite_rule( '^diy-projects/category/([^/]+)/page/([0-9]+)/?$', 'index.php?project_category=$matches[1]&paged=$matches[2]', 'top' );
+	add_rewrite_rule( '^diy-projects/category/([^/]+)/?$', 'index.php?project_category=$matches[1]', 'top' );
 }
 add_action( 'init', 'natura_core_project_rules' );
 
 add_filter(
 	'term_link',
 	static function ( string $url, WP_Term $term ): string {
-		return 'project_category' === $term->taxonomy ? home_url( '/projects/category/' . $term->slug . '/' ) : $url;
+		return 'project_category' === $term->taxonomy ? home_url( '/diy-projects/category/' . $term->slug . '/' ) : $url;
 	},
 	10,
 	2

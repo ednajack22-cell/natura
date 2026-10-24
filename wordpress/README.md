@@ -397,9 +397,9 @@ Sun ou Plants → Growing spaces.
 
 | Adresse | Contenu |
 | --- | --- |
-| `/projects/` | tous les projets, par catégorie |
-| `/projects/category/watering/` | une catégorie (Planters & boxes, Watering, Supports & trellis, Vertical & hanging) |
-| `/projects/self-watering-pot/` | un projet |
+| `/diy-projects/` | tous les projets, par catégorie |
+| `/diy-projects/category/watering/` | une catégorie (Planters & boxes, Watering, Supports & trellis, Vertical & hanging) |
+| `/diy-projects/self-watering-pot/` | un projet |
 
 **Ajouter un projet** : Administration → **DIY projects** → **Add project**.
 Titre, extrait, photo du projet fini, catégorie, puis la case **Project** :

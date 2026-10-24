@@ -382,7 +382,7 @@ return array(
 					) .
 
 					$h2( 'Liquid, powder or granules' ) .
-					$p( 'Liquids and soluble powders diluted in a watering can act quickly, and the RHS rates them best for plants in containers. Powders, pellets and granules are scattered around plants or mixed into the potting mix at planting time. A homemade liquid such as <a href="/projects/make-comfrey-liquid-fertilizer/">comfrey fertilizer</a> has no printed analysis, and its strength varies.' ) .
+					$p( 'Liquids and soluble powders diluted in a watering can act quickly, and the RHS rates them best for plants in containers. Powders, pellets and granules are scattered around plants or mixed into the potting mix at planting time. A homemade liquid such as <a href="/diy-projects/make-comfrey-liquid-fertilizer/">comfrey fertilizer</a> has no printed analysis, and its strength varies.' ) .
 
 					$h2( 'What the label cannot tell you' ) .
 					$list(
@@ -583,7 +583,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Cloches and mini greenhouses do the job of a greenhouse in miniature, and they fit on a balcony where a greenhouse never could. Used well, they lengthen the season at both ends. To build your own low frame, see <a href="/projects/make-a-mini-cold-frame/">make a mini cold frame for a balcony</a>; this page covers choosing covers and living with them.' ) .
+					$p( 'Cloches and mini greenhouses do the job of a greenhouse in miniature, and they fit on a balcony where a greenhouse never could. Used well, they lengthen the season at both ends. To build your own low frame, see <a href="/diy-projects/make-a-mini-cold-frame/">make a mini cold frame for a balcony</a>; this page covers choosing covers and living with them.' ) .
 
 					$h2( 'Which cover does what' ) .
 					$list(
@@ -618,7 +618,7 @@ return array(
 					$p( 'Covers keep the rain off. A cloche in open ground can rely on some water soaking in from the sides, but a pot cannot, so lift the cover and water the potting mix under it. Ventilation also matters here: still, damp air under a closed cover encourages fungal diseases such as gray mold.' ) .
 
 					$h2( 'Fix everything down' ) .
-					$p( 'Lightweight frames and plastic covers are cheap and easy to move, which is exactly why the wind takes them. Peg or weight plastic cloches, and anchor a mini greenhouse firmly to something solid. The balcony safety checks for frames, including rigid plastic rather than glass, are in the <a href="/projects/make-a-mini-cold-frame/">mini cold frame project</a>.' ) .
+					$p( 'Lightweight frames and plastic covers are cheap and easy to move, which is exactly why the wind takes them. Peg or weight plastic cloches, and anchor a mini greenhouse firmly to something solid. The balcony safety checks for frames, including rigid plastic rather than glass, are in the <a href="/diy-projects/make-a-mini-cold-frame/">mini cold frame project</a>.' ) .
 
 					$h2( 'What covers cannot do' ) .
 					$p( 'Cloches, frames and mini greenhouses protect against mild frosts only. Heavier grades of row cover (frost cloth) add about 4 °F (2 °C) of frost protection. For a hard winter, see <a href="/protect-pots-in-winter/">how to protect pots in winter</a>.' ) .
@@ -668,7 +668,7 @@ return array(
 					),
 				),
 				'content'      =>
-					$p( 'Growing upward gives a big crop from a small patch of floor, which is why climbers suit a balcony. The trick is matching the support to the plant, because crops climb in quite different ways. Building a stake tepee step by step is covered in <a href="/projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a>.' ) .
+					$p( 'Growing upward gives a big crop from a small patch of floor, which is why climbers suit a balcony. The trick is matching the support to the plant, because crops climb in quite different ways. Building a stake tepee step by step is covered in <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a>.' ) .
 
 					$h2( 'Three ways crops climb' ) .
 					$list(
@@ -714,7 +714,7 @@ return array(
 							'Leaving young beans to blow about instead of guiding them onto their stakes.',
 						)
 					) .
-					$p( 'To build one, follow our step-by-step projects: <a href="/projects/make-a-pea-netting-support/">pea netting</a>, <a href="/projects/make-a-string-support-for-tomatoes/">strings for tomatoes</a> and <a href="/projects/fix-a-wire-trellis-to-a-wall/">a wire trellis on a wall</a>. To compare stakes, nets and ties before you buy, see <a href="/gear/best-plant-supports-for-pots/">our guide to plant supports</a>.' ),
+					$p( 'To build one, follow our step-by-step projects: <a href="/diy-projects/make-a-pea-netting-support/">pea netting</a>, <a href="/diy-projects/make-a-string-support-for-tomatoes/">strings for tomatoes</a> and <a href="/diy-projects/fix-a-wire-trellis-to-a-wall/">a wire trellis on a wall</a>. To compare stakes, nets and ties before you buy, see <a href="/gear/best-plant-supports-for-pots/">our guide to plant supports</a>.' ),
 			),
 		),
 	),

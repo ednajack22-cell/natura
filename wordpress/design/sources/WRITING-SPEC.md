@@ -210,7 +210,7 @@ answers**.
    `natura-core/includes/demo-content.php`). Where a topic is covered
    elsewhere, write one sentence and link to that page
    (`/plants/slug/`, `/problems/slug/`, `/slug/` (Plant Care articles live at the site root),
-   `/projects/slug/`, `/gear/slug/`); do not explain it again.
+   `/diy-projects/slug/`, `/gear/slug/`); do not explain it again.
 2. Never reuse a title, an excerpt, a FAQ question, a key point or a
    paragraph from another guide, even reworded. FAQ questions must be
    unique across the whole site.

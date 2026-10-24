@@ -215,14 +215,14 @@ return array(
 
 					$h2( 'Support, pruning and training' ) .
 					$p( 'Most blackberries crop on canes that grew the previous spring and summer. Each year after picking, cut the canes that have fruited right down to the base and tie in the new ones in their place. Keeping this year\'s new canes bundled loosely in the center while the older ones fruit makes it easy to tell them apart. The idea is close to pruning a summer raspberry, explained in <a href="/plants/raspberries-in-pots/">raspberries in pots</a>.' ) .
-					$p( 'Little Black Prince is different: the RHS describes it as ever-bearing, fruiting on both one- and two-year-old stems, so follow the pruning advice that comes with the plant. For a taller variety against a wall, horizontal wires spaced about 18 in (45 cm) apart give the canes something to be tied to; see <a href="/projects/fix-a-wire-trellis-to-a-wall/">fix a wire trellis to a wall</a>.' ) .
+					$p( 'Little Black Prince is different: the RHS describes it as ever-bearing, fruiting on both one- and two-year-old stems, so follow the pruning advice that comes with the plant. For a taller variety against a wall, horizontal wires spaced about 18 in (45 cm) apart give the canes something to be tied to; see <a href="/diy-projects/fix-a-wire-trellis-to-a-wall/">fix a wire trellis to a wall</a>.' ) .
 
 					$h2( 'Water, mulch and feed' ) .
 					$p( 'A blackberry in the ground rarely needs watering once settled, but in a pot it needs regular water right through the growing season so the potting mix never dries out; <a href="/how-often-to-water-container-plants/">how often to water container plants</a> has the routine. A layer of organic mulch in early spring, kept clear of the stems, helps hold moisture. For a feeding plan suited to fruit in pots, see <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>.' ) .
 
 					$h2( 'When to pick blackberries' ) .
 					$p( 'Depending on the variety, berries ripen from midsummer into early fall. Check every few days and take only those that are entirely black, plump and glossy; they often come away with the core still in place. Picked blackberries stay fresh for only a day or two, so eat them quickly or see <a href="/how-to-freeze-berries/">how to freeze berries</a>.' ) .
-					$p( 'Birds find ripe fruit fast. Drape plastic-free or reused netting over a frame of stakes so it stays taut and away from the berries; <a href="/projects/net-a-fruit-bush/">net a fruit bush</a> shows how.' ) .
+					$p( 'Birds find ripe fruit fast. Drape plastic-free or reused netting over a frame of stakes so it stays taut and away from the berries; <a href="/diy-projects/net-a-fruit-bush/">net a fruit bush</a> shows how.' ) .
 
 					$h2( 'Pests and problems' ) .
 					$list(
@@ -324,7 +324,7 @@ return array(
 
 					$h2( 'Planting into the pot' ) .
 					$p( 'A plant is ready to go outside when it has a few true leaves (two or three, says University of Minnesota Extension; three or four, says the RHS) and nights stay reliably above 54–59 °F (12–15 °C). University of Minnesota Extension also waits until the soil has reached at least 65 °F (18 °C). Acclimate it gradually, as a sudden drop in temperature can check its growth or kill it; see <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>.' ) .
-					$p( 'Set a single melon in the middle of a pot that measures 16 in (40 cm) or more across and in depth, using peat-free all-purpose potting mix, or one plant in a standard grow bag (<a href="/projects/plant-up-a-grow-bag/">plant up a grow bag</a>). Keep the stem at the same level it grew before: Backyard Harvest warns that planting too deep invites rot at the neck of the stem.' ) .
+					$p( 'Set a single melon in the middle of a pot that measures 16 in (40 cm) or more across and in depth, using peat-free all-purpose potting mix, or one plant in a standard grow bag (<a href="/diy-projects/plant-up-a-grow-bag/">plant up a grow bag</a>). Keep the stem at the same level it grew before: Backyard Harvest warns that planting too deep invites rot at the neck of the stem.' ) .
 
 					$h2( 'Training, pollinating and thinning' ) .
 					$p( 'Growing the stems up strong stakes, trellis or netting saves floor space. Pinch out the growing tip once the plant has five leaves, keep the four strongest side shoots that follow and remove the rest. Ideas for frames are in <a href="/supports-for-climbing-crops/">supports for climbing crops</a>.' ) .

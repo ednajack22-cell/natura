@@ -156,7 +156,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'We compare kinds of watering system here, never named kits. The details come from the RHS guide to garden watering methods and from the watering kits described in Backyard Harvest (p. 122), all listed below. Natura has not installed or run any of these systems as a test.' ) .
 					$h2( 'Before you rely on it' ) .
-					$p( 'Run a new kit for a few days while you are at home and check the potting mix in each pot. Other ways to keep pots going while you travel are in <a href="/watering-pots-when-on-holiday/">watering pots when you are on vacation</a>, and you can also <a href="/projects/self-watering-pot/">make a self-watering pot</a>.' ),
+					$p( 'Run a new kit for a few days while you are at home and check the potting mix in each pot. Other ways to keep pots going while you travel are in <a href="/watering-pots-when-on-holiday/">watering pots when you are on vacation</a>, and you can also <a href="/diy-projects/self-watering-pot/">make a self-watering pot</a>.' ),
 			),
 
 			'best-liquid-fertilizer-for-vegetables-in-pots' => array(
@@ -231,7 +231,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'This guide sorts liquid fertilizers by type and leaves brands aside. Each pick rests on the RHS pages on fertilizers, labels and feeding, plus Backyard Harvest (pp. 17, 84 and 120), all in the Sources list. We have not trialed any fertilizer ourselves.' ) .
 					$h2( 'Using the fertilizer' ) .
-					$p( 'When to start, how often to fertilize and how to avoid harm are explained in <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>. If you would rather make your own, see <a href="/projects/make-comfrey-liquid-fertilizer/">make a comfrey liquid fertilizer</a>.' ),
+					$p( 'When to start, how often to fertilize and how to avoid harm are explained in <a href="/how-to-fertilize-container-plants/">how to fertilize container plants</a>. If you would rather make your own, see <a href="/diy-projects/make-comfrey-liquid-fertilizer/">make a comfrey liquid fertilizer</a>.' ),
 			),
 
 			'best-grow-bags' => array(
@@ -379,7 +379,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'The picks are types of support and tie, with no brands named. They are drawn from the RHS guides on staking, climbers, tomatoes and peas, and from Backyard Harvest (pp. 88–89 and 118), which appear in the Sources list. We have run no trial of our own on them.' ) .
 					$h2( 'Building one' ) .
-					$p( 'Step-by-step instructions for a cane tepee are in <a href="/projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a>, and the crop guides for <a href="/plants/peas-in-pots/">peas</a> and <a href="/plants/runner-beans-in-pots/">runner beans</a> say when to put them up.' ),
+					$p( 'Step-by-step instructions for a cane tepee are in <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a>, and the crop guides for <a href="/plants/peas-in-pots/">peas</a> and <a href="/plants/runner-beans-in-pots/">runner beans</a> say when to put them up.' ),
 			),
 
 			'best-hand-tools-for-container-gardening' => array(
@@ -529,7 +529,7 @@ return array(
 					$h2( 'How we chose' ) .
 					$p( 'We look at kinds of cover and frame in this guide and name no brands. It draws on the RHS guides to cold frames, mini-greenhouses and cloches, together with Backyard Harvest (pp. 12–13 and 86), which are listed under Sources. We have not set up any of these to test them.' ) .
 					$h2( 'Using it well' ) .
-					$p( 'Open it on warm days and close it on cold nights. Moving plants outside gradually is explained in <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>, and a homemade option is <a href="/projects/make-a-mini-cold-frame/">make a mini cold frame for a balcony</a>.' ),
+					$p( 'Open it on warm days and close it on cold nights. Moving plants outside gradually is explained in <a href="/how-to-harden-off-seedlings/">how to harden off seedlings</a>, and a homemade option is <a href="/diy-projects/make-a-mini-cold-frame/">make a mini cold frame for a balcony</a>.' ),
 			),
 
 			'best-crop-covers' => array(

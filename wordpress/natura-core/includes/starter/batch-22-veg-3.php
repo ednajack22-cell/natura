@@ -328,7 +328,7 @@ return array(
 				),
 				'content'      =>
 					$h2( 'Which chicories and endives to grow' ) .
-					$p( 'This page covers the heading types grown for fall and early-winter salads: red radicchio, green sugarloaf chicory, curly frisée and broad escarole. Forcing chicory is a different job, done indoors in winter, and has its own step-by-step page: <a href="/projects/force-chicory-in-a-pot/">force chicory in a pot</a>. Mizuna, mustards and other winter salad greens are in <a href="/plants/asian-greens-in-pots/">Asian greens in pots</a>.' ) .
+					$p( 'This page covers the heading types grown for fall and early-winter salads: red radicchio, green sugarloaf chicory, curly frisée and broad escarole. Forcing chicory is a different job, done indoors in winter, and has its own step-by-step page: <a href="/diy-projects/force-chicory-in-a-pot/">force chicory in a pot</a>. Mizuna, mustards and other winter salad greens are in <a href="/plants/asian-greens-in-pots/">Asian greens in pots</a>.' ) .
 					$list(
 						array(
 							'<strong>Radicchio</strong>: a tight head of deep red, white-veined leaves; the color usually deepens from late summer as nights get cooler.',
@@ -447,7 +447,7 @@ return array(
 					$p( 'Zucchini is a far easier container crop from the same family; see <a href="/plants/zucchini-in-pots/">zucchini in pots</a>. Winter squash is worth trying if you have a warm, sunny, sheltered corner and want something to store.' ) .
 
 					$h2( 'Choose a variety that fits' ) .
-					$p( 'There are two routes. A compact bush variety, such as Harlequin, stays low in its container and does not trail away across the floor. A small-fruited trailing variety, such as Sweet Dumpling or Jack be Little, can be tied up a sturdy support so it takes wall space rather than floor space. The whole method for training one upwards is in <a href="/projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>. Avoid big trailing types such as Crown Prince, whose vines reach about 10 ft (3 m).' ) .
+					$p( 'There are two routes. A compact bush variety, such as Harlequin, stays low in its container and does not trail away across the floor. A small-fruited trailing variety, such as Sweet Dumpling or Jack be Little, can be tied up a sturdy support so it takes wall space rather than floor space. The whole method for training one upwards is in <a href="/diy-projects/grow-a-squash-up-a-trellis-in-a-pot/">grow a squash up a trellis in a pot</a>. Avoid big trailing types such as Crown Prince, whose vines reach about 10 ft (3 m).' ) .
 
 					$h2( 'Container and spot' ) .
 					$p( 'Plant one squash in a container at least 18 in (45 cm) across, filled with peat-free all-purpose or soil-based potting mix (see <a href="/potting-mix-for-containers/">potting mix for containers</a>). It needs full sun and warmth. Leave room around the container: crowded, still air encourages fungal diseases.' ) .

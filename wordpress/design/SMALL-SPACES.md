@@ -27,7 +27,19 @@ Décidée le 23 octobre 2026, à partir du rapport
 | 5 | Vertical gardens | à venir | aucune ; projets DIY verticaux en liens |
 | 6 | Community gardens | à venir | aucune |
 
-Puis, en dernière ligne du menu, « Grow your own food » (à venir).
+Puis, en dernière ligne du menu, **« Grow your own food »** : le sujet Plant
+Care `/plant-care/grow-your-own-food/` (décidé le 24 octobre 2026). Il réunit
+les articles pour produire, récolter et garder sa nourriture (9 articles
+existants déplacés : planter peu et souvent, garder ses graines, congeler
+légumes et petits fruits, sécher herbes, piments et tomates, conserver la
+récolte, graines ou jeunes plants, légumes faciles), plus 4 nouveaux : les
+cultures les plus productives en pot, les plantes vivaces nourricières,
+planifier une année de récoltes, récupérer l'eau de pluie. La ligne apparaît
+dès que le sujet a un article.
+
+Les projets DIY sont à `/diy-projects/` (et non plus `/projects/`) depuis le
+24 octobre 2026 : le mot « DIY » est dans l'adresse, comme dans le menu et
+les recherches. Les menus existants suivent une fois.
 
 ## Construction d'une page de lieu
 

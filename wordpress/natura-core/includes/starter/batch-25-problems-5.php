@@ -223,7 +223,7 @@ return array(
 							'cause'    => 'Birds on ripening fruit',
 							'sign'     => 'Strawberries, cherries, currants, figs, grapes or plums with beak-sized holes, or picked clean just as they color',
 							'check'    => 'Damage starts as the fruit ripens. Cherries and soft fruit are favorite targets. Squirrels raid strawberries and figs too.',
-							'fix'      => 'Before the fruit colors, cover the plant with plastic-free or reused netting held above the fruit on stakes, pulled taut and fastened firmly at the bottom; <a href="/projects/net-a-fruit-bush/">net a fruit bush</a> shows the steps. Chicken wire over the frame also keeps squirrels off strawberries.',
+							'fix'      => 'Before the fruit colors, cover the plant with plastic-free or reused netting held above the fruit on stakes, pulled taut and fastened firmly at the bottom; <a href="/diy-projects/net-a-fruit-bush/">net a fruit bush</a> shows the steps. Chicken wire over the frame also keeps squirrels off strawberries.',
 							'recovery' => 'Fruit already pecked can still be eaten if you cut out the damage soon, but wounds let in <a href="/problems/brown-rot/">brown rot</a> and wasps.',
 						),
 						array(

@@ -117,7 +117,7 @@ return array(
 						array(
 							'<strong>Grow bags:</strong> often good value, with reasonable potting mix already inside. The RHS lists them among the options for strawberries.',
 							'<strong>Strawberry pots with side pockets:</strong> they look attractive, but the RHS finds they make healthy, productive plants harder to keep. A large plain pot is easier: see our <a href="/plants/balcony-strawberry/">strawberry guide</a>.',
-							'<strong>Self-watering pots:</strong> a water reservoir in the base cuts down daily watering. You can <a href="/projects/self-watering-pot/">make one yourself</a>.',
+							'<strong>Self-watering pots:</strong> a water reservoir in the base cuts down daily watering. You can <a href="/diy-projects/self-watering-pot/">make one yourself</a>.',
 						)
 					) .
 					$p( 'Whatever you choose, fill it with peat-free potting mix suited to the crop; <a href="/potting-mix-for-containers/">potting mix for containers</a> explains which.' ) .
@@ -527,7 +527,7 @@ return array(
 				'image_prompt' => 'A sunny balcony in early summer with a first-year kitchen garden in pots: a trough of radishes with red roots showing, a trough of mixed salad greens, a pot of bush beans in flower, a potato grow bag with lush leaves, a pot of strawberries with ripening fruit and a pot of chives with purple flowers.' . $photo_end,
 				'pin_prompt'   => 'A small balcony with five easy crops in pots: radishes, salad greens, chives, bush beans and strawberries, arranged on the floor and a low shelf, photographed vertically.' . $pin_end,
 				'title'        => 'Best Vegetables for Beginners in Pots',
-				'topic'        => 'seasonal-care',
+				'topic'        => 'grow-your-own-food',
 				'excerpt'      => 'Start with crops that are quick, forgiving and happy in a modest container: radishes, salad greens, green onions, bush beans, potatoes in a bag, chives, mint and strawberries. Add a tomato once you are used to daily watering.',
 				'lists'        => array(
 					'products' => array(

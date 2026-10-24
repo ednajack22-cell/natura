@@ -133,7 +133,7 @@ return array(
 							'<strong>Red and white currants</strong> fruit at the base of last year\'s shoots and on short spurs on older wood, so keep a permanent framework of branches. In late winter, shorten last season\'s growth on the main branches by a quarter to a half, cut side-shoots back to one or two buds, and keep the center open.',
 						)
 					) .
-					$p( 'Vigorous red and white currants can also be trimmed in summer to keep them compact in a pot. In early to midsummer, shorten this year\'s growth on the side-shoots to five leaves, leaving alone any shoot you will need to replace an old branch. Where floor space is tight, a red currant or white currant trained as a single upright cordon against a wall suits a container particularly well; our project <a href="/projects/train-a-cordon-redcurrant/">train a cordon redcurrant</a> takes you through it.' ) .
+					$p( 'Vigorous red and white currants can also be trimmed in summer to keep them compact in a pot. In early to midsummer, shorten this year\'s growth on the side-shoots to five leaves, leaving alone any shoot you will need to replace an old branch. Where floor space is tight, a red currant or white currant trained as a single upright cordon against a wall suits a container particularly well; our project <a href="/diy-projects/train-a-cordon-redcurrant/">train a cordon redcurrant</a> takes you through it.' ) .
 					$p( 'Winter prunings make new plants: hardwood cuttings about 8 in (20 cm) long, taken from young, healthy wood between mid-fall and late winter, root well pushed into a pot of potting mix.' ) .
 
 					$h2( 'Harvest and protect the crop' ) .

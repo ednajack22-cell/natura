@@ -1,6 +1,6 @@
 <?php
 /**
- * One project category (/projects/category/watering/): same layout as /projects/.
+ * One project category (/diy-projects/category/watering/): same layout as /diy-projects/.
  *
  * @package Natura
  */

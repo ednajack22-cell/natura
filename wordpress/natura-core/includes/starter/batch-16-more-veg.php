@@ -212,7 +212,7 @@ return array(
 							'<strong>Climbing runner beans</strong>: a tub 30 in (75 cm) across and 18 in (45 cm) deep, heavy enough to stay upright once the plants are covered in leaves.',
 						)
 					) .
-					$p( 'Use peat-free potting mix, either all-purpose or soil-based (more on that in <a href="/potting-mix-for-containers/">potting mix for containers</a>) and choose a sunny spot out of strong wind, which also helps bees find the flowers. Put the supports in before you sow: our project <a href="/projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a> shows how to build one.' ) .
+					$p( 'Use peat-free potting mix, either all-purpose or soil-based (more on that in <a href="/potting-mix-for-containers/">potting mix for containers</a>) and choose a sunny spot out of strong wind, which also helps bees find the flowers. Put the supports in before you sow: our project <a href="/diy-projects/make-a-bean-tepee-in-a-pot/">make a bean tepee in a pot</a> shows how to build one.' ) .
 
 					$h2( 'Sowing runner beans' ) .
 					$p( 'Runner beans cannot take frost. For an earlier crop, or in a cold area, University of Wisconsin-Madison Extension says you can start seeds indoors a few weeks before your average last frost. Push a single seed 2 in (5 cm) down into a small pot or deep module of damp peat-free all-purpose potting mix, and keep the pots somewhere bright at more than 54 °F (12 °C). The seedlings grow fast and need regular water. Our guide on <a href="/how-to-start-seeds-indoors/">how to start seeds indoors</a> has more detail.' ) .

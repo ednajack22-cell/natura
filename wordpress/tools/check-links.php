@@ -6,7 +6,7 @@
  *   php wordpress/tools/check-links.php
  *
  * Addresses: plants /plants/{slug}/, problems /problems/{slug}/, projects
- * /projects/{slug}/, gear /gear/{slug}/, place guides /small-spaces/{slug}/,
+ * /diy-projects/{slug}/, gear /gear/{slug}/, place guides /small-spaces/{slug}/,
  * Plant Care articles /{slug}/. Lists and tools (/plants/, /plant-care/…,
  * /tools/…, /calendar/…) are accepted as they are. Exits 1 on a broken link.
  *
@@ -49,11 +49,11 @@ foreach ( glob( $core . 'starter/*.php' ) as $path ) {
 $bases = array(
 	'plants'       => 'plant',
 	'problems'     => 'problem',
-	'projects'     => 'project',
+	'diy-projects' => 'project',
 	'gear'         => 'gear',
 	'small-spaces' => 'space',
 );
-$lists = '#^/(plants|problems|projects|gear|small-spaces|plant-care|tools|calendar)(/(vegetables|herbs|fruit|sun/[a-z-]+|space/[a-z-]+|category/[a-z-]+|watering|soil-feeding|light-position|seasonal-care|[a-z-]+-calculator|plant-finder|frost-risk|guided-diagnosis|[a-z]+))?/$#';
+$lists = '#^/(plants|problems|diy-projects|gear|small-spaces|plant-care|tools|calendar)(/(vegetables|herbs|fruit|sun/[a-z-]+|space/[a-z-]+|category/[a-z-]+|watering|soil-feeding|light-position|seasonal-care|[a-z-]+-calculator|plant-finder|frost-risk|guided-diagnosis|[a-z]+))?/$#';
 
 $broken = 0;
 $count  = 0;

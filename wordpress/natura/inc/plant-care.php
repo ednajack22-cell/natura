@@ -164,7 +164,7 @@ function natura_topics(): array {
 		return array();
 	}
 
-	$order = array_flip( array( 'watering', 'soil-feeding', 'light-position', 'seasonal-care' ) );
+	$order = array_flip( array( 'watering', 'soil-feeding', 'light-position', 'seasonal-care', 'grow-your-own-food' ) );
 	usort(
 		$terms,
 		static fn( WP_Term $a, WP_Term $b ): int => ( $order[ $a->slug ] ?? 99 ) <=> ( $order[ $b->slug ] ?? 99 )
