@@ -349,6 +349,39 @@ planches : `python3 wordpress/tools/make-cover-glyphs.py`.
   votre liste de photos à faire. Les prompts sont dans
   `design/IMAGE-PROMPTS.md`.
 
+### Remplacer les images provisoires par des photos générées ou les vôtres
+
+1. Ouvrez `design/IMAGE-PROMPTS.md` : pour chaque fiche, le **nom de
+   fichier** à donner à chaque image (`cherry-tomato-photo.jpg` pour la photo
+   principale, `cherry-tomato-pin.jpg` pour l'image Pinterest) et le prompt à
+   coller dans votre générateur d'images. Les mêmes prompts sont dans la
+   liste ci-dessous (« Image prompts »).
+2. Les prompts suivent le style « photo documentaire » : finition
+   semi-mate, grain de film, pas de flou d'arrière-plan, pas de brillance
+   plastique, lumière de jour couvert (ou de fenêtre, ou latérale pour les
+   sujets ensoleillés). Pour les refaire après avoir changé une fiche :
+   `php wordpress/tools/make-image-prompts.php`.
+3. Outils → Natura starter guides → **Import your images** : choisissez
+   plusieurs images à la fois (JPG, PNG ou WebP). Chaque image va sur la
+   fiche dont l'adresse est dans son nom et remplace l'image provisoire,
+   qui est retirée de la médiathèque. Une image que vous avez choisie vous-même
+   n'est jamais remplacée. L'écran dit combien d'images ont été placées et
+   lesquelles ne correspondent à aucune fiche.
+
+## Pages du site (About, Contact, Privacy…)
+
+Outils → Natura starter guides → **Create 5 site pages as drafts** crée les
+pages About, How we write and check our guides, Contact, Privacy policy et
+Affiliate disclosure, et les relie dans Natura Options → Pages (donc dans le
+pied de page). Les détails que vous seul pouvez donner (nom, lieu, e-mail,
+dates, hébergeur…) sont remplis par des exemples, **en gras et en rouge**,
+dans l'éditeur comme sur le site. Pour chacun : sélectionnez le texte,
+tapez le vôtre, puis retirez le gras et la couleur (barre d'outils → flèche →
+Highlight). Dans Contact, changez aussi l'adresse du lien e-mail. Publiez
+ensuite chaque page. Une page déjà présente à la même adresse n'est jamais
+modifiée (sauf l'exemple de politique de confidentialité de WordPress,
+s'il n'a jamais été modifié). Bouton réservé aux administrateurs.
+
 Une fiche déjà présente sur le site, en brouillon ou publiée, n'est jamais
 modifiée. Seuls les éditeurs et les administrateurs voient cet écran.
 L'onglet Content health de Natura Options montre ce qu'il manque encore à

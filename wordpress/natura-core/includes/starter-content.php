@@ -326,11 +326,13 @@ function natura_core_render_starter_page(): void {
 	if ( ! current_user_can( 'edit_others_posts' ) ) {
 		return;
 	}
-	$guides   = natura_core_starter_guides();
-	$imported = isset( $_GET['imported'] ) ? absint( $_GET['imported'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
-	$covers   = isset( $_GET['covers'] ) ? absint( $_GET['covers'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
-	$bare     = natura_core_guides_without_images();
-	$waiting  = array_filter( $guides, static fn( array $item ): bool => ! natura_core_starter_existing( $item['kind'], $item['slug'] ) );
+	$guides        = natura_core_starter_guides();
+	$imported      = isset( $_GET['imported'] ) ? absint( $_GET['imported'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
+	$covers        = isset( $_GET['covers'] ) ? absint( $_GET['covers'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
+	$site_pages    = isset( $_GET['site_pages'] ) ? absint( $_GET['site_pages'] ) : null; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
+	$missing_pages = natura_core_missing_site_pages();
+	$bare          = natura_core_guides_without_images();
+	$waiting       = array_filter( $guides, static fn( array $item ): bool => ! natura_core_starter_existing( $item['kind'], $item['slug'] ) );
 	?>
 	<div class="wrap">
 		<h1><?php esc_html_e( 'Natura starter guides', 'natura-core' ); ?></h1>
@@ -354,6 +356,29 @@ function natura_core_render_starter_page(): void {
 			</p></div>
 		<?php endif; ?>
 
+		<?php if ( null !== $site_pages ) : ?>
+			<div class="notice notice-success is-dismissible"><p>
+				<?php
+				/* translators: %d: number of pages. */
+				echo esc_html( sprintf( _n( '%d page created as a draft. The example details in color are yours to replace before publishing.', '%d pages created as drafts. The example details in color are yours to replace before publishing.', $site_pages, 'natura-core' ), $site_pages ) );
+				?>
+			</p></div>
+		<?php endif; ?>
+
+		<?php if ( $missing_pages && current_user_can( 'edit_others_pages' ) && current_user_can( 'edit_theme_options' ) ) : ?>
+			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+				<input type="hidden" name="action" value="natura_create_site_pages">
+				<?php wp_nonce_field( 'natura_create_site_pages' ); ?>
+				<p>
+					<?php esc_html_e( 'Your site pages (About, How we write, Contact, Privacy policy, Affiliate disclosure) are ready to create, with example details in color for you to replace.', 'natura-core' ); ?>
+					<?php
+					/* translators: %d: number of pages. */
+					submit_button( sprintf( _n( 'Create %d site page as a draft', 'Create %d site pages as drafts', count( $missing_pages ), 'natura-core' ), count( $missing_pages ) ), 'secondary', 'submit', false );
+					?>
+				</p>
+			</form>
+		<?php endif; ?>
+
 		<?php if ( $bare && natura_core_covers_available() ) : ?>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<input type="hidden" name="action" value="natura_add_covers">
@@ -371,6 +396,8 @@ function natura_core_render_starter_page(): void {
 				</p>
 			</form>
 		<?php endif; ?>
+
+		<?php natura_core_render_image_import(); ?>
 
 		<?php if ( $waiting ) : ?>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
@@ -409,12 +436,12 @@ function natura_core_render_starter_page(): void {
 									<summary><?php esc_html_e( 'Image prompts', 'natura-core' ); ?></summary>
 									<p>
 										<label for="<?php echo esc_attr( 'photo-' . $key ); ?>"><?php esc_html_e( 'Main photo (landscape 3:2)', 'natura-core' ); ?></label>
-										<textarea id="<?php echo esc_attr( 'photo-' . $key ); ?>" class="large-text" rows="4" readonly onclick="this.select()"><?php echo esc_textarea( $item['guide']['image_prompt'] ); ?></textarea>
+										<textarea id="<?php echo esc_attr( 'photo-' . $key ); ?>" class="large-text" rows="4" readonly onclick="this.select()"><?php echo esc_textarea( natura_core_image_prompt( $item['guide']['image_prompt'], 'photo' ) ); ?></textarea>
 									</p>
 									<?php if ( ! empty( $item['guide']['pin_prompt'] ) ) : ?>
 										<p>
 											<label for="<?php echo esc_attr( 'pin-' . $key ); ?>"><?php esc_html_e( 'Pinterest image (portrait 2:3, 1000 × 1500 px)', 'natura-core' ); ?></label>
-											<textarea id="<?php echo esc_attr( 'pin-' . $key ); ?>" class="large-text" rows="4" readonly onclick="this.select()"><?php echo esc_textarea( $item['guide']['pin_prompt'] ); ?></textarea>
+											<textarea id="<?php echo esc_attr( 'pin-' . $key ); ?>" class="large-text" rows="4" readonly onclick="this.select()"><?php echo esc_textarea( natura_core_image_prompt( $item['guide']['pin_prompt'], 'pin' ) ); ?></textarea>
 										</p>
 									<?php endif; ?>
 								</details>

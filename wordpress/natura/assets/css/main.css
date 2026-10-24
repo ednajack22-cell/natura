@@ -523,6 +523,10 @@ html:has(.mobile-menu[open]) { overflow: hidden; }
 .pin-button:hover { background: #ad081b; }
 .pin-button-wide { display: flex; width: 100%; }
 
+/* Site pages (About, Contact, Privacy…): one centered reading column, like a guide without its side column. */
+.site-page .breadcrumbs, .site-page-body { width: min(820px, calc(100% - 2.5rem)); }
+.site-page-body { padding-bottom: 4rem; }
+.site-page-body .page-intro { margin-top: 1rem; }
 .guide-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2.5rem; }
 .guide-main { min-width: 0; }
 
