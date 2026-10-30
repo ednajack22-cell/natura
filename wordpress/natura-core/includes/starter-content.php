@@ -379,6 +379,18 @@ function natura_core_render_starter_page(): void {
 			</form>
 		<?php endif; ?>
 
+		<?php if ( $bare && ! natura_core_covers_available() ) : ?>
+			<div class="notice notice-warning"><p>
+				<?php
+				printf(
+					/* translators: %d: number of guides. */
+					esc_html( _n( '%d guide has no photo or no Pinterest image yet, and this server cannot draw stand-in images: the PHP GD extension is turned off. Turn it on (in php.ini, remove the ";" before "extension=gd", then restart the web server; on a host, ask support), then come back to this page: a button will add the images.', '%d guides have no photo or no Pinterest image yet, and this server cannot draw stand-in images: the PHP GD extension is turned off. Turn it on (in php.ini, remove the ";" before "extension=gd", then restart the web server; on a host, ask support), then come back to this page: a button will add the images.', count( $bare ), 'natura-core' ) ),
+					count( $bare )
+				);
+				?>
+			</p></div>
+		<?php endif; ?>
+
 		<?php if ( $bare && natura_core_covers_available() ) : ?>
 			<form method="post" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 				<input type="hidden" name="action" value="natura_add_covers">

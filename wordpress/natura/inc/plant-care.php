@@ -158,6 +158,8 @@ function natura_topics(): array {
 			'taxonomy'   => 'category',
 			'hide_empty' => true,
 			'orderby'    => 'name',
+			// "Uncategorized" is WordPress's default, not a Plant Care topic.
+			'exclude'    => array( (int) get_option( 'default_category' ) ),
 		)
 	);
 	if ( is_wp_error( $terms ) ) {
